@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1 id="expand-">$expand  Query</h1>
+<h3>Overview</h3>
+<p>By specifying the name of NavigationProperty in the $expand query, it is possible to expand related information and acquire it.<br />
+The expansion of related information at the time of list acquisition is expanded up to 100 cases.<br />
+Deployment of related information at the time of acquiring one case will expand up to 10000 cases.<br />
+The sort order of related data acquired by $expand is as follows.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Relation<br></th>
+<th align="left">Sort conditions<br></th>
+<th align="left">order<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">0 .. 1:0 .. 1<br></td>
+<td align="left">Entity creation date and time of the navigation property to be expanded<br></td>
+<td align="left">Descending order<br></td>
+</tr>
+<tr class="even">
+<td align="left">0 .. 1: *<br></td>
+<td align="left">Entity creation date and time of the navigation property to be expanded<br></td>
+<td align="left">Descending order<br></td>
+</tr>
+<tr class="odd">
+<td align="left">*: 0 .. 1<br></td>
+<td align="left">Entity creation date and time of the navigation property to be expanded<br></td>
+<td align="left">Descending order<br></td>
+</tr>
+<tr class="even">
+<td align="left"><em>: </em><br></td>
+<td align="left">Link information creation date and time with the navigation property to be expanded<br></td>
+<td align="left">Descending order<br></td>
+</tr>
+</tbody>
+</table>
+<p>*When Multiplicity is & quot;1&quot;, the sort result is the same as &quot;0..1&quot;.</p>
+<h3>Request Query</h3>
+<pre><code>$expand={NavigationPropertyName}</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Path<br></th>
+<th align="left">Overview<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">{NavigationPropertyName}<br></td>
+<td align="left">Navigation property name to expand<br>To specify more than one, specify it with a comma separator<br></td>
+</tr>
+</tbody>
+</table>
+<p>*If you specify a NavigationProperty name that does not exist in $expand, return "400 Bad Request"</p>
+<h6>Navigation property Specifiable number</h6>
+<p>You can specify up to 2 navigation properties when acquiring list<br />
+You can specify up to 10 navigation properties when acquiring one case<br />
+*If you exceed the number of navigation properties that can be specified return "400 Bad Request"</p>
+<h3 id="curl">CURL Command</h3>
+<p>Expand and acquire information associated with navigation properties</p>
+<pre><code>curl &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)?\$expand={NavigationPropertyName}&quot; -X GET -i -H &#39;Authorization: Bearer {UnitUserToken}&#39; -H &#39;Accept: application/json&#39;</code></pre>
+<h3>Restrictions</h3>
+<ul>
+<li>Expansion of related information can be done in one level only</li>
+<li>Add __count as an item in the related information list (not supported) to indicate whether the expanded related information has returned all cases<br />
+<br><br />
+<br><br />
+<br></li>
+</ul>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
