@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1 id="boxapi">BoxレベルAPI概要</h1>
+<p>Box Level API は、アプリケーション等がデータを操作するためのAPIで、WebDAVをベースとしたファイルシステム的な考え方のAPI群です。<br />
+通常のファイルシステムと同様にファイルの配置・取得、フォルダ（collection）の作成・管理、ファイルやフォルダの一覧取得、アクセス制御の設定・参照等が可能です。</p>
+<p>また以下の特殊コレクションをサポートしているため、ファイル状のデータのみではなく、様々な形態のデータを扱うことができます。<br />
+これら特殊コレクションはBoxが提供するWebDAV空間上のいかなるパスに作成することもできます。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">特殊コレクション<br></th>
+<th align="left">用途<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">OData Service Collection<br></td>
+<td align="left">リレーショナルデータ<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Engine Service Collection<br></td>
+<td align="left">カスタマイズロジックの走行<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">CALDAV Collection<br></td>
+<td align="left">カレンダーデータ<br></td>
+<td align="left">未実装<br></td>
+</tr>
+<tr class="even">
+<td align="left">Link Collection<br></td>
+<td align="left">他のCellや他Boxの特定の領域へのエイリアス<br></td>
+<td align="left">未実装<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="webdav">WebDAV</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left"><br></th>
+<th align="left">作成・登録<br></th>
+<th align="left">取得<br></th>
+<th align="left">更新<br></th>
+<th align="left">削除<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">コレクション</td>
+<td align="left"><br></td>
+<td align="left"><a href="306_Create_Collection.html">作成</a></td>
+<td align="left"><a href="307_Get_Property.html">設定取得</a></td>
+<td align="left"><a href="308_Change_Property.html">設定変更</a><br><a href="309_Update_Move_Collection.html">移動名称変更</a></td>
+<td align="left"><a href="310_Delete_Collection.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left">ファイル</td>
+<td align="left"><br></td>
+<td align="left"><a href="312_Register_and_Update_WebDAV.html">登録更新</a></td>
+<td align="left"><a href="311_Get_WebDav.html">取得</a><br><a href="307_Get_Property.html">設定取得</a></td>
+<td align="left"><a href="313_Change_Property.html">設定変更</a></td>
+<td align="left"><a href="314_Delete_WebDAV.html">削除</a></td>
+</tr>
+<tr class="odd">
+<td align="left">アクセス制御</td>
+<td align="left"><a href="315_Configure_Access_Control.html">設定</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<p>※ すべてのファイルやコレクション（特殊コレクションを含む）に対してACL設定(アクセス制御設定)が可能です。<br />
+※ ACL設定 は PROPFINDメソッドで取得できます。</p>
+<p><br></p>
+<h4 id="-odata-service">特別なコレクション: OData Serviceコレクション</h4>
+<h5 id="odata">OData</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left"><br></th>
+<th align="left">作成・登録<br></th>
+<th align="left">取得<br></th>
+<th align="left">更新<br></th>
+<th align="left">削除<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>EntityType</strong></td>
+<td align="left"><br></td>
+<td align="left"><a href="345_Create_EntityType.html">登録</a></td>
+<td align="left"><a href="347_Get_EntityType.html">取得</a><br><a href="346_List_EntityType.html">一覧取得</a></td>
+<td align="left"><a href="348_Update_EntityType.html">更新</a></td>
+<td align="left"><a href="349_Delete_EntityType.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+<td align="left">_$links</td>
+<td align="left">登録</td>
+<td align="left">一覧取得</td>
+<td align="left">更新</td>
+<td align="left">削除</td>
+</tr>
+<tr class="odd">
+<td align="left"><br></td>
+<td align="left">_NavProp経由</td>
+<td align="left"><br></td>
+<td align="left">一覧取得</td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>AssociationEnd</strong></td>
+<td align="left"><br></td>
+<td align="left"><a href="318_Register_AssociationEnd.html">登録</a></td>
+<td align="left"><a href="320_Get_AssociationEnd.html">取得</a><br><a href="319_List_AssociationEnd.html">一覧取得</a></td>
+<td align="left"><a href="321_Update_AssociationEnd.html">更新</a></td>
+<td align="left"><a href="322_Delete_AssociationEnd.html">削除</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><br></td>
+<td align="left">_$links</td>
+<td align="left"><a href="323_Register_AssociationEnd_links.html">登録</a></td>
+<td align="left"><a href="324_List_AssociationEnd_links.html">一覧取得</a></td>
+<td align="left"><br></td>
+<td align="left"><a href="325_Delete_AssociationEnd_links.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+<td align="left">_NavProp経由</td>
+<td align="left"><br></td>
+<td align="left">一覧取得</td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>ComplexType</strong></td>
+<td align="left"><br></td>
+<td align="left"><a href="327_Register_ComplexType.html">登録</a></td>
+<td align="left"><a href="329_Get_ComplexType.html">取得</a><br><a href="328_List_ComplexType.html">一覧取得</a></td>
+<td align="left">更新</td>
+<td align="left"><a href="331_Delete_ComplexType.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+<td align="left">_$links</td>
+<td align="left">登録</td>
+<td align="left">一覧取得</td>
+<td align="left">更新</td>
+<td align="left">削除</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Property</strong></td>
+<td align="left"><br></td>
+<td align="left"><a href="355_Register_Property.html">登録</a></td>
+<td align="left"><a href="357_Get_Property.html">取得</a><br><a href="356_List_Property.html">一覧取得</a></td>
+<td align="left">更新</td>
+<td align="left"><a href="359_Delete_Property.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+<td align="left">_$links</td>
+<td align="left">登録</td>
+<td align="left">一覧取得</td>
+<td align="left">更新</td>
+<td align="left">削除</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>ComplexTypeProperty</strong></td>
+<td align="left"><br></td>
+<td align="left"><a href="336_Register_ComplexTypeProperty.html">登録</a></td>
+<td align="left"><a href="338_Get_ComplexTypeProperty.html">取得</a><br><a href="337_List_ComplexTypeProperty.html">一覧取得</a></td>
+<td align="left">更新</td>
+<td align="left"><a href="340_Delete_ComplexTypeProperty.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+<td align="left">_$links</td>
+<td align="left">登録</td>
+<td align="left">一覧取得</td>
+<td align="left">更新</td>
+<td align="left">削除</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Entity</strong></td>
+<td align="left"><a href="368_Entity_Bulk_Operations.html">一括操作</a></td>
+<td align="left"><a href="364_Create_Entity.html">作成</a></td>
+<td align="left"><a href="366_Get_Entity.html">取得</a><br><a href="365_List_Entity.html">一覧取得</a></td>
+<td align="left"><a href="367_Update_Entity.html">更新</a><br><a href="369_Partial_Update_Entity.html">部分更新</a></td>
+<td align="left"><a href="370_Delete_Entity.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left">（ユーザデータ）</td>
+<td align="left">_$links</td>
+<td align="left"><a href="373_Register_User_Data_links.html">登録</a></td>
+<td align="left"><a href="374_User_Data_List_links.html">一覧取得</a></td>
+<td align="left">更新</td>
+<td align="left"><a href="376_Delete_User_Data_links.html">削除</a></td>
+</tr>
+<tr class="odd">
+<td align="left">（ユーザデータ）</td>
+<td align="left">_NavProp経由</td>
+<td align="left"><a href="377_Register_using_NavProp.html">登録</a></td>
+<td align="left"><a href="378_List_using_NavProp.html">一覧取得</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5>データ操作</h5>
+<ul>
+<li><a href="316_User_Defined_Data_Schema.html">スキーマ取得</a></li>
+<li><a href="317_Document_Acquisition_Service.html">サービスドキュメント取得</a></li>
+</ul>
+<p><br></p>
+<h4 id="-engine-service-">特別なコレクション: Engine Service コレクション</h4>
+<h5 id="engine-service-collection"><a href="379_Engine_Service_Collection_APIs.html">サーバスクリプト(Engine Service Collection)</a></h5>
+<p>PersoniumアプリケーションやCell利用者が作成したサーバサイドロジックを登録しこれを走行させることができます。<br />
+はじめに、ユーザロジックをファイルとして登録し、サービスコレクションの設定を行ってパスとの関連付けを行うことで、<br />
+コレクション配下の任意のパスからのリクエストに対してユーザーロジックを走行させることができます。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left"><br></th>
+<th align="left">作成・登録<br></th>
+<th align="left">取得<br></th>
+<th align="left">更新<br></th>
+<th align="left">削除<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">サービスコレクションソース</td>
+<td align="left"><br></td>
+<td align="left"><a href="381_Create_Service_Collection_Source.html">作成</a></td>
+<td align="left"><a href="382_List_Service_Collection_Source.html">取得</a></td>
+<td align="left"><a href="380_Configure_Service_Collection.html">設定適用</a></td>
+<td align="left"><a href="383_Delete_Service_Collection_Source.html">削除</a></td>
+</tr>
+<tr class="even">
+<td align="left"><br></td>
+<td align="left"><a href="384_Service_Execution.html">サービス実行</a><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

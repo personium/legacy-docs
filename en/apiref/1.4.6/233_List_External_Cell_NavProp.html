@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1 id="extcell_navprop">List acquire via ExtCell_NavProp</h1>
+<h3>Overview</h3>
+<p>Acquire cell control object via Navigation Property</p>
+<h3>Required Privileges</h3>
+<ul>
+<li>Reference authority for both the cell control object to be acquired and the cell control object via which it is acquired</li>
+<li>Example) When acquiring Relation via Role<br>Auth-read and social-read</li>
+</ul>
+<h3>Restrictions</h3>
+<ul>
+<li>Accept in the request header is ignored</li>
+<li>Always handles Content-Type in the request header as application/json</li>
+<li>Only accepts the request body in the json format</li>
+<li>Only application/json is supported for Content-Type in the request header and the json format for the response body</li>
+<li>$formatQuery options ignored</li>
+</ul>
+<p><br></p>
+<h3>Request</h3>
+<h4 id="url">Request URL</h4>
+<h5 id="rolenavigationproperty">navigationProperty to Role</h5>
+<pre><code>/{CellName}/__ctl/ExtCell(Url=&#39;{extcell_url}&#39;)/_Role</code></pre>
+<p>or </p>
+<pre><code>/{CellName}/__ctl/ExtCell(&#39;{extcell_url}&#39;)/_Role</code></pre>
+<h5 id="relationnavigationproperty">navigationProperty to Relation</h5>
+<pre><code>/{CellName}/__ctl/ExtCell(Url=&#39;{extcell_url}&#39;)/_Relation</code></pre>
+<p>or </p>
+<pre><code>/{CellName}/__ctl/ExtCell(&#39;{extcell_url}&#39;)/_Relation</code></pre>
+<p>* URL encoding required for {extcell_url}</p>
+<h4>Request Method</h4>
+<p>GET</p>
+<h4>Request Query</h4>
+<p>The following query parameters are available</p>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Query Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">p_cookie_peer<br></td>
+<td align="left">Cookie Authentication Value<br></td>
+<td align="left">The cookie authentication value returned from the server during authentication<br></td>
+<td align="left">No<br></td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+</tr>
+</tbody>
+</table>
+<p><a href="406_Select_Query.html">$select  Query</a></p>
+<p><a href="405_Expand_Query.html">$expand  Query</a></p>
+<p><a href="404_Format_Query.html">$format  Query</a></p>
+<p><a href="403_Filter_Query.html">$filter  Query</a></p>
+<p><a href="407_Inlinecount_Query.html">$inlinecount  Query</a></p>
+<p><a href="400_Orderby_Query.html">$orderby  Query</a></p>
+<p><a href="401_Top_Query.html">$top  Query</a></p>
+<p><a href="402_Skip_Query.html">$skip  Query</a></p>
+<p><a href="408_Full_Text_Search_Query.html">Full-text Search (q) Query</a></p>
+<h4>Request Header</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X-HTTP-Method-Override<br></td>
+<td align="left">Method override function<br></td>
+<td align="left">User-defined<br></td>
+<td align="left">No<br></td>
+<td align="left">If you specify this value when requesting with the POST method, the specified value will be used as a method.<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Override<br></td>
+<td align="left">Header override function<br></td>
+<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
+<td align="left">No<br></td>
+<td align="left">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br></td>
+</tr>
+<tr class="odd">
+<td align="left">X-Personium-RequestKey<br></td>
+<td align="left">RequestKey field value output in the event log<br></td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
+<td align="left">No<br></td>
+<td align="left">PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+</tr>
+<tr class="even">
+<td align="left">Authorization<br></td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
+<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">No<br></td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Accept<br></td>
+<td align="left">Specifies the response body format<br></td>
+<td align="left">application / json<br></td>
+<td align="left">No<br></td>
+<td align="left">[application/json] by default<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Request Body</h4>
+<p>None</p>
+<h4>Request Sample</h4>
+<p>None</p>
+<p><br></p>
+<h3>Response</h3>
+<h4>Response Code</h4>
+<p>200</p>
+<h4>Response Header</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">Format of data to be returned<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">DataServiceVersion<br></td>
+<td align="left">OData version<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Access-Control-Allow-Origin<br></td>
+<td align="left">Cross domain communication permission header<br></td>
+<td align="left">Return value fixed to &quot;*&quot;<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Personium-Version<br></td>
+<td align="left">API version that the request is processed<br></td>
+<td align="left">Version of the API used to process the request<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Response Body</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Object<br></th>
+<th align="left">Item Name<br></th>
+<th align="left">Data Type<br></th>
+<th align="left">Remarks<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Root<br></td>
+<td align="left">d<br></td>
+<td align="left">object<br></td>
+<td align="left">Object{1}<br></td>
+</tr>
+<tr class="even">
+<td align="left">{1}<br></td>
+<td align="left">results<br></td>
+<td align="left">array<br></td>
+<td align="left">Array object {2}<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{2}<br></td>
+<td align="left">__metadata<br></td>
+<td align="left">object<br></td>
+<td align="left">Object{3}<br></td>
+</tr>
+<tr class="even">
+<td align="left">{3}<br></td>
+<td align="left">uri<br></td>
+<td align="left">string<br></td>
+<td align="left">URL to the resource that was created<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{3}<br></td>
+<td align="left">etag<br></td>
+<td align="left">string<br></td>
+<td align="left">Etag value<br></td>
+</tr>
+<tr class="even">
+<td align="left">{2}<br></td>
+<td align="left">__published<br></td>
+<td align="left">string<br></td>
+<td align="left">Creation date (UNIX time)<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{2}<br></td>
+<td align="left">__updated<br></td>
+<td align="left">string<br></td>
+<td align="left">Update date (UNIX time)<br></td>
+</tr>
+<tr class="even">
+<td align="left">{1}<br></td>
+<td align="left">__count<br></td>
+<td align="left">string<br></td>
+<td align="left">Get number of results in $inlinecount query<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="extcell">When acquired ExtCell</h5>
+<h5 id="extcell">ExtCell specific response body</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Object<br></th>
+<th align="left">Item Name<br></th>
+<th align="left">Data Type<br></th>
+<th align="left">Remarks<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">{3}<br></td>
+<td align="left">type<br></td>
+<td align="left">string<br></td>
+<td align="left">CellCtl.ExtRole<br></td>
+</tr>
+<tr class="even">
+<td align="left">{2}<br></td>
+<td align="left">Name<br></td>
+<td align="left">string<br></td>
+<td align="left">Role name to be related<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{2}<br></td>
+<td align="left">_Box.Name<br></td>
+<td align="left">string<br></td>
+<td align="left">Box name to be related<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h4>Response Sample</h4>
+<p><code>json {   &quot;d&quot;: {     &quot;results&quot;: [       {         &quot;__metadata&quot;: {           &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')&quot;,           &quot;etag&quot;: &quot;W/\&quot;1-1487320623218\&quot;&quot;,           &quot;type&quot;: &quot;CellCtl.Role&quot;         },         &quot;Name&quot;: &quot;{RoleName}&quot;,         &quot;_Box.Name&quot;: &quot;{BoxName}&quot;,         &quot;__published&quot;: &quot;/Date(1487320623218)/&quot;,         &quot;__updated&quot;: &quot;/Date(1487320623218)/&quot;,         &quot;_Box&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box&quot;           }         },         &quot;_Account&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account&quot;           }         },         &quot;_ExtCell&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell&quot;           }         },         &quot;_ExtRole&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole&quot;           }         },         &quot;_Relation&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation&quot;           }         }       }     ]   } }</code></p>
+<h3 id="curl">CURL Command</h3>
+<h5 id="rolenavigationproperty">Through Role's navigationProperty list</h5>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtCell(&#39;https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F&#39;)/_Role&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
