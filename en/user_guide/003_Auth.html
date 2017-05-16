@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<p>Personim use the OAuth2 Authorization Framework, the industry standard, to allow many types of application to access resources on Personium in secure way.</p>
+<p>In addition, Personium provides authorization flow based on the trust between cells.</p>
+<h2 id="access-token"><a name="token type">Access Token</h2>
+<p>To let client access to the resource, access token is required.<br />
+There are two types of access token and refresh token. Trans-cell token is used for the authorization based on the trust between cells.</p>
+<table style="width:47%;">
+<colgroup>
+<col width="15%" />
+<col width="16%" />
+<col width="15%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Token Type</th>
+<th align="left">Description</th>
+<th align="left">Expiration Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cell local Token</td>
+<td align="left">Access token valid in the cell which issued the token.</td>
+<td align="left">1 hour</td>
+</tr>
+<tr class="even">
+<td align="left">Trans-cell Token</td>
+<td align="left">Access token valid in the target cell which is specified by the issued cell.</td>
+<td align="left">1 hour</td>
+</tr>
+<tr class="odd">
+<td align="left">Refresh Token</td>
+<td align="left">Token used for refreshing the token which already issued</td>
+<td align="left">24 hour</td>
+</tr>
+</tbody>
+</table>
+<h6 id="note">Note</h6>
+<ul>
+<li>To accept trans-cell token, configuration (&quot;external cell&quot;, &quot;relation&quot;, &quot;external role&quot;...etc) is required.</li>
+<li>To accept trans-cell token issued by the different server, X509 certificate need to be signed by same CA as issued server.</li>
+</ul>
+<h2 id="grant-flow"><a name="grant">Grant Flow</h2>
+<p>Before initiating flow, please <a href="https://github.com/personium/io/wiki/Client-Registration-&amp;-Authentication">register client</a> if client authentication is required.</p>
+<h3 id="resouce-owner-password-credentials-grant"><a name="ropc">Resouce Owner Password Credentials Grant</h3>
+<ol>
+<li>Client send requests to the <a href="">token endpoint</a> of the cell which contain the resource with following.</li>
+</ol>
+<ul>
+<li>Username and Password of the account used for authentication,in the request body.</li>
+<li>Client authentication information with authorization header or in request body.</li>
+</ul>
+<ol>
+<li>As a response, access token with refresh token will be returned.</li>
+</ol>
+<h5 id="notes">Notes</h5>
+<p>For Resource Owner Password Credentials, it is also possible to allow access from non-registered client.</p>
+<h3 id="implicit-grant"><a name="implicit">Implicit Grant</h3>
+<ol>
+<li>Browser send GET request to the <a href="">authorization endpoint</a> of the cell with redirect uri defined in <a href="#registration">client registration</a> and required parameters.Then, endpoint returns HTML Page which contains the login form.</li>
+<li>Resource owner provide account name and password to the form and press login. Then, the browser send POST request to the authorization endpoint.<br />
+The endpoint returns redirection response to the redirect uri with access token in fragment.</li>
+<li>Browser follows redirection and access to redirection uri and retrieve HTML with embedded script.</li>
+<li>Browser execute embedded script and extract the token.</li>
+</ol>
+<h6 id="note-1">Note</h6>
+<p>You can modify look &amp; feel of the form by editing core/src/main/resources/html/authform.html.</p>
+<h2 id="exchange-token"><a name="refresh">Exchange Token</h2>
+<p>By Sending the trans-cell token to the <a href="">token endpoint</a> of the target cell, the cell local token valid in the cell will be returned.</p>
+<h2 id="refresh-token"><a name="refresh">Refresh Token</h2>
+<p>To refresh token, send refresh token to the <a href="">token endpoint</a>. Then, new token and refrsh token will be returned.<br />
+It is possible to refresh the token if access token is not expired.</p>
+</body>
+</html>
