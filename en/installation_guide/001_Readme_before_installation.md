@@ -34,7 +34,7 @@ Below are configuration example for nginx
 ## Domain and URL
 
 ### Transefer original request URL and uri scheme
-In case using a reverce proxy, please make sure that it passes Personium's original host header and URL scheme.
+In case using a reverse proxy, please make sure that it passes Personium's original host header and URL scheme.
 
 Below are configuration example for nginx
 

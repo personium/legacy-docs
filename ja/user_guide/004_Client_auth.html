@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<p>クライアントを登録するには、以下の手順が必要です。</p>
+<h5>1。クライアントの登録と認証に使用するセルを作成する（アプリケーションセル）</h5>
+<p><em>セルを作成します。<br />
+</em>セル内のクライアント認証に使用するアカウントを作成します。<br />
+*クライアントの認証レベルが「機密」の場合、名前が「confidentialClient」で、ボックスが「\ __」であるロールを作成し、作成したアカウントにリンクします。</p>
+<h5>2。クライアント情報とクライアント認証要件レベルをリソースに設定します。</h5>
+<p><em>アプリケーションセルのURLをスキーマとして、クライアントからアクセスするボックスに設定します。<br />
+</em>クライアントの認証要件レベルをリソースに設定します。詳細については、[クライアント認証要件レベル]（）を参照してください。<br />
+*このセルは、アプリケーションセルと同じセルでも、そうでなくてもかまいません。</p>
+<h5 id="html">3。 HTMLファイルを展開する（暗黙の付与のみ）</h5>
+<p>*アプリケーションセルにアクセストークンを返すJavascriptが組み込まれたHTMLファイルをデプロイします。</p>
+<ul>
+<li>HTMLファイルのURLは、フローで使用される「リダイレクトURI」です。</li>
+</ul>
+<h5>4。必要に応じてクライアント認証情報を取得します。</h5>
+<p>*アプリケーションセルの[トークンエンドポイント]（＃トークンエンドポイント）に、認証要求を作成したアカウントで次のように送信します。</p>
+<ul>
+<li>[クライアントの秘密鍵所有者]は、応答本体のトークンです。</li>
+<li>&quot;client id&quot;はアプリケーションセルのURLです。</li>
+</ul>
+
+</body>
+</html>

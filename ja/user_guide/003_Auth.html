@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<p>Personimは、業界標準のOAuth2 Authorization Frameworkを使用して、多くのタイプのアプリケーションが安全にPersoniumのリソースにアクセスできるようにします。</p>
+<p>さらに、Personiumは、セル間の信頼に基づいて許可フローを提供します。</p>
+<h2><a name="token type">アクセストークン</h2>
+<p>クライアントがリソースにアクセスできるようにするには、アクセストークンが必要です。<br />
+アクセストークンとリフレッシュトークンの2種類があります。トランスセルトークンは、セル間の信頼に基づいた承認に使用されます。</p>
+<p>|トークンの種類|説明|有効期限|<br />
+|：--------- |：---------- |：--------- |<br />
+|セルローカルトークン|トークンを発行したセルで有効なアクセストークン| 1時間|<br />
+|トランスセルトークン|発行されたセルによって指定されたターゲットセルで有効なアクセストークン| 1時間|<br />
+|リフレッシュトークン|既に発行されたトークンをリフレッシュするために使用されるトークン| 24時間|</p>
+<h5>注意</h5>
+<p><em>トランスセルトークンを受け入れるには、構成（外部セル、リレーション、外部ロールなど）が必要です。<br />
+</em>異なるサーバーによって発行されたトランスセルトークンを受け入れるには、X509証明書を発行済みサーバーと同じCAで署名する必要があります。</p>
+<h2><a name="grant">グラントフロー</h2>
+<p>クライアント認証が必要な場合は、フローを開始する前に[登録クライアント]（<a href="https://github.com/personium/io/wiki/Client-Registration-&amp;-Authentication）を入力してください" class="uri">https://github.com/personium/io/wiki/Client-Registration-&amp;-Authentication）を入力してください</a>。</p>
+<h3><a name="ropc">所有者のパスワード資格情報を付与する</h3>
+<p>1.クライアントは、リソースを含むセルの[token endpoint]（）に次のような要求を送信します。<br />
+<em>認証に使用されたアカウントのユーザー名とパスワード（要求本文）。<br />
+</em>認証ヘッダーまたは要求本文のクライアント認証情報。</p>
+<p>2.応答として、リフレッシュトークンを含むアクセストークンが返されます。</p>
+<h5>ノート</h5>
+<p>リソース所有者のパスワード資格情報では、登録されていないクライアントからのアクセスを許可することもできます。</p>
+<h3><a name="implicit">暗黙の交付金</h3>
+<p>1.ブラウザは、[クライアント登録]（＃登録）と必須パラメータで定義されたリダイレクトuriを持つセルの[エンドポイント]（）にGETリクエストを送信します。<br />
+2.リソースの所有者は、フォームにアカウント名とパスワードを入力し、ログインを押します。次に、ブラウザーはPOST要求を許可エンドポイントに送信します。<br />
+エンドポイントは、フラグメント内のアクセストークンを持つリダイレクトURIへのリダイレクト応答を返します。<br />
+3.ブラウザは、リダイレクトに続いて、リダイレクトuriにアクセスし、埋め込みスクリプトでHTMLを取得します。<br />
+4.ブラウザが埋め込みスクリプトを実行し、トークンを抽出します。</p>
+<h5 id="-1">注意</h5>
+<p>コア/ src / main / resources / html / authform.htmlを編集することで、フォームの外観と風合いを変更できます。</p>
+<h2 id="exchange"><a name="refresh"> Exchangeトークン</h2>
+<p>トランスセルトークンをターゲットセルの[トークンエンドポイント]（）に送信すると、セル内で有効なセルローカルトークンが返されます。</p>
+<h2><a name="refresh">トークンを更新する</h2>
+<p>トークンをリフレッシュするには、リフレッシュトークンを[token endpoint]（）に送ります。次に、新しいトークンとrefrshトークンが返されます。<br />
+アクセストークンが期限切れでない場合、トークンをリフレッシュすることは可能です。</p>
+</body>
+</html>

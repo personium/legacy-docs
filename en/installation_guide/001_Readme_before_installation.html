@@ -31,7 +31,7 @@ production use.</p>
 }</code></pre>
 <h2 id="domain-and-url">Domain and URL</h2>
 <h3 id="transefer-original-request-url-and-uri-scheme">Transefer original request URL and uri scheme</h3>
-<p>In case using a reverce proxy, please make sure that it passes Personium's original host header and URL scheme.</p>
+<p>In case using a reverse proxy, please make sure that it passes Personium's original host header and URL scheme.</p>
 <p>Below are configuration example for nginx</p>
 <pre><code>            proxy_set_header Host $http_host;
             proxy_set_header X-Forwarded-Proto http;</code></pre>
