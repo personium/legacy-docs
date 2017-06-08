@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1 id="oauth2___authz">OAuth2 Authorization Endpoint(__authz)</h1>
+<h3>Overview</h3>
+<p>OAuth2 Authorization Endpoint<br />
+This API is the OAuth2 authorization endpoint, for utilizing the Personium on JS application and native application\.</p>
+<h3>Required Privileges</h3>
+<p>None</p>
+<h3>Precondition</h3>
+<p>In order to execute this API, it is necessary to prepare in advance Box which has the application cell URL in the schema\.</p>
+<h3>Restrictions</h3>
+<p>Request query, specification of "p_target" parameter of request body is not supported</p>
+<ul>
+<li>When p_target is specified, an error occurs in nginx because the value of "Location" in the response header exceeds 4,096 characters.</li>
+<li>Internet Explorer can not redirect correctly because the maximum URL length is limited to 2048 characters.</li>
+</ul>
+<p><br></p>
+<h3>Request</h3>
+<h4 id="url">Request URL</h4>
+<pre><code>{CellName}/__authz</code></pre>
+<h4>Request Method</h4>
+<p>GET : Authentication form request<br />
+POST : Authentication form request, Authentication Token</p>
+<h4>Request Query</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Item Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Format<br></th>
+<th align="left">Required<br></th>
+<th align="left">Effective Value<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">response_type<br></td>
+<td align="left">Response Type<br></td>
+<td align="left">String<br></td>
+<td align="left">Yes<br></td>
+<td align="left">Token<br></td>
+</tr>
+<tr class="even">
+<td align="left">client_id<br></td>
+<td align="left">Application Cell URL<br></td>
+<td align="left">String<br></td>
+<td align="left">Yes<br></td>
+<td align="left">Application Cell URL of authentication form request<br></td>
+</tr>
+<tr class="odd">
+<td align="left">redirect_uri<br></td>
+<td align="left">Client redirect endpoint URL<br></td>
+<td align="left">String<br></td>
+<td align="left">Yes<br></td>
+<td align="left">URL of the redirect script registered under the default BOX of the application cell<br>Query parameters formatted with application/x-www-form-urlencoded can be included<br>It is not possible to include fragments<br>Effective digit length:512byte<br></td>
+</tr>
+<tr class="even">
+<td align="left">state<br></td>
+<td align="left">Random value used to maintain state between request and callback<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">Random value<br>Effective digit length:512byte<br></td>
+</tr>
+<tr class="odd">
+<td align="left">p_target<br></td>
+<td align="left">Transcell token target<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">Cell URL using token to be paid out<br>When specified, pays out a transcell token<br></td>
+</tr>
+<tr class="even">
+<td align="left">p_owner<br></td>
+<td align="left">ULUUT Execute promotion Query<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">Valid only for true<br>* When this query is set, authentication information is not returned as cookie<br></td>
+</tr>
+<tr class="odd">
+<td align="left">assertion<br></td>
+<td align="left">Access token<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">A valid TransCell token<br>In the case of no argument, it does not become token authentication<br></td>
+</tr>
+<tr class="even">
+<td align="left">username<br></td>
+<td align="left">User name<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">Registered user name<br></td>
+</tr>
+<tr class="odd">
+<td align="left">password<br></td>
+<td align="left">Password<br></td>
+<td align="left">String<br></td>
+<td align="left">No<br></td>
+<td align="left">Registered password<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Request Header</h4>
+<p>None</p>
+<h4>Request Body</h4>
+<p>Same as request query</p>
+<h4>Request Sample</h4>
+<p>None</p>
+<p><br></p>
+<h3>Response</h3>
+<h4 id="forms-authentication-request">Forms Authentication Request</h4>
+<h5>Response Code</h5>
+<p>200</p>
+<h5>Response Header</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">Content-Type of Resource<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5>Response Body</h5>
+<p>Return the following HTML form.<br />
+<img src="image/OAuth2ResponseBody.png" title="Response body" alt="Response body" /></p>
+<h5>Error Messages</h5>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Code<br></th>
+<th align="left">Message<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">302<br></td>
+<td align="left">Found<br></td>
+<td align="left">Authorization failed<br>Redirect to __html/error<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">400<br></td>
+<td align="left">Bad Request<br></td>
+<td align="left">Request parameter is invalid<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">404<br></td>
+<td align="left">Not Found<br></td>
+<td align="left">Non-existent resource specified<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">405<br></td>
+<td align="left">Method Not Allowed<br></td>
+<td align="left">Prohibited request method specified<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5>Response Sample</h5>
+<p>None</p>
+<h4 id="request-token-authentication">Request Token Authentication</h4>
+<h5 id="-1">Response Code</h5>
+<p>302<br />
+The browser is redirected to redirect_uri. A fragment indicated by "URL parameter" is stored in redirect_uri.</p>
+<pre><code>{redirect_uri}#access_token={access_token}&amp;token_type=Bearer&amp;expires_in={expires_in}&amp;state={state}</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Item Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">redirect_uri<br></td>
+<td align="left">Client redirect endpoint URL<br></td>
+<td align="left">The value of "redirect_uri" in the request<br></td>
+</tr>
+<tr class="even">
+<td align="left">access_token<br></td>
+<td align="left">Access token acquired in the authentication/authorization request form<br></td>
+<td align="left">Return cell local token or transcell token<br></td>
+</tr>
+<tr class="odd">
+<td align="left">token_type<br></td>
+<td align="left">Bearer<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">expires_in<br></td>
+<td align="left">Expiration date of "access_token"<br></td>
+<td align="left">1 hour (3600 seconds)<br></td>
+</tr>
+<tr class="odd">
+<td align="left">state<br></td>
+<td align="left">Value of state set at the time of request<br></td>
+<td align="left">Random value used to maintain state between request and callback<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="-1">Error Messages</h5>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Item Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">redirect_uri<br></td>
+<td align="left">Redirect URL<br></td>
+<td align="left">The URL of the client's redirect split<br>specified by the "redirect_uri" of the request<br>However, in the case of the following error contents, this value is set to "cell URL + __html/error"<br>"Redirect_uri is not in URL format" "cell in client_id and redirect_uri is different"<br></td>
+</tr>
+<tr class="even">
+<td align="left">error<br></td>
+<td align="left">Code indicating error content<br></td>
+<td align="left">See "error"<br></td>
+</tr>
+<tr class="odd">
+<td align="left">error_description<br></td>
+<td align="left">Additional information on errors<br></td>
+<td align="left">Set exception message etc<br></td>
+</tr>
+<tr class="even">
+<td align="left">error_uri<br></td>
+<td align="left">Web page URI of additional information on error<br></td>
+<td align="left">Return empty string<br>* Set for future enhancemen<br></td>
+</tr>
+<tr class="odd">
+<td align="left">state<br></td>
+<td align="left">Value of state set at the time of request<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">code<br></td>
+<td align="left">Personium error code<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">invalid_request<br></td>
+<td align="left">A required parameter is not specified in the request<br>Invalid request parameter format<br>Account locked<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">unauthorized_client<br></td>
+<td align="left">The client is not authorized<br>Cancel button pressed by user<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">access_denied<br></td>
+<td align="left">The cells of client_id and redirect_uri are different<br>When transcell token authentication fails<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">unsupported_response_type<br></td>
+<td align="left">Invalid value of response_type<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">server_error<br></td>
+<td align="left">Server Error<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Please, input user ID and password.<br></td>
+<td align="left">"Username" or "password" has not been entered<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">User ID or password is incorrect.<br></td>
+<td align="left">When password authentication fails<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Since the Expiration Date of the authentication passed,<br>You must be authorized again.<br></td>
+<td align="left">Cookie authentication failed<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="parameter-check-error">Parameter Check Error</h5>
+<p>The browser is redirected to redirect_uri.<br><br />
+"Redirect_uri is not in URL format" "cell in client_id and redirect_uri is different" "Authorization processing failure"</p>
+<pre><code>{redirect_uri}?code={code}</code></pre>
+<p>Other than those above</p>
+<pre><code>{redirect_uri}#error={error}&amp;error_description={error_description}&amp;state={state}&amp;code={code}</code></pre>
+<p><br></p>
+<h3 id="curl">CURL Command</h3>
+<h4 id="get">GET</h4>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz?response_type=token&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&amp;client_id=https://{UnitFQDN}/{AppliCellName}&quot;</span> -X GET -i</code></pre></div>
+<h4 id="post">POST</h4>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz&quot;</span> -X POST -i -d <span class="st">&#39;response_type=token&amp;client_id=https://{UnitFQDN}/{AppliCellName}&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&amp;state=0000000111&amp;username={AccountUserName}&amp;password={AccountUserPass}&#39;</span></code></pre></div>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

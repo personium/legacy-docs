@@ -1,0 +1,1270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="ja-JP" />
+<meta name="generator" content="Adobe RoboHelp 10" />
+<title>overview</title>
+<link rel="StyleSheet" href="../../../../../default.css" type="text/css" />
+<script type="text/javascript" src="../../../../../prettify.js" language="JavaScript1.2">
+</script>
+<style type="text/css">
+/*<![CDATA[*/
+<!--
+.mainBreadCrumb a:link { color:#000000;
+background-color:transparent;
+text-decoration:none; }
+.mainBreadCrumb a:visited { color:#000000;
+background-color:transparent;
+text-decoration:none; }
+.mainBreadCrumb a:hover { color:#ff0000 ! important;
+cursor:pointer;
+text-decoration:underline; }
+p.mainBreadCrumb { margin-left:0px;
+margin-top:1px ! important; }
+h1 { padding-left:10px ! important; }
+-->
+/*]]>*/
+</style>
+
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+        origWidth = innerWidth;
+        origHeight = innerHeight;
+        onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+/*<![CDATA[*/
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+-->
+/*]]>*/
+</style>
+
+<script type="text/javascript" language="javascript1.2" src="../../../../../whmsg.js" charset="utf-8">
+</script>
+<script type="text/javascript" language="javascript" src="../../../../../whver.js" charset="utf-8">
+</script>
+<script type="text/javascript" language="javascript1.2" src="../../../../../whutils.js" charset="utf-8">
+</script>
+<script type="text/javascript" language="javascript1.2" src="../../../../../whproxy.js" charset="utf-8">
+</script>
+<script type="text/javascript" language="javascript1.2" src="../../../../../whlang.js" charset="utf-8">
+</script>
+<script type="text/javascript" language="javascript1.2" src="../../../../../whtopic.js" charset="utf-8">
+</script>
+</head>
+<body onload="prettyPrint()">
+<script type="text/javascript" language="javascript1.2">
+//<![CDATA[
+<!--
+if (window.gbWhTopic)
+{
+        var strUrl = document.location.href;
+        var bc = 0;
+        var n = strUrl.toLowerCase().indexOf("bc-");
+        if(n != -1)
+        {
+                document.location.href = strUrl.substring(0, n);
+                bc = strUrl.substring(n+3);
+        }
+
+        if (window.addTocInfo)
+        {
+        addAvenueInfo("認証とアクセス制御","","");
+addButton("show",BTN_TEXT,"表示","","","","",0,0,"","","");
+
+        }
+        if (window.writeBtnStyle)
+                writeBtnStyle();
+
+        if (window.writeIntopicBar)
+                writeIntopicBar(1);
+
+        
+        
+}
+else
+        if (window.gbIE4)
+                document.location.reload();
+
+onLoadHandler = function()
+{
+  if (window.setRelStartPage)
+        {
+        setTimeout("setRelStartPage('../../../../../Japanese.htm');", 1)
+
+    setTimeout("UpdateBreadCrumbsMarker();", 1);
+        }
+}
+
+if (window.addEventListener){  
+        window.addEventListener('load', onLoadHandler, false);   
+} else if (window.attachEvent){  
+        window.attachEvent('onload', onLoadHandler);  
+}
+
+function onSetStartPage()
+{
+  autoSync(1);
+  sendSyncInfo();
+  sendAveInfoOut();
+}
+//-->
+//]]>
+</script><script type="text/javascript" src="../../../../../ehlpdhtm.js" language="JavaScript1.2">
+</script>
+<div style="width: 100%; position: relative;" id="header">
+<p style="font-size: 10pt;">&#160;</p>
+</div>
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+document.write("<p  class=\"mainBreadCrumb\"  style=\"text-align:left;\" class=\"breadcrumbs\">");
+AddMasterBreadcrumbs("../../../../../Japanese.htm", "breadcrumbs", " &gt; ", "トップ", "../../../HomePage.htm");
+document.write("overview<\/p>");
+//]]>
+</script>
+<hr style="border-left-width: 0px; margin-left: -6px;" size="1" width="101%" align="center" />
+<form><input type="image" value="Print" onclick="window.print();return false" name="Printer.png" src="../../../../../Images/Printer.png" style="width: 16px; height: 16px; float: right; margin-top: -32px; margin-right: 2px;" /></form>
+<h1>アクセス制御モデル</h1>
+<h2><span lang="JA" xml:lang="JA" style="line-height: 115%; mso-ascii-font-family: Arial; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA; font-weight: bold; font-family: 'MS Gothic';">概要</span></h2>
+<p class="Paragraph">ACLによるアクセス主体へアクセス制御 は WebDAV ACL をロールベースアクセスコントロールに応用したもので行なっている。</p>
+<p class="Paragraph">CellやBox・コレクション等にACLメソッドでACL設定をすることで、そのリソースへのアクセス権限を設定出来る。</p>
+<p class="Paragraph">基本的にはWebDAV ACLの仕様に準じるが、このページではPersonium独自の仕様について説明を行う。</p>
+<p class="Paragraph">ACL設定内容はXMLで定義する。</p>
+<h2>ACL</h2>
+<p class="Paragraph">ACLによるアクセス主体へアクセス制御は、<a href="http://www.ietf.org/rfc/rfc3744">WebDAV ACL</a>をロールベースアクセスコントロールに応用したもので行なっている。</p>
+<p class="Paragraph">CellやBox・コレクション等にACLメソッドでACL設定をすることで、そのリソースへのアクセス権限を設定出来る。</p>
+<p class="Paragraph">基本的にはWebDAV ACLの仕様に準じるが、このページではPersonium独自の仕様について説明を行う。</p>
+<p class="Paragraph">ACL設定内容はXMLで定義する。</p>
+<h3>PersoniumにおけるACL構成要素</h3>
+<p class="Paragraph" style="text-indent: 5px;">PersoniumのACLは、以下の要素で構成される。</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="31.565%">
+<col style="width: 38.534%;" />
+<col style="width: 61.466%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">要素名</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">内容</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">ace</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">ACL設定を行うアクセス主体とその権限付与のセットを表す</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">pricipal</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">設定されるACLのアクセス主体を定義する</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">grant</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">principalに付与すべきprivilegeを単数または複数定義する</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">privilege</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">権限設定を定義する</p>
+</td>
+</tr>
+</table>
+<h3>制限事項</h3>
+<p class="Paragraph">PersoniumV1系では、以下のような制限事項がある。</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>ACLは既存設定を上書きする形で更新される</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>deny要素による権限の剥奪設定</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>付与出来る権限の一覧取得</p>
+<h3>対象</h3>
+<p class="Paragraph2">PersoniumのACL設定の対象はリソースであり、各リソースのURLへのACLメソッドで設定を行う。</p>
+<p class="Paragraph2">セルのパスの場合 セルレベルACL となり、ボックス配下のパスの場合 ボックスレベルACL となる。</p>
+<p class="Paragraph2">この２つは設定出来るPrivilege（権限）が異なり、互いに影響することは無い。</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="43.728%">
+<col style="width: 27.816%;" />
+<col style="width: 27.816%;" />
+<col style="width: 44.369%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;">&#160;</p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">内容</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">対象のリソース</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">セルレベルACL</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">セルへの設定や、</p>
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">セル制御オブジェクトのCRUDを制御する</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">セル</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ボックスレベルACL</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Box配下のリソースへのCRUDを制御する</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Box、WebDAVコレクション、ODataコレクション、Serviceコレクション<br />
+WebDAVコレクション配下のディレクトリ・ファイル</p>
+</td>
+</tr>
+</table>
+<h2>ace</h2>
+<p class="Paragraph">対象となるアクセス主体はPrincipal要素、権限付与はgrant要素で定義する。ace要素は複数設定が出来る。</p>
+<h2>Principal</h2>
+<p class="Paragraph">Principalは、WebDAV ACLには「human or computational actor」とあるが、Personiumではロールであると定義する。</p>
+<p class="Paragraph">PersoniumのロールはWebDAV ACLにおける「Group」に近い概念となる。</p>
+<h3>(1)all</h3>
+<p class="Paragraph">WebDAV ACLに定義されている通り、pricipalにall要素を設定すると権限付与設定を、<br />
+全てのロールや認証されていないアクセス主体（Authorizationヘッダーなし）にも定義することができる。</p>
+<p class="Paragraph">リソースへの全てのアクセス主体に対する権限となるため、利用する場合には注意が必要。</p>
+<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">principal:all</p>
+<p class="Code">privilege:all</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph">&#160;</p>
+<p class="Paragraph">上記の設定で、アクセスしてきた全てのアクセスに全ての操作を開放する事になる。</p>
+<p class="Paragraph" style="color: 透明; font-weight: bold;">&#160;</p>
+<p class="Paragraph" style="color: 透明; font-weight: bold;">ただし、スキーマ認証レベル設定が行われている場合は、そちらのチェックが有効になります。</p>
+<p class="Paragraph" style="color: 透明; font-weight: bold;">&#160;</p>
+<h4>設定例</h4>
+<p class="Paragraph2">全てのアクセス主体にread権限を付与する。</p>
+<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">　　　　&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:all&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h3>(2)ロール</h3>
+<p class="Paragraph2">対象となるアクセス主体にロールを定義する場合は、href要素で囲んだ上で、ロールリソースURLを設定する。<br />
+ロールリソースについての仕様は ロール発行を参照。</p>
+<p class="Paragraph2">なお、設定出来るロールリソースURLはACL設定対象のセルURLと異なるロールリソースURLを指定することは出来ない。</p>
+<h4>設定例</h4>
+<p class="Paragraph2" style="text-decoration: underline;">・Principalに設定するロールリソースURLを全て記述する</p>
+<p class="Paragraph2">（box1に紐付くdoctorにreadとwriteの権限を与え、box2に紐付くguestにはreadのみを与える場合の例）</p>
+<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;http://fqdn/testcell1/__role/box1/doctor&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">　　&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;http://fqdn/testcell1/__role/box2/guest&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<p class="Paragraph2" style="text-decoration: underline;">・xml:baseによる記述の省略</p>
+<p class="Paragraph2" style="text-decoration: none;">acl要素のxml:base属性にボックスまでのロールリソースURLを記述することで、Principalに設定するロールリソースURLの記述を省略することができます。</p>
+<p class="Paragraph2">（box1に紐付くdoctorにreadとwriteの権限を与え、box2に紐付くguestにはreadのみを与える場合の例）</p>
+<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;doctor&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">　　&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;../box2/guest&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">※guestの様に、xml:baseのボックスと異なるボックスに紐付くロールを設定する場合、上記の様に相対パスを使った記述を行う事が出来る。</p>
+<h5>PROPFINDでの出力</h5>
+<p class="Paragraph2" style="text-decoration: none;">ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力されます。</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span><span style="text-decoration: none;">セルへのPROPFINDの場合、メインボックスのURL</span></p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>Box配下へのPROPFINDの場合、そのBoxまでのURL</p>
+<h2>grant/Privilege</h2>
+<p class="Paragraph2" style="text-decoration: none;">権限はPersoniumが定義した要素で設定し、grant要素内のPrivilege要素に囲んで設定する。<br />
+また、grant要素の中にはPrivilege要素を複数指定することが出来る。</p>
+<h3>セルレベルACL Privilege</h3>
+<p class="Paragraph2">設定したセルに対して、セル制御オブジェクトの実行権限やメソッドの実行権限を指定する。<br />
+上位に位置する権限が設定されている場合、下位に属する権限を有する。(例:messageは、message-readの権限も有する)</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="96%">
+<col style="width: 17.486%;" />
+<col style="width: 31.454%;" />
+<col style="width: 26.227%;" />
+<col style="width: 24.833%;" />
+<tr>
+<th style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-size: 12px; font-family: Verdana, sans-serif; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">権限名</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">対象セル制御オブジェクト</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">上位の権限名</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">実行できるメソッド</span></p>
+</th>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">以下の全ての権限を有する</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">-</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">全て</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">auth</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">Account, Role, ExtRole</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">auth-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Account, Role, ExtRole</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">auth</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">message</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">RecievedMessage, SentMessage</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">message-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">RecievedMessage, SentMessage</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">message</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">event-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">log-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">social</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Relation, ExtCell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">social-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Relation, ExtCell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">social</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;"><span style="font-family: Verdana, sans-serif; font-size: 12px;">Box</span></p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box-install</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;"><span style="font-family: Verdana, sans-serif; font-size: 12px;">Box</span></p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">MKCOL（Barファイルインストール）</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box-export</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;"><span style="font-family: Verdana, sans-serif; font-size: 12px;">Box</span></p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET（Barファイルエクスポート） ※未サポート</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">ACL</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">acl-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PROPFINDのACL設定表示</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">propfind</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PROPFIND</p>
+</td>
+</tr>
+</table>
+<h4 class="Paragraph2">設定例</h4>
+<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</p>
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="https://example.com/cell/box"&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;role10&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;p:root/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;../box2/role13&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;p:social/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;role15&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;p:acl/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<h3 class="Paragraph2">&#160;</h3>
+<h3 class="Paragraph2">ボックスレベルACL Privilege</h3>
+<p class="Paragraph2">設定したボックス以下のリソースに対して、メソッドの実行権限を指定する。<br />
+ボックスレベルPrivilegeは基本的にWebDAV ACLに沿って定義されている。<br />
+上位に位置する権限が設定されている場合、下位に属する権限を有する。(例：readは、read-propertiesの権限も有する)</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="96%">
+<col style="width: 17.486%;" />
+<col style="width: 31.454%;" />
+<col style="width: 26.227%;" />
+<col style="width: 24.833%;" />
+<tr>
+<th style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-size: 12px; font-family: Verdana, sans-serif; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">権限名</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">対象セル制御オブジェクト</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">上位の権限名</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">実行できるメソッド</span></p>
+</th>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">以下の全ての権限を有する</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">p:root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">全て</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">読み出し権限を有する。read-aclは含まない。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">書き出し権限を有する。write-aclは含まない。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">PUT, POST, DELETE, MKCOL</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">read-properties</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">プロパティの読み出し権限を有する。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">PROPFIND</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write-properties</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">プロパティの書き出し権限を有する。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">PROPPATCH</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">read-acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">ACLの読み出し権限を有する。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">PROPFINDのACL設定表示</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write-acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">ACLの書き出し権限を有する。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">ACL</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write-content</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">コンテンツの書き出し権限を有する。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">※未サポート</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">bind</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">bind権限を有する。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">※未サポート</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">unbind</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">unbind権限を有する。</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">※未サポート</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">exec</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">サービス実行権限を有する。※Personium独自実装</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">-</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h4 class="Paragraph2">設定例</h4>
+<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;doctor&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">　　&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;../box2/guest&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h3>ACLの継承</h3>
+<p class="Paragraph2">ボックスレベルACLの設定は、アクセスしたリソースの親（上位のディレクトリ）の設定を<br />
+セルまで遡って適用されます。<br />
+アクセス主体に対するACL設定は、親の設定が追加される形で継承されます。<br />
+よって、ACLの設定時には以下の点に注意が必要です。</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>親にall等の強い権限を設定している場合、子に制限をかけても無効となる</p>
+<h4>ACLの継承と適応される権限の例</h4>
+<p class="Paragraph2">リソース例</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">リソースのタイプ</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">リソース名</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">リソースURL</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">セル</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ボックス</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAVコレクション</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">webdav</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ディレクトリ</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ファイル</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">file</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory/file</span></p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<p class="Paragraph2">上記のリソースに下記のACL設定を行った上で、各リソースへのアクセス時に適用される権限は以下のとおり。</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">アクセスするリソース</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">設定された権限</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">適用される権限</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">セル</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ボックス</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">read-acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAVコレクション</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl, read</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ディレクトリ</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">設定なし</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl, read</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ファイル</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">read-propaties</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl, read-properties, read</span></p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h2><a name="スキーマ権限要求レベル">スキーマ権限要求レベル</a></h2>
+<p class="Paragraph2">スキーマ権限要求レベルによるアプリケーションへのアクセス制御 は、</p>
+<p class="Paragraph2">ACL設定時にACL要素の RequireSchemaAuthz 属性で要求レベルの設定を行う。</p>
+<p class="Paragraph2">スキーマ認証の仕様については、認証モデルの「スキーマ認証（アプリ認証）」を参照。</p>
+<h3>設定値</h3>
+<p class="Paragraph2">スキーマ権限要求レベル値</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="31.565%">
+<col style="width: 38.534%;" />
+<col style="width: 61.466%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">レベル値</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">内容</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">none（デフォルト）</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff; font-size: 12px;">スキーマ認証無しでアクセス可能</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">public</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff; font-size: 12px;">スキーマ認証結果がOKであればアクセス可能</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">confidential</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff; font-size: 12px;">スキーマ認証結果がOKで、かつ特殊ロールconfidentialClientがあればアクセス可能</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h4 class="Paragraph2">設定例</h4>
+<p class="Paragraph2">スキーマ権限要求レベル設定ACLのサンプル</p>
+<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://localhost:8080/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;{レベル値}&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:all/&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h3>スキーマ権限要求レベルの設定の継承</h3>
+<p class="Paragraph2">スキーマ権限要求レベル設定は、アクセスしたリソースに設定がされていない場合のみ、<br />
+アクセスしたリソースの親（上位のディレクトリ）の設定をボックスまで遡って適用されます。</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>スキーマ権限要求レベルが未設定の場合、 none として扱われるが、明示的に none が設定されている場合、継承は行われない。</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>継承はBoxまで遡って確認されるが、途中のリソースにスキーマレベル設定が行われていた時点で、その設定値が有効となる。</p>
+<p class="Paragraph2">&#160;</p>
+<h4 class="Paragraph2">スキーマ権限要求レベルの継承と適応される権限の例</h4>
+<p class="Paragraph2">上記のリソースに下記のスキーマ権限要求レベル設定を行った上で、各リソースへのアクセス時に適用される<br />
+スキーマ権限要求レベルは以下のとおり。</p>
+<p class="Paragraph2">リソース例</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">リソースのタイプ</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">リソース名</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">リソースURL</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">セル</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ボックス</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAVコレクション</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">webdav</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ディレクトリ</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ファイル</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">file</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory/file</span></p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<p class="Paragraph2">上記のリソースに下記のACL設定を行った上で、各リソースへのアクセス時に適用される権限は以下のとおり。</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">アクセスするリソース</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">設定されたレベル</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">適用されるレベル</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ボックス</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">confidential</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">confidential &#160;</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAVコレクション</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">public</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">public</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ディレクトリ</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">設定なし</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">public</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">ファイル</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">none</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">none</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<p class="Paragraph2">&#160;</p>
+<br />
+<div style="border-top: Solid 3px #3a3a3a; width: 100%; position: relative; padding-top: 2px; padding-bottom: 2px; padding-right: 5px; background-color: #9b9b9b;" id="footer">
+<h6 style="text-align: right; margin-top: 5pt; margin-bottom: 5pt;">Copyright 2014 &#160;FUJITSU LIMITED</h6>
+</div>
+<script type="text/javascript" language="javascript1.2">
+//<![CDATA[
+<!--
+if (window.writeIntopicBar)
+        writeIntopicBar(0);
+
+
+highlightSearch();
+//-->
+//]]>
+</script>
+</body>
+</html>

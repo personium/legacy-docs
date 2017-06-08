@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1>ログファイル取得</h1>
+<h3>概要</h3>
+<p>イベントログを取得する<br />
+ローテートされたログファイルの保持世代数は最大12世代である。<br />
+ログファイルのローテート時に最大保持世代数を超えた場合は、最古のログファイルが削除される。</p>
+<h3>必要な権限</h3>
+<p>log-read</p>
+<h3>制限事項</h3>
+<ul>
+<li>コレクションの階層の深さの最大値は50</li>
+<li>各コレクション配下の子要素数の最大値は1コレクションあたり10,000
+<ul>
+<li>Box直下のコレクションを1階層目とし、以下2階層目、3階層目…とカウントする。コレクション配下に作成するファイルは、階層としてカウントしない。</li>
+</ul></li>
+<li>内部イベントのログ出力は未サポート</li>
+<li>ログの出力設定、および出力設定の参照は未サポート</li>
+<li>ログファイル名は&quot;default.log&quot;固定とする</li>
+<li>ローテートは以下のデフォルト設定に従い行う
+<ul>
+<li>ローテートのサイズ設定:50MB</li>
+</ul></li>
+<li>ログの出力レベルは&quot;info&quot;固定（INFO, WARN, ERRORすべて出力）とする</li>
+<li>ローテート時のファイル名は、 default.log.{timestamp} とする。 {timestamp}は、ローテートされたときの時刻で採番される。</li>
+</ul>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">アクション<br></th>
+<th align="left">アーカイブされたログファイル<br></th>
+<th align="left">説明<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">First Rotation<br></td>
+<td align="left">archive/<br>default.log.1402910774659<br></td>
+<td align="left"><br>新規にローテートされたファイル<br></td>
+<td align="left"><br>2014-06-16 18:26:14 +0900<br></td>
+</tr>
+<tr class="even">
+<td align="left">2nd Rotation<br></td>
+<td align="left">archive/<br>default.log.1402910774659<br>default.log.1403910784659<br></td>
+<td align="left"><br>前回ローテートされたファイル<br>新規にローテートされたファイル<br></td>
+<td align="left"><br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br></td>
+</tr>
+<tr class="odd">
+<td align="left">3rd Rotation<br></td>
+<td align="left">archive/<br>default.log.1402910774659<br>default.log.1403910784659<br>default.log.1403910784659<br></td>
+<td align="left"><br>前々回にローテートされたファイル<br>前回ローテートされたファイル<br>新規にローテートされたファイル<br></td>
+<td align="left"><br>2014-06-16 18:26:14 +0900<br>2014-06-28 08:13:04 +0900<br>2014-07-09 21:59:44 +0900<br></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3>リクエスト</h3>
+<h4 id="url">リクエストURL</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">URL<br></th>
+<th align="left">概要<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">/{CellName}/__log/current/{LogName}<br></td>
+<td align="left">最新のログファイル<br></td>
+</tr>
+<tr class="even">
+<td align="left">/{CellName}/__log/current/{LogName}<br></td>
+<td align="left">ローテートされたログファイル<br></td>
+</tr>
+</tbody>
+</table>
+<p>※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。</p>
+<h4>メソッド</h4>
+<p>GET</p>
+<h4>リクエストクエリ</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">クエリ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">p_cookie_peer<br></td>
+<td align="left">クッキー認証値<br></td>
+<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
+<td align="left">×<br></td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストヘッダ</h4>
+<h5>共通リクエストヘッダ</h5>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X-HTTP-Method-Override<br></td>
+<td align="left">メソッドオーバーライド機能<br></td>
+<td align="left">任意<br></td>
+<td align="left">×<br></td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Override<br></td>
+<td align="left">ヘッダオーバライド機能<br></td>
+<td align="left">${上書きするヘッダ名}:${値}<br></td>
+<td align="left">×<br></td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br></td>
+</tr>
+<tr class="odd">
+<td align="left">X-Personium-RequestKey<br></td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
+<td align="left">×<br></td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+</tr>
+<tr class="even">
+<td align="left">Authorization<br></td>
+<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
+<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">×<br></td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストボディ</h4>
+<p>なし</p>
+<h4>リクエストサンプル</h4>
+<p>なし</p>
+<p><br></p>
+<h3>レスポンス</h3>
+<h4>ステータスコード</h4>
+<p>200</p>
+<h4>レスポンスヘッダ</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">Resourceのデータ形式に応じたMimeType<br></td>
+<td align="left">&quot;text/csv&quot;または&quot;application/zip&quot;<br></td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスボディ</h4>
+<p>currentのログ取得時にログが存在しない場合は、空のレスポンスボディを返却する。<br />
+ローテートのサイズ設定値よりも5MB程度大きなサイズとなる場合がある。<br />
+出力形式は以下の通り。</p>
+<pre><code>{dateTime},[{level}],{RequestKey},{name},{schema},{subject},{action},{object},{result}</code></pre>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">項目名<br></th>
+<th align="left">概要<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">dateTime<br></td>
+<td align="left">ログ書込み日時（ISO8601 UTC形式）<br></td>
+<td align="left">YYYY-MM-DDTHH:MM:SS.sssZ<br></td>
+</tr>
+<tr class="even">
+<td align="left">level<br></td>
+<td align="left">ログレベル INFO,WARN,ERRORのいずれか<br></td>
+<td align="left">文字列<br></td>
+</tr>
+<tr class="odd">
+<td align="left">RequestKey<br></td>
+<td align="left">X-Personium-RequestKeyヘッダで指定された値<br>X-Personium-RequestKeyヘッダ指定がない場合、PCS-${UNIX時間}<br></td>
+<td align="left">文字列<br></td>
+</tr>
+<tr class="even">
+<td align="left">name<br></td>
+<td align="left">外部イベント：client<br>内部イベント：server<br></td>
+<td align="left">文字列<br></td>
+</tr>
+<tr class="odd">
+<td align="left">schema<br></td>
+<td align="left">受け付けたURLのboxのschema<br></td>
+<td align="left">URL形式<br></td>
+</tr>
+<tr class="even">
+<td align="left">subject<br></td>
+<td align="left">イベントの主体<br></td>
+<td align="left">URL形式<br></td>
+</tr>
+<tr class="odd">
+<td align="left">action<br></td>
+<td align="left">外部イベント：イベント受付で定義されたaction<br>内部イベント：HTTPメソッド名<br></td>
+<td align="left">文字列<br></td>
+</tr>
+<tr class="even">
+<td align="left">object<br></td>
+<td align="left">外部イベント：イベント受付で定義されたobject<br>内部イベント：リクエストされたリソースパス<br></td>
+<td align="left">文字列<br></td>
+</tr>
+<tr class="odd">
+<td align="left">result<br></td>
+<td align="left">外部イベント：イベント受付で定義されたresult<br>内部イベント：HTTPステータスコード<br></td>
+<td align="left">文字列<br></td>
+</tr>
+</tbody>
+</table>
+<h4>エラーメッセージ一覧</h4>
+<p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">コード<br></th>
+<th align="left">メッセージ<br></th>
+<th align="left">概要<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">400<br></td>
+<td align="left">Bad Request<br></td>
+<td align="left">リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br>既に別のスキーマ型のIndexが作成されている場合<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">401<br></td>
+<td align="left">Unauthorized<br></td>
+<td align="left">認証トークンが無効<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">403<br></td>
+<td align="left">Forbidden<br></td>
+<td align="left">アクセス権限が不足している場合<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">404<br></td>
+<td align="left">Not Found<br></td>
+<td align="left">存在しないリソースを指定<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">405<br></td>
+<td align="left">Method Not Allowed<br></td>
+<td align="left">許可していないリクエストメソッドを指定<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスサンプル</h4>
+<p>外部イベント</p>
+<pre><code>2013-02-04T00:50:12.761Z,[INFO ],Req_animal-access_1001,client,https://{UnitFQDN}/{CellName}/,https://{UnitFQDN}/servicemanager/#admin,authSchema,/{CellName}/{BoxName}/service_name/token_keeper,[XXXX2033] Success schema authorization. cellUrl=https://{UnitFQDN}/keeper-d4a57bb26eae481486b07d06487051d1/</code></pre>
+<p>内部イベント</p>
+<pre><code>2013-04-18T14:52:39.778Z,[ERROR],PCS-1364350331902,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200</code></pre>
+<p><br></p>
+<h3 id="curl">CURLサンプル</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__log/current/default.log&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span>          </code></pre></div>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

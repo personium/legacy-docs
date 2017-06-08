@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1 id="metadata">スキーマ取得（$metadata）</h1>
+<h3>概要</h3>
+<p>ユーザーデータのスキーマ定義を行うためのスキーマ情報を取得する</p>
+<h3>必要な権限</h3>
+<p>read</p>
+<h3>制限事項</h3>
+<p>なし</p>
+<p><br></p>
+<h3>リクエスト</h3>
+<h4 id="url">リクエストURL</h4>
+<pre><code>/{CellName}/{BoxName}/{OdataCollectionName}/$metadata</code></pre>
+<h4>メソッド</h4>
+<p>GET</p>
+<h4>リクエストクエリ</h4>
+<p>共通リクエストクエリ</p>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">クエリ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">p_cookie_peer<br></td>
+<td align="left">クッキー認証値<br></td>
+<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
+<td align="left">×<br></td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストヘッダ</h4>
+<h5>共通リクエストヘッダ</h5>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X-HTTP-Method-Override<br></td>
+<td align="left">メソッドオーバーライド機能<br></td>
+<td align="left">任意<br></td>
+<td align="left">×<br></td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Override<br></td>
+<td align="left">ヘッダオーバライド機能<br></td>
+<td align="left">${上書きするヘッダ名}:${値}<br></td>
+<td align="left">×<br></td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br></td>
+</tr>
+<tr class="odd">
+<td align="left">X-Personium-RequestKey<br></td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
+<td align="left">×<br></td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストボディ</h4>
+<p>なし</p>
+<h4>リクエストサンプル</h4>
+<p>なし</p>
+<p><br></p>
+<h3>レスポンス</h3>
+<h4>ステータスコード</h4>
+<p>200</p>
+<h4>レスポンスヘッダ</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">返却されるデータの形式<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">DataServiceVersion<br></td>
+<td align="left">ODataのバージョン情報<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Access-Control-Allow-Origin<br></td>
+<td align="left">クロスドメイン通信許可ヘッダ<br></td>
+<td align="left">返却値は&quot;*&quot;固定<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Personium-Version<br></td>
+<td align="left">APIの実行バージョン<br></td>
+<td align="left">リクエストが処理されたAPIバージョン<br></td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスボディ</h4>
+<p>レスポンスサンプル参照</p>
+<h4>エラーメッセージ一覧</h4>
+<p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
+<h4>レスポンスサンプル</h4>
+<p><code>xml &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;edmx:Edmx Version=&quot;1.0&quot; xmlns:edmx=&quot;http://schemas.microsoft.com/ado/2007/06/edmx&quot; xmlns:d=&quot;http://schemas.microsoft.com/ado/2007/08/dataservices&quot; xmlns:m=&quot;http://schemas.microsoft.com/ado/2007/08/dataservices/metadata&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot;&gt;   &lt;edmx:DataServices m:DataServiceVersion=&quot;1.0&quot;&gt;     &lt;Schema xmlns=&quot;http://schemas.microsoft.com/ado/2006/04/edm&quot; Namespace=&quot;UserData&quot;&gt;       &lt;ComplexType Name=&quot;TestComplexType&quot;&gt;         &lt;Property Name=&quot;TestComplexTypeProperty&quot; Type=&quot;Edm.String&quot; Nullable=&quot;true&quot;&gt;&lt;/Property&gt;       &lt;/ComplexType&gt;       &lt;EntityType Name=&quot;TestEntity&quot; OpenType=&quot;true&quot;&gt;         &lt;Key&gt;           &lt;PropertyRef Name=&quot;__id&quot;&gt;&lt;/PropertyRef&gt;         &lt;/Key&gt;         &lt;Property Name=&quot;__id&quot; Type=&quot;Edm.String&quot; Nullable=&quot;false&quot; DefaultValue=&quot;UUID()&quot; p:Format=&quot;regEx('^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$')&quot;&gt;&lt;/Property&gt;         &lt;Property Name=&quot;__published&quot; Type=&quot;Edm.DateTime&quot; Nullable=&quot;false&quot; DefaultValue=&quot;SYSUTCDATETIME()&quot; Precision=&quot;3&quot;&gt;&lt;/Property&gt;         &lt;Property Name=&quot;__updated&quot; Type=&quot;Edm.DateTime&quot; Nullable=&quot;false&quot; DefaultValue=&quot;SYSUTCDATETIME()&quot; Precision=&quot;3&quot;&gt;&lt;/Property&gt;         &lt;Property Name=&quot;TestProperty&quot; Type=&quot;Edm.String&quot; Nullable=&quot;true&quot;&gt;&lt;/Property&gt;         &lt;NavigationProperty Name=&quot;_TestEntity&quot; Relationship=&quot;UserData.TestEntity-TestEntity-assoc&quot; FromRole=&quot;TestEntity:TestAssociationEndFrom&quot; ToRole=&quot;TestEntity:TestAssociationEndTo&quot;&gt;&lt;/NavigationProperty&gt;       &lt;/EntityType&gt;       &lt;Association Name=&quot;TestEntity-TestEntity-assoc&quot;&gt;         &lt;End Role=&quot;TestEntity:TestAssociationEndFrom&quot; Type=&quot;UserData.TestEntity&quot; Multiplicity=&quot;1&quot;&gt;&lt;/End&gt;         &lt;End Role=&quot;TestEntity:TestAssociationEndTo&quot; Type=&quot;UserData.TestEntity&quot; Multiplicity=&quot;0..1&quot;&gt;&lt;/End&gt;       &lt;/Association&gt;       &lt;EntityContainer Name=&quot;UserData&quot; m:IsDefaultEntityContainer=&quot;true&quot;&gt;         &lt;EntitySet Name=&quot;TestEntity&quot; EntityType=&quot;UserData.TestEntity&quot;&gt;&lt;/EntitySet&gt;         &lt;AssociationSet Name=&quot;TestEntity-TestEntity-assoc&quot; Association=&quot;UserData.TestEntity-TestEntity-assoc&quot;&gt;           &lt;End Role=&quot;TestEntity:TestAssociationEndFrom&quot; EntitySet=&quot;TestEntity&quot;&gt;&lt;/End&gt;           &lt;End Role=&quot;TestEntity:TestAssociationEndTo&quot; EntitySet=&quot;TestEntity&quot;&gt;&lt;/End&gt;         &lt;/AssociationSet&gt;       &lt;/EntityContainer&gt;     &lt;/Schema&gt;   &lt;/edmx:DataServices&gt; &lt;/edmx:Edmx&gt;</code></p>
+<p><br></p>
+<h3 id="curl">CURLサンプル</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollectionName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span></code></pre></div>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
