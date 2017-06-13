@@ -11,7 +11,7 @@
 <body>
 <p>Personim use the OAuth2 Authorization Framework, the industry standard, to allow many types of application to access resources on Personium in secure way.</p>
 <p>In addition, Personium provides authorization flow based on the trust between cells.</p>
-<h2 id="access-token"><a name="token type">Access Token</h2>
+<h2 id="access-token">Access Token</h2>
 <p>To let client access to the resource, access token is required.<br />
 There are two types of access token and refresh token. Trans-cell token is used for the authorization based on the trust between cells.</p>
 <table style="width:47%;">
@@ -50,11 +50,11 @@ There are two types of access token and refresh token. Trans-cell token is used 
 <li>To accept trans-cell token, configuration (&quot;external cell&quot;, &quot;relation&quot;, &quot;external role&quot;...etc) is required.</li>
 <li>To accept trans-cell token issued by the different server, X509 certificate need to be signed by same CA as issued server.</li>
 </ul>
-<h2 id="grant-flow"><a name="grant">Grant Flow</h2>
-<p>Before initiating flow, please <a href="https://github.com/personium/io/wiki/Client-Registration-&amp;-Authentication">register client</a> if client authentication is required.</p>
-<h3 id="resouce-owner-password-credentials-grant"><a name="ropc">Resouce Owner Password Credentials Grant</h3>
+<h2 id="grant-flow">Grant Flow</h2>
+<p>Before initiating flow, please <a href="https://personium.github.io/en/user_guide/004_Client_auth.html">register client</a> if client authentication is required.</p>
+<h3 id="resouce-owner-password-credentials-grant">Resouce Owner Password Credentials Grant</h3>
 <ol>
-<li>Client send requests to the <a href="">token endpoint</a> of the cell which contain the resource with following.</li>
+<li>Client send requests to the token endpoint of the cell which contain the resource with following.</li>
 </ol>
 <ul>
 <li>Username and Password of the account used for authentication,in the request body.</li>
@@ -65,9 +65,9 @@ There are two types of access token and refresh token. Trans-cell token is used 
 </ol>
 <h5 id="notes">Notes</h5>
 <p>For Resource Owner Password Credentials, it is also possible to allow access from non-registered client.</p>
-<h3 id="implicit-grant"><a name="implicit">Implicit Grant</h3>
+<h3 id="implicit-grant">Implicit Grant</h3>
 <ol>
-<li>Browser send GET request to the <a href="">authorization endpoint</a> of the cell with redirect uri defined in <a href="#registration">client registration</a> and required parameters.Then, endpoint returns HTML Page which contains the login form.</li>
+<li>Browser send GET request to the authorization endpoint of the cell with redirect uri defined in client registration and required parameters.Then, endpoint returns HTML Page which contains the login form.</li>
 <li>Resource owner provide account name and password to the form and press login. Then, the browser send POST request to the authorization endpoint.<br />
 The endpoint returns redirection response to the redirect uri with access token in fragment.</li>
 <li>Browser follows redirection and access to redirection uri and retrieve HTML with embedded script.</li>
@@ -75,10 +75,10 @@ The endpoint returns redirection response to the redirect uri with access token 
 </ol>
 <h6 id="note-1">Note</h6>
 <p>You can modify look &amp; feel of the form by editing core/src/main/resources/html/authform.html.</p>
-<h2 id="exchange-token"><a name="refresh">Exchange Token</h2>
-<p>By Sending the trans-cell token to the <a href="">token endpoint</a> of the target cell, the cell local token valid in the cell will be returned.</p>
-<h2 id="refresh-token"><a name="refresh">Refresh Token</h2>
-<p>To refresh token, send refresh token to the <a href="">token endpoint</a>. Then, new token and refrsh token will be returned.<br />
+<h2 id="exchange-token">Exchange Token</h2>
+<p>By Sending the trans-cell token to the token endpoint of the target cell, the cell local token valid in the cell will be returned.</p>
+<h2 id="refresh-token">Refresh Token</h2>
+<p>To refresh token, send refresh token to the token endpoint. Then, new token and refrsh token will be returned.<br />
 It is possible to refresh the token if access token is not expired.</p>
 </body>
 </html>
