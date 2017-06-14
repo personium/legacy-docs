@@ -26,8 +26,8 @@ This endpoint is designed for administrative access from internal network.
 Below are configuration example for nginx
 
 ```
-        location ~ ^/__status/?$ {
-            deny all;
+location ~ ^/__status/?$ {
+    deny all;
 }
 ```
 
@@ -50,8 +50,7 @@ Use of unitlocal: scheme is recommended for future FQDN change of units.
 
 ### Personium Unit URL
 
-Please make sure that Personium unit URL is "https://{domainname}/".
-(not "https:/{domainname}/{subdir}/")
+Please make sure that Personium unit URL is "https&#58;//{domainname}/". (not "https&#58;//{domainname}/{subdir}/")
 
 
 When you need to deploy personium-core to sub-directory of the application server,

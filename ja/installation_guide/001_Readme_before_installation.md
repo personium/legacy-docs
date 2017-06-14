@@ -5,7 +5,7 @@ HTTPSで使用しなければなりません。 PersoniumユニットAPIのほ�
 
 HTTPを使用すると、偽装のためにそれを盗み出して使用しようとする攻撃者にトークンが公開されてしまいます。
 
-https://tools.ietf.org/html/rfc6750をご覧ください。
+https://tools.ietf.org/html/rfc6750 をご覧ください。
 
 
 ##ユニットマスタトークン/ユニットユーザトークン
@@ -22,11 +22,11 @@ https://tools.ietf.org/html/rfc6750をご覧ください。
 
 以下は、nginxの設定例です。
 
-`` ``
-        location ~ ^/__status/?$ {
-            deny all;
+```
+location ~ ^/__status/?$ {
+    deny all;
 }
-`` ``
+```
 
 ##ドメインとURL
 
@@ -35,10 +35,10 @@ Reverseプロキシを使用する場合は、Personiumの元のホストヘッ�
 
 以下は、nginxの設定例です。
 
-`` ``
-            proxy_set_header Host $http_host;
-            proxy_set_header X-Forwarded-Proto http;
-`` ``
+```
+proxy_set_header Host $http_host;
+proxy_set_header X-Forwarded-Proto http;
+```
 ###ドメイン名を保持する
 Personiumは分散アーキテクチャのため、ドメイン名を含むURL情報を格納します。
 Personiumの使用を開始した後、ドメイン名を保存してください。
@@ -47,8 +47,8 @@ Personiumの使用を開始した後、ドメイン名を保存してくださ�
 
 ### Personium Unit URL
 
-PersoniumのURLが「https：// {domainname} /」であることを確認してください。
-（「https：/ {domainname} / {subdir} /」ではなく）
+PersoniumのURLが「https&#58;//{domainname}/」であることを確認してください。
+（「https&#58;/{domainname}/{subdir}/」ではない）
 
 
 アプリケーションサーバーのPersonium-Coreからサブディレクトリに展開する必要がある場合は、

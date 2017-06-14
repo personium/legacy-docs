@@ -25,9 +25,9 @@ Ok, let's start to set up Personium!
 
 4. Change to io-vagrant-ansible directory under the local repository you cloned, and run vagrant up. \* This process takes around 30 min.
 
-   \* If your network is under proxy, please read "For proxy environment" below.
+    \* If your network is under proxy, please read "For proxy environment" below.
 
-   \* Tomcat sometimes seems to fail starting. I happens when it takes more than 60 seconds. But tomcat is usually running, so please go to next step ignoring that.
+    \* Tomcat sometimes seems to fail starting. I happens when it takes more than 60 seconds. Please make sure tomcat is running and proceed to the next step.
 
 	```bash
 	$ cd ./io-vagrant-ansible
@@ -140,4 +140,3 @@ If you set up personium.io in above procedure , personium.io is constructed as b
 #### Required host machine's RAM
 
 1GB of host machine's RAM is required to run Personium.
-

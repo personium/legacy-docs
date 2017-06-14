@@ -11,18 +11,18 @@ $ git clone https://github.com/personium/personium-core.git
 ```
 #### core
 
-Run maven package, then `core/target/dc1-core.war` is created.
+Run maven package, then `core/target/personium-core.war` is created.
 
 ```bash
-$ cd ./io/core
+$ cd ./io/personium/core
 $ mvn package -DskipTests=true
 ```
 
 #### engine
 
-Run maven package, then `engine/target/dc1-engine.war` is created.
+Run maven package, then `engine/target/personium-engine.war` is created.
 
 ```bash
-$ cd ./io/engine
+$ cd ./io/personium/engine
 $ mvn package -DskipTests=true
 ```

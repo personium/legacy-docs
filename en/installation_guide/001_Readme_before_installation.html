@@ -26,8 +26,8 @@ production use.</p>
 <p>This endpoint is designed for administrative access from internal network.<br />
 (no authentication /access control) so should be hidden with reverse proxy.</p>
 <p>Below are configuration example for nginx</p>
-<pre><code>        location ~ ^/__status/?$ {
-            deny all;
+<pre><code>location ~ ^/__status/?$ {
+    deny all;
 }</code></pre>
 <h2 id="domain-and-url">Domain and URL</h2>
 <h3 id="transefer-original-request-url-and-uri-scheme">Transefer original request URL and uri scheme</h3>
@@ -40,8 +40,7 @@ production use.</p>
 Please keep domain name after you start using Personium.</p>
 <p>Use of unitlocal: scheme is recommended for future FQDN change of units.</p>
 <h3 id="personium-unit-url">Personium Unit URL</h3>
-<p>Please make sure that Personium unit URL is &quot;<a href="https://%7Bdomainname%7D/" class="uri">https://{domainname}/</a>&quot;.<br />
-(not &quot;<a href="https:/%7Bdomainname%7D/%7Bsubdir%7D/" class="uri">https:/{domainname}/{subdir}/</a>&quot;)</p>
+<p>Please make sure that Personium unit URL is &quot;https://{domainname}/&quot;. (not &quot;https://{domainname}/{subdir}/&quot;)</p>
 <p>When you need to deploy personium-core to sub-directory of the application server,<br />
 you need to rewrite URL using reverse proxy.</p>
 <h2 id="personium-engine-deployment">personium-engine deployment</h2>

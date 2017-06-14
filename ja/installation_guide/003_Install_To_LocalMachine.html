@@ -49,26 +49,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>概要</h3>
 <p>この手順では、Vagrant + Ansibleを使用して1VM上にPersoniumユニットを設定できます。<br />
 あなたのマシンに簡単にセットアップして、Personium APIを探索することができます。</p>
-<p>*この手順は、VirtualBox 4.3.20およびVagrant 1.7.2でテストされています。</p>
+<p>* この手順は、VirtualBox 4.3.20およびVagrant 1.7.2でテストされています。</p>
 <p>* [申し訳ありません、この文書は古くなっています。 アップデートを準備中です。]</p>
 <h3>セットアップ</h3>
-<p>さて、Personiumをセットアップしましょう！</p>
+<p>では、Personiumをセットアップしましょう！</p>
 <ol>
-<li><p>VirtualBoxをダウンロードしてインストールします。 （[ダウンロードページ]（<a href="https://www.virtualbox.org/wiki/Downloads" class="uri">https://www.virtualbox.org/wiki/Downloads</a>））</p></li>
-<li><p>Vagrantをダウンロードしてインストールします。 （[ダウンロードページ]（<a href="https://www.vagrantup.com/downloads" class="uri">https://www.vagrantup.com/downloads</a>））</p></li>
-</ol>
-<p>3.このリポジトリをクローンします。 （<a href="https://github.com/personium/io-vagrant-ansible.git" class="uri">https://github.com/personium/io-vagrant-ansible.git</a>）</p>
-<pre><code> \* Windowsマシンの場合、gitクライアントの設定でcore.autocrlfがfalseに設定されているので、シェルスクリプトが存在するようにしてください。</code></pre>
-<p><code>bash $ git clone https://github.com/personium/io-vagrant-ansible.git</code> ``</p>
-<p>4.クローンを作成したローカルリポジトリの下のio-vagrant-capableディレクトリに移動し、vagrantを実行します。 *このプロセスには約30分かかります。</p>
-<pre><code>\*あなたのネットワークがプロキシの下にある場合は、下記の「プロキシ環境のために」をお読みください。
-
-\* Tomcatが時折起動に失敗するようです。 60秒以上かかると起こります。 しかし、Tomcatの起動自体はできているので、次のステップに進んでください。</code></pre>
-<p><code>bash $ cd ./io-vagrant-ansible $ vagrant up</code> ``</p>
-<ol>
+<li><p>VirtualBoxをダウンロードしてインストールします。 <a href="https://www.virtualbox.org/wiki/Downloads">(ダウンロードページ)</a></p></li>
+<li><p>Vagrantをダウンロードしてインストールします。 <a href="https://www.vagrantup.com/downloads">(ダウンロードページ)</a></p></li>
+<li><p>このリポジトリをクローンします。 (<a href="https://github.com/personium/io-vagrant-ansible.git" class="uri">https://github.com/personium/io-vagrant-ansible.git</a>)</p>
+<p>* Windowsマシンの場合、gitクライアントの設定でcore.autocrlfがfalseに設定されているので、シェルスクリプトが存在するようにしてください。</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">git</span> clone https://github.com/personium/io-vagrant-ansible.git</code></pre></div></li>
+<li><p>クローンを作成したローカルリポジトリ配下のio-vagrant-capableディレクトリに移動し、vagrantを実行します。 *このプロセスには約30分かかります。</p>
+<p>*ネットワークがプロキシの下にある場合は、下記の「プロキシ環境」をお読みください。</p>
+<p>* Tomcatが時折起動に失敗するようです。 60秒以上かかると起こります。 tomcatが起動していることを確認して次のステップに進んでください。</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="bu">cd</span> ./io-vagrant-ansible
+$ <span class="ex">vagrant</span> up</code></pre></div></li>
 <li><p>Personiumユニットが起動して動作していることを確認します。</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">curl</span> -X POST <span class="st">&quot;http://localhost:1210/__ctl/Cell&quot;</span> -d <span class="st">&quot;{</span><span class="dt">\&quot;</span><span class="st">Name</span><span class="dt">\&quot;</span><span class="st">:</span><span class="dt">\&quot;</span><span class="st">sample</span><span class="dt">\&quot;</span><span class="st">}&quot;</span> -H <span class="st">&quot;Authorization:Bearer personiumio&quot;</span> -H <span class="st">&quot;Accept:application/json&quot;</span> -i -s</code></pre></div>
-<p>あなたのPersoniumユニットが正常にセットアップされた場合、以下のように201レスポンスが返され、Cellが作成されます！</p>
+<p>Personiumユニットが正常にセットアップされた場合、以下のように201レスポンスが返され、Cellが作成されます！</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">HTTP/1.1</span> 201 Created
 <span class="ex">Date</span>: Mon, 26 Jan 2015 12:32:13 GMT
 <span class="ex">Content-Type</span>: application/json
@@ -83,17 +81,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <span class="dt">{&quot;d&quot;:{&quot;results&quot;:{&quot;__metadata&quot;:{&quot;uri&quot;:&quot;http:\/\/localhost:1210\/__ctl\/Cell(&#39;sample&#39;)&quot;,&quot;etag&quot;:&quot;W\/\&quot;1-1422275532964\&quot;&quot;,&quot;type&quot;:&quot;UnitCtl.Cell&quot;},&quot;Name&quot;:&quot;sample&quot;,&quot;__published&quot;:&quot;\/Date(1422275532964)\/&quot;,&quot;__updated&quot;:&quot;\/Date(1422275532964)\/&quot;}}}</span></code></pre></div></li>
 </ol>
-<h4>プロキシ環境用</h4>
-<p>あなたは `<code>vagrant up</code>を実行する前に、</p>
+<h4>プロキシ環境</h4>
+<p><code>vagrant up</code>を実行する前に、</p>
 <ol>
-<li>_vagrant-proxyconf_プラグインをインストールします。 （<a href="http://weblabo.oscasierra.net/vagrant-proxyconf/" class="uri">http://weblabo.oscasierra.net/vagrant-proxyconf/</a>）</li>
+<li><p>vagrant-proxyconfプラグインをインストールします。 (<a href="http://weblabo.oscasierra.net/vagrant-proxyconf/" class="uri">http://weblabo.oscasierra.net/vagrant-proxyconf/</a>)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">vagrant</span> plugin install vagrant-proxyconf</code></pre></div></li>
+<li><p>Vagrantfileでプロキシ設定を有効にします。 以下は、プロキシを設定する方法の例です。</p>
+<pre class="bash:vagrantfile"><code>if Vagrant.has_plugin?(&quot;vagrant-proxyconf&quot;)
+　config.proxy.http = &quot;http://username:password@host:port/&quot;
+　config.proxy.https = &quot;http://username:password@host:port/&quot;
+　config.proxy.no_proxy = &quot;localhost,127.0.0.1&quot;
+end</code></pre></li>
+<li><p>プロキシ設定が完了したら、<code>vargrant up</code>を実行します。</p></li>
 </ol>
-<p><code>bash    $ vagrant plugin install vagrant-proxyconf</code> ``</p>
-<ol>
-<li>Vagrantfileでプロキシ設定を有効にします。 以下は、プロキシを設定する方法の例です。</li>
-</ol>
-<p><code>`bash：Vagrantfile Vagrant.has_plugin？（ &quot;vagrant-proxyconf&quot;） config.proxy.http = &quot;http：// username：password @ host：port /&quot; config.proxy.https = &quot;http：// username：password @ host：port /&quot; config.proxy.no_proxy = &quot;localhost、127.0.0.1&quot; 終わり</code> ``</p>
-<p>3.プロキシ設定が完了したら、 <code>`vargrant up</code>を実行します。</p>
 <h4>管理</h4>
 <p>手動でプロセスを開始するには、次のコマンドを使用します。</p>
 <pre><code>    sudo service elasticsearch start
@@ -102,35 +102,122 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     sudo service memcached_cache start
     sudo service nginx start
     sudo service tomcat start</code></pre>
-<h4 id="personium">あなたが設定したpersoniumの情報</h4>
+<h4 id="personium">設定したPersoniumの情報</h4>
 <p>上記の手順でPersoniumを設定すると、以下のようにPersoniumが構築されます。</p>
 <h5 id="personium">ローカルPersoniumについて</h5>
-<p>*parameters</p>
-<pre><code>|parameter    |           |
-|:------------|-----------|
-|FQDN         |localhost  |
-|PORT         |1210       |
-|UnitUserToken|personiumio|</code></pre>
-<p>*Personium modules</p>
-<pre><code>|module     |
-|:----------|
-|personium-core   |
-|personium-engine |</code></pre>
+<ul>
+<li><p>parameters</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">parameter</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">FQDN</td>
+<td>localhost</td>
+</tr>
+<tr class="even">
+<td align="left">PORT</td>
+<td>1210</td>
+</tr>
+<tr class="odd">
+<td align="left">UnitUserToken</td>
+<td>personiumio</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Personium modules</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">module</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">personium-core</td>
+</tr>
+<tr class="even">
+<td align="left">personium-engine</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
 <h5 id="osvm">OSとVM上のミドルウェアについて</h5>
-<p>*OS</p>
-<pre><code>CentOS 6.5 x86_64</code></pre>
-<p>*ミドルウェア</p>
-<pre><code>|Category       | Name           |Version       |                   |
-|:--------------|:---------------|-------------:|:------------------|
-| java          | JDK            |         8u25 | --                |
-| tomcat        | tomcat         |       8.0.14 | web               |
-|               | commons-daemon |       1.0.15 | --                |
-| nginx         | nginx          |        1.7.6 | proxy             |
-|               | Headers More   |         0.25 | --                |
-| logback       | logback        |        1.0.3 | --                |
-|               | slf4j          |        1.6.4 | --                |
-| memcached     | memcached      |       1.4.21 | cache             |
-| elasticsearch | elasticsearch  |        1.3.4 | db&amp;sarch engine   |</code></pre>
+<ul>
+<li><p>OS</p>
+<p>CentOS 6.5 x86_64</p></li>
+<li><p>ミドルウェア</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Category</th>
+<th align="left">Name</th>
+<th align="right">Version</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">java</td>
+<td align="left">JDK</td>
+<td align="right">8u25</td>
+<td align="left">--</td>
+</tr>
+<tr class="even">
+<td align="left">tomcat</td>
+<td align="left">tomcat</td>
+<td align="right">8.0.14</td>
+<td align="left">web</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">commons-daemon</td>
+<td align="right">1.0.15</td>
+<td align="left">--</td>
+</tr>
+<tr class="even">
+<td align="left">nginx</td>
+<td align="left">nginx</td>
+<td align="right">1.7.6</td>
+<td align="left">proxy</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Headers More</td>
+<td align="right">0.25</td>
+<td align="left">--</td>
+</tr>
+<tr class="even">
+<td align="left">logback</td>
+<td align="left">logback</td>
+<td align="right">1.0.3</td>
+<td align="left">--</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">slf4j</td>
+<td align="right">1.6.4</td>
+<td align="left">--</td>
+</tr>
+<tr class="even">
+<td align="left">memcached</td>
+<td align="left">memcached</td>
+<td align="right">1.4.21</td>
+<td align="left">cache</td>
+</tr>
+<tr class="odd">
+<td align="left">elasticsearch</td>
+<td align="left">elasticsearch</td>
+<td align="right">1.3.4</td>
+<td align="left">db&amp;sarch engine</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
 <h4 id="ram">必要なホストマシンのRAM</h4>
 <p>Personiumを実行するには、1GBのホストマシンのRAMが必要です。</p>
 </body>

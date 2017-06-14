@@ -7,23 +7,23 @@
 * personium-engine（https://github.com/personium/personium-engine.git）
 
 
-`` bash
+``` bash
 $ git clone https://github.com/personium/personium-core.git
-`` ``
+```
 ####コア
 
-mavenパッケージを実行すると、 `core / target / dc1-core.war`が作成されます。
+mavenパッケージを実行すると、 `core / target / personium-core.war`が作成されます。
 
 ```bash
-$ cd ./io/core
+$ cd ./io/personium/core
 $ mvn package -DskipTests=true
 ```
 
 ####エンジン
 
-mavenパッケージを実行すると、 `engine / target / dc1-engine.war`が作成されます。
+mavenパッケージを実行すると、 `engine / target / personium-engine.war`が作成されます。
 
 ```bash
-$ cd ./io/engine
+$ cd ./io/personium/engine
 $ mvn package -DskipTests=true
 ```
