@@ -10,21 +10,27 @@
 </head>
 <body>
 <h2 id="what-is-personium">What is Personium?</h2>
-<p>Personium is an open source PDS (Personal Data Store) / BaaS(Backend-as-a-Service) software, written in Java.</p>
-<h3 id="no-server-side-development-required">No Server Side Development Required</h3>
-<p>Personium provides general-purpose web API which required for application development. For example, it provides authentication/authorization, user management, file and relational data management.</p>
-<p>You can use these APIs without writing server-side code or SQL language.<br />
-What you need to do is only to install Personium on your server.</p>
-<h3 id="based-on-standard">Based on Standard</h3>
-<p>Personium's API is build on international standards.</p>
-<ul>
-<li>OAuth2.0 for Authorization</li>
-<li>WebDAV for File operation</li>
-<li>OData for relational data</li>
-</ul>
-<h3 id="scalable-infrastructure">Scalable Infrastructure</h3>
-<p>Personium adopts elasticsearch for storing data for scalability.</p>
-<h3 id="personal-data-store">Personal Data Store</h3>
-<p>Ready for Personal Data Store(PDS)</p>
+<p>Personium is open source PDS (Personal Data Store) server software.</p>
+<p><img src="image/Personium.png" title="What is Personium?" alt="What is Personium?" /></p>
+<h3 id="anyone-can-set-up-a-pds-server">Anyone can set up a PDS server</h3>
+<p>Because it is open source software, anyone, business / municipality / government / individual etc, can become a PDS provider.</p>
+<h3 id="all-functions-are-rest-api">All functions are REST API</h3>
+<p>HTTP can handle any platform (OS, development language), so you do not have to choose the client platform.</p>
+<p>The GUI as PDS is distributed, but anyone can remodel it.</p>
+<h3 id="specify-the-url-of-the-remote-pds-for-data-disclosure-sharing-setting">Specify the URL of the remote PDS for data disclosure / sharing setting</h3>
+<p>The PDS of Personium is given a URL.</p>
+<p>Data disclosure and sharing settings to other people (eg wife, family doctor, work place etc) are done by specifying the URL of the partner PDS.</p>
+<p>Others PDS access uses digital signature technology, the other party may be another server.</p>
+<p><img src="image/DisclosureData.png" title="data disclosure/sharing setting" alt="data disclosure/sharing setting" /></p>
+<p>Passive data entity：For infants, the elderly, etc., PDS can be handed over to the relatives by granting all the authority of all data to relatives etc.</p>
+<p><img src="image/PassiveDataEntity.png" title="passive data entity" alt="passive data entity" /></p>
+<h3 id="configure-web-of-pds">Configure Web of PDS</h3>
+<p>The PDS group connected by the data disclosure / disclosing constitutes a decentralized network that does not have a center that a specific business operator does not become a banker(=The only winner). (Distributed social graph)</p>
+<p>It is possible to form a huge Web of PDS in which the disparate PDSs are linked together as if the web site hosted on a web server built in pieces was linked and www was created.</p>
+<p>We also implement security that is necessary for the formation of an open ecosystem.</p>
+<h3 id="data-entity-pds-owner-can-be-expanded-to-objects-organizations-etc.-not-limited-to-people">Data entity (=PDS owner) can be expanded to objects, organizations, etc., not limited to people</h3>
+<p>Data entities can be expanded to objects, organizations, etc. in the same way as dealing with passive data subjects. (Eg, family / dog Poch's data store)</p>
+<p>It profess a model that handles IoM, IoT, and IoE integrally.(Cyber-Physical)</p>
+<p><img src="image/ExpansionDataEntity.png" title="Enhancement of data entity" alt="Enhancement of data entity" /></p>
 </body>
 </html>
