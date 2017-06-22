@@ -10,7 +10,7 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 
 # Introduction
 
-* ### [What is Personium?](https://personium.github.io/ja/overview/001_Introduction.html)
+* ### [What is Personium?](https://personium.github.io/en/overview/001_Introduction.html)
 
 # Overview
 
@@ -20,7 +20,6 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 
 
 # Guide by purpose
-Description
 
 * ### [Personium Application Developer's Guide](https://personium.github.io/en/app-developer/index.html)
   * It is a document for people who want to develop PDS applications using Personium's API
