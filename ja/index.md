@@ -30,8 +30,8 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 * ### [Personiumサーバソフトウェア運用者向けガイド](https://personium.github.io/ja/server-operator/index.html)
   * Personiumを使用したPDSサービス環境を、提供・運用したい人向けのドキュメントです
 
-* ### [Personiumサーバプラグイン開発者向けガイド](https://personium.github.io/ja/plugin -developer/index.html)
+* ### [Personiumサーバプラグイン開発者向けガイド](https://personium.github.io/ja/plugin-developer/index.html)
   * Personiumのサーバ機能を拡張するために、プラグインを開発して利用したい人向けのドキュメントです
 
-* ### [Personiumサーバ開発者向けガイド](https://personium.github.io/ja/software -developer/index.html)
+* ### [Personiumサーバ開発者向けガイド](https://personium.github.io/ja/software-developer/index.html)
   * PersoniumのOSSの機能を開発したい人、OSSにコミットしたい人向けのドキュメントです
