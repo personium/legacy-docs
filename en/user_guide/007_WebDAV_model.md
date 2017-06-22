@@ -4,7 +4,7 @@
 * Web Distributed Authoring and Versioning (WebDAV) is an extension to HTTP 1.1 that allows you to edit and manage files on remote Web servers. WebDAV supports the following features:
 
 ### Overview
-WebDAV is based on the concept of RFC4918:WebDAV, which allows to create file(s) and collections.  
+* WebDAV is based on the concept of RFC4918:WebDAV, which allows to create file(s) and collections.  
 In Personium, it is possible to create special collections (OData, Service) other than ordinary WebDAV collections, and to control collection access by ACL.
 
 ### WebDAV lock
