@@ -16,9 +16,9 @@ In Personium, it is possible to create special collections (OData, Service) othe
 
 * If the following response is returned, please make a request after a while.
 
-* Error code:503
+* Error code : 503
 
-* Error message:Too many concurrent requests.
+* Error message : Too many concurrent requests.
 
 ### Enhancing MKCOL
 * In the Personium,It supports the creation of special collections such as OData and services in compliance with RFC 5689.
