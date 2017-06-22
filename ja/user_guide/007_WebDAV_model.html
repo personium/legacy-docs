@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<h2 id="webdav-">WebDAV モデル</h2>
+<h3 id="webdav">WebDAVとは</h3>
+<ul>
+<li>WebDAVは、Webサーバに対して直接ファイルのコピーや削除を行ったり、ファイル所有者や更新日時などのファイル情報を<br />
+クライアント(Webブラウザ)から取得・設定するといった機能を持つ分散ファイルシステムで、HTTP 1.1を拡張したプロトコルで実現される。</li>
+</ul>
+<h3>概要</h3>
+<ul>
+<li>PersoniumのBoxは、それ自体がRFC4918:WebDAV空間であり、ファイルやコレクションを作成することができます。<br />
+Personiumでは、通常のWebDAVコレクション以外の特殊なコレクション（OData, Service)の作成や、ACLによるコレクションのアクセス制御が可能です。</li>
+</ul>
+<h3 id="webdav">WebDAVのロック</h3>
+<ul>
+<li><p>WebDAVはファイル・コレクションの登録・更新・削除中の状態でBox配下に排他ロックがかかります。</p></li>
+<li><p>上記状態の場合、他のユーザは取得は可能ですが、登録・更新・削除の処理はロックが解除されるまで実行を待機します。</p></li>
+<li><p>また、一定時間を超過してもロックが解消されていない場合、以下のレスポンスが返却されます。</p></li>
+<li><p>以下のレスポンスが返却された場合、しばらく時間を置いてからリクエストを実行するようにして下さい。</p></li>
+<li><p>エラーコード：503</p></li>
+<li><p>エラーメッセージ：Too many concurrent requests.</p></li>
+</ul>
+<h3 id="mkcol">MKCOLの拡張</h3>
+<ul>
+<li><p>Personiumでは、RFC5689に準拠した形で、ODataやサービス等の特殊なコレクションの作成をサポートしています。</p></li>
+<li><p>これにより、ファイル以外にも様々なデータモデルを扱うことができます</p></li>
+</ul>
+<h3>特殊コレクション</h3>
+<h4 id="odata"> ODataコレクション</h4>
+<ul>
+<li><p>Personiumでは、リレーショナルデータを扱うためにODataコレクションをサポートしています。</p></li>
+<li><p>MKCOLでBox配下にODataコレクションを作ることで、そのコレクション以下のパスはOData空間となります。<br />
+その空間にスキーマ等の適切な設定をることで、リレーショナルデータを格納することができます。</p></li>
+<li><p>詳細な内容については、ODataモデルを参照。</p></li>
+</ul>
+<h4> サービスコレクション</h4>
+<ul>
+<li><p>Personiumでは、ユーザが定義したサーバサイドロジックを実行するためのインターフェースとして、<br />
+サービスコレクションをサポートしています。</p></li>
+<li><p>MKCOLでサービスコレクションを作った上で、適切な設定を行う事によって、<br />
+そのコレクション以下のパスでユーザ定義のサービスを自由に提供することができます。</p></li>
+<li><p>詳細な内容については、サービスのモデルを参照。</p></li>
+</ul>
+</body>
+</html>
