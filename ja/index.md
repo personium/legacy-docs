@@ -2,6 +2,8 @@
 
 本ページではPersoniumのマニュアル類を公開しています。
 
+> __公開中のマニュアルはドラフト版のため随時更新されます。__
+
 ご不明な点がございましたら、[Slackコミュニティ](https://personium-io.slack.com/)までお問い合わせください。
 
 Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODgVX6eMkRDtReLg1)からどうぞ。
