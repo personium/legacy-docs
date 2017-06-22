@@ -1,1 +1,0 @@
-pandoc -s -f markdown_github  index.md  -c github.css -o index.html
