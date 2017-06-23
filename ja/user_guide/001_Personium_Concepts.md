@@ -1,4 +1,4 @@
-## Personiumの概念
+# Personiumの概念
 
 ### 国際標準に基づく設計
 
@@ -59,6 +59,7 @@ Personiumは基本となる以下の3階層で構成されています。
 
 ### Cell制御オブジェクト
 ![Cell制御オブジェクトE-R図](image/cell_ctrl_obj.png "Cell制御オブジェクトE-R図")
+
 ![セル制御オブジェクトの$link作成組み合わせ一覧](image/LinkingCellControlObjects.gif "セル制御オブジェクトの$link作成組み合わせ一覧")
 
 ### Account

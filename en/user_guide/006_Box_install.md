@@ -1,4 +1,4 @@
-## Box installation
+# Box installation
 
 ### Overview
 * A Box which is a data storage unit for each application is always created in a cell using an application,  

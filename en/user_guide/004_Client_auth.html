@@ -9,25 +9,26 @@
   <link rel="stylesheet" href="..\github.css" type="text/css" />
 </head>
 <body>
+<h1 id="client-registration-authentication">Client registration &amp; authentication</h1>
 <p>To register client, following steps are required.</p>
-<h5 id="create-a-cell-used-for-client-registration-authentication-application-cell">1. Create a cell used for client registration &amp; authentication (application cell)</h5>
+<h3 id="create-a-cell-used-for-client-registration-authentication-application-cell">1. Create a cell used for client registration &amp; authentication (application cell)</h3>
 <ul>
 <li>Create a cell.</li>
 <li>Create an account used for client authentication in the cell.</li>
 <li>If client authentication level is &quot;confidential&quot;, then create a roll which name is &quot;confidentialClient&quot; and box is &quot;__&quot; and link it to the account created.</li>
 </ul>
-<h5 id="set-client-information-and-client-authentication-requirement-level-to-the-resource.">2. Set client information and client authentication requirement level to the resource.</h5>
+<h3 id="set-client-information-and-client-authentication-requirement-level-to-the-resource.">2. Set client information and client authentication requirement level to the resource.</h3>
 <ul>
 <li>Set URL of the application cell as schema to the box which is accessed from the client.</li>
 <li>Set client authentication requirement level to the resource. More details, see client authentication requirement level.</li>
 <li>This cell can be same cell of the application cell or not.</li>
 </ul>
-<h5 id="deploy-html-file-for-implicit-grant-only">3. Deploy HTML File (For Implicit Grant Only)</h5>
+<h3 id="deploy-html-file-for-implicit-grant-only">3. Deploy HTML File (For Implicit Grant Only)</h3>
 <ul>
 <li>Deploy HTML File with embedded Javascript which returns access token to the application cell.</li>
 <li>URL of the HTML File is the &quot;Redirection URI&quot; which is used in the flow.</li>
 </ul>
-<h5 id="retrieve-client-authentication-information-when-required.">4. Retrieve client authentication information when required.</h5>
+<h3 id="retrieve-client-authentication-information-when-required.">4. Retrieve client authentication information when required.</h3>
 <ul>
 <li>Send authentication requests to the token endpoint of the application cell with created account with following.</li>
 <li>&quot;client secret&quot;, used in Resouce Owner Password Credentials Grant is the token in response body.</li>

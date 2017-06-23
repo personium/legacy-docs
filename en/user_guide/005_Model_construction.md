@@ -1,4 +1,4 @@
-## Design model
+# Design model
 
 #### Message model
 

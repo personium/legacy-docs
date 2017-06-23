@@ -1,4 +1,4 @@
-## Personiumとは何ですか？
+# Personiumとは何ですか？
 
 Personium(ペルソニアム)はオープンソースのPDS (Personal Data Store) サーバソフトウェアです。
 
