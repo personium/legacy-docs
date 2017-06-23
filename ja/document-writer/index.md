@@ -7,9 +7,8 @@ PersoniumはOSSプロジェクトであり、ドキュメントに対しても�
 > __GitHubアカウントをご用意ください__
 
 1. [GitHubリポジトリ](https://github.com/personium/personium.github.io)をForkする
-1. Local リポジトリにクローンする
-1. 
-1. markdown形式やHTMLでドキュメント を記述し、ファイルを編集する
+1. Localリポジトリにクローンする
+1. markdown形式やHTMLでドキュメントを記述し、ファイルを編集する
 1. Forkした自身のGitHubリポジトリにPushし、[親リポジトリ](https://github.com/personium/personium.github.io)に対して、Pull Requestを実施する
 
 
