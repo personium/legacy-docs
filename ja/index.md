@@ -38,6 +38,7 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 * ### [Personiumサーバ開発者向けガイド](https://personium.github.io/ja/software-developer/index.html)
   * PersoniumのOSSの機能を開発したい人、OSSにコミットしたい人向けのドキュメントです
 
+_ _ _
 Personiumプロジェクトでは、当ドキュメントに貢献してくださる方も募集中です。
 
-* ### [ドキュメント整備への参加方法](https://personium.github.io/ja/document-writer/index.html)
+### [ドキュメント整備への参加方法](https://personium.github.io/ja/document-writer/index.html)

@@ -7,140 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="ja-JP" />
 <meta name="generator" content="Adobe RoboHelp 10" />
-<title>overview</title>
-<link rel="StyleSheet" href="../../../../../default.css" type="text/css" />
-<script type="text/javascript" src="../../../../../prettify.js" language="JavaScript1.2">
-</script>
-<style type="text/css">
-/*<![CDATA[*/
-<!--
-.mainBreadCrumb a:link { color:#000000;
-background-color:transparent;
-text-decoration:none; }
-.mainBreadCrumb a:visited { color:#000000;
-background-color:transparent;
-text-decoration:none; }
-.mainBreadCrumb a:hover { color:#ff0000 ! important;
-cursor:pointer;
-text-decoration:underline; }
-p.mainBreadCrumb { margin-left:0px;
-margin-top:1px ! important; }
-h1 { padding-left:10px ! important; }
--->
-/*]]>*/
-</style>
-
-<script type="text/javascript" language="JavaScript">
-//<![CDATA[
-function reDo() {
-  if (innerWidth != origWidth || innerHeight != origHeight)
-     location.reload();
-}
-if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
-        origWidth = innerWidth;
-        origHeight = innerHeight;
-        onresize = reDo;
-}
-onerror = null; 
-//]]>
-</script>
-<style type="text/css">
-/*<![CDATA[*/
-<!--
-div.WebHelpPopupMenu { position:absolute;
-left:0px;
-top:0px;
-z-index:4;
-visibility:hidden; }
--->
-/*]]>*/
-</style>
-
-<script type="text/javascript" language="javascript1.2" src="../../../../../whmsg.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript" src="../../../../../whver.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whutils.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whproxy.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whlang.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whtopic.js" charset="utf-8">
-</script>
+<title></title>
+<link rel="StyleSheet" href="..\github.css" type="text/css" />
 </head>
 <body onload="prettyPrint()">
-<script type="text/javascript" language="javascript1.2">
-//<![CDATA[
-<!--
-if (window.gbWhTopic)
-{
-        var strUrl = document.location.href;
-        var bc = 0;
-        var n = strUrl.toLowerCase().indexOf("bc-");
-        if(n != -1)
-        {
-                document.location.href = strUrl.substring(0, n);
-                bc = strUrl.substring(n+3);
-        }
-
-        if (window.addTocInfo)
-        {
-        addAvenueInfo("認証とアクセス制御","","");
-addButton("show",BTN_TEXT,"表示","","","","",0,0,"","","");
-
-        }
-        if (window.writeBtnStyle)
-                writeBtnStyle();
-
-        if (window.writeIntopicBar)
-                writeIntopicBar(1);
-
-        
-        
-}
-else
-        if (window.gbIE4)
-                document.location.reload();
-
-onLoadHandler = function()
-{
-  if (window.setRelStartPage)
-        {
-        setTimeout("setRelStartPage('../../../../../Japanese.htm');", 1)
-
-    setTimeout("UpdateBreadCrumbsMarker();", 1);
-        }
-}
-
-if (window.addEventListener){  
-        window.addEventListener('load', onLoadHandler, false);   
-} else if (window.attachEvent){  
-        window.attachEvent('onload', onLoadHandler);  
-}
-
-function onSetStartPage()
-{
-  autoSync(1);
-  sendSyncInfo();
-  sendAveInfoOut();
-}
-//-->
-//]]>
-</script><script type="text/javascript" src="../../../../../ehlpdhtm.js" language="JavaScript1.2">
-</script>
-<div style="width: 100%; position: relative;" id="header">
-<p style="font-size: 10pt;">&#160;</p>
-</div>
-<script type="text/javascript" language="javascript">
-//<![CDATA[
-document.write("<p  class=\"mainBreadCrumb\"  style=\"text-align:left;\" class=\"breadcrumbs\">");
-AddMasterBreadcrumbs("../../../../../Japanese.htm", "breadcrumbs", " &gt; ", "トップ", "../../../HomePage.htm");
-document.write("overview<\/p>");
-//]]>
-</script>
-<hr style="border-left-width: 0px; margin-left: -6px;" size="1" width="101%" align="center" />
-<form><input type="image" value="Print" onclick="window.print();return false" name="Printer.png" src="../../../../../Images/Printer.png" style="width: 16px; height: 16px; float: right; margin-top: -32px; margin-right: 2px;" /></form>
 <h1>アクセス制御モデル</h1>
 <h2><span lang="JA" xml:lang="JA" style="line-height: 115%; mso-ascii-font-family: Arial; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA; font-weight: bold; font-family: 'MS Gothic';">概要</span></h2>
 <p class="Paragraph">ACLによるアクセス主体へアクセス制御 は WebDAV ACL をロールベースアクセスコントロールに応用したもので行なっている。</p>
@@ -152,9 +22,10 @@ document.write("overview<\/p>");
 <p class="Paragraph">CellやBox・コレクション等にACLメソッドでACL設定をすることで、そのリソースへのアクセス権限を設定出来る。</p>
 <p class="Paragraph">基本的にはWebDAV ACLの仕様に準じるが、このページではPersonium独自の仕様について説明を行う。</p>
 <p class="Paragraph">ACL設定内容はXMLで定義する。</p>
-<h3>PersoniumにおけるACL構成要素</h3>
-<p class="Paragraph" style="text-indent: 5px;">PersoniumのACLは、以下の要素で構成される。</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="31.565%">
+<ul>
+<li><h3>PersoniumにおけるACL構成要素</h3></li>
+<li><p class="Paragraph">PersoniumのACLは、以下の要素で構成される。</p></li>
+<li><table cellspacing="0" width="31.565%">
 <col style="width: 38.534%;" />
 <col style="width: 61.466%;" />
 <tr>
@@ -197,7 +68,7 @@ document.write("overview<\/p>");
 <p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">権限設定を定義する</p>
 </td>
 </tr>
-</table>
+</table></li>
 <h3>制限事項</h3>
 <p class="Paragraph">PersoniumV1系では、以下のような制限事項がある。</p>
 <p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>ACLは既存設定を上書きする形で更新される</p>
@@ -247,16 +118,18 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </td>
 </tr>
 </table>
+</ul>
 <h2>ace</h2>
 <p class="Paragraph">対象となるアクセス主体はPrincipal要素、権限付与はgrant要素で定義する。ace要素は複数設定が出来る。</p>
-<h2>Principal</h2>
+<ul>
+<li><h3>Principal</h3></li>
 <p class="Paragraph">Principalは、WebDAV ACLには「human or computational actor」とあるが、Personiumではロールであると定義する。</p>
 <p class="Paragraph">PersoniumのロールはWebDAV ACLにおける「Group」に近い概念となる。</p>
 <h3>(1)all</h3>
 <p class="Paragraph">WebDAV ACLに定義されている通り、pricipalにall要素を設定すると権限付与設定を、<br />
 全てのロールや認証されていないアクセス主体（Authorizationヘッダーなし）にも定義することができる。</p>
 <p class="Paragraph">リソースへの全てのアクセス主体に対する権限となるため、利用する場合には注意が必要。</p>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -272,7 +145,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 <p class="Paragraph" style="color: 透明; font-weight: bold;">&#160;</p>
 <h4>設定例</h4>
 <p class="Paragraph2">全てのアクセス主体にread権限を付与する。</p>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -299,7 +172,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 <h4>設定例</h4>
 <p class="Paragraph2" style="text-decoration: underline;">・Principalに設定するロールリソースURLを全て記述する</p>
 <p class="Paragraph2">（box1に紐付くdoctorにreadとwriteの権限を与え、box2に紐付くguestにはreadのみを与える場合の例）</p>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -331,7 +204,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 <p class="Paragraph2" style="text-decoration: underline;">・xml:baseによる記述の省略</p>
 <p class="Paragraph2" style="text-decoration: none;">acl要素のxml:base属性にボックスまでのロールリソースURLを記述することで、Principalに設定するロールリソースURLの記述を省略することができます。</p>
 <p class="Paragraph2">（box1に紐付くdoctorにreadとwriteの権限を与え、box2に紐付くguestにはreadのみを与える場合の例）</p>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -360,17 +233,21 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </tr>
 </table>
 <p class="Paragraph2">※guestの様に、xml:baseのボックスと異なるボックスに紐付くロールを設定する場合、上記の様に相対パスを使った記述を行う事が出来る。</p>
-<h5>PROPFINDでの出力</h5>
+<h4>PROPFINDでの出力</h4>
 <p class="Paragraph2" style="text-decoration: none;">ACL設定をPROPFINDで出力した際、xml:base属性は以下の様に出力されます。</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span><span style="text-decoration: none;">セルへのPROPFINDの場合、メインボックスのURL</span></p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>Box配下へのPROPFINDの場合、そのBoxまでのURL</p>
+<ul>
+<li><p class="Paragraph">セルへのPROPFINDの場合、メインボックスのURL</p></li>
+<li><p class="Paragraph">Box配下へのPROPFINDの場合、そのBoxまでのURL</p></li>
+</ul>
+</ul>
 <h2>grant/Privilege</h2>
 <p class="Paragraph2" style="text-decoration: none;">権限はPersoniumが定義した要素で設定し、grant要素内のPrivilege要素に囲んで設定する。<br />
 また、grant要素の中にはPrivilege要素を複数指定することが出来る。</p>
-<h3>セルレベルACL Privilege</h3>
+<ul>
+<li><h3>セルレベルACL Privilege</h3>
 <p class="Paragraph2">設定したセルに対して、セル制御オブジェクトの実行権限やメソッドの実行権限を指定する。<br />
 上位に位置する権限が設定されている場合、下位に属する権限を有する。(例:messageは、message-readの権限も有する)</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="96%">
+<table cellspacing="0" width="96%">
 <col style="width: 17.486%;" />
 <col style="width: 31.454%;" />
 <col style="width: 26.227%;" />
@@ -643,7 +520,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </tr>
 </table>
 <h4 class="Paragraph2">設定例</h4>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -682,7 +559,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 <p class="Paragraph2">設定したボックス以下のリソースに対して、メソッドの実行権限を指定する。<br />
 ボックスレベルPrivilegeは基本的にWebDAV ACLに沿って定義されている。<br />
 上位に位置する権限が設定されている場合、下位に属する権限を有する。(例：readは、read-propertiesの権限も有する)</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="96%">
+<table cellspacing="0" width="96%">
 <col style="width: 17.486%;" />
 <col style="width: 31.454%;" />
 <col style="width: 26.227%;" />
@@ -858,7 +735,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </table>
 <p class="Paragraph2">&#160;</p>
 <h4 class="Paragraph2">設定例</h4>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -892,10 +769,12 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 セルまで遡って適用されます。<br />
 アクセス主体に対するACL設定は、親の設定が追加される形で継承されます。<br />
 よって、ACLの設定時には以下の点に注意が必要です。</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>親にall等の強い権限を設定している場合、子に制限をかけても無効となる</p>
+<ul>
+<li><p class="Paragraph">親にall等の強い権限を設定している場合、子に制限をかけても無効となる</p></li>
+</ul>
 <h4>ACLの継承と適応される権限の例</h4>
 <p class="Paragraph2">リソース例</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -968,7 +847,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </table>
 <p class="Paragraph2">&#160;</p>
 <p class="Paragraph2">上記のリソースに下記のACL設定を行った上で、各リソースへのアクセス時に適用される権限は以下のとおり。</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -1040,13 +919,15 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </tr>
 </table>
 <p class="Paragraph2">&#160;</p>
-<h2><a name="スキーマ権限要求レベル">スキーマ権限要求レベル</a></h2>
+</li></ul>
+<h2>スキーマ権限要求レベル</h2>
 <p class="Paragraph2">スキーマ権限要求レベルによるアプリケーションへのアクセス制御 は、</p>
 <p class="Paragraph2">ACL設定時にACL要素の RequireSchemaAuthz 属性で要求レベルの設定を行う。</p>
 <p class="Paragraph2">スキーマ認証の仕様については、認証モデルの「スキーマ認証（アプリ認証）」を参照。</p>
+<ul><li>
 <h3>設定値</h3>
 <p class="Paragraph2">スキーマ権限要求レベル値</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="31.565%">
+<table cellspacing="0" width="31.565%">
 <col style="width: 38.534%;" />
 <col style="width: 61.466%;" />
 <tr>
@@ -1085,7 +966,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 <p class="Paragraph2">&#160;</p>
 <h4 class="Paragraph2">設定例</h4>
 <p class="Paragraph2">スキーマ権限要求レベル設定ACLのサンプル</p>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -1109,14 +990,16 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 <h3>スキーマ権限要求レベルの設定の継承</h3>
 <p class="Paragraph2">スキーマ権限要求レベル設定は、アクセスしたリソースに設定がされていない場合のみ、<br />
 アクセスしたリソースの親（上位のディレクトリ）の設定をボックスまで遡って適用されます。</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>スキーマ権限要求レベルが未設定の場合、 none として扱われるが、明示的に none が設定されている場合、継承は行われない。</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>継承はBoxまで遡って確認されるが、途中のリソースにスキーマレベル設定が行われていた時点で、その設定値が有効となる。</p>
+<ul>
+<li><p class="Paragraph">スキーマ権限要求レベルが未設定の場合、 none として扱われるが、明示的に none が設定されている場合、継承は行われない。</p></li>
+<li><p class="Paragraph">継承はBoxまで遡って確認されるが、途中のリソースにスキーマレベル設定が行われていた時点で、その設定値が有効となる。</p></li>
+</ul>
 <p class="Paragraph2">&#160;</p>
 <h4 class="Paragraph2">スキーマ権限要求レベルの継承と適応される権限の例</h4>
 <p class="Paragraph2">上記のリソースに下記のスキーマ権限要求レベル設定を行った上で、各リソースへのアクセス時に適用される<br />
 スキーマ権限要求レベルは以下のとおり。</p>
 <p class="Paragraph2">リソース例</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -1189,7 +1072,7 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </table>
 <p class="Paragraph2">&#160;</p>
 <p class="Paragraph2">上記のリソースに下記のACL設定を行った上で、各リソースへのアクセス時に適用される権限は以下のとおり。</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -1249,22 +1132,5 @@ WebDAVコレクション配下のディレクトリ・ファイル</p>
 </td>
 </tr>
 </table>
-<p class="Paragraph2">&#160;</p>
-<p class="Paragraph2">&#160;</p>
-<br />
-<div style="border-top: Solid 3px #3a3a3a; width: 100%; position: relative; padding-top: 2px; padding-bottom: 2px; padding-right: 5px; background-color: #9b9b9b;" id="footer">
-<h6 style="text-align: right; margin-top: 5pt; margin-bottom: 5pt;">Copyright 2014 &#160;FUJITSU LIMITED</h6>
-</div>
-<script type="text/javascript" language="javascript1.2">
-//<![CDATA[
-<!--
-if (window.writeIntopicBar)
-        writeIntopicBar(0);
-
-
-highlightSearch();
-//-->
-//]]>
-</script>
 </body>
 </html>
