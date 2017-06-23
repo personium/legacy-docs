@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<h2 id="box-installation">Box installation</h2>
+<h3 id="overview">Overview</h3>
+<ul>
+<li><p>A Box which is a data storage unit for each application is always created in a cell using an application,<br />
+All the data structures for making applications such as webDAV and OData's Scheme behave should be the same.</p></li>
+<li><p>In order to create Box and resources under it, it can be realized by running individual APIs,<br />
+Since it is inefficient to execute all the existing APIs in order to create resources of the same structure in a plurality of cells,<br />
+To create a new Box which is a data storage unit for each application, use the &quot;box installation&quot; function.</p></li>
+<li><p><img src="image/box_install_en.png" title="Box installation" alt="Box installation" /></p></li>
+</ul>
+<h3 id="bar-file">Bar file</h3>
+<ul>
+<li><p>The bar file means &quot;box archive file&quot; and refers to an archive file that organizes the contents of Box.</p></li>
+<li><p>The file format is zip format, the hierarchical structure in the folder represents the hierarchical structure of the webDAV collection,<br />
+By storing the file for each hierarchy, it holds the file to be stored in webDAV.<br />
+For the Scheme information of OData, define the structure with &quot;edmx.xml&quot;.</p></li>
+<li><p>See <a href="https://personium.github.io/en/apiref/1.5.2/301_Bar_File.html">Bar file</a> for details.</p></li>
+</ul>
+<h3 id="runtime-flow">Runtime flow</h3>
+<ul>
+<li>Box Running the installation API</li>
+<li>    ↓</li>
+<li>Create Box</li>
+<li>    ↓</li>
+<li>Confirm that there is already a Box with the same schema or name in the target cell → If it exists 409 Error</li>
+<li>    ↓</li>
+<li>Create directory / file under Box</li>
+<li>    ↓</li>
+<li>Create OData collection and underlying OData resource</li>
+<li>    ↓</li>
+<li>Store user data</li>
+<li>    ↓</li>
+<li>Create Role/ExtRole</li>
+<li>    ↓</li>
+<li><p>Access right (ACL) setting for each created directory</p></li>
+<li><p><u>Abnormal termination</u><br />
+If an error occurs due to the check of the Bar file before creation of the Box and the process ends abnormally, the Box installation will be terminated as it is.<br />
+For the reasons and causes of abnormal termination, execute the &quot;Box metadata acquisition API&quot; and &quot;Log file acquisition API&quot; described later to check the contents.</p></li>
+</ul>
+<h3 id="confirm-progress">Confirm progress</h3>
+<ul>
+<li><p>Unlike other APIs, installing sometimes creates various resources during processing during installation,<br />
+Processing takes time from receipt of processing to completion of registration.</p></li>
+<li><p>To check the progress of the process, use <a href="https://personium.github.io/en/apiref/1.5.2/303_Progress_of_Bar_File_Installation.html">Box metadata acquisition</a>.</p></li>
+<li><h5 id="condition-check-by-acquiring-box-metadata">Condition check by acquiring Box metadata</h5>
+<ul>
+<li><p>In order to execute the Box metadata acquisition API, you need &quot;box&quot; authority of box level ACLPrivilege.</p></li>
+<li><p>Therefore, in the ACL setting in the bar file, it is necessary to make settings to give &quot;box&quot; of box level ACLPrivilege to the role of the account using the box installation status confirmation API.</p></li>
+</ul></li>
+<li><h5 id="response-of-box-metadata-acquisition-api">Response of Box metadata acquisition API</h5>
+<ul>
+<li>There are three ways to execute the Box installation that can be acquired with the Box metadata acquisition API.</li>
+</ul></li>
+<li><p>1.Completion of Box installation (Including creation completed with normal Box registration API)</p>
+<pre><code>&quot;status&quot;: &quot;ready&quot;</code></pre></li>
+<li><p>2.Completion of Box installation (Including creation completed with normal Box registration API)</p>
+<pre><code>&quot;status&quot;: &quot;installation in progress&quot;</code></pre></li>
+<li><p>3.Box installation abnormal termination</p>
+<pre><code>&quot;status&quot;: &quot;installation failed&quot;</code></pre></li>
+<li><p>3.For Box installation abnormal termination, it is overwritten to 1 72 hours after abnormal termination.<br />
+For details of the reason for failure, please check with the log acquisition API described later.</p></li>
+</ul>
+<h3 id="confirm-processing-result">Confirm processing result</h3>
+<ul>
+<li>Box Installation processing contents are output as a log to the EventBus of Cell to which box installation target Box belongs.<br />
+To refer to that log, use <a href="https://personium.github.io/en/apiref/1.5.2/285_Retrieve_Log_File.html">Log file acquisition API</a> to refer to it.<br />
+Also, in order to use the above API, &quot;log - read&quot; authority is required.</li>
+</ul>
+</body>
+</html>

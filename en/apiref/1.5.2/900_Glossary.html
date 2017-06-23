@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1>Glossary</h1>
+<h5 id="a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z"><a href="#anc_a">A</a> | <a href="#anc_b">B</a> | <a href="#anc_c">C</a> | <a href="#anc_d">D</a> | <a href="#anc_e">E</a> | <a href="#anc_f">F</a> | <a href="#anc_g">G</a> | <a href="#anc_h">H</a> | <a href="#anc_i">I</a> | <a href="#anc_j">J</a> | <a href="#anc_k">K</a> | <a href="#anc_l">L</a> | <a href="#anc_m">M</a> | <a href="#anc_n">N</a> | <a href="#anc_o">O</a> | <a href="#anc_p">P</a> | <a href="#anc_q">Q</a> | <a href="#anc_r">R</a> | <a href="#anc_s">S</a> | <a href="#anc_t">T</a> | <a href="#anc_u">U</a> | <a href="#anc_v">V</a> | <a href="#anc_w">W</a> | <a href="#anc_x">X</a> | <a href="#anc_y">Y</a> | <a href="#anc_z">Z</a></h5>
+<h5 id="a"><a name="anc_a"> A</a></h5>
+<h6 id="acl">ACL</h6>
+<p>[General] An abbreviation of &quot;Access Control List&quot;. <br />It defines which users are authorized to access and which control instructions are permitted to be used depending on the privileges granted to objects. <br />(Example: Read: Read permissions, Write: Edit permissions, Read/Write: Read/Edit permissions)</p>
+<h6 id="account">Account</h6>
+<p>[Personium] Refers to a user belonging to a specific cell. It is retained using the account name and password information. Multiple accounts can be registered for one cell. <br />For details, refer to Cell Control Object.</p>
+<h6 id="association">Association</h6>
+<p>[OData] Shows the relationship between two or more EntityTypes (RDB tables). It is defined by a pair of AssociationEnds and $links in between. <br />Associations are categorized into &quot;one-to-one&quot;, &quot;one-to-many&quot;, and &quot;many-to-many&quot;. For details, refer to User OData Model.</p>
+<h6 id="associationend">AssociationEnd</h6>
+<p>[OData] Defines the EntityType that is the association end point. An association is defined by a pair of AssociationEnds and $links in between. <br />For details, refer to User OData Model.</p>
+<h6 id="authentication">Authentication</h6>
+<p>[General] Authentication. For the account authentication of Personium, the method that performs authentication based on the created account name and password to acquire tokens has been adopted. <br />For details, refer to Certification Model.</p>
+<h5 id="b"><a name="anc_b"> B</a></h5>
+<h6 id="bar-">bar file</h6>
+<p>[Personium] An abbreviation of &quot;box archive file&quot;. This archive file is a compilation of box structure details. <br />The hierarchical structure in the folder represents the hierarchical structure of WebDAV collections, and the files stored in WebDAV are retained by storing files at these hierarchical levels. <br />For details, refer to <a href="301_Bar_File.html">bar File</a>.</p>
+<h6 id="box">Box</h6>
+<p>[Personium] The area that stores data used for the application. It is also a WebDAV collection. It has a unique name and schema URL. One box is initially retained in a cell (the main box) even before boxes are created, but it cannot be deleted. For details, refer to Cell Control Object.</p>
+<h6 id="box-">Box installation</h6>
+<p>[Personium] To create a box using the bar file. For details, refer to the <a href="302_Box_Installation.html">Box Installation</a> API.</p>
+<h6 id="box--acl">Box level ACL</h6>
+<p>[Personium] The ACL for resources under the box. For details, refer to <a href="AccessControlOverview.htm">Access Control Model</a>.</p>
+<h5 id="c"><a name="anc_c"> C</a></h5>
+<h6 id="cell">Cell</h6>
+<p>[Personium] The alias of &quot;Personium&quot;. This is the data area that becomes the center of data and application sharing.</p>
+<h6 id="cell">Cell control object</h6>
+<p>[Personium] The definition structure that defines each function of a cell, including Role, Account, Box, ExtCell, and ExtRole. Refer to Cell Control Object.</p>
+<h6 id="cell--acl">Cell level ACL</h6>
+<p>[Personium] The ACL for a cell, excluding box level access privileges. For details, refer to Certification Model.</p>
+<h6 id="cell-manager">Cell Manager</h6>
+<p>[Personium] The cell administrator with access privileges and operation privileges for that cell.</p>
+<h6 id="cell-profile">Cell Profile</h6>
+<p>[Personium Portal] The item that shows the cell name, image, and other cell information within the Personium portal.</p>
+<h6 id="collection-">Collection</h6>
+<p>[WebDAV] Denotes a collection of data stored in a box in the cell. There are three types including &quot;WebDAV&quot;, &quot;OData Service Collection&quot;, and &quot;Engine Service Collection&quot;.</p>
+<h6 id="complextype">ComplexType</h6>
+<p>[OData] The property that has an attribute accompanied by lower attributes. The item name is ComplexTypeProperty. <br />(For example, if &quot;Address&quot; is a ComplexType, possible attributes could be Street 1, Street 2, Country, Zip code, Prefecture, City/town/village, etc.)</p>
+<h6 id="complextypeproperty">ComplexTypeProperty</h6>
+<p>[OData] The name of lower attributes of a ComplexType. For example, if ComplexType is &quot;Address&quot;, possible attributes could be Street 1, Street 2, Country, Zip code, Prefecture, City/town/village, etc.</p>
+<h6 id="cors">CORS</h6>
+<p>[General] An abbreviation of &quot;Cross-Origin Resource Sharing&quot;. JavaScript shall permit XMLHttpRequest for other domains in the Web page. Refer to <a href="002_CORS_Support.html">CORS Support</a>. <br />(For details, refer to <a href="http://www.w3.org/TR/cors/">External Site</a>)</p>
+<h6 id="cross-domain-access-control">Cross Domain Access Control</h6>
+<p>[General] Access control for servers that have different domains. In Personium, the <a href="001_Cross_Domain_Policy_File.html">Cross Domain Access Policy File</a> based on XMLHttpRequest Level2 is used for control.</p>
+<h5 id="d"><a name="anc_d"> D</a></h5>
+<h5 id="e"><a name="anc_e"> E</a></h5>
+<h6 id="engine-service-collection">Engine Service Collection</h6>
+<p>[WebDAV] A special collection for the user to register new logic on the server side. For details, refer to <a href="379_Engine_Service_Collection_APIs.html">Engine Service Collection</a>.</p>
+<h6 id="entity">Entity</h6>
+<p>[OData] The recording structure of data, which corresponds to one row of an RDB table. For example, it represents a row of information such as Name, Address, and Sex.</p>
+<h6 id="entitytype">EntityType</h6>
+<p>[OData] The definition structure for representing data structure as an Entity Data Model (EDM). EntityTypes represent broader concepts (such as customers and order details)</p>
+<h6 id="environment">Environment</h6>
+<p>[Personium Portal] A term within the Personium portal. A collection of cells assembled for the user with administrative privileges to comprehensively manage those cells. Refer to Personium Data Structure.</p>
+<h6 id="etag">ETag</h6>
+<p>[Personium] Refers to the Entity Tag. It is possible to send requests depending on the client status using unique identifiers used for Web cache verification. <br />This makes use of the cache more effective and secures bandwidth when it is not necessary to return all responses in a situation where contents are not updated.</p>
+<h6 id="event">Event</h6>
+<p>[Personium] An instance that occurs inside or outside Personium. For details, refer to <a href="277_Event_Summary.html">Event Overview</a>.</p>
+<h6 id="eventlog">EventLog</h6>
+<p>[Personium] External and internal event occurrence logs. These can be acquired using the <a href="285_Retrieve_Log_File.html">Log Acquisition API</a>.</p>
+<h6 id="expand-">$expand query</h6>
+<p>[OData] One of the supported OData queries. This query is for acquiring specified relation information simultaneously by addition to a data acquisition request. (<a href="405_Expand_Query.html">Details</a>)</p>
+<h6 id="external-cell">External Cell</h6>
+<p>[Personium] An external cell. It is one of the cell control objects. It is a cell outside a cell. Cells of all units can be handled as external cells. For details, refer to Cell Control Object.</p>
+<h6 id="external-role">External Role</h6>
+<p>[Personium] An external role. It is one of the cell control objects (ExtRole). It represents a user entity to which a specific role has been granted in an external cell that has a specific relationship. For details, refer to Cell Control Object.</p>
+<h5 id="f"><a name="anc_f"> F</a></h5>
+<h6 id="filter-">$filter query</h6>
+<p>[OData] One of the supported OData queries. This query is for refining data by specifying search conditions. (<a href="403_Filter_Query.html">Details</a>)</p>
+<h6 id="format-">$format query</h6>
+<p>[OData] One of the supported OData queries. This query is for specifying the media type in the HTTP response. (<a href="404_Format_Query.html">Details</a>)</p>
+<h6 id="unitfqdn">UnitFQDN</h6>
+<p>[General] An abbreviation of &quot;Fully Qualified Domain Name&quot;. <br />This represents the complete domain name that defines a specific computer or host on the Internet (for example, host-name.domain-name.com)</p>
+<h6 id="full-text-search-query">Full-Text Search Query</h6>
+<p>[OData] The query for performing a search that compares every word in the entire data included in the EntityType by adding q=&quot;Search word&quot; to a request. (<a href="408_Full_Text_Search_Query.html">Details</a>)</p>
+<h5 id="g"><a name="anc_g"> G</a></h5>
+<h5 id="h"><a name="anc_h"> H</a></h5>
+<h5 id="i"><a name="anc_i"> I</a></h5>
+<h6 id="implicit-flow">Implicit Flow</h6>
+<p>[OAuth2.0] One of the permitting flows defined in <a href="http://tools.ietf.org/pdf/rfc6749.pdf">OAuth 2.0</a>. Clients directly receive access tokens as substitutes for permission codes (resource owner permission results). <br />For details, refer to <a href="http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#grant-implicit">External Site</a>.</p>
+<h6 id="inlinecount-">$inlinecount query</h6>
+<p>[OData] One of the supported OData queries. This query is for displaying the count of entities in the collection. (<a href="407_Inlinecount_Query.html">Details</a>)</p>
+<h5 id="j"><a name="anc_j"> J</a></h5>
+<h5 id="k"><a name="anc_k"> K</a></h5>
+<h5 id="l"><a name="anc_l"> L</a></h5>
+<h5 id="m"><a name="anc_m"> M</a></h5>
+<h6 id="main-box">Main Box</h6>
+<p>[Personium] The box named &quot;__&quot; (two underscores) created by default during cell creation. Its behavior is similar to that of normal boxes but this box is undeletable. <br />It is used not only for application data storage but also for the storage of information (json format) specific to that cell.</p>
+<h6 id="message">Message</h6>
+<p>[Personium] The function that sends and receives messages between cells in Personium. It can transmit and receive arbitrary messages of users and issue relationships ($links) between cells. For details, refer to Message Model.</p>
+<h6 id="multiplicity">Multiplicity</h6>
+<p>[OData] Multiplicity. The related EntityType count when AssociationEnd is created. <br />The notation of AssociationEnd multiplicity is one of &quot;1&quot;, &quot;0..1&quot; (0 or 1), and &quot;*&quot; (many) with respect to the relationship between two EntityTypes.</p>
+<h5 id="n"><a name="anc_n"> N</a></h5>
+<h6 id="navigationproperty">NavigationProperty</h6>
+<p>[General] The property that represents the navigation from one end to the other end of an association in the Entity Data Model or OData data structure.</p>
+<h5 id="o"><a name="anc_o"> O</a></h5>
+<h6 id="odata">OData</h6>
+<p>[General] An abbreviation of &quot;Open Data Protocol&quot;. It is one of the collections (a data set stored in a box). This is the standard data access protocol conforming to HTML and enables CRUD access to data resources. <br />For details on OData, click <a href="http://www.odata.org/">here</a>.</p>
+<h6 id="odata-service-collection">OData Service Collection</h6>
+<p>[WebDAV] A special collection for the user to operate OData. Refer to User OData Model.</p>
+<h6 id="orderby-">$orderby query</h6>
+<p>[OData] One of the supported OData queries. The values are displayed sorted in the order specified by the user. The default is ascending order. (<a href="400_Orderby_Query.html">Details</a>)</p>
+<h5 id="p"><a name="anc_p"> P</a></h5>
+<h6 id="property">Property</h6>
+<p>[OData] The column head value of each EntityType. For example, if the EntityType is &quot;Customer&quot;, possible properties could be &quot;ID&quot;, &quot;Name&quot;, and &quot;Address&quot;.</p>
+<h6 id="privilege">Privilege</h6>
+<p>[General] Privileges granted to the roles defined in the cell to access data in the box associated with specific roles. <br />Privileges are defined in ACL configuration in Personium. For details, refer to <a href="AccessControlOverview.htm">Access Control Model</a>.</p>
+<h5 id="q"><a name="anc_q"> Q</a></h5>
+<h5 id="r"><a name="anc_r"> R</a></h5>
+<h6 id="rbac">RBAC</h6>
+<p>[General] An abbreviation of &quot;role-based access control&quot;. It involves defining roles for various accounts and configuring access control based on roles.</p>
+<h6 id="receivedmessage">ReceivedMessage</h6>
+<p>[Personium] The definition structure that receives relation issue requests and messages from a specific cell. For details, refer to Message Model.</p>
+<h6 id="refresh">Refresh token</h6>
+<p>[Personium] The token used for reissuing access tokens. The refresh token is valid for 24 hours. For details, refer to Certification Model.</p>
+<h6 id="refresh-">Refresh token authentication</h6>
+<p>[Personium] The process that reissues access tokens. For details, refer to Certification Model.</p>
+<h6 id="relation">Relation</h6>
+<p>[Personium] The definition structure that shows the relation between the cell and an external cell. Relations can be established with external cells belonging to the same or a different unit. <br />Relations are always associated with the box to make them cell-specific. Refer to Cell Control Object.</p>
+<h6 id="relation--url">Relation class URL</h6>
+<p>[Personium] The URL of a related resource defined as an application. The relation class URL structure is as follows:<br /> ${Schema URL}/<em>_relation/_</em>/${RelationName}</p>
+<h6 id="relation--url">Relation instance URL</h6>
+<p>[Personium] The URL of a specific relation with respect to which a request is sent to one or more external cells. <br />The relation instance URL structure is as follows:<br /> ${Cell URL}/__relation/${BoxName}/${RelationName}</p>
+<h6 id="requireschemaauthz">RequireSchemaAuthz</h6>
+<p>[WebDAV] The attribute value of an ACL element that defines the request level for box schema privileges.</p>
+<h6 id="resourcetype">resourcetype</h6>
+<p>[WebDAV] Represents the collection type. ODataCollection/ServiceCollection/DavCollection/file etc.</p>
+<h6 id="role">Role</h6>
+<p>[Personium] One of the cell control objects. This represents the &quot;role&quot; defined for all cells. (Examples: administrator, teacher, student)<br /> As it is possible to specify which accounts (users) can access the cell, the settings that define the account ownership of the cell can be created with different access privileges. <br />Refer to Cell Control Object.</p>
+<h6 id="role--url">Role class URL</h6>
+<p>[Personium] The URL of the role for storage inside the trans-cell token. The role class URL structure is as follows:<br /> ${schema URL}/_<em>role/_</em>/${RoleName}</p>
+<h6 id="role--url">Role instance URL</h6>
+<p>[Personium] The URL that provides the current status of the role registered with a specific cell. It is the same as the role resource URL. The Schema is as follows:<br /> ${Cell URL}/__role/${BoxName}/${RoleName}</p>
+<h6 id="ropc">ROPC</h6>
+<p>[OAuth2.0] An abbreviation of &quot;Resource Owner Password Credentials&quot;. It is one of the permitting processes defined in <a href="http://tools.ietf.org/pdf/rfc6749.pdf">OAuth 2.0</a>. For details, refer to <a href="http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#anchor7">External Site</a>.</p>
+<h5 id="s"><a name="anc_s"> S</a></h5>
+<h6 id="schema-urlurl">Schema URL</h6>
+<p>[Personium] The URL that represents the schema stored in Personium.</p>
+<h6 id="select-">$select query</h6>
+<p>[OData] One of the supported OData queries. This query is for specifying and acquiring only a specific property during data acquisition. Multiple properties can also be specified. (<a href="406_Select_Query.html">Details</a>)</p>
+<h6 id="sentmessage">SentMessage</h6>
+<p>[Personium] The definition structure that transmits messages for relation setting approval and normal messages for a target cell. For details, refer to Message Model.</p>
+<h6 id="service-collection-">Service Collection</h6>
+<p>[WebDAV] One of the collections (a data set stored in a box). This is a collection of services to execute user-defined server-side logic. <br />There are Engine Service Collection and OData Service Collection.</p>
+<h6 id="service-">Service registration</h6>
+<p>[WebDAV] To register user-defined server-side logic in a collection.</p>
+<h6 id="skip-">$skip query</h6>
+<p>[OData] One of the supported OData queries. This query is for extracting data excluding the specified count from the display among acquired data. (<a href="402_Skip_Query.html">Details</a>)</p>
+<h5 id="t"><a name="anc_t"> T</a></h5>
+<h6 id="token-">Token</h6>
+<p>[General] A random string used mainly for user authentication. Tokens are used for access to stored data and resources in Personium. A token is described in the CURL requested by a client. <br />There are the following types in Personium, and the tokens are changed an hour after issuing. <br />(1) Cell local token: Used for the access to resources in the authenticated cell<br /> (2) Trans-cell token: Used for the access to resources in a cell authenticated by another cell<br /> For details, refer to Certification Model.</p>
+<h6 id="token-">Token authentication</h6>
+<p>[General] One of authentication processes. The method for authentication using the access token described in the CURL requested by a client. For details, refer to Certification Model.</p>
+<h6 id="top-">$top query</h6>
+<p>[OData] One of the supported OData queries. This specifies the maximum number of acquired data records and returns data for that count. Extracted data is counted from the beginning in the set. (<a href="401_Top_Query.html">Details</a>)</p>
+<h5 id="u"><a name="anc_u"> U</a></h5>
+<h6 id="unit">Unit</h6>
+<p>[Personium] The data area composed of multiple cells on the Personium platform server. It has a fully qualified domain name (UnitFQDN) that is referred to as the absolute domain name.</p>
+<h6 id="unit">Unit control object</h6>
+<p>[Personium] A group of objects for creating and managing cells as the unit user (administrator).</p>
+<h6 id="unit-user">Unit User</h6>
+<p>[Personium] Unit administrator user. This user has CRUD (Create/Read/Update/Delete) privileges within the unit.</p>
+<h5 id="v"><a name="anc_v"> V</a></h5>
+<h5 id="w"><a name="anc_w"> W</a></h5>
+<h6 id="webdav">WebDAV</h6>
+<p>[General] An abbreviation of &quot;Web-based Distributed Authoring and Versioning&quot;. This is the protocol for various users to co-write documents and files on the Web server; it is an extension of HTTP. <br />On the Personium portal, WebDAV collections are files and folders, and CRUD functions are used. <br />Refer to <a href="http://www.webdav.org/">WebDAV Resources</a>.</p>
+<h5 id="x"><a name="anc_x"> X</a></h5>
+<h5 id="y"><a name="anc_y"> Y</a></h5>
+<h5 id="z"><a name="anc_z"> Z</a></h5>
+<h5 id="a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z-1"><a href="#anc_a">A</a> | <a href="#anc_b">B</a> | <a href="#anc_c">C</a> | <a href="#anc_d">D</a> | <a href="#anc_e">E</a> | <a href="#anc_f">F</a> | <a href="#anc_g">G</a> | <a href="#anc_h">H</a> | <a href="#anc_i">I</a> | <a href="#anc_j">J</a> | <a href="#anc_k">K</a> | <a href="#anc_l">L</a> | <a href="#anc_m">M</a> | <a href="#anc_n">N</a> | <a href="#anc_o">O</a> | <a href="#anc_p">P</a> | <a href="#anc_q">Q</a> | <a href="#anc_r">R</a> | <a href="#anc_s">S</a> | <a href="#anc_t">T</a> | <a href="#anc_u">U</a> | <a href="#anc_v">V</a> | <a href="#anc_w">W</a> | <a href="#anc_x">X</a> | <a href="#anc_y">Y</a> | <a href="#anc_z">Z</a></h5>
+<p><br><br /> <br><br /> <br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

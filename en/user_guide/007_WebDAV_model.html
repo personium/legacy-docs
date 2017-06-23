@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<h2 id="webdav-model">WebDAV Model</h2>
+<h3 id="what-is-webdav">What is WebDAV</h3>
+<ul>
+<li>Web Distributed Authoring and Versioning (WebDAV) is an extension to HTTP 1.1 that allows you to edit and manage files on remote Web servers. WebDAV supports the following features:</li>
+</ul>
+<h3 id="overview">Overview</h3>
+<ul>
+<li>WebDAV is based on the concept of RFC4918:WebDAV, which allows to create file(s) and collections.<br />
+In Personium, it is possible to create special collections (OData, Service) other than ordinary WebDAV collections, and to control collection access by ACL.</li>
+</ul>
+<h3 id="webdav-lock">WebDAV lock</h3>
+<ul>
+<li><p>Exclusive lock is applied to the WebDAV under Box while registering, updating and deleting the file / collection.</p></li>
+<li><p>In the above state, other users can acquire, but registration, update, and deletion processing will wait until the lock is released.</p></li>
+<li><p>Also, if the lock has not been resolved after a certain period of time, the following response will be returned.</p></li>
+<li><p>If the following response is returned, please make a request after a while.</p></li>
+<li><p>Error code : 503</p></li>
+<li><p>Error message : Too many concurrent requests.</p></li>
+</ul>
+<h3 id="enhancing-mkcol">Enhancing MKCOL</h3>
+<ul>
+<li><p>In the Personium,It supports the creation of special collections such as OData and services in compliance with RFC 5689.</p></li>
+<li><p>This allows you to handle various data models besides files.</p></li>
+</ul>
+<h3 id="special-collection">Special collection</h3>
+<h4 id="odata-collection"> OData Collection</h4>
+<ul>
+<li><p>Personium supports OData collection to handle relational data.</p></li>
+<li><p>By creating an OData collection under Box under MKCOL, the path below that collection is OData space.<br />
+Relational data can be stored by setting appropriate schema etc in that space.</p></li>
+<li><p>For details, see the OData model.</p></li>
+</ul>
+<h4 id="service-collection"> Service Collection</h4>
+<ul>
+<li><p>In Personium, as an interface for executing user-defined server side logic,<br />
+We support service collection.</p></li>
+<li><p>By making a service collection with MKCOL and making appropriate settings,<br />
+You can freely provide user-defined services in the paths below that collection.</p></li>
+<li><p>For details, see the Service model.</p></li>
+</ul>
+</body>
+</html>

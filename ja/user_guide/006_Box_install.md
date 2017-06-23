@@ -17,7 +17,7 @@ webDAVやODataのScheme等のアプリを挙動させるためのデータ構造
 その階層毎にファイルを格納することで、webDAV内に格納するファイルを保持する。  
 また、ODataのScheme情報については、「edmx.xml」で構造を定義します。
 
-* 詳細については、[barファイル](https://personium.github.io/ja/apiref/1.5.1/301_Bar_File.html)を参照して下さい。
+* 詳細については、[barファイル](https://personium.github.io/ja/apiref/1.5.2/301_Bar_File.html)を参照して下さい。
 
 ### 実行時のフロー
 * boxインストールAPIの実行
@@ -44,7 +44,7 @@ Box作成前のBarファイルのチェックでエラーとなり異常終了�
 * boxインストールは他のAPIとは異なり、インストール中に様々なリソースを処理中に作成する事もあり、  
 処理の受付から、登録の完了まで時間を要する処理となります。
 
-* その処理の進捗状況を確認するには、[Boxメタデータ取得](https://personium.github.io/ja/apiref/1.5.1/303_Progress_of_Bar_File_Installation.html)を利用します。
+* その処理の進捗状況を確認するには、[Boxメタデータ取得](https://personium.github.io/ja/apiref/1.5.2/303_Progress_of_Bar_File_Installation.html)を利用します。
 
 * ##### Boxメタデータ取得による状況確認
 	* Boxメタデータ取得APIを実行するには、ボックスレベルACLPrivilegeの「box」の権限が必要です。
@@ -72,5 +72,5 @@ Box作成前のBarファイルのチェックでエラーとなり異常終了�
 
 ### 処理結果の確認
 * boxインストールの処理内容はログとして、boxインストール対象Boxが所属するCellのEventBusへ出力されます。  
-そのログを参照する場合は、[ログファイル取得API](https://personium.github.io/ja/apiref/1.5.1/285_Retrieve_Log_File.html)を使用して参照します。  
+そのログを参照する場合は、[ログファイル取得API](https://personium.github.io/ja/apiref/1.5.2/285_Retrieve_Log_File.html)を使用して参照します。  
 また、上記APIを使用するためには、"log-read" の権限が必要となります。
