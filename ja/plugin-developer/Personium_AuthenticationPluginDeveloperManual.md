@@ -42,7 +42,7 @@ Resource Server-->Client:(F)Protected Resource
 ![クラス構造図](./images/plugin_02.png "Pluginクラス構造図")
 
 > **注意:**  認証処理の戻り値
-> - 認証に成功した場合は、AutheticatedUserが返却されます。
+> - 認証に成功した場合は、AuthenticatedIdentityが返却されます。
 > - 認証に失敗した場合は、PersoniumCoreAuthnExceptionが投げられます。
 
 ## プラグインの動作
