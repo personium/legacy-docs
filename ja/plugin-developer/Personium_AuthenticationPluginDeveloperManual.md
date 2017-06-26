@@ -100,7 +100,7 @@ public class PersoniumCoreApplication extends Application {
             Object plugin = (Plugin) pi.getObj();
             try {
                 ai = ((AuthPlugin) plugin).authenticate(body);
-            } catch (DcCoreAuthnException e) {
+            } catch (PersoniumCoreAuthnException e) {
                 PersoniumCoreAuthnException pcae = PersoniumCoreAuthnException.mapFrom(pe);
                 if (pcae != null) {
                     throw pcae;
