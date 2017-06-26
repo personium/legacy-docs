@@ -1,18 +1,18 @@
 
-Personium Authentication Plugin Developer Manual
+Personium認証プラグイン開発ガイド
 ======
 
-This is a document of  **Personium** Authentication Plugin Developer Manual.
+この文書はPersonium認証プラグインの開発マニュアルです。
 
-Documents
+この文書について
 ------
 
-　PersoniumのAuthentication pluginを開発する上で必要となる情報を記述しています。
-　このドキュメントでは、Authentication pluginの作成手順を説明します。
+　Personiumの認証プラグインを開発する上で必要となる情報を記述しています。
+　このドキュメントでは、認証プラグインの作成手順を説明します。
 
-## Purpose of Authentication Plugin
+## 認証プラグインの目的
 
-　Authentication pluginは、各プロバイダへの認証処理を、OpenID Connect (OIDC)の仕様に基づき、OAuth 2.0の実装を行います。
+　認証プラグインは、各プロバイダへの認証処理を、OpenID Connect (OIDC)の仕様に基づき、OAuth 2.0の実装を行います。
 
 ```sequence
 Client->Resource Ower:(A)Authorization Request
@@ -32,49 +32,51 @@ Resource Server-->Client:(F)Protected Resource
 
 ---
 
-　以下、google版のAuthentication Pluginを例に説明します。
+　以下、google版の認証プラグインを例に説明します。
 
-## Class structure of Plugin
+## プラグインのクラス構造
 
 作成プラグインの枠線部分が作成の対象です。
 
-Authentication Pluginのクラス構造図を以下に示します。
+認証プラグインのクラス構造図を以下に示します。
 ![クラス構造図](./images/plugin_02.png "Pluginクラス構造図")
 
-> **Note:**  認証処理の戻り値
+> **注意:**  認証処理の戻り値
 > - 認証に成功した場合は、AutheticatedUserが返却されます。
-> - 認証に失敗した場合は、DcCoreAuthExceptionが投げられます。
+> - 認証に失敗した場合は、PersoniumCoreAuthnExceptionが投げられます。
 
-## Plugin Behavior
+## プラグインの動作
 
-Authentication Pluginの動作を以下に示します。
+認証プラグインの動作を以下に示します。
 
 ![Pluginの動作](./images/plugin_01.png "pluginの動作")
 
-　1. Plugin initialization processing
-　    DcCoreApplicationクラスでPlugin Managerが呼出され、すべてのプラグインを読み込みます。
+　1. プラグイン初期化処理
+　    PersoniumCoreApplicationクラスでPluginManagerが呼出され、すべてのプラグインを読み込みます。
 
-　2. Call authentication process
-　   TokenEndPointResouceクラスで対象のGrantTypeのPluginを選択します。
-　   選択したPluginのauthenticateメソッドを実行します。
+　2. 認証プロセスの呼び出し
+　   TokenEndPointResourceクラスで対象のGrantTypeのプラグインを選択します。
+　   選択したプラグインのauthenticateメソッドを実行します。
 
-> **Note:**
-> - Personium Pluginは、Pluginsフォルダに配置するだけで実行可能です。
-> - Authenticate Pluginは、Typeに”Auth”とGrantTypeに各プロバイダを指定し、authenticateメソッドを記述することで、対象のpluginが選択されauthenticateメソッドが実行されます。
+> **注意:**
+> - Personiumプラグインは、pluginsフォルダに配置するだけで実行可能です。
+> - 認証プラグインは、Typeに”Auth”とGrantTypeに各プロバイダを指定し、authenticateメソッドを記述することで、対象のpluginが選択されauthenticateメソッドが実行されます。
 
-### 1.Plugin initialization processing
-####<i class="icon-file"></i>DcCoreApplication.java
+### 1.プラグイン初期化処理
+####<i class="icon-file"></i>PersoniumCoreApplication.java
 ```
-public class DcCoreApplication extends Application {
+public class PersoniumCoreApplication extends Application {
     private static PluginManager pm;
+
     static {
         try {
-            TransCellAccessToken.configureX509(DcCoreConfig.getX509PrivateKey(), DcCoreConfig.getX509Certificate(),
-                    DcCoreConfig.getX509RootCertificate());
-            LocalToken.setKeyString(DcCoreConfig.getTokenSecretKey());
+            TransCellAccessToken.configureX509(PersoniumUnitConfig.getX509PrivateKey(),
+                    PersoniumUnitConfig.getX509Certificate(), PersoniumUnitConfig.getX509RootCertificate());
+            LocalToken.setKeyString(PersoniumUnitConfig.getTokenSecretKey());
+            DataCryptor.setKeyString(PersoniumUnitConfig.getTokenSecretKey());
             pm = new PluginManager();
         } catch (Exception e) {
-            DcCoreLog.Server.FAILED_TO_START_SERVER.reason(e).writeLog();
+            PersoniumCoreLog.Server.FAILED_TO_START_SERVER.reason(e).writeLog();
             throw new RuntimeException(e);
         }
     }
@@ -83,57 +85,56 @@ public class DcCoreApplication extends Application {
 　PluginManagerクラスを生成します。
 
 ---
-### 2.Call authentication process
+### 2.認証プロセスの呼び出し
 ####<i class="icon-file"></i>TokenEndPointResource.java
 ```
-            PluginManager pm = DcCoreApplication.getPluginManager();    // Plugin manager.
+            PluginManager pm = PersoniumCoreApplication.getPluginManager();    // Plugin manager.
             PluginInfo pi = pm.getPluginsByGrantType(grantType);        // Search target plug-in.
             if (pi == null) {                                           // Plug-ins do not exist.
-                throw DcCoreAuthnException.UNSUPPORTED_GRANT_TYPE.realm(this.cell.getUrl());
+                throw PersoniumCoreAuthnException.UNSUPPORTED_GRANT_TYPE.realm(this.cell.getUrl());
             }
+            AuthenticatedIdentity ai = null;
+            // Invoke the plug-in function.
+            Map<String, String> body = new HashMap<String, String>();
+            body.put(AuthConst.KEY_TOKEN, idToken);
+            Object plugin = (Plugin) pi.getObj();
             try {
-                // Invoke the plug-in function.
-                Map<String, Object> body = new HashMap<String, Object>();
-                body.put(AuthConst.KEY_TOKEN, idToken);
-
-                Object plugin = (Plugin) pi.getObj();
-                AuthenticatedUser au = ((AuthPlugin) plugin).authenticate(cell, body);
-                if (au != null) {
-                    String account = au.getAttributes(AuthConst.KEY_ACCOUT);
-                    if (account != null) {
-                        // When processing is normally completed, issue a token.
-                        return issueIdToken(target, dcOwner, schema, account, idToken, host);
-                    }
-                }
+                ai = ((AuthPlugin) plugin).authenticate(body);
             } catch (DcCoreAuthnException e) {
-                throw DcCoreAuthnException.UNSUPPORTED_GRANT_TYPE.realm(this.cell.getUrl());
+                PersoniumCoreAuthnException pcae = PersoniumCoreAuthnException.mapFrom(pe);
+                if (pcae != null) {
+                    throw pcae;
+                }
+                throw PersoniumCoreAuthnException.Plugin.PLUGIN_DEFINED_CLIENT_ERROR.reason(pe);
+
+            } catch (Exception e) {
+                // Unexpected exception throwed from "Plugin", create default PersoniumCoreAuthException
+                // and set reason from catched Exception.
+                throw PersoniumCoreException.Plugin.UNEXPECTED_ERROR.reason(e);
             }
 ```
 ---
-## Procedure for creating plugin
+## プラグインの作成手順
 
 　以下の手順に従ってpluginを作成します。
 
-　1. Create Java Source Program
-　2. Create manifest File
-　3. Export jar File
-　4. Setting jar File
-　5. Test & debug the Plugin
+　1. Javaソースプログラムの作成
+　2. マニフェストファイルの作成
+　3. Jarファイルのエクスポート
+　4. Jarファイルの配置
+　5. プラグインのテストとデバッグ
 
 ---
-###  1. Create Java Source Program
+###  1. Javaソースプログラムの作成
 
-　Authentication pluginのJavaのソースプログラムは、Authentication Pluginの基本となる **Authentication base plugin**と固有処理 **Authentication specific processing** の２つのプログラムファイルから構成されます。
-
-　この２つのファイルをコピーして、**GoogleCode・google・code**と記述されているすべての部分を、これから作成するAuthentication pluginの名前に置換します。
+　GoogleIdTokenAuthPlugin.javaをコピーして、**google** と記述されているすべての部分を、これから作成する認証プラグインの名前に置換します。
 
 ---
-Authentication base plugin
-####<i class="icon-file"></i> **GoogleCodeAuthPlugin.java**
+####<i class="icon-file"></i> **GoogleIdTokenAuthPlugin.java**
 ```
 /**
  * personium.io
- * Copyright 2016 FUJITSU LIMITED
+ * Copyright 2017 FUJITSU LIMITED
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -147,121 +148,48 @@ Authentication base plugin
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.personium.plugin.auth.google.code;
+package io.personium.plugin.auth.oidc;
 
 import java.util.Map;
 
-import com.fujitsu.dc.core.DcCoreAuthnException;
-import com.fujitsu.dc.core.auth.IdToken;
-import com.fujitsu.dc.core.auth.OAuth2Helper.Key;
-import com.fujitsu.dc.core.model.Cell;
-import com.fujitsu.dc.core.plugin.auth.AuthPlugin;
-import com.fujitsu.dc.core.plugin.auth.AuthConst;
-import com.fujitsu.dc.core.plugin.auth.AuthenticatedUser;
+import io.personium.plugin.base.PluginConfig.OIDC;
+import io.personium.plugin.base.PluginLog;
+import io.personium.plugin.base.PluginException;
+import io.personium.plugin.base.auth.AuthPlugin;
+import io.personium.plugin.base.auth.AuthConst;
+import io.personium.plugin.base.auth.AuthenticatedIdentity;
 
-public class GoogleCodeAuthPlugin implements AuthPlugin {
+public class GoogleIdTokenAuthPlugin implements AuthPlugin {
     /** to String. **/
-    public static final String PLUGIN_TOSTRING = "Google Code Flow Authentication";
+    public static final String PLUGIN_TOSTRING = "Google Open ID Connect Authentication";
 
     /** urn google grantType. **/
-    public static final String PLUGIN_GRANT_TYPE = "urn:x-dc1:oidc:google:code";
+    public static final String PLUGIN_GRANT_TYPE = "urn:x-personium:oidc:google";
 
-	/**
-	 * getType.
-	 * @return String
-	 */
-	public String getType() {
-		return AuthConst.TYPE_AUTH;
-	}
-
-	/**
-	 * getGrantType.
-	 * @return String
-	 */
-	public String getGrantType() {
-		return PLUGIN_GRANT_TYPE;
-	}
-
-	/**
-	 * toString.
-	 * @return String
-	 */
-	public String toString(){
+    /**
+     * toString.
+     * @return String
+     */
+    public String toString(){
         return PLUGIN_TOSTRING;
     }
 
-	/**
-	 * authenticate.
-	 * @return au AuthenticatedUser
-	 */
-    public AuthenticatedUser authenticate(Cell cell, Map <String, Object> body){
-    	AuthenticatedUser au = null;
-		if (cell != null && body != null) {
-	    	// check idToken
-			String idToken = (String)body.get(AuthConst.KEY_TOKEN);
-	    	IdToken idt = verifyIdToken(cell, idToken);
-
-	    	// authenticate google
-			au = GoogleCodeAutheticate.authenticate(cell, idt);
-		}
-		return au;
+    /**
+     * getType.
+     * @return String
+     */
+    public String getType() {
+        return AuthConst.TYPE_AUTH;
     }
 
-    private IdToken verifyIdToken(Cell cell, String idToken){
-       	// id_tokenのCheck処理
-        if (idToken == null) {
-        	throw DcCoreAuthnException.REQUIRED_PARAM_MISSING.realm(cell.getUrl()).params(Key.ID_TOKEN);
-        }
-        // id_tokenのパース
-        IdToken idt = IdToken.parse(idToken);
-        // exp で Token の有効期限切れの確認(Tokenに有効期限(exp)があるかnullチェック)
-
-        if (idt.getExp() == null) {
-        	throw DcCoreAuthnException.OIDC_INVALID_ID_TOKEN.params("ID Token expiration time null.");
-        }
-
-        // Tokenの検証。検証失敗の場合 DcCoreAuthnExceptionがthrowされる
-        idt.verify();
-
-        return idt;
+    /**
+     * getGrantType.
+     * @return String
+     */
+    public String getGrantType() {
+        return PLUGIN_GRANT_TYPE;
     }
-}
-```
-　IdToken検証が正常の場合は、authenticateメソッドを呼び出します。
-　Authenticationが正常の場合は、AuthenticatedUserを返却します。
 
----
-Authentication specific processing
-####<i class="icon-file"></i> **GoogleCodeAutheticate.java**　
-```
-/**
- * personium.io
- * Copyright 2016 FUJITSU LIMITED
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-package io.personium.plugin.auth.google.code;
-
-import com.fujitsu.dc.core.DcCoreAuthnException;
-import com.fujitsu.dc.core.DcCoreLog;
-import com.fujitsu.dc.core.auth.IdToken;
-import com.fujitsu.dc.core.model.Cell;
-import com.fujitsu.dc.core.odata.OEntityWrapper;
-import com.fujitsu.dc.core.plugin.auth.AuthenticatedUser;
-import com.fujitsu.dc.core.DcCoreConfig.OIDC;
-import com.fujitsu.dc.core.auth.AuthUtils;
-
-public class GoogleCodeAutheticate {
     /**
      * Google URL
      */
@@ -271,83 +199,84 @@ public class GoogleCodeAutheticate {
     /**
      * Type値 oidc:google.
      */
-    public static final String TYPE_VALUE_OIDC_GOOGLE = "oidc:google";
+    public static final String OIDC_PROVIDER = "google";
 
     /**
-     * can not constructor.
+     * authenticate.
+     * @return au AuthenticatedIdentity
+     * @throws PluginException
      */
-    private GoogleCodeAutheticate() {
-    }
+    public AuthenticatedIdentity authenticate(Map <String, String> body) throws PluginException {
+        AuthenticatedIdentity ai = null;
+        if (body == null) {
+            throw PluginException.Authn.REQUIRED_PARAM_MISSING.params("Body");
+        }
 
-	/**
-     * Google Authentication Process.
-     * @param cell Cell
-     * @param idt idToken
-     * @return
-     */
-    public static AuthenticatedUser authenticate(Cell cell, IdToken idt) {
-        String mail = idt.getEmail();
-        String aud  = idt.getAudience();
-        String issuer = idt.getIssuer();
+        // verify idToken
+        String idToken = (String)body.get(AuthConst.KEY_TOKEN);
+        if (idToken == null) {
+            throw PluginException.Authn.REQUIRED_PARAM_MISSING.params("ID Token");
+        }
 
+        GoogleIdToken ret = null;
+        try {
+            // id_tokenをパースする
+            ret = GoogleIdToken.parse(idToken);
+        } catch(PluginException pe){
+            throw PluginException.Authn.OIDC_INVALID_ID_TOKEN;
+        }
+
+        // Tokenの検証   検証失敗時にはPluginExceptionが投げられる
+        ret.verify();
+
+        String issuer = ret.getIssuer();
+        String aud  = ret.getAudience();
+        String mail = ret.getEmail();
+
+        // Token検証成功の後処理
         // Googleが認めたissuerであるかどうか
         if (!issuer.equals(URL_ISSUER) && !issuer.equals(URL_HTTPS + URL_ISSUER)) {
-            DcCoreLog.OIDC.INVALID_ISSUER.params(issuer).writeLog();
-            throw DcCoreAuthnException.OIDC_AUTHN_FAILED;
+            PluginLog.OIDC.INVALID_ISSUER.params(issuer).writeLog();
+            throw PluginException.Authn.OIDC_AUTHN_FAILED;
         }
 
         // Googleに登録したサービス/アプリのClientIDかを確認
         // DcConfigPropatiesに登録したClientIdに一致していればOK
-        if (!OIDC.isGoogleClientIdTrusted(aud)) {
-        	throw DcCoreAuthnException.OIDC_WRONG_AUDIENCE.params(aud);
+        if (!OIDC.isProviderClientIdTrusted(OIDC_PROVIDER, aud)) {
+            throw PluginException.Authn.OIDC_WRONG_AUDIENCE.params(aud);
         }
 
-        // このユーザー名がアカウント登録されているかを確認
-        // IDtokenの中に示されているAccountが存在しない場合
-        OEntityWrapper idTokenUserOew = cell.getAccount(mail);
-        if (idTokenUserOew == null) {
-            // アカウントの存在確認に悪用されないように、失敗の旨のみのエラー応答
-        	DcCoreLog.OIDC.NO_SUCH_ACCOUNT.params(mail).writeLog();
-            throw DcCoreAuthnException.OIDC_AUTHN_FAILED;
-        }
+        // 正常な場合、AuthenticatedIdentity を返却する。
+        ai = new AuthenticatedIdentity();
+        // アカウント名を設定する
+        ai.setAccountName(mail);
+        // OIDC TYPEを設定する
+        ai.setAttributes(AuthConst.KEY_OIDC_TYPE, AuthConst.KEY_OIDC_TYPE + ":" + OIDC_PROVIDER);
 
-        // アカウントタイプがoidc:googleになっているかを確認
-        // Account があるけどTypeにOidCが含まれていない
-        if (!AuthUtils.getAccountType(idTokenUserOew).contains(TYPE_VALUE_OIDC_GOOGLE)){
-            //アカウントの存在確認に悪用されないように、失敗の旨のみのエラー応答
-            DcCoreLog.OIDC.UNSUPPORTED_ACCOUNT_GRANT_TYPE.params(TYPE_VALUE_OIDC_GOOGLE, mail).writeLog();
-            throw DcCoreAuthnException.OIDC_AUTHN_FAILED;
-        }
-
-        // 正常な場合のみトークンの発行が可能
-        AuthenticatedUser au = new AuthenticatedUser();
-        // アカウント名の設定
-        au.setAccountName(mail);
-
-        return au;
+        return ai;
     }
 }
 ```
-　authenticateメソッドに固有の認証処理を記述します。
+　Authenticationが正常の場合は、AuthenticatedIdentityを返却します。
 
 ---
-### 2. Create Manifest File
+### 2. マニフェストファイルの作成
 
-　 **jarファイル** を生成するには、manifest.txtファイルを作成します。
+　 **Jarファイル** を生成するには、manifest.txtファイルを作成します。
 
 #### <i class="icon-file"></i>**manifest.txt**
 ```
 Manifest-Version: 1.0
-Plugin-Class: io.personium.plugin.auth.google.code.GoogleCodeAuthPlugin
+Plugin-Class: io.personium.plugin.auth.google.code.GoogleIdTokenAuthPlugin
 ```
 jarファイルを作成する情報を記述します。Plugin-Classは、package+クラス名の形式です。
 
 ---
-### 3. Export jar File
+### 3. Jarファイルのエクスポート
 
-####<i class="icon-file"></i>GoogleCodeAuthPlugin.jar
+####<i class="icon-file"></i>GoogleIdTokenAuthPlugin.jar
 
-Eclipseを使用してjar ファイルを作成します。
+Eclipseを使用してJarファイルを作成します。
 
 1) 作成したプラグインを選択し、右クリックで表示されたメニューの「Export...」をクリックします。
 ![Eclipse](./images/plugin_03.png "Eclipse")![メニューEclipse](./images/plugin_04.png "メニュー")
@@ -366,28 +295,22 @@ Eclipseを使用してjar ファイルを作成します。
 指定したパスにJarファイルが作成されます。
 
 ---
-### 4. Setting jar File
-####<i class="icon-hdd"></i>dc-config.propertie
+### 4. Jarファイルの配置
+#### <i class="icon-hdd"></i>personium-unit-config.properties
 ```
-# general configurations
-io.personium.core.plugin.path=/dc1-core/plugins
+# 一般的な構成
+io.personium.core.plugin.path=/personium/personium-core/plugins
 ```
-dc-config.propertieファイルに設定したpluginsフォルダのパスに、作成したjarファイルを配置してください。
+personium-unit-config.propertiesファイルに設定したpluginsフォルダのパスに、作成したJarファイルを配置してください。
 
 ---
-### 5. Test & debug the Plugin
+### 5. プラグインのテストとデバッグ
 
 #### <i class="icon-file"></i>**PluginTest.java**
-com.fujitsu.dc.test.core.plugin
+io.personium.test.plugin
 
 最後のステップは、テストとデバッグです。
 今回作成したプラグインをjunitでテストするには、PluginTest.javaにテスト処理のメソッドを追加します。
 作成したjunitを実行して、動作が正常に終了することを確認してください。
 
 ---
-
-  [1]: http://personium.io/
-  [2]: http://personium.io/docs/
-  [3]: https://github.com/personium/
-  [4]: http://openid.net/
-  [5]: https://oauth.net/
