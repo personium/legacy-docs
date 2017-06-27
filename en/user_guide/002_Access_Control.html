@@ -7,142 +7,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="Content-Language" content="ja-JP" />
 <meta name="generator" content="Adobe RoboHelp 10" />
-<title>overview</title>
-<link rel="StyleSheet" href="../../../../../default.css" type="text/css" />
-<script type="text/javascript" src="../../../../../prettify.js" language="JavaScript1.2">
-</script>
-<style type="text/css">
-/*<![CDATA[*/
-<!--
-.mainBreadCrumb a:link { color:#000000;
-background-color:transparent;
-text-decoration:none; }
-.mainBreadCrumb a:visited { color:#000000;
-background-color:transparent;
-text-decoration:none; }
-.mainBreadCrumb a:hover { color:#ff0000 ! important;
-cursor:pointer;
-text-decoration:underline; }
-p.mainBreadCrumb { margin-left:0px;
-margin-top:1px ! important; }
-h1 { padding-left:10px ! important; }
--->
-/*]]>*/
-</style>
-
-<script type="text/javascript" language="JavaScript">
-//<![CDATA[
-function reDo() {
-  if (innerWidth != origWidth || innerHeight != origHeight)
-     location.reload();
-}
-if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
-        origWidth = innerWidth;
-        origHeight = innerHeight;
-        onresize = reDo;
-}
-onerror = null; 
-//]]>
-</script>
-<style type="text/css">
-/*<![CDATA[*/
-<!--
-div.WebHelpPopupMenu { position:absolute;
-left:0px;
-top:0px;
-z-index:4;
-visibility:hidden; }
--->
-/*]]>*/
-</style>
-
-<script type="text/javascript" language="javascript1.2" src="../../../../../whmsg.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript" src="../../../../../whver.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whutils.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whproxy.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whlang.js" charset="utf-8">
-</script>
-<script type="text/javascript" language="javascript1.2" src="../../../../../whtopic.js" charset="utf-8">
-</script>
+<title></title>
+<link rel="StyleSheet" href="..\github.css" type="text/css" />
 </head>
 <body onload="prettyPrint()">
-<script type="text/javascript" language="javascript1.2">
-//<![CDATA[
-<!--
-if (window.gbWhTopic)
-{
-        var strUrl = document.location.href;
-        var bc = 0;
-        var n = strUrl.toLowerCase().indexOf("bc-");
-        if(n != -1)
-        {
-                document.location.href = strUrl.substring(0, n);
-                bc = strUrl.substring(n+3);
-        }
-
-        if (window.addTocInfo)
-        {
-        AddAvenueInfo ("Authentication and Access Control", "", "");
-        AddButton ("show", BTN_TEXT, "display", "", "", "", "", 0, 0 "" "," "," ");
-
-        }
-        if (window.writeBtnStyle)
-                writeBtnStyle();
-
-        if (window.writeIntopicBar)
-                writeIntopicBar(1);
-
-        
-        
-}
-else
-        if (window.gbIE4)
-                document.location.reload();
-
-onLoadHandler = function()
-{
-  if (window.setRelStartPage)
-        {
-        setTimeout("setRelStartPage('../../../../../Japanese.htm');", 1)
-
-    setTimeout("UpdateBreadCrumbsMarker();", 1);
-        }
-}
-
-if (window.addEventListener){  
-        window.addEventListener('load', onLoadHandler, false);   
-} else if (window.attachEvent){  
-        window.attachEvent('onload', onLoadHandler);  
-}
-
-function onSetStartPage()
-{
-  autoSync(1);
-  sendSyncInfo();
-  sendAveInfoOut();
-}
-//-->
-//]]>
-</script><script type="text/javascript" src="../../../../../ehlpdhtm.js" language="JavaScript1.2">
-</script>
-<div style="width: 100%; position: relative;" id="header">
-<p style="font-size: 10pt;">&#160;</p>
-</div>
-<script type="text/javascript" language="javascript">
-//<![CDATA[
-document.write("<p  class=\"mainBreadCrumb\"  style=\"text-align:left;\" class=\"breadcrumbs\">");
-AddMasterBreadcrumbs("../../../../../Japanese.htm", "breadcrumbs", " &gt; ", "Top", "../../../HomePage.htm");
-document.write("overview<\/p>");
-//]]>
-</script>
-<hr style="border-left-width: 0px; margin-left: -6px;" size="1" width="101%" align="center" />
-<form><input type="image" value="Print" onclick="window.print();return false" name="Printer.png" src="../../../../../Images/Printer.png" style="width: 16px; height: 16px; float: right; margin-top: -32px; margin-right: 2px;" /></form>
 <h1>Access control model</h1>
-<h2><span lang="JA" xml:lang="JA" style="line-height: 115%; mso-ascii-font-family: Arial; mso-fareast-theme-font: minor-fareast; mso-hansi-font-family: Arial; mso-bidi-font-family: Arial; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA; font-weight: bold; font-family: 'MS Gothic';">Overview</span></h2>
+<h2>Overview</h2>
 <P class = "Paragraph"> Access control to the access subject by ACL is done by applying WebDAV ACL to role based access control. </P>
 <P class = "Paragraph"> By setting the ACL with the ACL method for Cell, Box, Collection, etc., access right to that resource can be set. </P>
 <P class = "Paragraph"> Basically, it conforms to the specification of WebDAV ACL, but this page will explain Personium original specifications. </P>
@@ -152,9 +22,10 @@ document.write("overview<\/p>");
 <P class = "Paragraph"> By setting the ACL with the ACL method for Cell, Box, Collection, etc., access right to that resource can be set. </P>
 <P class = "Paragraph"> Basically, it conforms to the specification of WebDAV ACL, but this page will explain Personium original specifications. </P>
 <P class = "Paragraph"> ACL settings are defined in XML. </P>
-<H3> ACL component in Personium </h3>
-<P class = "Paragraph" style = "text - indent: 5px;"> The Personium ACL consists of the following elements. </P>
-<table style="margin-left: 26pt;" cellspacing="0" width="31.565%">
+<ul>
+<li><h3> ACL component in Personium </h3></li>
+<li><P class = "Paragraph"> The Personium ACL consists of the following elements. </P></li>
+<li><table cellspacing="0" width="31.565%">
 <col style="width: 38.534%;" />
 <col style="width: 61.466%;" />
 <tr>
@@ -197,7 +68,7 @@ document.write("overview<\/p>");
 <p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Define permission settings</p>
 </td>
 </tr>
-</table>
+</table></li>
 <h3>Limitations</h3>
 <p class="Paragraph">In Personium V1 series, there are the following restrictions.</p>
 <p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>The ACL is updated by overwriting the existing setting</p>
@@ -247,16 +118,18 @@ Directory and file under the WebDAV collection</p>
 </td>
 </tr>
 </table>
+</ul>
 <h2>ace</h2>
 <P class = "Paragraph"> The target access agent is defined as a Principal element, and the authorization is defined as a grant element. You can set multiple ace elements. </P>
-<H2> Principal </h2>
+<ul>
+<li><h3> Principal </h3></li>
 <P class = "Paragraph"> Although Principal has "human or computational actor" in the WebDAV ACL, it is defined as a role in Personium. </P>
 <P class = "Paragraph"> The role of Personium is a concept close to "Group" in WebDAV ACL. </P>
-<H3> (1) all </h3>
+<h3> (1) all </h3>
 <P class = "Paragraph"> As defined in the WebDAV ACL, setting the all element in pricipal gives the authorization setting, <br />
 It can also be defined for all roles and unauthorized access agents (without Authorization header). </P>
 <P class = "Paragraph"> Since it is authority for all access agents to the resource, caution is required when using it. </P>
-<Table class = "CodeTable" style = "height: 47px; margin - left: 26pt;" cellspacing = "0px" width = "96%">
+<Table class = "CodeTable" style = "height: 47px;" cellspacing = "0px" width = "96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -270,9 +143,9 @@ It can also be defined for all roles and unauthorized access agents (without Aut
 <P class = "Paragraph" style = "font-weight: bold;"> </p>
 <P class = "Paragraph" style = "font-weight: bold;"> However, if schema authentication level setting is done, that checking will take effect. </P>
 <P class = "Paragraph" style = "font-weight: bold;"> </p>
-<H4> Setting example </h4>
+<h4> Setting example </h4>
 <P class = "Paragraph2"> Give read access to all access subjects. </P>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -292,14 +165,14 @@ It can also be defined for all roles and unauthorized access agents (without Aut
 </tr>
 </table>
 <p class="Paragraph2">&#160;</p>
-<H3> (2) Roll </h3>
+<h3> (2) Roll </h3>
 <P class = "Paragraph2"> To define a role for the target access agent, enclose it in an href element and set the role resource URL. <br />
 For specifications on role resources see Role Issue. </P>
 <P class = "Paragraph2"> Note that the role resource URL that can be set can not specify a role resource URL different from the cell URL of the ACL setting target. </P>
-<H4> Setting example </h4>
+<h4> Setting example </h4>
 <P class = "Paragraph2" style = "text - decoration: underline;"> - Describe all role resource URLs to be set in Principal </p>
 <P class = "Paragraph2"> (Example of giving read and write privileges to doctor attached to box 1 and giving read only to guest attached to box 2) </p>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -331,7 +204,7 @@ For specifications on role resources see Role Issue. </P>
 <P class = "Paragraph2" style = "text - decoration: underline;"> Omission of description by xml: base </p>
 <P class = "Paragraph2" style = "text - decoration: none;"> By describing the role resource URL up to the box in the xml: base attribute of the acl element, omit the description of the role resource URL set in Principal can do. </P>
 <P class = "Paragraph2"> (Example of giving read and write privileges to doctor attached to box 1 and giving read only to guest attached to box 2) </p>
-<Table class = "CodeTable" style = "height: 47px; margin - left: 26pt;" cellspacing = "0px" width = "96%">
+<Table class = "CodeTable" style = "height: 47px;" cellspacing = "0px" width = "96%">
 <Col style = "width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -359,20 +232,22 @@ For specifications on role resources see Role Issue. </P>
 </td>
 </tr>
 </table>
-
 <p class="Paragraph2">* Like guest, when setting a role attached to a box different from the xml: base box, it is possible to describe relative paths as described above.</p>
-<h5>Output with PROPFIND</h5>
+<h4>Output with PROPFIND</h4>
 <p class="Paragraph2" style="text-decoration: none;">When outputting the ACL setting with PROPFIND, the xml: base attribute is output as follows.</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span><span style="text-decoration: none;">In the case of PROPFIND to a cell, the URL of the main box</span></p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>In the case of PROPFIND under Box, the URL to that Box</p>
+<ul>
+<li><p class="Paragraph">In the case of PROPFIND to a cell, the URL of the main box</p></li>
+<li><p class="Paragraph">In the case of PROPFIND under Box, the URL to that Box</p></li>
+</ul>
+</ul>
 <h2>grant/Privilege</h2>
 <p class="Paragraph2" style="text-decoration: none;">The authority is set with the element defined by Personium, and set by enclosing it in the Privilege element in the grant element.<br />
 In addition, you can specify multiple Privilege elements in the grant element.</p>
-<h3>Cell Level ACL Privilege</h3>
+<ul>
+<li><h3>Cell Level ACL Privilege</h3>
 <p class="Paragraph2">For the set cell, specify execution authority of the cell control object and execution authority of the method.<br />
 When the authority located at the higher level is set, it has the authority belonging to the lower rank. (Eg message has the authority of message-read)</p>
-
-<table style="margin-left: 26pt;" cellspacing="0" width="96%">
+<table cellspacing="0" width="96%">
 <col style="width: 17.486%;" />
 <col style="width: 31.454%;" />
 <col style="width: 26.227%;" />
@@ -645,7 +520,7 @@ When the authority located at the higher level is set, it has the authority belo
 </tr>
 </table>
 <h4 class="Paragraph2">Setting Example</h4>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -684,7 +559,7 @@ When the authority located at the higher level is set, it has the authority belo
 <p class="Paragraph2">Specify the execution authority of the method for the resources below the set box.<br />
 Box level Privilege is basically defined along WebDAV ACL.<br />
 When the authority located at the higher level is set, it has the authority belonging to the lower rank.(Example: read also has the authority of read-properties)</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="96%">
+<table cellspacing="0" width="96%">
 <col style="width: 17.486%;" />
 <col style="width: 31.454%;" />
 <col style="width: 26.227%;" />
@@ -860,7 +735,7 @@ When the authority located at the higher level is set, it has the authority belo
 </table>
 <p class="Paragraph2">&#160;</p>
 <h4 class="Paragraph2">Setting Example</h4>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -893,10 +768,12 @@ When the authority located at the higher level is set, it has the authority belo
 <p class="Paragraph2">For box level ACL setting, the setting of the parent (upper directory) of the accessed resource is applied back to the cell.<br />
 The ACL setting for the access subject is inherited in the form in which the parent setting is added.<br />
 Therefore, the following points need to be noted when setting ACL.</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>When strong permission of all etc. etc is set for parent, even if restriction is applied to child, it becomes invalid</p>
+<ul>
+<li><p class="Paragraph">When strong permission of all etc. etc is set for parent, even if restriction is applied to child, it becomes invalid</p></li>
+</ul>
 <h4>Examples of ACL inheritance and applied privileges</h4>
 <p class="Paragraph2">Example resource</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -969,7 +846,7 @@ Therefore, the following points need to be noted when setting ACL.</p>
 </table>
 <p class="Paragraph2">&#160;</p>
 <p class="Paragraph2">After applying the following ACL setting to the above resource, the authorities applied when accessing each resource are as follows.</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -1041,13 +918,15 @@ Therefore, the following points need to be noted when setting ACL.</p>
 </tr>
 </table>
 <p class="Paragraph2">&#160;</p>
-<h2><a name="Schema authority request level">Schema authority request level</a></h2>
+</li></ul>
+<h2>Schema authority request level</h2>
 <p class="Paragraph2">For access control to the application according to the schema authority request level,</p>
 <p class="Paragraph2">the request level is set by the RequireSchemaAuthz attribute of the ACL element at the time of setting the ACL.</p>
 <p class="Paragraph2">For schema authentication specifications, see "Schema authentication (application authentication)" in the authentication model.</p>
+<ul><li>
 <h3>Setting value</h3>
 <p class="Paragraph2">Schema privilege request level value</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="31.565%">
+<table cellspacing="0" width="31.565%">
 <col style="width: 38.534%;" />
 <col style="width: 61.466%;" />
 <tr>
@@ -1086,7 +965,7 @@ Therefore, the following points need to be noted when setting ACL.</p>
 <p class="Paragraph2">&#160;</p>
 <h4 class="Paragraph2">Setting Example</h4>
 <p class="Paragraph2">Sample Schema Privilege Request Level Setting ACL</p>
-<table class="CodeTable" style="height: 47px; margin-left: 26pt;" cellspacing="0px" width="96%">
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
 <col style="width: 100%;" />
 <tr>
 <td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
@@ -1110,13 +989,15 @@ Therefore, the following points need to be noted when setting ACL.</p>
 <h3>Inheritance of schema authority request level setting</h3>
 <p class="Paragraph2">The schema authority request level setting is applied by setting the parent (upper directory) of the accessed resource back to the box only
 when the accessed resource is not set.</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>If the schema authority request level is not set, it is treated as none, but it is not inherited if explicitly set to none.</p>
-<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>Inheritance is confirmed back to the Box, but when the schema level setting is performed on the intermediate resource, the setting value becomes effective.</p>
+<ul>
+<li><p class="Paragraph">If the schema authority request level is not set, it is treated as none, but it is not inherited if explicitly set to none.</p></li>
+<li><p class="Paragraph">Inheritance is confirmed back to the Box, but when the schema level setting is performed on the intermediate resource, the setting value becomes effective.</p></li>
+</ul>
 <p class="Paragraph2">&#160;</p>
 <h4 class="Paragraph2">Schema privilege Request level inheritance and example of authority to be applied</h4>
 <p class="Paragraph2">The schema authority request level applied when accessing each resource after setting the following schema authority request level to the above resource is as follows.</p>
 <p class="Paragraph2">Example resource</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -1189,7 +1070,7 @@ when the accessed resource is not set.</p>
 </table>
 <p class="Paragraph2">&#160;</p>
 <p class="Paragraph2">After applying the following ACL setting to the above resource, the authorities applied when accessing each resource are as follows.</p>
-<table style="margin-left: 26pt;" cellspacing="0" width="88.278%">
+<table cellspacing="0" width="88.278%">
 <col style="width: 23.865%;" />
 <col style="width: 19.414%;" />
 <col style="width: 61.68%;" />
@@ -1249,22 +1130,5 @@ when the accessed resource is not set.</p>
 </td>
 </tr>
 </table>
-<p class="Paragraph2">&#160;</p>
-<p class="Paragraph2">&#160;</p>
-<br />
-<div style="border-top: Solid 3px #3a3a3a; width: 100%; position: relative; padding-top: 2px; padding-bottom: 2px; padding-right: 5px; background-color: #9b9b9b;" id="footer">
-<h6 style="text-align: right; margin-top: 5pt; margin-bottom: 5pt;">Copyright 2017 &#160;FUJITSU LIMITED</h6>
-</div>
-<script type="text/javascript" language="javascript1.2">
-//<![CDATA[
-<!--
-if (window.writeIntopicBar)
-        writeIntopicBar(0);
-
-
-highlightSearch();
-//-->
-//]]>
-</script>
 </body>
 </html>

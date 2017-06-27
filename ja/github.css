@@ -93,9 +93,7 @@ p, blockquote, ul, ol, dl, li, table, pre {
 
 hr {
   background: transparent url("c:///users/admin/documents/fj/pandocgithub/dirty-shade.png") repeat-x 0 0;
-  border: 0 none;
   color: #cccccc;
-  height: 4px;
   padding: 0; }
 
 body > h2:first-child {

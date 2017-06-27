@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<h1 id="personium">Personium認証プラグイン開発ガイド</h1>
+<p>この文書はPersonium認証プラグインの開発マニュアルです。</p>
+<h2>この文書について</h2>
+<p>　Personiumの認証プラグインを開発する上で必要となる情報を記述しています。<br />
+　このドキュメントでは、認証プラグインの作成手順を説明します。</p>
+<h2>認証プラグインの目的</h2>
+<p>　認証プラグインは、各プロバイダへの認証処理を、OpenID Connect (OIDC)の仕様に基づき、OAuth 2.0の実装を行います。</p>
+<pre class="sequence"><code>Client-&gt;Resource Ower:(A)Authorization Request
+Resource Ower--&gt;Client:(B)Authorization Grant
+Client-&gt;Authentication Server:(C)Authorization Grant
+Authentication Server--&gt;Client:(D)Access Token
+Client-&gt;Resource Server:(E)Access Token
+Resource Server--&gt;Client:(F)Protected Resource</code></pre>
+<p>(A)クライアントがリソースオーナーに認可要求（Authorization Request）を出す<br />
+(B)リソースオーナーは認可要求を許諾する旨の返答として認可グラントをクライアントに送る<br />
+(C)クライアントは認可サーバーに認可グラントを送ることでアクセストークンを要求<br />
+(D)認可サーバーはクライアントの認証と認可グラントの正当性の検証を行い、問題なければアクセストークンを発行<br />
+(E)クライアントはアクセストークンにより認証を受けることで、保護されたリソースへのアクセスをリクエスト<br />
+(F)アクセストークンが正当なら、クライアントのリクエストを受入</p>
+<hr />
+<p>　以下、google版の認証プラグインを例に説明します。</p>
+<h2>プラグインのクラス構造</h2>
+<p>作成プラグインの枠線部分が作成の対象です。</p>
+<p>認証プラグインのクラス構造図を以下に示します。<br />
+<img src="./images/plugin_02.png" title="Pluginクラス構造図" alt="クラス構造図" /></p>
+<blockquote>
+<p><strong>注意:</strong> 認証処理の戻り値</p>
+<ul>
+<li>認証に成功した場合は、AuthenticatedIdentityが返却されます。</li>
+<li>認証に失敗した場合は、PersoniumCoreAuthnExceptionが投げられます。</li>
+</ul>
+</blockquote>
+<h2>プラグインの動作</h2>
+<p>認証プラグインの動作を以下に示します。</p>
+<p><img src="./images/plugin_01.png" title="pluginの動作" alt="Pluginの動作" /></p>
+<p>　1. プラグイン初期化処理<br />
+　 PersoniumCoreApplicationクラスでPluginManagerが呼出され、すべてのプラグインを読み込みます。</p>
+<p>　2. 認証プロセスの呼び出し<br />
+　 TokenEndPointResourceクラスで対象のGrantTypeのプラグインを選択します。<br />
+　 選択したプラグインのauthenticateメソッドを実行します。</p>
+<blockquote>
+<p><strong>注意:</strong></p>
+<ul>
+<li>Personiumプラグインは、pluginsフォルダに配置するだけで実行可能です。</li>
+<li>認証プラグインは、Typeに”Auth”とGrantTypeに各プロバイダを指定し、authenticateメソッドを記述することで、対象のpluginが選択されauthenticateメソッドが実行されます。</li>
+</ul>
+</blockquote>
+<h3>1.プラグイン初期化処理</h3>
+<h4 id="personiumcoreapplication.java"><i class="icon-file"></i>PersoniumCoreApplication.java</h4>
+<pre><code>public class PersoniumCoreApplication extends Application {
+    private static PluginManager pm;
+
+    static {
+        try {
+            TransCellAccessToken.configureX509(PersoniumUnitConfig.getX509PrivateKey(),
+                    PersoniumUnitConfig.getX509Certificate(), PersoniumUnitConfig.getX509RootCertificate());
+            LocalToken.setKeyString(PersoniumUnitConfig.getTokenSecretKey());
+            DataCryptor.setKeyString(PersoniumUnitConfig.getTokenSecretKey());
+            pm = new PluginManager();
+        } catch (Exception e) {
+            PersoniumCoreLog.Server.FAILED_TO_START_SERVER.reason(e).writeLog();
+            throw new RuntimeException(e);
+        }
+    }</code></pre>
+<p>　pm = new PluginManager();<br />
+　PluginManagerクラスを生成します。</p>
+<hr />
+<h3>2.認証プロセスの呼び出し</h3>
+<h4 id="tokenendpointresource.java"><i class="icon-file"></i>TokenEndPointResource.java</h4>
+<pre><code>            PluginManager pm = PersoniumCoreApplication.getPluginManager();    // Plugin manager.
+            PluginInfo pi = pm.getPluginsByGrantType(grantType);        // Search target plug-in.
+            if (pi == null) {                                           // Plug-ins do not exist.
+                throw PersoniumCoreAuthnException.UNSUPPORTED_GRANT_TYPE.realm(this.cell.getUrl());
+            }
+            AuthenticatedIdentity ai = null;
+            // Invoke the plug-in function.
+            Map&lt;String, String&gt; body = new HashMap&lt;String, String&gt;();
+            body.put(AuthConst.KEY_TOKEN, idToken);
+            Object plugin = (Plugin) pi.getObj();
+            try {
+                ai = ((AuthPlugin) plugin).authenticate(body);
+            } catch (PersoniumCoreAuthnException e) {
+                PersoniumCoreAuthnException pcae = PersoniumCoreAuthnException.mapFrom(pe);
+                if (pcae != null) {
+                    throw pcae;
+                }
+                throw PersoniumCoreAuthnException.Plugin.PLUGIN_DEFINED_CLIENT_ERROR.reason(pe);
+
+            } catch (Exception e) {
+                // Unexpected exception throwed from &quot;Plugin&quot;, create default PersoniumCoreAuthException
+                // and set reason from catched Exception.
+                throw PersoniumCoreException.Plugin.UNEXPECTED_ERROR.reason(e);
+            }</code></pre>
+<hr />
+<h2>プラグインの作成手順</h2>
+<p>　以下の手順に従ってpluginを作成します。</p>
+<p>　1. Javaソースプログラムの作成<br />
+　2. マニフェストファイルの作成<br />
+　3. Jarファイルのエクスポート<br />
+　4. Jarファイルの配置<br />
+　5. プラグインのテストとデバッグ</p>
+<hr />
+<h3 id="java">1. Javaソースプログラムの作成</h3>
+<p>　GoogleIdTokenAuthPlugin.javaをコピーして、<strong>google</strong> と記述されているすべての部分を、これから作成する認証プラグインの名前に置換します。</p>
+<hr />
+<h4 id="googleidtokenauthplugin.java"><i class="icon-file"></i> <strong>GoogleIdTokenAuthPlugin.java</strong></h4>
+<pre><code>/**
+ * personium.io
+ * Copyright 2017 FUJITSU LIMITED
+ *
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.personium.plugin.auth.oidc;
+
+import java.util.Map;
+
+import io.personium.plugin.base.PluginConfig.OIDC;
+import io.personium.plugin.base.PluginLog;
+import io.personium.plugin.base.PluginException;
+import io.personium.plugin.base.auth.AuthPlugin;
+import io.personium.plugin.base.auth.AuthConst;
+import io.personium.plugin.base.auth.AuthenticatedIdentity;
+
+public class GoogleIdTokenAuthPlugin implements AuthPlugin {
+    /** to String. **/
+    public static final String PLUGIN_TOSTRING = &quot;Google Open ID Connect Authentication&quot;;
+
+    /** urn google grantType. **/
+    public static final String PLUGIN_GRANT_TYPE = &quot;urn:x-personium:oidc:google&quot;;
+
+    /**
+     * toString.
+     * @return String
+     */
+    public String toString(){
+        return PLUGIN_TOSTRING;
+    }
+
+    /**
+     * getType.
+     * @return String
+     */
+    public String getType() {
+        return AuthConst.TYPE_AUTH;
+    }
+
+    /**
+     * getGrantType.
+     * @return String
+     */
+    public String getGrantType() {
+        return PLUGIN_GRANT_TYPE;
+    }
+
+    /**
+     * Google URL
+     */
+    public static final String URL_HTTPS = &quot;https://&quot;;
+    public static final String URL_ISSUER = &quot;accounts.google.com&quot;;
+
+    /**
+     * Type値 oidc:google.
+     */
+    public static final String OIDC_PROVIDER = &quot;google&quot;;
+
+    /**
+     * authenticate.
+     * @return au AuthenticatedIdentity
+     * @throws PluginException
+     */
+    public AuthenticatedIdentity authenticate(Map &lt;String, String&gt; body) throws PluginException {
+        AuthenticatedIdentity ai = null;
+        if (body == null) {
+            throw PluginException.Authn.REQUIRED_PARAM_MISSING.params(&quot;Body&quot;);
+        }
+
+        // verify idToken
+        String idToken = (String)body.get(AuthConst.KEY_TOKEN);
+        if (idToken == null) {
+            throw PluginException.Authn.REQUIRED_PARAM_MISSING.params(&quot;ID Token&quot;);
+        }
+
+        GoogleIdToken ret = null;
+        try {
+            // id_tokenをパースする
+            ret = GoogleIdToken.parse(idToken);
+        } catch(PluginException pe){
+            throw PluginException.Authn.OIDC_INVALID_ID_TOKEN;
+        }
+
+        // Tokenの検証   検証失敗時にはPluginExceptionが投げられる
+        ret.verify();
+
+        String issuer = ret.getIssuer();
+        String aud  = ret.getAudience();
+        String mail = ret.getEmail();
+
+        // Token検証成功の後処理
+        // Googleが認めたissuerであるかどうか
+        if (!issuer.equals(URL_ISSUER) &amp;&amp; !issuer.equals(URL_HTTPS + URL_ISSUER)) {
+            PluginLog.OIDC.INVALID_ISSUER.params(issuer).writeLog();
+            throw PluginException.Authn.OIDC_AUTHN_FAILED;
+        }
+
+        // Googleに登録したサービス/アプリのClientIDかを確認
+        // DcConfigPropatiesに登録したClientIdに一致していればOK
+        if (!OIDC.isProviderClientIdTrusted(OIDC_PROVIDER, aud)) {
+            throw PluginException.Authn.OIDC_WRONG_AUDIENCE.params(aud);
+        }
+
+        // 正常な場合、AuthenticatedIdentity を返却する。
+        ai = new AuthenticatedIdentity();
+        // アカウント名を設定する
+        ai.setAccountName(mail);
+        // OIDC TYPEを設定する
+        ai.setAttributes(AuthConst.KEY_OIDC_TYPE, AuthConst.KEY_OIDC_TYPE + &quot;:&quot; + OIDC_PROVIDER);
+
+        return ai;
+    }
+}</code></pre>
+<p>　Authenticationが正常の場合は、AuthenticatedIdentityを返却します。</p>
+<hr />
+<h3>2. マニフェストファイルの作成</h3>
+<p>　 <strong>Jarファイル</strong> を生成するには、manifest.txtファイルを作成します。</p>
+<h4 id="manifest.txt"><i class="icon-file"></i><strong>manifest.txt</strong></h4>
+<pre><code>Manifest-Version: 1.0
+Plugin-Class: io.personium.plugin.auth.google.code.GoogleIdTokenAuthPlugin</code></pre>
+<p>jarファイルを作成する情報を記述します。Plugin-Classは、package+クラス名の形式です。</p>
+<hr />
+<h3 id="jar">3. Jarファイルのエクスポート</h3>
+<h4 id="googleidtokenauthplugin.jar"><i class="icon-file"></i>GoogleIdTokenAuthPlugin.jar</h4>
+<p>Eclipseを使用してJarファイルを作成します。</p>
+<p>1) 作成したプラグインを選択し、右クリックで表示されたメニューの「Export...」をクリックします。<br />
+<img src="./images/plugin_03.png" title="Eclipse" alt="Eclipse" /><img src="./images/plugin_04.png" title="メニュー" alt="メニューEclipse" /></p>
+<p>2) 「Java – JAR file」を選択し、「Next &gt;」をクリックします。<br />
+<img src="./images/plugin_05.png" alt="Java – JAR file" /></p>
+<p>3) 作成するJarファイルのパスと名前を指定し、「Next &gt;」をクリックします。<br />
+<img src="./images/plugin_06.png" alt="Create Java Path" /></p>
+<p>4) 指定せずに「Next &gt;」をクリックします。<br />
+<img src="./images/plugin_07.png" alt="Option" /></p>
+<p>5) マニフィストファイルを指定し、「Finish」をクリックします。<br />
+<img src="./images/plugin_08.png" alt="Manifest" /><br />
+指定したパスにJarファイルが作成されます。</p>
+<hr />
+<h3 id="jar">4. Jarファイルの配置</h3>
+<h4 id="personium-unit-config.properties"><i class="icon-hdd"></i>personium-unit-config.properties</h4>
+<pre><code># 一般的な構成
+io.personium.core.plugin.path=/personium/personium-core/plugins</code></pre>
+<p>personium-unit-config.propertiesファイルに設定したpluginsフォルダのパスに、作成したJarファイルを配置してください。</p>
+<hr />
+<h3>5. プラグインのテストとデバッグ</h3>
+<h4 id="plugintest.java"><i class="icon-file"></i><strong>PluginTest.java</strong></h4>
+<p>io.personium.test.plugin</p>
+<p>最後のステップは、テストとデバッグです。<br />
+今回作成したプラグインをjunitでテストするには、PluginTest.javaにテスト処理のメソッドを追加します。<br />
+作成したjunitを実行して、動作が正常に終了することを確認してください。</p>
+<hr />
+</body>
+</html>

@@ -1,4 +1,4 @@
-## What is Personium?
+# What is Personium?
 
 Personium is open source PDS (Personal Data Store) server software.
 

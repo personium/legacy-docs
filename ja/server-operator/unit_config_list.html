@@ -1,0 +1,812 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<h1 id="unit">Unitの設定⼀覧</h1>
+<p>ユニット設定ファイルは、Personiumユニットの設定を管理するファイルです。<br />
+デフォルトの設定は、GitHubソース上の&quot;personium-unit-config-default.properties&quot;ファイルで定義されています。<br />
+デフォルトの設定は変更しないでください。<br />
+設定を変更したい場合、&quot;personium-unit-config.properties&quot;という名前のjavaプロパティファイルを配置し、サーブレットコンテナを起動してください。<br />
+その後ユニットは、&quot;personium-unit-config.properties&quot;で定義された各設定項目の値で、&quot;personium-unit-config-default.properties&quot;で定義されているデフォルト値を置き換えます。</p>
+<p>&quot;personium-unit-config.properties&quot;の配置場所はJavaのシステムプロパティで指定可能です。</p>
+<pre><code>io.personium.configurationFile={ファイル名まで含めたPath}</code></pre>
+<p>指定されたファイルが存在しない、またはシステムプロパティで指定されていない場合、クラスパス上の&quot;personium-unit-config.properties&quot;を読み込みます。<br />
+<br></p>
+<h4>キー名について</h4>
+<p>すべてのキーは、以下のキープレフィックスを持ちます。</p>
+<pre><code>io.personium.core.</code></pre>
+<p>例としてユニット証明書の設定には次のキーを使用する必要があります。</p>
+<pre><code>io.personium.core.x509.crt</code></pre>
+<p><br></p>
+<h3>変更必須設定</h3>
+<p>Personiumを運用する上でデフォルトから変更を必須としている設定です。</p>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">x509.key</td>
+<td align="left">X509秘密鍵を配置したパス</td>
+<td align="left">DER形式秘密鍵のフルパス</td>
+<td align="left">core, engine</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">x509.crt</td>
+<td align="left">X509証明書を配置したパス</td>
+<td align="left">DER形式証明書のフルパス</td>
+<td align="left">core, engine</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">x509.root</td>
+<td align="left">X509ルート証明書を配置したパス</td>
+<td align="left">信頼すべきDER形式ルート証明書のフルパス<br>スペース区切りで複数指定可能</td>
+<td align="left">core, engine</td>
+<td align="left">何も指定しなければ(キーの定義もしない)、Personium公式CAの証明書は自動的に信頼されます。</td>
+</tr>
+<tr class="even">
+<td align="left">masterToken</td>
+<td align="left">マスタートークン</td>
+<td align="left">トークン文字列</td>
+<td align="left">core, engine</td>
+<td align="left">何も指定しなければ(キーの定義もしない)、無効になります。</td>
+</tr>
+<tr class="odd">
+<td align="left">security.secret16</td>
+<td align="left">トークンとファイル生成時の暗号化キー</td>
+<td align="left">16桁の16進文字列</td>
+<td align="left">core, engine</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">security.auth.password.salt</td>
+<td align="left">パスワードハッシュソルト値</td>
+<td align="left">16桁の16進文字列</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">unitUser.issuers</td>
+<td align="left">ユニットユーザトークン発⾏者として認定するセルURL</td>
+<td align="left">セルURL<br>スペース区切りで複数指定可能</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">unitScheme</td>
+<td align="left">ユニットのスキーム設定</td>
+<td align="left">&quot;http&quot; または &quot;https&quot;</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3>変更任意設定</h3>
+<p>Personiumを運用する上でデフォルトからの変更を任意としている設定です。</p>
+<h4>基本設定</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">version</td>
+<td align="left">バージョン</td>
+<td align="left">文字列</td>
+<td align="left">core, engine</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">plugin.path</td>
+<td align="left">Personiumプラグイン配置先パス</td>
+<td align="left">プラグイン配置先フルパス</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="odata">OData</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">odata.batch.bulkRequestMaxSize</td>
+<td align="left">$batch処理を行う際のリクエスト最大件数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">odata.batch.timeoutInMillis</td>
+<td align="left">$batch処理のタイムアウト時間(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">odata.batch.sleepInMillis</td>
+<td align="left">$batch処理のスリープ時間(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">odata.batch.sleepIntervalInMillis</td>
+<td align="left">$batch処理のスリープ間隔(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">odata.links.NtoN.maxnum</td>
+<td align="left">N:Nの$linksが作成可能な最大件数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">odata.query.expand.top.maxnum</td>
+<td align="left">$expand指定時の$top最大数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">odata.expand.retrieve.maxnum</td>
+<td align="left">$expandの最大展開数（一件取得時）</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">odata.query.top.maxnum</td>
+<td align="left">$topの最大値数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">odata.query.skip.maxnum</td>
+<td align="left">$skipの最大値数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">odata.query.top.defaultnum</td>
+<td align="left">一覧取得時のデフォルト返却件数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">odata.query.expand.property.maxnum.list</td>
+<td align="left">$expandのプロパティの最大値数（一覧取得時）</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">odata.query.expand.property.maxnum.retrieve</td>
+<td align="left">$expandのプロパティの最大値数（一件取得時）</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4>アカウント</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">account.lastauthenticated.enabled</td>
+<td align="left">パスワード認証成功時に、Accountの最終ログイン時刻を更新するか</td>
+<td align="left">true:更新する<br>false:更新しない</td>
+<td align="left">core</td>
+<td align="left">最終更新日時を記録すると認証処理内部で登録処理が⾏われるため、書き込みの多重ロックの影響を受けます（ロック範囲はセル単位）。<br>また書き込みが発生するため性能の低下が発生します。<br>Basic認証はこの設定で最終ログイン日時の記録は行われません。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="webdav">WebDAV</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">dav.childresource.maxnum</td>
+<td align="left">コレクションの子要素の最大数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">dav.depth.maxnum</td>
+<td align="left">コレクションの階層の深さの最大数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4>セキュリティ</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">security.dav.encrypt.enabled</td>
+<td align="left">WebDAVファイルを暗号化するか</td>
+<td align="left">true:暗号化する<br>false:暗号化しない</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="lock">Lock</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">lock.type</td>
+<td align="left">Lockのタイプ</td>
+<td align="left">&quot;memcached&quot;:Memcached<br>&quot;inProcess&quot;:InProcess</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">lock.accountlock.time</td>
+<td align="left">アカウントロックの有効期限(sec)<br>認証失敗時にそのアカウントの認証をロックし、認証を失敗させる期間</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">lock.retry.times</td>
+<td align="left">ロック取得時のリトライ回数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">lock.retry.interval</td>
+<td align="left">ロック取得リトライ時の間隔(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">lock.cell.retry.times</td>
+<td align="left">セルロック取得時のリトライ回数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">lock.cell.retry.interval</td>
+<td align="left">セルロック取得リトライ時の間隔(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">lock.memcached.host</td>
+<td align="left">ロックをmemcachedに保持する際のmemcachedホスト名</td>
+<td align="left">ホスト名</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">lock.memcached.port</td>
+<td align="left">ロックをmemcachedに保持する際のmemcachedポート番号</td>
+<td align="left">ポート番号</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">lock.memcached.opTimeout</td>
+<td align="left">ロック用memcached operationタイムアウト値(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="elasticsearch">Elasticsearch</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">es.hosts</td>
+<td align="left">Elasticsearch ホスト名</td>
+<td align="left">Elasticsearchのノードを{host:port}形式で指定<br>カンマ区切りで複数指定可能</td>
+<td align="left">core, engine</td>
+<td align="left">接続可能なノードが１つでも指定されていれば動作可能です。</td>
+</tr>
+<tr class="even">
+<td align="left">es.cluster.name</td>
+<td align="left">Elasticsearch クラスタ名</td>
+<td align="left">文字列</td>
+<td align="left">core, engine</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">es.unitPrefix</td>
+<td align="left">Elasticsearchを使用する際、index生成時のindex名に用いるプレフィックス</td>
+<td align="left">文字列</td>
+<td align="left">core, engine</td>
+<td align="left">通常はユニット名を指定します。</td>
+</tr>
+<tr class="even">
+<td align="left">es.topnum</td>
+<td align="left">Elasticsearch の検索結果出力上限数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">es.retryTimes</td>
+<td align="left">エラー発生時のリトライ回数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">es.retryInterval</td>
+<td align="left">エラー発生時のリトライ間隔(msec)</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="binarydata">BinaryData</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">binaryData.physical.delete.mode</td>
+<td align="left">ファイル削除時に物理削除するか</td>
+<td align="left">true:物理削除<br>false:論理削除</td>
+<td align="left">core</td>
+<td align="left">論理削除時は削除されたファイルが残り続けるためディスクを圧迫する可能性があります。</td>
+</tr>
+<tr class="even">
+<td align="left">binaryData.fsync.enabled</td>
+<td align="left">ファイルへの書き込み時にfsyncを有効にするか</td>
+<td align="left">true:有効<br>false:無効</td>
+<td align="left">core, engine</td>
+<td align="left">有効にした場合WebDAVのファイルを書き込む際にfsyncを行うためWebDAV登録性能が劣化します。<br>バックアップをスナップショットなどで取得したりディスクへの書き込みを厳密にする必要がある場合は有効にします。</td>
+</tr>
+<tr class="odd">
+<td align="left">binaryData.dav.retry.count</td>
+<td align="left">Davファイルのハードリンク作成/改名/削除時のリトライ回数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">binaryData.dav.retry.interval</td>
+<td align="left">Davファイルのハードリンク作成/改名/削除時のリトライ間隔(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="blobstore">BlobStore</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">blobStore.root</td>
+<td align="left">blobデータを格納するルートパス</td>
+<td align="left">ディレクトリのフルパス</td>
+<td align="left">core, engine</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4>ユーザデータ</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">box.odata.schema.MaxEntityTypes</td>
+<td align="left">EntityTypeの最大数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">box.odata.schema.MaxProperties</td>
+<td align="left">EntityTypeに含まれるプロパティの最大数</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">box.odata.schema.property.LayerLimits.SimpleType</td>
+<td align="left">各階層のSimpleTypeの最大数</td>
+<td align="left">Int<br>カンマ区切り</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">box.odata.schema.property.LayerLimits.ComplexType</td>
+<td align="left">各階層のComplexTypeの最大数</td>
+<td align="left">Int<br>カンマ区切り</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="event">Event</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">event.log.current.dir</td>
+<td align="left">イベントログファイルの格納ディレクトリ</td>
+<td align="left">ディレクトリのフルパス</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4>キャッシュ</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">cache.type</td>
+<td align="left">キャッシュのタイプ</td>
+<td align="left">&quot;memcached&quot;:memcachedでキャッシュ<br>&quot;none&quot;:キャッシュ無効</td>
+<td align="left">core</td>
+<td align="left">noneにした場合管理情報を毎回Elasticsearchに問い合わせるためElasticsearchの負荷が上昇します。</td>
+</tr>
+<tr class="even">
+<td align="left">cache.cell.enabled</td>
+<td align="left">Cellのキャッシュを有効とするか</td>
+<td align="left">true:有効<br>false:無効</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">cache.box.enabled</td>
+<td align="left">Boxのキャッシュを有効とするか</td>
+<td align="left">true:有効<br>false:無効</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">cache.schema.enabled</td>
+<td align="left">Schemaのキャッシュを有効とするか</td>
+<td align="left">true:有効<br>false:無効</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">cache.memcached.host</td>
+<td align="left">memcachedホスト名</td>
+<td align="left">ホスト名</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">cache.memcached.port</td>
+<td align="left">memcachedポート番号</td>
+<td align="left">ポート番号</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">cache.memcached.opTimeout</td>
+<td align="left">memcached operationタイムアウト値(msec)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">cache.memcached.expiresin</td>
+<td align="left">キャッシュ有効期間(sec)</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="engine">Engine</h4>
+<p>Engine設定はCoreからEngineへアクセスする際に使用します。</p>
+<pre><code>http://{engine.host}:{engine.port}/{engine.path}</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">engine.host</td>
+<td align="left">Engineサーバのホスト名</td>
+<td align="left">ホスト名</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">engine.port</td>
+<td align="left">Engineサーバのポート番号</td>
+<td align="left">ポート番号</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">engine.path</td>
+<td align="left">Engineのパス</td>
+<td align="left">パス</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="bar">barファイル</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">bar.file.maxSize</td>
+<td align="left">barファイルの最大ファイルサイズ(MB)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">bar.entry.maxSize</td>
+<td align="left">barファイル内エントリの最大ファイルサイズ(MB)</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">bar.userdata.linksOutputStreamSize</td>
+<td align="left">ユーザデータのリンク処理時にレスポンスを返却するサイズ</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">bar.userdata.bulkSize</td>
+<td align="left">ユーザデータの一括登録件数</td>
+<td align="left">Long</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">bar.installfile.dir</td>
+<td align="left">barファイルやログ詳細の格納用ルートディレクトリ</td>
+<td align="left">ディレクトリのフルパス</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">bar.progress.expireInSec</td>
+<td align="left">memcachedに格納するbarインストール処理状況の有効期限(sec)</td>
+<td align="left">Int</td>
+<td align="left">core</td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="openid-connect">OpenID Connect</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">oidc.google.trustedClientIds</td>
+<td align="left">Google OpenID Connectにおいて、このユニットが信頼するClientID<br>スペース区切りで複数指定可能</td>
+<td align="left">文字列</td>
+<td align="left">core</td>
+<td align="left">&quot;*&quot;を指定した場合全てのClientIDを信頼する<br><b>将来的にPlugin独自設定として移動予定</b></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
