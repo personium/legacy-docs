@@ -1,4 +1,4 @@
-# Personium Server Plugin Developer's Guide
+# Server Plugin Developer's Guide
 
 It is a document for people who want to develop and use plugins to extend Personium's server function
 

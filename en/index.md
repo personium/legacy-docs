@@ -21,20 +21,20 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 
 # Guide by purpose
 
-* ### [Personium Application Developer's Guide](https://personium.github.io/en/app-developer/index.html)
+* ### [Application Developer's Guide](https://personium.github.io/en/app-developer/index.html)
   * It is a document for people who want to develop PDS applications using Personium's API
 
-* ### [Personium Cell Management Client Developer's Guide](https://personium.github.io/en/cell-client-developer/index.html)
+* ### [Cell Management Client Developer's Guide](https://personium.github.io/en/cell-client-developer/index.html)
   * It is a document for people who want to develop an application that manages Personium's Cell
 
-* ### [Personium unit administrator's guide](https://personium.github.io/en/unit-administrator/index.html)
+* ### [Unit administrator's guide](https://personium.github.io/en/unit-administrator/index.html)
   * It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium
 
-* ### [Personium Server Software Operator's Guide](https://personium.github.io/en/server-operator/index.html)
+* ### [Server Software Operator's Guide](https://personium.github.io/en/server-operator/index.html)
   * It is a document for people who want to provide / operate PDS service environment using Personium
 
-* ### [Personium Server Plugin Developer's Guide](https://personium.github.io/en/plugin-developer/index.html)
+* ### [Server Plugin Developer's Guide](https://personium.github.io/en/plugin-developer/index.html)
   * It is a document for people who want to develop and use plugins to extend Personium's server function
 
-* ### [Personium Server Developer's Guide](https://personium.github.io/en/software-developer/index.html)
+* ### [Server Developer's Guide](https://personium.github.io/en/software-developer/index.html)
   * It is a document for people who want to develop Personium's OSS function or who want to commit to OSS
