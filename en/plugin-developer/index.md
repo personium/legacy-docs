@@ -2,7 +2,7 @@
 
 It is a document for people who want to develop and use plugins to extend Personium's server function
 
-### [Personium plugin development guide](./Personium_AuthenticationPluginDeveloperManual.html)
+### [Personium authentication plugin development guide](./Personium_AuthenticationPluginDeveloperManual.html)
 
 ### Contributor guide
 

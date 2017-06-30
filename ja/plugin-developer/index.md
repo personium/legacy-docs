@@ -2,7 +2,7 @@
 
 Personiumのサーバ機能を拡張するために、プラグインを開発して利用したい人向けのドキュメントです
 
-### [Personiumプラグイン開発ガイド](./Personium_AuthenticationPluginDeveloperManual.html)
+### [Personium認証プラグイン開発ガイド](./Personium_AuthenticationPluginDeveloperManual.html)
 
 ### コントリビューターガイド
 
