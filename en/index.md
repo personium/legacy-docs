@@ -27,7 +27,7 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 * ### [Cell Management Client Developer's Guide](https://personium.github.io/en/cell-client-developer/index.html)
   * It is a document for people who want to develop an application that manages Personium's Cell
 
-* ### [Unit administrator's guide](https://personium.github.io/en/unit-administrator/index.html)
+* ### [Unit Administrator's Guide](https://personium.github.io/en/unit-administrator/index.html)
   * It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium
 
 * ### [Server Software Operator's Guide](https://personium.github.io/en/server-operator/index.html)
