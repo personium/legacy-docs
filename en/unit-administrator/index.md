@@ -1,4 +1,4 @@
-# Unit administrator's guide
+# Unit Administrator's Guide
 
 It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium
 
