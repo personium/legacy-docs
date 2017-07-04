@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="..\github.css" type="text/css" />
+</head>
+<body>
+<h1 id="schema">Schema認証</h1>
+<h2 id="schema">Schema認証とは</h2>
+<p>Personium Boxは、Cellを保有している主体が個人に紐づくデータを利用する何らかのサービスを活用する際、<br />
+そのデータを他のサービスが不正にアクセスしたり改変したりできないようにする仕組みを提供することを目的とした実装を含んでいます。</p>
+<p>そのため、「あるBoxを操作することのできる権限の持ち主が、同じトークンで他のBoxにアクセスすることを不可能にする」認証の枠組みが提供されており、<br />
+Personium ではそれを<strong>Schema認証</strong>と呼びます。（直感的理解のため、アプリ認証と説明することもありますが非公式の用語とします）</p>
+<p>Schema認証APIは、OAuth2.0におけるクライアント認証の枠組みの中で規定されたものであるため、<br />
+ClientIDとClientSecretをパラメータとして認証時に付加するのみで実施可能です。</p>
+<pre><code>    A client application consisting of multiple components, each with its
+
+    own client type (e.g. a distributed client with both a confidential
+
+    server-based component and a public browser-based component), MUST
+
+    register each component separately as a different client to ensure
+
+    proper handling by the authorization server.</code></pre>
+<p>意訳</p>
+<pre><code>    Clientはユーザーに代わって保護リソースにアクセスするアプリケーションです。
+    Client Typesとして、秘密鍵を安全に管理できるconfidential、クライアントサイドで動いて管理できないのはpublic
+    ConfidentialならAuthZ Code, PublicなのはImplicit使え
+    サーバーサイドとクライアントサイドの両方のComponentから構成されている場合、別々で登録出来る必要があります</code></pre>
+<h2 id="schema">Schema認証をするための設定</h2>
+<h3>概要</h3>
+<ul>
+<li><p>アプリケーションがBox内のデータにアクセスするためには、通常、まずサービス提供者が管理する中央Cell（アプリCell）にてアプリクライアントとしてのTarget指定で認証を行い、<br><br />
+その後通常のID/PWおよびClientID・ClientSecretの指定によるSchema認証を実施することで、そのBoxのみにアクセスするトークンを発行します。</p></li>
+<li><p>または、通常のID/PW認証を実施したときに取得したRefreshTokenを用いて有効期限更新をする際に、<br>上記と同様にClientID・ClientSecret指定によるTransCellトークン発行が可能です。（v1.5.2以降）</p></li>
+</ul>
+<h3>前提</h3>
+<ul>
+<li>Schema認証を実施するには、以下のセルが必須となります。<br>
+<ul>
+<li>・{appcell}: アプリセル（スキーマ認証セル）</li>
+<li>・{cell}: ユーザーセル</li>
+</ul></li>
+</ul>
+<h3>認証の流れ</h3>
+<ul>
+<li>Personiumではアプリセルのアカウントに特殊ロール（<code>{issuerUrl} + /__role/__/confidentialClient</code>）を結びつけることで、<br>スキーマ認証（アプリ認証）を行います。（スキーマ認証レベル <code>confidential</code> の場合）</li>
+<li>ユーザーセル認証時の<code>client_id</code>と <code>client_secret</code> にスキーマ認証情報を入れてユーザ認証を行うことでユーザ認証、スキーマ認証の評価を一緒に行います。</li>
+</ul>
+<h2 id="schema">Schema認証手順</h2>
+<h3>アプリセルへアプリ認証情報設定</h3>
+<ul>
+<li>アプリセルにアカウント作成（通常のアカウント作成）</li>
+<li>アプリセルにロール作成（通常のロール作成）
+<ul>
+<li>ロールの作成は任意。最上位のスキーマ認証（Confidential Client）を行う場合のみ実施</li>
+</ul></li>
+<li>アカウントとロールの結びつけ（通常の結びつけ処理）
+<ul>
+<li>ロールの作成と同じ理由により任意</li>
+</ul></li>
+</ul>
+<h3>ユーザーセルのコレクションにスキーマ認証レベル設定</h3>
+<ul>
+<li><p>ACLを使ってスキーマ認証レベルの設定を行います。</p></li>
+<li><p>スキーマ認証設定ACLのサンプル</p></li>
+<li><pre><code>&lt;D:acl xmlns:D=&quot;DAV:&quot; xml:base=&quot;https://demo.personium.io/cell/__role/box/&quot;
+xmlns:p=&quot;urn:x-personium:xmlns&quot;
+p:requireSchemaAuthz=&quot;{スキーマ認証レベル}&quot;&gt;
+&lt;D:ace&gt;
+    &lt;D:principal&gt;
+        &lt;D:all/&gt;
+    &lt;/D:principal&gt;
+    &lt;D:grant&gt;
+        &lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;
+        &lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;
+    &lt;/D:grant&gt;
+&lt;/D:ace&gt;
+&lt;/D:acl&gt;</code></pre></li>
+</ul>
+<h4>スキーマ認証レベルの取りうる値</h4>
+<ul><li>
+<table>
+<thead>
+<tr class="header">
+<th align="left">レベル値</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">none</td>
+<td align="left">スキーマ無しでアクセス可能（デフォルト）</td>
+</tr>
+<tr class="even">
+<td align="left">public</td>
+<td align="left">スキーマがあればアクセス可能</td>
+</tr>
+<tr class="odd">
+<td align="left">confidential</td>
+<td align="left">スキーマに特殊ロールconfidentialClientがあればアクセス可能</td>
+</tr>
+</tbody>
+</table>
+</li></ul>
+<h3>アプリセルでの認証</h3>
+<ul>
+<li>アプリからアプリセルに対して認証してデータセル向けトランスセルトークン取得</li>
+<li>ここでは通常のパスワード認証</li>
+</ul>
+<h3>ユーザーセルでの認証</h3>
+<ul>
+<li>Personiumアプリからユーザーセルに対して通常のパスワード認証をすると同時にアプリセルから受け取ったトランスセルトークンをclient_secret、<br>アプリセルのURLをclient_idに入れて認証します。</li>
+<li>client_secret 内の<code>issuer</code>と<code>client_id</code>をチェックし、一致していれば発行するアクセストークンにスキーマ情報（URL）を付与します。</li>
+<li><p>client_secret 内のロール（<code>AttributeStatement\Attribute\AttributeValue</code>の値）をチェックし、<br>ロールが特殊な値（<code>{issuerUrl} + /__role/__/confidentialClient</code>）であればスキーマ情報の後ろに#c（conficentialであることの印）を付与します。</p></li>
+<li><pre><code>curl -X POST &#39;{UnitURL}/{cell}}/__auth&#39; -d \
+&#39;grant_type=password&amp;username=user&amp;password=pass&amp;client_id={UnitURL}/{appcell}/&amp;client_secret={アプリセルから受け取ったトランセルトークン}&#39;</code></pre></li>
+</ul>
+<h3>ボックス及びコレクションのデータアクセス制御</h3>
+<ul>
+<li><p>ボックス及びコレクションにアクセスする際のアクセストークンのスキーマ認証情報と、<br>ボックスに設定されているスキーマ（アクセス先がコレクションの場合属するボックス）のチェックを行います。</p></li>
+<li><p>アクセスするボックス/コレクションのスキーマ認証レベル設定とアクセストークンのスキーマ情報を比較し、<br>レベル設定に合わない場合はアクセスを拒否します。</p>
+<ul>
+<li><p>・none =&gt; スキーマ認証チェックを行わない</p></li>
+<li><p>・public =&gt; スキーマ認証チェックを行い、スキーマ認証されていればアクセス可能にする</p></li>
+<li><p>・confidential =&gt; スキーマ認証チェックを行い、特殊ロール（confidentialClient）があればアクセス可能にする</p></li>
+</ul></li>
+<li><p>アクセスするボックスのスキーマ値とアクセストークンのスキーマ値を比較し、値が異なる場合はアクセスを拒否します。</p></li>
+</ul>
+</body>
+</html>
