@@ -40,4 +40,4 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 
 ---
 Personium Project is looking for documentation contributors.  
-### [Documentation Contributor's Guide](./document-writer/index.md)  
+### [Documentation Contributor's Guide](./document-writer/)  
