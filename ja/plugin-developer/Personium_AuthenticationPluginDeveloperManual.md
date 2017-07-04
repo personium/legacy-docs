@@ -7,32 +7,49 @@ Personium認証プラグイン開発ガイド
 この文書について
 ------
 
-　Personiumの認証プラグインを開発する上で必要となる情報を記述しています。
-　このドキュメントでは、認証プラグインの作成手順を説明します。
+Personiumの認証プラグインを開発する上で必要となる情報を記述しています。
+このドキュメントでは、認証プラグインの作成手順を説明します。
 
-## 認証プラグインの目的
+## 認証プラグインとは
 
-　認証プラグインは、各プロバイダへの認証処理を、OpenID Connect (OIDC)の仕様に基づき、OAuth 2.0の実装を行います。
+Personium認証プラグインはCellが持つOAuth2トークンエンドポイントの振舞を拡張するためのものです。
+認証プラグインをユニットに導入することで、そのユニット上のすべてのCellのOAuth2トークンエンドポイントにはプラグインに定義された拡張された振舞が追加されます。
+OAuth2においてトークンエンドポイントは、リソースアクセスのためのアクセストークン発行を担うものです。
+OAuth2.0仕様では、このエンドポイントの必須パラメタであるgrant_typeは仕様上の定義値である以下値の他にも任意の絶対URIを定義して使用可能となっています。
 
-```sequence
-Client->Resource Ower:(A)Authorization Request
-Resource Ower-->Client:(B)Authorization Grant
-Client->Authentication Server:(C)Authorization Grant
-Authentication Server-->Client:(D)Access Token
-Client->Resource Server:(E)Access Token
-Resource Server-->Client:(F)Protected Resource
-```
+- ・authorization_code  (未サポート）
+- ・password
+- ・refresh_token
+- ・client_credentials  (未サポート）
 
-(A)クライアントがリソースオーナーに認可要求（Authorization Request）を出す
-(B)リソースオーナーは認可要求を許諾する旨の返答として認可グラントをクライアントに送る
-(C)クライアントは認可サーバーに認可グラントを送ることでアクセストークンを要求
-(D)認可サーバーはクライアントの認証と認可グラントの正当性の検証を行い、問題なければアクセストークンを発行
-(E)クライアントはアクセストークンにより認証を受けることで、保護されたリソースへのアクセスをリクエスト
-(F)アクセストークンが正当なら、クライアントのリクエストを受入
+参考: https://tools.ietf.org/html/rfc6749#section-4.5
+
+Personium認証プラグインはこれと対応する形で記述するものです。
+
+## 開発の方法
+
+具体的にはプラグインでは以下の2点を定義します。
+
+* 1.どのようなgrant_type値に対応すべきなのか
+* 2.トークンエンドポイントのgrant_type以外の入力パラメタ値をどのように評価して、結果としてどのような主体として認識すべきなのか
+
+即ちプラグイン作者は、上記2点の情報を具体的なJavaコードとして実装します。
+Personiumでは認証プラグインが上記2の応答として返却した認証済み識別主体情報(AuthenticatedIdentityオブジェクト）を以下の観点でさらに評価して、
+トークン発行の可否判断や、発行トークンの内容決定、トークン発行処理を行います。
+
+- ・getAccountName() で取得できる文字列をName属性にもつAccountが存在するか
+- ・存在する場合、ヒットしたAccountのtype値にgrant_typeパラメタのurn: 以下の文字列が含まれているか
+
+## セキュリティ上の配慮
+
+当然のことながら、プラグイン作者は上記2の「パラメタ値評価」においては一般的にアクセス主体が適切な認証プロセスを経るように実装を行う必要があります。
+例えば、入力値を一切チェックせずに本来保護されるべき特定の主体（ゲスト等でない実在の人物など）
+として認識してしまうようなプラグインを作成し、これをユニットに配置してしまうことは重大なセキュリティ問題を引き起こします。
+従ってプラグイン作者はセキュアな実装を行うこと、プラグイン利用者（ユニット管理者）はセキュアであると信じられるプラグインのみを用いることが必要です。
 
 ---
 
-　以下、google版の認証プラグインを例に説明します。
+以下、google版の認証プラグインを例に説明します。
 
 ## プラグインのクラス構造
 
@@ -81,8 +98,8 @@ public class PersoniumCoreApplication extends Application {
         }
     }
 ```
-　pm = new PluginManager();
-　PluginManagerクラスを生成します。
+pm = new PluginManager();
+PluginManagerクラスを生成します。
 
 ---
 ### 2.認証プロセスの呼び出し
@@ -116,7 +133,7 @@ public class PersoniumCoreApplication extends Application {
 ---
 ## プラグインの作成手順
 
-　以下の手順に従ってpluginを作成します。
+以下の手順に従ってpluginを作成します。
 
 　1. Javaソースプログラムの作成
 　2. マニフェストファイルの作成
@@ -127,7 +144,7 @@ public class PersoniumCoreApplication extends Application {
 ---
 ###  1. Javaソースプログラムの作成
 
-　GoogleIdTokenAuthPlugin.javaをコピーして、**google** と記述されているすべての部分を、これから作成する認証プラグインの名前に置換します。
+GoogleIdTokenAuthPlugin.javaをコピーして、**google** と記述されているすべての部分を、これから作成する認証プラグインの名前に置換します。
 
 ---
 ####<i class="icon-file"></i> **GoogleIdTokenAuthPlugin.java**
@@ -257,12 +274,12 @@ public class GoogleIdTokenAuthPlugin implements AuthPlugin {
     }
 }
 ```
-　Authenticationが正常の場合は、AuthenticatedIdentityを返却します。
+Authenticationが正常の場合は、AuthenticatedIdentityを返却します。
 
 ---
 ### 2. マニフェストファイルの作成
 
-　 **Jarファイル** を生成するには、manifest.txtファイルを作成します。
+**Jarファイル** を生成するには、manifest.txtファイルを作成します。
 
 #### <i class="icon-file"></i>**manifest.txt**
 ```

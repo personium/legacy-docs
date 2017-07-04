@@ -7,32 +7,49 @@ This is a document of  **Personium** Authentication Plugin Developer Manual.
 Documents
 ------
 
-　It describes the information necessary for developing Personium's Authentication plugin.
-　This document explains the procedure for creating Authentication plugin.
+It describes the information necessary for developing Personium's Authentication plugin.
+This document explains the procedure for creating Authentication plugin.
 
-## Purpose of Authentication Plugin
+## What is an Authentication Plugin?
 
-　The Authentication plugin performs OAuth 2.0 implementation based on OpenID Connect (OIDC) specification for authentication processing to each provider.
+The Personium Authentication Plugin is intended to extend the behavior of OAuth 2 token End Point of Cell.
+By introducing an Authentication Plugin into the unit, the expanded behavior defined for the plugin is added to the OAuth 2 token end point of all Cells on that unit.
+In OAuth 2, the token endpoint is responsible for issuing an access token for resource access.
+With the OAuth 2.0 specification, grant_type which is a required parameter of this end point can be used by defining arbitrary absolute URI in addition to the following values which are definition values in the specification.
 
-```sequence
-Client->Resource Ower:(A)Authorization Request
-Resource Ower-->Client:(B)Authorization Grant
-Client->Authentication Server:(C)Authorization Grant
-Authentication Server-->Client:(D)Access Token
-Client->Resource Server:(E)Access Token
-Resource Server-->Client:(F)Protected Resource
-```
+- ・authorization_code  (Not supported）
+- ・password
+- ・refresh_token
+- ・client_credentials  (Not supported）
 
-(A)The client issues an authorization request (Authorization Request) to the resource owner.
-(B)The resource owner sends an authorization grant to the client as a reply indicating permission of the authorization request.
-(C)The client requests an access token by sending an authorization grant to the authorization server.
-(D)The authorization server verifies the authenticity of the client and the validity of the authorization grant, issues an access token if there is no problem.
-(E)The client authenticates with the access token, thereby requesting access to the protected resource.
-(F)If the access token is valid, accept the client's request.
+reference: https://tools.ietf.org/html/rfc6749#section-4.5
+
+The Personium Authentication Plugin describes it in a corresponding form.
+
+## Method of development
+
+Specifically, the plugin defines the following two points.
+
+* 1.What kind of grant_type value should be handled
+* 2.How to evaluate the input parameter values other than grant_type of the token endpoint and what kind of entity should be recognized as a result
+
+In other words, the plugin author implements the above two pieces of information as concrete Java code.
+Personium further evaluates the authenticated identification subject information (AuthenticatedIdentity object) returned by the Authentication Plugin as the response 2 above from the following point of view,
+We decide whether or not to issue a token, determine the content of issue token, and issue token.
+
+- ・Is there an Account with a Name attribute in the string that can be obtained with getAccountName ()
+- ・If it exists, the type value of the hit Account contains the character string of urn: of the grant_type parameter
+
+## Security considerations
+
+Naturally, the plug-in author should generally implement the "parameter value evaluation" above in 2 so that the access agent goes through the appropriate authentication process.
+For example, a specific subject (such as a real person who is not a guest etc.) to be originally protected without checking any input value,
+Creating such a plug-in as to recognize it and placing it in the unit causes serious security problems.
+Therefore, it is necessary for the plug-in author to implement a secure implementation, and the plug-in user (unit administrator) to use only plug-ins that are believed to be secure.
 
 ---
 
-　The following is an example using the google version Authentication Plugin.
+The following is an example using the google version Authentication Plugin.
 
 ## Class structure of Plugin
 
@@ -116,7 +133,7 @@ public class PersoniumCoreApplication extends Application {
 ---
 ## Procedure for creating plugin
 
-　Follow the steps below to create a plugin.
+Follow the steps below to create a plugin.
 
 　1. Create Java Source Program
 　2. Create manifest File
@@ -127,7 +144,7 @@ public class PersoniumCoreApplication extends Application {
 ---
 ###  1. Create Java Source Program
 
-　Copy GoogleIdTokenAuthPlugin.java and replace all parts marked **google** with the name of the Authentication plugin you will create.
+Copy GoogleIdTokenAuthPlugin.java and replace all parts marked **google** with the name of the Authentication plugin you will create.
 
 ---
 ####<i class="icon-file"></i> **GoogleIdTokenAuthPlugin.java**
@@ -257,12 +274,12 @@ public class GoogleIdTokenAuthPlugin implements AuthPlugin {
     }
 }
 ```
-　If Authentication is normal, it returns AuthenticatedIdentity.
+If Authentication is normal, it returns AuthenticatedIdentity.
 
 ---
 ### 2. Create Manifest File
 
-　 To generate the **jar file**, create a manifest.txt file.
+To generate the **jar file**, create a manifest.txt file.
 #### <i class="icon-file"></i>**manifest.txt**
 ```
 Manifest-Version: 1.0
