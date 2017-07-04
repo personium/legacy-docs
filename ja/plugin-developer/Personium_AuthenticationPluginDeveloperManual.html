@@ -12,24 +12,41 @@
 <h1 id="personium">Personium認証プラグイン開発ガイド</h1>
 <p>この文書はPersonium認証プラグインの開発マニュアルです。</p>
 <h2>この文書について</h2>
-<p>　Personiumの認証プラグインを開発する上で必要となる情報を記述しています。<br />
-　このドキュメントでは、認証プラグインの作成手順を説明します。</p>
-<h2>認証プラグインの目的</h2>
-<p>　認証プラグインは、各プロバイダへの認証処理を、OpenID Connect (OIDC)の仕様に基づき、OAuth 2.0の実装を行います。</p>
-<pre class="sequence"><code>Client-&gt;Resource Ower:(A)Authorization Request
-Resource Ower--&gt;Client:(B)Authorization Grant
-Client-&gt;Authentication Server:(C)Authorization Grant
-Authentication Server--&gt;Client:(D)Access Token
-Client-&gt;Resource Server:(E)Access Token
-Resource Server--&gt;Client:(F)Protected Resource</code></pre>
-<p>(A)クライアントがリソースオーナーに認可要求（Authorization Request）を出す<br />
-(B)リソースオーナーは認可要求を許諾する旨の返答として認可グラントをクライアントに送る<br />
-(C)クライアントは認可サーバーに認可グラントを送ることでアクセストークンを要求<br />
-(D)認可サーバーはクライアントの認証と認可グラントの正当性の検証を行い、問題なければアクセストークンを発行<br />
-(E)クライアントはアクセストークンにより認証を受けることで、保護されたリソースへのアクセスをリクエスト<br />
-(F)アクセストークンが正当なら、クライアントのリクエストを受入</p>
+<p>Personiumの認証プラグインを開発する上で必要となる情報を記述しています。<br />
+このドキュメントでは、認証プラグインの作成手順を説明します。</p>
+<h2>認証プラグインとは</h2>
+<p>Personium認証プラグインはCellが持つOAuth2トークンエンドポイントの振舞を拡張するためのものです。<br />
+認証プラグインをユニットに導入することで、そのユニット上のすべてのCellのOAuth2トークンエンドポイントにはプラグインに定義された拡張された振舞が追加されます。<br />
+OAuth2においてトークンエンドポイントは、リソースアクセスのためのアクセストークン発行を担うものです。<br />
+OAuth2.0仕様では、このエンドポイントの必須パラメタであるgrant_typeは仕様上の定義値である以下値の他にも任意の絶対URIを定義して使用可能となっています。</p>
+<ul>
+<li>・authorization_code (未サポート）</li>
+<li>・password</li>
+<li>・refresh_token</li>
+<li>・client_credentials (未サポート）</li>
+</ul>
+<p>参考: <a href="https://tools.ietf.org/html/rfc6749#section-4.5" class="uri">https://tools.ietf.org/html/rfc6749#section-4.5</a></p>
+<p>Personium認証プラグインはこれと対応する形で記述するものです。</p>
+<h2>開発の方法</h2>
+<p>具体的にはプラグインでは以下の2点を定義します。</p>
+<ul>
+<li>1.どのようなgrant_type値に対応すべきなのか</li>
+<li>2.トークンエンドポイントのgrant_type以外の入力パラメタ値をどのように評価して、結果としてどのような主体として認識すべきなのか</li>
+</ul>
+<p>即ちプラグイン作者は、上記2点の情報を具体的なJavaコードとして実装します。<br />
+Personiumでは認証プラグインが上記2の応答として返却した認証済み識別主体情報(AuthenticatedIdentityオブジェクト）を以下の観点でさらに評価して、<br />
+トークン発行の可否判断や、発行トークンの内容決定、トークン発行処理を行います。</p>
+<ul>
+<li>・getAccountName() で取得できる文字列をName属性にもつAccountが存在するか</li>
+<li>・存在する場合、ヒットしたAccountのtype値にgrant_typeパラメタのurn: 以下の文字列が含まれているか</li>
+</ul>
+<h2>セキュリティ上の配慮</h2>
+<p>当然のことながら、プラグイン作者は上記2の「パラメタ値評価」においては一般的にアクセス主体が適切な認証プロセスを経るように実装を行う必要があります。<br />
+例えば、入力値を一切チェックせずに本来保護されるべき特定の主体（ゲスト等でない実在の人物など）<br />
+として認識してしまうようなプラグインを作成し、これをユニットに配置してしまうことは重大なセキュリティ問題を引き起こします。<br />
+従ってプラグイン作者はセキュアな実装を行うこと、プラグイン利用者（ユニット管理者）はセキュアであると信じられるプラグインのみを用いることが必要です。</p>
 <hr />
-<p>　以下、google版の認証プラグインを例に説明します。</p>
+<p>以下、google版の認証プラグインを例に説明します。</p>
 <h2>プラグインのクラス構造</h2>
 <p>作成プラグインの枠線部分が作成の対象です。</p>
 <p>認証プラグインのクラス構造図を以下に示します。<br />
@@ -73,8 +90,8 @@ Resource Server--&gt;Client:(F)Protected Resource</code></pre>
             throw new RuntimeException(e);
         }
     }</code></pre>
-<p>　pm = new PluginManager();<br />
-　PluginManagerクラスを生成します。</p>
+<p>pm = new PluginManager();<br />
+PluginManagerクラスを生成します。</p>
 <hr />
 <h3>2.認証プロセスの呼び出し</h3>
 <h4 id="tokenendpointresource.java"><i class="icon-file"></i>TokenEndPointResource.java</h4>
@@ -104,7 +121,7 @@ Resource Server--&gt;Client:(F)Protected Resource</code></pre>
             }</code></pre>
 <hr />
 <h2>プラグインの作成手順</h2>
-<p>　以下の手順に従ってpluginを作成します。</p>
+<p>以下の手順に従ってpluginを作成します。</p>
 <p>　1. Javaソースプログラムの作成<br />
 　2. マニフェストファイルの作成<br />
 　3. Jarファイルのエクスポート<br />
@@ -112,7 +129,7 @@ Resource Server--&gt;Client:(F)Protected Resource</code></pre>
 　5. プラグインのテストとデバッグ</p>
 <hr />
 <h3 id="java">1. Javaソースプログラムの作成</h3>
-<p>　GoogleIdTokenAuthPlugin.javaをコピーして、<strong>google</strong> と記述されているすべての部分を、これから作成する認証プラグインの名前に置換します。</p>
+<p>GoogleIdTokenAuthPlugin.javaをコピーして、<strong>google</strong> と記述されているすべての部分を、これから作成する認証プラグインの名前に置換します。</p>
 <hr />
 <h4 id="googleidtokenauthplugin.java"><i class="icon-file"></i> <strong>GoogleIdTokenAuthPlugin.java</strong></h4>
 <pre><code>/**
@@ -239,10 +256,10 @@ public class GoogleIdTokenAuthPlugin implements AuthPlugin {
         return ai;
     }
 }</code></pre>
-<p>　Authenticationが正常の場合は、AuthenticatedIdentityを返却します。</p>
+<p>Authenticationが正常の場合は、AuthenticatedIdentityを返却します。</p>
 <hr />
 <h3>2. マニフェストファイルの作成</h3>
-<p>　 <strong>Jarファイル</strong> を生成するには、manifest.txtファイルを作成します。</p>
+<p><strong>Jarファイル</strong> を生成するには、manifest.txtファイルを作成します。</p>
 <h4 id="manifest.txt"><i class="icon-file"></i><strong>manifest.txt</strong></h4>
 <pre><code>Manifest-Version: 1.0
 Plugin-Class: io.personium.plugin.auth.google.code.GoogleIdTokenAuthPlugin</code></pre>
