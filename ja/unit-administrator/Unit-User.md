@@ -45,26 +45,26 @@ accountはhashedCredentialという名前のパスワードハッシュを格納
 ### ユニットマスタートークン（Unit Master Token (UMT)）
 
 * ユニット内で一意のトークンで、このトークンでアクセスするとUnit Adminとして扱われる。<br>
-personium-unit-config-default.propertiesの「io.personium.core.masterToken=」に任意の文字列を設定する。<br>
+personium-unit-config.propertiesの「io.personium.core.masterToken=」に任意の文字列を設定する。<br>
 X-Personium-Unit-Userヘッダに任意の文字列を指定することで、その文字列をユニットユーザ名とするユニットユーザとして動くことも可能。
 
 * 例
 
-* https://demo.personium.io/adm#pds というユニットユーザ名をオーナーとするセル作成
+* {UnitURL}/{UnitUserName} というユニットユーザ名をオーナーとするセル作成
 
 * ```sh
-curl localhost:8080/personium-core/__ctl/Cell -X POST \
+curl "{UnitURL}/__ctl/Cell" -X POST \
 -H "Authorization: Bearer token" \
--H "X-Personium-Unit-User: https://demo.personium.io/adm#pds" \
+-H "X-Personium-Unit-User: {UnitURL}/{UnitUserName}" \
 -d '{"Name":"cell1"}'
 ```
 
-* https://demo.personium.io/adm#pds というユニットユーザ名をオーナーとするセル一覧を取得
+* {UnitURL}/{UnitUserName} というユニットユーザ名をオーナーとするセル一覧を取得
 
 * ```sh
-curl localhost:8080/personium-core/__ctl/Cell -X GET \
+curl "{UnitURL}/__ctl/Cell" -X GET \
 -H "Authorization: Bearer token" \
--H "X-Personium-Unit-User: https://demo.personium.io/adm#pds"
+-H "X-Personium-Unit-User: {UnitURL}/{UnitUserName}"
 ```
 
 ### ユニットユーザトークン（Unit User Token (UUT)）
@@ -74,7 +74,7 @@ curl localhost:8080/personium-core/__ctl/Cell -X GET \
 |要素・属性名|内容|
 |:--|:--|
 |IssueInstant|認証した時刻|
-|issuer|ユニットが認めたURL。<br>personium-unit-config(-default).propertiesの「io.personium.core.unitUser.issuers=」に認める任意のURLを記述|
+|issuer|ユニットが認めたURL。<br>personium-unit-config.propertiesの「io.personium.core.unitUser.issuers=」に認める任意のURLを記述|
 |Subject\NameID|	ユニットユーザ名。任意の文字列。|
 |audience|ユニットルートURL|
 |attribute|Unit User Role|
@@ -87,11 +87,11 @@ curl localhost:8080/personium-core/__ctl/Cell -X GET \
 
 * 例
 * セルでUUTを発行する場合
-* personium-unit-config-default.propertiesの`io.personium.core.unitUser.issuers=https://demo.personium.io/testCell/`を設定
+* personium-unit-config.propertiesの`io.personium.core.unitUser.issuers={UnitURL}/{Cell}/`を設定
 
 * ```sh
-curl https://demo.personium.io/testCell/__auth -X GET \
--d 'grant_type=password&username=user&password=pass&p_target=https://demo.personium.io/'
+curl "{UnitURL}/{Cell}/__auth" -X GET \
+-d 'grant_type=password&username=user&password=pass&p_target={UnitURL}/'
 ```
 
 * io.personium.core.unitUser.issuers は複数URL設定可能
@@ -101,12 +101,7 @@ curl https://demo.personium.io/testCell/__auth -X GET \
 * personium-coreはユニットユーザのロールとして以下を認識する。<br>
 Token内でその他のロールが付与されていたとしてもこれを認識はしない。（無視する）
 
-* {issuerUrl}/\_\_role/\_\_/unitAdmin ： ユニット管理者
-
-* ```
-https://demo.personium.io/testCell1/__role/__/unitAdmin
-```
-
+* {UnitURL}/{Cell}/\_\_role/\_\_/unitAdmin ： ユニット管理者
 
 * このロールが付与されている場合、マスタートークン同様にそのユニットに対するあらゆる処理が許可されるのがユニット管理者ロールである。<br>
 V0では各種ユニット管理業務にマスタートークンが乱用されたが、このような運用はセキュリティ上望ましくない。<br>
