@@ -46,14 +46,14 @@ Personiumは基本となる以下の3階層で構成されています。
 
 ### Boxインストール
 * barファイルを使って指定されたパスにBoxをインストールすることが可能です。
-* 詳細は[こちら](https://personium.github.io/ja/user_guide/006_Box_install.html)をご覧下さい。
+* 詳細は[こちら](./006_Box_install.html)をご覧下さい。
 
 
 ### Collection
 * Collectionは、Boxの中に格納されたデータ集合です。
 * 以下の3種類が存在します。
 
-	* ###### [WebDAVモデル](https://personium.github.io/ja/user_guide/007_WebDAV_model.html)
+	* ###### [WebDAVモデル](./007_WebDAV_model.html)
 	* ###### ODataモデル
 	* ###### サービスのモデル
 

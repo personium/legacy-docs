@@ -25,7 +25,7 @@ To create a new Box which is a data storage unit for each application, use the &
 <li><p>The file format is zip format, the hierarchical structure in the folder represents the hierarchical structure of the webDAV collection,<br />
 By storing the file for each hierarchy, it holds the file to be stored in webDAV.<br />
 For the Scheme information of OData, define the structure with &quot;edmx.xml&quot;.</p></li>
-<li><p>See <a href="https://personium.github.io/en/apiref/1.5.2/301_Bar_File.html">Bar file</a> for details.</p></li>
+<li><p>See <a href="../apiref/1.5.2/301_Bar_File.html">Bar file</a> for details.</p></li>
 </ul>
 <h3 id="runtime-flow">Runtime flow</h3>
 <ul>
@@ -52,7 +52,7 @@ For the reasons and causes of abnormal termination, execute the &quot;Box metada
 <ul>
 <li><p>Unlike other APIs, installing sometimes creates various resources during processing during installation,<br />
 Processing takes time from receipt of processing to completion of registration.</p></li>
-<li><p>To check the progress of the process, use <a href="https://personium.github.io/en/apiref/1.5.2/303_Progress_of_Bar_File_Installation.html">Box metadata acquisition</a>.</p></li>
+<li><p>To check the progress of the process, use <a href="../apiref/1.5.2/303_Progress_of_Bar_File_Installation.html">Box metadata acquisition</a>.</p></li>
 <li><h5 id="condition-check-by-acquiring-box-metadata">Condition check by acquiring Box metadata</h5>
 <ul>
 <li><p>In order to execute the Box metadata acquisition API, you need &quot;box&quot; authority of box level ACLPrivilege.</p></li>
@@ -74,7 +74,7 @@ For details of the reason for failure, please check with the log acquisition API
 <h3 id="confirm-processing-result">Confirm processing result</h3>
 <ul>
 <li>Box Installation processing contents are output as a log to the EventBus of Cell to which box installation target Box belongs.<br />
-To refer to that log, use <a href="https://personium.github.io/en/apiref/1.5.2/285_Retrieve_Log_File.html">Log file acquisition API</a> to refer to it.<br />
+To refer to that log, use <a href="../apiref/1.5.2/285_Retrieve_Log_File.html">Log file acquisition API</a> to refer to it.<br />
 Also, in order to use the above API, &quot;log - read&quot; authority is required.</li>
 </ul>
 </body>

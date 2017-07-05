@@ -25,7 +25,7 @@ webDAVやODataのScheme等のアプリを挙動させるためのデータ構造
 <li><p>ファイル形式はzip形式であり、フォルダ内の階層構造でwebDAVコレクションの階層構造を表し、<br />
 その階層毎にファイルを格納することで、webDAV内に格納するファイルを保持する。<br />
 また、ODataのScheme情報については、「edmx.xml」で構造を定義します。</p></li>
-<li><p>詳細については、<a href="https://personium.github.io/ja/apiref/1.5.2/301_Bar_File.html">barファイル</a>を参照して下さい。</p></li>
+<li><p>詳細については、<a href="../apiref/1.5.2/301_Bar_File.html">barファイル</a>を参照して下さい。</p></li>
 </ul>
 <h3>実行時のフロー</h3>
 <ul>
@@ -52,7 +52,7 @@ Box作成前のBarファイルのチェックでエラーとなり異常終了�
 <ul>
 <li><p>boxインストールは他のAPIとは異なり、インストール中に様々なリソースを処理中に作成する事もあり、<br />
 処理の受付から、登録の完了まで時間を要する処理となります。</p></li>
-<li><p>その処理の進捗状況を確認するには、<a href="https://personium.github.io/ja/apiref/1.5.2/303_Progress_of_Bar_File_Installation.html">Boxメタデータ取得</a>を利用します。</p></li>
+<li><p>その処理の進捗状況を確認するには、<a href="../apiref/1.5.2/303_Progress_of_Bar_File_Installation.html">Boxメタデータ取得</a>を利用します。</p></li>
 <li><h5 id="box">Boxメタデータ取得による状況確認</h5>
 <ul>
 <li><p>Boxメタデータ取得APIを実行するには、ボックスレベルACLPrivilegeの「box」の権限が必要です。</p></li>
@@ -74,7 +74,7 @@ Box作成前のBarファイルのチェックでエラーとなり異常終了�
 <h3>処理結果の確認</h3>
 <ul>
 <li>boxインストールの処理内容はログとして、boxインストール対象Boxが所属するCellのEventBusへ出力されます。<br />
-そのログを参照する場合は、<a href="https://personium.github.io/ja/apiref/1.5.2/285_Retrieve_Log_File.html">ログファイル取得API</a>を使用して参照します。<br />
+そのログを参照する場合は、<a href="../apiref/1.5.2/285_Retrieve_Log_File.html">ログファイル取得API</a>を使用して参照します。<br />
 また、上記APIを使用するためには、&quot;log-read&quot; の権限が必要となります。</li>
 </ul>
 </body>
