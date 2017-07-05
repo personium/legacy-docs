@@ -1,43 +1,43 @@
-# What is Personium?
+# What is Personium?  
 
-Personium is open source PDS (Personal Data Store) server software.
+Personium is a open source PDS (Personal Data Store) server software.  
 
-![What is Personium?](image/Personium.png "What is Personium?")
+![What is Personium?](image/Personium.png "What is Personium?")  
 
-### Anyone can set up a PDS server
+### Anyone can set up a PDS server  
 
-Because it is open source software, anyone, business / municipality / government / individual etc, can become a PDS provider.
+Because it is a open source software, anyone (business, municipality, government, individual, etc.) can become a PDS provider.  
 
-### All functions are REST API
+### All functions are REST API  
 
-HTTP can handle any platform (OS, development language), so you do not have to choose the client platform.
+HTTP can handle any platform (OS, development language), so you do not have to choose the client platform.  
 
-The GUI as PDS is distributed, but anyone can remodel it.
+GUI examples for both user and administrator are distributed, please feel free to modify and customize it for your needs.  
 
-### Specify the URL of the remote PDS for data disclosure / sharing setting
+### Specify a remote PDS URL to disclose or grant managing permission to your data  
 
-The PDS of Personium is given a URL.
+Each Personium PDS is given a URL.  
 
-Data disclosure and sharing settings to other people (eg wife, family doctor, work place etc) are done by specifying the URL of the partner PDS.
+Disclosing or granting managing permission to your data to the other party (e.g. wife, family doctor, work place, etc.) are done by specifying the other party's PDS URL.  
 
-Others PDS access uses digital signature technology, the other party may be another server.
+PDS access uses digital signature technology, therefore, the other party's PDS can be resided on another server.  
 
 ![data disclosure/sharing setting](image/DisclosureData.png "data disclosure/sharing setting")
 
-Passive data entity：For infants, the elderly, etc., PDS can be handed over to the relatives by granting all the authority of all data to relatives etc.
+Passive data entity： For infants, the elderly, etc., PDS can be handed over to the relatives by granting administrative permission of all data to the relatives.  
 
 ![passive data entity](image/PassiveDataEntity.png "passive data entity")
 
-### Configure Web of PDS
-The PDS group connected by the data disclosure / disclosing constitutes a decentralized network that does not have a center that a specific business operator does not become a banker(=The only winner). (Distributed social graph)
+### Configure web of PDS  
+Groups of PDSs composed of the data disclosing and disclosed parties become a decentralized network which does not favor a specific business operator (the only winner). (Distributed social graph)
 
-It is possible to form a huge Web of PDS in which the disparate PDSs are linked together as if the web site hosted on a web server built in pieces was linked and www was created.
+It is possible to form a huge web of PDSs in which the disparate PDSs are linked together as if the web site hosted on a web server built in pieces was linked and www was created.
 
 We also implement security that is necessary for the formation of an open ecosystem.
 
-### Data entity (=PDS owner) can be expanded to objects, organizations, etc., not limited to people
-Data entities can be expanded to objects, organizations, etc. in the same way as dealing with passive data subjects. (Eg, family / dog Poch's data store)
+### Data entity (=PDS owner) can be extended to objects, organizations, etc., not just limited to people  
+Data entities can be extended to objects, organizations, etc. in the same way as dealing with passive data subjects. (e.g. family/dog Poch's data store)
 
-  It profess a model that handles IoM, IoT, and IoE integrally.(Cyber-Physical)
+We recommend an integrated model that handles IoM, IoT, and IoE.(Cyber-Physical)
 
 ![Enhancement of data entity](image/ExpansionDataEntity.png "Enhancement of data entity")
