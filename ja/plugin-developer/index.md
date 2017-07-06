@@ -3,7 +3,7 @@
 Personiumのサーバ機能を拡張するために、プラグインを開発して利用したい人向けのドキュメントです
 
 ### [Engine Extensionの実装及び配備仕様](./EngineExtension_Imple_and_Deploy.html)
-
+### [Extension: メール送信機能](./Extension_Send_Mail.html)
 ### [Personium認証プラグイン開発ガイド](./Personium_AuthenticationPluginDeveloperManual.html)
 
 ### コントリビューターガイド
