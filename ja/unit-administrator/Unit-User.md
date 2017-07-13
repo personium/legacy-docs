@@ -90,7 +90,7 @@ curl "{UnitURL}/__ctl/Cell" -X GET \
 * personium-unit-config.propertiesの`io.personium.core.unitUser.issuers={UnitURL}/{Cell}/`を設定
 
 * ```sh
-curl "{UnitURL}/{Cell}/__auth" -X GET \
+curl "{UnitURL}/{Cell}/__token" -X GET \
 -d 'grant_type=password&username=user&password=pass&p_target={UnitURL}/'
 ```
 

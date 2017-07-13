@@ -142,7 +142,7 @@ X-Personium-Unit-Userヘッダに任意の文字列を指定することで、�
 <li>例</li>
 <li>セルでUUTを発行する場合</li>
 <li><p>personium-unit-config.propertiesの<code>io.personium.core.unitUser.issuers={UnitURL}/{Cell}/</code>を設定</p></li>
-<li><div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;{UnitURL}/{Cell}/__auth&quot;</span> -X GET \
+<li><div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;{UnitURL}/{Cell}/__token&quot;</span> -X GET \
 -d <span class="st">&#39;grant_type=password&amp;username=user&amp;password=pass&amp;p_target={UnitURL}/&#39;</span></code></pre></div></li>
 <li><p>io.personium.core.unitUser.issuers は複数URL設定可能</p></li>
 </ul>
