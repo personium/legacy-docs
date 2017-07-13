@@ -10,35 +10,35 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 
 # はじめに
 
-* ### [Personiumとは](https://personium.github.io/ja/overview/001_Introduction.html)
+* ### [Personiumとは](./overview/001_Introduction.html)
 
 # 概要
 
-* ### [Personiumの概念](https://personium.github.io/ja/user_guide/001_Personium_Concepts.html)
+* ### [Personiumの概念](./user_guide/001_Personium_Concepts.html)
 
-* ### [設計モデル](https://personium.github.io/ja/user_guide/005_Model_construction.html)
+* ### [設計モデル](./user_guide/005_Model_construction.html)
 
 
 # 目的別ガイド
-* ### [アプリ開発者向けガイド](https://personium.github.io/ja/app-developer/index.html)
+* ### [アプリ開発者向けガイド](./app-developer/index.html)
   * PersoniumのAPIを使用して、PDSアプリを開発したい人向けのドキュメントです
 
-* ### [Cell管理クライアント開発者向けガイド](https://personium.github.io/ja/cell-client-developer/index.html)
+* ### [Cell管理クライアント開発者向けガイド](./cell-client-developer/index.html)
   * PersoniumのCellを管理するアプリを開発したい人向けのドキュメントです
 
-* ### [ユニット管理者向けガイド](https://personium.github.io/ja/unit-administrator/index.html)
+* ### [ユニット管理者向けガイド](./unit-administrator/index.html)
   * Personiumを使用したPDSサービスを提供するため、構築済みのPersoniumユニットを管理したい人、PDSアプリをユーザーに利用してもらいたい人向けのドキュメントです
 
-* ### [サーバソフトウェア運用者向けガイド](https://personium.github.io/ja/server-operator/index.html)
+* ### [サーバソフトウェア運用者向けガイド](./server-operator/index.html)
   * Personiumを使用したPDSサービス環境を、提供・運用したい人向けのドキュメントです
 
-* ### [サーバプラグイン開発者向けガイド](https://personium.github.io/ja/plugin-developer/index.html)
+* ### [サーバプラグイン開発者向けガイド](./plugin-developer/index.html)
   * Personiumのサーバ機能を拡張するために、プラグインを開発して利用したい人向けのドキュメントです
 
-* ### [サーバ開発者向けガイド](https://personium.github.io/ja/software-developer/index.html)
+* ### [サーバ開発者向けガイド](./software-developer/index.html)
   * PersoniumのOSSの機能を開発したい人、OSSにコミットしたい人向けのドキュメントです
 
 _ _ _
 Personiumプロジェクトでは、当ドキュメントに貢献してくださる方も募集中です。
 
-### [ドキュメント整備への参加方法](https://personium.github.io/ja/document-writer/index.html)
+### [ドキュメント整備への参加方法](./document-writer/index.html)

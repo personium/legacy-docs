@@ -4,9 +4,9 @@
 
 #### Event model
 
-#### [Authentication model](https://personium.github.io/en/user_guide/003_Auth.html)
+#### [Authentication model](./003_Auth.html)
 
-#### [Access control model](https://personium.github.io/en/user_guide/002_Access_Control.html)
+#### [Access control model](./002_Access_Control.html)
 
 #### $Links setting
 

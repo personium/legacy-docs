@@ -6,7 +6,7 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="..\github.css" type="text/css" />
+  <link rel="stylesheet" href="../github.css" type="text/css" />
 </head>
 <body>
 <h1>認証モデル</h1>
@@ -47,7 +47,7 @@
 <li>異なるサーバーによって発行されたトランスセルトークンを受け入れるには、X509証明書を発行済みサーバーと同じCAで署名する必要があります。</li>
 </ul>
 <h2 id="grant-flow">Grant Flow</h2>
-<p>クライアント認証が必要な場合は、フローを開始する前に<a href="https://personium.github.io/ja/user_guide/004_Client_auth.html">登録クライアント</a>を入力してください。</p>
+<p>クライアント認証が必要な場合は、フローを開始する前に<a href="./004_Client_auth.html">登録クライアント</a>を入力してください。</p>
 <h4>所有者のパスワード資格情報を付与する</h4>
 <p>1.クライアントは、リソースを含むセルのトークンエンドポイントに次のような要求を送信します。</p>
 <ul>
@@ -68,7 +68,12 @@
 <h2 id="exchange">Exchangeトークン</h2>
 <p>トランスセルトークンをターゲットセルのトークンエンドポイントに送信すると、セル内で有効なセルローカルトークンが返されます。</p>
 <h2>トークンを更新する</h2>
-<p>トークンをリフレッシュするには、リフレッシュトークンをトークンエンドポイントに送ります。次に、新しいトークンとrefrshトークンが返されます。<br />
+<p>トークンをリフレッシュするには、リフレッシュトークンをトークンエンドポイントに送ります。次に、新しいトークンとリフレッシュトークンが返されます。<br />
 アクセストークンが期限切れでない場合、トークンをリフレッシュすることは可能です。</p>
+<h2 id="schema">Schema認証</h2>
+<p>Schema認証とは、特定のBoxを操作することのできる権限の持ち主が、同じトークンで他のBoxにアクセスすることを不可能にする認証のことです。<br />
+Schema認証APIは、OAuth2.0におけるクライアント認証の枠組みの中で規定されたものであるため、<br />
+ClientIDとClientSecretをパラメータとして認証時に付加することで実施可能となります。</p>
+<p>Schema認証の詳細については、<a href="../app-developer/schema_auth.html">Schema認証</a>を参照して下さい。</p>
 </body>
 </html>

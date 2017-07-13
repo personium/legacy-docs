@@ -4,9 +4,9 @@
 
 #### イベントのモデル
 
-#### [認証モデル](https://personium.github.io/ja/user_guide/003_Auth.html)
+#### [認証モデル](./003_Auth.html)
 
-#### [アクセス制御モデル](https://personium.github.io/ja/user_guide/002_Access_Control.html)
+#### [アクセス制御モデル](./002_Access_Control.html)
 
 #### $links設定
 

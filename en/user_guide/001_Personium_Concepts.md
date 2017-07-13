@@ -45,13 +45,13 @@ Personium is made up of the following three layer which are the basic.
 
 ### Box installation
 * It is possible to install the Box in the specified path using the bar file.
-* For more details, please click [here](https://personium.github.io/en/user_guide/006_Box_install.html).
+* For more details, please click [here](./006_Box_install.html).
 
 ### Collection
 * Collection is a data set stored in Box.
 * There are the following three types.
 
-	* ###### [WebDAV model](https://personium.github.io/en/user_guide/007_WebDAV_model.html)
+	* ###### [WebDAV model](./007_WebDAV_model.html)
 	* ###### OData model
 	* ###### Service model
 
