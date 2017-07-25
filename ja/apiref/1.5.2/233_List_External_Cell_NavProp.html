@@ -306,7 +306,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h4>レスポンスサンプル</h4>
-<p><code>json {   &quot;d&quot;: {     &quot;results&quot;: [       {         &quot;__metadata&quot;: {           &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')&quot;,           &quot;etag&quot;: &quot;W/\&quot;1-1487320623218\&quot;&quot;,           &quot;type&quot;: &quot;CellCtl.Role&quot;         },         &quot;Name&quot;: &quot;{RoleName}&quot;,         &quot;_Box.Name&quot;: &quot;{BoxName}&quot;,         &quot;__published&quot;: &quot;/Date(1487320623218)/&quot;,         &quot;__updated&quot;: &quot;/Date(1487320623218)/&quot;,         &quot;_Box&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Box&quot;           }         },         &quot;_Account&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Account&quot;           }         },         &quot;_ExtCell&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtCell&quot;           }         },         &quot;_ExtRole&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_ExtRole&quot;           }         },         &quot;_Relation&quot;: {           &quot;__deferred&quot;: {             &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name='{RoleName}',_Box.Name='{BoxName}')/_Relation&quot;           }         }       }     ]   } }</code></p>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+  <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="ot">[</span>
+      <span class="fu">{</span>
+        <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+          <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)&quot;</span><span class="fu">,</span>
+          <span class="dt">&quot;etag&quot;</span><span class="fu">:</span> <span class="st">&quot;W/</span><span class="ch">\&quot;</span><span class="st">1-1487320623218</span><span class="ch">\&quot;</span><span class="st">&quot;</span><span class="fu">,</span>
+          <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;CellCtl.Role&quot;</span>
+        <span class="fu">},</span>
+        <span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{RoleName}&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;_Box.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{BoxName}&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;__published&quot;</span><span class="fu">:</span> <span class="st">&quot;/Date(1487320623218)/&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;__updated&quot;</span><span class="fu">:</span> <span class="st">&quot;/Date(1487320623218)/&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;_Box&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+          <span class="dt">&quot;__deferred&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_Box&quot;</span>
+          <span class="fu">}</span>
+        <span class="fu">},</span>
+        <span class="dt">&quot;_Account&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+          <span class="dt">&quot;__deferred&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_Account&quot;</span>
+          <span class="fu">}</span>
+        <span class="fu">},</span>
+        <span class="dt">&quot;_ExtCell&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+          <span class="dt">&quot;__deferred&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_ExtCell&quot;</span>
+          <span class="fu">}</span>
+        <span class="fu">},</span>
+        <span class="dt">&quot;_ExtRole&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+          <span class="dt">&quot;__deferred&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_ExtRole&quot;</span>
+          <span class="fu">}</span>
+        <span class="fu">},</span>
+        <span class="dt">&quot;_Relation&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+          <span class="dt">&quot;__deferred&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+            <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_Relation&quot;</span>
+          <span class="fu">}</span>
+        <span class="fu">}</span>
+      <span class="fu">}</span>
+    <span class="ot">]</span>
+  <span class="fu">}</span>
+<span class="fu">}</span></code></pre></div>
 <h3 id="curl">CURLサンプル</h3>
 <h5 id="rolenavigationproperty">RoleのnavigationProperty経由一覧</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtCell(&#39;https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F&#39;)/_Role&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>

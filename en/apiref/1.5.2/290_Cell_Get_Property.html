@@ -48,19 +48,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <body>
 <h1>Acquire Properties</h1>
 <h3>Overview</h3>
-<p>セルのプロパティを取得する</p>
+<p>Get cell properties</p>
 <h3>Required Privileges</h3>
 <p>propfind</p>
 <ul>
-<li>ACLの設定状況を取得する場合は、合わせてacl-readが必要</li>
+<li>In order to acquire ACL setting status, acl-read is required together</li>
 </ul>
 <h3>Restrictions</h3>
 <p>Restrictions in V 1.0</p>
 <ul>
-<li>対象リソースが返却出来るプロパティの一覧を返却する機能</li>
-<li>レスポンスボディで返却するプロパティを指定する機能
+<li>Ability to return a list of properties for which target resources can be returned</li>
+<li>A function that specifies the property to be returned in the response body
 <ul>
-<li>現状allpropとなる</li>
+<li>It becomes current allprop</li>
 </ul></li>
 </ul>
 <p><br></p>
@@ -174,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="header">
 <th align="left">URI<br></th>
 <th align="left">Overview<br></th>
-<th align="left">備考()prefix<br></th>
+<th align="left">Notes<br></th>
 </tr>
 </thead>
 <tbody>
@@ -288,7 +288,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personium namespace<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -382,7 +382,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">resourcetype<br></td>
 <td align="left">p:<br></td>
 <td align="left">Element<br></td>
-<td align="left">リソースのタイプを表す。 collection、odata、serviceのいずれかが子となるか、子は空となる<br></td>
+<td align="left">Represents the type of resource. Either one of collection, odata, or service is a child, or the child is empty<br></td>
 <td align="left"><br></td>
 </tr>
 <tr class="odd">
@@ -390,31 +390,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">p:<br></td>
 <td align="left">Element<br></td>
 <td align="left">Represents that the type of resource is a collection<br>Displays, if resource is collection<br></td>
-<td align="left"><br|
+<td align="left"><br></td>
 |odata<br></td>
 </tr>
 <tr class="even">
+<td align="left">odata<br></td>
+<td align="left">p:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents that the type of resource is a OData service collection<br></td>
+<td align="left">Displays, if resource is OData collection<br></td>
+</tr>
+<tr class="odd">
 <td align="left">service<br></td>
 <td align="left">p:<br></td>
 <td align="left">Element<br></td>
 <td align="left">Represents that the type of resource is a service collection<br></td>
 <td align="left">Displays, if resource is service collection<br></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">acl<br></td>
 <td align="left">p:<br></td>
 <td align="left">Element<br></td>
 <td align="left">ACL setting set for resource<br></td>
-<td align="left">ACL設定を取得するためには、対象リソースに対するacl-read権限が必要<br>ACL要素以下の内容については、セルレベルアクセス制御設定APIを参照<br></td>
+<td align="left">In order to acquire the ACL setting, acl-read authority for the target resource is required<br>ACL Element Refer to the <a href="289_Cell_ACL.html">cell level access control setting API</a> for the following contents<br></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">base<br></td>
 <td align="left">p:<br></td>
 <td align="left">Element<br></td>
 <td align="left">ACL Privilege BaseURL<br></td>
 <td align="left">When PROPFIND to Cell, default box (&quot;__&quot;) resource URL<br></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">status<br></td>
 <td align="left">D:<br></td>
 <td align="left">Element<br></td>
