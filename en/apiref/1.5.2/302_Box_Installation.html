@@ -353,14 +353,14 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 </table>
 <p>Location sample</p>
 <pre><code>Location:https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
-<p>For details of URL for Box metadata acquisition API, see Box metadata acquisition.</p>
+<p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.</p>
 <h4>Response Body</h4>
 <p>None</p>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4>Response Sample</h4>
 <pre><code>Location: https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
-<p>For details of URL for Box metadata acquisition API, see Box metadata acquisition.<br />
+<p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.<br />
 <br></p>
 <h3 id="curl">CURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
