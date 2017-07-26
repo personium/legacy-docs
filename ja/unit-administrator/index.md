@@ -3,6 +3,8 @@
 Personiumを使用したPDSサービスを提供するため、構築済みのPersoniumユニットを管理したい人、PDSアプリをユーザーに利用してもらいたい人向けのドキュメントです
 ### [ユニットユーザ](./Unit-User.html)
 
+### [データの管理](./Data_Management.html)
+
 ### APIリファレンス<br>
 * [1.5.0](../apiref/1.5.0/000_Rest_API_Reference.html)&nbsp;&nbsp;[1.5.1](../apiref/1.5.1/000_Rest_API_Reference.html)&nbsp;&nbsp;[1.5.2](../apiref/1.5.2/000_Rest_API_Reference.html)
 
