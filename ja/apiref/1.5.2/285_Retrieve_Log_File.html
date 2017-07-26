@@ -109,24 +109,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
-<table>
-<thead>
-<tr class="header">
-<th align="left">URL<br></th>
-<th align="left">概要<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">/{CellName}/__log/current/{LogName}<br></td>
-<td align="left">最新のログファイル<br></td>
-</tr>
-<tr class="even">
-<td align="left">/{CellName}/__log/current/{LogName}<br></td>
-<td align="left">ローテートされたログファイル<br></td>
-</tr>
-</tbody>
-</table>
+<h5>最新のログファイルを取得</h5>
+<pre><code>/{CellName}/__log/current/{LogName}</code></pre>
+<h5>ローテートされたログファイルを取得</h5>
+<pre><code>/{CellName}/__log/archive/{LogName}</code></pre>
 <p>※{LogName}は、ログファイル情報取得API で返却されたファイル名を指定する。</p>
 <h4>メソッド</h4>
 <p>GET</p>
