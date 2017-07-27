@@ -13,9 +13,9 @@ Personiumの各オブジェクトの管理を示す。
 |:--|:--|:--|
 |ユニット制御オブジェクト|Cell|OData|
 |Cell制御オブジェクト|Role<br>Account<br>Box<br>ExtCell<br>Relation<br>ExtRole<br>SentMessage<br>ReceivedMessage|OData|
-|Boxデータスキーマ定義|ODataServiceCollection<br>WebDAVServiceCollection<br>EngineServiceCollection|WebDAV|
-|Boxデータ<br>ファイル|ファイル<br>サービスコレクションソース|WebDAV|
-|Boxデータ<br>OData|EntityType<br>AssociationEnd<br>ComplexType<br>Property<br>ComplexTypeProperty<br>Entity|OData|
+|Boxリソーススキーマ|ODataServiceCollection<br>WebDAVServiceCollection<br>EngineServiceCollection|WebDAV|
+|Boxリソース<br>ファイル|ファイル<br>サービスコレクションソース|WebDAV|
+|Boxリソース<br>OData|EntityType<br>AssociationEnd<br>ComplexType<br>Property<br>ComplexTypeProperty<br>Entity|OData|
 |アクセス制御設定|ACL (Cell Level)<br>ACL (Box Level)|WebDAV|
 <br>
 #### 参考情報
@@ -33,7 +33,7 @@ Personiumの各オブジェクトの管理を示す。
 ##### WebDAV空間のデータ取得
 **ACL (Cell Level)**<br>Cellのプロパティ取得APIを実行する。<br>
 
-**Boxデータ**<br>コレクション設定取得APIをdepth=1で実行する。<br>コレクション設定取得APIで以下の情報が取得できる。
+**Boxリソース**<br>コレクション設定取得APIをdepth=1で実行する。<br>コレクション設定取得APIで以下の情報が取得できる。
 
 * Resource Path
 * Resource Type (ODataServiceCollection, WebDAVServiceCollection, EngineServiceCollection, ファイル)
