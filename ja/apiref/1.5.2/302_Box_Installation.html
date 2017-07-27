@@ -98,7 +98,7 @@ returned in&gt; &quot;processing complete&quot;.
 <li>Boxインストール処理中にBoxインストール対象Boxを含む配下のリソースへのデータ操作はできない。</li>
 <li>Boxインストール中にエラーが発生した場合のロールバックは行わない。</li>
 </ul>
-<h6 id="box">※1 Boxインストールのログ詳細フォーマット</h6>
+<h5 id="box">※1 Boxインストールのログ詳細フォーマット</h5>
 <table>
 <thead>
 <tr class="header">
@@ -129,7 +129,7 @@ returned in&gt; &quot;processing complete&quot;.
 </tr>
 </tbody>
 </table>
-<h6>処理コード</h6>
+<h5>処理コード</h5>
 <table>
 <thead>
 <tr class="header">
@@ -309,6 +309,7 @@ returned in&gt; &quot;processing complete&quot;.
 <th align="left">コード<br></th>
 <th align="left">メッセージ<br></th>
 <th align="left">概要<br></th>
+<th align="left">備考<br></th>
 </tr>
 </thead>
 <tbody>
@@ -316,6 +317,7 @@ returned in&gt; &quot;processing complete&quot;.
 <td align="left">202<br></td>
 <td align="left">Accepted<br></td>
 <td align="left">処理受付成功時<br></td>
+<td align="left"><br></td>
 </tr>
 </tbody>
 </table>
@@ -348,14 +350,14 @@ returned in&gt; &quot;processing complete&quot;.
 </table>
 <p>Locationサンプル</p>
 <pre><code>Location:https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
-<p>Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参照。</p>
+<p>Boxメタデータ取得API用URLの詳細は、<a href="303_Progress_of_Bar_File_Installation.html">Boxメタデータ取得</a>を参照。</p>
 <h4>レスポンスボディ</h4>
 <p>なし</p>
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h4>レスポンスサンプル</h4>
 <pre><code>Location: https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
-<p>Boxメタデータ取得API用URLの詳細は、Boxメタデータ取得を参照。<br />
+<p>Boxメタデータ取得API用URLの詳細は、<a href="303_Progress_of_Bar_File_Installation.html">Boxメタデータ取得</a>を参照。<br />
 <br></p>
 <h3 id="curl">CURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>

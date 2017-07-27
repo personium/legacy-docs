@@ -46,9 +46,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1>Acquire Properties</h1>
+<h1>Acquisition of collection settings</h1>
 <h3>Overview</h3>
-<p>Get properties</p>
+<p>Get collection settings</p>
 <h3>Required Privileges</h3>
 <p>read-properties</p>
 <ul>
@@ -70,8 +70,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>Request</h3>
 <h4 id="url">Request URL</h4>
-<pre><code>/{CellName}/{BoxName}
-/{CellName}/{BoxName}/{ResourcePath}</code></pre>
+<pre><code>/{CellName}/{BoxName}</code></pre>
+<p>or</p>
+<pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 <table>
 <colgroup>
 <col width="5%" />
@@ -179,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h6>Individual Request Header</h6>
+<h5>Individual Request Header</h5>
 <table>
 <colgroup>
 <col width="5%" />
@@ -335,7 +336,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personium namespace<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -465,7 +466,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 <td align="left">Element<br></td>
 <td align="left">ACL setting set for resource<br></td>
-<td align="left">In order to acquire the ACL setting, acl-read authority for the target resource is required. <br> ACL element For content below, see the cell level access control setting API<br></td>
+<td align="left">In order to acquire the ACL setting, acl-read authority for the target resource is required. <br> ACL element For content below, see the <a href="289_Cell_ACL.html">cell level access control setting API</a><br></td>
 </tr>
 <tr class="even">
 <td align="left">base<br></td>
@@ -549,7 +550,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>Response Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
-        <span class="kw">&lt;href&gt;</span>https://{BoxName}{BoxName}{BoxName}<span class="kw">&lt;/href&gt;</span>
+        <span class="kw">&lt;href&gt;</span>https://{UnitFQDN}/{CellName}/{BoxName}<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
                 <span class="kw">&lt;creationdate&gt;</span>2017-02-15T01:52:34.635+0000<span class="kw">&lt;/creationdate&gt;</span>

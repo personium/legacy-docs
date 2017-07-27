@@ -100,7 +100,7 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 <li>During the Box installation process, you can not operate data on subordinate resources including Box to be installed.</li>
 <li>Do not roll back if an error occurs during Box installation.</li>
 </ul>
-<h6 id="box">*1 Box installation log detailed format</h6>
+<h5 id="box">*1 Box installation log detailed format</h5>
 <table>
 <thead>
 <tr class="header">
@@ -131,7 +131,7 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 </tr>
 </tbody>
 </table>
-<h6>Processing code</h6>
+<h5>Processing code</h5>
 <table>
 <thead>
 <tr class="header">
@@ -312,6 +312,7 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 <th align="left">Code<br></th>
 <th align="left">Message<br></th>
 <th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
 </tr>
 </thead>
 <tbody>
@@ -319,6 +320,7 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 <td align="left">202<br></td>
 <td align="left">Accepted<br></td>
 <td align="left">Process acceptance success<br></td>
+<td align="left"><br></td>
 </tr>
 </tbody>
 </table>
@@ -351,14 +353,14 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 </table>
 <p>Location sample</p>
 <pre><code>Location:https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
-<p>For details of URL for Box metadata acquisition API, see Box metadata acquisition.</p>
+<p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.</p>
 <h4>Response Body</h4>
 <p>None</p>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4>Response Sample</h4>
 <pre><code>Location: https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
-<p>For details of URL for Box metadata acquisition API, see Box metadata acquisition.<br />
+<p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.<br />
 <br></p>
 <h3 id="curl">CURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>

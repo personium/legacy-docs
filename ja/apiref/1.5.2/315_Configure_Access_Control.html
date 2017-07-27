@@ -46,9 +46,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1>アクセス制御設定</h1>
+<h1>Box Level アクセス制御設定</h1>
 <h3>概要</h3>
-<p>アクセス制御機能を提供する</p>
+<p>Box Level のアクセス制御機能を提供する</p>
 <h3>必要な権限</h3>
 <p>write-acl</p>
 <h3>制限事項</h3>
@@ -60,8 +60,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
-<pre><code>/{CellName}/{BoxName}
-/{CellName}/{BoxName}/{ResourcePath}</code></pre>
+<pre><code>/{CellName}/{BoxName}</code></pre>
+<p>または、</p>
+<pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 <table>
 <colgroup>
 <col width="5%" />
@@ -163,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personiumの名前空間<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -172,7 +173,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。</p>
 <p>XMLの構造<br />
 ボディはXMLで、以下のスキーマに従っています。<br />
-privilegeタグ配下の権限設定の内容については、acl_model（アクセス制御モデル）を参照。</p>
+privilegeタグ配下の権限設定の内容については、acl_model（<a href="../../user_guide/002_Access_Control.html">アクセス制御モデル</a>）を参照。</p>
 <table>
 <colgroup>
 <col width="5%" />
@@ -347,7 +348,7 @@ privilegeタグ配下の権限設定の内容については、acl_model（ア�
         <span class="kw">&lt;D:grant&gt;</span>
             <span class="kw">&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</span>
         <span class="kw">&lt;/D:grant&gt;</span>
-    <span class="kw">&lt;/D:ace&gt;</span>    
+    <span class="kw">&lt;/D:ace&gt;</span>
     <span class="kw">&lt;D:ace&gt;</span>
         <span class="kw">&lt;D:principal&gt;</span>
             <span class="kw">&lt;D:href&gt;</span>role<span class="kw">&lt;/D:href&gt;</span>

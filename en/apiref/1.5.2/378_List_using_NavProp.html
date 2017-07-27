@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1 id="_navprop">User data Get via list via NavProp</h1>
+<h1 id="_navprop">Get An Entity list via NavProp</h1>
 <h3>Overview</h3>
 <p>Get Entity list of user data via Navigation Property.</p>
 <h3>Required Privileges</h3>
@@ -343,14 +343,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>In addition to the above, return the schema-set item or the dynamic item specified at the time of registration</p>
 <h5>Numerical treatment</h5>
-<h6 id="edm.single">Decimal value(Edm.Single)</h6>
+<h5 id="edm.single">Decimal value(Edm.Single)</h5>
 <ul>
 <li>The handling when acquiring UserOData in JSON format is as follows
 <ul>
 <li>The value that the decimal part such as 10.0 becomes 0 is returned as an integer value</li>
 </ul></li>
 </ul>
-<h6 id="edm.double">Numerical value(Edm.Double)</h6>
+<h5 id="edm.double">Numerical value(Edm.Double)</h5>
 <p>*Double type handling in Personium follows the Java Double specification</p>
 <ul>
 <li>The handling when acquiring UserOData in JSON format is as follows

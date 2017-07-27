@@ -46,9 +46,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1>サービスコレクション設定適用</h1>
+<h1>サービスコレクションソース設定適用</h1>
 <h3>概要</h3>
-<p>サービスコレクション設定</p>
+<p>サービスコレクションソースの設定を適用する</p>
 <h3>制限事項</h3>
 <p>未稿</p>
 <h3>必要な権限</h3>
@@ -221,7 +221,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personium APIの名前空間<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -359,8 +359,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">path</span> <span class="fu">name</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">path</span> <span class="fu">src</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre></div>
 <h4>リクエストサンプル</h4>
-<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;D:propertyupdate</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span>  
-<span class="ot">    xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span>  
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;D:propertyupdate</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span>
+<span class="ot">    xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span>
 <span class="ot">    xmlns:Z=</span><span class="st">&quot;http://www.w3.com/standards/z39.50/&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;D:set&gt;</span>
         <span class="kw">&lt;D:prop&gt;</span>

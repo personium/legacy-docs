@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1 id="_navprop">ユーザデータ_NavProp経由一覧取得</h1>
+<h1 id="_navprop">Entity_NavProp経由一覧取得</h1>
 <h3>概要</h3>
 <p>ユーザデータのEntity一覧をNavigation Property経由で取得します。</p>
 <h3>必要な権限</h3>
@@ -343,14 +343,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <p>上記以外にスキーマ設定した項目、または登録時に指定した動的な項目を返却</p>
 <h5>数値の扱い</h5>
-<h6 id="edm.single">小数値（Edm.Single型）</h6>
+<h5 id="edm.single">小数値（Edm.Single型）</h5>
 <ul>
 <li>JSON形式でUserODataを取得する場合の取り扱いは以下の通り
 <ul>
 <li>10.0等の小数部が0となる値は、整数値として返却する</li>
 </ul></li>
 </ul>
-<h6 id="edm.double">数値（Edm.Double型）</h6>
+<h5 id="edm.double">数値（Edm.Double型）</h5>
 <p>※PersoniumでのDouble型の扱いは、JavaのDoubleの仕様に従います</p>
 <ul>
 <li>JSON形式でUserODataを取得する場合の取り扱いは以下の通り

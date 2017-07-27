@@ -361,7 +361,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="ot">]</span>
 <span class="fu">}</span></code></pre></div>
 <h4 id="rootprops.xml">90_rootprops.xml</h4>
-<p>Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br />For details on XML data, refer to xx. <br />The URL of the box to be installed is described as &quot;personium-box:/&quot;. <br />When the bar file is installed, the installation targets include all data<prop>excluding creationdate and astmodified under the following sample.</p>
+<p>Shows the XML data acquired with the PROPFIND method for all hierarchical levels under the box to be export to the bar file. <br />For details on XML data, refer to <a href="307_Get_Property.html">get file setting API(PROPFIND)</a>. <br />The URL of the box to be installed is described as &quot;personium-box:/&quot;. <br />When the bar file is installed, the installation targets include all data<prop>excluding creationdate and astmodified under the following sample.</p>
 <ul>
 <li>resourcetype: Sets the collection type</li>
 <li>acl: Sets privileges</li>
@@ -508,7 +508,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>90_data / {EntityType}/1.json</li>
 </ul>
 <h5 id="metadata.xml">00_$metadata.xml</h5>
-<p>Shows user OData schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br />For details on XML data, refer to schema acquisition ($metadata). <br />When the box is installed, the installation targets include the contents under the Schema tag. <br />Even if user OData schema definitions do not exist, the file itself exists.</p>
+<p>Shows user OData schema definitions. This data is the XML data acquired by $metadata for the collection for Odata during the export to the bar file. <br />For details on XML data, refer to <a href="316_User_Defined_Data_Schema.html">schema acquisition ($metadata)</a>. <br />When the box is installed, the installation targets include the contents under the Schema tag. <br />Even if user OData schema definitions do not exist, the file itself exists.</p>
 <p>Sample in the case of no schema definitions</p>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;Edmx:</span><span class="ot"> Edmx</span> <span class="er">Version</span> <span class="ot">=</span> <span class="st">&apos;1 .0 &apos;</span><span class="er">xmlns:</span><span class="ot"> edmx</span> <span class="ot">=</span><span class="st">&apos; http://schemas.microsoft.com/ado/2007/06/edmx \</span>
 <span class="st">&apos;</span><span class="er">xmlns:</span><span class="ot"> d</span> <span class="ot">=</span><span class="st">&apos; http://schemas.microsoft.com/ado/2007 / 08/dataservices&apos;</span><span class="ot"> xmlns:</span><span class="er">\</span>

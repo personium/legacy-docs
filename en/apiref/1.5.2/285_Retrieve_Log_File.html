@@ -109,25 +109,11 @@ If you exceed the maximum number of generations to hold rotate when the log file
 <p><br></p>
 <h3>Request</h3>
 <h4 id="url">Request URL</h4>
-<table>
-<thead>
-<tr class="header">
-<th align="left">URL<br></th>
-<th align="left">Overview<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">/{CellName}/__log/current/{LogName}<br></td>
-<td align="left">Recent log file<br></td>
-</tr>
-<tr class="even">
-<td align="left">/{CellName}/__log/current/{LogName}<br></td>
-<td align="left">rotated log file<br></td>
-</tr>
-</tbody>
-</table>
-<p*{LogName} specifies the file name returned by the log file information acquisition API./p>
+<h5>Recent log file</h5>
+<pre><code>/{CellName}/__log/current/{LogName}</code></pre>
+<h5>Log file that is rotated</h5>
+<pre><code>/{CellName}/__log/archive/{LogName}</code></pre>
+<p>*{LogName} specifies the file name returned by the log file information acquisition API./p>
 <h4>Request Method</h4>
 <p>GET</p>
 <h4>Request Query</h4>

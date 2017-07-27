@@ -46,9 +46,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1>Access Control Configuration</h1>
+<h1>Box Level Access Control Configuration</h1>
 <h3>Overview</h3>
-<p>Provide access control function</p>
+<p>Provides box level access control functions</p>
 <h3>Required Privileges</h3>
 <p>write-acl</p>
 <h3>Restrictions</h3>
@@ -60,8 +60,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>Request</h3>
 <h4 id="url">Request URL</h4>
-<pre><code>/{CellName}/{BoxName}
-/{CellName}/{BoxName}/{ResourcePath}</code></pre>
+<pre><code>/{CellName}/{BoxName}</code></pre>
+<p>or</p>
+<pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 <table>
 <colgroup>
 <col width="5%" />
@@ -163,7 +164,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personium namespace<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -172,7 +173,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
 <p>Structure of XML<br />
 The body is XML and follows the following schema.<br />
-See acl_model (access control model) for the contents of privilege setting under the privilege tag.</p>
+See acl_model (<a href="../../user_guide/002_Access_Control.html">access control model</a>) for the contents of privilege setting under the privilege tag.</p>
 <table>
 <colgroup>
 <col width="5%" />

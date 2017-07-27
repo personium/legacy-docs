@@ -323,7 +323,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personiumの名前空間<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -453,7 +453,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">p:<br></td>
 <td align="left">要素<br></td>
 <td align="left">リソースに設定されているACL設定<br></td>
-<td align="left">ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、セルレベルアクセス制御設定APIを参照<br></td>
+<td align="left">ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、<a href="289_Cell_ACL.html">Cell Level アクセス制御設定API</a>を参照<br></td>
 </tr>
 <tr class="even">
 <td align="left">base<br></td>
@@ -465,7 +465,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h5 id="dtd-1">DTD表記</h5>
-<h6 id="d">名前空間：D:</h6>
+<h5 id="d">名前空間：D:</h5>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">multistatus</span> <span class="dv">(</span><span class="fu">response</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">response</span> <span class="dv">(</span><span class="fu">href</span><span class="dv">,</span> <span class="fu">propstat</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">href</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
@@ -479,10 +479,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">resourcetype</span> <span class="dv">((</span><span class="fu">collection</span><span class="dv">,</span> <span class="dv">(</span><span class="fu">odata</span> <span class="fu">or</span> <span class="fu">service</span><span class="dv">)</span> <span class="fu">or</span> <span class="kw">EMPTY</span><span class="dv">))</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">collection</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">acl</span> <span class="dv">(</span><span class="fu">ace</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre></div>
-<h6 id="p">名前空間:p:</h6>
+<h5 id="p">名前空間:p:</h5>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">odata</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">service</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></code></pre></div>
-<h6 id="xml">名前空間：xml:</h6>
+<h5 id="xml">名前空間：xml:</h5>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">base</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre></div>
 <h4>レスポンスサンプル</h4>
 <h5 id="resourcetype">resourcetype要素</h5>

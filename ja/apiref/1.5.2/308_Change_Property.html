@@ -46,9 +46,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1>プロパティ変更</h1>
+<h1>コレクション設定変更</h1>
 <h3>概要</h3>
-<p>プロパティを変更する</p>
+<p>コレクションの設定を変更する</p>
 <h3>必要な権限</h3>
 <p>write-properties</p>
 <h3>制限事項</h3>
@@ -56,9 +56,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
-<pre><code>/{CellName}
-/{CellName}/{BoxName}
-/{CellName}/{BoxName}/{ResourcePath}</code></pre>
+<pre><code>/{CellName}</code></pre>
+<p>または、</p>
+<pre><code>/{CellName}/{BoxName}</code></pre>
+<p>または、</p>
+<pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 <table>
 <colgroup>
 <col width="5%" />
@@ -236,7 +238,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 </tr>
 <tr class="even">
-<td align="left"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a><br></td>
+<td align="left">urn:x-personium:xmlns<br></td>
 <td align="left">Personiumの名前空間<br></td>
 <td align="left">p:<br></td>
 </tr>
@@ -417,7 +419,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h5 id="dtd-1">DTD表記</h5>
-<h6 id="-d">名前空間 D:</h6>
+<h5 id="-d">名前空間 D:</h5>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">multistatus</span> <span class="dv">(</span><span class="fu">response</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">response</span> <span class="dv">(</span><span class="fu">href</span><span class="dv">,</span> <span class="fu">propstat</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">href</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
