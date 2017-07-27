@@ -13,9 +13,9 @@ Indicates management of each object of Personium.
 |:--|:--|:--|
 |Unit control object|Cell|OData|
 |Cell control object|Role<br>Account<br>Box<br>ExtCell<br>Relation<br>ExtRole<br>SentMessage<br>ReceivedMessage|OData|
-|Box data schema|ODataServiceCollection<br>WebDAVServiceCollection<br>EngineServiceCollection|WebDAV|
-|Box data<br>File|File<br>ServiceCollectionSource|WebDAV|
-|Box data<br>OData|EntityType<br>AssociationEnd<br>ComplexType<br>Property<br>ComplexTypeProperty<br>Entity|OData|
+|Box resource schema|ODataServiceCollection<br>WebDAVServiceCollection<br>EngineServiceCollection|WebDAV|
+|Box resource<br>File|File<br>ServiceCollectionSource|WebDAV|
+|Box resource<br>OData|EntityType<br>AssociationEnd<br>ComplexType<br>Property<br>ComplexTypeProperty<br>Entity|OData|
 |Access control setting|ACL (Cell Level)<br>ACL (Box Level)|WebDAV|
 <br>
 #### Reference information
@@ -33,7 +33,7 @@ Execute list acquisition API of each object and obtain data.<br>In the case of a
 ##### How to get WebDAV's data
 **ACL (Cell Level)**<br>Execute property acquisition API of Cell.<br>
 
-**Box data**<br>Execute the collection setting acquisition API with depth = 1.<br>The following information can be acquired with the collection setting acquisition API.
+**Box resource**<br>Execute the collection setting acquisition API with depth = 1.<br>The following information can be acquired with the collection setting acquisition API.
 
 * Resource Path
 * Resource Type (ODataServiceCollection, WebDAVServiceCollection, EngineServiceCollection, File)
