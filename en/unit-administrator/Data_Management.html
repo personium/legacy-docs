@@ -19,11 +19,6 @@
 <h3 id="management-of-each-object-data">Management of each object data</h3>
 <p>Indicates management of each object of Personium.</p>
 <table>
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Category</th>
@@ -87,5 +82,7 @@
 <li>ACL</li>
 </ul>
 <p>When the Resource Type is WebDAVServiceCollection or EngineServiceCollection, the collection setting acquisition API is recursively executed for that subordinate to acquire information.<br>If the Resource Type is a file, execute the file acquisition API and acquire the file.</p>
+<h5 id="how-to-register-acquired-data">How to register acquired data</h5>
+<p>Execute creation / registration API of corresponding object.<br>If there are multiple data, execute it recursively.</p>
 </body>
 </html>

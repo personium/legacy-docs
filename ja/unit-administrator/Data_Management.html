@@ -19,11 +19,6 @@
 <h3>各オブジェクトデータの管理</h3>
 <p>Personiumの各オブジェクトの管理を示す。</p>
 <table>
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">分類</th>
@@ -87,5 +82,7 @@
 <li>ACL</li>
 </ul>
 <p>Resource TypeがWebDAVServiceCollection or EngineServiceCollectionの場合、その配下に対して再帰的にコレクション設定取得APIを実行し情報を取得する。<br>Resource Typeがファイルの場合、ファイル取得APIを実行しファイルを取得する。</p>
+<h5>取得したデータの投入</h5>
+<p>該当するオブジェクトの作成/登録APIを実行する。<br>複数データが存在する場合は再帰的に実行する。</p>
 </body>
 </html>

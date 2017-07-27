@@ -40,3 +40,6 @@ Execute list acquisition API of each object and obtain data.<br>In the case of a
 * ACL
 
 When the Resource Type is WebDAVServiceCollection or EngineServiceCollection, the collection setting acquisition API is recursively executed for that subordinate to acquire information.<br>If the Resource Type is a file, execute the file acquisition API and acquire the file.
+
+##### How to register acquired data
+Execute creation / registration API of corresponding object.<br>If there are multiple data, execute it recursively.

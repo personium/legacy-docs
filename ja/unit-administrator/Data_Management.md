@@ -40,3 +40,6 @@ Personiumの各オブジェクトの管理を示す。
 * ACL
 
 Resource TypeがWebDAVServiceCollection or EngineServiceCollectionの場合、その配下に対して再帰的にコレクション設定取得APIを実行し情報を取得する。<br>Resource Typeがファイルの場合、ファイル取得APIを実行しファイルを取得する。
+
+##### 取得したデータの投入
+該当するオブジェクトの作成/登録APIを実行する。<br>複数データが存在する場合は再帰的に実行する。
