@@ -59,18 +59,19 @@ If you exceed the maximum number of generations to hold rotate when the log file
 <li>log file name&quot;default.log&quot;(fixed)</li>
 <li>Set rotate size: 50MB</li>
 <li>Configure the log output label to "info"&quot;info&quot;(fixed)(output for all INFO, WARN, ERROR)</li>
+<li>The file name when rotated is default.log. {timestamp}. {timestamp} is numbered by the time when it was rotated.</li>
 </ul>
 <p><br></p>
 <h3>Request</h3>
 <h4 id="url">Request URL</h4>
-<p>Recent log file list</p>
+<h5>Recent log file list</h5>
 <pre><code>/{CellName}/__log/current</code></pre>
-<p>Recent log file</p>
-<pre><code>/{CellName}/__log/current/{LogName}</code></pre>
-<p>List of log file that is rotated</p>
+<h5>Recent log file</h5>
+<pre><code>/{CellName}/__log/current/default.log</code></pre>
+<h5>List of log file that is rotated</h5>
 <pre><code>/{CellName}/__log/archive</code></pre>
-<p>Log file that is rotated</p>
-<pre><code>/{CellName}/__log/archive/{LogName}</code></pre>
+<h5>Log file that is rotated</h5>
+<pre><code>/{CellName}/__log/archive/default.log.{timestamp}</code></pre>
 <h4>Request Method</h4>
 <p>PROPFIND</p>
 <h4>Request Query</h4>

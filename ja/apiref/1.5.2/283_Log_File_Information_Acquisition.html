@@ -59,18 +59,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>ログファイル名：&quot;default.log&quot;（固定）</li>
 <li>ローテートのデフォルトサイズ設定:：50MB</li>
 <li>ログの出力レベル：&quot;info&quot;（固定）（INFO, WARN, ERRORすべて出力）</li>
+<li>ローテート時のファイル名は、 default.log.{timestamp} とする。 {timestamp}は、ローテートされたときの時刻で採番される。</li>
 </ul>
 <p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
-<p>最新のログファイル一覧取得</p>
+<h5>最新のログファイル一覧取得</h5>
 <pre><code>/{CellName}/__log/current</code></pre>
-<p>最新のログファイル情報取得</p>
-<pre><code>/{CellName}/__log/current/{LogName}</code></pre>
-<p>ローテートされたログファイル一覧取得</p>
+<h5>最新のログファイル情報取得</h5>
+<pre><code>/{CellName}/__log/current/default.log</code></pre>
+<h5>ローテートされたログファイル一覧取得</h5>
 <pre><code>/{CellName}/__log/archive</code></pre>
-<p>ローテートされたログファイル情報取得</p>
-<pre><code>/{CellName}/__log/archive/{LogName}</code></pre>
+<h5>ローテートされたログファイル情報取得</h5>
+<pre><code>/{CellName}/__log/archive/default.log.{timestamp}</code></pre>
 <h4>メソッド</h4>
 <p>PROPFIND</p>
 <h4>リクエストクエリ</h4>
@@ -340,7 +341,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">p:<br></td>
 <td align="left">要素<br></td>
 <td align="left">リソースに設定されているACL設定<br></td>
-<td align="left">ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、<a href="289_Cell_ACL.html">セルレベルアクセス制御設定API</a>を参照<br></td>
+<td align="left">ACL設定を取得するためには、対象リソースに対するacl-read権限が必要 ACL要素以下の内容については、<a href="289_Cell_ACL.html">Cell Level アクセス制御設定API</a>を参照<br></td>
 </tr>
 <tr class="odd">
 <td align="left">base<br></td>
