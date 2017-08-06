@@ -1,17 +1,19 @@
-# Design model
+# Design model  
 
-#### Message model
+#### Message model  
 
-#### Event model
+#### Event model  
 
-#### [Authentication model](./003_Auth.html)
+#### [Authentication model](./003_Auth.html)  
 
-#### [Access control model](./002_Access_Control.html)
+#### [Access control model](./002_Access_Control.html)  
 
-#### $Links setting
+#### $Links setting  
 
-#### Role Management
-* #### Issue Roles
-* #### Role Management
-* #### Role Class and Role Instance
-* #### Role Resources
+#### Role Management  
+<ul class="listStyleTypeNone">
+<li><h4 id="issue-roles">Issue Roles</h4></li>
+<li><h4 id="role-management-1">Role Management</h4></li>
+<li><h4 id="role-class-and-role-instance">Role Class and Role Instance</h4></li>
+<li><h4 id="role-resources">Role Resources</h4></li>
+</ul>
