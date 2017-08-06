@@ -12,7 +12,8 @@ body > *:first-child {
 body > *:last-child {
   margin-bottom: 0 !important; }
 
-body.listStyleTypeNone li {
+body.listStyleTypeNone li,
+.listStyleTypeNone li {
   list-style-type: none;
 }
 
