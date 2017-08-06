@@ -10,20 +10,20 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 
 # Introduction  
 
-<ul>
+<ul class="listStyleTypeNone">
 <li><h3 id="what-is-personium"><a href="./overview/001_Introduction.html">What is Personium?</a></h3></li>
 </ul>
 
 # Overview
 
-<ul>
+<ul class="listStyleTypeNone">
 <li><h3 id="personium-concepts"><a href="./user_guide/001_Personium_Concepts.html">Personium Concepts</a></h3></li>
 <li><h3 id="design-model"><a href="./user_guide/005_Model_construction.html">Design model</a></h3></li>
 </ul>
 
 # Developer's Guides  
 
-<ul>
+<ul class="listStyleTypeNone">
 <li><h3 id="application-developers-guide"><a href="./app-developer/index.html">Application Developer's Guide</a></h3></li>
 <li><p>It is a document for people who want to develop PDS applications using Personium's API</p></li>
 <li><h3 id="cell-management-client-developers-guide"><a href="./cell-client-developer/index.html">Cell Management Client Developer's Guide</a></h3></li>
@@ -35,7 +35,7 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 </ul>
 
 # Operations and Administration Guides  
-<ul>
+<ul class="listStyleTypeNone">
 <li><h3 id="unit-administrators-guide"><a href="./unit-administrator/index.html">Unit Administrator's Guide</a></h3></li>
 <li><p>It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium</p></li>
 <li><h3 id="server-software-operators-guide"><a href="./server-operator/index.html">Server Software Operator's Guide</a></h3></li>
