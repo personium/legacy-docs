@@ -4,7 +4,7 @@ It is a document for people who want to provide / operate PDS service environmen
 
 ### Construction guide  
 
-### [Unit configurations](./unit_config_list.html)  
+### [Unit configurations](./unit_config_list.md)  
 
 ### API Reference  
 <ul class="listStyleTypeNone">

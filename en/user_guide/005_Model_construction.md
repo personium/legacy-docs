@@ -4,9 +4,9 @@
 
 #### Event model  
 
-#### [Authentication model](./003_Auth.html)  
+#### [Authentication model](./003_Auth.md)  
 
-#### [Access control model](./002_Access_Control.html)  
+#### [Access control model](./002_Access_Control.md)  
 
 #### $Links setting  
 
