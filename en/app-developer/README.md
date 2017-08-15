@@ -4,7 +4,7 @@ It is a document for people who want to develop  PDS applications using Personiu
 
 ### Application development guide(Written schedule)
 
-### [Client registration & authentication](../user_guide/004_Client_auth.html)
+### [Client registration & authentication](../user_guide/004_Client_auth.md)
 
 ### API Reference  
 <ul class="listStyleTypeNone">

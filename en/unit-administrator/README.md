@@ -2,7 +2,7 @@
 
 It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium  
 
-### [Data Management](./Data_Management.html)  
+### [Data Management](./Data_Management.md)  
 
 ### API Reference  
 <ul class="listStyleTypeNone">

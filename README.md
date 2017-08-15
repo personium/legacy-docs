@@ -1,4 +1,3 @@
-# personium.github.io
 ## Introduction and guides (developer/operator/administrator)  
 Original Markdown Document for editing  
 1. [English](./en/)
