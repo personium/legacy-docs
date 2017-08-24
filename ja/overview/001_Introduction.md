@@ -26,7 +26,7 @@ PersoniumのPDSには皆URLが与えられます。
 
 受動的データ主体：幼児・高齢者などは、親族等に全データの全権限を許可することでPDSの運用移譲が可能となります。
 
-![受動的データ主体](image/PassiveDataEntity.png "受動的データ主体")
+![受動的データ主体](image/PassiveDataSubject.png "受動的データ主体")
 
 ### Web of PDSを構成可能
 データ開示・被開示という関係で結ばれたPDS群は、特定の事業者が胴元（⇒ 一人勝ち）になるのではない中心を持たないDecentralizedなネットワークを構成します。 （分散ソーシャルグラフ）
@@ -41,4 +41,4 @@ PersoniumのPDSには皆URLが与えられます。
 
 IoM, IoT, IoE を統合的に扱うモデルを標榜します。（Cyber-Physical）
 
-![データ主体の拡張](image/ExpansionDataEntity.png "データ主体の拡張")
+![データ主体の拡張](image/ExpansionDataSubject.png "データ主体の拡張")
