@@ -24,9 +24,9 @@ PDS access uses digital signature technology, therefore, the other party's PDS c
 
 ![data disclosure/sharing setting](image/DisclosureData.png "data disclosure/sharing setting")
 
-Passive data entity： For infants, the elderly, etc., PDS can be handed over to the relatives by granting administrative permission of all data to the relatives.  
+Passive data subject： For infants, the elderly, etc., PDS can be handed over to the relatives by granting administrative permission of all data to the relatives.  
 
-![passive data entity](image/PassiveDataEntity.png "passive data entity")
+![passive data subject](image/PassiveDataSubject.png "passive data subject")
 
 ### Configure web of PDS  
 Groups of PDSs composed of the data disclosing and disclosed parties become a decentralized network which does not favor a specific business operator (the only winner). (Distributed social graph)
@@ -35,9 +35,9 @@ It is possible to form a huge web of PDSs in which the disparate PDSs are linked
 
 We also implement security that is necessary for the formation of an open ecosystem.
 
-### Data entity (=PDS owner) can be extended to objects, organizations, etc., not just limited to people  
-Data entities can be extended to objects, organizations, etc. in the same way as dealing with passive data subjects. (e.g. family/dog Poch's data store)
+### Data subject (=PDS owner) can be extended to objects, organizations, etc., not just limited to people  
+Data subjects can be extended to objects, organizations, etc. in the same way as dealing with passive data subjects. (e.g. family/dog Poch's data store)
 
 We recommend an integrated model that handles IoM, IoT, and IoE.(Cyber-Physical)
 
-![Enhancement of data entity](image/ExpansionDataEntity.png "Enhancement of data entity")
+![Enhancement of data subject](image/ExpansionDataSubject.png "Enhancement of data subject")
