@@ -36,7 +36,7 @@ It is possible to form a huge web of PDSs in which the disparate PDSs are linked
 We also implement security that is necessary for the formation of an open ecosystem.
 
 ### Data subject (=PDS owner) can be extended to objects, organizations, etc., not just limited to people  
-Data entities can be extended to objects, organizations, etc. in the same way as dealing with passive data subjects. (e.g. family/dog Poch's data store)
+Data subjects can be extended to objects, organizations, etc. in the same way as dealing with passive data subjects. (e.g. family/dog Poch's data store)
 
 We recommend an integrated model that handles IoM, IoT, and IoE.(Cyber-Physical)
 
