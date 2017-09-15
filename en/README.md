@@ -21,20 +21,16 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 <li><h3 id="design-model"><a href="./user_guide/005_Model_construction.html">Design model</a></h3></li>
 </ul>
 
-# Developer's Guides  
-
+# User Guides  
+## App Developer's Guides  
 <ul class="listStyleTypeNone">
-<li><h3 id="application-developers-guide"><a href="./app-developer/index.html">Application Developer's Guide</a></h3></li>
+<li><h3 id="application-developers-guide"><a href="./app-developer/index.html">App Developer's Guide</a></h3></li>
 <li><p>It is a document for people who want to develop PDS applications using Personium's API</p></li>
 <li><h3 id="cell-management-client-developers-guide"><a href="./cell-client-developer/index.html">Cell Management Client Developer's Guide</a></h3></li>
 <li><p>It is a document for people who want to develop an application that manages Personium's Cell</p></li>
-<li><h3 id="server-plugin-developers-guide"><a href="./plugin-developer/index.html">Server Plugin Developer's Guide</a></h3></li>
-<li><p>It is a document for people who want to develop and use plugins to extend Personium's server function</p></li>
-<li><h3 id="server-developers-guide"><a href="./software-developer/index.html">Server Developer's Guide</a></h3></li>
-<li><p>It is a document for people who want to develop Personium's OSS function or who want to commit to OSS</p></li>
 </ul>
 
-# Operations and Administration Guides  
+## Personium Operator's Guides  
 <ul class="listStyleTypeNone">
 <li><h3 id="unit-administrators-guide"><a href="./unit-administrator/index.html">Unit Administrator's Guide</a></h3></li>
 <li><p>It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium</p></li>
@@ -42,6 +38,15 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 <li><p>It is a document for people who want to provide / operate PDS service environment using Personium</p></li>
 </ul>
 
----
+# Contributor Guides  
+## Document Contribution  
 Personium Project is looking for documentation contributors.  
-### [Documentation Contributor's Guide](./document-writer/)  
+[Documentation Contributor's Guide](./document-writer/)  
+
+## Code Contribution  
+<ul class="listStyleTypeNone">
+<li><h3 id="server-plugin-developers-guide"><a href="./plugin-developer/index.html">Server Plugin Developer's Guide</a></h3></li>
+<li><p>It is a document for people who want to develop and use plugins to extend Personium's server function</p></li>
+<li><h3 id="server-developers-guide"><a href="./software-developer/index.html">Server Developer's Guide</a></h3></li>
+<li><p>It is a document for people who want to develop Personium's OSS function or who want to commit to OSS</p></li>
+</ul>
