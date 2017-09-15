@@ -2,7 +2,7 @@
 
 Personiumを使用したPDSサービス環境を、提供・運用したい人向けのドキュメントです
 
-### 構築ガイド
+### [構築ガイド](./setup_ja.html)
 
 ### [Unitの設定⼀覧](./unit_config_list.html)
 
