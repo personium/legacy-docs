@@ -70,10 +70,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>必要な権限</h3>
 <p>なし</p>
 <h3>制限事項</h3>
-<p>Basic認証<br />
-未実装</p>
-<p><br><br />
-リクエスト</p>
+<p>なし</p>
+<p><br></p>
+<h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>{CellName}/__token</code></pre>
 <h4>メソッド</h4>
@@ -159,7 +158,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">認証タイプ<br></td>
 <td align="left">String<br></td>
 <td align="left">○<br></td>
-<td align="left">password<br><a href="urn:x-personium:oidc:google" class="uri">urn:x-personium:oidc:google</a><br></td>
+<td align="left">password<br>urn:x-personium:oidc:google<br></td>
 </tr>
 <tr class="even">
 <td align="left">username<br></td>
@@ -179,7 +178,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">id_token<br></td>
 <td align="left">トークンID<br></td>
 <td align="left">JSON Web Token<br></td>
-<td align="left">○(grant_type=<a href="urn:x-personium:oidc:googleの場合" class="uri">urn:x-personium:oidc:googleの場合</a>)<br></td>
+<td align="left">○(grant_type=urn:x-personium:oidc:googleの場合)<br></td>
 <td align="left">JWT Formed ID Token<br></td>
 </tr>
 <tr class="odd">
@@ -449,56 +448,13 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 <span class="fu">}</span></code></pre></div>
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">コード<br></th>
-<th align="left">メッセージ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bad Request<br></td>
-<td align="left">リクエストボディの形式が不正<br>リクエストヘッダの形式が不正<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">Unauthorized<br></td>
-<td align="left">認証トークンが無効<br>ユーザ名が無効<br>grant_typeが無効<br>XML署名検証が失敗<br>ULUUT発行候補ではないアカウントへ認証が行われた<br>パスワードが無効<br>トークンの有効期限切れ<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">404<br></td>
-<td align="left">Not Found<br></td>
-<td align="left">存在しないリソースを指定<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">405<br></td>
-<td align="left">Method Not Allowed<br></td>
-<td align="left">許可していないリクエストメソッドを指定<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
-<p><br></p>
-<h3 id="curl">CURLサンプル</h3>
+<h3 id="curl">cURLサンプル</h3>
 <h5 id="-1">パスワード認証</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=password&amp;username={username}&amp;password={password}&#39;</span></code></pre></div>
 <h5 id="-1">トークン認証</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&amp;assertion={token}&#39;</span></code></pre></div>
 <h5 id="-1">リフレッシュトークン認証</h5>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&#39; -X POST -i -d &#39;grant_type=refresh_token&amp;refresh_token={refresh_token}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=refresh_token&amp;refresh_token={refresh_token}&#39;</span></code></pre></div>
 <h5 id="-">パスワード認証 + スキーマ認証</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=password&amp;username={user_name}&amp;password={pass}&amp;client_id=https://{UnitFQDN}/app{CellName}/&amp;client_secret={token_from_app_cell}&#39;</span></code></pre></div>
 <h5 id="-">トークン認証 + トランスセルトークン認証</h5>

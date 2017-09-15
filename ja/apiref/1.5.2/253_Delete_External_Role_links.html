@@ -62,12 +62,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>または、</p>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;)</code></pre>
 <p>または、</p>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole}&#39;)/$links/_Role(&#39;{RoleName}&#39;)</code></pre>
-<p>※ {ExtRole}についてはURLエンコードが必要<br />
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)/$links/_Role(&#39;{RoleName}&#39;)</code></pre>
+<p>※ {ExtRole_URL}についてはURLエンコードが必要<br />
 ※ _Box.Nameパラメタを省略した場合は、nullが指定されたものとする</p>
 <h4>メソッド</h4>
 <p>DELETE</p>
@@ -142,7 +142,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -196,8 +196,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
-<h3 id="curl">CURLサンプル</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole=&#39;https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)/</span><span class="dt">\$</span><span class="st">links/_Role(&#39;{RoleName}&#39;)&quot;</span> -X DELETE -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<h3 id="curl">cURLサンプル</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole=&#39;https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)/</span><span class="dt">\$</span><span class="st">links/_Role(&#39;{RoleName}&#39;)&quot;</span> -X DELETE -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

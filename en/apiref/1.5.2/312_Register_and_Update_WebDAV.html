@@ -187,7 +187,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -242,7 +242,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tbody>
 <tr class="odd">
 <td align="left">201<br></td>
-<td align="left">No Content<br></td>
+<td align="left">Created<br></td>
 <td align="left">Successful registration<br></td>
 </tr>
 <tr class="even">
@@ -264,7 +264,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tbody>
 <tr class="odd">
 <td align="left">Content-Type<br></td>
-<td align="left">URL of created resource<br></td>
+<td align="left">Format of data to be returned<br></td>
 <td align="left">Only when it failed at the time of update / creation, return it<br></td>
 </tr>
 <tr class="even">
@@ -278,77 +278,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Only when it failed at the time of update / creation, return it</p>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Message<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bad Request<br></td>
-<td align="left">Invalid request body format<br>Invalid request header format<br>No content type specified<br>No request body specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">Unauthorized<br></td>
-<td align="left">Invalid authentication token<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">403<br></td>
-<td align="left">Forbidden<br></td>
-<td align="left">Insufficient access privileges<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">404<br></td>
-<td align="left">Not Found<br></td>
-<td align="left">Non-existent resource specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">405<br></td>
-<td align="left">Method Not Allowed<br></td>
-<td align="left">Prohibited request method specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">409<br></td>
-<td align="left">Conflict<br></td>
-<td align="left">When files of the same name already exist in the same space<br>Create a resource under a nonexistent collection<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">412<br></td>
-<td align="left">Precondition Failed<br></td>
-<td align="left">Designation error of If-Match<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">503<br></td>
-<td align="left">Too many concurrent requests.<br></td>
-<td align="left">When the updating process is in conflict<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
 <h4>Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">CURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ResourceName}&quot;</span> -X PUT -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{[File contents]}&#39;</span></code></pre></div>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ResourceName}&quot;</span> -X PUT -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{[File contents]}&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

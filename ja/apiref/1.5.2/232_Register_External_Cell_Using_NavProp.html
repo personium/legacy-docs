@@ -63,13 +63,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <h5 id="rolenavigationproperty">RoleへのnavigationProperty</h5>
-<pre><code>/{CellName}/__ctl/ExtCell(Url=&#39;{extcell_url}&#39;)/_Role</code></pre>
+<pre><code>/{CellName}/__ctl/ExtCell(Url=&#39;{ExtCell_URL}&#39;)/_Role</code></pre>
 <p>または、</p>
-<pre><code>/{CellName}/__ctl/ExtCell(&#39;{extcell_url}&#39;)/_Role</code></pre>
+<pre><code>/{CellName}/__ctl/ExtCell(&#39;{ExtCell_URL}&#39;)/_Role</code></pre>
 <h5 id="relationnavigationproperty">RelationへのnavigationProperty</h5>
-<pre><code>/{CellName}/__ctl/ExtCell(Url=&#39;{extcell_url}&#39;)/_Relation</code></pre>
+<pre><code>/{CellName}/__ctl/ExtCell(Url=&#39;{ExtCell_URL}&#39;)/_Relation</code></pre>
 <p>または、</p>
-<pre><code>/{CellName}/__ctl/ExtCell(&#39;{extcell_url}&#39;)/_Relation</code></pre>
+<pre><code>/{CellName}/__ctl/ExtCell(&#39;{ExtCell_URL}&#39;)/_Relation</code></pre>
 <h4>メソッド</h4>
 <p>POST</p>
 <h4>リクエストクエリ</h4>
@@ -143,7 +143,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -371,9 +371,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
-<h3 id="curl">CURLサンプル</h3>
+<h3 id="curl">cURLサンプル</h3>
 <h5 id="rolenavigationproperty">RoleのnavigationProperty経由登録</h5>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtCell(&#39;https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F&#39;)/_Role&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{ &quot;Name&quot;: &quot;{RoleName}&quot;}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtCell(&#39;https%3A%2F%2F{UnitFQDN}%2F{ExtCellName}%2F&#39;)/_Role&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{ &quot;Name&quot;: &quot;{RoleName}&quot;}&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

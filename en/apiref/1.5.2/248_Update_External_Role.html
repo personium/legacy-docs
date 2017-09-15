@@ -69,9 +69,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>Request</h3>
 <h4 id="url">Request URL</h4>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{extRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{extRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>If the _Relation._Box.Name parameter is omitted, it is assumed that null is specified</p>
 <h4>Request Method</h4>
 <p>PUT</p>
@@ -146,7 +146,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -229,9 +229,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>None</p>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<p><br></p>
-<h3 id="curl">CURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> curl <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole=&#39;https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{ &quot;ExtRole&quot;: &quot;https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}&quot;, &quot;_Relation.Name&quot;:&quot;{RelationName}&quot;,&quot;_Relation._Box.Name&quot;: &quot;{BoxName}&quot;}&#39;</span></code></pre></div>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> curl <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/ExtRole(ExtRole=&#39;https%3A%2F%2F{UnitFQDN}%2F{CellName}%2F__role%2F__%2F{ExtRoleName}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{ &quot;ExtRole&quot;: &quot;https://{UnitFQDN}/{CellName}/__role/__/{ExtRoleName}&quot;, &quot;_Relation.Name&quot;:&quot;{RelationName}&quot;,&quot;_Relation._Box.Name&quot;: &quot;{BoxName}&quot;}&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

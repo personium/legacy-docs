@@ -55,14 +55,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="303_Progress_of_Bar_File_Installation.html">Box メタデータ取得</a> Boxインストールが異常終了した場合は、本APIにてBoxインストール状況を確認することで、エラーとなった原因を参照することができる。以下に、クライアントにおける受付から処理完了までの呼び出し方法を示す。</li>
 </ul>
 <pre><code>Boxインストールの呼び出し例（クライアントでのポーリングを30秒とした場合)
-1 Boxインストール受付
-    - MKCOL / {cell} / {box}
-2 Boxインストール状況確認
-    - GET / {cell} / {box} -&gt; return in the &quot;process&quot;.
-    - 30秒ポーリング
-returned in&gt; &quot;processing complete&quot;.
-3 GET /{cell}/{box}  -&gt; &quot;処理完了&quot; で返却。
-※ 上記 2. の処理をループして処理完了までポーリングする。</code></pre>
+ 1. Boxインストール受付
+    -- MKCOL /{cell}/{box}
+ 2. Boxインストール状況確認
+    -- GET /{cell}/{box}  -&gt; &quot;処理中&quot; で返却。
+    -- 30秒ポーリング
+ 3. GET /{cell}/{box}  -&gt; &quot;処理完了&quot; で返却。
+ ※上記 2. の処理をループして処理完了までポーリングする。</code></pre>
 <h3>必要な権限</h3>
 <p>box-install</p>
 <h3>制限事項</h3>
@@ -182,6 +181,7 @@ returned in&gt; &quot;processing complete&quot;.
 <pre><code>/{CellName}/{BoxName}</code></pre>
 <h4>メソッド</h4>
 <p>MKCOL</p>
+<h4>リクエストクエリ</h4>
 <table>
 <colgroup>
 <col width="5%" />
@@ -252,7 +252,7 @@ returned in&gt; &quot;processing complete&quot;.
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -344,7 +344,7 @@ returned in&gt; &quot;processing complete&quot;.
 <tr class="odd">
 <td align="left">X-Personium-Version<br></td>
 <td align="left">APIの実行バージョン<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
+<td align="left">リクエストが処理されたAPIバージョン<br></td>
 </tr>
 </tbody>
 </table>
@@ -359,8 +359,8 @@ returned in&gt; &quot;processing complete&quot;.
 <pre><code>Location: https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
 <p>Boxメタデータ取得API用URLの詳細は、<a href="303_Progress_of_Bar_File_Installation.html">Boxメタデータ取得</a>を参照。<br />
 <br></p>
-<h3 id="curl">CURLサンプル</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
+<h3 id="curl">cURLサンプル</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

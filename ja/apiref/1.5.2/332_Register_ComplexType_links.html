@@ -162,7 +162,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -282,11 +282,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
 <p><br></p>
-<h3 id="curl">CURLサンプル</h3>
+<h3 id="curl">cURLサンプル</h3>
 <p>EntityType</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/EntityType(Name=&#39;{EntitytypeName}&#39;)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span>assocName_link<span class="st">&#39;,_EntityType.Name=null)&quot;}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/EntityType(Name=&#39;{EntityTypeName}&#39;)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span>assocName_link<span class="st">&#39;,_EntityType.Name=null)&quot;}&#39;</span></code></pre></div>
 <p>AssociationEnd</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/AssociationEnd(Name=&#39;{AssociationEndName}2&#39;,_EntityType.Name=Entity)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span><span class="dt">{AssociationEndName}_link&#39;,_EntityType.Name=Entity2)&quot;}</span><span class="st">&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/AssociationEnd(Name=&#39;{AssociationEndName}2&#39;,_EntityType.Name=Entity)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span><span class="dt">{AssociationEndName}_link&#39;,_EntityType.Name=Entity2)&quot;}</span><span class="st">&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

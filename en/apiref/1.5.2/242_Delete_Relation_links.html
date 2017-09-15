@@ -72,35 +72,35 @@ You can specify the following OData resources</p>
 <h5 id="linking-with-box">Linking with Box</h5>
 <pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_Box(&#39;{BoxName}&#39;)</code></pre>
 <h5 id="linking-with-extcell">Linking with ExtCell</h5>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtCell(&#39;{extcell_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtCell(&#39;{ExtCell_URL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{extcell_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{ExtCell_URL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{extcell_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtCell(&#39;{ExtCell_URL}&#39;)</code></pre>
 <h5 id="linking-with-extrole">Linking with ExtRole</h5>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;,_Relation._Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;,_Relation.Name=&#39;{RelationName}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{extrole_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(ExtRole=&#39;{ExtRole_URL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(&#39;{extrole_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_ExtRole(&#39;{ExtRole_URL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{extrole_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{ExtRole_URL}&#39;)</code></pre>
 <p>or </p>
-<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{extrole_url}&#39;)</code></pre>
+<pre><code>/{CellName}/__ctl/Relation(&#39;{RelationName}&#39;)/$links/_ExtRole(&#39;{ExtRole_URL}&#39;)</code></pre>
 <h5 id="linking-with-role">Linking with Role</h5>
 <pre><code>/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
 <p>or </p>
@@ -194,7 +194,7 @@ You can specify the following OData resources</p>
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -248,8 +248,8 @@ You can specify the following OData resources</p>
 <h4>Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">CURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/</span><span class="dt">\$</span><span class="st">links/_Role(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)&quot;</span> -X DELETE -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/</span><span class="dt">\$</span><span class="st">links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)&quot;</span> -X DELETE -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

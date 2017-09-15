@@ -158,7 +158,7 @@ If there is a Box, Account associated with SentMessage, it will be 409 and no de
 <tr class="odd">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -222,8 +222,8 @@ If there is a Box, Account associated with SentMessage, it will be 409 and no de
 <h4>Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">CURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/SentMessage(&#39;{MessageID}&#39;)&quot;</span> -X DELETE -i  -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/SentMessage(&#39;{MessageID}&#39;)&quot;</span> -X DELETE -i  -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

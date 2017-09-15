@@ -46,7 +46,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="github.css" type="text/css" />
 </head>
 <body>
-<h1>Box Level アクセス制御設定</h1>
+<h1 id="box-level-">Box Level アクセス制御設定</h1>
 <h3>概要</h3>
 <p>Box Level のアクセス制御機能を提供する</p>
 <h3>必要な権限</h3>
@@ -141,7 +141,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -399,66 +399,12 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
 <p>なし</p>
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">コード<br></th>
-<th align="left">メッセージ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bad Request<br></td>
-<td align="left">リクエストボディの形式が不正 <br>リクエストヘッダの形式が不正<br>Depthヘッダの値が不正<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">Unauthorized<br></td>
-<td align="left">認証トークンが無効<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">403<br></td>
-<td align="left">Forbidden<br></td>
-<td align="left">アクセス権限が不足している場合<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">404<br></td>
-<td align="left">Not Found<br></td>
-<td align="left">存在しないリソースを指定<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">405<br></td>
-<td align="left">Method Not Allowed<br></td>
-<td align="left">許可していないリクエストメソッドを指定<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">412<br></td>
-<td align="left">Precondition Failed<br></td>
-<td align="left">存在しないバージョンを指定<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">503<br></td>
-<td align="left">Too many concurrent requests.<br></td>
-<td align="left">更新系の処理が競合している場合<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
 <p><br></p>
-<h3 id="curl">CURLサンプル</h3>
+<h3 id="curl">cURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X ACL -i
-<span class="ex">-H</span> <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d
+<span class="ex">-H</span> <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d
 <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
 <span class="st"> &lt;D:acl xmlns:D=&quot;DAV:&quot; xml:base=&quot;https://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;　xmlns:p=&quot;urn:x-personium:xmlns&quot; p:requireSchemaAuthz=&quot;none&quot;&gt;</span>
 <span class="st">  &lt;D:ace&gt;</span>
