@@ -14,3 +14,8 @@ It is a document for people who want to provide / operate PDS service environmen
 <li><p><a href="../apiref/1.4.6/000_Rest_API_Reference.html">1.4.2 - 1.4.6</a></p></li>
 <li><p><a href="http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm">1.4.1 or before</a></p></li>
 </ul>
+
+### Related Repositories
+* [ansible](https://github.com/personium/ansible)
+* [openstack-heat](https://github.com/personium/openstack-heat)
+* [openstack-heat_cent6_8](https://github.com/personium/openstack-heat_cent6_8)

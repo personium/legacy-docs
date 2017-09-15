@@ -18,3 +18,10 @@ PersoniumのAPIを使用して、PDSアプリを開発したい人向けのド�
 * [1.4.2 - 1.4.6](../apiref/1.4.6/000_Rest_API_Reference.html)
 
 * [1.4.1以前](http://personium.io/docs/api/1.3.25/Japanese/Japanese.htm#docs/ja/HomePage.htm)
+
+### 関連するリポジトリ<br>
+* [app-myboard](https://github.com/personium/app-myboard)
+* [app-sample-calorie-smile](https://github.com/personium/app-sample-calorie-smile)
+* [personium-client-java](https://github.com/personium/personium-client-java)
+* [js-client](https://github.com/personium/js-client)
+* [template-app-cell](https://github.com/personium/template-app-cell)
