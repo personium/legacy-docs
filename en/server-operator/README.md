@@ -2,7 +2,7 @@
 
 It is a document for people who want to provide / operate PDS service environment using Personium  
 
-### Construction guide  
+### [Construction guide](./setup_en.md)  
 
 ### [Unit configurations](./unit_config_list.md)  
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="../github.css" type="text/css" />
+</head>
+<body>
+<h2 id="ansiblepersonium">Ansibleを使ってPersoniumを始めよう。</h2>
+<h2>概要</h2>
+<p>本書ではansibleを使用してPersoniumの環境を構築する方法について説明します。<br />
+ansibleに興味のあるかたは以下のページもあわせてご参照ください。<br />
+<a href="http://www.ansible.com/how-ansible-works">HOW ANSIBLE WORKS</a></p>
+<h3 id="personium">Personiumのユニット構成</h3>
+<p>Personiumのユニットは評価、開発、確認、運用等々の様々な異なる目的に応じて構成することが可能です。Personiumは必要に応じて簡単に、自動的に環境を構築できるセットアップツールを提供しています。<br />
+Personiumのユニットはセットアップツールを使用せずに構築することも可能ですが、Personiumのユニットを簡単に構築するためにセットアップツールの使用をお勧めいたします。</p>
+<h3 id="personium">Personiumにおける各サーバーの役割</h3>
+<p>Personiumのユニットは以下の役割を持ったサーバーから構成されます。これらの役割は相互に接続された単独または複数のサーバーに割り当てることが可能です。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">役割<br></th>
+<th align="left">必須<br></th>
+<th align="left">詳細<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Web<br></td>
+<td align="left">必須<br></td>
+<td align="left">リバースプロキシーサーバー。インターネットからのアクセスが可能なグローバルなIPアドレスを保有する必要があります。<br></td>
+</tr>
+<tr class="even">
+<td align="left">AP<br></td>
+<td align="left">必須<br></td>
+<td align="left">Personiumが動作するアプリケーションサーバーです。<br></td>
+</tr>
+<tr class="odd">
+<td align="left">ES<br></td>
+<td align="left">必須<br></td>
+<td align="left">ElasticSearchが動作するサーバーです。<br></td>
+</tr>
+<tr class="even">
+<td align="left">NFS<br></td>
+<td align="left">必須<br></td>
+<td align="left">ネットワークファイルシステム(NFS)が動作するサーバーです。<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Bastion<br></td>
+<td align="left">オプション<br></td>
+<td align="left">踏み台サーバ。各サーバへのsshでのアクセスを中継させるためにのサーバです。<br></td>
+</tr>
+</tbody>
+</table>
+<h3 id="personium">Personiumセットアップツール</h3>
+<p>本セットアップツールはPersoniumをインストールする前に、あなたのサーバー（linuxのサーバーまたはWindowsやMac上の仮想マシン）へのミドルウェアの導入やOSやネットワークの設定を行います。<br />
+セットアップツールにはPersoniumとのユニットの構成に応じて複数の形式がありますので、あなたの目的に応じたセットアップツールをご使用ください。</p>
+<h4 id="1-">パターン1 : 評価</h4>
+<p>Personiumに興味がおありならば、Personiumの環境をあなたのローカルな環境のvirtualbox上にセットアップツールを使用して構築することができます</p>
+<ul>
+<li>Vagrantを使用したPersonium構築の方法についてはこちら : <a href="https://github.com/personium/setup-vagrant/" class="uri">https://github.com/personium/setup-vagrant/</a> <font color="Red">※現在整備中のため本環境は動作しません。恐れ入りますが3server版ansibleをご利用ください。</font></li>
+</ul>
+<h4 id="2--">パターン2 : 開発, 修正</h4>
+<ul>
+<li>機器環境 : <strong>Linux</strong></li>
+<li>Personiumユニット構成サーバー台数 : <strong>1 Server</strong></li>
+<li>サーバー1の構成 : Web, AP, ES, NFS</li>
+<li>構築時間: 1 時間</li>
+<li>使用するセットアップツール: <a href="https://github.com/personium/ansible/tree/master/1-server_unit" title="1-server_unit">ansible/1-server_unit</a></li>
+<li>注意<br />
+もしもあなたが、Personiumにより一層興味を持ち、アプリケーションの開発やテストを実施してみたいと思ったならば、本構成を使用することができます。あなたは1台構成のPersonium環境を入手することができます。</li>
+</ul>
+<h4 id="3-">パターン3 : 運用</h4>
+<ul>
+<li>機器環境 : <strong>Linux</strong></li>
+<li>Personiumユニット構成サーバー台数 : <strong>3 Servers</strong></li>
+<li>サーバー1の構成 : Bastion,Web</li>
+<li>サーバー2の構成 : AP,NFS</li>
+<li>サーバー3の構成 : ES</li>
+<li>構築時間 : 2 時間</li>
+<li>使用するセットアップツール: <a href="https://github.com/personium/ansible/tree/master/3-server_unit" title="3-server_unit">ansible/3-server_unit</a></li>
+<li>注意<br />
+　もしもあなたがPersoniumプロジェクトにご参加いただき、いくつかの素晴らしいアプリケーションをリリースしようとするならば、3台のサーバからユニットが構成される、本構成をお勧めします。</li>
+</ul>
+<p>本ドキュメントでは、Personiumを構成する基本的なパターンをご紹介しています。<br />
+目的に応じて最適なパターンをご選択ください。</p>
+</body>
+</html>
