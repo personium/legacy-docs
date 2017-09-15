@@ -204,79 +204,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>When the script is executed, the response body of the script is returned</p>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h5 id="webdav">Common to WebDAV</h5>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Message<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bad Request<br></td>
-<td align="left">Invalid request body format <br>Invalid request header format<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">Unauthorized<br></td>
-<td align="left">Invalid authentication token<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">403<br></td>
-<td align="left">Forbidden<br></td>
-<td align="left">Insufficient access privileges<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">404<br></td>
-<td align="left">Not Found<br></td>
-<td align="left">Non-existent resource specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">405<br></td>
-<td align="left">Method Not Allowed<br></td>
-<td align="left">Prohibited request method specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">412<br></td>
-<td align="left">Precondition Failed<br></td>
-<td align="left">Non-existent version specified<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
-<h5>Service execution specific</h5>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Message<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">404<br></td>
-<td align="left">404 Not Found (User Script)<br></td>
-<td align="left">User script does not exist<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
 <h4>Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">CURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{ServiceName}&quot;</span> -X GET -i -H <span class="st">&quot;Authorization:Bearer {UnitUserToken}&quot;</span> -H <span class="st">&quot;Accept:application/json&quot;</span></code></pre></div>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{ServiceName}&quot;</span> -X GET -i -H <span class="st">&quot;Authorization:Bearer {AccessToken}&quot;</span> -H <span class="st">&quot;Accept:application/json&quot;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

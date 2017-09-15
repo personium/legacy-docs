@@ -12,11 +12,11 @@
 <h1 id="personium-rest-api-">Personium REST API リファレンス</h1>
 <p>REST API リファレンスへようこそ。<br />
 REST API リファレンスでは、Personiumが提供するすべてのREST APIに関する技術的な詳細仕様を記述しています。<br />
-<br></p>
+<br><br />
+リクエストURLの変数については<a href="005_Variable_of_Request_URL.html">リクエストURLの変数一覧</a>を参照してください。</p>
 <h3 id="unit-level-api">Unit Level API</h3>
 <p>Unit Level API は、Cell群をホストするユニットに属するAPI(Cellの生成や作成したCell群の管理)です。<br />
-これらAPIは原則としてCellから発行されたアクセストークンではアクセスできません。<br />
-（ユニットレベルのトークンへの昇格操作を経て利用可能）</p>
+これらAPIは原則としてCellから発行されたアクセストークンではアクセスできません。</p>
 <p>Resource Path</p>
 <pre><code>https://{UnitFQDN}/</code></pre>
 <table>
@@ -27,7 +27,6 @@ REST API リファレンスでは、Personiumが提供するすべてのREST API
 <th align="left">取得<br></th>
 <th align="left">更新<br></th>
 <th align="left">削除<br></th>
-<th align="left">その他<br></th>
 </tr>
 </thead>
 <tbody>
@@ -37,15 +36,6 @@ REST API リファレンスでは、Personiumが提供するすべてのREST API
 <td align="left"><a href="101_List_Cell.html">一覧取得</a><br><a href="102_Get_Cell.html">取得</a></td>
 <td align="left"><a href="103_Update_Cell.html">更新</a></td>
 <td align="left"><a href="104_Delete_Cell.html">削除</a><br><a href="105_Cell_Recursive_Delete.html">再帰的削除</a></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left"><strong>UUT</strong></td>
-<td align="left"><br></td>
-<td align="left"><br></td>
-<td align="left"><br></td>
-<td align="left"><br></td>
-<td align="left">昇格設定</td>
 </tr>
 </tbody>
 </table>
@@ -612,8 +602,6 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 <h4 id="personiumhttp"><a href="003_Common_Limitations_on_HTTP_Implementation.html">personiumのHTTP実装に関する制限事項</a></h4>
 <h4 id="cors"><a href="002_CORS_Support.html">CORS対応</a></h4>
 <h4><a href="001_Cross_Domain_Policy_File.html">クロスドメインポリシーファイル取得</a></h4>
-<p><br></p>
-<h5><a href="900_Glossary.html">用語集</a></h5>
 <p><br><br />
 <br><br />
 <br></p>

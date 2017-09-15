@@ -138,7 +138,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -349,10 +349,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="fu">}</span>   </code></pre></div>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<p><br></p>
-<h3 id="curl">CURL Command</h3>
+<h3 id="curl">cURL Command</h3>
 <h5 id="accountrolenavigationproperty">Register via Account and Role navigationProperty</h5>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account(&#39;acount_name&#39;)/_Role&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{RoleName}&quot;}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account(&#39;acount_name&#39;)/_Role&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{RoleName}&quot;}&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

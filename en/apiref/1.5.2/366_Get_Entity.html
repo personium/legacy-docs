@@ -199,7 +199,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -395,57 +395,6 @@ When output fixed-point number is used for input, the same number of inputs and 
 </ul>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<table>
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">304<br></td>
-<td align="left">Not Modified<br>When reacquisition is not necessary<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">400<br></td>
-<td align="left">Request query specification mistake<br>Invalid specification of request header<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">401<br></td>
-<td align="left">Invalid authentication token<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">403<br></td>
-<td align="left">Insufficient access privileges<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">404<br></td>
-<td align="left">When you specify a cell that does not exist<br>If you specify a nonexistent Box<br>If you specify an ODataCollection that does not exist<br>If you specify an EntitySet that does not exist<br>If you specify an Entity that does not exist<br>When there is no Entity to acquire in the range specified by the query<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">405<br></td>
-<td align="left">Prohibited request method specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">412<br></td>
-<td align="left">Designation error of If-None-Match<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
 <h4>Response Sample</h4>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
@@ -469,8 +418,8 @@ When output fixed-point number is used for input, the same number of inputs and 
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">CURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

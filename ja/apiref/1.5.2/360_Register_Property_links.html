@@ -66,7 +66,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <p>EntityTypeとの$links</p>
-<pre><code>/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name=&#39;{Property_name}&#39;,_EntityType.Name=&#39;{EntitytypeName}&#39;)/$links/_EntityType</code></pre>
+<pre><code>/{CellName}/{BoxName}/{CollectionName}/$metadata/Property(Name=&#39;{PropertyName}&#39;,_EntityType.Name=&#39;{EntityTypeName}&#39;)/$links/_EntityType</code></pre>
 <h4>メソッド</h4>
 <p>POST</p>
 <h4>リクエストクエリ</h4>
@@ -162,7 +162,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Authorization<br></td>
 <td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">×<br></td>
 <td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
 </tr>
@@ -284,8 +284,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
 <p><br></p>
-<h3 id="curl">CURLサンプル</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/Property(&#39;property_nameName&#39;)/</span><span class="va">$links</span><span class="st">/_EntityType&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;:&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(&#39;</span>Profile<span class="st">&#39;)&quot;}&#39;</span></code></pre></div>
+<h3 id="curl">cURLサンプル</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/Property(&#39;property_nameName&#39;)/</span><span class="va">$links</span><span class="st">/_EntityType&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;:&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/EntityType(&#39;</span>Profile<span class="st">&#39;)&quot;}&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

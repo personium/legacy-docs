@@ -68,9 +68,9 @@ The sort order of related data acquired by $expand is as follows.</p>
 <p>You can specify up to 2 navigation properties when acquiring list<br />
 You can specify up to 10 navigation properties when acquiring one case<br />
 *If you exceed the number of navigation properties that can be specified return "400 Bad Request"</p>
-<h3 id="curl">CURL Command</h3>
+<h3 id="curl">cURL Command</h3>
 <p>Expand and acquire information associated with navigation properties</p>
-<pre><code>curl &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)?\$expand={NavigationPropertyName}&quot; -X GET -i -H &#39;Authorization: Bearer {UnitUserToken}&#39; -H &#39;Accept: application/json&#39;</code></pre>
+<pre><code>curl &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)?\$expand={NavigationPropertyName}&quot; -X GET -i -H &#39;Authorization: Bearer {AccessToken}&#39; -H &#39;Accept: application/json&#39;</code></pre>
 <h3>Restrictions</h3>
 <ul>
 <li>Expansion of related information can be done in one level only</li>

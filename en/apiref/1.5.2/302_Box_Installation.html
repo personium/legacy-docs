@@ -55,14 +55,14 @@ Therefore, to check the Box installation status, use the following API.</p>
 <li><a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition</a> If Box installation terminates abnormally, you can refer to the cause of the error by checking the Box installation status with this API. Below is a method of calling from acceptance at the client to completion of processing.</li>
 </ul>
 <pre><code>
-1 Box installation reception
-    - MKCOL / {cell} / {box}
-2 Box Installation status check
-    - GET / {cell} / {box} -&gt; return in the &quot;process&quot;.
-    - Polling for 30 seconds
-returned in&gt; &quot;processing complete&quot;.
-3 GET /{cell}/{box}  -&gt; Returned by &quot;processing completion&quot;.
-* It loops the above process 2 and polls until the process is completed.</code></pre>
+Example call of Box installation (when polling on client is set to 30 seconds)
+ 1. Box installation reception
+    -- MKCOL /{cell}/{box}
+ 2. Box Installation status check
+    -- GET /{cell}/{box}  -&gt; Returned &quot;during processing&quot;.
+    -- 30 seconds polling
+ 3. GET /{cell}/{box}  -&gt; Returned by &quot;processing completion&quot;.
+ *It loops the above process 2 and polls until the process is completed.</code></pre>
 <h3>Required Privileges</h3>
 <p>box-install</p>
 <h3>Restrictions</h3>
@@ -184,6 +184,7 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 <pre><code>/{CellName}/{BoxName}</code></pre>
 <h4>Request Method</h4>
 <p>MKCOL</p>
+<h4>Request Query</h4>
 <table>
 <colgroup>
 <col width="5%" />
@@ -254,7 +255,7 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -347,7 +348,7 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 <tr class="odd">
 <td align="left">X-Personium-Version<br></td>
 <td align="left">API version that the request is processed<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
+<td align="left">Version of the API used to process the request<br></td>
 </tr>
 </tbody>
 </table>
@@ -362,8 +363,8 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 <pre><code>Location: https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
 <p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.<br />
 <br></p>
-<h3 id="curl">CURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

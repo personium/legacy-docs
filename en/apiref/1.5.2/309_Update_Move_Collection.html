@@ -60,9 +60,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><br></p>
 <h3>Request</h3>
 <h4 id="url">Request URL</h4>
-<pre><code>/{CellName}/{BoxName}/{CollectionName}/</code></pre>
-<p>or</p>
-<pre><code>/{CellName}/{BoxName}/{CollectionName}/{FileName}/</code></pre>
+<pre><code>/{CellName}/{BoxName}/{ResourcePath}/</code></pre>
 <h4>Request Method</h4>
 <p>MOVE</p>
 <h4>Request Query</h4>
@@ -182,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -251,44 +249,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>Response Body</h4>
 <p>None</p>
 <h4>Error Messages</h4>
-<p><a href="004_Error_Messages.html">
-See Error Messages </a></p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bud Request<br></td>
-<td align="left">Invalid request header format<br></td>
-</tr>
-<tr class="even">
-<td align="left">409<br></td>
-<td align="left">Conflict<br></td>
-<td align="left">The specified collection / cell is invalid<br></td>
-</tr>
-<tr class="odd">
-<td align="left">412<br></td>
-<td align="left">Precondition Failed<br></td>
-<td align="left">Overwrite prohibition is specified<br></td>
-</tr>
-</tbody>
-</table>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4>Response Sample</h4>
 <p>None<br />
 <br></p>
-<h3 id="curl">CURL Command</h3>
+<h3 id="curl">cURL Command</h3>
 <p>Change the collection name (&quot;/&quot; at the end is mandatory)</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
 <p>File name change</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
 <p>File move</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span>  <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span>  <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
 <p><br><br />
 <br><br />
 <br></p>

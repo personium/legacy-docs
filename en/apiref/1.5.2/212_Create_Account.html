@@ -135,7 +135,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Authorization<br></td>
 <td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {UnitUserToken}<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
 <td align="left">No<br></td>
 <td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
 </tr>
@@ -369,60 +369,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <h4>Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<table>
-<thead>
-<tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Message<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">400<br></td>
-<td align="left">Bad Request<br></td>
-<td align="left">Invalid request body format<br>Invalid request header format<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">401<br></td>
-<td align="left">Unauthorized<br></td>
-<td align="left">Invalid authentication tokenbr</td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">403<br></td>
-<td align="left">Forbidden<br></td>
-<td align="left">Insufficient access privileges<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">404<br></td>
-<td align="left">Not Found<br></td>
-<td align="left">Non-existent resource specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">405<br></td>
-<td align="left">Method Not Allowed<br></td>
-<td align="left">Prohibited request method specified<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="even">
-<td align="left">409<br></td>
-<td align="left">Conflict<br></td>
-<td align="left">If the same &quot;Name&quot; account exist<br></td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">412<br></td>
-<td align="left">Precondition Failed<br></td>
-<td align="left">Non-existent version specified<br></td>
-<td align="left"><br></td>
-</tr>
-</tbody>
-</table>
 <h4>Response Sample</h4>
 <p>ID/PWaccount for authentication</p>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
@@ -479,13 +425,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">CURL Command</h3>
+<h3 id="curl">cURL Command</h3>
 <p>ID/PWaccount for authentication</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account&quot;</span> -X POST -i -H <span class="st">&#39;X-Personium-Credential:password&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{AccountName}&quot;}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account&quot;</span> -X POST -i -H <span class="st">&#39;X-Personium-Credential:password&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{AccountName}&quot;}&#39;</span></code></pre></div>
 <p>Googleaccount for authentication</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account&quot;</span> -X POST -i -H <span class="st">&#39;X-Personium-Credential:password&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{AccountName}&quot;,&quot;Type&quot;:&quot;oidc:google&quot;}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account&quot;</span> -X POST -i -H <span class="st">&#39;X-Personium-Credential:password&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{AccountName}&quot;,&quot;Type&quot;:&quot;oidc:google&quot;}&#39;</span></code></pre></div>
 <p>ID/PW authentication +Googleaccount for authentication</p>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account&quot;</span> -X POST -i -H <span class="st">&#39;X-Personium-Credential:password&#39;</span> -H <span class="st">&#39;Authorization: Bearer {UnitUserToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{AccountName}&quot;,&quot;Type&quot;:&quot;basic oidc:google&quot;}&#39;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Account&quot;</span> -X POST -i -H <span class="st">&#39;X-Personium-Credential:password&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{AccountName}&quot;,&quot;Type&quot;:&quot;basic oidc:google&quot;}&#39;</span></code></pre></div>
 <p><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
