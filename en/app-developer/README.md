@@ -14,3 +14,10 @@ It is a document for people who want to develop  PDS applications using Personiu
 <li><p><a href="../apiref/1.4.6/000_Rest_API_Reference.html">1.4.2 - 1.4.6</a></p></li>
 <li><p><a href="http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm">1.4.1 or before</a></p></li>
 </ul>
+
+### Related Repositories
+* [app-myboard](https://github.com/personium/app-myboard)
+* [app-sample-calorie-smile](https://github.com/personium/app-sample-calorie-smile)
+* [personium-client-java](https://github.com/personium/personium-client-java)
+* [js-client](https://github.com/personium/js-client)
+* [template-app-cell](https://github.com/personium/template-app-cell)

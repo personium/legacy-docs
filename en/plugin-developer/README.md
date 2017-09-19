@@ -14,3 +14,9 @@ It is a document for people who want to develop and use plugins to extend Person
 <li><p><a href="../apiref/1.4.6/000_Rest_API_Reference.html">1.4.2 - 1.4.6</a></p></li>
 <li><p><a href="http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm">1.4.1 or before</a></p></li>
 </ul>
+
+### Related Repositories
+* [personium-plugin-base](https://github.com/personium/personium-plugin-base)
+* [personium-ex-mailsender](https://github.com/personium/personium-ex-mailsender)
+* [personium-ex-httpclient](https://github.com/personium/personium-ex-httpclient)
+* [personium-ex-base](https://github.com/personium/personium-ex-base)

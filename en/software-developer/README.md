@@ -14,3 +14,10 @@ It is a document for people who want to develop Personium's OSS function or who 
 <li><p><a href="../apiref/1.4.6/000_Rest_API_Reference.html">1.4.2 - 1.4.6</a></p></li>
 <li><p><a href="http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm">1.4.1 or before</a></p></li>
 </ul>
+
+### Related Repositories
+* [personium-core](https://github.com/personium/personium-core)
+* [personium-engine](https://github.com/personium/personium-engine)
+* [personium-lib-common](https://github.com/personium/personium-lib-common)
+* [personium-lib-es-adapter](https://github.com/personium/personium-lib-es-adapter)
+* [personium-client-java](https://github.com/personium/personium-client-java)
