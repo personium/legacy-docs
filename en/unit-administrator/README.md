@@ -12,3 +12,7 @@ It is a document for people who want to manage pre-built Personium units and tho
 <li><p><a href="../apiref/1.4.6/000_Rest_API_Reference.html">1.4.2 - 1.4.6</a></p></li>
 <li><p><a href="http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm">1.4.1 or before</a></p></li>
 </ul>
+
+### Related Repositories
+* [app-uc-unit-manager](https://github.com/personium/app-uc-unit-manager)
+* [app-uc-cell-creator](https://github.com/personium/app-uc-cell-creator)
