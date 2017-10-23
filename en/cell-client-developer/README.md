@@ -16,6 +16,3 @@ You can get the source program of "home-app (demonstration application)" from fo
 <ul class="listStyleTypeNone">
 <li><a href="https://github.com/fujitsu-pio/home-app">home-app</a></li>
 </ul>
-
-### Related Repositories
-* [home-app]()

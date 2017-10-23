@@ -1,4 +1,4 @@
-#  Personium マニュアル
+#  Personium ドキュメント
 
 本ページではPersoniumのマニュアル類を公開しています。
 
