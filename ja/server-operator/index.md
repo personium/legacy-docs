@@ -6,7 +6,7 @@ Personiumを使用したPDSサービス環境を、提供・運用したい人�
 
 ### [Unitの運用設計と設定](./unit_operation_design.html)
 
-### [Unitの設定⼀覧](./unit_config_list.html)
+### [Unitの設定一覧](./unit_config_list.html)
 
 ### 関連するリポジトリ
 * [ansible](https://github.com/personium/ansible)
