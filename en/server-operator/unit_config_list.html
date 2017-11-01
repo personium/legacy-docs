@@ -6,7 +6,7 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="../github.css" type="text/css" />
+  <link rel="stylesheet" href="d:\github.css" type="text/css" />
 </head>
 <body>
 <h1 id="unit-configurations">Unit configurations</h1>
@@ -34,12 +34,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Description example</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -49,6 +51,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">x509.key</td>
 <td align="left">X509 Path where secret key is placed</td>
 <td align="left">Full path of DER format secret key</td>
+<td align="left">/opt/x509/localhost.key</td>
 <td align="left">core, engine</td>
 <td align="left"><br></td>
 </tr>
@@ -56,6 +59,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">x509.crt</td>
 <td align="left">Path where X509 certificate is placed</td>
 <td align="left">Full path of DER format certificate</td>
+<td align="left">/opt/x509/localhost.crt</td>
 <td align="left">core, engine</td>
 <td align="left"><br></td>
 </tr>
@@ -63,41 +67,31 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">x509.root</td>
 <td align="left">X509 Path where root certificate is placed</td>
 <td align="left">Full path of trusted DER format root certificate<br>More than one space can be specified</td>
+<td align="left">/opt/x509/personium_ca.crt</td>
 <td align="left">core, engine</td>
 <td align="left">If you do not specify anything (do not define the key), the certificate of Personium official CA will be automatically trusted.</td>
 </tr>
 <tr class="even">
-<td align="left">masterToken</td>
-<td align="left">Master Token</td>
-<td align="left">Token string</td>
-<td align="left">core, engine</td>
-<td align="left">If nothing is specified (even the key is not defined), it becomes invalid.</td>
-</tr>
-<tr class="odd">
 <td align="left">security.secret16</td>
 <td align="left">Encryption key when generating token or file</td>
 <td align="left">16 hexadecimal character string</td>
+<td align="left">secret16abcdefgh</td>
 <td align="left">core, engine</td>
 <td align="left"><br></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">security.auth.password.salt</td>
 <td align="left">Password hash salt value</td>
 <td align="left">16 hexadecimal character string</td>
-<td align="left">core</td>
-<td align="left"><br></td>
-</tr>
-<tr class="odd">
-<td align="left">unitUser.issuers</td>
-<td align="left">Cell URL to certify as a user of the unit user token</td>
-<td align="left">Cell URL<br>More than one space can be specified</td>
+<td align="left">saltijkl</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
 <tr class="even">
-<td align="left">unitScheme</td>
-<td align="left">Unit scheme setting</td>
-<td align="left">&quot;http&quot; or &quot;https&quot;</td>
+<td align="left">unitUser.issuers</td>
+<td align="left">Character string<br>The cell can be specified by specifying cell URL for a unit user token publisher.</td>
+<td align="left">Cell URL<br>More than one space can be specified</td>
+<td align="left"><a href="http://localhost:8080/UnitUserCell/" class="uri">http://localhost:8080/UnitUserCell/</a></td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -114,12 +108,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -129,6 +125,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">version</td>
 <td align="left">version</td>
 <td align="left">String</td>
+<td align="left">1.5.3</td>
 <td align="left">core, engine</td>
 <td align="left"><br></td>
 </tr>
@@ -136,8 +133,25 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">plugin.path</td>
 <td align="left">Personium plugin placement destination path</td>
 <td align="left">Plugin placement destination Full path</td>
+<td align="left">/personium/personium-core/plugins</td>
 <td align="left">core</td>
 <td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">unitScheme</td>
+<td align="left">Unit scheme setting</td>
+<td align="left">&quot;http&quot; or &quot;https&quot;</td>
+<td align="left">https</td>
+<td align="left">core</td>
+<td align="left">Please set https when you operate it though it is also possible to set http to the development usage.</td>
+</tr>
+<tr class="even">
+<td align="left">masterToken</td>
+<td align="left">Master Token</td>
+<td align="left">Token string</td>
+<td align="left"></td>
+<td align="left">core, engine</td>
+<td align="left">Please do not set it when you operate it though it is possible to set by the development usage.</td>
 </tr>
 </tbody>
 </table>
@@ -149,12 +163,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -164,6 +180,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.batch.bulkRequestMaxSize</td>
 <td align="left">Maximum number of requests when doing $batch processing</td>
 <td align="left">Int</td>
+<td align="left">1000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -171,6 +188,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.batch.timeoutInMillis</td>
 <td align="left">Timeout time of $batch processing (msec)</td>
 <td align="left">Long</td>
+<td align="left">270000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -178,6 +196,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.batch.sleepInMillis</td>
 <td align="left">Sleep time of $batch processing (msec)</td>
 <td align="left">Long</td>
+<td align="left">50</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -185,6 +204,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.batch.sleepIntervalInMillis</td>
 <td align="left">Sleep interval of $batch processing (msec)</td>
 <td align="left">Long</td>
+<td align="left">1000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -192,6 +212,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.links.NtoN.maxnum</td>
 <td align="left">Maximum number of N: N $links can be created</td>
 <td align="left">Int</td>
+<td align="left">10000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -199,6 +220,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.query.expand.top.maxnum</td>
 <td align="left">$Top Maximum number when $expand is specified</td>
 <td align="left">Int</td>
+<td align="left">100</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -206,6 +228,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.expand.retrieve.maxnum</td>
 <td align="left">Max expanded number of $expand (when acquiring one case)</td>
 <td align="left">Int</td>
+<td align="left">1000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -213,6 +236,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.query.top.maxnum</td>
 <td align="left">Maximum number of $top</td>
 <td align="left">Int</td>
+<td align="left">10000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -220,6 +244,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.query.skip.maxnum</td>
 <td align="left">Maximum number of $skip</td>
 <td align="left">Int</td>
+<td align="left">100000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -227,6 +252,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.query.top.defaultnum</td>
 <td align="left">Number of default returns at the time of list acquisition</td>
 <td align="left">Int</td>
+<td align="left">25</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -234,6 +260,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.query.expand.property.maxnum.list</td>
 <td align="left">Maximum number of properties of $expand (when list is acquired)</td>
 <td align="left">Int</td>
+<td align="left">2</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -241,6 +268,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">odata.query.expand.property.maxnum.retrieve</td>
 <td align="left">Maximum number of properties of $expand (when acquiring one item)</td>
 <td align="left">Int</td>
+<td align="left">10</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -254,12 +282,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -269,6 +299,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">account.lastauthenticated.enabled</td>
 <td align="left">Whether to update the last login time of Account when password authentication is successful</td>
 <td align="left">true:Update<br>false:Do not update</td>
+<td align="left">true</td>
 <td align="left">core</td>
 <td align="left">If you record the last update date and time, the registration process will be performed inside the authentication process, so it will be affected by multiple locks of writing (lock range is cell unit).<br>In addition, writing occurs, so performance degradation will occur.<br>Basic authentication does not record the last login date and time with this setting.</td>
 </tr>
@@ -282,12 +313,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -297,6 +330,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">dav.childresource.maxnum</td>
 <td align="left">Maximum number of child elements of the collection</td>
 <td align="left">Int</td>
+<td align="left">1024</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -304,6 +338,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">dav.depth.maxnum</td>
 <td align="left">Maximum depth of collection hierarchy</td>
 <td align="left">Int</td>
+<td align="left">50</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -317,12 +352,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -332,6 +369,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">security.dav.encrypt.enabled</td>
 <td align="left">Whether to encrypt the WebDAV file</td>
 <td align="left">true:To encrypt<br>false:Do not encrypt</td>
+<td align="left">false</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -345,12 +383,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -360,6 +400,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.type</td>
 <td align="left">Type of Lock</td>
 <td align="left">&quot;memcached&quot;:Memcached<br>&quot;inProcess&quot;:InProcess</td>
+<td align="left">memcached</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -367,6 +408,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.accountlock.time</td>
 <td align="left">Account lock expiration date (sec)<br>Lock authentication for that account at the time of authentication failure, and for a period during which authentication fails</td>
 <td align="left">Int</td>
+<td align="left">1</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -374,6 +416,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.retry.times</td>
 <td align="left">Number of retries at lock acquisition</td>
 <td align="left">Int</td>
+<td align="left">50</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -381,6 +424,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.retry.interval</td>
 <td align="left">Interval at lock acquisition retry (msec)</td>
 <td align="left">Long</td>
+<td align="left">100</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -388,6 +432,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.cell.retry.times</td>
 <td align="left">Number of retries at cell lock acquisition</td>
 <td align="left">Int</td>
+<td align="left">50</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -395,6 +440,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.cell.retry.interval</td>
 <td align="left">Interval at cell lock acquisition retry (msec)</td>
 <td align="left">Long</td>
+<td align="left">100</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -402,6 +448,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.memcached.host</td>
 <td align="left">Memcached host name to hold lock on memcached</td>
 <td align="left">Host Name</td>
+<td align="left">localhost</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -409,6 +456,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.memcached.port</td>
 <td align="left">Memcached port number for keeping locks on memcached</td>
 <td align="left">Port number</td>
+<td align="left">11211</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -416,6 +464,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">lock.memcached.opTimeout</td>
 <td align="left">Lock memcached operation Timeout value (msec)</td>
 <td align="left">Long</td>
+<td align="left">12000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -429,12 +478,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -444,6 +495,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">es.hosts</td>
 <td align="left">Elasticsearch host name</td>
 <td align="left">Specify Elasticsearch node in {host: port} format<br>Multiple designation possible with comma delimited</td>
+<td align="left">localhost:9300</td>
 <td align="left">core, engine</td>
 <td align="left">If even one node that can be connected is specified, it can operate.</td>
 </tr>
@@ -451,6 +503,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">es.cluster.name</td>
 <td align="left">Elasticsearch cluster name</td>
 <td align="left">String</td>
+<td align="left">clusterpersonium</td>
 <td align="left">core, engine</td>
 <td align="left"><br></td>
 </tr>
@@ -458,6 +511,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">es.unitPrefix</td>
 <td align="left">When using Elasticsearch, prefix used for index name at index creation</td>
 <td align="left">String</td>
+<td align="left">u0</td>
 <td align="left">core, engine</td>
 <td align="left">Normally specify the unit name.</td>
 </tr>
@@ -465,6 +519,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">es.topnum</td>
 <td align="left">Search result output upper limit number of Elasticsearch</td>
 <td align="left">Int</td>
+<td align="left">10000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -472,6 +527,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">es.retryTimes</td>
 <td align="left">Number of retries at error occurrence</td>
 <td align="left">Int</td>
+<td align="left">3</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -479,6 +535,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">es.retryInterval</td>
 <td align="left">Retry interval at error occurrence (msec)</td>
 <td align="left">Int</td>
+<td align="left">1500</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -492,12 +549,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -507,6 +566,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">binaryData.physical.delete.mode</td>
 <td align="left">Do you delete physically when deleting files?</td>
 <td align="left">true:Physical delete<br>false:Logical delete</td>
+<td align="left">true</td>
 <td align="left">core</td>
 <td align="left">During logical deletion, deleted files remain, so there is a possibility of pressing down the disk.</td>
 </tr>
@@ -514,6 +574,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">binaryData.fsync.enabled</td>
 <td align="left">Whether to enable fsync when writing to a file</td>
 <td align="left">true:Valid<br>false:Invalid</td>
+<td align="left">false</td>
 <td align="left">core, engine</td>
 <td align="left">If it is enabled WebDAV registration performance deteriorates because fsync is performed when writing WebDAV files.<br>Activate it if you need to acquire the backup with snapshot etc. or strictly write to the disk.</td>
 </tr>
@@ -521,6 +582,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">binaryData.dav.retry.count</td>
 <td align="left">Number of retries when hard link creation / renaming / deletion of Dav file is performed</td>
 <td align="left">Int</td>
+<td align="left">100</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -528,6 +590,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">binaryData.dav.retry.interval</td>
 <td align="left">Retry interval for hard link creation / renaming / deletion of Dav file (msec)</td>
 <td align="left">Long</td>
+<td align="left">50</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -541,12 +604,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -556,6 +621,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">blobStore.root</td>
 <td align="left">Root path that stores blob data</td>
 <td align="left">Full path of directory</td>
+<td align="left">/personium_nfs/personium-core/dav</td>
 <td align="left">core, engine</td>
 <td align="left"><br></td>
 </tr>
@@ -569,12 +635,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -584,6 +652,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">box.odata.schema.MaxEntityTypes</td>
 <td align="left">Maximum number of EntityType</td>
 <td align="left">Int</td>
+<td align="left">100</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -591,6 +660,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">box.odata.schema.MaxProperties</td>
 <td align="left">Maximum number of properties contained in EntityType</td>
 <td align="left">Int</td>
+<td align="left">400</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -598,6 +668,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">box.odata.schema.property.LayerLimits.SimpleType</td>
 <td align="left">Maximum number of SimpleTypes for each hierarchy</td>
 <td align="left">Int<br>Comma separated</td>
+<td align="left">*,50,30,10</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -605,6 +676,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">box.odata.schema.property.LayerLimits.ComplexType</td>
 <td align="left">Maximum number of ComplexType of each hierarchy</td>
 <td align="left">Int<br>Comma separated</td>
+<td align="left">20,5,2,0</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -618,12 +690,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -633,6 +707,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">event.log.current.dir</td>
 <td align="left">Event log file storage directory</td>
 <td align="left">Full path of directory</td>
+<td align="left">/personium_nfs/personium-core/eventlog</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -646,12 +721,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -661,6 +738,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.type</td>
 <td align="left">Cache type</td>
 <td align="left">&quot;memcached&quot;:Cache with memcached<br>&quot;none&quot;:Cache invalid</td>
+<td align="left">memcached</td>
 <td align="left">core</td>
 <td align="left">When it is set to none Elasticsearch load increases because it inquires Elasticsearch every time management information.</td>
 </tr>
@@ -668,6 +746,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.cell.enabled</td>
 <td align="left">WWhether to enable Cell's cache</td>
 <td align="left">true:Valid<br>false:Invalid</td>
+<td align="left">true</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -675,6 +754,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.box.enabled</td>
 <td align="left">Whether to enable Box's cache</td>
 <td align="left">true:Valid<br>false:Invalid</td>
+<td align="left">true</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -682,6 +762,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.schema.enabled</td>
 <td align="left">Whether to enable Schema's cache</td>
 <td align="left">true:Valid<br>false:Invalid</td>
+<td align="left">true</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -689,6 +770,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.memcached.host</td>
 <td align="left">Memcached host name</td>
 <td align="left">Host name</td>
+<td align="left">localhost</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -696,6 +778,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.memcached.port</td>
 <td align="left">Memcached port number</td>
 <td align="left">Port number</td>
+<td align="left">11212</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -703,6 +786,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.memcached.opTimeout</td>
 <td align="left">mEmcached operation Timeout value (msec)</td>
 <td align="left">Long</td>
+<td align="left">12000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -710,6 +794,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">cache.memcached.expiresin</td>
 <td align="left">Cache effective period (sec)</td>
 <td align="left">Int</td>
+<td align="left">86400</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -724,6 +809,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -733,6 +819,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">engine.host</td>
 <td align="left">Engine server host name</td>
 <td align="left">Host name</td>
+<td align="left">localhost</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -740,6 +827,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">engine.port</td>
 <td align="left">Engine server port number</td>
 <td align="left">Port number</td>
+<td align="left">8080</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -747,6 +835,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">engine.path</td>
 <td align="left">Path of Engine</td>
 <td align="left">Path</td>
+<td align="left">personium-engine</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -760,12 +849,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -775,6 +866,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">bar.file.maxSize</td>
 <td align="left">Maximum file size of bar file (MB)</td>
 <td align="left">Long</td>
+<td align="left">100</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -782,6 +874,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">bar.entry.maxSize</td>
 <td align="left">Maximum file size of entry in Bar file (MB)</td>
 <td align="left">Long</td>
+<td align="left">10</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -789,6 +882,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">bar.userdata.linksOutputStreamSize</td>
 <td align="left">Size to which responses are returned when linking user data</td>
 <td align="left">Long</td>
+<td align="left">5</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -796,6 +890,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">bar.userdata.bulkSize</td>
 <td align="left">Number of batch registration of user data</td>
 <td align="left">Long</td>
+<td align="left">1000</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -803,6 +898,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">bar.installfile.dir</td>
 <td align="left">Root directory for storing bar files and log details</td>
 <td align="left">Full path of directory</td>
+<td align="left">/personium_nfs/personium-core/barInstall</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -810,6 +906,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">bar.progress.expireInSec</td>
 <td align="left">Store in memcached bar Expiration date of installation processing status (sec)</td>
 <td align="left">Int</td>
+<td align="left">259200</td>
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
@@ -823,12 +920,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <col width="5%" />
 <col width="5%" />
 <col width="5%" />
+<col width="5%" />
 </colgroup>
 <thead>
 <tr class="header">
 <th align="left">Key</th>
 <th align="left">Description</th>
 <th align="left">Value</th>
+<th align="left">Default value</th>
 <th align="left">Used component</th>
 <th align="left">Notes</th>
 </tr>
@@ -838,6 +937,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">oidc.google.trustedClientIds</td>
 <td align="left">In Google OpenID Connect, this unit trusts ClientID<br>More than one space can be specified</td>
 <td align="left">String</td>
+<td align="left">*</td>
 <td align="left">core</td>
 <td align="left">When &quot;*&quot; is specified Trust all ClientIDs<br><b>In the future planned to move as Plugin original setting</b></td>
 </tr>
