@@ -12,12 +12,11 @@ By defining mutual links, you can link Personium servers grouped in different en
 Personium uses the frame of PKI to establish the mutual trusts of each other between Personium servers that exist in a separate environment. Concretely, the Trans-Cell AccessToken used by Personium is the Assertion format of SAML 2.0.In addition, x.509 is used for the electronic signature used in the Assertion.
 
 To do the e-signature for the SAML issue, the unit should have the private key and the certificate of peculiar X.509. Moreover, it is necessary to set the material  used when the received certificate is verified to the unit.
-
 <br>
-## Unit private key, preparation of certificate, and setting.
+## Unit private key, preparation of certificate, and setting
 It is necessary to sign the certificate from appropriate route providers of digital certification services.
 Moreover, it is necessary to set the certificate of the route providers of digital
-certification services that accept as Unit. ..(.. ..necessity.. detailed description)
+certification services that accept as Unit. (Written schedule)
 <br>
 ## Unit User management design
 First, the unit administrator decides whether to create UnitUser depending on whether you want to use the unit only by yourself or multiple people.

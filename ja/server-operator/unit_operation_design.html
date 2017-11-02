@@ -6,7 +6,7 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="d:\github.css" type="text/css" />
+  <link rel="stylesheet" href="../github.css" type="text/css" />
 </head>
 <body>
 <h1 id="unit">Unitの運用設計と設定</h1>
@@ -17,9 +17,9 @@
 <p>インフラをこえてPersoniumサーバ間で相互の信頼関係を確立するために、Personiumは内部でPKIの枠組みを使っています。具体的には、PersoniumでCellをまたがったやり取りに用いられているTrans-Cell AccessTokenはSAML2.0のAssertion形式となっており、Assertionで用いる電子署名としてPKIの代表的な仕様であるx.509を使用したものを採用しています。</p>
 <p>ユニットがSAML発行のための電子署名を行うため、それぞれ固有のX.509の秘密鍵と証明書を持つ必要があります。また受取った証明書を検証、信頼判断する際に用いるための材料もユニットに設定する必要があります。<br />
 <br></p>
-<h2 id="unit">Unit秘密鍵と証明書の作成と設定。</h2>
+<h2 id="unit">Unit秘密鍵と証明書の作成と設定</h2>
 <p>X509の秘密鍵と証明書を作成します。証明書は適切なルート認証局での署名が必要です。<br />
-また、Unitとして受け入れるルート認証局の証明書を設定する必要もあります。（要詳細記述）<br />
+また、Unitとして受け入れるルート認証局の証明書を設定する必要もあります。（執筆予定）<br />
 <br></p>
 <h2 id="unit-user-">Unit User 管理設計</h2>
 <p>まずはじめに、Unit管理者はそのUnitを自身のみが占有的に用いるのか、他の人に使わせるのかに応じて、Unit Userをつかうのかどうかを決定します。</p>
@@ -39,7 +39,7 @@ DataBundle 名として使用可能な文字には以下の制限があります
 <br></p>
 <ol>
 <li>&quot;#&quot; 記号があった場合は、それより後の文字列のみを使う</li>
-<li>DataBundle名として使用できない文字字についてはエスケープを行う。</li>
+<li>DataBundle名として使用できない文字についてはエスケープを行う。</li>
 </ol>
 <p>特定CellをUnit User管理機構として用いた場合はUnitUser名は PersoniumサブジェクトURL {Cell URL}#{アカウント名}となりますが、上記デフォルトData Bundle名決定関数を使った場合は、DataBundle名としてはUnit User管理Cellのアカウント名が使われることとなります。</p>
 </body>
