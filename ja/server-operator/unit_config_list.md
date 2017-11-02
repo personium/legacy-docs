@@ -1,4 +1,4 @@
-# Unitの設定⼀覧
+# Unitの設定一覧
 ユニット設定ファイルは、Personiumユニットの設定を管理するファイルです。  
 デフォルトの設定は、GitHubソース上の"personium-unit-config-default.properties"ファイルで定義されています。  
 デフォルトの設定は変更しないでください。  

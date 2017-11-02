@@ -14,10 +14,10 @@ Personium uses the frame of PKI to establish the mutual trusts of each other bet
 To do the e-signature for the SAML issue, the unit should have the private key and the certificate of peculiar X.509. Moreover, it is necessary to set the material  used when the received certificate is verified to the unit.
 
 <br>
-## Unit private key, preparation of certificate, and setting.
+## Unit private key, preparation of certificate, and setting
 It is necessary to sign the certificate from appropriate route providers of digital certification services.
 Moreover, it is necessary to set the certificate of the route providers of digital
-certification services that accept as Unit. ..(.. ..necessity.. detailed description)
+certification services that accept as Unit. (Written schedule)
 <br>
 ## Unit User management design
 First, the unit administrator decides whether to create UnitUser depending on whether you want to use the unit only by yourself or multiple people.
