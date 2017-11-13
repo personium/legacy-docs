@@ -18,7 +18,6 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 
 * ### [設計モデル](./user_guide/005_Model_construction.html)
 
-* ### [用語集](./user_guide/008_Glossary.html)
 
 # ユーザーガイド  
 ## アプリ開発者向けガイド  
@@ -37,9 +36,8 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 
 # コントリビュータガイド  
 ## ドキュメントコントリビュータ  
-* ### [ドキュメント整備への参加方法](./document-writer/index.html)  
-  * Personiumプロジェクトでは、当ドキュメントに貢献してくださる方も募集中です
-  
+Personiumプロジェクトでは、当ドキュメントに貢献してくださる方も募集中です。  
+### [ドキュメント整備への参加方法](./document-writer/index.html)  
 ## コードコントリビュータ  
 * ### [サーバプラグイン開発者向けガイド](./plugin-developer/index.html)
   * Personiumのサーバ機能を拡張するために、プラグインを開発して利用したい人向けのドキュメントです
