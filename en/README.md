@@ -19,6 +19,7 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 <ul class="listStyleTypeNone">
 <li><h3 id="personium-concepts"><a href="./user_guide/001_Personium_Concepts.html">Personium Concepts</a></h3></li>
 <li><h3 id="design-model"><a href="./user_guide/005_Model_construction.html">Design model</a></h3></li>
+<li><h3 id="design-model"><a href="./user_guide/008_Glossary.html">Glossary</a></h3></li>
 </ul>
 
 # User Guides  

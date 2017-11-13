@@ -18,6 +18,7 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 
 * ### [設計モデル](./user_guide/005_Model_construction.html)
 
+* ### [用語集](./user_guide/008_Glossary.html)
 
 # ユーザーガイド  
 ## アプリ開発者向けガイド  
