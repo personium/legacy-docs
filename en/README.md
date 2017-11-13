@@ -42,7 +42,7 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 # Contributor Guides  
 ## Document Contribution  
 <ul class="listStyleTypeNone">
-<li><h3 id="document-writer"><a href="./document-writer/index.html">Documentation Contributor's Guide</a></h3></li>
+<li><h3 id="documentation-contributor's-guide"><a href="./document-writer/index.html">Documentation Contributor's Guide</a></h3></li>
 <li><p>Personium Project is looking for documentation contributors</p></li>  
 </ul>
 
