@@ -130,6 +130,14 @@
 <td align="left"><br></td>
 </tr>
 <tr class="even">
+<td align="left">thread.pool.num</td>
+<td align="left">スレッドプール数</td>
+<td align="left">int</td>
+<td align="left">20</td>
+<td align="left">core</td>
+<td align="left">PersoniumUnit全体のスレッドプール数。今後機能ごとにスレッドプールを分割予定。</td>
+</tr>
+<tr class="odd">
 <td align="left">plugin.path</td>
 <td align="left">Personiumプラグイン配置先パス</td>
 <td align="left">プラグイン配置先フルパス</td>
@@ -137,7 +145,7 @@
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">unitScheme</td>
 <td align="left">ユニットのスキーム設定</td>
 <td align="left">&quot;http&quot; または &quot;https&quot;</td>
@@ -145,7 +153,7 @@
 <td align="left">core</td>
 <td align="left">開発用途にhttpを設定することも可能ですが、運用時には必ずhttpsを設定してください。</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">masterToken</td>
 <td align="left">マスタートークン</td>
 <td align="left">トークン文字列</td>
@@ -918,6 +926,37 @@
 <td align="left">*</td>
 <td align="left">core</td>
 <td align="left">&quot;*&quot;を指定した場合全てのClientIDを信頼する<br><b>将来的にPlugin独自設定として移動予定</b></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cellsnapshot">CellSnapshot</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">キー</th>
+<th align="left">説明</th>
+<th align="left">値</th>
+<th align="left">デフォルト値</th>
+<th align="left">使用コンポーネント</th>
+<th align="left">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">cellSnapshot.root</td>
+<td align="left">snapshotデータを格納するルートパス</td>
+<td align="left">ディレクトリのフルパス</td>
+<td align="left">/personium_nfs/personium-core/snapshot</td>
+<td align="left">core</td>
+<td align="left"><br></td>
 </tr>
 </tbody>
 </table>

@@ -40,6 +40,7 @@ It is a setting which change from default as optional when operating Personium.
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |version|version|String|1.5.3|core, engine|<br>|
+|thread.pool.num|Number of thread pools|int|20|core|PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.|
 |plugin.path|Personium plugin placement destination path|Plugin placement destination Full path|/personium/personium-core/plugins|core|<br>|
 |unitScheme|Unit scheme setting|"http" or "https"|https|core|Please set https when you operate it though it is also possible to set http to the development usage.|
 |masterToken|Master Token|Token string||core, engine|Please do not set it when you operate it though it is possible to set by the development usage.|
@@ -162,3 +163,8 @@ http://{engine.host}:{engine.port}/{engine.path}
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |oidc.google.trustedClientIds|In Google OpenID Connect, this unit trusts ClientID<br>More than one space can be specified|	String|*|core|When "*" is specified Trust all ClientIDs<br><b>In the future planned to move as Plugin original setting</b>|
+
+#### CellSnapshot
+|Key|Description|Value|Default value|Used component|Notes|
+|:--|:--|:--|:--|:--|:--|
+|cellSnapshot.root|Route path to store snapshot data|Full path of directory|/personium_nfs/personium-core/snapshot|core|<br>|

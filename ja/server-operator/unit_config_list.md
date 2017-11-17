@@ -41,6 +41,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |version|バージョン|文字列|1.5.3|core, engine|<br>|
+|thread.pool.num|スレッドプール数|int|20|core|PersoniumUnit全体のスレッドプール数。今後機能ごとにスレッドプールを分割予定。|
 |plugin.path|Personiumプラグイン配置先パス|プラグイン配置先フルパス|/personium/personium-core/plugins|core|<br>|
 |unitScheme|ユニットのスキーム設定|"http" または "https"|https|core|開発用途にhttpを設定することも可能ですが、運用時には必ずhttpsを設定してください。|
 |masterToken|マスタートークン|トークン文字列||core, engine|デフォルトは無効です。開発用途などで設定することもできますが、運用時には設定しないでください。|
@@ -164,3 +165,8 @@ http://{engine.host}:{engine.port}/{engine.path}
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |oidc.google.trustedClientIds|Google OpenID Connectにおいて、このユニットが信頼するClientID<br>スペース区切りで複数指定可能|文字列|*|core|"*"を指定した場合全てのClientIDを信頼する<br><b>将来的にPlugin独自設定として移動予定</b>|
+
+#### CellSnapshot
+|キー|説明|値|デフォルト値|使用コンポーネント|備考|
+|:--|:--|:--|:--|:--|:--|
+|cellSnapshot.root|snapshotデータを格納するルートパス|ディレクトリのフルパス|/personium_nfs/personium-core/snapshot|core|<br>|

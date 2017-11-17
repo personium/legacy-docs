@@ -130,6 +130,14 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left"><br></td>
 </tr>
 <tr class="even">
+<td align="left">thread.pool.num</td>
+<td align="left">Number of thread pools</td>
+<td align="left">int</td>
+<td align="left">20</td>
+<td align="left">core</td>
+<td align="left">PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.</td>
+</tr>
+<tr class="odd">
 <td align="left">plugin.path</td>
 <td align="left">Personium plugin placement destination path</td>
 <td align="left">Plugin placement destination Full path</td>
@@ -137,7 +145,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">core</td>
 <td align="left"><br></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">unitScheme</td>
 <td align="left">Unit scheme setting</td>
 <td align="left">&quot;http&quot; or &quot;https&quot;</td>
@@ -145,7 +153,7 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">core</td>
 <td align="left">Please set https when you operate it though it is also possible to set http to the development usage.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">masterToken</td>
 <td align="left">Master Token</td>
 <td align="left">Token string</td>
@@ -940,6 +948,37 @@ The unit then replaces the default value defined in &quot;personium-unit-config-
 <td align="left">*</td>
 <td align="left">core</td>
 <td align="left">When &quot;*&quot; is specified Trust all ClientIDs<br><b>In the future planned to move as Plugin original setting</b></td>
+</tr>
+</tbody>
+</table>
+<h4 id="cellsnapshot">CellSnapshot</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Key</th>
+<th align="left">Description</th>
+<th align="left">Value</th>
+<th align="left">Default value</th>
+<th align="left">Used component</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">cellSnapshot.root</td>
+<td align="left">Route path to store snapshot data</td>
+<td align="left">Full path of directory</td>
+<td align="left">/personium_nfs/personium-core/snapshot</td>
+<td align="left">core</td>
+<td align="left"><br></td>
 </tr>
 </tbody>
 </table>
