@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<h1>Box Level Access Control Configuration</h1>
+<h3>Overview</h3>
+<p>Provides box level access control functions</p>
+<h3>Required Privileges</h3>
+<p>write-acl</p>
+<h3>Restrictions</h3>
+<ul>
+<li>When ACL setting is done, the existing ACL setting is overwritten and updated</li>
+<li>The function to deny ACL configuration (deny)</li>
+<li>Acquisition of a list of privileges configurable by the ACL</li>
+</ul>
+<p><br></p>
+<h3>Request</h3>
+<h4 id="url">Request URL</h4>
+<pre><code>/{CellName}/{BoxName}</code></pre>
+<p>or</p>
+<pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Path<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">{CellName}<br></td>
+<td align="left">Cell Name<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">{BoxName}<br></td>
+<td align="left">Box Name<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">{ResourcePath}<br></td>
+<td align="left">Path to resource<br></td>
+<td align="left">Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Request Method</h4>
+<p>ACL</p>
+<h4>Request Query</h4>
+<p>None</p>
+<h4>Request Header</h4>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X-HTTP-Method-Override<br></td>
+<td align="left">Method override function<br></td>
+<td align="left">User-defined<br></td>
+<td align="left">No<br></td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Override<br></td>
+<td align="left">Header override function<br></td>
+<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
+<td align="left">No<br></td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+</tr>
+<tr class="odd">
+<td align="left">X-Personium-RequestKey<br></td>
+<td align="left">RequestKey field value output in the event log<br></td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
+<td align="left">No<br></td>
+<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+</tr>
+<tr class="even">
+<td align="left">Authorization<br></td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
+<td align="left">No<br></td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Request Body</h4>
+<p>Namespace</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">URI<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Reference prefix<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">DAV:<br></td>
+<td align="left">WebDAV Namespace<br></td>
+<td align="left">D:<br></td>
+</tr>
+<tr class="even">
+<td align="left">urn:x-personium:xmlns<br></td>
+<td align="left">Personium namespace<br></td>
+<td align="left">p:<br></td>
+</tr>
+</tbody>
+</table>
+<p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
+<p>Structure of XML<br />
+The body is XML and follows the following schema.<br />
+See acl_model (<a href="../../user_guide/002_Access_Control.html">access control model</a>) for the contents of privilege setting under the privilege tag.</p>
+<table>
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Node name<br></th>
+<th align="left">Namespace<br></th>
+<th align="left">Node type<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">acl<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Denotes the root of the ACL (Access Control List); one or more ace nodes will be its child<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">base<br></td>
+<td align="left">xml:<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Href Represents the base of the URL described in the tag and sets an arbitrary value as the attribute value. This attribute is optional.<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">ace<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Denotes the privilege configuration target; href or all will be its child<br></td>
+<td align="left">&quot;invert&quot;, &quot;deny&quot;, &quot;protected&quot;, and &quot;inherited&quot; are not supported in V 1.1 systems<br></td>
+</tr>
+<tr class="even">
+<td align="left">principal<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Denotes the privilege configuration target; href or all will be its child<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">grant<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Denotes the privilege grant setting; one or more privilege nodes will be its child node<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">href<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Denotes the privilege configuration target role and is the text node to input the role resource URL<br></td>
+<td align="left">Specify resource URL of privilege setting target role >It is possible to shorten the URL using the xml:base attribute setting in the acl element<br></td>
+</tr>
+<tr class="odd">
+<td align="left">all<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">All access entity privilege setting<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">privilege<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Denotes the privilege setting; one of the following elements will be its child<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">read<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Reference authority<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">write<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Edit permission<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">read-properties<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Property reference authority<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">write-properties<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Edit property authority<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">read-acl<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">ACL setting reference authority<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">write-acl<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">ACL setting edit permission<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">bind<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Unpublished<br></td>
+<td align="left">V1.1 series, V1.2 series not supported<br></td>
+</tr>
+<tr class="even">
+<td align="left">unbind<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Unpublished<br></td>
+<td align="left">V1.1 series, V1.2 series not supported<br></td>
+</tr>
+<tr class="odd">
+<td align="left">exec<br></td>
+<td align="left">D:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Service execution authority<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<p>DTD notation</p>
+<p>namespace D:</p>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">acl</span> <span class="dv">(</span><span class="fu">ace</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">ace</span> <span class="dv">((</span><span class="fu">principal</span> <span class="fu">or</span> <span class="fu">invert</span><span class="dv">),</span> <span class="dv">(</span><span class="fu">grant</span> <span class="fu">or</span> <span class="fu">deny</span><span class="dv">),</span> <span class="fu">protected</span><span class="fl">?</span><span class="dv">,</span><span class="fu">inherited</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">principal</span> <span class="dv">(</span><span class="fu">href</span> <span class="fu">or</span> <span class="fu">all</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">principal</span> <span class="dv">(</span><span class="fu">privilege</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">href</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">all</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">privilege</span> <span class="dv">(</span><span class="fu">all</span> <span class="fu">or</span> <span class="fu">read</span> <span class="fu">or</span> <span class="fu">write</span> <span class="fu">or</span> <span class="fu">read-properties</span> <span class="fu">or</span> <span class="fu">write-properties</span> <span class="fu">or</span> <span class="fu">read-acl</span> <span class="fu">or</span> <span class="fu">write-acl</span> <span class="fu">or</span> <span class="fu">exec</span> <span class="fu">or</span> <span class="fu">bind</span> <span class="fu">or</span> <span class="fu">unbind</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">write</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">read-properties</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">write-properties</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">read-acl</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">write-acl</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">bind</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">unbind</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">exec</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></code></pre></div>
+<p>namespace p:</p>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">requireSchemaAuthz</span> <span class="dv">(</span><span class="fu">none</span> <span class="fu">or</span> <span class="fu">public</span> <span class="fu">or</span> <span class="fu">confidential</span><span class="dv">)</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">exec</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>   </code></pre></div>
+<p>namespace xml:</p>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">base</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre></div>
+<h4>Request Sample</h4>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot; <span class="kw">?&gt;</span>
+<span class="kw">&lt;D:acl</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span>
+<span class="ot">       xml:base=</span><span class="st">&quot;https://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;</span>
+<span class="ot">       p:requireSchemaAuthz=</span><span class="st">&quot;public&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;D:ace&gt;</span>
+        <span class="kw">&lt;D:principal&gt;</span>
+            <span class="kw">&lt;D:all/&gt;</span>
+        <span class="kw">&lt;/D:principal&gt;</span>
+        <span class="kw">&lt;D:grant&gt;</span>
+            <span class="kw">&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</span>
+        <span class="kw">&lt;/D:grant&gt;</span>
+    <span class="kw">&lt;/D:ace&gt;</span>
+    <span class="kw">&lt;D:ace&gt;</span>
+        <span class="kw">&lt;D:principal&gt;</span>
+            <span class="kw">&lt;D:href&gt;</span>role<span class="kw">&lt;/D:href&gt;</span>
+        <span class="kw">&lt;/D:principal&gt;</span>
+        <span class="kw">&lt;D:grant&gt;</span>
+            <span class="kw">&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</span>
+            <span class="kw">&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</span>
+        <span class="kw">&lt;/D:grant&gt;</span>
+    <span class="kw">&lt;/D:ace&gt;</span>
+<span class="kw">&lt;/D:acl&gt;</span></code></pre></div>
+<p><br></p>
+<h3>Response</h3>
+<h4>Response Code</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Code<br></th>
+<th align="left">Message<br></th>
+<th align="left">Overview<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">200<br></td>
+<td align="left">OK<br></td>
+<td align="left">Success<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Response Header</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">Format of data to be returned<br></td>
+<td align="left">Only when it failed at the time of update / creation, return it<br></td>
+</tr>
+</tbody>
+</table>
+<h4>Response Body</h4>
+<p>None</p>
+<h4>Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h4>Response Sample</h4>
+<p>None</p>
+<p><br></p>
+<h3 id="curl">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X ACL -i
+<span class="ex">-H</span> <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d
+<span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="st"> &lt;D:acl xmlns:D=&quot;DAV:&quot; xml:base=&quot;https://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot; p:requireSchemaAuthz=&quot;none&quot;&gt;</span>
+<span class="st">  &lt;D:ace&gt;</span>
+<span class="st">   &lt;D:principal&gt;</span>
+<span class="st">    &lt;D:href&gt;doctor&lt;/D:href&gt;</span>
+<span class="st">   &lt;/D:principal&gt;</span>
+<span class="st">   &lt;D:grant&gt;</span>
+<span class="st">    &lt;D:privilege&gt;</span>
+<span class="st">     &lt;D:read/&gt;</span>
+<span class="st">    &lt;/D:privilege&gt;</span>
+<span class="st">    &lt;D:privilege&gt;</span>
+<span class="st">     &lt;D:write/&gt;</span>
+<span class="st">    &lt;/D:privilege&gt;</span>
+<span class="st">   &lt;/D:grant&gt;</span>
+<span class="st">  &lt;/D:ace&gt;</span>
+<span class="st"> &lt;/D:acl&gt;&#39;</span></code></pre></div>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

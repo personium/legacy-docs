@@ -4,16 +4,9 @@ It is a document for people who want to provide / operate PDS service environmen
 
 ### [Construction guide](./setup_en.md)  
 
-### [Unit configurations](./unit_config_list.md)  
+### [Unit operation design](./unit_operation_design.html)
 
-### API Reference  
-<ul class="listStyleTypeNone">
-<li><p><a href="../apiref/1.5.2/000_Rest_API_Reference.html">1.5.2 -</a></p></li>
-<li><p><a href="../apiref/1.5.1/000_Rest_API_Reference.html">1.5.1</a></p></li>
-<li><p><a href="../apiref/1.5.0/000_Rest_API_Reference.html">1.5.0</a></p></li>
-<li><p><a href="../apiref/1.4.6/000_Rest_API_Reference.html">1.4.2 - 1.4.6</a></p></li>
-<li><p><a href="http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm">1.4.1 or before</a></p></li>
-</ul>
+### [Unit configurations](./unit_config_list.md)  
 
 ### Related Repositories
 * [ansible](https://github.com/personium/ansible)

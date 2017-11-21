@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="ja-JP" />
+<meta name="generator" content="Adobe RoboHelp 10" />
+<title></title>
+<link rel="StyleSheet" href="../github.css" type="text/css" />
+</head>
+<body onload="prettyPrint()">
+<h1>Access control model</h1>
+<h2>Overview</h2>
+<P class = "Paragraph"> Access control to the access subject by ACL is done by applying WebDAV ACL to role based access control. </P>
+<P class = "Paragraph"> By setting the ACL with the ACL method for Cell, Box, Collection, etc., access right to that resource can be set. </P>
+<P class = "Paragraph"> Basically, it conforms to the specification of WebDAV ACL, but this page will explain Personium original specifications. </P>
+<P class = "Paragraph"> ACL settings are defined in XML. </P>
+<h2>ACL</h2>
+<p class="Paragraph">AThe access control to the access subject by the ACL is done by applying <a href="http://www.ietf.org/rfc/rfc3744"> WebDAV ACL </a> to role based access control.</p>
+<P class = "Paragraph"> By setting the ACL with the ACL method for Cell, Box, Collection, etc., access right to that resource can be set. </P>
+<P class = "Paragraph"> Basically, it conforms to the specification of WebDAV ACL, but this page will explain Personium original specifications. </P>
+<P class = "Paragraph"> ACL settings are defined in XML. </P>
+<ul>
+<li><h3> ACL component in Personium </h3></li>
+<li><P class = "Paragraph"> The Personium ACL consists of the following elements. </P></li>
+<li><table cellspacing="0" width="31.565%">
+<col style="width: 38.534%;" />
+<col style="width: 61.466%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Element name</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Contents</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">ace</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Represents an access entity that sets ACLs and a set of their grants</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">pricipal</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Define the access subject of the ACL to be set up</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">grant</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Define one or more privileges to be given to principal</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText">privilege</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Define permission settings</p>
+</td>
+</tr>
+</table></li>
+<h3>Limitations</h3>
+<p class="Paragraph">In Personium V1 series, there are the following restrictions.</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>The ACL is updated by overwriting the existing setting</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>Set up deprivation of authority by deny element</p>
+<p class="Paragraph" style=" margin-left: 50px; text-indent: -30px;"><span class="rls-1-Bullets"><span style="font-family:'Symbol'">&#183;</span></span><span style='word-spacing:normal; font:6.0pt "Times New Roman"'><font size="1" style="font-size:6pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</font></span>Acquire a list of authorizations that can be granted</p>
+<h3>Object</h3>
+<p class="Paragraph2">The target of ACL setting of Personium is a resource, and it is set by the ACL method to the URL of each resource.</p>
+<p class="Paragraph2">In the case of a path of a cell, it becomes a cell level ACL, and in case of a path under a box, it becomes a box level ACL.</p>
+<p class="Paragraph2">These two have different Privileges (authorities) that can be set, and they will not affect each other.</p>
+<table style="margin-left: 26pt;" cellspacing="0" width="43.728%">
+<col style="width: 27.816%;" />
+<col style="width: 27.816%;" />
+<col style="width: 44.369%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;">&#160;</p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Object</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Target resource</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Cell Level ACL</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Setting to the cell,</p>
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Control CRUD of cell control object</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Cell</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Box Level ACL</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Control CRUD of Box control object</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">Box, WebDAV collection, OData collection, Service collection<br />
+Directory and file under the WebDAV collection</p>
+</td>
+</tr>
+</table>
+</ul>
+<h2>ace</h2>
+<P class = "Paragraph"> The target access agent is defined as a Principal element, and the authorization is defined as a grant element. You can set multiple ace elements. </P>
+<ul>
+<li><h3> Principal </h3></li>
+<P class = "Paragraph"> Although Principal has "human or computational actor" in the WebDAV ACL, it is defined as a role in Personium. </P>
+<P class = "Paragraph"> The role of Personium is a concept close to "Group" in WebDAV ACL. </P>
+<h3> (1) all </h3>
+<P class = "Paragraph"> As defined in the WebDAV ACL, setting the all element in pricipal gives the authorization setting, <br />
+It can also be defined for all roles and unauthorized access agents (without Authorization header). </P>
+<P class = "Paragraph"> Since it is authority for all access agents to the resource, caution is required when using it. </P>
+<Table class = "CodeTable" style = "height: 47px;" cellspacing = "0px" width = "96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">principal:all</p>
+<p class="Code">privilege:all</p>
+</td>
+</tr>
+</table>
+<P class = "Paragraph"> </p>
+<P class = "Paragraph"> With the above setting, all operations are released to all accesses accessed. </P>
+<P class = "Paragraph" style = "font-weight: bold;"> </p>
+<P class = "Paragraph" style = "font-weight: bold;"> However, if schema authentication level setting is done, that checking will take effect. </P>
+<P class = "Paragraph" style = "font-weight: bold;"> </p>
+<h4> Setting example </h4>
+<P class = "Paragraph2"> Give read access to all access subjects. </P>
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">        &lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:all&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h3> (2) Roll </h3>
+<P class = "Paragraph2"> To define a role for the target access agent, enclose it in an href element and set the role resource URL. <br />
+For specifications on role resources see Role Issue. </P>
+<P class = "Paragraph2"> Note that the role resource URL that can be set can not specify a role resource URL different from the cell URL of the ACL setting target. </P>
+<h4> Setting example </h4>
+<P class = "Paragraph2" style = "text - decoration: underline;"> - Describe all role resource URLs to be set in Principal </p>
+<P class = "Paragraph2"> (Example of giving read and write privileges to doctor attached to box 1 and giving read only to guest attached to box 2) </p>
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;http://fqdn/testcell1/__role/box1/doctor&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">    &lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;http://fqdn/testcell1/__role/box2/guest&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<P class = "Paragraph2"> </p>
+<P class = "Paragraph2" style = "text - decoration: underline;"> Omission of description by xml: base </p>
+<P class = "Paragraph2" style = "text - decoration: none;"> By describing the role resource URL up to the box in the xml: base attribute of the acl element, omit the description of the role resource URL set in Principal can do. </P>
+<P class = "Paragraph2"> (Example of giving read and write privileges to doctor attached to box 1 and giving read only to guest attached to box 2) </p>
+<Table class = "CodeTable" style = "height: 47px;" cellspacing = "0px" width = "96%">
+<Col style = "width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;doctor&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">    &lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;../box2/guest&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">* Like guest, when setting a role attached to a box different from the xml: base box, it is possible to describe relative paths as described above.</p>
+<h4>Output with PROPFIND</h4>
+<p class="Paragraph2" style="text-decoration: none;">When outputting the ACL setting with PROPFIND, the xml: base attribute is output as follows.</p>
+<ul>
+<li><p class="Paragraph">In the case of PROPFIND to a cell, the URL of the main box</p></li>
+<li><p class="Paragraph">In the case of PROPFIND under Box, the URL to that Box</p></li>
+</ul>
+</ul>
+<h2>grant/Privilege</h2>
+<p class="Paragraph2" style="text-decoration: none;">The authority is set with the element defined by Personium, and set by enclosing it in the Privilege element in the grant element.<br />
+In addition, you can specify multiple Privilege elements in the grant element.</p>
+<ul>
+<li><h3>Cell Level ACL Privilege</h3>
+<p class="Paragraph2">For the set cell, specify execution authority of the cell control object and execution authority of the method.<br />
+When the authority located at the higher level is set, it has the authority belonging to the lower rank. (Eg message has the authority of message-read)</p>
+<table cellspacing="0" width="96%">
+<col style="width: 17.486%;" />
+<col style="width: 31.454%;" />
+<col style="width: 26.227%;" />
+<col style="width: 24.833%;" />
+<tr>
+<th style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-size: 12px; font-family: Verdana, sans-serif; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Authority name</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Target cell control object</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Top authority name</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Methods that can be executed</span></p>
+</th>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">It has all the authorities below</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">-</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">All</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">auth</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">Account, Role, ExtRole</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">auth-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Account, Role, ExtRole</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">auth</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">message</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">RecievedMessage, SentMessage</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">message-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">RecievedMessage, SentMessage</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">message</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">event-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">event</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">log-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">log</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">social</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Relation, ExtCell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">social-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Relation, ExtCell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">social</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PUT, POST, DELETE, GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;"><span style="font-family: Verdana, sans-serif; font-size: 12px;">Box</span></p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box-install</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;"><span style="font-family: Verdana, sans-serif; font-size: 12px;">Box</span></p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">MKCOL(Barfile installation)</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">box-export</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;"><span style="font-family: Verdana, sans-serif; font-size: 12px;">Box</span></p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">GET(Barfile export) * Not supported</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">ACL</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">acl-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">Display of ACL setting of PROPFIND</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">propfind</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px; margin-left: 0px;">root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif; margin-left: 0px;">PROPFIND</p>
+</td>
+</tr>
+</table>
+<h4 class="Paragraph2">Setting Example</h4>
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;?xml version="1.0" encoding="utf-8" ?&gt;</p>
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xmlns:p="urn:x-personium:xmlns" xml:base="https://example.com/cell/box"&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;role10&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;p:root/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;../box2/role13&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;p:social/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;role15&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;p:acl/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<h3 class="Paragraph2">&#160;</h3>
+<h3 class="Paragraph2">Box level ACL Privilege</h3>
+<p class="Paragraph2">Specify the execution authority of the method for the resources below the set box.<br />
+Box level Privilege is basically defined along WebDAV ACL.<br />
+When the authority located at the higher level is set, it has the authority belonging to the lower rank.(Example: read also has the authority of read-properties)</p>
+<table cellspacing="0" width="96%">
+<col style="width: 17.486%;" />
+<col style="width: 31.454%;" />
+<col style="width: 26.227%;" />
+<col style="width: 24.833%;" />
+<tr>
+<th style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-size: 12px; font-family: Verdana, sans-serif; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Authority name</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Target cell control object</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Top authority name</span></p>
+</th>
+<th style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-family: Verdana, sans-serif; font-size: 12px; font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Methods that can be executed</span></p>
+</th>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">It has all the authorities below</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">p:root</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">All</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has read permission. It does not include read-acl.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">GET, OPTIONS</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has write authority. It does not include write-acl.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">PUT, POST, DELETE, MKCOL</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">read-properties</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has the right to read properties.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">PROPFIND</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write-properties</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Have authority to write properties.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">PROPPATCH</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">read-acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">It has read authority of ACL.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Display of ACL setting of PROPFIND</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write-acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has authority to write ACL.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">ACL</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">write-content</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has authority to write content.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">* Not supported</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">bind</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has bind authority.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">* Not supported</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">unbind</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has unbind authority.</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">write</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">* Not supported</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">exec</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">Has service execution authority. * Personium original implementation</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">all</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;">
+<p class="TableText" style="font-size: 12px; font-family: Verdana, sans-serif;">-</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h4 class="Paragraph2">Setting Example</h4>
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://fqdn/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;none&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;doctor&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">    &lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:href&gt;../box2/guest&lt;/D:href&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h3>ACL inheritance</h3>
+<p class="Paragraph2">For box level ACL setting, the setting of the parent (upper directory) of the accessed resource is applied back to the cell.<br />
+The ACL setting for the access subject is inherited in the form in which the parent setting is added.<br />
+Therefore, the following points need to be noted when setting ACL.</p>
+<ul>
+<li><p class="Paragraph">When strong permission of all etc. etc is set for parent, even if restriction is applied to child, it becomes invalid</p></li>
+</ul>
+<h4>Examples of ACL inheritance and applied privileges</h4>
+<p class="Paragraph2">Example resource</p>
+<table cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resource type</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resource name</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resource URL</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAV Collection</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">webdav</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">File</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">file</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory/file</span></p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<p class="Paragraph2">After applying the following ACL setting to the above resource, the authorities applied when accessing each resource are as follows.</p>
+<table cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resources to access</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Permission set</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Applicable authority</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">read-acl</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAV Collection</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">read</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl, read</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">no settings</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl, read</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">File</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">read-propaties</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">auth-read, read-acl, read-properties, read</span></p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+</li></ul>
+<h2>Schema authority request level</h2>
+<p class="Paragraph2">For access control to the application according to the schema authority request level,</p>
+<p class="Paragraph2">the request level is set by the RequireSchemaAuthz attribute of the ACL element at the time of setting the ACL.</p>
+<p class="Paragraph2">For schema authentication specifications, see "Schema authentication (application authentication)" in the <a href="../../user_guide/003_Auth.html">authentication model</a>.</p>
+<ul><li>
+<h3>Setting value</h3>
+<p class="Paragraph2">Schema privilege request level value</p>
+<table cellspacing="0" width="31.565%">
+<col style="width: 38.534%;" />
+<col style="width: 61.466%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Level value</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Contents</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">none(Default)</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff; font-size: 12px;">Accessible without schema authentication</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">public</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff; font-size: 12px;">Accessible if schema authentication result is OK</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-family: Verdana, sans-serif; font-size: 12px;">confidential</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff; font-size: 12px;">When the schema authentication result is OK and the special role confidentialClient is available</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h4 class="Paragraph2">Setting Example</h4>
+<p class="Paragraph2">Sample Schema Privilege Request Level Setting ACL</p>
+<table class="CodeTable" style="height: 47px;" cellspacing="0px" width="96%">
+<col style="width: 100%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#E0E0E0">
+<p class="Code">&lt;D:acl xmlns:D="DAV:" xml:base="http://localhost:8080/testcell1/__role/box1/"</p>
+<p class="Code">&#160;&#160;&#160;&#160;xmlns:p=&quot;urn:x-personium:xmlns&quot;</p>
+<p class="Code">&#160;&#160;&#160;&#160;p:requireSchemaAuthz=&quot;{Level value}&quot;&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;D:ace&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:all/&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:principal&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:read/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;D:privilege&gt;&lt;D:write/&gt;&lt;/D:privilege&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/D:grant&gt;</p>
+<p class="Code">&#160;&#160;&#160;&#160;&lt;/D:ace&gt;</p>
+<p class="Code">&lt;/D:acl&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<h3>Inheritance of schema authority request level setting</h3>
+<p class="Paragraph2">The schema authority request level setting is applied by setting the parent (upper directory) of the accessed resource back to the box only
+when the accessed resource is not set.</p>
+<ul>
+<li><p class="Paragraph">If the schema authority request level is not set, it is treated as none, but it is not inherited if explicitly set to none.</p></li>
+<li><p class="Paragraph">Inheritance is confirmed back to the Box, but when the schema level setting is performed on the intermediate resource, the setting value becomes effective.</p></li>
+</ul>
+<p class="Paragraph2">&#160;</p>
+<h4 class="Paragraph2">Schema privilege Request level inheritance and example of authority to be applied</h4>
+<p class="Paragraph2">The schema authority request level applied when accessing each resource after setting the following schema authority request level to the above resource is as follows.</p>
+<p class="Paragraph2">Example resource</p>
+<table cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resource type</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resource name</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resource URL</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">cell</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAV Collection</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">webdav</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">File</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">file</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;"><span style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">https://fqdn/cell/box/webdav/directory/file</span></p>
+</td>
+</tr>
+</table>
+<p class="Paragraph2">&#160;</p>
+<p class="Paragraph2">After applying the following ACL setting to the above resource, the authorities applied when accessing each resource are as follows.</p>
+<table cellspacing="0" width="88.278%">
+<col style="width: 23.865%;" />
+<col style="width: 19.414%;" />
+<col style="width: 61.68%;" />
+<tr>
+<td style="border: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Resources to access</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Set level</span></p>
+</td>
+<td style="border-top: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b;" bgcolor="#DADADA">
+<p class="GreyColumnHeading" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: normal;">Applicable level</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Box</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">confidential</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">confidential &#160;</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">WebDAV Collection</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">public</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">public</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">Directory</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">no settings</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">public</p>
+</td>
+</tr>
+<tr>
+<td style="border-left: Solid 1px #9b9b9b; border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="font-size: 12px;">File</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">none</p>
+</td>
+<td style="border-right: Solid 1px #9b9b9b; border-bottom: Solid 1px #9b9b9b; vertical-align: top;">
+<p class="TableText" style="color: rgb(72, 72, 72); font-family: Verdana, sans-serif; font-size: 12px; line-height: normal; orphans: auto; widows: auto; -webkit-text-size-adjust: auto; background-color: #ffffff;">none</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

@@ -19,6 +19,7 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 <ul class="listStyleTypeNone">
 <li><h3 id="personium-concepts"><a href="./user_guide/001_Personium_Concepts.html">Personium Concepts</a></h3></li>
 <li><h3 id="design-model"><a href="./user_guide/005_Model_construction.html">Design model</a></h3></li>
+<li><h3 id="design-model"><a href="./user_guide/008_Glossary.html">Glossary</a></h3></li>
 </ul>
 
 # User Guides  
@@ -40,8 +41,10 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 
 # Contributor Guides  
 ## Document Contribution  
-Personium Project is looking for documentation contributors.  
-[Documentation Contributor's Guide](./document-writer/)  
+<ul class="listStyleTypeNone">
+<li><h3 id="documentation-contributor's-guide"><a href="./document-writer/index.html">Documentation Contributor's Guide</a></h3></li>
+<li><p>Personium Project is looking for documentation contributors</p></li>  
+</ul>
 
 ## Code Contribution  
 <ul class="listStyleTypeNone">
