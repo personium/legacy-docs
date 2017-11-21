@@ -43,7 +43,7 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
 </head>
 <body>
 <h1 id="box">Boxインストール</h1>
@@ -56,11 +56,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <pre><code>Boxインストールの呼び出し例（クライアントでのポーリングを30秒とした場合)
  1. Boxインストール受付
-    -- MKCOL /{cell}/{box}
+    -- MKCOL /{Cell}/{Box}
  2. Boxインストール状況確認
-    -- GET /{cell}/{box}  -&gt; &quot;処理中&quot; で返却。
+    -- GET /{Cell}/{Box}  -&gt; &quot;処理中&quot; で返却。
     -- 30秒ポーリング
- 3. GET /{cell}/{box}  -&gt; &quot;処理完了&quot; で返却。
+ 3. GET /{Cell}/{Box}  -&gt; &quot;処理完了&quot; で返却。
  ※上記 2. の処理をループして処理完了までポーリングする。</code></pre>
 <h3>必要な権限</h3>
 <p>box-install</p>
@@ -182,7 +182,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>メソッド</h4>
 <p>MKCOL</p>
 <h4>リクエストクエリ</h4>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -210,7 +210,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h4>リクエストヘッダ</h4>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -273,7 +273,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <h4>リクエストボディ</h4>
-<table>
+<table style="width:22%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
