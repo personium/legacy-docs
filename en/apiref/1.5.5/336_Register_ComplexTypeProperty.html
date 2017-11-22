@@ -46,22 +46,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="complextypeproperty">ComplexTypeProperty Registration</h1>
-<h3>Overview</h3>
+<h1 id="complextypeproperty-registration">ComplexTypeProperty Registration</h1>
+<h3 id="overview">Overview</h3>
 <p>Define the ComplexTypeProperty specified for user data</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
 <li>Only accepts the request body in the JSON format</li>
 <li>Only application/json is supported for Content-Type in the request header and the JSON format for the response body</li>
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
-<li>Individual restrictions
+<li><p>Individual restrictions</p>
 <ul>
 <li>When user data of EntityType using the target ComplexType exists, it can be registered only when Nullable is true</li>
 <li>Registerable only when ComplexType hierarchy number is within 5 hierarchies</li>
 <li>Validity check of DefaultValue of Edm.DateTime is not properly done</li>
 </ul></li>
-<li>Restrictions stipulated as Personium specifications
+<li><p>Restrictions stipulated as Personium specifications</p>
 <ul>
 <li>For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty</li>
 <li>Maximum number of registered types of ComplexTypeProperty of each hierarchy can be registered up to the following number of SimpleType</li>
@@ -75,16 +75,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>4th level: 0 pieces</li>
 </ul></li>
 </ul>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>alter-schema</p>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/ComplexTypeProperty</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>POST</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -111,9 +111,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<h5>Common Request Header</h5>
-<table>
+<h4 id="request-header">Request Header</h4>
+<h5 id="common-request-header">Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -150,12 +150,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">RequestKey field value output in the event log<br></td>
 <td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
 <td align="left">No<br></td>
-<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
 </tr>
 </tbody>
 </table>
-<h5 id="odata">OData Common Request Header</h5>
-<table>
+<h5 id="odata-common-request-header">OData Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -182,8 +182,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="odata">OData Create Request Header</h5>
-<table>
+<h5 id="odata-create-request-header">OData Create Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -217,10 +217,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <h5 id="format">Format</h5>
 <p>JSON</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -255,7 +255,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Type<br></td>
 <td align="left">Type definition<br></td>
-<td align="left">Edm.Boolean / Edm.String / Edm.Single / Edm.Int32 / Edm.DateTime / Registered ComplexType name<br></td>
+<td align="left">Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / Registered ComplexType name<br></td>
 <td align="left">Yes<br></td>
 <td align="left"><br></td>
 </tr>
@@ -284,7 +284,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 <h5 id="valid-values-for-defaultvalue">Valid values for DefaultValue</h5>
 <p>Valid values of DefaultValue differ depending on Type value (type definition), and also define items with different types of the following definitions with character strings</p>
-<table>
+<table style="width:11%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -297,36 +297,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Edm.String<br></td>
-<td align="left">Number of digits: 0-51200 byte<br>When "\" is used, it must be specified with "\\"<br></td>
-</tr>
-<tr class="even">
-<td align="left">Edm.Int32<br></td>
-<td align="left">-2147483648 - 2147483647<br></td>
-</tr>
-<tr class="odd">
-<td align="left">Edm.Single<br></td>
-<td align="left">Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits<br></td>
-</tr>
-<tr class="even">
 <td align="left">Edm.Boolean<br></td>
 <td align="left">true / false<br></td>
 </tr>
+<tr class="even">
+<td align="left">Edm.String<br></td>
+<td align="left">Number of digits: 0-51200 byte<br>When &quot;\&quot; is used, it must be specified with &quot;\\&quot;<br></td>
+</tr>
 <tr class="odd">
+<td align="left">Edm.Int32<br></td>
+<td align="left">-2147483648 - 2147483647<br></td>
+</tr>
+<tr class="even">
+<td align="left">Edm.Single<br></td>
+<td align="left">Number of digits in integer part: 1-5 digits<br>Number of digits in decimal part: 1-5 digits<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Edm.Double<br></td>
+<td align="left">Represents a floating point number with 15 digits precision.</td>
+</tr>
+<tr class="even">
 <td align="left">Edm.DateTime<br></td>
 <td align="left">It is specified as a character string in the format of Date ([time of long type])<br> The valid value of [time of long type] is -6847804800000(1753-01-01T00:00:00.000Z)-253402300799999(9999-12-31T23:59:59.999Z)<br>In addition, you can specify the following as reserved words<br> SYSUTCDATETIME (): server time<br></td>
 </tr>
 </tbody>
 </table>
-<h4>Request Sample</h4>
-<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span><span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{ComplexTypePropertyName}&quot;</span><span class="fu">,</span><span class="dt">&quot;_ComplexType.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{ComplexTypeName}&quot;</span><span class="fu">,</span><span class="dt">&quot;Type&quot;</span><span class="fu">:</span> <span class="st">&quot;Edm.String&quot;</span><span class="fu">,</span><span class="dt">&quot;Nullable&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span><span class="dt">&quot;DefaultValue&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span><span class="dt">&quot;CollectionKind&quot;</span><span class="fu">:</span> <span class="st">&quot;None&quot;</span><span class="fu">}</span></code></pre></div>
+<h4 id="request-sample">Request Sample</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{ComplexTypePropertyName}&quot;</span><span class="fu">,</span><span class="dt">&quot;_ComplexType.Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{ComplexTypeName}&quot;</span><span class="fu">,</span><span class="dt">&quot;Type&quot;</span><span class="fu">:</span> <span class="st">&quot;Edm.String&quot;</span><span class="fu">,</span><span class="dt">&quot;Nullable&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span><span class="dt">&quot;DefaultValue&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span><span class="dt">&quot;CollectionKind&quot;</span><span class="fu">:</span> <span class="st">&quot;None&quot;</span><span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>201</p>
-<h4>Response Header</h4>
-<h5>Common Response Header</h5>
-<table>
+<h4 id="response-header">Response Header</h4>
+<h5 id="common-response-header">Common Response Header</h5>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -347,7 +356,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="odata">OData Response Header</h5>
+<h5 id="odata-response-header">OData Response Header</h5>
 <table>
 <thead>
 <tr class="header">
@@ -379,8 +388,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
-<h5>Common</h5>
+<h4 id="response-body">Response Body</h4>
+<h5 id="common">Common</h5>
 <p>The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows</p>
 <table>
 <thead>
@@ -442,7 +451,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="property">Property specific response body</h5>
+<h5 id="property-specific-response-body">Property specific response body</h5>
 <table>
 <thead>
 <tr class="header">
@@ -491,10 +500,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
-<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+<h4 id="response-sample">Response Sample</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
     <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
       <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>
@@ -514,11 +523,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata/ComplexTypeProperty&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;: &quot;{ComplexTypePropertyName}&quot;,&quot;_ComplexType.Name&quot;: &quot;{ComplexTypeName}&quot;,&quot;Type&quot;: &quot;Edm.String&quot;,&quot;Nullable&quot;: true,&quot;DefaultValue&quot;: null,&quot;CollectionKind&quot;: &quot;None&quot;}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
