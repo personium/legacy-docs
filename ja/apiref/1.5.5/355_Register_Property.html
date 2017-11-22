@@ -250,7 +250,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="odd">
 <td align="left">Type<br></td>
 <td align="left">型定義<br></td>
-<td align="left">Edm.Boolean / Edm.String / Edm.Single / Edm.Int32 / Edm.DateTime / 登録済みComplexType名<br></td>
+<td align="left">Edm.Boolean / Edm.String / Edm.Int32 / Edm.Single / Edm.Double / Edm.DateTime / 登録済みComplexType名<br></td>
 <td align="left">○<br></td>
 <td align="left"><br></td>
 </tr>
@@ -306,22 +306,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Edm.String<br></td>
-<td align="left">桁数：0～51200 byte<br>「\」を使用する場合、「\\」で指定する必要がある<br></td>
-</tr>
-<tr class="even">
-<td align="left">Edm.Int32<br></td>
-<td align="left">-2147483648 ～ 2147483647<br></td>
-</tr>
-<tr class="odd">
-<td align="left">Edm.Single<br></td>
-<td align="left">整数部分の桁数：1～5桁<br>小数部分の桁数：1～5桁<br></td>
-</tr>
-<tr class="even">
 <td align="left">Edm.Boolean<br></td>
 <td align="left">true / false<br></td>
 </tr>
+<tr class="even">
+<td align="left">Edm.String<br></td>
+<td align="left">桁数：0～51200 byte<br>「\」を使用する場合、「\\」で指定する必要がある<br></td>
+</tr>
 <tr class="odd">
+<td align="left">Edm.Int32<br></td>
+<td align="left">-2147483648 ～ 2147483647<br></td>
+</tr>
+<tr class="even">
+<td align="left">Edm.Single<br></td>
+<td align="left">整数部分の桁数：1～5桁<br>小数部分の桁数：1～5桁<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Edm.Double<br></td>
+<td align="left">15 桁の有効桁数を持つ浮動小数点数を表します。<br></td>
+</tr>
+<tr class="even">
 <td align="left">Edm.DateTime<br></td>
 <td align="left">/Date(【long型の時刻】)/の形式で文字列で指定する<br>　【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)～253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>　SYSUTCDATETIME()：サーバ時間<br></td>
 </tr>
