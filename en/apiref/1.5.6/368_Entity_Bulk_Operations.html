@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
+</head>
+<body>
+<h1 id="entity-collective-operationbatch">Entity collective operation($batch)</h1>
+<h3 id="overview">Overview</h3>
+<p>Perform a batch operation such as list acquisition, single acquisition, registration, update, and deletion for ODataEntity</p>
+<h3 id="required-privileges">Required Privileges</h3>
+<ul>
+<li>Acquire list / Acquire one case<br />
+read</li>
+<li>Register / Update / Delete<br />
+write</li>
+</ul>
+<h3 id="restrictions">Restrictions</h3>
+<ul>
+<li>$batch Restriction
+<ul>
+<li>&quot;GET&quot; request query is not supported</li>
+<li>When list acquisition is executed, return 10 cases at random</li>
+<li>&quot;GET&quot; via NavigationProperty is not supported</li>
+<li>$links &quot;PUT&quot; &quot;GET&quot; &quot;DELETE&quot; is not supported (returns 501)</li>
+</ul></li>
+</ul>
+<p><br></p>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
+<pre><code>/{CellName}/{BoxName}/{ODataCollecitonName}/$batch</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Path<br></th>
+<th align="left">Overview<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">{CellName}<br></td>
+<td align="left">Cell Name<br></td>
+</tr>
+<tr class="even">
+<td align="left">{BoxName}<br></td>
+<td align="left">Box Name<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{ODataCollecitonName}<br></td>
+<td align="left">Collection Name<br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-method">Request Method</h4>
+<p>POST</p>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Query Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">p_cookie_peer<br></td>
+<td align="left">Cookie Authentication Value<br></td>
+<td align="left">The cookie authentication value returned from the server during authentication<br></td>
+<td align="left">No<br></td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Authorization<br></td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
+<td align="left">No<br></td>
+<td align="left">*The authentication token is a token acquired by the authentication token acquisition API Not tested<br></td>
+</tr>
+<tr class="even">
+<td align="left">Content-Type<br></td>
+<td align="left">Specifies the request body format<br></td>
+<td align="left">multipart / mixed; boundary = {Boundary}<br></td>
+<td align="left">Yes<br></td>
+<td align="left">When omitted, treat it as [multipart/mixed] Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible<br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-body">Request Body</h4>
+<p>Specify batch process content as request body in MIME multipart data format<br />
+Up to 1,000 batch processes can be handled at maximum<br />
+Batch processing includes &quot;query operation&quot; for context acquisition and &quot;change set&quot; for context registration, update, and deletion<br />
+Describe how to describe request parameters below</p>
+<pre><code>(1)     --{Boundary string}
+(2)     &quot;query operation&quot; or &quot;change set&quot;
+(3)     --{Boundary string}
+(4)     &quot;query operation&quot; or &quot;change set&quot;
+(5)     --{Boundary string}--
+
+(1) Specify the start boundary string &quot;- {Boundary string}&quot;
+(2) Specify &quot;query operation&quot; or &quot;change set&quot;
+(3) (4)Multiple specifications become possible by separating the request with the boundary string &quot;- {Boundary string}&quot;
+(5) Specify the termination boundary string &quot;- {Boundary string}&quot;</code></pre>
+<ul>
+<li>Query Operation<br />
+Retrieve the specified context<br />
+The description method of the query operation will be explained below<br />
+*&quot;GET&quot; request query is not supported</li>
+</ul>
+<pre><code>(1)     Content-Type: application/http
+(2)     Content-Transfer-Encoding:binary
+(3)
+(4)     GET :path
+(5)     :request_header
+
+(1) Specify Content-Type in application/http
+(2) Specify Content-Transfer-Encoding in binary
+(3) Specify an empty line
+(4) Specify request method &quot;GET&quot; and path (: path)
+    :path, specify the path for entity information acquisition
+    For details, refer to &quot;Request URI&quot; of &quot;Entity Acquisition&quot;
+(5) : Specify request header for :request_header
+    Request header can be specified without specification, or one or more can be specified</code></pre>
+<ul>
+<li>Change Set<br />
+Register / Update / Delete the specified context<br />
+Specify processing contents of registration, pdate and deletion with MIME multipart data<br />
+Describe how to describe the change set below</li>
+</ul>
+<pre><code>(1)     Content-Type: multipart/mixed; boundary={Change set Boundary string}
+(2)     Content-Length: XXX
+(3)
+(4)     --{Change set Boundary string}
+(5)     Content-Type: application/http
+(6)     Content-Transfer-Encoding: binary
+(7)
+(8)     :method :path HTTP/1.1
+(9)     :request_header
+(10)
+(11)    :data
+(12)
+(13)       --{Change set Boundary string}--
+
+(1) Specify Content-Type with multipart/mixed
+    See [Request header] for the character type that can be used for {Change set Boundary string}
+(2) Specify Content-Length XXX specifies the contents-length of the change set
+(3) Specify an empty line
+(4) Start Changeset Boundary String Specify &quot;- {Change set Boundary string}&quot;
+(5) Specify Content-Type in application/http
+(6) Specify Content-Transfer-Encoding in binary
+(7) Specify an empty line
+(8) Specify the request method (: method), the path (: path), and the HTTP version &quot;HTTP/1.1&quot;
+    :method specifies either request method &quot;POST&quot; &quot;PUT&quot; &quot;DELETE&quot;
+    :path, specify the path of entity registration, update, and deletion processing
+(9) Specify request header for :request_header
+    Request header can be specified without specification, or one or more can be specified
+(10) Specify an empty line
+(11) In the case of the request method &quot;POST&quot; &quot;PUT&quot;, specify the data to be registered / updated in :data in the JSON format
+(12) In case of the request method &quot;POST&quot; &quot;PUT&quot;, specify a blank line
+(13) End Changeset Boundary String Specify &quot;- {Change set Boundary string} -&quot;
+    From the change set boundary string to the change set boundary character string becomes one request information, and multiple requests can be specified by delimiting the request with the change set boundary character string</code></pre>
+<h4 id="request-path">Request Path</h4>
+<ul>
+<li>{ EntitySet name}</li>
+<li>{ EntitySet name}('{__id}')</li>
+<li>{ EntitySet name}('{__id}')/{NavigationProperty name}</li>
+<li>{ EntitySet name}('{__id}')/$links/{NavigationProperty name}</li>
+</ul>
+<h4 id="request-method-1">Request Method</h4>
+<p>POST, GET, PUT, DELETE</p>
+<h4 id="request-queries">Request Queries</h4>
+<p>Not compatible</p>
+<h4 id="request-header-1">Request Header</h4>
+<p>Follow the specifications of user data</p>
+<h4 id="request-body-1">Request Body</h4>
+<p>Follow the specifications of user data</p>
+<h4 id="request-sample">Request Sample</h4>
+<p>The following shows an example of a request when acquiring, registering, updating and deleting a context with the following flow</p>
+<ul>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Registered as &quot;ID: 0000, Name: John Smith&quot;</li>
+<li>Updated with &quot;ID: 0000, familyName: Smith, givenName: John&quot;</li>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Register &quot;ID: 0001, Name: John log&quot; via NavigationProperty</li>
+<li>Delete &quot;ID: 0001&quot;</li>
+<li>Delete &quot;ID: 0000&quot;</li>
+</ul>
+<pre><code>--batch_31e84e14-28b9-4741-903f-b955f2a1b853
+Content-Type: application/http
+Content-Transfer-Encoding:binary
+
+GET /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0000&#39;)
+Accept-Encoding: gzip
+Accept: application/json
+Content-Length: 0
+--batch_31e84e14-28b9-4741-903f-b955f2a1b853
+Content-Type: multipart/mixed; boundary=changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
+Content-Length: 608
+
+--changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+Content-Type: application/json
+Content-Length: 41
+
+{&quot;__id&quot;:&quot;0000&quot;,&quot;Name&quot;:&quot;John Smith&quot;}
+
+--changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+PUT /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0000&#39;)
+Content-Type: application/json
+Content-Length: 87
+If-Match: *
+
+{&quot;__id&quot;:&quot;0000&quot;,&quot;Name&quot;:&quot;John Smith&quot;,&quot;familyName&quot;:&quot;Smith &quot;,&quot;givenName&quot;:&quot;John&quot;}
+
+--changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159--
+--batch_31e84e14-28b9-4741-903f-b955f2a1b853
+Content-Type: application/http
+Content-Transfer-Encoding:binary
+
+GET /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0000&#39;)
+Accept-Encoding: gzip
+Accept: application/json
+Content-Length: 0
+--batch_31e84e14-28b9-4741-903f-b955f2a1b853
+Content-Type: multipart/mixed; boundary=changeset_d4883767-a06e-4632-9608-ae952b443dfc
+Content-Length: 686
+
+--changeset_d4883767-a06e-4632-9608-ae952b443dfc
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0001&#39;)/_log
+Content-Type: application/json
+Content-Length: 37
+
+{&quot;__id&quot;:&quot;0001&quot;,&quot;Name&quot;:&quot;John log&quot;}
+
+--changeset_d4883767-a06e-4632-9608-ae952b443dfc
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+DELETE /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0001&#39;)/_log
+Content-Length: 0
+If-Match: *
+--changeset_d4883767-a06e-4632-9608-ae952b443dfc
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+DELETE /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0000&#39;)
+Content-Length: 0
+If-Match: *
+--changeset_d4883767-a06e-4632-9608-ae952b443dfc--
+--batch_31e84e14-28b9-4741-903f-b955f2a1b853--</code></pre>
+<p><br></p>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
+<p>202</p>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">Format of data to be returned<br></td>
+<td align="left">When $ batch processing succeeded normally: multipart/mixed; boundary={Boundary}<br></td>
+</tr>
+<tr class="even">
+<td align="left">DataServiceVersion<br></td>
+<td align="left">OData version information<br></td>
+<td align="left">Return only when Entity can be created successfully<br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="response-body">Response Body</h4>
+<p>Response sample reference</p>
+<h4 id="error-messages">Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h4 id="response-sample">Response Sample</h4>
+<p>The following shows an example of the response when executing the above example of the request parameter</p>
+<ul>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Registered as &quot;ID: 0000, Name: John Smith&quot;</li>
+<li>Updated with &quot;ID: 0000, familyName: Smith, givenName: John&quot;</li>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Register &quot;ID: 0001, Name: John log&quot; via NavigationProperty</li>
+<li>Delete &quot;ID: 0001&quot;</li>
+<li>Delete &quot;ID: 0000&quot;</li>
+</ul>
+<pre><code>--batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX
+Content-Type: application/http
+
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+Content-Length: 48
+DataServiceVersion: 2.0
+
+{
+  &quot;error&quot;: {
+    &quot;code&quot;: &quot;404&quot;,
+    &quot;message&quot;: &quot;Not Found&quot;
+  }
+}
+
+--batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX
+Content-Type: multipart/mixed; boundary=changeset_qPJh1ATATNykjJT8ocPE5MJE3QzMBS19ljS
+
+--changeset_qPJh1ATATNykjJT8ocPE5MJE3QzMBS19ljS
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 425
+DataServiceVersion: 2.0
+Location: http://{UnitFQDN}:50280/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fabc-web/odata/user(&#39;0000&#39;)
+{
+  &quot;d&quot;: {
+    &quot;Results&quot;: {
+      &quot;__metadata&quot;: {
+        &quot;uri&quot;: &quot;http://{UnitFQDN}/api/context/xxx-ah,http%253A%252F%252FUnitFQDN%252Fds%252Fvet-web/odata/user(&#39;0000&#39;)&quot;
+        &quot;etag&quot;: &quot;W/\&quot;1-1488184348000\&quot;&quot;,
+        &quot;type&quot;: &quot;UserData.user&quot;,
+      },
+      &quot;__id&quot;: &quot;0000&quot;,
+      &quot;__published&quot;: &quot;/Date(1488184348000)/&quot;,
+      &quot;__updated&quot;: &quot;/Date(1488184348000)/&quot;,
+      &quot;name&quot;: &quot;John Smith&quot;
+      }
+    }
+  }
+}
+
+--changeset_qPJh1ATATNykjJT8ocPE5MJE3QzMBS19ljS--
+--batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX
+Content-Type: multipart/mixed; boundary=changeset_mry0iPNyKqKONtK237cBbGHUQhNgwIxlg70
+
+--changeset_mry0iPNyKqKONtK237cBbGHUQhNgwIxlg70
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 0
+DataServiceVersion: 2.0
+
+--changeset_mry0iPNyKqKONtK237cBbGHUQhNgwIxlg70--
+--batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX
+Content-Type: application/http
+
+HTTP/1.1 200 OK
+Content-Length: 457
+ETag: W/&quot;1-1488184348000&quot;
+DataServiceVersion: 2.0
+Content-Type: application/json
+{
+  &quot;d&quot;: {
+    &quot;results&quot;: {
+      &quot;__metadata&quot;: {
+        &quot;uri&quot;: &quot;http://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0000&#39;)&quot;
+        &quot;etag&quot;: &quot;W/\&quot;1-1370248522812\&quot;&quot;,
+        &quot;type&quot;: &quot;UserData.user&quot;,
+      },
+      &quot;__id&quot;: &quot;0000&quot;,
+      &quot;__published&quot;: &quot;/Date(1370248522812)/&quot;,
+      &quot;__updated&quot;: &quot;/Date(1370248522812)/&quot;,
+      &quot;name&quot;: &quot;John Smith&quot;,
+      &quot;_log&quot;: {
+        &quot;__deferred&quot;: {
+          &quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;0000&#39;)/_log&quot;
+        }
+      }
+    }
+  }
+}
+
+--batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX
+Content-Type: multipart/mixed; boundary=changeset_wtsoeMGaDT6vDVM8QooqoLGEH8s6nHcrh6C
+
+--changeset_mry0iPNyKqKONtK237cBbGHUQhNgwIxlg70
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+HTTP/1.1 201 Created
+Content-Type: application/json
+Content-Length: 0
+DataServiceVersion: 2.0
+
+--changeset_d4883767-a06e-4632-9608-ae952b443dfc
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+HTTP/1.1 204 No Content
+Content-Type: application/json
+Content-Length: 0
+DataServiceVersion: 2.0
+
+--changeset_wtsoeMGaDT6vDVM8QooqoLGEH8s6nHcrh6C
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+HTTP/1.1 204 No Content
+Content-Type: application/json
+Content-Length: 0
+DataServiceVersion: 2.0
+--changeset_wtsoeMGaDT6vDVM8QooqoLGEH8s6nHcrh6C--
+--batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX--</code></pre>
+<p><br></p>
+<h3 id="curl-command">cURL Command</h3>
+<p>curl command</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">batch&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Content-Type:multipart/mixed; boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu&#39;</span> --data-binary @sample.txt</code></pre></div>
+<p>sample.txt</p>
+<pre><code>--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu
+Content-Type: application/http
+Content-Transfer-Encoding:binary
+
+GET /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)
+Authorization: Bearer {AccessToken}
+--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu
+Content-Type: multipart/mixed; boundary=changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
+Content-Length: 608
+
+--changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159
+Content-Type: application/http
+Content-Transfer-Encoding: binary
+
+POST /{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}
+Content-Type: application/json
+Content-Length: 41
+
+{&quot;__id&quot;:&quot;100&quot;,&quot;Name&quot;:&quot;John Smith&quot;}
+
+--changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159--
+--batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu--</code></pre>
+<p><br><br><br><br><br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

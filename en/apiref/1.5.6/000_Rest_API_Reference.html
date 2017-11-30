@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
+</head>
+<body>
+<h1 id="personium-rest-api-reference">Personium REST API Reference</h1>
+<p>Welcome to the Personium REST API Reference.<br />
+The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.<br><br></p>
+<h3 id="unit-level-api">Unit Level API</h3>
+<p>The Unit Level API is an API belonging to the unit that hosts a group of cells (for creating cells and managing a group of created cells).<br />
+In principle, these APIs cannot be accessed using the access tokens issued from the cell.</p>
+<p>Resource Path</p>
+<pre><code>https://{UnitFQDN}/</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Cell</strong></td>
+<td align="left"><a href="100_Create_Cell.html">Create</a></td>
+<td align="left"><a href="101_List_Cell.html">Acquire List</a><br><a href="102_Get_Cell.html">Acquire</a></td>
+<td align="left"><a href="103_Update_Cell.html">Update</a></td>
+<td align="left"><a href="104_Delete_Cell.html">Delete</a><br><a href="105_Cell_Recursive_Delete.html">Recursive Delete</a></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="cell-level-api">Cell Level API</h3>
+<p>Cell Level API</p>
+<ul>
+<li>Ability to authenticate people and applications accessing Cell</li>
+<li>Function to set access control for Cell</li>
+<li>Function to build relations between Cells</li>
+<li>Function to create and manage Box</li>
+<li>Ability to send and receive messages between Cells</li>
+<li>Function of event processing</li>
+<li>Function to export / import Cell</li>
+</ul>
+<p>And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.<br><br></p>
+<p>Resource Path</p>
+<pre><code>https://{UnitFQDN}/{CellName}</code></pre>
+<h5 id="ability-to-authenticate-people-and-applications-accessing-cell">Ability to authenticate people and applications accessing Cell</h5>
+<table style="width:33%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+<th align="left">Other<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Account</strong></td>
+<td align="left"><a href="212_Create_Account.html">Register</a></td>
+<td align="left"><a href="214_Search_Account.html">Acquire List</a><br><a href="213_Retrieve_Account.html">Acquire</a></td>
+<td align="left"><a href="215_Update_Account.html">Update</a><br><a href="294_Password_Change.html">Change Password</a></td>
+<td align="left"><a href="216_Delete_Account.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">_$links<br></td>
+<td align="left"><a href="217_Register_Account_links.html">Register</a></td>
+<td align="left"><a href="218_Acquire_Account_links_List.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="220_Delete_Account_links.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">_via NavProp<br></td>
+<td align="left"><a href="221_Register_Account_Navigation_Property.html">Register</a></td>
+<td align="left"><a href="222_Acquire_Account_Navigation_Property.html">Acquire</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Authentication</strong><br>(__token, __authz)</td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><a href="292_OAuth2_Authorization_Endpoint.html">OAuth2.0 Authorization Endpoint</a><br><a href="293_OAuth2_Token_Endpoint.html">OAuth2.0 Token Endpoint</a><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="function-to-set-access-control-for-cell">Function to set access control for Cell</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Role</strong></td>
+<td align="left"><a href="201_Create_Role.html">Register</a></td>
+<td align="left"><a href="202_Retrieve_Role.html">Acquire List</a><br><a href="203_Search_Role.html">Acquire</a></td>
+<td align="left"><a href="204_Update_Role.html">Update</a></td>
+<td align="left"><a href="205_Delete_Role.html">Delete</a></td>
+</tr>
+<tr class="even">
+<td align="left">_$links<br></td>
+<td align="left"><a href="206_Create_Role_links.html">Register</a></td>
+<td align="left"><a href="207_List_Role_links.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="209_Delete_Role_links.html">Delete</a></td>
+</tr>
+<tr class="odd">
+<td align="left">_via NavProp<br></td>
+<td align="left"><a href="210_Register_Role_Using_NavProp.html">Register</a></td>
+<td align="left"><a href="211_List_Using_Role_NavProp.html">Acquire</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Access Control</strong></td>
+<td align="left"><a href="289_Cell_ACL.html">Restrict</a></td>
+<td align="left"><a href="290_Cell_Get_Property.html">Acquire Properties</a></td>
+<td align="left"><a href="291_Cell_Change_Property.html">Change Properties</a></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="function-to-build-relationship-between-cells">Function to build relationship between cells</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>ExtCell</strong></td>
+<td align="left"><a href="223_Create_External_Cell.html">Register</a></td>
+<td align="left"><a href="224_List_External_Cell.html">Acquire List</a><br><a href="225_Get_External_Cell.html">Acquire</a></td>
+<td align="left"><a href="226_Update_External_Cell.html">Update</a></td>
+<td align="left"><a href="227_Delete_External_Cell.html">Delete</a></td>
+</tr>
+<tr class="even">
+<td align="left">_$links<br></td>
+<td align="left"><a href="228_Register_External_Cell_links.html">Register</a></td>
+<td align="left"><a href="229_List_External_Cell_links.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="231_Delete_External_Cell_links.html">Delete</a></td>
+</tr>
+<tr class="odd">
+<td align="left">_via NavProp<br></td>
+<td align="left"><a href="232_Register_External_Cell_Using_NavProp.html">Register</a></td>
+<td align="left"><a href="233_List_External_Cell_NavProp.html">Acquire List</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Relation</strong></td>
+<td align="left"><a href="234_Create_Relation.html">Register</a></td>
+<td align="left"><a href="235_List_Relation.html">Acquire List</a><br><a href="236_Retrieve_Relation.html">Acquire</a></td>
+<td align="left"><a href="237_Update_Relation.html">Update</a></td>
+<td align="left"><a href="238_Delete_Relation.html">Delete</a></td>
+</tr>
+<tr class="odd">
+<td align="left">_$links<br></td>
+<td align="left"><a href="239_Register_Relation_links.html">Register</a></td>
+<td align="left"><a href="240_List_Relation_links.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="242_Delete_Relation_links.html">Delete</a></td>
+</tr>
+<tr class="even">
+<td align="left">_via NavProp<br></td>
+<td align="left"><a href="243_Register_Using_Relation_NavProp.html">Register</a></td>
+<td align="left"><a href="244_List_Using_Relation_NavProp.html">Acquire</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>ExtRole</strong></td>
+<td align="left"><a href="245_Create_External_Role.html">Register</a></td>
+<td align="left"><a href="247_Get_External_Role.html">Acquire</a><br><a href="246_List_External_Role.html">Acquire List</a></td>
+<td align="left"><a href="248_Update_External_Role.html">Update</a></td>
+<td align="left"><a href="249_Delete_External_Role.html">Delete</a></td>
+</tr>
+<tr class="even">
+<td align="left">_$links<br></td>
+<td align="left"><a href="250_Register_External_Role_links.html">Register</a></td>
+<td align="left"><a href="251_Retrieve_External_Role_links.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="253_Delete_External_Role_links.html">Delete</a></td>
+</tr>
+<tr class="odd">
+<td align="left">_via NavProp<br></td>
+<td align="left"><a href="254_Register_Using_Role_NavProp.html">Register</a></td>
+<td align="left"><a href="255_List_External_Role_NavProp.html">Acquire</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="function-to-create-and-manage-box">Function to create and manage Box</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Box</strong></td>
+<td align="left"><a href="256_Create_Box.html">Create</a></td>
+<td align="left"><a href="258_Retrieve_Box.html">Acquire</a><br><a href="257_Search_Box.html">Acquire List</a><br><a href="304_Get_Box_URL.html">Acquire URL</a></td>
+<td align="left"><a href="259_Update_Box.html">Update</a></td>
+<td align="left"><a href="260_Delete_Box.html">Delete</a></td>
+</tr>
+<tr class="even">
+<td align="left">_$links<br></td>
+<td align="left"><a href="261_Register_Box_links.html">Register</a></td>
+<td align="left"><a href="262_List_Box_links.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="264_Delete_Box_links.html">Delete</a></td>
+</tr>
+<tr class="odd">
+<td align="left">_via NavProp<br></td>
+<td align="left"><a href="265_Register_Using_Box_NavProp.html">Register</a></td>
+<td align="left"><a href="266_List_Box_NavProp.html">Acquire</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Install<br></td>
+<td align="left"><a href="302_Box_Installation.html">Install Box</a></td>
+<td align="left"><a href="303_Progress_of_Bar_File_Installation.html">Acquire Box Meta Data</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="ability-to-send-and-receive-messages-between-cells">Ability to send and receive messages between cells</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Message Control</strong><br><a href="271_Send_Message.html">Transmit</a></td>
+<td align="left"><br></td>
+<td align="left"><a href="272_Retrieve_Sent_Message.html">Acquire</a><br><a href="273_List_Sent_Messages.html">Acquire List</a></td>
+<td align="left"><br></td>
+<td align="left"><a href="274_Delete_Sent_Message.html">Delete</a></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Message Control</strong><br>Receive</td>
+<td align="left"><br></td>
+<td align="left"><a href="269_Get_Received_Message.html">Acquire</a><br><a href="268_List_Received_Messages.html">Acquire List</a></td>
+<td align="left"><a href="267_Received_Message_Approval.html">Change Status</a></td>
+<td align="left"><a href="270_Delete_an_Incoming_Message.html">Delete</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="event-processing-function">Event processing function</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="277_Event_Summary.html">Events</a></td>
+<td align="left"><a href="278_Event_Reception.html">Accept Event</a></td>
+<td align="left"><a href="285_Retrieve_Log_File.html">Log File Acquire</a><br><a href="284_Retrieve_Log_File_list.html">Log File Acquire List</a><br><a href="283_Log_File_Information_Acquisition.html">Log File Acquire Information</a></td>
+<td align="left"><br></td>
+<td align="left"><a href="286_Delete_Log_File.html">Delete Log File</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="ability-to-exportimport-cell">Ability to export/import Cell</h5>
+<p>Snapshot file of Cell is created by export execution. <br> Import imports the contents of the snapshot file into Cell. <br> Snapshot file can be operated with WebDAV interface.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>Export</strong></td>
+<td align="left"><a href="501_Export_Cell.html">Execute</a></td>
+<td align="left"><a href="502_Progress_of_Export_Cell.html">Get progress</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Import</strong></td>
+<td align="left"><a href="507_Import_Cell.html">Execute</a></td>
+<td align="left"><a href="508_Progress_of_Import_Cell.html">Get progress</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Snapshot</strong></td>
+<td align="left"><a href="503_Register_and_Update_Snapshot_Cell.html">Register/Update</a></td>
+<td align="left"><a href="504_Get_Snapshot_Cell.html">Acquire</a><br><a href="505_Get_Property_Snapshot_Cell.html">Acquire Settings</a></td>
+<td align="left"><br></td>
+<td align="left"><a href="506_Delete_Snapshot_Cell.html">Delete</a></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="box-level-api">Box Level API</h3>
+<p>The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.<br />
+Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.</p>
+<p>Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data.<br />
+These special collections can be created in any path on the WebDAV space provided by Box.</p>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Special collection<br></th>
+<th align="left">Use<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">OData Service Collection<br></td>
+<td align="left">Relational data<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Engine Service Collection<br></td>
+<td align="left">Run customized logic<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">CALDAV Collection<br></td>
+<td align="left">Calendar data<br></td>
+<td align="left">Unimplemented<br></td>
+</tr>
+<tr class="even">
+<td align="left">Link Collection<br></td>
+<td align="left">Aliases to specific areas of other cells or other Box<br></td>
+<td align="left">Unimplemented<br></td>
+</tr>
+</tbody>
+</table>
+<p>Resource Path (* with certain exceptions)</p>
+<pre><code>https://{UnitFQDN}/{CellName}/{BoxName}
+https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
+<h5 id="box-management">Box Management</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="302_Box_Installation.html">Install Box</a></td>
+<td align="left"><a href="303_Progress_of_Bar_File_Installation.html">Acquire Box Meta Data</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="webdav">WebDAV</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+<th align="left">Other<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Collection</td>
+<td align="left"><a href="306_Create_Collection.html">Create</a></td>
+<td align="left"><a href="305_Get_Property.html">Acquire Settings</a></td>
+<td align="left"><a href="308_Change_Property.html">Change Settings</a><br><a href="309_Update_Move_Collection.html">Move/Rename</a></td>
+<td align="left"><a href="310_Delete_Collection.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">File</td>
+<td align="left"><a href="312_Register_and_Update_WebDAV.html">Register/Update</a></td>
+<td align="left"><a href="311_Get_WebDav.html">Acquire</a><br><a href="307_Get_Property.html">Acquire Settings</a></td>
+<td align="left"><a href="313_Change_Property.html">Change Settings</a></td>
+<td align="left"><a href="314_Delete_WebDAV.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Access Control</td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><a href="315_Configure_Access_Control.html">Configuring the Settings</a></td>
+</tr>
+</tbody>
+</table>
+<p>* ACL setting (access control setting) is possible for all files and collections (including special collections).<br />
+* ACL setting can be acquired with the PROPFIND method.</p>
+<h5 id="odata">OData</h5>
+<table style="width:33%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+<th align="left">Other<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>EntityType</strong></td>
+<td align="left"><a href="345_Create_EntityType.html">Register</a></td>
+<td align="left"><a href="347_Get_EntityType.html">Acquire</a><br><a href="346_List_EntityType.html">Acquire List</a></td>
+<td align="left"><a href="348_Update_EntityType.html">Update</a></td>
+<td align="left"><a href="349_Delete_EntityType.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">_$links</td>
+<td align="left">Register</td>
+<td align="left">Acquire List</td>
+<td align="left">Update</td>
+<td align="left">Delete</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">_via NavProp</td>
+<td align="left"><br></td>
+<td align="left">Acquire List</td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left"><strong>AssociationEnd</strong></td>
+<td align="left"><a href="318_Register_AssociationEnd.html">Register</a></td>
+<td align="left"><a href="320_Get_AssociationEnd.html">Acquire</a><br><a href="319_List_AssociationEnd.html">Acquire List</a></td>
+<td align="left"><a href="321_Update_AssociationEnd.html">Update</a></td>
+<td align="left"><a href="322_Delete_AssociationEnd.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">_$links</td>
+<td align="left"><a href="323_Register_AssociationEnd_links.html">Register</a></td>
+<td align="left"><a href="324_List_AssociationEnd_links.html">Acquire List</a></td>
+<td align="left"><br></td>
+<td align="left"><a href="325_Delete_AssociationEnd_links.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">_via NavProp</td>
+<td align="left"><br></td>
+<td align="left">Acquire List</td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>ComplexType</strong></td>
+<td align="left"><a href="327_Register_ComplexType.html">Register</a></td>
+<td align="left"><a href="329_Get_ComplexType.html">Acquire</a><br><a href="328_List_ComplexType.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="331_Delete_ComplexType.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">_$links</td>
+<td align="left">Register</td>
+<td align="left">Acquire List</td>
+<td align="left">Update</td>
+<td align="left">Delete</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Property</strong></td>
+<td align="left"><a href="355_Register_Property.html">Register</a></td>
+<td align="left"><a href="357_Get_Property.html">Acquire</a><br><a href="356_List_Property.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="359_Delete_Property.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">_$links</td>
+<td align="left">Register</td>
+<td align="left">Acquire List</td>
+<td align="left">Update</td>
+<td align="left">Delete</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>ComplexTypeProperty</strong></td>
+<td align="left"><a href="336_Register_ComplexTypeProperty.html">Register</a></td>
+<td align="left"><a href="338_Get_ComplexTypeProperty.html">Acquire</a><br><a href="337_List_ComplexTypeProperty.html">Acquire List</a></td>
+<td align="left"><a href="339_Update_ComplexTypeProperty.html">Update</a></td>
+<td align="left"><a href="340_Delete_ComplexTypeProperty.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">_$links</td>
+<td align="left">Register</td>
+<td align="left">Acquire List</td>
+<td align="left">Update</td>
+<td align="left">Delete</td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Entity</strong></td>
+<td align="left"><a href="364_Create_Entity.html">Create</a></td>
+<td align="left"><a href="366_Get_Entity.html">Acquire</a><br><a href="365_List_Entity.html">Acquire List</a></td>
+<td align="left"><a href="367_Update_Entity.html">Update</a><br><a href="369_Partial_Update_Entity.html">Partial Update</a></td>
+<td align="left"><a href="370_Delete_Entity.html">Delete</a></td>
+<td align="left"><a href="368_Entity_Bulk_Operations.html">Batch Operation</a></td>
+</tr>
+<tr class="even">
+<td align="left">_$links<br></td>
+<td align="left"><a href="373_Register_User_Data_links.html">Register</a></td>
+<td align="left"><a href="374_User_Data_List_links.html">Acquire List</a></td>
+<td align="left">Update</td>
+<td align="left"><a href="376_Delete_User_Data_links.html">Delete</a></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">_via NavProp</td>
+<td align="left"><a href="377_Register_using_NavProp.html">Register</a></td>
+<td align="left"><a href="378_List_using_NavProp.html">Acquire List</a></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="server-script-engine-service-collection">Server Script (Engine Service Collection)</h5>
+<p>You can register Personium application and server side logic created by Cell user and run it.<br />
+First, register the user logic as a file, set the service collection and associate with the path, so that<br />
+You can run the user logic for requests from any path under the collection.</p>
+<table style="width:33%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Create/Register<br></th>
+<th align="left">Acquire<br></th>
+<th align="left">Update<br></th>
+<th align="left">Delete<br></th>
+<th align="left">Other<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Service Collection Source</td>
+<td align="left"><a href="381_Create_Service_Collection_Source.html">Create</a></td>
+<td align="left"><a href="382_List_Service_Collection_Source.html">Acquire</a></td>
+<td align="left"><a href="380_Configure_Service_Collection.html">Apply Settings</a></td>
+<td align="left"><a href="383_Delete_Service_Collection_Source.html">Delete</a></td>
+<td align="left"><a href="384_Service_Execution.html">Service Execute</a><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="service-document-acquireschema-acquire">Service Document Acquire/Schema Acquire</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left"><br></th>
+<th align="left">Acquire<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Service Document</td>
+<td align="left"><a href="317_Document_Acquisition_Service.html">Acquire</a></td>
+</tr>
+<tr class="even">
+<td align="left">Schema</td>
+<td align="left"><a href="316_User_Defined_Data_Schema.html">Acquire</a></td>
+</tr>
+</tbody>
+</table>
+<h5 id="odata-acquisition-common-queries">OData Acquisition Common Queries</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Query</th>
+<th align="center">Single Acquisition</th>
+<th align="center">List Acquisition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="404_Format_Query.html">$format Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="405_Expand_Query.html">$expand Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="406_Select_Query.html">$select Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="400_Orderby_Query.html">$orderby Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="401_Top_Query.html">$top Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="402_Skip_Query.html">$skip Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="403_Filter_Query.html">$filter Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="407_Inlinecount_Query.html">$inlinecount</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="408_Full_Text_Search_Query.html">Full-text Search (q) Query</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h3 id="common">Common</h3>
+<h4 id="error-messages"><a href="004_Error_Messages.html">Error Messages</a></h4>
+<h4 id="restrictions-on-personium-http-implementation"><a href="003_Common_Limitations_on_HTTP_Implementation.html">Restrictions on Personium HTTP Implementation</a></h4>
+<h4 id="cors-support"><a href="002_CORS_Support.html">CORS Support</a></h4>
+<h4 id="cross-domain-policy-file-acquire"><a href="001_Cross_Domain_Policy_File.html">Cross Domain Policy File Acquire</a></h4>
+<p><br><br><br><br><br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
