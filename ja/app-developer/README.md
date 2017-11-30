@@ -11,7 +11,8 @@ PersoniumのAPIを使用して、PDSアプリを開発したい人向けのド�
 ### [Personium Engine](./Personium-Engine.html)
 
 ### APIリファレンス<br>
-* [1.5.5 -](../apiref/1.5.5/000_Rest_API_Reference.html)
+* [1.5.6 -](../apiref/1.5.6/000_Rest_API_Reference.html)
+* [1.5.5](../apiref/1.5.5/000_Rest_API_Reference.html)
 * [1.5.2 - 1.5.4](../apiref/1.5.2/000_Rest_API_Reference.html)
 * [1.5.1](../apiref/1.5.1/000_Rest_API_Reference.html)
 * [1.5.0](../apiref/1.5.0/000_Rest_API_Reference.html)

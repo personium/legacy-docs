@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
+</head>
+<body>
+<h1 id="filter-query">$filter Query</h1>
+<h3 id="overview">Overview</h3>
+<p>Use the $filter query to specify the search condition when retrieving the list</p>
+<h3 id="operator-support">Operator Support</h3>
+<table style="width:22%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Operator<br></th>
+<th align="left">Meaning<br></th>
+<th align="left">Description example<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">eq<br></td>
+<td align="left">equal<br></td>
+<td align="left">For character strings : $filter=itemKey eq 'searchValue'<br>In case of numerical value : $filter=itemKey eq 10<br></td>
+<td align="left">Corresponds to character string, numeric value, boolean value, NULL<br></td>
+</tr>
+<tr class="even">
+<td align="left">ne<br></td>
+<td align="left">Negative Equal<br></td>
+<td align="left">For character strings : $filter=itemKey ne 'searchValue'<br>In case of numerical value : $filter=itemKey ne 10<br></td>
+<td align="left">Corresponds to character string, numeric value, boolean value, NULL<br></td>
+</tr>
+<tr class="odd">
+<td align="left">gt<br></td>
+<td align="left">Greater than<br></td>
+<td align="left">$filter=itemKey gt 1000<br></td>
+<td align="left">Corresponds to character string, numeric value<br></td>
+</tr>
+<tr class="even">
+<td align="left">ge<br></td>
+<td align="left">Greater equal<br></td>
+<td align="left">$filter=itemKey ge 1000<br></td>
+<td align="left">Corresponds to character string, numeric value<br></td>
+</tr>
+<tr class="odd">
+<td align="left">lt<br></td>
+<td align="left">Less than<br></td>
+<td align="left">$filter=itemKey lt 1000<br></td>
+<td align="left">Corresponds to character string, numeric value<br></td>
+</tr>
+<tr class="even">
+<td align="left">le<br></td>
+<td align="left">Less equal<br></td>
+<td align="left">$filter=itemKey le 1000<br></td>
+<td align="left">Corresponds to character string, numeric value<br></td>
+</tr>
+<tr class="odd">
+<td align="left">and<br></td>
+<td align="left">AND<br></td>
+<td align="left">$filter=itemKey1 eq 'searchValue1' and itemKey2 eq 'searchValue2'<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">or<br></td>
+<td align="left">OR<br></td>
+<td align="left">$filter=itemKey1 eq 'searchValue1' or itemKey2 eq 'searchValue2'<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">()<br></td>
+<td align="left">Priority group<br></td>
+<td align="left">$filter=itemKey eq 'searchValue' or (itemKey gt 500 and itemKey lt 1500)<br></td>
+<td align="left">If parentheses are only one, parentheses are ignored<br></td>
+</tr>
+</tbody>
+</table>
+<h3 id="support-function">Support function</h3>
+<table style="width:22%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Function<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Example<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">startswith<br></td>
+<td align="left">Forward match<br></td>
+<td align="left">$filter=startswith(itemKey, 'searchValue')<br></td>
+<td align="left">Only for character string correspondence<br></td>
+</tr>
+<tr class="even">
+<td align="left">substringof<br></td>
+<td align="left">Partial Match<br></td>
+<td align="left">$filter=substringof('searchValue1', itemKey1)<br></td>
+<td align="left">Only for character string correspondence<br>*partial matching of alphanumeric characters is not supported<br></td>
+</tr>
+</tbody>
+</table>
+<h3 id="search-specification-by-property-type">Search specification by property type</h3>
+<h4 id="edm.string">Edm.String</h4>
+<p>Convert keywords specified for search to string type and search</p>
+<h4 id="edm.int32">Edm.Int32</h4>
+<p>An integer value or null can be specified<br />
+If an integer value is specified as a string type, it is searched by converting it to a numeric type</p>
+<h4 id="edm.single">Edm.Single</h4>
+<p>It can specify integer, fractional value or null<br />
+If it is a string type integer, if decimal value is specified convert it to decimal value and search</p>
+<h4 id="edm.boolean">Edm.Boolean</h4>
+<p>Only boolean values or null can be specified</p>
+<h3 id="notices">Notices</h3>
+<p>*URL encoding required for query specification<br />
+*Valid values of the property to be searched are half-size alphanumeric characters, - (hyphen), _ (underscore) valid.<br />
+*If you want to include a single quote in the search string, you can specify a single quote as a search string by describing two single quotes&quot;''&quot;<br />
+*If a property name that does not exist in $ filter is specified, it is searched with it included in the search condition<br />
+*When __updated, __published is specified, it is specified by UNIX time (a number in parenthesis of &quot;/Date()&quot;)</p>
+<h3 id="curl-command">cURL Command</h3>
+<p>Example: When acquiring a cell whose cell name is sample:</p>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/__ctl/Cell?</span><span class="dt">\$</span><span class="st">filter=Name%20eq%20&#39;sample&#39;&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
+<p><br><br><br><br><br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
