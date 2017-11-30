@@ -43,11 +43,11 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="cell">Export Cell</h1>
-<h3>Overview</h3>
+<h1 id="export-cell">Export Cell</h1>
+<h3 id="overview">Overview</h3>
 <p>This API export all data in Cell as Cell snapshot file.<br>The snapshot file is created in a special area (Cell snapshot area) in PersoniumUnit.<br>When exported successfully, created the file which suffix is &quot;.zip&quot; and when fail created the file which suffix is &quot;.error&quot;.(In the &quot;.error&quot; file, detail error message is described)<br>The Cell snapshot area is excluded from the Cell export.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To confirm the Cell export executing status, use <a href="502_Progress_of_Export_Cell.html">Get Cell Export status</a>,<a href="505_Get_Property_Export_Cell.html">Get Cell Snapshot property</a>.<br>An example of calling from acceptance at the client to completion of processing is shown below.</p>
 <pre><code>Call export call example (with 10 seconds polling on the client)
  1. Cell export reception
@@ -60,18 +60,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
  4. confirm Cell export finished successfully
     -- PROPFIND /{cell}/__snapshot -&gt; when the file suffix is &quot;.zip&quot; exported successfully, &quot;.error&quot; error occured.
  * The process in the above 2 loops and polls until completion of processing.
- * When you wish to acquire details at abnormal termination, refer to the contents of & quot; .error & quot; file.</code></pre>
-<h3>Required Privileges</h3>
+ * When you wish to acquire details at abnormal termination, refer to the contents of &amp; quot; .error &amp; quot; file.</code></pre>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>root</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
 <li>Accept only JSON format for request body</li>
 </ul>
 <p><br></p>
-<h3>Error file</h3>
-<h4 id="-1">Overview</h4>
-<p>If the Cell export fails, a file with the extension ". Error" is generated in the Cell snapshot area. (The file name is the name specified by the body)<br>The error content is described in JSON format in the quot; .error & quot; file.<br>The format of the & quot;. error & quot; file is shown below.</p>
+<h3 id="error-file">Error file</h3>
+<h4 id="overview-1">Overview</h4>
+<p>If the Cell export fails, a file with the extension &quot;. Error&quot; is generated in the Cell snapshot area. (The file name is the name specified by the body)<br>The error content is described in JSON format in the quot; .error &amp; quot; file.<br>The format of the &amp; quot;. error &amp; quot; file is shown below.</p>
 <table>
 <thead>
 <tr class="header">
@@ -113,7 +113,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Sample</h4>
+<h4 id="sample">Sample</h4>
 <pre><code>{
   &quot;code&quot;:&quot;PR503-SV-0001&quot;,
   &quot;message&quot;:
@@ -123,13 +123,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   }
 }</code></pre>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__export</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>POST</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -156,8 +156,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -212,10 +212,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <h5 id="format">Format</h5>
 <p>JSON</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -242,11 +242,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;Name&quot;</span><span class="fu">:</span><span class="st">&quot;CellExport_2017_01&quot;</span><span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -263,8 +263,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -295,18 +300,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Return error message only if creation fails</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Sample</h3>
+<h3 id="curl-sample">cURL Sample</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__export&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;CellExport_2017_01&quot;}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

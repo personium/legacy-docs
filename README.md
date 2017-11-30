@@ -1,4 +1,4 @@
-# Introduction and User Guides (App Developer/Personium Operator/Unit Administrator)  
+# Introduction and User Guides  
 Currently our document are available in the following languages.  
 
 1. [English](./en/)  

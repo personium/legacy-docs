@@ -46,17 +46,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="role_navprop">Acquisition via Role_NavProp</h1>
-<h3>Overview</h3>
+<h1 id="acquisition-via-role_navprop">Acquisition via Role_NavProp</h1>
+<h3 id="overview">Overview</h3>
 <p>Acquire cell control object via Navigation Property</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <ul>
 <li>When acquire Role<br />
 auth-read</li>
 <li>When acquire Relation<br />
 auth-read</li>
 </ul>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Accept in the request header is ignored</li>
 <li>Always handles Content-Type in the request header as application/json</li>
@@ -65,38 +65,38 @@ auth-read</li>
 <li>$formatQuery options ignored</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
-<h5 id="accountnavigationproperty">NavigationProperty to Account</h5>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
+<h5 id="navigationproperty-to-account">NavigationProperty to Account</h5>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_Account</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;)/_Account</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_Account</code></pre>
-<h5 id="extcellnavigationproperty">NavigationProperty to ExCell</h5>
+<h5 id="navigationproperty-to-excell">NavigationProperty to ExCell</h5>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_ExtCell</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;)/_ExtCell</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_ExtCell</code></pre>
-<h5 id="extrolenavigationproperty">NavigationProperty to ExtRole</h5>
+<h5 id="navigationproperty-to-extrole">NavigationProperty to ExtRole</h5>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_ExtRole</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;)/_ExtRole</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_ExtRole</code></pre>
-<h5 id="relationnavigationproperty">NavigationProperty to Relation</h5>
+<h5 id="navigationproperty-to-relation">NavigationProperty to Relation</h5>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)/_Relation</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(Name=&#39;{RoleName}&#39;)/_Relation</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_Relation</code></pre>
 <p>If the _Box.Name parameter is omitted, it is assumed that null is specified</p>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>GET</p>
-<h4>Request Query</h4>
+<h4 id="request-query">Request Query</h4>
 <p>The following query parameters are available</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -123,17 +123,17 @@ auth-read</li>
 </tr>
 </tbody>
 </table>
-<p><a href="406_Select_Query.html">$select  Query</a></p>
-<p><a href="405_Expand_Query.html">$expand  Query</a></p>
-<p><a href="404_Format_Query.html">$format  Query</a></p>
-<p><a href="403_Filter_Query.html">$filter  Query</a></p>
-<p><a href="407_Inlinecount_Query.html">$inlinecount  Query</a></p>
-<p><a href="400_Orderby_Query.html">$orderby  Query</a></p>
-<p><a href="401_Top_Query.html">$top  Query</a></p>
-<p><a href="402_Skip_Query.html">$skip  Query</a></p>
+<p><a href="406_Select_Query.html">$select Query</a></p>
+<p><a href="405_Expand_Query.html">$expand Query</a></p>
+<p><a href="404_Format_Query.html">$format Query</a></p>
+<p><a href="403_Filter_Query.html">$filter Query</a></p>
+<p><a href="407_Inlinecount_Query.html">$inlinecount Query</a></p>
+<p><a href="400_Orderby_Query.html">$orderby Query</a></p>
+<p><a href="401_Top_Query.html">$top Query</a></p>
+<p><a href="402_Skip_Query.html">$skip Query</a></p>
 <p><a href="408_Full_Text_Search_Query.html">Full-text Search (q) Query</a></p>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -188,16 +188,21 @@ auth-read</li>
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>None</p>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>200</p>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -228,7 +233,7 @@ auth-read</li>
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <table>
 <thead>
 <tr class="header">
@@ -289,8 +294,8 @@ auth-read</li>
 </tr>
 </tbody>
 </table>
-<h5 id="role">When acquired Role</h5>
-<h5 id="role">Role specific response body</h5>
+<h5 id="when-acquired-role">When acquired Role</h5>
+<h5 id="role-specific-response-body">Role specific response body</h5>
 <table>
 <thead>
 <tr class="header">
@@ -315,8 +320,8 @@ auth-read</li>
 </tr>
 </tbody>
 </table>
-<h3>Response Sample</h3>
-<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+<h3 id="response-sample">Response Sample</h3>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
     <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="ot">[</span>
       <span class="fu">{</span>
@@ -345,14 +350,12 @@ auth-read</li>
     <span class="ot">]</span>
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h3 id="curl">cURL Command</h3>
-<h5 id="accountrolenavigationproperty">Account and Role via navigationProperty list</h5>
+<h3 id="curl-command">cURL Command</h3>
+<h5 id="account-and-role-via-navigationproperty-list">Account and Role via navigationProperty list</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_Account&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

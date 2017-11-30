@@ -46,12 +46,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>SendMessage</h1>
-<h3>Overview</h3>
+<h1 id="sendmessage">SendMessage</h1>
+<h3 id="overview">Overview</h3>
 <p>send message</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>message</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
 <li>Only accepts the request body in the JSON format</li>
@@ -59,15 +59,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__message/send</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>POST</p>
-<h4>Request Query</h4>
+<h4 id="request-query">Request Query</h4>
 <p>None</p>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -122,9 +122,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>JSON</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -180,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <tr class="even">
 <td align="left">Title<br></td>
 <td align="left">Message Title<br></td>
-<td align="left">Number of digits: 256< characters or less<br></td>
+<td align="left">Number of digits: 256 characters or less<br></td>
 <td align="left">No<br></td>
 <td align="left">The default is treated as an empty string<br></td>
 </tr>
@@ -214,8 +214,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Sample</h4>
-<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+<h4 id="request-sample">Request Sample</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;BoxBound&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span>
   <span class="dt">&quot;InReplyTo&quot;</span><span class="fu">:</span> <span class="st">&quot;hnKXm44TTZCw-bfSEw4f0A&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;To&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{TargetCellName}&quot;</span><span class="fu">,</span>
@@ -228,11 +228,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">&quot;RequestRelationTarget&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>201</p>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -273,8 +278,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
-<h5>Common</h5>
+<h4 id="response-body">Response Body</h4>
+<h5 id="common">Common</h5>
 <p>The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows</p>
 <table>
 <thead>
@@ -336,8 +341,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="sentmessage">SentMessage specific response body</h5>
-<table>
+<h5 id="sentmessage-specific-response-body">SentMessage specific response body</h5>
+<table style="width:22%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -363,13 +368,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">__id<br></td>
 <td align="left">string<br></td>
-<td align="left">ReceivedMessage ID<br>Return a 32 character string such as "b5d008e9092f489c8d3c574a768afc33" with UUID<br></td>
+<td align="left">ReceivedMessage ID<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID<br></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>
 <td align="left">InReplyTo<br></td>
 <td align="left">string<br></td>
-<td align="left">ID message you are replying<br>Return a 32 character string such as "b5d008e9092f489c8d3c574a768afc33" with UUID<br></td>
+<td align="left">ID message you are replying<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID<br></td>
 </tr>
 <tr class="even">
 <td align="left">{2}<br></td>
@@ -451,10 +456,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
-<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+<h4 id="response-sample">Response Sample</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
     <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
       <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>
@@ -486,11 +491,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__message/send&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;BoxBound&quot;:false,&quot;InReplyTo&quot;:&quot;xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ&quot;,&quot;To&quot;:&quot;https://{UnitFQDN}/{CellName}&quot;,&quot;Type&quot;:&quot;message&quot;,&quot;Title&quot;:&quot;Message Sample Title&quot;,&quot;Body&quot;:&quot;Message Sample Body&quot;,&quot;Priority&quot;:3}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

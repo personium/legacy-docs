@@ -46,12 +46,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="-metadata">Schema acquisition ($metadata)</h1>
-<h3>Overview</h3>
+<h1 id="schema-acquisition-metadata">Schema acquisition ($metadata)</h1>
+<h3 id="overview">Overview</h3>
 <p>Retrieve schema information</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>read</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>The normal type of the response body is XML format, and the response header Content-Type is application/xml</li>
 <li>The abnormality system of the response body is assumed to be JSON format, and the Content-Type of the response header is set to application/json</li>
@@ -60,14 +60,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>ComplexType and Documentation tags do not correspond and do not return</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{odataname}/$metadata</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>GET</p>
-<h4>Request Query</h4>
-<h5>Common Query</h5>
-<table>
+<h4 id="request-query">Request Query</h4>
+<h5 id="common-query">Common Query</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -94,12 +94,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5>Individual Query</h5>
+<h5 id="individual-query">Individual Query</h5>
 <p>If atomsvc is specified for $format, return Schema's Atom ServiceDocument<br />
 Ignore others</p>
-<h4>Request Header</h4>
-<h5>Common Request Header</h5>
-<table>
+<h4 id="request-header">Request Header</h4>
+<h5 id="common-request-header">Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -136,12 +136,12 @@ Ignore others</p>
 <td align="left">RequestKey field value output in the event log<br></td>
 <td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
 <td align="left">No<br></td>
-<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
 </tr>
 </tbody>
 </table>
-<h5>Individual request header</h5>
-<table>
+<h5 id="individual-request-header">Individual request header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -175,17 +175,22 @@ Ignore others</p>
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>None</p>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>200</p>
-<h4>Response Header</h4>
-<h5>Common Response Header</h5>
-<table>
+<h4 id="response-header">Response Header</h4>
+<h5 id="common-response-header">Common Response Header</h5>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -206,7 +211,7 @@ Ignore others</p>
 </tr>
 </tbody>
 </table>
-<h5>Schema acquisition specific response header</h5>
+<h5 id="schema-acquisition-specific-response-header">Schema acquisition specific response header</h5>
 <table>
 <thead>
 <tr class="header">
@@ -228,9 +233,9 @@ Ignore others</p>
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
-<h5>For user data</h5>
-<table>
+<h4 id="response-body">Response Body</h4>
+<h5 id="for-user-data">For user data</h5>
+<table style="width:17%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -272,9 +277,9 @@ Ignore others</p>
 </tbody>
 </table>
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
-<h5 id="xml">Structure of XML</h5>
+<h5 id="structure-of-xml">Structure of XML</h5>
 <p>The body is XML (edmx) and follows the following schema.</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -693,8 +698,8 @@ Ignore others</p>
 </tr>
 </tbody>
 </table>
-<h5>Property</h5>
-<table>
+<h5 id="property">Property</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -791,7 +796,7 @@ Ignore others</p>
 </tr>
 </tbody>
 </table>
-<h5>Documentation</h5>
+<h5 id="documentation">Documentation</h5>
 <p>Not compatible</p>
 <table>
 <thead>
@@ -820,7 +825,7 @@ Ignore others</p>
 </tr>
 </tbody>
 </table>
-<h5 id="dtd">DTD notation</h5>
+<h5 id="dtd-notation">DTD notation</h5>
 <p>namespace:edmx:</p>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">Edmx</span> <span class="dv">(</span><span class="fu">DataServices</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">Edmx</span> <span class="fu">Version</span> <span class="fu">CDDATA</span> <span class="st">&quot;1.0&quot;</span><span class="dt">&gt;</span>
@@ -881,10 +886,10 @@ Ignore others</p>
               <span class="fu">EntitySet</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre></div>
 <p>namespace:p:</p>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">Property</span> <span class="fu">Format</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
-<h5 id="schemaatom-servicedocument">For Schema's Atom ServiceDocument</h5>
+<h4 id="response-sample">Response Sample</h4>
+<h5 id="for-schemas-atom-servicedocument">For Schema's Atom ServiceDocument</h5>
 <p>Return the following fixedly.</p>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
 <span class="kw">&lt;service</span><span class="ot"> xmlns=</span><span class="st">&quot;http://www.w3.org/2007/app&quot;</span><span class="ot"> xml:base=</span><span class="st">&quot;https://demo.Personium/kouroki/TestBox/TestOData/$metadata/&quot;</span><span class="ot"> xmlns:atom=</span><span class="st">&quot;http://www.w3.org/2005/Atom&quot;</span><span class="ot"> xmlns:app=</span><span class="st">&quot;http://www.w3.org/2007/app&quot;</span><span class="kw">&gt;</span>
@@ -907,7 +912,7 @@ Ignore others</p>
     <span class="kw">&lt;/collection&gt;</span>
   <span class="kw">&lt;/workspace&gt;</span>
 <span class="kw">&lt;/service&gt;</span></code></pre></div>
-<h5 id="-1">For user data</h5>
+<h5 id="for-user-data-1">For user data</h5>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
 <span class="kw">&lt;edmx:Edmx</span><span class="ot"> Version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> xmlns:edmx=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/06/edmx&quot;</span><span class="ot"> xmlns:d=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/08/dataservices&quot;</span><span class="ot"> xmlns:m=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/08/dataservices/metadata&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;edmx:DataServices</span><span class="ot"> m:DataServiceVersion=</span><span class="st">&quot;1.0&quot;</span><span class="kw">&gt;</span>
@@ -943,14 +948,12 @@ Ignore others</p>
   <span class="kw">&lt;/edmx:DataServices&gt;</span>
 <span class="kw">&lt;/edmx:Edmx&gt;</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
-<h5 id="schemaatom-servicedocument-1">For Schema's Atom ServiceDocument</h5>
+<h3 id="curl-command">cURL Command</h3>
+<h5 id="for-schemas-atom-servicedocument-1">For Schema's Atom ServiceDocument</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/atomsvc+xml&#39;</span></code></pre></div>
-<h5 id="-2">For user data</h5>
+<h5 id="for-user-data-2">For user data</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/xml&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
