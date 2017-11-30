@@ -46,24 +46,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>Box Level Access Control Configuration</h1>
-<h3>Overview</h3>
+<h1 id="box-level-access-control-configuration">Box Level Access Control Configuration</h1>
+<h3 id="overview">Overview</h3>
 <p>Provides box level access control functions</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>write-acl</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>When ACL setting is done, the existing ACL setting is overwritten and updated</li>
 <li>The function to deny ACL configuration (deny)</li>
 <li>Acquisition of a list of privileges configurable by the ACL</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}</code></pre>
 <p>or</p>
 <pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
-<table>
+<table style="width:17%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -94,12 +94,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>ACL</p>
-<h4>Request Query</h4>
+<h4 id="request-query">Request Query</h4>
 <p>None</p>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -136,7 +136,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">RequestKey field value output in the event log<br></td>
 <td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
 <td align="left">No<br></td>
-<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
 </tr>
 <tr class="even">
 <td align="left">Authorization<br></td>
@@ -147,7 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>Namespace</p>
 <table>
 <thead>
@@ -174,7 +174,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Structure of XML<br />
 The body is XML and follows the following schema.<br />
 See acl_model (<a href="../../user_guide/002_Access_Control.html">access control model</a>) for the contents of privilege setting under the privilege tag.</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -232,7 +232,7 @@ See acl_model (<a href="../../user_guide/002_Access_Control.html">access control
 <td align="left">D:<br></td>
 <td align="left">Element<br></td>
 <td align="left">Denotes the privilege configuration target role and is the text node to input the role resource URL<br></td>
-<td align="left">Specify resource URL of privilege setting target role >It is possible to shorten the URL using the xml:base attribute setting in the acl element<br></td>
+<td align="left">Specify resource URL of privilege setting target role<br>It is possible to shorten the URL using the xml:base attribute setting in the acl element<br></td>
 </tr>
 <tr class="odd">
 <td align="left">all<br></td>
@@ -336,7 +336,7 @@ See acl_model (<a href="../../user_guide/002_Access_Control.html">access control
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">exec</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>   </code></pre></div>
 <p>namespace xml:</p>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">base</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot; <span class="kw">?&gt;</span>
 <span class="kw">&lt;D:acl</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span>
 <span class="ot">       xml:base=</span><span class="st">&quot;https://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;</span>
@@ -360,8 +360,8 @@ See acl_model (<a href="../../user_guide/002_Access_Control.html">access control
     <span class="kw">&lt;/D:ace&gt;</span>
 <span class="kw">&lt;/D:acl&gt;</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -378,8 +378,13 @@ See acl_model (<a href="../../user_guide/002_Access_Control.html">access control
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -395,14 +400,14 @@ See acl_model (<a href="../../user_guide/002_Access_Control.html">access control
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>None</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X ACL -i
 <span class="ex">-H</span> <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d
 <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
@@ -421,9 +426,7 @@ See acl_model (<a href="../../user_guide/002_Access_Control.html">access control
 <span class="st">   &lt;/D:grant&gt;</span>
 <span class="st">  &lt;/D:ace&gt;</span>
 <span class="st"> &lt;/D:acl&gt;&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

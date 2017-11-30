@@ -46,14 +46,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="q-">Full-text Search (q)  Query</h1>
-<h3>Overview</h3>
+<h1 id="full-text-search-q-query">Full-text Search (q) Query</h1>
+<h3 id="overview">Overview</h3>
 <p>Use full-text search (q) query when specifying full-text search keyword when acquiring list<br />
 Including complex type data, all values are searched</p>
 <p>*URL encoding required for query specification<br />
 *When specifying __updated, _published values, specify them by UNIX time(a number in parenthesis of &quot;/Date()&quot;)<br />
 *Items in _metadata are not subject to search</p>
-<h3>Request Query</h3>
+<h3 id="request-query">Request Query</h3>
 <pre><code>q={SearchKeyword}</code></pre>
 <table>
 <thead>
@@ -73,7 +73,7 @@ Including complex type data, all values are searched</p>
 </tr>
 </tbody>
 </table>
-<h3>Type to be searched</h3>
+<h3 id="type-to-be-searched">Type to be searched</h3>
 <p>The data types to be searched are shown below</p>
 <table>
 <thead>
@@ -116,13 +116,13 @@ Including complex type data, all values are searched</p>
 </tr>
 </tbody>
 </table>
-<h3>Search Specification</h3>
+<h3 id="search-specification">Search Specification</h3>
 <ul>
 <li>Half space blank
 <ul>
 <li>Treat as delimiter</li>
 <li>&quot;(Double quote), it is not treated as one word</li>
-<li><p>Example) The following specification searches for data including the keywords "Pochi" and "Tama"</p>
+<li><p>Example) The following specification searches for data including the keywords &quot;Pochi&quot; and &quot;Tama&quot;</p>
 <pre><code>q=Pochi%20Tama
 q=&quot;Pochi%20Tama&quot;</code></pre></li>
 </ul></li>
@@ -137,12 +137,10 @@ q=&quot;Pochi%20Tama&quot;</code></pre></li>
 <li>Not distinguish between capital letters and small letters</li>
 </ul></li>
 </ul>
-<h3 id="curl">cURL Command</h3>
-<p>Example: When acquiring a cell list, when acquiring a cell that matches the keyword "sample":</p>
+<h3 id="curl-command">cURL Command</h3>
+<p>Example: When acquiring a cell list, when acquiring a cell that matches the keyword &quot;sample&quot;:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/__ctl/Cell?q=sample&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

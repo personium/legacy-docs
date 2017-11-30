@@ -46,12 +46,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="sentmessage">SentMessage Acquire List</h1>
-<h3>Overview</h3>
+<h1 id="sentmessage-acquire-list">SentMessage Acquire List</h1>
+<h3 id="overview">Overview</h3>
 <p>acquire SentMessage List</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>message or message-read</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
 <li>Only accepts the request body in the JSON format</li>
@@ -59,14 +59,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__ctl/SentMessage</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>GET</p>
-<h4>Request Query</h4>
+<h4 id="request-query">Request Query</h4>
 <p>The following query parameters are available</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -93,18 +93,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<p><a href="406_Select_Query.html">$select  Query</a></p>
-<p><a href="405_Expand_Query.html">$expand  Query</a></p>
-<p><a href="404_Format_Query.html">$format  Query</a></p>
-<p><a href="403_Filter_Query.html">$filter  Query</a></p>
-<p><a href="407_Inlinecount_Query.html">$inlinecount  Query</a></p>
-<p><a href="400_Orderby_Query.html">$orderby  Query</a></p>
-<p><a href="401_Top_Query.html">$top  Query</a></p>
-<p><a href="402_Skip_Query.html">$skip  Query</a></p>
+<p><a href="406_Select_Query.html">$select Query</a></p>
+<p><a href="405_Expand_Query.html">$expand Query</a></p>
+<p><a href="404_Format_Query.html">$format Query</a></p>
+<p><a href="403_Filter_Query.html">$filter Query</a></p>
+<p><a href="407_Inlinecount_Query.html">$inlinecount Query</a></p>
+<p><a href="400_Orderby_Query.html">$orderby Query</a></p>
+<p><a href="401_Top_Query.html">$top Query</a></p>
+<p><a href="402_Skip_Query.html">$skip Query</a></p>
 <p><a href="408_Full_Text_Search_Query.html">Full-text Search (q) Query</a></p>
-<h4>Request Header</h4>
-<h5>Common Request Header</h5>
-<table>
+<h4 id="request-header">Request Header</h4>
+<h5 id="common-request-header">Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -145,8 +145,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="odata">OData Common Request Header</h5>
-<table>
+<h5 id="odata-common-request-header">OData Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -173,8 +173,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="odata">OData Acquire List Request Header</h5>
-<table>
+<h5 id="odata-acquire-list-request-header">OData Acquire List Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -201,18 +201,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>None</p>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>200</p>
-<h4>Response Header</h4>
+<h4 id="response-header">Response Header</h4>
 <p>None</p>
-<h4>Response Body</h4>
-<h5>Common</h5>
+<h4 id="response-body">Response Body</h4>
+<h5 id="common">Common</h5>
 <p>The response is a JSON object, the correspondence between the key (name) and type defined in the object (subobject) and the value are as follows</p>
 <table>
 <thead>
@@ -274,8 +274,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="outmessage">OutMessage specific response body</h5>
-<table>
+<h5 id="outmessage-specific-response-body">OutMessage specific response body</h5>
+<table style="width:22%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -301,7 +301,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">__id<br></td>
 <td align="left">string<br></td>
-<td align="left">ReceivedMessage ID<br>Return a 32 character string such as "b5d008e9092f489c8d3c574a768afc33" with UUID<br></td>
+<td align="left">ReceivedMessage ID<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID<br></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>
@@ -313,7 +313,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">{2}<br></td>
 <td align="left">InReplyTo<br></td>
 <td align="left">string<br></td>
-<td align="left">ID message you are replying<br>Return a 32 character string such as "b5d008e9092f489c8d3c574a768afc33" with UUID<br></td>
+<td align="left">ID message you are replying<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID<br></td>
 </tr>
 <tr class="odd">
 <td align="left">{2}<br></td>
@@ -389,10 +389,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
-<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span>
+<h4 id="response-sample">Response Sample</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
   <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
     <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="ot">[</span>
       <span class="fu">{</span>
@@ -463,11 +463,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/SentMessage&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

@@ -46,16 +46,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="uluut">ULUUT elevation setting PROPPATCH</h1>
-<h3>Overview</h3>
+<h1 id="uluut-elevation-setting-proppatch">ULUUT elevation setting PROPPATCH</h1>
+<h3 id="overview">Overview</h3>
 <p>This API changes the UUT (Unit User Token) upgraded settings.</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>Only unit users permitted</p>
-<h3>Restrictions</h3>
-<p>Unpublished<br />
-<br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="restrictions">Restrictions</h3>
+<p>Unpublished</p>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}</code></pre>
 <table>
 <thead>
@@ -71,12 +70,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>PROPPATCH</p>
-<h4>Request Query</h4>
+<h4 id="request-query">Request Query</h4>
 <p>None</p>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -131,8 +130,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
-<table>
+<h4 id="request-body">Request Body</h4>
+<table style="width:33%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -181,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">DAV:<br></td>
 <td align="left">propertyupdate (Access Control List) root<br></td>
 <td align="left">Yes<br></td>
-<td align="left"><ELEMENT propertyupdate! (Set &#124; remove)><br></td>
+<td align="left"></td>
 <td align="left"><br></td>
 </tr>
 <tr class="odd">
@@ -234,9 +233,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4 id="xml">Structure of XML</h4>
-<h5 id="xml">The body is XML and follows the following schema.</h5>
-<table>
+<h4 id="structure-of-xml">Structure of XML</h4>
+<h5 id="the-body-is-xml-and-follows-the-following-schema.">The body is XML and follows the following schema.</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -284,14 +283,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4 id="dtd">DTD notation</h4>
+<h4 id="dtd-notation">DTD notation</h4>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">propertyupdate</span> <span class="dv">(</span><span class="fu">set</span><span class="dv">,</span> <span class="fu">remove</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">set</span> <span class="dv">(</span><span class="fu">prop</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">remove</span> <span class="dv">(</span><span class="fu">prop</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="kw">ANY</span><span class="dt">&gt;</span></code></pre></div>
-<h4 id="uluut"ULUUT elevation setting factor/h4>
-<h5 id="xml-1">The body is XML and follows the following schema.</h5>
-<table>
+<h4 id="uluut-elevation-setting-factor">ULUUT elevation setting factor</h4>
+<h5 id="the-body-is-xml-and-follows-the-following-schema.-1">The body is XML and follows the following schema.</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Node name<br></th>
@@ -318,10 +324,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4 id="dtd-1">DTD notation</h4>
+<h4 id="dtd-notation-1">DTD notation</h4>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">ownerRepresentativeAccounts</span> <span class="dv">(</span><span class="fu">account</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">account</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;D:propertyupdate</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;D:set&gt;</span>
     <span class="kw">&lt;D:prop&gt;</span>
@@ -330,8 +336,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">&lt;/D:set&gt;</span>
 <span class="kw">&lt;/D:propertyupdate&gt;</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -348,9 +354,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
+<h4 id="response-header">Response Header</h4>
 <p>Unpublished</p>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Namespace</p>
 <table>
 <thead>
@@ -368,9 +374,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4 id="xml-1">Structure of XML</h4>
-<h5 id="xml-2">The body is XML and follows the following schema.</h5>
-<table>
+<h4 id="structure-of-xml-1">Structure of XML</h4>
+<h5 id="the-body-is-xml-and-follows-the-following-schema.-2">The body is XML and follows the following schema.</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -421,7 +427,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">D:<br></td>
 <td align="left">Element<br></td>
 <td align="left">Represents property setting contents<br></td>
-<td align="left">Display the result of resource setting as follows Setting Successful: Set key and value Deleted Successful: Deleted key<<br></td>
+<td align="left">Display the result of resource setting as follows Setting Successful: Set key and value Deleted Successful: Deleted key<br></td>
 </tr>
 <tr class="even">
 <td align="left">status<br></td>
@@ -432,14 +438,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4 id="dtd-2">DTD notation</h4>
+<h4 id="dtd-notation-2">DTD notation</h4>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">multistatus</span> <span class="dv">(</span><span class="fu">response</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">response</span> <span class="dv">(</span><span class="fu">href</span><span class="dv">,</span> <span class="fu">propstat</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">href</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">propstat</span> <span class="dv">(</span><span class="fu">prop</span><span class="dv">,</span> <span class="fu">status</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="kw">ANY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">status</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
         <span class="kw">&lt;href&gt;</span>http://localhost:9998/testcell1/box1/patchcol<span class="kw">&lt;/href&gt;</span>
@@ -454,15 +460,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
 <span class="kw">&lt;/multistatus&gt;</span>   </code></pre></div>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/cell -X PROPPATCH&quot;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
 <span class="st">&lt;D:propertyupdate xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot; xmlns:Z=&quot;http://www.w3.com/standards/z39.50/&quot;&gt;</span>
 <span class="st">&lt;D:set&gt;&lt;D:prop&gt;&lt;p:requireSchemaAuthz&gt;confidential&lt;/p:requireSchemaAuthz&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:propertyupdate&gt;&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
