@@ -43,39 +43,38 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>Log File Acquire Information</h1>
-<h3>Overview</h3>
+<h1 id="log-file-acquire-information">Log File Acquire Information</h1>
+<h3 id="overview">Overview</h3>
 <p>Acquire Event Log File Information<br />
-br />
 If you exceed the maximum number of generations to hold rotate when the log file, the log file of the oldest is deleted.</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>log-read</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
-<li> Log output of the internal event is not supported, Log output configuration is not supported</li>
+<li>Log output of the internal event is not supported, Log output configuration is not supported</li>
 <li>log file name&quot;default.log&quot;(fixed)</li>
 <li>Set rotate size: 50MB</li>
-<li>Configure the log output label to "info"&quot;info&quot;(fixed)(output for all INFO, WARN, ERROR)</li>
+<li>Configure the log output label to &quot;info&quot;(fixed)(output for all INFO, WARN, ERROR)</li>
 <li>The file name when rotated is default.log. {Timestamp}. {Timestamp} is numbered by the time when it was rotated.</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
-<h5>Recent log file list</h5>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
+<h5 id="recent-log-file-list">Recent log file list</h5>
 <pre><code>/{CellName}/__log/current</code></pre>
-<h5>Recent log file</h5>
+<h5 id="recent-log-file">Recent log file</h5>
 <pre><code>/{CellName}/__log/current/default.log</code></pre>
-<h5>List of log file that is rotated</h5>
+<h5 id="list-of-log-file-that-is-rotated">List of log file that is rotated</h5>
 <pre><code>/{CellName}/__log/archive</code></pre>
-<h5>Log file that is rotated</h5>
+<h5 id="log-file-that-is-rotated">Log file that is rotated</h5>
 <pre><code>/{CellName}/__log/archive/default.log.{Timestamp}</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>PROPFIND</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -102,8 +101,8 @@ If you exceed the maximum number of generations to hold rotate when the log file
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -158,11 +157,11 @@ If you exceed the maximum number of generations to hold rotate when the log file
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -179,8 +178,13 @@ If you exceed the maximum number of generations to hold rotate when the log file
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Item Name<br></th>
@@ -201,7 +205,7 @@ If you exceed the maximum number of generations to hold rotate when the log file
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Namespace</p>
 <table>
 <thead>
@@ -225,9 +229,9 @@ If you exceed the maximum number of generations to hold rotate when the log file
 </tbody>
 </table>
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
-<h5 id="xml">Structure of XML</h5>
+<h5 id="structure-of-xml">Structure of XML</h5>
 <p>The body is XML and follows the following schema.</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -359,7 +363,7 @@ If you exceed the maximum number of generations to hold rotate when the log file
 </tr>
 </tbody>
 </table>
-<h5 id="dtd">DTD notation</h5>
+<h5 id="dtd-notation">DTD notation</h5>
 <p>Namespace: D:</p>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">multistatus</span> <span class="dv">(</span><span class="fu">response</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">response</span> <span class="dv">(</span><span class="fu">href</span><span class="dv">,</span> <span class="fu">propstat</span><span class="dv">)</span><span class="dt">&gt;</span>
@@ -379,9 +383,9 @@ If you exceed the maximum number of generations to hold rotate when the log file
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">service</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></code></pre></div>
 <p>Namespace: xml:</p>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">base</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
         <span class="kw">&lt;href&gt;</span>https://{UnitFQDN}/{CellName}/__log/archive<span class="kw">&lt;/href&gt;</span>
@@ -398,11 +402,9 @@ If you exceed the maximum number of generations to hold rotate when the log file
     <span class="kw">&lt;/response&gt;</span>
 <span class="kw">&lt;/multistatus&gt;</span></code></pre></div>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__log/archive&quot;</span> -X PROPFIND -i -H <span class="st">&#39;Depth:1&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:propfind xmlns:D=&quot;DAV:&quot;&gt;&lt;D:allprop/&gt;&lt;/D:propfind&gt;&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

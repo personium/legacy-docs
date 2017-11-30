@@ -43,16 +43,16 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>Cell Level Access Control Configuration</h1>
-<h3>Overview</h3>
+<h1 id="cell-level-access-control-configuration">Cell Level Access Control Configuration</h1>
+<h3 id="overview">Overview</h3>
 <p>Provides cell level access control functions.</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>acl</p>
-<h3>Restrictions</h3>
-<p>Updating the ACL configuration overwrites existing ACL settings.<</p>
+<h3 id="restrictions">Restrictions</h3>
+<p>Updating the ACL configuration overwrites existing ACL settings.</p>
 <ul>
 <li>Restrictions in V 1.0
 <ul>
@@ -61,14 +61,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>ACL</p>
-<h4>Request Query</h4>
+<h4 id="request-query">Request Query</h4>
 <p>Common Request Query</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -95,8 +95,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Common Request Header</h4>
-<table>
+<h4 id="common-request-header">Common Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -137,8 +137,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -165,8 +165,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
-<h4>Namespace</h4>
+<h4 id="request-body">Request Body</h4>
+<h4 id="namespace">Namespace</h4>
 <table>
 <thead>
 <tr class="header">
@@ -189,10 +189,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
-<h4 id="xml">Structure of XML</h4>
+<h4 id="structure-of-xml">Structure of XML</h4>
 <p>The body is XML and follows the following schema.<br><br />
 For details on the privilege settings within the privilege tag, please refer to the acl_model (<a href="../../user_guide/002_Access_Control.html">Access Control Model</a>).</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -394,7 +394,7 @@ For details on the privilege settings within the privilege tag, please refer to 
 </tr>
 </tbody>
 </table>
-<h5 id="dtd">DTD notation</h5>
+<h5 id="dtd-notation">DTD notation</h5>
 <p>Namespace: D:</p>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">acl</span> <span class="dv">(</span><span class="fu">ace</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">base</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
@@ -425,7 +425,7 @@ For details on the privilege settings within the privilege tag, please refer to 
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">acl</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">acl-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">propfind</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot; <span class="kw">?&gt;</span>
 <span class="kw">&lt;D:acl</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="ot"> xml:base=</span><span class="st">&quot;https://example.com/testcell1/__role/box1/&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;D:ace&gt;</span>
@@ -447,8 +447,8 @@ For details on the privilege settings within the privilege tag, please refer to 
     <span class="kw">&lt;/D:ace&gt;</span>
 <span class="kw">&lt;/D:acl&gt;</span>        </code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -465,7 +465,7 @@ For details on the privilege settings within the privilege tag, please refer to 
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
+<h4 id="response-header">Response Header</h4>
 <table>
 <thead>
 <tr class="header">
@@ -482,15 +482,13 @@ For details on the privilege settings within the privilege tag, please refer to 
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>None</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span> -X ACL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;&lt;D:acl xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot; xml:base=&quot;http://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;&gt;  &lt;D:ace&gt;&lt;D:principal&gt;&lt;D:href&gt;{RoleName}&lt;/D:href&gt;&lt;/D:principal&gt;&lt;D:grant&gt;&lt;D:privilege&gt;&lt;p:box-read/&gt;&lt;/D:privilege&gt;&lt;D:privilege&gt;&lt;p:auth/&gt;&lt;/D:privilege&gt;&lt;/D:grant&gt;&lt;/D:ace&gt;&lt;/D:acl&gt;&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

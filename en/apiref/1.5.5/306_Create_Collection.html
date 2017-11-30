@@ -43,15 +43,15 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>Create Collection</h1>
-<h3>Overview</h3>
+<h1 id="create-collection">Create Collection</h1>
+<h3 id="overview">Overview</h3>
 <p>Create a collection</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>write</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <p>Common restriction</p>
 <ul>
 <li>None</li>
@@ -61,10 +61,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Unpublished</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{CollectionName}</code></pre>
-<table>
+<table style="width:17%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -95,10 +95,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>MKCOL</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -125,9 +125,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<h5>Common Request Header</h5>
-<table>
+<h4 id="request-header">Request Header</h4>
+<h5 id="common-request-header">Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -164,12 +164,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">RequestKey field value output in the event log<br></td>
 <td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
 <td align="left">No<br></td>
-<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
 </tr>
 </tbody>
 </table>
-<h5>Individual Request Header</h5>
-<table>
+<h5 id="individual-request-header">Individual Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -196,8 +196,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
-<h5>Namespace</h5>
+<h4 id="request-body">Request Body</h4>
+<h5 id="namespace">Namespace</h5>
 <table>
 <thead>
 <tr class="header">
@@ -220,9 +220,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tbody>
 </table>
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
-<h5 id="xml">Structure of XML</h5>
+<h5 id="structure-of-xml">Structure of XML</h5>
 <p>The body is XML and follows the following schema.</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -291,17 +291,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="dtd">DTD notation</h5>
-<h5 id="d">Namespace D:</h5>
+<h5 id="dtd-notation">DTD notation</h5>
+<h5 id="namespace-d">Namespace D:</h5>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">mkcol</span> <span class="dv">(</span><span class="fu">set</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">set</span> <span class="dv">(</span><span class="fu">prop</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="dv">(</span><span class="fu">resourcetype</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">resourcetype</span> <span class="dv">(</span><span class="fu">collection</span> <span class="fu">or</span> <span class="fu">odata</span> <span class="fu">or</span> <span class="fu">service</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">collection</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>       </code></pre></div>
-<h5 id="-p">Namespace p:</h5>
+<h5 id="namespace-p">Namespace p:</h5>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">odata</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">service</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>Create WebDAV collection</p>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
 <span class="kw">&lt;D:mkcol</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
@@ -338,12 +338,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="kw">&lt;/D:set&gt;</span>
 <span class="kw">&lt;/D:mkcol&gt;</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>201</p>
-<h4>Response Header</h4>
-<h5>Common Response Header</h5>
-<table>
+<h4 id="response-header">Response Header</h4>
+<h5 id="common-response-header">Common Response Header</h5>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -364,8 +369,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h5 id="webdav">WebDAVCommon Response Header</h5>
-<table>
+<h5 id="webdavcommon-response-header">WebDAVCommon Response Header</h5>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -381,23 +391,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>None</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <p>Create WebDAV collection</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:mkcol xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot;&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;D:resourcetype&gt;&lt;D:collection/&gt;&lt;/D:resourcetype&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:mkcol&gt;&#39;</span></code></pre></div>
 <p>Create OData collection</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:mkcol xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot;&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;D:resourcetype&gt;&lt;D:collection/&gt;&lt;p:odata/&gt;&lt;/D:resourcetype&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:mkcol&gt;&#39;</span></code></pre></div>
 <p>Create Service Collection</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:mkcol xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot;&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;D:resourcetype&gt;&lt;D:collection/&gt;&lt;p:service/&gt;&lt;/D:resourcetype&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:mkcol&gt;&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

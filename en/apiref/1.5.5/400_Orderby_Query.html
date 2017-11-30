@@ -43,17 +43,21 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="orderby-">$orderby  Query</h1>
-<h3>Overview</h3>
+<h1 id="orderby-query">$orderby Query</h1>
+<h3 id="overview">Overview</h3>
 <p>Use the $orderby query to sort search results when retrieving lists<br />
 *If you specify a property name that does not exist in $orderby, ignore the specified item</p>
-<h3>Request Query</h3>
+<h3 id="request-query">Request Query</h3>
 <pre><code>$orderby={propertyName} {option}, ...</code></pre>
 <p>*{propertyName} {option} can be specified in comma-separated list</p>
-<table>
+<table style="width:11%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Path<br></th>
@@ -71,33 +75,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <p>Example: To obtain cell information in descending order of cell name:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/__ctl/Cell?</span><span class="dt">\$</span><span class="st">orderby=Name%20desc&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<h3>Operation details</h3>
+<h3 id="operation-details">Operation details</h3>
 <ul>
-<li><p>Sort order for null values<br />
+<li>Sort order for null values<br />
 When ascending order is specified, null is sorted so that it becomes the end of the sorting result when both descending order is specified.<br />
-*However, if you are using the minor version 0.19.9, sort according to the following rules.</p></li>
+*However, if you are using the minor version 0.19.9, sort according to the following rules.</li>
 <li>Sort for string type
 <ul>
 <li>asc<br />
-Null -> string</li>
+Null -&gt; string</li>
 <li>desc<br />
-String -> null</li>
+String -&gt; null</li>
 </ul></li>
 <li>Numeric
 <ul>
 <li>asc<br />
-Negative number -> null -> 0 -> None -> Positive number</li>
+Negative number -&gt; null -&gt; 0 -&gt; None -&gt; Positive number</li>
 <li>desc<br />
-Positive number -> null -> 0 -> none -> Pegative number</li>
+Positive number -&gt; null -&gt; 0 -&gt; none -&gt; Pegative number</li>
 </ul></li>
 <li>If you specify a property name that does not exist in $orderby, ignore the specified item</li>
-<li><p>If an array type property name is specified in $orderby, 400 error is returned<br />
-<br><br />
-<br><br />
-<br></p></li>
+<li>If an array type property name is specified in $orderby, 400 error is returned<br><br><br><br><br><br></li>
 </ul>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>

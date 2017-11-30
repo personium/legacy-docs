@@ -43,21 +43,21 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>Service Collection Source Settings</h1>
-<h3>Overview</h3>
+<h1 id="service-collection-source-settings">Service Collection Source Settings</h1>
+<h3 id="overview">Overview</h3>
 <p>Apply service collection source settings</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <p>Unpublished</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>write-properties</p>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{CollectionName}</code></pre>
-<table>
+<table style="width:17%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -88,11 +88,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>PROPPATCH</p>
-<h4>Request Query</h4>
-<h5>Common Request Query</h5>
-<table>
+<h4 id="request-query">Request Query</h4>
+<h5 id="common-request-query">Common Request Query</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -119,9 +119,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<h5>Common Request Header</h5>
-<table>
+<h4 id="request-header">Request Header</h4>
+<h5 id="common-request-header">Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -158,12 +158,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">RequestKey field value output in the event log<br></td>
 <td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
 <td align="left">No<br></td>
-<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
 </tr>
 </tbody>
 </table>
-<h5>Service Collection Settings Specific Request Header</h5>
-<table>
+<h5 id="service-collection-settings-specific-request-header">Service Collection Settings Specific Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -204,7 +204,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>Namespace</p>
 <table>
 <thead>
@@ -225,17 +225,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <td align="left">Personium API namespace<br></td>
 <td align="left">p:<br></td>
 </tr>
-<tr class="odd">
-<td align="left"><a href="http://www.w3.com/standards/z39.50/" class="uri">http://www.w3.com/standards/z39.50/</a><br></td>
-<td align="left">proppatch namespace<br></td>
-<td align="left">Z:<br></td>
-</tr>
 </tbody>
 </table>
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
 <p>Structure of XML<br />
 The body is XML and follows the following schema.</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -288,8 +283,8 @@ The body is XML and follows the following schema.</p>
 &lt;!<span class="fu">ELEMENT</span> <span class="fu">set</span> <span class="dv">(</span><span class="fu">prop</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">remove</span> <span class="dv">(</span><span class="fu">prop</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="kw">ANY</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Service collection setting specific definition</h4>
-<table>
+<h4 id="service-collection-setting-specific-definition">Service collection setting specific definition</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -358,10 +353,9 @@ The body is XML and follows the following schema.</p>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">path</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">path</span> <span class="fu">name</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ATTLIST</span> <span class="fu">path</span> <span class="fu">src</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;D:propertyupdate</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span>
-<span class="ot">    xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span>
-<span class="ot">    xmlns:Z=</span><span class="st">&quot;http://www.w3.com/standards/z39.50/&quot;</span><span class="kw">&gt;</span>
+<span class="ot">    xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;D:set&gt;</span>
         <span class="kw">&lt;D:prop&gt;</span>
           <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="kw">&gt;</span>
@@ -371,12 +365,12 @@ The body is XML and follows the following schema.</p>
     <span class="kw">&lt;/D:set&gt;</span>
 <span class="kw">&lt;/D:propertyupdate&gt;</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>207</p>
-<h4>Response Header</h4>
+<h4 id="response-header">Response Header</h4>
 <p>None</p>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Namespace</p>
 <table>
 <thead>
@@ -397,7 +391,14 @@ The body is XML and follows the following schema.</p>
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
 <p>Structure of XML<br />
 The body is XML and follows the following schema.</p>
-<table>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Node name<br></th>
@@ -459,13 +460,13 @@ The body is XML and follows the following schema.</p>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">propstat</span> <span class="dv">(</span><span class="fu">prop</span><span class="dv">,</span> <span class="fu">status</span><span class="dv">)</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="kw">ANY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">status</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre></div>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
     <span class="kw">&lt;response&gt;</span>
         <span class="kw">&lt;href&gt;</span>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}<span class="kw">&lt;/href&gt;</span>
         <span class="kw">&lt;propstat&gt;</span>
             <span class="kw">&lt;prop&gt;</span>
-                <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:Z=</span><span class="st">&quot;http://www.w3.com/standards/z39.50/&quot;</span><span class="kw">&gt;</span>
+                <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
                     <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;sample&quot;</span><span class="ot"> src=</span><span class="st">&quot;sample.js&quot;</span><span class="kw">/&gt;</span>
                 <span class="kw">&lt;/p:service&gt;</span>
             <span class="kw">&lt;/prop&gt;</span>
@@ -473,13 +474,11 @@ The body is XML and follows the following schema.</p>
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
 <span class="kw">&lt;/multistatus&gt;</span></code></pre></div>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h3 id="curl">cURL Command</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X PROPPATCH -i -H <span class="st">&quot;Authorization:Bearer {AccessToken}&quot;</span> -H <span class="st">&quot;Accept:application/json&quot;</span> -d <span class="st">&quot;&lt;?xml version=</span><span class="dt">\&quot;</span><span class="st">1.0</span><span class="dt">\&quot;</span><span class="st"> encoding=</span><span class="dt">\&quot;</span><span class="st">utf-8</span><span class="dt">\&quot;</span><span class="st"> ?&gt;&lt;D:propertyupdate xmlns:D=</span><span class="dt">\&quot;</span><span class="st">DAV:</span><span class="dt">\&quot;</span><span class="st"> xmlns:p=</span><span class="dt">\&quot;</span><span class="st">urn:x-personium:xmlns</span><span class="dt">\&quot;</span><span class="st"> xmlns:Z=</span><span class="dt">\&quot;</span><span class="st">http://www.w3.com/standards/z39.50/</span><span class="dt">\&quot;</span><span class="st">&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;p:service language=</span><span class="dt">\&quot;</span><span class="st">JavaScript</span><span class="dt">\&quot;</span><span class="st">&gt;&lt;p:path name=</span><span class="dt">\&quot;</span><span class="st">sample</span><span class="dt">\&quot;</span><span class="st"> src=</span><span class="dt">\&quot;</span><span class="st">sample.js</span><span class="dt">\&quot;</span><span class="st">/&gt;&lt;/p:service&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:propertyupdate&gt;&quot;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<h3 id="curl-command">cURL Command</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X PROPPATCH -i -H <span class="st">&quot;Authorization:Bearer {AccessToken}&quot;</span> -H <span class="st">&quot;Accept:application/json&quot;</span> -d <span class="st">&quot;&lt;?xml version=</span><span class="dt">\&quot;</span><span class="st">1.0</span><span class="dt">\&quot;</span><span class="st"> encoding=</span><span class="dt">\&quot;</span><span class="st">utf-8</span><span class="dt">\&quot;</span><span class="st"> ?&gt;&lt;D:propertyupdate xmlns:D=</span><span class="dt">\&quot;</span><span class="st">DAV:</span><span class="dt">\&quot;</span><span class="st"> xmlns:p=</span><span class="dt">\&quot;</span><span class="st">urn:x-personium:xmlns</span><span class="dt">\&quot;</span><span class="st">&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;p:service language=</span><span class="dt">\&quot;</span><span class="st">JavaScript</span><span class="dt">\&quot;</span><span class="st">&gt;&lt;p:path name=</span><span class="dt">\&quot;</span><span class="st">sample</span><span class="dt">\&quot;</span><span class="st"> src=</span><span class="dt">\&quot;</span><span class="st">sample.js</span><span class="dt">\&quot;</span><span class="st">/&gt;&lt;/p:service&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:propertyupdate&gt;&quot;</span></code></pre></div>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

@@ -43,23 +43,23 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>File acquisition</h1>
-<h3>Overview</h3>
+<h1 id="file-acquisition">File acquisition</h1>
+<h3 id="overview">Overview</h3>
 <p>Acquire specific WebDav information<br />
 Depending on the ETag value specified in the If-None-Match header, the contents to be returned are different<br />
 When specifying the range with the Range header, return the contents of the specified range</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>read</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <p>Unpublished</p>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
-<table>
+<table style="width:17%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -90,10 +90,10 @@ When specifying the range with the Range header, return the contents of the spec
 </tr>
 </tbody>
 </table>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>GET</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -120,9 +120,9 @@ When specifying the range with the Range header, return the contents of the spec
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<h5>Common Request Header</h5>
-<table>
+<h4 id="request-header">Request Header</h4>
+<h5 id="common-request-header">Common Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -159,12 +159,12 @@ When specifying the range with the Range header, return the contents of the spec
 <td align="left">RequestKey field value output in the event log<br></td>
 <td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
 <td align="left">No<br></td>
-<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
 </tr>
 </tbody>
 </table>
-<h5>Individual Request Header</h5>
-<table>
+<h5 id="individual-request-header">Individual Request Header</h5>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -194,26 +194,26 @@ When specifying the range with the Range header, return the contents of the spec
 <td align="left">Specify the value of ETag<br></td>
 <td align="left">String<br>Specify the ETag value in the following format<br>&quot;*&quot;<br>or <br>&quot;{Half-width number}-{Half-width number}&quot;<br></td>
 <td align="left">No<br></td>
-<td align="left">Example) When specifying the ETag value "1-1372742704414"<br> &quot;1-1372742704414&quot;<br></td>
+<td align="left">Example) When specifying the ETag value &quot;1-1372742704414&quot;<br> &quot;1-1372742704414&quot;<br></td>
 </tr>
 <tr class="odd">
 <td align="left">Range<br></td>
 <td align="left">Specify a range when acquiring a part of a resource<br></td>
-<td align="left">-Data type:String<br>[Assumption]<br>Start value of range specification starts at 0.When the size of the acquired file is Z (byte), the termination is Z-1 (byte)<br>1.&quot;Range: bytes={Half-width number}-{Half-width number}&quot;<br>ex) &quot;Range: bytes=10-20&quot;<br>2.&quot;Range: bytes={Half-width number}-&quot;<br> -> From the range start value to the end of the acquired file<br>ex) &quot;Range: bytes=10-&quot;<br>3.&quot;Range: bytes=-{Half-width number}&quot;<br> -> Retrieve the specified minute from the end of the resource<br>ex) &quot;Range: bytes=-20&quot;<br></td>
+<td align="left">-Data type:String<br>[Assumption]<br>Start value of range specification starts at 0.When the size of the acquired file is Z (byte), the termination is Z-1 (byte)<br>1.&quot;Range: bytes={Half-width number}-{Half-width number}&quot;<br>ex) &quot;Range: bytes=10-20&quot;<br>2.&quot;Range: bytes={Half-width number}-&quot;<br> -&gt; From the range start value to the end of the acquired file<br>ex) &quot;Range: bytes=10-&quot;<br>3.&quot;Range: bytes=-{Half-width number}&quot;<br> -&gt; Retrieve the specified minute from the end of the resource<br>ex) &quot;Range: bytes=-20&quot;<br></td>
 <td align="left">No<br></td>
 <td align="left">-Specify a start value smaller than the size of the acquired file<br>-When the format of the specified Range header is incorrect, the Range header is ignored<br>[Limitations]<br>-Not supported for multi-part response<br></td>
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>None</p>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <ul>
-<li>If the If-None-Match header is not specified in the request, or if the ETag value of the If-None-Match header does not match the ETag of the resource stored in the WebDav in the request<br>
+<li>If the If-None-Match header is not specified in the request, or if the ETag value of the If-None-Match header does not match the ETag of the resource stored in the WebDav in the request<br />
 (Including cases where the format of the specified ETag value is invalid)</li>
 <li>If the Range header is not specified in the request, or if the start value specified in the Range header in the request is larger than the termination value</li>
 </ul>
@@ -271,8 +271,13 @@ When specifying the range with the Range header, return the contents of the spec
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -304,20 +309,18 @@ When specifying the range with the Range header, return the contents of the spec
 </tbody>
 </table>
 <p>In case of basic authentication error, return 400 + WWW-Authenticated: Basic header</p>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Return the contents of the file<br />
 However, if the status code is 304, the response body is not returned<br />
 If the status code is 206, the contents of the file specified in the Range header are returned</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X GET -i -H <span class="st">&#39;If-None-Match:&quot;1-1372742704414&quot;&#39;</span> -H <span class="st">&#39;Range:bytes=10-20 &#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

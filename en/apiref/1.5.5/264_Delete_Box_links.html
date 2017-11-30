@@ -43,15 +43,15 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="box_links">Box_$links delete</h1>
-<h3>Overview</h3>
+<h1 id="box_links-delete">Box_$links delete</h1>
+<h3 id="overview">Overview</h3>
 <p>Delete a list of OData resources associated with Box</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>None</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Accept in the request header is ignored</li>
 <li>Always handles Content-Type in the request header as application/json</li>
@@ -60,49 +60,49 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>$formatQuery options ignored</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
-<h5 id="role">link with Role</h5>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
+<h5 id="link-with-role">link with Role</h5>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;,Schema=&#39;{SchemaURL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;,Schema=&#39;{SchemaURL}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;,Schema=&#39;{SchemaURL}&#39;)/$links/_Role(&#39;{RoleName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;)/$links/_Role(&#39;{RoleName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/$links/_Role(Name=&#39;{RoleName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/$links/_Role(&#39;{RoleName}&#39;)</code></pre>
-<h5 id="relation">link with Relation</h5>
+<h5 id="link-with-relation">link with Relation</h5>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;,Schema=&#39;{SchemaURL}&#39;)/$links/_Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;,Schema=&#39;{SchemaURL}&#39;)/$links/_Relation(Name=&#39;{RelationName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;,Schema=&#39;{SchemaURL}&#39;)/$links/_Relation(&#39;{RelationName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;)/$links/_Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;)/$links/_Relation(Name=&#39;{RelationName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(Name=&#39;{BoxName}&#39;)/$links/_Relation(&#39;{RelationName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/$links/_Relation(Name=&#39;{RelationName}&#39;,_Box.Name=&#39;{BoxName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/$links/_Relation(Name=&#39;{RelationName}&#39;)</code></pre>
-<p>or </p>
+<p>or</p>
 <pre><code>/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/$links/_Relation(&#39;{RelationName}&#39;)</code></pre>
 <p>If the Schema is omitted, it is assumed that null is specified</p>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>DELETE</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -129,8 +129,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -185,16 +185,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>None</p>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>204</p>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -220,18 +225,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>None</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/</span><span class="dt">\$</span><span class="st">links/_Role(Name=&#39;{RoleName}&#39;,_Box.Name=&#39;{BoxName}&#39;)&quot;</span> -X DELETE -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

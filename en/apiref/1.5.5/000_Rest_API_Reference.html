@@ -6,15 +6,14 @@
   <meta name="generator" content="pandoc" />
   <title></title>
   <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="Personium-rest-api-">Personium REST API Reference</h1>
-<p>Welcome to the Personium REST API Reference. <br />
-The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.<br />
-<br></p>
+<h1 id="personium-rest-api-reference">Personium REST API Reference</h1>
+<p>Welcome to the Personium REST API Reference.<br />
+The REST API Reference describes technical detailed specifications related to all of the REST APIs provided by Personium.<br><br></p>
 <h3 id="unit-level-api">Unit Level API</h3>
-<p>The Unit Level API is an API belonging to the unit that hosts a group of cells (for creating cells and managing a group of created cells). <br />
+<p>The Unit Level API is an API belonging to the unit that hosts a group of cells (for creating cells and managing a group of created cells).<br />
 In principle, these APIs cannot be accessed using the access tokens issued from the cell.</p>
 <p>Resource Path</p>
 <pre><code>https://{UnitFQDN}/</code></pre>
@@ -42,20 +41,27 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 <h3 id="cell-level-api">Cell Level API</h3>
 <p>Cell Level API</p>
 <ul>
-<li> Ability to authenticate people and applications accessing Cell </ li>
-<li> Function to set access control for Cell </ li>
-<li> Function to build relations between Cells </ li>
-<li> Function to create and manage Box </ li>
-<li> Ability to send and receive messages between Cells </ li>
-<li> Function of event processing </ li>
-<li> Function to export / import Cell </ li>
+<li>Ability to authenticate people and applications accessing Cell</li>
+<li>Function to set access control for Cell</li>
+<li>Function to build relations between Cells</li>
+<li>Function to create and manage Box</li>
+<li>Ability to send and receive messages between Cells</li>
+<li>Function of event processing</li>
+<li>Function to export / import Cell</li>
 </ul>
-<p>And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.<br />
-<br></p>
+<p>And so on. Many of these functions are implemented in the form of control objects that can be operated with the OData protocol, which is a standard for performing relational data manipulation based on REST.<br><br></p>
 <p>Resource Path</p>
 <pre><code>https://{UnitFQDN}/{CellName}</code></pre>
-<h5 id="cell">Ability to authenticate people and applications accessing Cell</h5>
-<table>
+<h5 id="ability-to-authenticate-people-and-applications-accessing-cell">Ability to authenticate people and applications accessing Cell</h5>
+<table style="width:33%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left"><br></th>
@@ -101,7 +107,7 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tr>
 </tbody>
 </table>
-<h5 id="cell">Function to set access control for Cell</h5>
+<h5 id="function-to-set-access-control-for-cell">Function to set access control for Cell</h5>
 <table>
 <thead>
 <tr class="header">
@@ -143,7 +149,7 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tr>
 </tbody>
 </table>
-<h5 id="cell">Function to build relationship between cells</h5>
+<h5 id="function-to-build-relationship-between-cells">Function to build relationship between cells</h5>
 <table>
 <thead>
 <tr class="header">
@@ -220,7 +226,7 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tr>
 </tbody>
 </table>
-<h5 id="box">Function to create and manage Box</h5>
+<h5 id="function-to-create-and-manage-box">Function to create and manage Box</h5>
 <table>
 <thead>
 <tr class="header">
@@ -262,7 +268,7 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tr>
 </tbody>
 </table>
-<h5 id="cell">Ability to send and receive messages between cells</h5>
+<h5 id="ability-to-send-and-receive-messages-between-cells">Ability to send and receive messages between cells</h5>
 <table>
 <thead>
 <tr class="header">
@@ -290,8 +296,15 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tr>
 </tbody>
 </table>
-<h5>Event processing function</h5>
-<table>
+<h5 id="event-processing-function">Event processing function</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left"><br></th>
@@ -311,8 +324,8 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </tr>
 </tbody>
 </table>
-<h5 id="cell">Ability to export/import Cell</h5>
-<p> Snapshot file of Cell is created by export execution. <br> Import imports the contents of the snapshot file into Cell. <br> Snapshot file can be operated with WebDAV interface. </ p>
+<h5 id="ability-to-exportimport-cell">Ability to export/import Cell</h5>
+<p>Snapshot file of Cell is created by export execution. <br> Import imports the contents of the snapshot file into Cell. <br> Snapshot file can be operated with WebDAV interface.</p>
 <table>
 <thead>
 <tr class="header">
@@ -349,12 +362,16 @@ In principle, these APIs cannot be accessed using the access tokens issued from 
 </table>
 <p><br></p>
 <h3 id="box-level-api">Box Level API</h3>
-<p>
-The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea. <br />
-Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc. </P>
-<P> Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data. <br />
-These special collections can be created in any path on the WebDAV space provided by Box. </P>
-<table>
+<p>The Box Level API is an API for applications and others to manipulate data, and is a group of APIs based on WebDAV as a file system idea.<br />
+Like ordinary file systems, it is possible to arrange / acquire files, create / manage folders (collection), get list of files and folders, set / refer to access control, etc.</p>
+<p>Also, because it supports the following special collections, it can handle not only file-like data but also various forms of data.<br />
+These special collections can be created in any path on the WebDAV space provided by Box.</p>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Special collection<br></th>
@@ -388,7 +405,7 @@ These special collections can be created in any path on the WebDAV space provide
 <p>Resource Path (* with certain exceptions)</p>
 <pre><code>https://{UnitFQDN}/{CellName}/{BoxName}
 https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
-<h5 id="box">Box Management</h5>
+<h5 id="box-management">Box Management</h5>
 <table>
 <thead>
 <tr class="header">
@@ -442,11 +459,18 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 </tr>
 </tbody>
 </table>
-<p>
-* ACL setting (access control setting) is possible for all files and collections (including special collections).<br />
+<p>* ACL setting (access control setting) is possible for all files and collections (including special collections).<br />
 * ACL setting can be acquired with the PROPFIND method.</p>
 <h5 id="odata">OData</h5>
-<table>
+<table style="width:33%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left"><br></th>
@@ -580,11 +604,19 @@ https://{UnitFQDN}/{CellName}/{BoxName}/{ResourcePath}</code></pre>
 </tr>
 </tbody>
 </table>
-<h5 id="engine-service-collection">Server Script (Engine Service Collection)</h5>
-<P> You can register Personium application and server side logic created by Cell user and run it. <br />
-First, register the user logic as a file, set the service collection and associate with the path, so that <br />
-You can run the user logic for requests from any path under the collection. </P>
-<table>
+<h5 id="server-script-engine-service-collection">Server Script (Engine Service Collection)</h5>
+<p>You can register Personium application and server side logic created by Cell user and run it.<br />
+First, register the user logic as a file, set the service collection and associate with the path, so that<br />
+You can run the user logic for requests from any path under the collection.</p>
+<table style="width:33%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left"><br></th>
@@ -606,7 +638,7 @@ You can run the user logic for requests from any path under the collection. </P>
 </tr>
 </tbody>
 </table>
-<h5>Service Document Acquire/Schema Acquire</h5>
+<h5 id="service-document-acquireschema-acquire">Service Document Acquire/Schema Acquire</h5>
 <table>
 <thead>
 <tr class="header">
@@ -625,7 +657,7 @@ You can run the user logic for requests from any path under the collection. </P>
 </tr>
 </tbody>
 </table>
-<h5 id="odata">OData Acquisition Common Queries</h5>
+<h5 id="odata-acquisition-common-queries">OData Acquisition Common Queries</h5>
 <table>
 <thead>
 <tr class="header">
@@ -683,14 +715,12 @@ You can run the user logic for requests from any path under the collection. </P>
 </tbody>
 </table>
 <p><br></p>
-<h3>Common</h3>
-<h4><a href="004_Error_Messages.html">Error Messages</a></h4>
-<h4 id="Personiumhttp"><a href="003_Common_Limitations_on_HTTP_Implementation.html">Restrictions on Personium HTTP Implementation</a></h4>
-<h4 id="cors"><a href="002_CORS_Support.html">CORS Support</a></h4>
-<h4><a href="001_Cross_Domain_Policy_File.html">Cross Domain Policy File Acquire</a></h4>
-<p><br><br />
-<br><br />
-<br></p>
+<h3 id="common">Common</h3>
+<h4 id="error-messages"><a href="004_Error_Messages.html">Error Messages</a></h4>
+<h4 id="restrictions-on-personium-http-implementation"><a href="003_Common_Limitations_on_HTTP_Implementation.html">Restrictions on Personium HTTP Implementation</a></h4>
+<h4 id="cors-support"><a href="002_CORS_Support.html">CORS Support</a></h4>
+<h4 id="cross-domain-policy-file-acquire"><a href="001_Cross_Domain_Policy_File.html">Cross Domain Policy File Acquire</a></h4>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

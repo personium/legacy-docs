@@ -43,32 +43,32 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="entitybatch">Entity collective operation($batch)</h1>
-<h3>Overview</h3>
+<h1 id="entity-collective-operationbatch">Entity collective operation($batch)</h1>
+<h3 id="overview">Overview</h3>
 <p>Perform a batch operation such as list acquisition, single acquisition, registration, update, and deletion for ODataEntity</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <ul>
 <li>Acquire list / Acquire one case<br />
 read</li>
 <li>Register / Update / Delete<br />
 write</li>
 </ul>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>$batch Restriction
 <ul>
-<li>"GET" request query is not supported</li>
+<li>&quot;GET&quot; request query is not supported</li>
 <li>When list acquisition is executed, return 10 cases at random</li>
-<li>"GET" via NavigationProperty is not supported</li>
-<li>$links "PUT" "GET" "DELETE" is not supported (returns 501)</li>
+<li>&quot;GET&quot; via NavigationProperty is not supported</li>
+<li>$links &quot;PUT&quot; &quot;GET&quot; &quot;DELETE&quot; is not supported (returns 501)</li>
 </ul></li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{ODataCollecitonName}/$batch</code></pre>
 <table>
 <thead>
@@ -92,10 +92,10 @@ write</li>
 </tr>
 </tbody>
 </table>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>POST</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -122,8 +122,8 @@ write</li>
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -153,30 +153,30 @@ write</li>
 <td align="left">Specifies the request body format<br></td>
 <td align="left">multipart / mixed; boundary = {Boundary}<br></td>
 <td align="left">Yes<br></td>
-<td align="left">When omitted, treat it as [multipart/mixed]  Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible<br></td>
+<td align="left">When omitted, treat it as [multipart/mixed] Characters that can be used for {Boundary}: alphabetic lower case '()+_,-./:=?<br>Not compatible<br></td>
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>Specify batch process content as request body in MIME multipart data format<br />
 Up to 1,000 batch processes can be handled at maximum<br />
-Batch processing includes "query operation" for context acquisition and "change set" for context registration, update, and deletion<br />
+Batch processing includes &quot;query operation&quot; for context acquisition and &quot;change set&quot; for context registration, update, and deletion<br />
 Describe how to describe request parameters below</p>
 <pre><code>(1)     --{Boundary string}
-(2)     "query operation" or "change set"
+(2)     &quot;query operation&quot; or &quot;change set&quot;
 (3)     --{Boundary string}
-(4)     "query operation" or "change set"
+(4)     &quot;query operation&quot; or &quot;change set&quot;
 (5)     --{Boundary string}--
 
-(1) Specify the start boundary string "- {Boundary string}"
-(2) Specify "query operation" or "change set"
-(3) (4)Multiple specifications become possible by separating the request with the boundary string "- {Boundary string}"
-(5) Specify the termination boundary string "- {Boundary string}"</code></pre>
+(1) Specify the start boundary string &quot;- {Boundary string}&quot;
+(2) Specify &quot;query operation&quot; or &quot;change set&quot;
+(3) (4)Multiple specifications become possible by separating the request with the boundary string &quot;- {Boundary string}&quot;
+(5) Specify the termination boundary string &quot;- {Boundary string}&quot;</code></pre>
 <ul>
 <li>Query Operation<br />
 Retrieve the specified context<br />
 The description method of the query operation will be explained below<br />
-*"GET" request query is not supported</li>
+*&quot;GET&quot; request query is not supported</li>
 </ul>
 <pre><code>(1)     Content-Type: application/http
 (2)     Content-Transfer-Encoding:binary
@@ -187,9 +187,9 @@ The description method of the query operation will be explained below<br />
 (1) Specify Content-Type in application/http
 (2) Specify Content-Transfer-Encoding in binary
 (3) Specify an empty line
-(4) Specify request method "GET" and path (: path)
+(4) Specify request method &quot;GET&quot; and path (: path)
     :path, specify the path for entity information acquisition
-    For details, refer to "Request URI" of "Entity Acquisition"
+    For details, refer to &quot;Request URI&quot; of &quot;Entity Acquisition&quot;
 (5) : Specify request header for :request_header
     Request header can be specified without specification, or one or more can be specified</code></pre>
 <ul>
@@ -216,19 +216,19 @@ Describe how to describe the change set below</li>
     See [Request header] for the character type that can be used for {Change set Boundary string}
 (2) Specify Content-Length XXX specifies the contents-length of the change set
 (3) Specify an empty line
-(4) Start Changeset Boundary String Specify "- {Change set Boundary string}"
+(4) Start Changeset Boundary String Specify &quot;- {Change set Boundary string}&quot;
 (5) Specify Content-Type in application/http
 (6) Specify Content-Transfer-Encoding in binary
 (7) Specify an empty line
-(8) Specify the request method (: method), the path (: path), and the HTTP version "HTTP/1.1"
-    :method specifies either request method "POST" "PUT" "DELETE"
+(8) Specify the request method (: method), the path (: path), and the HTTP version &quot;HTTP/1.1&quot;
+    :method specifies either request method &quot;POST&quot; &quot;PUT&quot; &quot;DELETE&quot;
     :path, specify the path of entity registration, update, and deletion processing
 (9) Specify request header for :request_header
     Request header can be specified without specification, or one or more can be specified
 (10) Specify an empty line
-(11) In the case of the request method "POST" "PUT", specify the data to be registered / updated in :data in the JSON format
-(12) In case of the request method "POST" "PUT", specify a blank line
-(13) End Changeset Boundary String Specify "- {Change set Boundary string} -"
+(11) In the case of the request method &quot;POST&quot; &quot;PUT&quot;, specify the data to be registered / updated in :data in the JSON format
+(12) In case of the request method &quot;POST&quot; &quot;PUT&quot;, specify a blank line
+(13) End Changeset Boundary String Specify &quot;- {Change set Boundary string} -&quot;
     From the change set boundary string to the change set boundary character string becomes one request information, and multiple requests can be specified by delimiting the request with the change set boundary character string</code></pre>
 <h4 id="request-path">Request Path</h4>
 <ul>
@@ -237,24 +237,24 @@ Describe how to describe the change set below</li>
 <li>{ EntitySet name}('{__id}')/{NavigationProperty name}</li>
 <li>{ EntitySet name}('{__id}')/$links/{NavigationProperty name}</li>
 </ul>
-<h4 id="-1">Request Method</h4>
+<h4 id="request-method-1">Request Method</h4>
 <p>POST, GET, PUT, DELETE</p>
 <h4 id="request-queries">Request Queries</h4>
 <p>Not compatible</p>
-<h4 id="-1">Request Header</h4>
+<h4 id="request-header-1">Request Header</h4>
 <p>Follow the specifications of user data</p>
-<h4 id="-1">Request Body</h4>
+<h4 id="request-body-1">Request Body</h4>
 <p>Follow the specifications of user data</p>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>The following shows an example of a request when acquiring, registering, updating and deleting a context with the following flow</p>
 <ul>
-<li>Acquire "ID: 0000"</li>
-<li>Registered as "ID: 0000, Name: John Smith"</li>
-<li>Updated with "ID: 0000, familyName: Smith, givenName: John"</li>
-<li>Acquire "ID: 0000"</li>
-<li>Register "ID: 0001, Name: John log" via NavigationProperty</li>
-<li>Delete "ID: 0001"</li>
-<li>Delete "ID: 0000"</li>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Registered as &quot;ID: 0000, Name: John Smith&quot;</li>
+<li>Updated with &quot;ID: 0000, familyName: Smith, givenName: John&quot;</li>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Register &quot;ID: 0001, Name: John log&quot; via NavigationProperty</li>
+<li>Delete &quot;ID: 0001&quot;</li>
+<li>Delete &quot;ID: 0000&quot;</li>
 </ul>
 <pre><code>--batch_31e84e14-28b9-4741-903f-b955f2a1b853
 Content-Type: application/http
@@ -329,11 +329,11 @@ If-Match: *
 --changeset_d4883767-a06e-4632-9608-ae952b443dfc--
 --batch_31e84e14-28b9-4741-903f-b955f2a1b853--</code></pre>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>202</p>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -359,20 +359,20 @@ If-Match: *
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Response sample reference</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>The following shows an example of the response when executing the above example of the request parameter</p>
 <ul>
-<li>Acquire "ID: 0000"</li>
-<li>Registered as "ID: 0000, Name: John Smith"</li>
-<li>Updated with "ID: 0000, familyName: Smith, givenName: John"</li>
-<li>Acquire "ID: 0000"</li>
-<li>Register "ID: 0001, Name: John log" via NavigationProperty</li>
-<li>Delete "ID: 0001"</li>
-<li>Delete "ID: 0000"</li>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Registered as &quot;ID: 0000, Name: John Smith&quot;</li>
+<li>Updated with &quot;ID: 0000, familyName: Smith, givenName: John&quot;</li>
+<li>Acquire &quot;ID: 0000&quot;</li>
+<li>Register &quot;ID: 0001, Name: John log&quot; via NavigationProperty</li>
+<li>Delete &quot;ID: 0001&quot;</li>
+<li>Delete &quot;ID: 0000&quot;</li>
 </ul>
 <pre><code>--batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX
 Content-Type: application/http
@@ -488,7 +488,7 @@ DataServiceVersion: 2.0
 --changeset_wtsoeMGaDT6vDVM8QooqoLGEH8s6nHcrh6C--
 --batch_AI6AVj7wPaHhKrBkYqBmA78weSj3u848CuX--</code></pre>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <p>curl command</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">batch&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Content-Type:multipart/mixed; boundary=batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu&#39;</span> --data-binary @sample.txt</code></pre></div>
 <p>sample.txt</p>
@@ -514,9 +514,7 @@ Content-Length: 41
 
 --changeset_76c10b01-3eaf-49c2-bdd7-9fe90df24159--
 --batch_XAmu9BiJJLBa20sRWIq74jp2UlNAVueztqu--</code></pre>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

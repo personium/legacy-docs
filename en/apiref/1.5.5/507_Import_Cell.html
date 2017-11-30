@@ -43,12 +43,12 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="cell">Cell Import</h1>
-<h3>Overview</h3>
-<p>Import cell data from Cell snapshot file.<br>The Cell snapshot file uses a special area (Cell snapshot area) in PersoniumUnit.<br>If processing fails, change the status of Cell to &quot; import failed &quot;.<br>When processing is successful, if the status of Cell is &quot; import failed &quot;, it is changed to &quot; normal &quot;.<br>When the status of Cell is &quot; import failed &quot;, the target Cell does not accept anything other than API. See <a href="290_Cell_Get_Property.html"> Acquire Properties </a> for details.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To check the status of Cell Import, use <a href="508_Progress_of_Import_Cell.html"> Cell import status acquisition </a>.<br>An example of calling from acceptance at the client to completion of processing is shown below.</p>
+<h1 id="cell-import">Cell Import</h1>
+<h3 id="overview">Overview</h3>
+<p>Import cell data from Cell snapshot file.<br>The Cell snapshot file uses a special area (Cell snapshot area) in PersoniumUnit.<br>If processing fails, change the status of Cell to &quot; import failed &quot;.<br>When processing is successful, if the status of Cell is &quot; import failed &quot;, it is changed to &quot; normal &quot;.<br>When the status of Cell is &quot; import failed &quot;, the target Cell does not accept anything other than API. See <a href="290_Cell_Get_Property.html">Acquire Properties</a> for details.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To check the status of Cell Import, use <a href="508_Progress_of_Import_Cell.html">Cell import status acquisition</a>.<br>An example of calling from acceptance at the client to completion of processing is shown below.</p>
 <pre><code>Call Import example of Cell Import (When polling on client is set to 10 seconds)
  1. Cell import reception
     -- POST /{CellName}/__import
@@ -58,22 +58,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
  3. Cell Import Complete
     -- GET /{CellName}/__import -&gt; &quot;Acceptable&quot;being returned.
     * The process in the above 2 loops and polls until completion of processing.</code></pre>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>root</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
 <li>Only accepts the request body in the json format</li>
 <li>Even if processing fails in the middle, rollback is not performed<br>* It is recommended that you export the Cell once before importing the Cell.</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__import</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>POST</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -100,8 +100,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -156,10 +156,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <h5 id="format">Format</h5>
 <p>JSON</p>
-<table>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Item Name<br></th>
@@ -179,11 +186,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;Name&quot;</span><span class="fu">:</span><span class="st">&quot;CellExport_2017_01&quot;</span><span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -200,8 +207,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -232,18 +244,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Return error message only if creation fails</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Sample</h3>
+<h3 id="curl-sample">cURL Sample</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__import&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;CellExport_2017_01&quot;}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
