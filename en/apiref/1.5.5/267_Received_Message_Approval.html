@@ -46,10 +46,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1>Message status change (unread, read, approve)</h1>
-<h3>Overview</h3>
+<h1 id="message-status-change-unread-read-approve">Message status change (unread, read, approve)</h1>
+<h3 id="overview">Overview</h3>
 <ul>
-<liapprove Message
+<li>approve Message
 <ul>
 <li>When the message type to be approved is message<br />
 change message status to read/unread</li>
@@ -59,10 +59,10 @@ According to the values of RequestRelation and RequestRelationTarget of the mess
 According to the values of RequestRelation and RequestRelationTarget of the message to be approved, delete the relation and change the state of the message to approval/rejection</li>
 </ul></li>
 </ul>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>message<br />
 social(Requires only relationship registration/deletion approval)</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <ul>
 <li>Always handles Content-Type in the request header as application/json</li>
 <li>Only accepts the request body in the JSON format</li>
@@ -70,13 +70,13 @@ social(Requires only relationship registration/deletion approval)</p>
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 </ul>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__message/received/{MessageID}</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>POST</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -103,8 +103,8 @@ social(Requires only relationship registration/deletion approval)</p>
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -166,9 +166,9 @@ social(Requires only relationship registration/deletion approval)</p>
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <p>JSON</p>
-<table>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -195,14 +195,19 @@ social(Requires only relationship registration/deletion approval)</p>
 </tr>
 </tbody>
 </table>
-<h4>Request Sample</h4>
-<div class="sourceCode"><pre class="sourceCode JSON"><code class="sourceCode JSON"><span class="fu">{</span><span class="dt">&quot;Command&quot;</span><span class="fu">:</span> <span class="st">&quot;approved&quot;</span><span class="fu">}</span></code></pre></div>
+<h4 id="request-sample">Request Sample</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;Command&quot;</span><span class="fu">:</span> <span class="st">&quot;approved&quot;</span><span class="fu">}</span></code></pre></div>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <p>204</p>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Item Name<br></th>
@@ -233,18 +238,16 @@ social(Requires only relationship registration/deletion approval)</p>
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>None</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__message/received/{MessageID}&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Command&quot;: &quot;approved&quot;}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

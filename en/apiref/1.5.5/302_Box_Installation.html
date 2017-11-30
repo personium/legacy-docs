@@ -46,16 +46,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="box">Install Box</h1>
-<h3>Overview</h3>
-<p>Install the Box in the specified path using the bar file.For the bar file format, see "<a href="301_Bar_File.html"> bar file </a>".<br />
+<h1 id="install-box">Install Box</h1>
+<h3 id="overview">Overview</h3>
+<p>Install the Box in the specified path using the bar file.For the bar file format, see &quot;<a href="301_Bar_File.html">bar file</a>&quot;.<br />
 Since this API employs the asynchronous communication method, this API immediately restores after accepting Box installation.<br />
 Therefore, to check the Box installation status, use the following API.</p>
 <ul>
 <li><a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition</a> If Box installation terminates abnormally, you can refer to the cause of the error by checking the Box installation status with this API. Below is a method of calling from acceptance at the client to completion of processing.</li>
 </ul>
-<pre><code>
-Example call of Box installation (when polling on client is set to 30 seconds)
+<pre><code>Example call of Box installation (when polling on client is set to 30 seconds)
  1. Box installation reception
     -- MKCOL /{cell}/{box}
  2. Box Installation status check
@@ -63,45 +62,49 @@ Example call of Box installation (when polling on client is set to 30 seconds)
     -- 30 seconds polling
  3. GET /{cell}/{box}  -&gt; Returned by &quot;processing completion&quot;.
  *It loops the above process 2 and polls until the process is completed.</code></pre>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>box-install</p>
-<h3>Restrictions</h3>
-<h4 id="boxbox">Box installation target Box restriction</h4>
+<h3 id="restrictions">Restrictions</h3>
+<h4 id="box-installation-target-box-restriction">Box installation target Box restriction</h4>
 <ul>
 <li>If you already have a Box with the same name, you can not install Box.</li>
 <li>If a Box with the same scheme URL already exists, you can not install Box.</li>
 <li>You can not install Box in the main box.</li>
 <li>barFile:The schema field of &quot;/bar/00_meta/00_manifest.json&quot; can not be null.</li>
 </ul>
-<h4 id="bar">bar file limit</h4>
+<h4 id="bar-file-limit">bar file limit</h4>
 <ul>
 <li>The file size of the Box installable bar file is limited to the following.<br><br />
 When exceeding the upper limit value, you can not install Box.
 <ul>
-<li>File size of bar file:100MB</li>
-<li>Before compression file size of entry in bar file:10MB</li>
+<li>File size of bar file: 100MB</li>
+<li>Before compression file size of entry in bar file: 10MB</li>
 </ul></li>
 <li>Each entry is stored in the bar file in the order defined in the bar file.</li>
-<h4 id="box">Box installation log detailed limit</h4>
 </ul>
+<h4 id="box-installation-log-detailed-limit">Box installation log detailed limit</h4>
 <ul>
-<li>
-The details of log of Box installation is output to EventBus of Cell to which Box installation target Box belongs. following *1
+<li>The details of log of Box installation is output to EventBus of Cell to which Box installation target Box belongs. following *1
 <ul>
 <li>Therefore, when referring to log details, refer to using the log file acquisition API.</li>
-<li>
-In order to use the log file acquisition API, the authority of &quot;log-read&quot; is necessary.</li>
+<li>In order to use the log file acquisition API, the authority of &quot;log-read&quot; is necessary.</li>
 <li>Because event logs other than Box installation also mix, it is necessary to filter by the &quot;RequestKey&quot; field value.</li>
 <li>The &quot;action&quot; field value obtains the &quot;Requestkey&quot; field value of &quot;MKCOL&quot; and filters it.</li>
 </ul></li>
 </ul>
-<h4>Other restrictions</h4>
+<h4 id="other-restrictions">Other restrictions</h4>
 <ul>
 <li>During the Box installation process, you can not operate data on subordinate resources including Box to be installed.</li>
 <li>Do not roll back if an error occurs during Box installation.</li>
 </ul>
-<h5 id="box">*1 Box installation log detailed format</h5>
-<table>
+<h5 id="box-installation-log-detailed-format">*1 Box installation log detailed format</h5>
+<table style="width:22%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">State<br></th>
@@ -131,8 +134,13 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 </tr>
 </tbody>
 </table>
-<h5>Processing code</h5>
-<table>
+<h5 id="processing-code">Processing code</h5>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Processing code<br></th>
@@ -179,13 +187,13 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 </tbody>
 </table>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>MKCOL</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -212,8 +220,8 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -250,7 +258,7 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 <td align="left">RequestKey field value output in the event log<br></td>
 <td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
 <td align="left">No<br></td>
-<td align="left"PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
 </tr>
 <tr class="even">
 <td align="left">Authorization<br></td>
@@ -275,8 +283,8 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
-<table>
+<h4 id="request-body">Request Body</h4>
+<table style="width:22%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -300,13 +308,12 @@ In order to use the log file acquisition API, the authority of &quot;log-read&qu
 </tr>
 </tbody>
 </table>
-<p>
-For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar file </a>.</p>
-<h4>Request Sample</h4>
+<p>For the file structure of the bar file, see the <a href="301_Bar_File.html">bar file</a>.</p>
+<h4 id="request-sample">Request Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -325,8 +332,13 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -355,19 +367,16 @@ For the file structure of the bar file, see the <a href="301_Bar_File.html"> bar
 <p>Location sample</p>
 <pre><code>Location:https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
 <p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.</p>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>None</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <pre><code>Location: https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
-<p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.<br />
-<br></p>
-<h3 id="curl">cURL Command</h3>
+<p>For details of URL for <a href="303_Progress_of_Bar_File_Installation.html">Box metadata acquisition API</a>, see Box metadata acquisition.<br><br></p>
+<h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

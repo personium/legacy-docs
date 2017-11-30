@@ -46,11 +46,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="filter">$filter Query</h1>
-<h3>Overview</h3>
+<h1 id="filter-query">$filter Query</h1>
+<h3 id="overview">Overview</h3>
 <p>Use the $filter query to specify the search condition when retrieving the list</p>
 <h3 id="operator-support">Operator Support</h3>
-<table>
+<table style="width:22%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -122,8 +122,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h3>Support function</h3>
-<table>
+<h3 id="support-function">Support function</h3>
+<table style="width:22%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -153,7 +153,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h3>Search specification by property type</h3>
+<h3 id="search-specification-by-property-type">Search specification by property type</h3>
 <h4 id="edm.string">Edm.String</h4>
 <p>Convert keywords specified for search to string type and search</p>
 <h4 id="edm.int32">Edm.Int32</h4>
@@ -164,18 +164,16 @@ If an integer value is specified as a string type, it is searched by converting 
 If it is a string type integer, if decimal value is specified convert it to decimal value and search</p>
 <h4 id="edm.boolean">Edm.Boolean</h4>
 <p>Only boolean values or null can be specified</p>
-<h3>Notices</h3>
+<h3 id="notices">Notices</h3>
 <p>*URL encoding required for query specification<br />
 *Valid values of the property to be searched are half-size alphanumeric characters, - (hyphen), _ (underscore) valid.<br />
-*If you want to include a single quote in the search string, you can specify a single quote as a search string by describing two single quotes"''"<br />
+*If you want to include a single quote in the search string, you can specify a single quote as a search string by describing two single quotes&quot;''&quot;<br />
 *If a property name that does not exist in $ filter is specified, it is searched with it included in the search condition<br />
 *When __updated, __published is specified, it is specified by UNIX time (a number in parenthesis of &quot;/Date()&quot;)</p>
-<h3 id="curl">cURL Command</h3>
+<h3 id="curl-command">cURL Command</h3>
 <p>Example: When acquiring a cell whose cell name is sample:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/__ctl/Cell?</span><span class="dt">\$</span><span class="st">filter=Name%20eq%20&#39;sample&#39;&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

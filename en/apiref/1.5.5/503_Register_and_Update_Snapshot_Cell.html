@@ -43,24 +43,24 @@ code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Ann
 code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
   </style>
-  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="cell">Cell snapshot file registration update</h1>
-<h3>Overview</h3>
+<h1 id="cell-snapshot-file-registration-update">Cell snapshot file registration update</h1>
+<h3 id="overview">Overview</h3>
 <p>Register / update Cell snapshot.</p>
-<h3>Required Privileges</h3>
+<h3 id="required-privileges">Required Privileges</h3>
 <p>root</p>
-<h3>Restrictions</h3>
+<h3 id="restrictions">Restrictions</h3>
 <p>None</p>
 <p><br></p>
-<h3>Request</h3>
-<h4 id="url">Request URL</h4>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__snapshot/{FileName}</code></pre>
-<h4>Request Method</h4>
+<h4 id="request-method">Request Method</h4>
 <p>PUT</p>
-<h4>Request Query</h4>
-<table>
+<h4 id="request-query">Request Query</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -87,8 +87,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Header</h4>
-<table>
+<h4 id="request-header">Request Header</h4>
+<table style="width:28%;">
 <colgroup>
 <col width="5%" />
 <col width="5%" />
@@ -150,8 +150,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Body</h4>
-<table>
+<h4 id="request-body">Request Body</h4>
+<table style="width:22%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Overview<br></th>
@@ -169,11 +175,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Request Sample</h4>
+<h4 id="request-sample">Request Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Code</h4>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
@@ -195,8 +201,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Header</h4>
-<table>
+<h4 id="response-header">Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -227,19 +238,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <p>Only when it fails at update / creation, return it</p>
-<h4>Error Messages</h4>
+<h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
-<h4>Response Sample</h4>
+<h4 id="response-sample">Response Sample</h4>
 <p>None</p>
 <p><br></p>
-<h3 id="curl">cURL Sample</h3>
+<h3 id="curl-sample">cURL Sample</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip&quot;</span> -X PUT -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{File contents}&#39;</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip&quot;</span> -X PUT -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -T <span class="st">&quot;/home/user/CellExport.zip&quot;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
+<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

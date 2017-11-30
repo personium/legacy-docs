@@ -9,18 +9,18 @@
   <link rel="stylesheet" href="/en/github.css" type="text/css" />
 </head>
 <body>
-<h1 id="Personiumhttp">Common Limitations on HTTP Implementation of Personium</h1>
+<h1 id="common-limitations-on-http-implementation-of-personium">Common Limitations on HTTP Implementation of Personium</h1>
 <p><br></p>
-<h3>Request</h3>
+<h3 id="request">Request</h3>
 <h4 id="url">URL</h4>
 <p>Maximum Length: 50KByte<br />
-*URL Size = header size + (URL path size * 2) + (query size * 3) <br />
->limit) IE7, 8 Many reference the browser is about 1Mbyte 2048byte, IE9 is other 5120byte,</p>
-<h4>Request Header</h4>
+*URL Size = header size + (URL path size * 2) + (query size * 3)<br />
+*limit) IE7, 8 Many reference the browser is about 1Mbyte 2048byte, IE9 is other 5120byte,</p>
+<h4 id="request-header">Request Header</h4>
 <p>The maximum size of each header: 4096 byte (whether or not including the length of the key is unknown)</p>
 <h5 id="accept-encoding">Accept Encoding</h5>
 <p>Supports GZip</p>
-<h4>Request Body</h4>
+<h4 id="request-body">Request Body</h4>
 <h5 id="transfer-encoding">Transfer-Encoding</h5>
 <p>I have to respond to a request for chunked. (Unconfirmed)</p>
 <h5 id="content-encoding">Content-Encoding</h5>
@@ -28,9 +28,13 @@
 <h4 id="time-out">Time-out</h4>
 <p>Time of 60 seconds from the start of the request, the server until you have received all of the request (unconfirmed)</p>
 <p><br></p>
-<h3>Response</h3>
-<h4>Response Header</h4>
-<table>
+<h3 id="response">Response</h3>
+<h4 id="response-header">Response Header</h4>
+<table style="width:11%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Header Name<br></th>
@@ -52,15 +56,12 @@
 </tr>
 </tbody>
 </table>
-<h4>Response Body</h4>
+<h4 id="response-body">Response Body</h4>
 <h5 id="size-limit">Size Limit</h5>
 <h5 id="transfer-encoding-1">Transfer-Encoding</h5>
 <p>Support to chunked request</p>
 <h5 id="content-encoding-1">Content-Encoding</h5>
-<p>If you set the value of a valid request Accept-Encoding header is compressed and encoded in the form of its body.<br />
-<br><br />
-<br><br />
-<br></p>
+<p>If you set the value of a valid request Accept-Encoding header is compressed and encoded in the form of its body.<br><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
