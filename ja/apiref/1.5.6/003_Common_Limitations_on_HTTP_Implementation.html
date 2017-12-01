@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+</head>
+<body>
+<h1 id="personiumhttp">PersoniumのHTTP実装に関する制限事項</h1>
+<p><br></p>
+<h3>リクエスト</h3>
+<h4 id="url">URL</h4>
+<p>最大サイズ: 50KByte<br />
+※URL サイズ = ヘッダサイズ + （URLパスサイズ × ２） + （クエリサイズ × ３）<br />
+※参考）IE7,8の制限値は2048byte、IE9は5120byte、その他の多くブラウザは1Mbyte程度</p>
+<h4>リクエストヘッダ</h4>
+<p>各ヘッダの上限サイズ： 4096byte （キーを含めての長さかどうかは不明）</p>
+<h5 id="accept-encoding">Accept Encoding</h5>
+<p>gzip に対応しています。</p>
+<h4>リクエストボディ</h4>
+<h5 id="transfer-encoding">Transfer-Encoding</h5>
+<p>chunked のリクエストに対応しています。</p>
+<h5 id="content-encoding">Content-Encoding</h5>
+<p>gzip のリクエストに対応予定ですが未対応です。</p>
+<h4 id="time-out">Time-out</h4>
+<p>60秒（リクエスト開始から、サーバがリクエストをすべて受領し終わるまでの時間）</p>
+<p><br></p>
+<h3>レスポンス</h3>
+<h4>レスポンスヘッダ</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">説明<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Transfer-Encoding<br></td>
+<td align="left">常にchunkedでレスポンスします<br></td>
+</tr>
+<tr class="even">
+<td align="left">Content-Encoding<br></td>
+<td align="left">リクエストヘッダで有効なAccept-Encoding値を設定された場合、その値が入ります<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Date<br></td>
+<td align="left">リクエストを受け付けたUTC時刻を返却します<br></td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスボディ</h4>
+<h5 id="size-limit">Size Limit</h5>
+<h5 id="transfer-encoding-1">Transfer-Encoding</h5>
+<p>原則chunked でレスポンスを行う。</p>
+<h5 id="content-encoding-1">Content-Encoding</h5>
+<p>リクエストヘッダで有効なAccept-Encoding値を設定された場合は、ボディはその形式で圧縮エンコードされます。<br />
+<br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

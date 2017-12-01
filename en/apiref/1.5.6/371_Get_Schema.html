@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/en/github.css" type="text/css" />
+</head>
+<body>
+<h1 id="schema-acquisition-metadata">Schema acquisition ($metadata)</h1>
+<h3 id="overview">Overview</h3>
+<p>Retrieve schema information</p>
+<h3 id="required-privileges">Required Privileges</h3>
+<p>read</p>
+<h3 id="restrictions">Restrictions</h3>
+<ul>
+<li>The normal type of the response body is XML format, and the response header Content-Type is application/xml</li>
+<li>The abnormality system of the response body is assumed to be JSON format, and the Content-Type of the response header is set to application/json</li>
+<li>If $format is atomsvc or Accept header is application/atomsvc+xml, Schema's Atom ServiceDocument is returned</li>
+<li>If $format is not atomsvc and Accept header is not application/atomsvc+xml, EDMX of user data is returned</li>
+<li>ComplexType and Documentation tags do not correspond and do not return</li>
+</ul>
+<p><br></p>
+<h3 id="request">Request</h3>
+<h4 id="request-url">Request URL</h4>
+<pre><code>/{CellName}/{BoxName}/{odataname}/$metadata</code></pre>
+<h4 id="request-method">Request Method</h4>
+<p>GET</p>
+<h4 id="request-query">Request Query</h4>
+<h5 id="common-query">Common Query</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Query Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">p_cookie_peer<br></td>
+<td align="left">Cookie Authentication Value<br></td>
+<td align="left">The cookie authentication value returned from the server during authentication<br></td>
+<td align="left">No<br></td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="individual-query">Individual Query</h5>
+<p>If atomsvc is specified for $format, return Schema's Atom ServiceDocument<br />
+Ignore others</p>
+<h4 id="request-header">Request Header</h4>
+<h5 id="common-request-header">Common Request Header</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X-HTTP-Method-Override<br></td>
+<td align="left">Method override function<br></td>
+<td align="left">User-defined<br></td>
+<td align="left">No<br></td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Override<br></td>
+<td align="left">Header override function<br></td>
+<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
+<td align="left">No<br></td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+</tr>
+<tr class="odd">
+<td align="left">X-Personium-RequestKey<br></td>
+<td align="left">RequestKey field value output in the event log<br></td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
+<td align="left">No<br></td>
+<td align="left">Supported in V 1.1.7 and later<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="individual-request-header">Individual request header</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Effective Value<br></th>
+<th align="left">Required<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Accept<br></td>
+<td align="left">Format of data to be returned<br></td>
+<td align="left">application/atomsvc+xml<br>application/xml<br></td>
+<td align="left">No<br></td>
+<td align="left">If not specified, the schema information of the user data schema will be acquired<br></td>
+</tr>
+<tr class="even">
+<td align="left">Authorization<br></td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
+<td align="left">Bearer {Authentication token}<br></td>
+<td align="left">No<br></td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="request-body">Request Body</h4>
+<p>None</p>
+<h4 id="request-sample">Request Sample</h4>
+<p>None</p>
+<p><br></p>
+<h3 id="response">Response</h3>
+<h4 id="response-code">Response Code</h4>
+<p>200</p>
+<h4 id="response-header">Response Header</h4>
+<h5 id="common-response-header">Common Response Header</h5>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Access-Control-Allow-Origin<br></td>
+<td align="left">Cross domain communication permission header<br></td>
+<td align="left">Return value fixed to &quot;*&quot;<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Personium-Version<br></td>
+<td align="left">API version that the request is processed<br></td>
+<td align="left">If not specified, the latest API version is specified<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="schema-acquisition-specific-response-header">Schema acquisition specific response header</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Header Name<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">Format of data to be returned<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">DataServiceVersion<br></td>
+<td align="left">OData version<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4 id="response-body">Response Body</h4>
+<h5 id="for-user-data">For user data</h5>
+<table style="width:17%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">URI<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Reference prefix<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/06/edmx" class="uri">http://schemas.microsoft.com/ado/2007/06/edmx</a><br></td>
+<td align="left">edmx namespace<br></td>
+<td align="left">edmx:<br></td>
+</tr>
+<tr class="even">
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices</a><br></td>
+<td align="left">WCF Data Services namespace<br></td>
+<td align="left">d:<br></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices/metadata</a><br></td>
+<td align="left">WCF Data Services metadata namespace<br></td>
+<td align="left">m:<br></td>
+</tr>
+<tr class="even">
+<td align="left">urn:x-personium:xmlns<br></td>
+<td align="left">Personium namespace <br></td>
+<td align="left">p:<br></td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a><br></td>
+<td align="left">scheme namespace<br></td>
+<td align="left">-<br></td>
+</tr>
+</tbody>
+</table>
+<p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
+<h5 id="structure-of-xml">Structure of XML</h5>
+<p>The body is XML (edmx) and follows the following schema.</p>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Node name<br></th>
+<th align="left">Namespace<br></th>
+<th align="left">Node type<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Edmx <br></td>
+<td align="left">edmx:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents the root of the EDMX document and always has one DataServices element in the child<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Version<br></td>
+<td align="left">edmx:<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the version of the EDMX document. The attribute value is always '1.0'<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">DataServices<br></td>
+<td align="left">edmx:<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents a data service, with multiple Schema elements for children<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">DataServiceVersion<br></td>
+<td align="left">m:<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the version of the data service. The attribute value is always '1.0'<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Schema<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">It represents the top-level element of the CSDL document, Association / ComplexType <br>EntityType / EntityContainer / Having elements of Documentation<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Namespace<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">A mandatory attribute representing the name of the schema.<br></td>
+<td align="left">You can not use System, Transient, or Edm as the value<br></td>
+</tr>
+<tr class="odd">
+<td align="left">ComplexType<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">It represents a complex type, and has a child Documentation / Property element<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents a compound schema name, mandatory attribute<br></td>
+<td align="left">Required only if ComplexType exists in the OData collection<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Abstract<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents data in the form of a property<br></td>
+<td align="left">Displayed only when Abstract exists<br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent a compound type document<br></td>
+<td align="left">Display only when it exists<br></td>
+</tr>
+<tr class="odd">
+<td align="left">EntityType<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">It represents an entity type and has children elements<br>Documentation / HasStream / BaseType / Key / Property / NavigationProperty<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">HasStream<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents whether an entity is associated with a media resource stream<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">BaseType<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the basic type of an entity type<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent document of entity type<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Key<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">It represents a key of an entity, and one or more PropertyRefs are always children<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">PropertyRef<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents the reference property of a key<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the name of the property being referenced and is a required attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">NavigationProperty<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents a NavigationProperty<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">It represents the name of the NavigationProperty and it is a required attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents a document of NavigationProperty<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Relationship<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the name of the association within the scope of the model and is a required attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">FromRole<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents a referencing role<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">ToRole<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents a referenced role<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Association<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">It represents an Association, and has child element of Documentation / End<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents an AssociationName, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent document of Association<br></td>
+<td align="left">Display only when it exists<br></td>
+</tr>
+<tr class="odd">
+<td align="left">End<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents the name of the AssociationEnd, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Role<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the name of the AssociationEnd, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Type<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the type of AssociationEnd, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Multiplicity<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the multiplicity of AssociationEnd, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">EntityContainer<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">It represents an entity container and has child elements <br>Documentation / EntitySet / FunctionImport / AssociationSet<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents an EntityContainer name, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">IsDefaultEntityContainer<br></td>
+<td align="left">m:<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the default EntityContainer flag<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent document of document of EntityContainer<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">EntitySet<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents an EntitySet and has child elements of Documentation<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent document of document of EntityContainer<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents an EntitySet and has child elements of Documentation<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">EntityType<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the EntityType of an entity set<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents an EntitySet name, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">FunctionImport<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents a FunctionImport (model declaration function)<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents a FunctionImport name, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">EntitySet<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents an entity set of FunctionImport and has elements of Documentation as children<br></td>
+<td align="left">Repeat for existing entity sets<br></td>
+</tr>
+<tr class="odd">
+<td align="left">ReturnType<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the return type<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">HttpMethod<br></td>
+<td align="left">m:<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represent method, mandatory attribute<br></td>
+<td align="left">When FunctionImport exists<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent document of FunctionImport<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Parameter<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents FunctionImport arguments<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">It represents the argument name of the FunctionImport, and mandatory items<br></td>
+<td align="left">When FunctionImport, Parameter exists<br></td>
+</tr>
+<tr class="even">
+<td align="left">Type<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">It represents the argument type of FunctionImport, and mandatory items<br></td>
+<td align="left">When FunctionImport, Parameter exists<br></td>
+</tr>
+<tr class="odd">
+<td align="left">Mode<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the mode of the FunctionImport argument, valid values: 'In', 'Out', or 'InOut'<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent document of FunctionImport argument<br></td>
+<td align="left">Display only when it exists<br></td>
+</tr>
+<tr class="odd">
+<td align="left">AssociationSet<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents an AssociationSet and has Documentation and two Ends in its child<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents an AssociationSet name, mandatory attribute<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Association<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents an AssociationSet association, mandatory attributes<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Documentation<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent document of AssociationSet<br></td>
+<td align="left">Display only when it exists<br></td>
+</tr>
+<tr class="odd">
+<td align="left">End<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents an AssociationSetEnd, and essential elements<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Role<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents a role, mandatory attributes<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">EntitySet<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Representing an EntitySet, mandatory attributes<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="property">Property</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Node name<br></th>
+<th align="left">Namespace<br></th>
+<th align="left">Node type<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Property<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents a Property of an EntityType<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Name<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the name of the Property<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Type<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the type of Property value<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Nullable<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Indicates whether null value can be assigned<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">MaxLength<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the maximum allowable length of a Property<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">DefaultValue<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the default value of a Property<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Precision<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the number of significant digits of a Property<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Scale<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the number of decimal places of Property<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">CollectionKind<br></td>
+<td align="left">-<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents array type of Property<br></td>
+<td align="left">List if the collection is an array, otherwise None<br>It is not displayed in case of None</td>
+</tr>
+<tr class="even">
+<td align="left">Format<br></td>
+<td align="left">p:<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents the character format of the Property<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">IsDeclared<br></td>
+<td align="left">p:<br></td>
+<td align="left">Attributes<br></td>
+<td align="left">Represents whether it is a static Property or not<br></td>
+<td align="left">It is displayed with false for dynamic properties, not for static Properties<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="documentation">Documentation</h5>
+<p>Not compatible</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Node name<br></th>
+<th align="left">Namespace<br></th>
+<th align="left">Node type<br></th>
+<th align="left">Overview<br></th>
+<th align="left">Notes<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Summary<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represents a summary of the Document<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">LongDescription<br></td>
+<td align="left">-<br></td>
+<td align="left">Element<br></td>
+<td align="left">Represent Document details<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="dtd-notation">DTD notation</h5>
+<p>namespace:edmx:</p>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">Edmx</span> <span class="dv">(</span><span class="fu">DataServices</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">Edmx</span> <span class="fu">Version</span> <span class="fu">CDDATA</span> <span class="st">&quot;1.0&quot;</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">DataServices</span> <span class="dv">(</span><span class="fu">Schema</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></code></pre></div>
+<p>namespace: m:</p>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">DataServices</span> <span class="fu">DataServiceVersion</span> <span class="fu">CDDATA</span> <span class="st">&quot;1.0&quot;</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">FunctionImport</span> <span class="fu">HttpMethod</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">EntityContainer</span> <span class="fu">IsDefaultEntityContainer</span> <span class="fu">CDDATA</span> <span class="st">&quot;true&quot;</span><span class="dt">&gt;</span></code></pre></div>
+<p>namespace:<a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a></p>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">Schema</span> <span class="dv">(</span><span class="fu">Association</span><span class="fl">*</span><span class="dv">,</span><span class="fu">ComplexType</span><span class="fl">*</span><span class="dv">,</span><span class="fu">EntityType</span><span class="fl">*</span><span class="dv">,</span><span class="fu">EntityContainer</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">Schema</span> <span class="fu">Namespace</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">ComplexType</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">,</span><span class="fu">Property</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">ComplexType</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+                      <span class="fu">Abstract</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">Documentation</span> <span class="dv">(</span><span class="fu">Summary</span><span class="fl">?</span><span class="dv">,</span><span class="fu">LongDescription</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">Summary</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">LongDescription</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">Property</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">Property</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                   <span class="fu">Type</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                   <span class="fu">Nullable</span> <span class="fu">CDDATA</span> <span class="dv">(</span><span class="fu">true</span><span class="dv">|</span><span class="fu">false</span><span class="dv">)</span> <span class="kw">#REQUIRED</span>
+                   <span class="fu">MaxLength</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+                   <span class="fu">DefaultValue</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+                   <span class="fu">Precision</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+                   <span class="fu">Scale</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+                   <span class="fu">CollectionKind</span> <span class="dv">(</span><span class="fu">List</span><span class="dv">|</span><span class="fu">None</span><span class="dv">)</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">EntityType</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">,</span><span class="fu">Key</span>/<span class="fu">Property</span><span class="fl">*</span>/<span class="fu">NavigationProperty</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">EntityType</span> <span class="fu">OpenType</span> <span class="dv">(</span><span class="fu">true</span><span class="dv">|</span><span class="fu">false</span><span class="dv">)</span> <span class="kw">#REQUIRED</span>
+                     <span class="fu">HasStream</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+                     <span class="fu">BaseType</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">Key</span> <span class="dv">(</span><span class="fu">PropertyRef</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">PropertyRef</span> <span class="fu">ENPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">PropertyRef</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">NavigationProperty</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">PropertyRef</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                      <span class="fu">Relationship</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                      <span class="fu">FromRole</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                      <span class="fu">ToRole</span>  <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">Association</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">|</span><span class="fu">End</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">Association</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">End</span> <span class="fu">ENPTY</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">End</span> <span class="fu">Role</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">Type</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+          <span class="fu">Multiplicity</span> <span class="dv">(</span><span class="st">&quot;1&quot;</span><span class="dv">,</span><span class="st">&quot;0..1&quot;</span><span class="dv">,</span><span class="st">&quot;*&quot;</span><span class="dv">)</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">EntityContainer</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">|</span><span class="fu">EntitySet</span><span class="fl">*</span><span class="dv">|</span><span class="fu">FunctionImport</span><span class="fl">*</span><span class="dv">|</span><span class="fu">AssociationSet</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">FunctionImport</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                         <span class="fu">EntitySet</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+                         <span class="fu">ReturnType</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">Parameter</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">Parameter</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                    <span class="fu">Type</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                    <span class="fu">Mode</span>  <span class="dv">(</span><span class="st">&quot;In&quot;</span><span class="dv">,</span><span class="st">&quot;Out&quot;</span><span class="dv">,</span><span class="st">&quot;InOut&quot;</span><span class="dv">)</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">AssociationSet</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">|</span><span class="fu">End</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">AssociationSet</span> <span class="fu">Name</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span>
+                         <span class="fu">Association</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">End</span> <span class="dv">(</span><span class="fu">Documentation</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span>
+<span class="dt">&lt;!ATTLIST</span> <span class="fu">End</span> <span class="fu">Role</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span>
+              <span class="fu">EntitySet</span> <span class="fu">CDDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></code></pre></div>
+<p>namespace:p:</p>
+<div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ATTLIST</span> <span class="fu">Property</span> <span class="fu">Format</span> <span class="fu">CDDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></code></pre></div>
+<h4 id="error-messages">Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h4 id="response-sample">Response Sample</h4>
+<h5 id="for-schemas-atom-servicedocument">For Schema's Atom ServiceDocument</h5>
+<p>Return the following fixedly.</p>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;service</span><span class="ot"> xmlns=</span><span class="st">&quot;http://www.w3.org/2007/app&quot;</span><span class="ot"> xml:base=</span><span class="st">&quot;https://demo.Personium/kouroki/TestBox/TestOData/$metadata/&quot;</span><span class="ot"> xmlns:atom=</span><span class="st">&quot;http://www.w3.org/2005/Atom&quot;</span><span class="ot"> xmlns:app=</span><span class="st">&quot;http://www.w3.org/2007/app&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;workspace&gt;</span>
+    <span class="kw">&lt;atom:title&gt;</span>Default<span class="kw">&lt;/atom:title&gt;</span>
+    <span class="kw">&lt;collection</span><span class="ot"> href=</span><span class="st">&quot;EntityType&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;atom:title&gt;</span>EntityType<span class="kw">&lt;/atom:title&gt;</span>
+    <span class="kw">&lt;/collection&gt;</span>
+    <span class="kw">&lt;collection</span><span class="ot"> href=</span><span class="st">&quot;AssociationEnd&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;atom:title&gt;</span>AssociationEnd<span class="kw">&lt;/atom:title&gt;</span>
+    <span class="kw">&lt;/collection&gt;</span>
+    <span class="kw">&lt;collection</span><span class="ot"> href=</span><span class="st">&quot;ComplexTypeProperty&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;atom:title&gt;</span>ComplexTypeProperty<span class="kw">&lt;/atom:title&gt;</span>
+    <span class="kw">&lt;/collection&gt;</span>
+    <span class="kw">&lt;collection</span><span class="ot"> href=</span><span class="st">&quot;Property&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;atom:title&gt;</span>Property<span class="kw">&lt;/atom:title&gt;</span>
+    <span class="kw">&lt;/collection&gt;</span>
+    <span class="kw">&lt;collection</span><span class="ot"> href=</span><span class="st">&quot;ComplexType&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;atom:title&gt;</span>ComplexType<span class="kw">&lt;/atom:title&gt;</span>
+    <span class="kw">&lt;/collection&gt;</span>
+  <span class="kw">&lt;/workspace&gt;</span>
+<span class="kw">&lt;/service&gt;</span></code></pre></div>
+<h5 id="for-user-data-1">For user data</h5>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;edmx:Edmx</span><span class="ot"> Version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> xmlns:edmx=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/06/edmx&quot;</span><span class="ot"> xmlns:d=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/08/dataservices&quot;</span><span class="ot"> xmlns:m=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2007/08/dataservices/metadata&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;edmx:DataServices</span><span class="ot"> m:DataServiceVersion=</span><span class="st">&quot;1.0&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;Schema</span><span class="ot"> xmlns=</span><span class="st">&quot;http://schemas.microsoft.com/ado/2006/04/edm&quot;</span><span class="ot"> Namespace=</span><span class="st">&quot;UserData&quot;</span><span class="kw">&gt;</span>
+      <span class="kw">&lt;ComplexType</span><span class="ot"> Name=</span><span class="st">&quot;Address&quot;</span><span class="kw">&gt;&lt;/ComplexType&gt;</span>
+      <span class="kw">&lt;ComplexType</span><span class="ot"> Name=</span><span class="st">&quot;TestComplexType&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;Property</span><span class="ot"> Name=</span><span class="st">&quot;TestComplexTypeProperty&quot;</span><span class="ot"> Type=</span><span class="st">&quot;Edm.String&quot;</span><span class="ot"> Nullable=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/Property&gt;</span>
+      <span class="kw">&lt;/ComplexType&gt;</span>
+      <span class="kw">&lt;EntityType</span><span class="ot"> Name=</span><span class="st">&quot;TestEntity&quot;</span><span class="ot"> OpenType=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;Key&gt;</span>
+          <span class="kw">&lt;PropertyRef</span><span class="ot"> Name=</span><span class="st">&quot;__id&quot;</span><span class="kw">&gt;&lt;/PropertyRef&gt;</span>
+        <span class="kw">&lt;/Key&gt;</span>
+        <span class="kw">&lt;Property</span><span class="ot"> Name=</span><span class="st">&quot;__id&quot;</span><span class="ot"> Type=</span><span class="st">&quot;Edm.String&quot;</span><span class="ot"> Nullable=</span><span class="st">&quot;false&quot;</span><span class="ot"> DefaultValue=</span><span class="st">&quot;UUID()&quot;</span><span class="ot"> p:Format=</span><span class="st">&quot;regEx(&#39;^[a-zA-Z0-9][a-zA-Z0-9-_:]{0,199}$&#39;)&quot;</span><span class="kw">&gt;&lt;/Property&gt;</span>
+        <span class="kw">&lt;Property</span><span class="ot"> Name=</span><span class="st">&quot;__published&quot;</span><span class="ot"> Type=</span><span class="st">&quot;Edm.DateTime&quot;</span><span class="ot"> Nullable=</span><span class="st">&quot;false&quot;</span><span class="ot"> DefaultValue=</span><span class="st">&quot;SYSUTCDATETIME()&quot;</span><span class="ot"> Precision=</span><span class="st">&quot;3&quot;</span><span class="kw">&gt;&lt;/Property&gt;</span>
+        <span class="kw">&lt;Property</span><span class="ot"> Name=</span><span class="st">&quot;__updated&quot;</span><span class="ot"> Type=</span><span class="st">&quot;Edm.DateTime&quot;</span><span class="ot"> Nullable=</span><span class="st">&quot;false&quot;</span><span class="ot"> DefaultValue=</span><span class="st">&quot;SYSUTCDATETIME()&quot;</span><span class="ot"> Precision=</span><span class="st">&quot;3&quot;</span><span class="kw">&gt;&lt;/Property&gt;</span>
+        <span class="kw">&lt;Property</span><span class="ot"> Name=</span><span class="st">&quot;TestProperty&quot;</span><span class="ot"> Type=</span><span class="st">&quot;Edm.String&quot;</span><span class="ot"> Nullable=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;&lt;/Property&gt;</span>
+        <span class="kw">&lt;NavigationProperty</span><span class="ot"> Name=</span><span class="st">&quot;_TestEntity&quot;</span><span class="ot"> Relationship=</span><span class="st">&quot;UserData.TestEntity-TestEntity-assoc&quot;</span><span class="ot"> FromRole=</span><span class="st">&quot;TestEntity:TestAssociationEndFrom&quot;</span><span class="ot"> ToRole=</span><span class="st">&quot;TestEntity:TestAssociationEndTo&quot;</span><span class="kw">&gt;&lt;/NavigationProperty&gt;</span>
+      <span class="kw">&lt;/EntityType&gt;</span>
+      <span class="kw">&lt;Association</span><span class="ot"> Name=</span><span class="st">&quot;TestEntity-TestEntity-assoc&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;End</span><span class="ot"> Role=</span><span class="st">&quot;TestEntity:TestAssociationEndFrom&quot;</span><span class="ot"> Type=</span><span class="st">&quot;UserData.TestEntity&quot;</span><span class="ot"> Multiplicity=</span><span class="st">&quot;1&quot;</span><span class="kw">&gt;&lt;/End&gt;</span>
+        <span class="kw">&lt;End</span><span class="ot"> Role=</span><span class="st">&quot;TestEntity:TestAssociationEndTo&quot;</span><span class="ot"> Type=</span><span class="st">&quot;UserData.TestEntity&quot;</span><span class="ot"> Multiplicity=</span><span class="st">&quot;0..1&quot;</span><span class="kw">&gt;&lt;/End&gt;</span>
+      <span class="kw">&lt;/Association&gt;</span>
+      <span class="kw">&lt;EntityContainer</span><span class="ot"> Name=</span><span class="st">&quot;UserData&quot;</span><span class="ot"> m:IsDefaultEntityContainer=</span><span class="st">&quot;true&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;EntitySet</span><span class="ot"> Name=</span><span class="st">&quot;TestEntity&quot;</span><span class="ot"> EntityType=</span><span class="st">&quot;UserData.TestEntity&quot;</span><span class="kw">&gt;&lt;/EntitySet&gt;</span>
+        <span class="kw">&lt;EntitySet</span><span class="ot"> Name=</span><span class="st">&quot;animal&quot;</span><span class="ot"> EntityType=</span><span class="st">&quot;UserData.animal&quot;</span><span class="kw">&gt;&lt;/EntitySet&gt;</span>
+        <span class="kw">&lt;EntitySet</span><span class="ot"> Name=</span><span class="st">&quot;Profile&quot;</span><span class="ot"> EntityType=</span><span class="st">&quot;UserData.Profile&quot;</span><span class="kw">&gt;&lt;/EntitySet&gt;</span>
+        <span class="kw">&lt;AssociationSet</span><span class="ot"> Name=</span><span class="st">&quot;TestEntity-TestEntity-assoc&quot;</span><span class="ot"> Association=</span><span class="st">&quot;UserData.TestEntity-TestEntity-assoc&quot;</span><span class="kw">&gt;</span>
+          <span class="kw">&lt;End</span><span class="ot"> Role=</span><span class="st">&quot;TestEntity:TestAssociationEndFrom&quot;</span><span class="ot"> EntitySet=</span><span class="st">&quot;TestEntity&quot;</span><span class="kw">&gt;&lt;/End&gt;</span>
+          <span class="kw">&lt;End</span><span class="ot"> Role=</span><span class="st">&quot;TestEntity:TestAssociationEndTo&quot;</span><span class="ot"> EntitySet=</span><span class="st">&quot;TestEntity&quot;</span><span class="kw">&gt;&lt;/End&gt;</span>
+        <span class="kw">&lt;/AssociationSet&gt;</span>
+      <span class="kw">&lt;/EntityContainer&gt;</span>
+    <span class="kw">&lt;/Schema&gt;</span>
+  <span class="kw">&lt;/edmx:DataServices&gt;</span>
+<span class="kw">&lt;/edmx:Edmx&gt;</span></code></pre></div>
+<p><br></p>
+<h3 id="curl-command">cURL Command</h3>
+<h5 id="for-schemas-atom-servicedocument-1">For Schema's Atom ServiceDocument</h5>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/atomsvc+xml&#39;</span></code></pre></div>
+<h5 id="for-user-data-2">For user data</h5>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/xml&#39;</span></code></pre></div>
+<p><br><br><br><br><br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

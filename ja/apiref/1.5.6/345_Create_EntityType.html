@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+</head>
+<body>
+<h1 id="entitytype">EntityType登録</h1>
+<h3>概要</h3>
+<p>ユーザーデータのEntityTypeを登録する</p>
+<h3>制限事項</h3>
+<ul>
+<li>リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う</li>
+<li>リクエストボディはJSON形式のみ受け付ける</li>
+<li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする</li>
+<li>$formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない</li>
+</ul>
+<h3>個別の制限</h3>
+<ul>
+<li>1つのCollectionに対して作成できるEntityTypeは100個まで</li>
+</ul>
+<h3>必要な権限</h3>
+<p>alter-schema</p>
+<p><br></p>
+<h3>リクエスト</h3>
+<h4 id="url">リクエストURL</h4>
+<pre><code>/{CellName}/{BoxName}/{ODataCollecitonName}/$metadata/EntityType</code></pre>
+<h4>メソッド</h4>
+<p>POST</p>
+<h4>リクエストクエリ</h4>
+<p>共通リクエストクエリ</p>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">クエリ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">p_cookie_peer<br></td>
+<td align="left">クッキー認証値<br></td>
+<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
+<td align="left">×<br></td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="odata-">OData 共通リクエストクエリ</h5>
+<p>なし</p>
+<h4>リクエストヘッダ</h4>
+<h5>共通リクエストヘッダ</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">X-HTTP-Method-Override<br></td>
+<td align="left">メソッドオーバーライド機能<br></td>
+<td align="left">任意<br></td>
+<td align="left">×<br></td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Override<br></td>
+<td align="left">ヘッダオーバライド機能<br></td>
+<td align="left">${上書きするヘッダ名}:${値}<br></td>
+<td align="left">×<br></td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br></td>
+</tr>
+<tr class="odd">
+<td align="left">X-Personium-RequestKey<br></td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
+<td align="left">×<br></td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="odata">OData共通リクエストヘッダ</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Authorization<br></td>
+<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
+<td align="left">Bearer {AccessToken}<br></td>
+<td align="left">×<br></td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="odata">OData登録リクエストヘッダ</h5>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">リクエストボディの形式を指定する<br></td>
+<td align="left">application/json<br></td>
+<td align="left">×<br></td>
+<td align="left">省略時は[application/json]として扱う<br></td>
+</tr>
+<tr class="even">
+<td align="left">Accept<br></td>
+<td align="left">レスポンスボディの形式を指定する<br></td>
+<td align="left">application/json<br></td>
+<td align="left">×<br></td>
+<td align="left">省略時は[application/json]として扱う<br></td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストボディ</h4>
+<h5 id="format">Format</h5>
+<p>JSON</p>
+<table style="width:28%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">項目名<br></th>
+<th align="left">概要<br></th>
+<th align="left">有効値<br></th>
+<th align="left">必須<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Name<br></td>
+<td align="left">EntityType名<br></td>
+<td align="left">桁数：1～128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可<br>null<br></td>
+<td align="left">○<br></td>
+<td align="left"><br></td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストサンプル</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;Name&quot;</span><span class="fu">:</span><span class="st">&quot;animal&quot;</span><span class="fu">}</span></code></pre></div>
+<p><br></p>
+<h3>レスポンス</h3>
+<h4>ステータスコード</h4>
+<p>201</p>
+<h4>レスポンスヘッダ</h4>
+<table>
+<thead>
+<tr class="header">
+<th align="left">ヘッダ名<br></th>
+<th align="left">概要<br></th>
+<th align="left">備考<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Content-Type<br></td>
+<td align="left">返却されるデータの形式<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">Location<br></td>
+<td align="left">作成したリソースへのURL<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">DataServiceVersion<br></td>
+<td align="left">ODataのバージョン<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="even">
+<td align="left">ETag<br></td>
+<td align="left">リソースのバージョン情報<br></td>
+<td align="left"><br></td>
+</tr>
+<tr class="odd">
+<td align="left">Access-Control-Allow-Origin<br></td>
+<td align="left">クロスドメイン通信許可ヘッダ<br></td>
+<td align="left">返却値は&quot;*&quot;固定<br></td>
+</tr>
+<tr class="even">
+<td align="left">X-Personium-Version<br></td>
+<td align="left">APIの実行バージョン<br></td>
+<td align="left">リクエストが処理されたAPIバージョン<br></td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスボディ</h4>
+<h5>共通レスポンスボディ</h5>
+<p>レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">オブジェクト<br></th>
+<th align="left">名前（キー）<br></th>
+<th align="left">型<br></th>
+<th align="left">値<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">ルート<br></td>
+<td align="left">d<br></td>
+<td align="left">object<br></td>
+<td align="left">オブジェクト{1}<br></td>
+</tr>
+<tr class="even">
+<td align="left">{1}<br></td>
+<td align="left">results<br></td>
+<td align="left">array<br></td>
+<td align="left">オブジェクト{2}の配列<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{2}<br></td>
+<td align="left">__metadata<br></td>
+<td align="left">object<br></td>
+<td align="left">オブジェクト{3}<br></td>
+</tr>
+<tr class="even">
+<td align="left">{3}<br></td>
+<td align="left">uri<br></td>
+<td align="left">string<br></td>
+<td align="left">作成したリソースへのURL<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{3}<br></td>
+<td align="left">etag<br></td>
+<td align="left">string<br></td>
+<td align="left">Etag値<br></td>
+</tr>
+<tr class="even">
+<td align="left">{2}<br></td>
+<td align="left">__published<br></td>
+<td align="left">string<br></td>
+<td align="left">作成日(UNIX時間)<br></td>
+</tr>
+<tr class="odd">
+<td align="left">{2}<br></td>
+<td align="left">__updated<br></td>
+<td align="left">string<br></td>
+<td align="left">更新日(UNIX時間)<br></td>
+</tr>
+<tr class="even">
+<td align="left">{1}<br></td>
+<td align="left">__count<br></td>
+<td align="left">string<br></td>
+<td align="left">$inlinecountクエリでの取得結果件数<br></td>
+</tr>
+</tbody>
+</table>
+<h5 id="entitytype">EntityType固有レスポンスボディ</h5>
+<table>
+<thead>
+<tr class="header">
+<th align="left">オブジェクト<br></th>
+<th align="left">名前（キー）<br></th>
+<th align="left">型<br></th>
+<th align="left">値<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">{3}<br></td>
+<td align="left">type<br></td>
+<td align="left">string<br></td>
+<td align="left">ODataSvcSchema.EntityType<br></td>
+</tr>
+<tr class="even">
+<td align="left">{2}<br></td>
+<td align="left">Name<br></td>
+<td align="left">string<br></td>
+<td align="left">EntityType名<br></td>
+</tr>
+</tbody>
+</table>
+<h4>エラーメッセージ一覧</h4>
+<p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
+<h4>レスポンスサンプル</h4>
+<div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span>
+  <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+      <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span>
+        <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/$metadata/EntityType(&#39;{EntityTypeName}&#39;)&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;etag&quot;</span><span class="fu">:</span> <span class="st">&quot;W/</span><span class="ch">\&quot;</span><span class="st">1-1487589344011</span><span class="ch">\&quot;</span><span class="st">&quot;</span><span class="fu">,</span>
+        <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;ODataSvcSchema.EntityType&quot;</span>
+      <span class="fu">},</span>
+      <span class="dt">&quot;Name&quot;</span><span class="fu">:</span> <span class="st">&quot;{EntityTypeName}&quot;</span><span class="fu">,</span>
+      <span class="dt">&quot;__published&quot;</span><span class="fu">:</span> <span class="st">&quot;/Date(1487589344011)/&quot;</span><span class="fu">,</span>
+      <span class="dt">&quot;__updated&quot;</span><span class="fu">:</span> <span class="st">&quot;/Date(1487589344011)/&quot;</span>
+    <span class="fu">}</span>
+  <span class="fu">}</span>
+<span class="fu">}</span></code></pre></div>
+<p><br></p>
+<h3 id="curl">cURLサンプル</h3>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata/EntityType&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{ &quot;Name&quot;: &quot;{EntityTypeName}&quot; }&#39;</span></code></pre></div>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

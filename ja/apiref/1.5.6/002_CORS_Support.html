@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+</head>
+<body>
+<h1 id="corscross-origin-resource-sharing">CORS(Cross Origin Resource Sharing)対応</h1>
+<h3>概要</h3>
+<p>PersoniumのすべてのAPIは、一部例外を除き原則CORS(Cross Origin Resource Sharing)での利用を想定しています。<br />
+具体的には特段例外としての記述が無い場合、全APIエンドポイントがリクエストに応じて以下のレスポンスヘッダを返却します。</p>
+<ol>
+<li>Access-Control-Allow-Origin</li>
+<li>Access-Control-Allow-Methods</li>
+<li>Access-Control-Allow-Headers</li>
+</ol>
+<p>これにより、JavaScriptなどのウェブブラウザ搭載のスクリプト言語でサーバとのHTTP非同期通信を行うため、XMLHttpRequest Level 2を使用することができます。</p>
+<h3 id="access-control-allow-origin">Access-Control-Allow-Originレスポンスヘッダの返却</h3>
+<p>すべてのAPIにおいて、Access-Control-Allow-Originレスポンスヘッダとして*を返却します。<br />
+Access-Control-Allow-Originレスポンスヘッダはアクセスを許可しているドメインを返却するものですが、Personiumは全てのドメインからのアクセスを許可すべくこのような振る舞いをします。<br />
+次に示すのは、Access-Control-Allow-Originのレスポンスヘッダの例です。</p>
+<pre><code>Access-Control-Allow-Origin: *          </code></pre>
+<h3>ブラウザからのプレフライトリクエストへの対応</h3>
+<p>ブラウザからのプレフライトリクエストへの対応として、すべてのAPIにおいてOPTIONSメソッドのリクエストを発行すると以下の振る舞いをします。</p>
+<ol>
+<li>Access-Control-Allow-Methods レスポンスヘッダの返却</li>
+<li>Access-Control-Allow-Headers レスポンスヘッダの返却</li>
+</ol>
+<h4 id="access-control-allow-methods-">Access-Control-Allow-Methods レスポンスヘッダの返却</h4>
+<p>すべてのAPIにおいてOPTIONSメソッドのリクエストを発行すると、Access-Control-Allow-Methodsレスポンスヘッダを返却します。<br />
+Access-Control-Allow-Methodsレスポンスヘッダの内容は、APIのアクセス制御設定とAuthorizationヘッダの内容によって以下のように変化します。</p>
+<table style="width:11%;">
+<colgroup>
+<col width="5%" />
+<col width="5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">条件<br></th>
+<th align="left">結果<br></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">公開（Authorizationヘッダなしでも読み取り可能）なリソース<br></td>
+<td align="left">そのリソースがサポートするすべてのHTTPメソッドを返します。<br></td>
+</tr>
+<tr class="even">
+<td align="left">非公開（公開でない）リソースへのAuthorizationヘッダなしでのOPTIONSリクエスト <br></td>
+<td align="left">PersoniumがサポートしうるすべてのHTTPメソッドを返します。<br></td>
+</tr>
+<tr class="odd">
+<td align="left">非公開リソースへの有効な※AuthorizationヘッダつきでのOPTIONSリクエスト<br></td>
+<td align="left">そのリソースがサポートするすべてのHTTPメソッドを返します。<br></td>
+</tr>
+</tbody>
+</table>
+<p>※ Authorizationヘッダつきのリクエストでは、そのヘッダ内容に応じて以下のエラーとなることもあります。</p>
+<ol>
+<li>401: Authorizationヘッダの内容が無効である。</li>
+<li>403: アクセス制御等の状況によりリクエストが受け付けられない。（読み取りが許可されていない。）</li>
+</ol>
+<p>リクエストURLにて許可をしているリクエストメソッドを返却します。<br />
+次に示すのは、Access-Control-Allow-Methodsのレスポンスヘッダの例です。</p>
+<pre><code>Access-Control-Allow-Origin: GET, OPTIONS</code></pre>
+<h4 id="access-control-allow-headers-">Access-Control-Allow-Headers レスポンスヘッダの返却</h4>
+<p>すべてのAPIにおいて、リクエストヘッダにAccess-Control-Request-Headersを指定した場合、Access-Control-Allow-Headersを返却します。<br />
+次に示すのは、Access-Control-Request-Headersに「sample」を指定した場合のレスポンスヘッダの例です。</p>
+<pre><code>Access-Control-Allow-Origin: sample</code></pre>
+<h3>参考</h3>
+<p>CORSの詳細については<a href="http://www.w3.org/TR/cors/">こちら</a>を参照してください。<br />
+<br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

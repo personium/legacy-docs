@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+</head>
+<body>
+<h1>イベントのモデル</h1>
+<h3>概要</h3>
+<p><a href="278_Event_Reception.html">イベント受付API</a>にて定義された外部イベント、およびPersonium内部で定義された内部イベントから構成される。</p>
+<p><img src="image/eventmodel.png" title="イベントモデル" alt="イベントモデル" /></p>
+<h4>外部イベント</h4>
+<p><a href="278_Event_Reception.html">イベント受付API</a> にて、受け付けるイベントを表す。<br />
+イベント受付APIによってイベントが発生し、受け付けたイベントの内容に沿って処理が実行される。<br />
+また、将来的には、他のセルに対するメッセージ通知によるイベント受付のリレー処理が可能となる予定。<br />
+イベント受付時に、発生したイベントの内容をイベントログとして出力する。</p>
+<h4>内部イベント</h4>
+<p>Personium内部で保持する管理データ（OData/WebDAV/Service等）の状態をもとに実行される処理のことを表す。<br />
+代表的な内部イベントとして、Personium APIのリクエストがある。<br />
+Personium APIのレスポンス返却時に実行結果をイベントログとして出力する。</p>
+<h3>イベントのログ</h3>
+<h4>イベントログ管理設定</h4>
+<p>ログ設定更新APIによってイベントログに対する出力設定が可能。<br />
+設定した情報を取得するには、ログ設定取得APIを使用する。</p>
+<h4>イベントログアクセス方法</h4>
+<p>イベントログは、WebDAV上で管理するため、イベントログファイルへのアクセスはWebDAV用のAPIで行う。</p>
+<ul>
+<li><a href="284_Retrieve_Log_File_list.html">ログファイル一覧取得</a></li>
+<li><a href="285_Retrieve_Log_File.html">ログファイル取得</a></li>
+<li><a href="286_Delete_Log_File.html">ログファイル削除</a></li>
+</ul>
+<h4>イベントログ保管期間</h4>
+<p>イベント量に応じてイベントログファイルのサイズが増大するため、一定量にてイベントログファイルをローテートする。<br />
+ローテートされたイベントログファイルの保持世代数は、最大12世代とする。<br />
+なお、ローテート時の最大サイズは、デフォルト50MBとし、ログ設定更新APIにて設定可能とする。</p>
+<h4>出力例</h4>
+<h5>外部イベントの出力例</h5>
+<pre><code>2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,client,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,actionData,/svc/token_keeper,resultData
+2013-04-18 14:52:40.688 [thread-pool-1-38888(17)] [INFO ] EventLogger Req_animal-access_2001,client,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,action,/svc/token_keeper,result
+2013-04-18 15:01:46.994 [thread-pool-1-38888(25)] [INFO ] EventLogger Req_animal-access_2001,client,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,action,/svc/token_keeper,result
+2013-04-18 15:06:19.294 [thread-pool-1-38888(15)] [ERROR] EventLogger Req_animal-access_1001,client,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,actionData,/svc/token_keeper,resultData
+2013-04-18 15:06:23.360 [thread-pool-1-38888(17)] [INFO ] EventLogger Req_animal-access_2001,client,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,action,/svc/token_keeper,result
+2013-04-18 15:09:18.073 [thread-pool-1-38888(10)] [ERROR] EventLogger Req_animal-access_1001,client,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/servicemanager/#admin,actionData,/svc/token_keeper,resultData</code></pre>
+<h5>内部イベントの出力例</h5>
+<pre><code>2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,POST,/homeClinic/__token,200
+2013-04-18 14:52:39.778 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,PROPFIND,/homeClinic/box/col/put_blog,207
+2013-04-18 14:52:39.779 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,PUT,/homeClinic/box/col/put_blog,204
+2013-04-18 14:52:39.780 [thread-pool-1-38888(20)] [ERROR] EventLogger Req_animal-access_1001,server,https://{UnitFQDN}/appCell/,https://{UnitFQDN}/appCell/#staff,GET,/homeClinic/box/col/blog_20130418,200</code></pre>
+<p><br><br />
+<br><br />
+<br></p>
+<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
