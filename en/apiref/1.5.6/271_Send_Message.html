@@ -58,7 +58,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Only application/json is supported for Content-Type in the request header and the JSON format for the response body</li>
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 </ul>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__message/send</code></pre>
@@ -77,48 +76,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">If you specify this value when requesting with the POST method, the specified value will be used as a method.<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">If you specify this value when requesting with the POST method, the specified value will be used as a method.</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.</td>
 </tr>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 <tr class="even">
-<td align="left">Content-Type<br></td>
-<td align="left">Specifies the request body format<br></td>
-<td align="left">application/json<br></td>
-<td align="left">No<br></td>
-<td align="left">[application/json] by default<br></td>
+<td align="left">Content-Type</td>
+<td align="left">Specifies the request body format</td>
+<td align="left">application/json</td>
+<td align="left">No</td>
+<td align="left">[application/json] by default</td>
 </tr>
 <tr class="odd">
-<td align="left">Accept<br></td>
-<td align="left">Specifies the response body format<br></td>
-<td align="left">application/json<br></td>
-<td align="left">No<br></td>
-<td align="left">[application/json] by default<br></td>
+<td align="left">Accept</td>
+<td align="left">Specifies the response body format</td>
+<td align="left">application/json</td>
+<td align="left">No</td>
+<td align="left">[application/json] by default</td>
 </tr>
 </tbody>
 </table>
@@ -134,83 +133,83 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Item Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Item Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">BoxBound<br></td>
-<td align="left">Linking with Box, whether possible or not<br></td>
-<td align="left">true / false<br>The default value is false<br></td>
-<td align="left">No<br></td>
-<td align="left">Send a token you have schema authentication is set to true this item when you tie in Box (not implemented)<br></td>
+<td align="left">BoxBound</td>
+<td align="left">Linking with Box, whether possible or not</td>
+<td align="left">true / false<br>The default value is false</td>
+<td align="left">No</td>
+<td align="left">Send a token you have schema authentication is set to true this item when you tie in Box (not implemented)</td>
 </tr>
 <tr class="even">
-<td align="left">InReplyTo<br></td>
-<td align="left">Message ID of the reply message<br></td>
-<td align="left">Number of digits: 32<br>null<br></td>
-<td align="left">No<br></td>
-<td align="left"><br></td>
+<td align="left">InReplyTo</td>
+<td align="left">Message ID of the reply message</td>
+<td align="left">Number of digits: 32<br>null</td>
+<td align="left">No</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">To<br></td>
-<td align="left">Destination cell URL<br></td>
-<td align="left">URL format<br>null<br></td>
-<td align="left">* 1<br></td>
-<td align="left">If you want to send message to multiple cells specified in CSV format,<br>*1 required either Relation or To<br>Maximum 1000 cell URL destination can be specified in Relation or To<br></td>
+<td align="left">To</td>
+<td align="left">Destination cell URL</td>
+<td align="left">URL format<br>null</td>
+<td align="left">* 1</td>
+<td align="left">If you want to send message to multiple cells specified in CSV format,<br>*1 required either Relation or To<br>Maximum 1000 cell URL destination can be specified in Relation or To</td>
 </tr>
 <tr class="even">
-<td align="left">ToRelation<br></td>
-<td align="left">Relationship names to be sent<br></td>
-<td align="left">Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;), plus, :<br>However, the string cannot start with a underscore (&quot;_&quot;) or colon (:)<br>null<br></td>
-<td align="left">* 1<br></td>
-<td align="left">*1 required either Relation or To<br>Maximum 1000 cell URL destination can be specified in Relation or To<br></td>
+<td align="left">ToRelation</td>
+<td align="left">Relationship names to be sent</td>
+<td align="left">Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;), plus, :<br>However, the string cannot start with a underscore (&quot;_&quot;) or colon (:)<br>null</td>
+<td align="left">* 1</td>
+<td align="left">*1 required either Relation or To<br>Maximum 1000 cell URL destination can be specified in Relation or To</td>
 </tr>
 <tr class="odd">
-<td align="left">Type<br></td>
-<td align="left">Message type<br></td>
-<td align="left">message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke<br></td>
-<td align="left">No<br></td>
-<td align="left">The message is treated as a default<br></td>
+<td align="left">Type</td>
+<td align="left">Message type</td>
+<td align="left">message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke</td>
+<td align="left">No</td>
+<td align="left">The message is treated as a default</td>
 </tr>
 <tr class="even">
-<td align="left">Title<br></td>
-<td align="left">Message Title<br></td>
-<td align="left">Number of digits: 256 characters or less<br></td>
-<td align="left">No<br></td>
-<td align="left">The default is treated as an empty string<br></td>
+<td align="left">Title</td>
+<td align="left">Message Title</td>
+<td align="left">Number of digits: 256 characters or less</td>
+<td align="left">No</td>
+<td align="left">The default is treated as an empty string</td>
 </tr>
 <tr class="odd">
-<td align="left">Body<br></td>
-<td align="left">Message Body<br></td>
-<td align="left">Number of digits: 64Kbyte following<br></td>
-<td align="left">No<br></td>
-<td align="left">The default is treated as an empty string<br></td>
+<td align="left">Body</td>
+<td align="left">Message Body</td>
+<td align="left">Number of digits: 64Kbyte following</td>
+<td align="left">No</td>
+<td align="left">The default is treated as an empty string</td>
 </tr>
 <tr class="even">
-<td align="left">Priority<br></td>
-<td align="left">Priority<br></td>
-<td align="left">1~5<br></td>
-<td align="left">No<br></td>
-<td align="left">The default is treated as 3<br></td>
+<td align="left">Priority</td>
+<td align="left">Priority</td>
+<td align="left">1~5</td>
+<td align="left">No</td>
+<td align="left">The default is treated as 3</td>
 </tr>
 <tr class="odd">
-<td align="left">RequestRelation<br></td>
-<td align="left">Information of requested relation to register<br></td>
-<td align="left">URL format<br>null<br></td>
-<td align="left">* 2<br></td>
-<td align="left">*2 Required when message type is other than message<br>Relation name or relation class URL or role name or role class URL, the registration request<br>When only the relation name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]__relation/__/<br>BoxBound is false:[destination cell URL]__relation/__/<br>When only the role name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]__role/__/<br>BoxBound is false:[destination cell URL]__role/__/<br></td>
+<td align="left">RequestRelation</td>
+<td align="left">Information of requested relation to register</td>
+<td align="left">URL format<br>null</td>
+<td align="left">* 2</td>
+<td align="left">*2 Required when message type is other than message<br>Relation name or relation class URL or role name or role class URL, the registration request<br>When only the relation name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]__relation/__/<br>BoxBound is false:[destination cell URL]__relation/__/<br>When only the role name is specified, it is regarded as a relative URL from the following URL<br>BoxBound is true:[target Box schema URL]__role/__/<br>BoxBound is false:[destination cell URL]__role/__/</td>
 </tr>
 <tr class="even">
-<td align="left">RequestRelationTarget<br></td>
-<td align="left">Cell URL that connects the relationship<br></td>
-<td align="left">URL format<br>null<br></td>
-<td align="left">* 2<br></td>
-<td align="left">*2 Required when message type is other than message<br></td>
+<td align="left">RequestRelationTarget</td>
+<td align="left">Cell URL that connects the relationship</td>
+<td align="left">URL format<br>null</td>
+<td align="left">* 2</td>
+<td align="left">*2 Required when message type is other than message</td>
 </tr>
 </tbody>
 </table>
@@ -227,7 +226,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">&quot;RequestRelation&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;RequestRelationTarget&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span>
 <span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <p>201</p>
@@ -240,41 +238,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Format of data to be returned<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">Format of data to be returned</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Location<br></td>
-<td align="left">URL to the resource that was created<br></td>
-<td align="left"><br></td>
+<td align="left">Location</td>
+<td align="left">URL to the resource that was created</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">OData version<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">OData version</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">ETag<br></td>
-<td align="left">Resource version information<br></td>
-<td align="left"><br></td>
+<td align="left">ETag</td>
+<td align="left">Resource version information</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">Cross domain communication permission header<br></td>
-<td align="left">Return value fixed to &quot;*&quot;<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">Cross domain communication permission header</td>
+<td align="left">Return value fixed to &quot;*&quot;</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">API version that the request is processed<br></td>
-<td align="left">Version of the API used to process the request<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">API version that the request is processed</td>
+<td align="left">Version of the API used to process the request</td>
 </tr>
 </tbody>
 </table>
@@ -284,60 +282,60 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">Object<br></th>
-<th align="left">Name (Key)<br></th>
-<th align="left">Type<br></th>
-<th align="left">Value<br></th>
+<th align="left">Object</th>
+<th align="left">Name (Key)</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Root<br></td>
-<td align="left">d<br></td>
-<td align="left">object<br></td>
-<td align="left">Object{1}<br></td>
+<td align="left">Root</td>
+<td align="left">d</td>
+<td align="left">object</td>
+<td align="left">Object{1}</td>
 </tr>
 <tr class="even">
-<td align="left">{1}<br></td>
-<td align="left">results<br></td>
-<td align="left">array<br></td>
-<td align="left">Array object {2}<br></td>
+<td align="left">{1}</td>
+<td align="left">results</td>
+<td align="left">array</td>
+<td align="left">Array object {2}</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__metadata<br></td>
-<td align="left">object<br></td>
-<td align="left">Object{3}<br></td>
+<td align="left">{2}</td>
+<td align="left">__metadata</td>
+<td align="left">object</td>
+<td align="left">Object{3}</td>
 </tr>
 <tr class="even">
-<td align="left">{3}<br></td>
-<td align="left">uri<br></td>
-<td align="left">string<br></td>
-<td align="left">URL to the resource that was created<br></td>
+<td align="left">{3}</td>
+<td align="left">uri</td>
+<td align="left">string</td>
+<td align="left">URL to the resource that was created</td>
 </tr>
 <tr class="odd">
-<td align="left">{3}<br></td>
-<td align="left">etag<br></td>
-<td align="left">string<br></td>
-<td align="left">Etag value<br></td>
+<td align="left">{3}</td>
+<td align="left">etag</td>
+<td align="left">string</td>
+<td align="left">Etag value</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">__published<br></td>
-<td align="left">string<br></td>
-<td align="left">Creation date (UNIX time)<br></td>
+<td align="left">{2}</td>
+<td align="left">__published</td>
+<td align="left">string</td>
+<td align="left">Creation date (UNIX time)</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__updated<br></td>
-<td align="left">string<br></td>
-<td align="left">Update date (UNIX time)<br></td>
+<td align="left">{2}</td>
+<td align="left">__updated</td>
+<td align="left">string</td>
+<td align="left">Update date (UNIX time)</td>
 </tr>
 <tr class="even">
-<td align="left">{1}<br></td>
-<td align="left">__count<br></td>
-<td align="left">string<br></td>
-<td align="left">Get number of results in $inlinecount query<br></td>
+<td align="left">{1}</td>
+<td align="left">__count</td>
+<td align="left">string</td>
+<td align="left">Get number of results in $inlinecount query</td>
 </tr>
 </tbody>
 </table>
@@ -351,108 +349,108 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Object<br></th>
-<th align="left">Name (Key)<br></th>
-<th align="left">Type<br></th>
-<th align="left">Value<br></th>
+<th align="left">Object</th>
+<th align="left">Name (Key)</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{3}<br></td>
-<td align="left">type<br></td>
-<td align="left">string<br></td>
-<td align="left">CellCtl.ReceivedMessage<br></td>
+<td align="left">{3}</td>
+<td align="left">type</td>
+<td align="left">string</td>
+<td align="left">CellCtl.ReceivedMessage</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">__id<br></td>
-<td align="left">string<br></td>
-<td align="left">ReceivedMessage ID<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID<br></td>
+<td align="left">{2}</td>
+<td align="left">__id</td>
+<td align="left">string</td>
+<td align="left">ReceivedMessage ID<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">InReplyTo<br></td>
-<td align="left">string<br></td>
-<td align="left">ID message you are replying<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID<br></td>
+<td align="left">{2}</td>
+<td align="left">InReplyTo</td>
+<td align="left">string</td>
+<td align="left">ID message you are replying<br>Return a 32 character string such as &quot;b5d008e9092f489c8d3c574a768afc33&quot; with UUID</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">To<br></td>
-<td align="left">string<br></td>
-<td align="left">Destination cell URL<br></td>
+<td align="left">{2}</td>
+<td align="left">To</td>
+<td align="left">string</td>
+<td align="left">Destination cell URL</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">ToRelation<br></td>
-<td align="left">string<br></td>
-<td align="left">Relationship names to be sent<br></td>
+<td align="left">{2}</td>
+<td align="left">ToRelation</td>
+<td align="left">string</td>
+<td align="left">Relationship names to be sent</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">Type<br></td>
-<td align="left">string<br></td>
-<td align="left">Message type<br>message: message<br>relationship registration request(relation): req.relation.build<br>relationship deletion request(relation): req.relation.break<br>relationship registration request(role): req.role.grant<br>relationship deletion request(role): req.role.revoke<br></td>
+<td align="left">{2}</td>
+<td align="left">Type</td>
+<td align="left">string</td>
+<td align="left">Message type<br>message: message<br>relationship registration request(relation): req.relation.build<br>relationship deletion request(relation): req.relation.break<br>relationship registration request(role): req.role.grant<br>relationship deletion request(role): req.role.revoke</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">Title<br></td>
-<td align="left">string<br></td>
-<td align="left">Message Title<br></td>
+<td align="left">{2}</td>
+<td align="left">Title</td>
+<td align="left">string</td>
+<td align="left">Message Title</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">Body<br></td>
-<td align="left">string<br></td>
-<td align="left">Message Body<br></td>
+<td align="left">{2}</td>
+<td align="left">Body</td>
+<td align="left">string</td>
+<td align="left">Message Body</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">Priority<br></td>
-<td align="left">string<br></td>
-<td align="left">Priority<br>(high)1 - 5(low)<br></td>
+<td align="left">{2}</td>
+<td align="left">Priority</td>
+<td align="left">string</td>
+<td align="left">Priority<br>(high)1 - 5(low)</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">RequestRelation<br></td>
-<td align="left">string<br></td>
-<td align="left">Relation name or relation class URL or role name or role class URL, the registration request<br>Only when message type is other than message<br></td>
+<td align="left">{2}</td>
+<td align="left">RequestRelation</td>
+<td align="left">string</td>
+<td align="left">Relation name or relation class URL or role name or role class URL, the registration request<br>Only when message type is other than message</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">RequestRelationTarget<br></td>
-<td align="left">string<br></td>
-<td align="left">CellURL of relationships<br>Only when message type is other than message<br></td>
+<td align="left">{2}</td>
+<td align="left">RequestRelationTarget</td>
+<td align="left">string</td>
+<td align="left">CellURL of relationships<br>Only when message type is other than message</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">_Box.Name<br></td>
-<td align="left">string<br></td>
-<td align="left">BoxName for Relation<br></td>
+<td align="left">{2}</td>
+<td align="left">_Box.Name</td>
+<td align="left">string</td>
+<td align="left">BoxName for Relation</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">Result<br></td>
-<td align="left">array<br></td>
-<td align="left">Transmission result of each destination Cell<br>Array object {4}<br></td>
+<td align="left">{2}</td>
+<td align="left">Result</td>
+<td align="left">array</td>
+<td align="left">Transmission result of each destination Cell<br>Array object {4}</td>
 </tr>
 <tr class="even">
-<td align="left">{4}<br></td>
-<td align="left">To<br></td>
-<td align="left">string<br></td>
-<td align="left">Destination cell URL<br></td>
+<td align="left">{4}</td>
+<td align="left">To</td>
+<td align="left">string</td>
+<td align="left">Destination cell URL</td>
 </tr>
 <tr class="odd">
-<td align="left">{4}<br></td>
-<td align="left">Code<br></td>
-<td align="left">string<br></td>
-<td align="left">Response Code<br></td>
+<td align="left">{4}</td>
+<td align="left">Code</td>
+<td align="left">string</td>
+<td align="left">Response Code</td>
 </tr>
 <tr class="even">
-<td align="left">{4}<br></td>
-<td align="left">Reason<br></td>
-<td align="left">string<br></td>
-<td align="left">Detailed message<br></td>
+<td align="left">{4}</td>
+<td align="left">Reason</td>
+<td align="left">string</td>
+<td align="left">Detailed message</td>
 </tr>
 </tbody>
 </table>
@@ -490,10 +488,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__message/send&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;BoxBound&quot;:false,&quot;InReplyTo&quot;:&quot;xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ&quot;,&quot;To&quot;:&quot;https://{UnitFQDN}/{CellName}&quot;,&quot;Type&quot;:&quot;message&quot;,&quot;Title&quot;:&quot;Message Sample Title&quot;,&quot;Body&quot;:&quot;Message Sample Body&quot;,&quot;Priority&quot;:3}&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

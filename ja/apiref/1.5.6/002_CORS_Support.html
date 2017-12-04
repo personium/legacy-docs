@@ -23,7 +23,7 @@
 <p>すべてのAPIにおいて、Access-Control-Allow-Originレスポンスヘッダとして*を返却します。<br />
 Access-Control-Allow-Originレスポンスヘッダはアクセスを許可しているドメインを返却するものですが、Personiumは全てのドメインからのアクセスを許可すべくこのような振る舞いをします。<br />
 次に示すのは、Access-Control-Allow-Originのレスポンスヘッダの例です。</p>
-<pre><code>Access-Control-Allow-Origin: *          </code></pre>
+<pre><code>Access-Control-Allow-Origin: *</code></pre>
 <h3>ブラウザからのプレフライトリクエストへの対応</h3>
 <p>ブラウザからのプレフライトリクエストへの対応として、すべてのAPIにおいてOPTIONSメソッドのリクエストを発行すると以下の振る舞いをします。</p>
 <ol>
@@ -40,22 +40,22 @@ Access-Control-Allow-Methodsレスポンスヘッダの内容は、APIのアク�
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">条件<br></th>
-<th align="left">結果<br></th>
+<th align="left">条件</th>
+<th align="left">結果</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">公開（Authorizationヘッダなしでも読み取り可能）なリソース<br></td>
-<td align="left">そのリソースがサポートするすべてのHTTPメソッドを返します。<br></td>
+<td align="left">公開（Authorizationヘッダなしでも読み取り可能）なリソース</td>
+<td align="left">そのリソースがサポートするすべてのHTTPメソッドを返します。</td>
 </tr>
 <tr class="even">
-<td align="left">非公開（公開でない）リソースへのAuthorizationヘッダなしでのOPTIONSリクエスト <br></td>
-<td align="left">PersoniumがサポートしうるすべてのHTTPメソッドを返します。<br></td>
+<td align="left">非公開（公開でない）リソースへのAuthorizationヘッダなしでのOPTIONSリクエスト</td>
+<td align="left">PersoniumがサポートしうるすべてのHTTPメソッドを返します。</td>
 </tr>
 <tr class="odd">
-<td align="left">非公開リソースへの有効な※AuthorizationヘッダつきでのOPTIONSリクエスト<br></td>
-<td align="left">そのリソースがサポートするすべてのHTTPメソッドを返します。<br></td>
+<td align="left">非公開リソースへの有効な※AuthorizationヘッダつきでのOPTIONSリクエスト</td>
+<td align="left">そのリソースがサポートするすべてのHTTPメソッドを返します。</td>
 </tr>
 </tbody>
 </table>
@@ -72,10 +72,7 @@ Access-Control-Allow-Methodsレスポンスヘッダの内容は、APIのアク�
 次に示すのは、Access-Control-Request-Headersに「sample」を指定した場合のレスポンスヘッダの例です。</p>
 <pre><code>Access-Control-Allow-Origin: sample</code></pre>
 <h3>参考</h3>
-<p>CORSの詳細については<a href="http://www.w3.org/TR/cors/">こちら</a>を参照してください。<br />
-<br><br />
-<br><br />
-<br></p>
+<p>CORSの詳細については<a href="http://www.w3.org/TR/cors/">こちら</a>を参照してください。</p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

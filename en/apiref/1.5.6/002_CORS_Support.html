@@ -23,7 +23,7 @@ Specifically, if there isno descriptor for the particular exception, based on th
 <p>In all the API, the value of Access-Control-Allow-Origin response header is returned as *.<br />
 The Access-Control-Allow-Origin header when set as * indicates that a resource can be shared across various domains, In Personium such behavior allows access to the resources from all domains.<br />
 Following is an example of the Access-Control-Allow-Origin response header.</p>
-<pre><code>Access-Control-Allow-Origin: *          </code></pre>
+<pre><code>Access-Control-Allow-Origin: *</code></pre>
 <h3 id="response-to-the-pre-flight-requests-from-the-browser">Response to the pre-flight requests from the browser</h3>
 <p>Following is the response of the pref. right requests from the browser, when you issue the request of the OPTIONS method in the API of all.</p>
 <ol>
@@ -40,22 +40,22 @@ Contents of the Access-Control-Allow-Methods Responsive header will change as fo
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Condition<br></th>
-<th align="left">Result<br></th>
+<th align="left">Condition</th>
+<th align="left">Result</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">The resources (read possible without Authorization header published)<br></td>
-<td align="left">It returns all the HTTP methods that the resource supports.<br></td>
+<td align="left">The resources (read possible without Authorization header published)</td>
+<td align="left">It returns all the HTTP methods that the resource supports.</td>
 </tr>
 <tr class="even">
-<td align="left">Private (non-public) OPTIONS request without the Authorization header to the resource<br></td>
-<td align="left">It returns all the HTTP methods that the Personium can support.<br></td>
+<td align="left">Private (non-public) OPTIONS request without the Authorization header to the resource</td>
+<td align="left">It returns all the HTTP methods that the Personium can support.</td>
 </tr>
 <tr class="odd">
-<td align="left">OPTIONS request to the private resources of a valid * Authorization header with<br></td>
-<td align="left">It returns all the HTTP methods that the resource supports.<br></td>
+<td align="left">OPTIONS request to the private resources of a valid * Authorization header with</td>
+<td align="left">It returns all the HTTP methods that the resource supports.</td>
 </tr>
 </tbody>
 </table>
@@ -72,7 +72,7 @@ Following is an example of the Access-Control-Allow-Methods response header.</p>
 Following is an example of the response header if you specify a &quot;sample&quot; in the Access-Control-Request-Headers.</p>
 <pre><code>Access-Control-Allow-Origin: sample</code></pre>
 <h3 id="reference">Reference</h3>
-<p><a href="http://www.w3.org/TR/cors/" class="uri">http://www.w3.org/TR/cors/</a><br><br><br><br><br><br></p>
+<p><a href="http://www.w3.org/TR/cors/" class="uri">http://www.w3.org/TR/cors/</a></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

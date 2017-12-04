@@ -57,7 +57,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>ACL設定を打ち消す機能（deny）</li>
 <li>ACLで設定出来るprivilegeの一覧取得</li>
 </ul>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>/{CellName}/{BoxName}</code></pre>
@@ -71,26 +70,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">パス<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">パス</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{CellName}<br></td>
-<td align="left">セル名<br></td>
-<td align="left"><br></td>
+<td align="left">{CellName}</td>
+<td align="left">セル名</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">{BoxName}<br></td>
-<td align="left">ボックス名<br></td>
-<td align="left"><br></td>
+<td align="left">{BoxName}</td>
+<td align="left">ボックス名</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">{ResourcePath}<br></td>
-<td align="left">リソースへのパス<br></td>
-<td align="left">有効値 桁数:1～128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)<br></td>
+<td align="left">{ResourcePath}</td>
+<td align="left">リソースへのパス</td>
+<td align="left">有効値 桁数:1～128<br>使用可能文字種<br>半角英数字、半角ピリオド(.)、半角アンダーバー(_)、半角ハイフン(-)</td>
 </tr>
 </tbody>
 </table>
@@ -109,41 +108,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">メソッドオーバーライド機能<br></td>
-<td align="left">任意<br></td>
-<td align="left">×<br></td>
-<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">メソッドオーバーライド機能</td>
+<td align="left">任意</td>
+<td align="left">×</td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">ヘッダオーバライド機能<br></td>
-<td align="left">${上書きするヘッダ名}:${値}<br></td>
-<td align="left">×<br></td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br></td>
+<td align="left">X-Override</td>
+<td align="left">ヘッダオーバライド機能</td>
+<td align="left">${上書きするヘッダ名}:${値}</td>
+<td align="left">×</td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 </tbody>
 </table>
@@ -152,21 +151,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">URI<br></th>
-<th align="left">概要<br></th>
-<th align="left">参考prefix<br></th>
+<th align="left">URI</th>
+<th align="left">概要</th>
+<th align="left">参考prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DAV:<br></td>
-<td align="left">WebDAVの名前空間<br></td>
-<td align="left">D:<br></td>
+<td align="left">DAV:</td>
+<td align="left">WebDAVの名前空間</td>
+<td align="left">D:</td>
 </tr>
 <tr class="even">
-<td align="left">urn:x-personium:xmlns<br></td>
-<td align="left">Personiumの名前空間<br></td>
-<td align="left">p:<br></td>
+<td align="left">urn:x-personium:xmlns</td>
+<td align="left">Personiumの名前空間</td>
+<td align="left">p:</td>
 </tr>
 </tbody>
 </table>
@@ -184,132 +183,132 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ノード名<br></th>
-<th align="left">名前空間<br></th>
-<th align="left">ノードタイプ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ノード名</th>
+<th align="left">名前空間</th>
+<th align="left">ノードタイプ</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">acl<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">acl</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">base<br></td>
-<td align="left">xml:<br></td>
-<td align="left">属性<br></td>
-<td align="left">hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。この属性は任意。<br></td>
-<td align="left"><br></td>
+<td align="left">base</td>
+<td align="left">xml:</td>
+<td align="left">属性</td>
+<td align="left">hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。この属性は任意。</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">ace<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる<br></td>
-<td align="left">「invert」「deny」「protected」「inherited」はV1.1系未対応<br></td>
+<td align="left">ace</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる</td>
+<td align="left">「invert」「deny」「protected」「inherited」はV1.1系未対応</td>
 </tr>
 <tr class="even">
-<td align="left">principal<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">権限設定対象を表し、hrefまたはallが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">principal</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">権限設定対象を表し、hrefまたはallが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">grant<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">権限付与設定を表し、1つ以上複数のprivilegeが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">grant</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">権限付与設定を表し、1つ以上複数のprivilegeが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">href<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">権限設定対象ロール表し、ロールリソースURLを入力するテキストノード<br></td>
-<td align="left">権限設定対象ロールのリソースURLを指定する acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る<br></td>
+<td align="left">href</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">権限設定対象ロール表し、ロールリソースURLを入力するテキストノード</td>
+<td align="left">権限設定対象ロールのリソースURLを指定する acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る</td>
 </tr>
 <tr class="odd">
-<td align="left">all<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">全アクセス主体権限設定<br></td>
-<td align="left"><br></td>
+<td align="left">all</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">全アクセス主体権限設定</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">privilege<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">権限設定を表し、以下の要素のいづれか一つが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">privilege</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">権限設定を表し、以下の要素のいづれか一つが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">read<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">参照権限<br></td>
-<td align="left"><br></td>
+<td align="left">read</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">参照権限</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">write<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">編集権限<br></td>
-<td align="left"><br></td>
+<td align="left">write</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">編集権限</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">read-properties<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">プロパティ参照権限<br></td>
-<td align="left"><br></td>
+<td align="left">read-properties</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">プロパティ参照権限</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">write-properties<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">プロパティ編集権限<br></td>
-<td align="left"><br></td>
+<td align="left">write-properties</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">プロパティ編集権限</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">read-acl<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">ACL設定参照権限<br></td>
-<td align="left"><br></td>
+<td align="left">read-acl</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">ACL設定参照権限</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">write-acl<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">ACL設定編集権限<br></td>
-<td align="left"><br></td>
+<td align="left">write-acl</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">ACL設定編集権限</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">bind<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">未稿<br></td>
-<td align="left">V1.1系、V1.2系未対応<br></td>
+<td align="left">bind</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">未稿</td>
+<td align="left">V1.1系、V1.2系未対応</td>
 </tr>
 <tr class="even">
-<td align="left">unbind<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">未稿<br></td>
-<td align="left">V1.1系、V1.2系未対応<br></td>
+<td align="left">unbind</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">未稿</td>
+<td align="left">V1.1系、V1.2系未対応</td>
 </tr>
 <tr class="odd">
-<td align="left">exec<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">サービス実行権限<br></td>
-<td align="left"><br></td>
+<td align="left">exec</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">サービス実行権限</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -359,22 +358,21 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
         <span class="kw">&lt;/D:grant&gt;</span>
     <span class="kw">&lt;/D:ace&gt;</span>
 <span class="kw">&lt;/D:acl&gt;</span></code></pre></div>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">コード<br></th>
-<th align="left">メッセージ<br></th>
-<th align="left">概要<br></th>
+<th align="left">コード</th>
+<th align="left">メッセージ</th>
+<th align="left">概要</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">200<br></td>
-<td align="left">OK<br></td>
-<td align="left">成功<br></td>
+<td align="left">200</td>
+<td align="left">OK</td>
+<td align="left">成功</td>
 </tr>
 </tbody>
 </table>
@@ -382,16 +380,16 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">返却されるデータの形式<br></td>
-<td align="left">更新・作成時に失敗した場合のみ返却する<br></td>
+<td align="left">Content-Type</td>
+<td align="left">返却されるデータの形式</td>
+<td align="left">更新・作成時に失敗した場合のみ返却する</td>
 </tr>
 </tbody>
 </table>
@@ -401,7 +399,6 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
-<p><br></p>
 <h3 id="curl">cURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X ACL -i
 <span class="ex">-H</span> <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d
@@ -421,9 +418,6 @@ privilegeタグ配下の権限設定の内容については、acl_model（<a hr
 <span class="st">   &lt;/D:grant&gt;</span>
 <span class="st">  &lt;/D:ace&gt;</span>
 <span class="st"> &lt;/D:acl&gt;&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

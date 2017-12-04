@@ -66,33 +66,32 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>1つのEntityTypeに対して作成出来るのは、DynamicProperty・DeclaredProperty・ComplexTypeProperty合わせて400個まで</li>
 </ul></li>
 </ul>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">パス<br></th>
-<th align="left">概要<br></th>
+<th align="left">パス</th>
+<th align="left">概要</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{CellName}<br></td>
-<td align="left">セル名<br></td>
+<td align="left">{CellName}</td>
+<td align="left">セル名</td>
 </tr>
 <tr class="even">
-<td align="left">{BoxName}<br></td>
-<td align="left">ボックス名<br></td>
+<td align="left">{BoxName}</td>
+<td align="left">ボックス名</td>
 </tr>
 <tr class="odd">
-<td align="left">{ODataCollecitonName}<br></td>
-<td align="left">コレクション名<br></td>
+<td align="left">{ODataCollecitonName}</td>
+<td align="left">コレクション名</td>
 </tr>
 <tr class="even">
-<td align="left">{EntityTypeName}<br></td>
-<td align="left">EntityType名<br></td>
+<td align="left">{EntityTypeName}</td>
+<td align="left">EntityType名</td>
 </tr>
 </tbody>
 </table>
@@ -110,20 +109,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -140,34 +139,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 <tr class="even">
-<td align="left">Accept<br></td>
-<td align="left">レスポンスボディの形式を指定する<br></td>
-<td align="left">application/json<br></td>
-<td align="left">×<br></td>
-<td align="left">省略時は[application/json]として扱う<br>未対応<br></td>
+<td align="left">Accept</td>
+<td align="left">レスポンスボディの形式を指定する</td>
+<td align="left">application/json</td>
+<td align="left">×</td>
+<td align="left">省略時は[application/json]として扱う<br>未対応</td>
 </tr>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">リクエストボディの形式を指定する<br></td>
-<td align="left">application/json<br></td>
-<td align="left">×<br></td>
-<td align="left">省略時は[application/json]として扱う <br>未対応<br></td>
+<td align="left">Content-Type</td>
+<td align="left">リクエストボディの形式を指定する</td>
+<td align="left">application/json</td>
+<td align="left">×</td>
+<td align="left">省略時は[application/json]として扱う <br>未対応</td>
 </tr>
 </tbody>
 </table>
@@ -182,20 +181,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">__id<br></td>
-<td align="left">EntityのID<br></td>
-<td align="left">桁数：1～200<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)<br>※ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)は指定不可<br></td>
-<td align="left">×<br></td>
-<td align="left">指定しない場合ユニークなIDが割り当てられます<br>有効値のチェック未対応<br></td>
+<td align="left">__id</td>
+<td align="left">EntityのID</td>
+<td align="left">桁数：1～200<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)<br>※ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)と:(半角コロン)は指定不可</td>
+<td align="left">×</td>
+<td align="left">指定しない場合ユニークなIDが割り当てられます<br>有効値のチェック未対応</td>
 </tr>
 </tbody>
 </table>
@@ -213,20 +212,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">EntityTypeに紐づくProperty<br></td>
-<td align="left">ユーザ定義項目 <br></td>
-<td align="left">デフォルト値 PropertyのDefaultValueに基づく<br></td>
-<td align="left">PropertyのNullableに基づく<br></td>
-<td align="left"><br></td>
+<td align="left">EntityTypeに紐づくProperty</td>
+<td align="left">ユーザ定義項目</td>
+<td align="left">デフォルト値 PropertyのDefaultValueに基づく</td>
+<td align="left">PropertyのNullableに基づく</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -238,30 +237,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">データ型<br></th>
-<th align="left">有効値<br></th>
+<th align="left">データ型</th>
+<th align="left">有効値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">文字列<br></td>
-<td align="left">桁数：0～51200 byte<br>文字種: 文字列の値に制御コードを使用した場合、取得時にエスケープした状態で返却する<br>「\」を使用する場合、「\\」で指定する必要がある<br>文字列型のプロパティに整数値、小数値、真偽値、日付型の値を設定した場合、文字列型に変換して登録される<br></td>
+<td align="left">文字列</td>
+<td align="left">桁数：0～51200 byte<br>文字種: 文字列の値に制御コードを使用した場合、取得時にエスケープした状態で返却する<br>「\」を使用する場合、「\\」で指定する必要がある<br>文字列型のプロパティに整数値、小数値、真偽値、日付型の値を設定した場合、文字列型に変換して登録される</td>
 </tr>
 <tr class="even">
-<td align="left">整数値<br></td>
-<td align="left">-2147483648 ～ 2147483647<br></td>
+<td align="left">整数値</td>
+<td align="left">-2147483648 ～ 2147483647</td>
 </tr>
 <tr class="odd">
-<td align="left">小数値<br></td>
-<td align="left">整数部分の桁数：1～5桁<br>小数部分の桁数：1～5桁<br></td>
+<td align="left">小数値</td>
+<td align="left">整数部分の桁数：1～5桁<br>小数部分の桁数：1～5桁</td>
 </tr>
 <tr class="even">
-<td align="left">真偽値<br></td>
-<td align="left">true / false / null(nullを指定した場合はfalseとして扱う)<br></td>
+<td align="left">真偽値</td>
+<td align="left">true / false / null(nullを指定した場合はfalseとして扱う)</td>
 </tr>
 <tr class="odd">
-<td align="left">日付<br></td>
-<td align="left">/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)～253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>SYSUTCDATETIME()：サーバ時間<br></td>
+<td align="left">日付</td>
+<td align="left">/Date(【long型の時刻】)/の形式で文字列で指定する<br>【long型の時刻】の有効値は、-6847804800000(1753-01-01T00:00:00.000Z)～253402300799999(9999-12-31T23:59:59.999Z)<br>また、予約語として以下を指定可能<br>SYSUTCDATETIME()：サーバ時間</td>
 </tr>
 </tbody>
 </table>
@@ -276,14 +275,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">データ型<br></th>
-<th align="left">有効値<br></th>
+<th align="left">データ型</th>
+<th align="left">有効値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">文字列<br></td>
-<td align="left">桁数：1～128 :<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br><em>ただし、先頭文字に-(半角ハイフン)と</em>(半角アンダーバー)は指定不可 <br>_published、_updatedは、予約語であるためリクエストボディの指定は不可<br></td>
+<td align="left">文字列</td>
+<td align="left">桁数：1～128 :<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br><em>ただし、先頭文字に-(半角ハイフン)と</em>(半角アンダーバー)は指定不可 <br>_published、_updatedは、予約語であるためリクエストボディの指定は不可</td>
 </tr>
 </tbody>
 </table>
@@ -294,7 +293,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1_20101108-111352093&quot;</span><span class="fu">,</span><span class="dt">&quot;animalId&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1&quot;</span><span class="fu">,</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;episode&quot;</span><span class="fu">,</span><span class="dt">&quot;startedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;2010-11-08&quot;</span><span class="fu">,</span><span class="dt">&quot;episodeType&quot;</span><span class="fu">:</span> <span class="st">&quot;care&quot;</span><span class="fu">,</span><span class="dt">&quot;endedAt&quot;</span><span class="fu">:</span> <span class="st">&quot;&quot;</span><span class="fu">,</span><span class="dt">&quot;outcome&quot;</span><span class="fu">:</span> <span class="st">&quot;治療中&quot;</span><span class="fu">}</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1_20101108-111352093&quot;</span><span class="fu">,</span><span class="dt">&quot;animalId&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1&quot;</span><span class="fu">,</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;episode&quot;</span><span class="fu">,</span><span class="dt">&quot;update&quot;</span><span class="fu">:</span> <span class="st">&quot;SYSUTCDATETIME()&quot;</span><span class="fu">}</span></code></pre></div>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1_20101108-111352093&quot;</span><span class="fu">,</span><span class="dt">&quot;animalId&quot;</span><span class="fu">:</span> <span class="st">&quot;100-1&quot;</span><span class="fu">,</span><span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;episode&quot;</span><span class="fu">,</span><span class="dt">&quot;update&quot;</span><span class="fu">:</span> <span class="st">&quot;</span><span class="ch">\/</span><span class="st">Date(1350451322147)</span><span class="ch">\/</span><span class="st">&quot;</span><span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <p>201</p>
@@ -302,31 +300,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">返却されるデータの形式<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">返却されるデータの形式</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Location<br></td>
-<td align="left">作成したEntityのリソースURL<br></td>
-<td align="left">正常にEntityが作成できた場合のみ返却する<br></td>
+<td align="left">Location</td>
+<td align="left">作成したEntityのリソースURL</td>
+<td align="left">正常にEntityが作成できた場合のみ返却する</td>
 </tr>
 <tr class="odd">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">ODataのバージョン情報<br></td>
-<td align="left">正常にEntityが作成できた場合のみ返却する<br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">ODataのバージョン情報</td>
+<td align="left">正常にEntityが作成できた場合のみ返却する</td>
 </tr>
 <tr class="even">
-<td align="left">ETag<br></td>
-<td align="left">リソースのバージョン情報<br></td>
-<td align="left">正常にEntityが作成できた場合のみ返却する<br></td>
+<td align="left">ETag</td>
+<td align="left">リソースのバージョン情報</td>
+<td align="left">正常にEntityが作成できた場合のみ返却する</td>
 </tr>
 </tbody>
 </table>
@@ -336,72 +334,72 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">オブジェクト<br></th>
-<th align="left">名前（キー）<br></th>
-<th align="left">型<br></th>
-<th align="left">値<br></th>
+<th align="left">オブジェクト</th>
+<th align="left">名前（キー）</th>
+<th align="left">型</th>
+<th align="left">値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ルート<br></td>
-<td align="left">d<br></td>
-<td align="left">object<br></td>
-<td align="left">オブジェクト{1}<br></td>
+<td align="left">ルート</td>
+<td align="left">d</td>
+<td align="left">object</td>
+<td align="left">オブジェクト{1}</td>
 </tr>
 <tr class="even">
-<td align="left">{1}<br></td>
-<td align="left">results<br></td>
-<td align="left">array<br></td>
-<td align="left">オブジェクト{2}の配列<br></td>
+<td align="left">{1}</td>
+<td align="left">results</td>
+<td align="left">array</td>
+<td align="left">オブジェクト{2}の配列</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__metadata<br></td>
-<td align="left">object<br></td>
-<td align="left">オブジェクト{3}<br></td>
+<td align="left">{2}</td>
+<td align="left">__metadata</td>
+<td align="left">object</td>
+<td align="left">オブジェクト{3}</td>
 </tr>
 <tr class="even">
-<td align="left">{3}<br></td>
-<td align="left">uri<br></td>
-<td align="left">string<br></td>
-<td align="left">作成したリソースへのURL<br></td>
+<td align="left">{3}</td>
+<td align="left">uri</td>
+<td align="left">string</td>
+<td align="left">作成したリソースへのURL</td>
 </tr>
 <tr class="odd">
-<td align="left">{3}<br></td>
-<td align="left">etag<br></td>
-<td align="left">string<br></td>
-<td align="left">Etag値<br></td>
+<td align="left">{3}</td>
+<td align="left">etag</td>
+<td align="left">string</td>
+<td align="left">Etag値</td>
 </tr>
 <tr class="even">
-<td align="left">{3}<br></td>
-<td align="left">type<br></td>
-<td align="left">string<br></td>
-<td align="left">UserData.{EntityTypeName}<br></td>
+<td align="left">{3}</td>
+<td align="left">type</td>
+<td align="left">string</td>
+<td align="left">UserData.{EntityTypeName}</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__id<br></td>
-<td align="left">string<br></td>
-<td align="left">EntityのID(__id)<br></td>
+<td align="left">{2}</td>
+<td align="left">__id</td>
+<td align="left">string</td>
+<td align="left">EntityのID(__id)</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">__published<br></td>
-<td align="left">string<br></td>
-<td align="left">作成日(UNIX時間)<br></td>
+<td align="left">{2}</td>
+<td align="left">__published</td>
+<td align="left">string</td>
+<td align="left">作成日(UNIX時間)</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__updated<br></td>
-<td align="left">string<br></td>
-<td align="left">更新日(UNIX時間)<br></td>
+<td align="left">{2}</td>
+<td align="left">__updated</td>
+<td align="left">string</td>
+<td align="left">更新日(UNIX時間)</td>
 </tr>
 <tr class="even">
-<td align="left">{1}<br></td>
-<td align="left">__count<br></td>
-<td align="left">string<br></td>
-<td align="left">$inlinecountクエリでの取得結果件数<br></td>
+<td align="left">{1}</td>
+<td align="left">__count</td>
+<td align="left">string</td>
+<td align="left">$inlinecountクエリでの取得結果件数</td>
 </tr>
 </tbody>
 </table>
@@ -430,12 +428,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="fu">}</span>
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="curl">cURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;__id&quot;: &quot;{EntityID}&quot;,&quot;animalId&quot;: &quot;100-1&quot;,&quot;name&quot;: &quot;episode&quot;,&quot;startedAt&quot;: &quot;2010-11-08&quot;,&quot;episodeType&quot;: &quot;care&quot;,&quot;endedAt&quot;: &quot;&quot;,&quot;outcome&quot;: &quot;治療中&quot;}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

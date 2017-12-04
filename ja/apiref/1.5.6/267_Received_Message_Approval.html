@@ -69,7 +69,6 @@ social（関係登録/削除承認のみ必要）</p>
 <li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする</li>
 <li>$formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない</li>
 </ul>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>/{CellName}/__message/received/{MessageID}</code></pre>
@@ -86,20 +85,20 @@ social（関係登録/削除承認のみ必要）</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -114,55 +113,55 @@ social（関係登録/削除承認のみ必要）</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">メソッドオーバーライド機能<br></td>
-<td align="left">任意<br></td>
-<td align="left">×<br></td>
-<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">メソッドオーバーライド機能</td>
+<td align="left">任意</td>
+<td align="left">×</td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">ヘッダオーバライド機能<br></td>
-<td align="left">${上書きするヘッダ名}:${値}<br></td>
-<td align="left">×<br></td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br></td>
+<td align="left">X-Override</td>
+<td align="left">ヘッダオーバライド機能</td>
+<td align="left">${上書きするヘッダ名}:${値}</td>
+<td align="left">×</td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">リクエストボディの形式を指定する<br></td>
-<td align="left">application/json<br></td>
-<td align="left">×<br></td>
-<td align="left">省略時は[application/json]として扱う<br></td>
+<td align="left">Content-Type</td>
+<td align="left">リクエストボディの形式を指定する</td>
+<td align="left">application/json</td>
+<td align="left">×</td>
+<td align="left">省略時は[application/json]として扱う</td>
 </tr>
 <tr class="even">
-<td align="left">Accept<br></td>
-<td align="left">レスポンスボディの形式を指定する<br></td>
-<td align="left">application/json<br></td>
-<td align="left">×<br></td>
-<td align="left">省略時は[application/json]として扱う<br></td>
+<td align="left">Accept</td>
+<td align="left">レスポンスボディの形式を指定する</td>
+<td align="left">application/json</td>
+<td align="left">×</td>
+<td align="left">省略時は[application/json]として扱う</td>
 </tr>
 </tbody>
 </table>
@@ -178,26 +177,25 @@ social（関係登録/削除承認のみ必要）</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Command<br></td>
-<td align="left">メッセージコマンド<br></td>
-<td align="left">Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがreq.relation.build/req.relation.break/req.role.grant/req.role.revokeの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可<br></td>
-<td align="left">○<br></td>
-<td align="left"><br></td>
+<td align="left">Command</td>
+<td align="left">メッセージコマンド</td>
+<td align="left">Typeがmessageの場合<br>　read: 既読<br>　unread: 未読<br>Typeがreq.relation.build/req.relation.break/req.role.grant/req.role.revokeの場合<br>　approved: 承認<br>　rejected: 拒否<br>　ただし既にapproved、rejectedに変更済みの場合は承認不可</td>
+<td align="left">○</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 <h4>リクエストサンプル</h4>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;Command&quot;</span><span class="fu">:</span> <span class="st">&quot;approved&quot;</span><span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <p>204</p>
@@ -205,31 +203,31 @@ social（関係登録/削除承認のみ必要）</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ETag<br></td>
-<td align="left">リソースのバージョン情報<br></td>
-<td align="left"><br></td>
+<td align="left">ETag</td>
+<td align="left">リソースのバージョン情報</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">ODataのバージョン<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">ODataのバージョン</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">クロスドメイン通信許可ヘッダ<br></td>
-<td align="left">返却値は&quot;*&quot;固定<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">クロスドメイン通信許可ヘッダ</td>
+<td align="left">返却値は&quot;*&quot;固定</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">APIの実行バージョン<br></td>
-<td align="left">リクエストが処理されたAPIバージョン<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">APIの実行バージョン</td>
+<td align="left">リクエストが処理されたAPIバージョン</td>
 </tr>
 </tbody>
 </table>
@@ -239,12 +237,8 @@ social（関係登録/削除承認のみ必要）</p>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
-<p><br></p>
 <h3 id="curl">cURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__message/received/{MessageID}&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Command&quot;: &quot;approved&quot;}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

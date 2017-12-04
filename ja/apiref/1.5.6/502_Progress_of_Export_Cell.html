@@ -65,7 +65,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>なし</li>
 </ul>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>/{CellName}/__export</code></pre>
@@ -82,20 +81,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -110,34 +109,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-Override<br></td>
-<td align="left">ヘッダオーバライド機能<br></td>
-<td align="left">${上書きするヘッダ名}:${値} override} $: $ {value}<br></td>
-<td align="left">×<br></td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br></td>
+<td align="left">X-Override</td>
+<td align="left">ヘッダオーバライド機能</td>
+<td align="left">${上書きするヘッダ名}:${値} override} $: $ {value}</td>
+<td align="left">×</td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 </tbody>
 </table>
@@ -145,24 +144,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>なし</p>
 <h4>リクエストサンプル</h4>
 <p>なし</p>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">コード<br></th>
-<th align="left">メッセージ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">コード</th>
+<th align="left">メッセージ</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">200<br></td>
-<td align="left">OK<br></td>
-<td align="left">成功時<br></td>
-<td align="left">Cellエクスポートの状態はレスポンスボディを参照<br></td>
+<td align="left">200</td>
+<td align="left">OK</td>
+<td align="left">成功時</td>
+<td align="left">Cellエクスポートの状態はレスポンスボディを参照</td>
 </tr>
 </tbody>
 </table>
@@ -170,26 +168,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">クロスドメイン通信許可ヘッダ<br></td>
-<td align="left">返却値は&quot;*&quot;固定<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">クロスドメイン通信許可ヘッダ</td>
+<td align="left">返却値は&quot;*&quot;固定</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">APIの実行バージョン<br></td>
-<td align="left">リクエストが処理されたAPIバージョン<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">APIの実行バージョン</td>
+<td align="left">リクエストが処理されたAPIバージョン</td>
 </tr>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">返却されるデータの形式<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">返却されるデータの形式</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -206,41 +204,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">オブジェクト<br></th>
-<th align="left">キー<br></th>
-<th align="left">型<br></th>
-<th align="left">値<br></th>
-<th align="left">備考<br></th>
+<th align="left">オブジェクト</th>
+<th align="left">キー</th>
+<th align="left">型</th>
+<th align="left">値</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ルート<br></td>
-<td align="left">status<br></td>
-<td align="left">string<br></td>
-<td align="left">以下のいずれかの文字列: <br>&quot;ready&quot;<br>&quot;exportation in progress&quot;<br></td>
-<td align="left">&quot;ready&quot;:Cellエクスポート受付可能<br>&quot;exportation in progress&quot;:Cellエクスポート処理中<br></td>
+<td align="left">ルート</td>
+<td align="left">status</td>
+<td align="left">string</td>
+<td align="left">以下のいずれかの文字列: <br>&quot;ready&quot;<br>&quot;exportation in progress&quot;</td>
+<td align="left">&quot;ready&quot;:Cellエクスポート受付可能<br>&quot;exportation in progress&quot;:Cellエクスポート処理中</td>
 </tr>
 <tr class="even">
-<td align="left">ルート<br></td>
-<td align="left">started_at<br></td>
-<td align="left">string<br></td>
-<td align="left">Start time (ISO 8610 UTC format)<br></td>
-<td align="left">statusが以下の場合は出力しない。<br>&quot;ready&quot;<br></td>
+<td align="left">ルート</td>
+<td align="left">started_at</td>
+<td align="left">string</td>
+<td align="left">Start time (ISO 8610 UTC format)</td>
+<td align="left">statusが以下の場合は出力しない。<br>&quot;ready&quot;</td>
 </tr>
 <tr class="odd">
-<td align="left">ルート<br></td>
-<td align="left">progress<br></td>
-<td align="left">string<br></td>
-<td align="left">Progress rate (for example, &quot;30%&quot;)<br></td>
-<td align="left">statusが以下の場合は出力しない。<br>&quot;ready&quot;<br></td>
+<td align="left">ルート</td>
+<td align="left">progress</td>
+<td align="left">string</td>
+<td align="left">Progress rate (for example, &quot;30%&quot;)</td>
+<td align="left">statusが以下の場合は出力しない。<br>&quot;ready&quot;</td>
 </tr>
 <tr class="even">
-<td align="left">ルート<br></td>
-<td align="left">exportation_name<br></td>
-<td align="left">string<br></td>
-<td align="left">エクスポートファイル名(拡張子は除く)<br></td>
-<td align="left">statusが以下の場合は出力しない。<br>&quot;ready&quot;<br></td>
+<td align="left">ルート</td>
+<td align="left">exportation_name</td>
+<td align="left">string</td>
+<td align="left">エクスポートファイル名(拡張子は除く)</td>
+<td align="left">statusが以下の場合は出力しない。<br>&quot;ready&quot;</td>
 </tr>
 </tbody>
 </table>
@@ -258,12 +256,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   <span class="dt">&quot;progress&quot;</span><span class="fu">:</span> <span class="st">&quot;81%&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;exportation_name&quot;</span><span class="fu">:</span> <span class="st">&quot;CellExport_2017_01&quot;</span>
 <span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="curl">cURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__export&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

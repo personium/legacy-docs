@@ -59,7 +59,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>If $format is not atomsvc and Accept header is not application/atomsvc+xml, EDMX of user data is returned</li>
 <li>ComplexType and Documentation tags do not correspond and do not return</li>
 </ul>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{odataname}/$metadata</code></pre>
@@ -77,20 +76,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Query Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Query Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
 </tr>
 </tbody>
 </table>
@@ -109,34 +108,34 @@ Ignore others</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">Supported in V 1.1.7 and later</td>
 </tr>
 </tbody>
 </table>
@@ -151,27 +150,27 @@ Ignore others</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Accept<br></td>
-<td align="left">Format of data to be returned<br></td>
-<td align="left">application/atomsvc+xml<br>application/xml<br></td>
-<td align="left">No<br></td>
-<td align="left">If not specified, the schema information of the user data schema will be acquired<br></td>
+<td align="left">Accept</td>
+<td align="left">Format of data to be returned</td>
+<td align="left">application/atomsvc+xml<br>application/xml</td>
+<td align="left">No</td>
+<td align="left">If not specified, the schema information of the user data schema will be acquired</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {Authentication token}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {Authentication token}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 </tbody>
 </table>
@@ -179,7 +178,6 @@ Ignore others</p>
 <p>None</p>
 <h4 id="request-sample">Request Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <p>200</p>
@@ -193,21 +191,21 @@ Ignore others</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">Cross domain communication permission header<br></td>
-<td align="left">Return value fixed to &quot;*&quot;<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">Cross domain communication permission header</td>
+<td align="left">Return value fixed to &quot;*&quot;</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">API version that the request is processed<br></td>
-<td align="left">If not specified, the latest API version is specified<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">API version that the request is processed</td>
+<td align="left">If not specified, the latest API version is specified</td>
 </tr>
 </tbody>
 </table>
@@ -215,21 +213,21 @@ Ignore others</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Format of data to be returned<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">Format of data to be returned</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">OData version<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">OData version</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -243,36 +241,36 @@ Ignore others</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">URI<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Reference prefix<br></th>
+<th align="left">URI</th>
+<th align="left">Overview</th>
+<th align="left">Reference prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2007/06/edmx" class="uri">http://schemas.microsoft.com/ado/2007/06/edmx</a><br></td>
-<td align="left">edmx namespace<br></td>
-<td align="left">edmx:<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/06/edmx" class="uri">http://schemas.microsoft.com/ado/2007/06/edmx</a></td>
+<td align="left">edmx namespace</td>
+<td align="left">edmx:</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices</a><br></td>
-<td align="left">WCF Data Services namespace<br></td>
-<td align="left">d:<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices</a></td>
+<td align="left">WCF Data Services namespace</td>
+<td align="left">d:</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices/metadata</a><br></td>
-<td align="left">WCF Data Services metadata namespace<br></td>
-<td align="left">m:<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices/metadata</a></td>
+<td align="left">WCF Data Services metadata namespace</td>
+<td align="left">m:</td>
 </tr>
 <tr class="even">
-<td align="left">urn:x-personium:xmlns<br></td>
-<td align="left">Personium namespace <br></td>
-<td align="left">p:<br></td>
+<td align="left">urn:x-personium:xmlns</td>
+<td align="left">Personium namespace</td>
+<td align="left">p:</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a><br></td>
-<td align="left">scheme namespace<br></td>
-<td align="left">-<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a></td>
+<td align="left">scheme namespace</td>
+<td align="left">-</td>
 </tr>
 </tbody>
 </table>
@@ -289,412 +287,412 @@ Ignore others</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Node name<br></th>
-<th align="left">Namespace<br></th>
-<th align="left">Node type<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Node name</th>
+<th align="left">Namespace</th>
+<th align="left">Node type</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Edmx <br></td>
-<td align="left">edmx:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents the root of the EDMX document and always has one DataServices element in the child<br></td>
-<td align="left"><br></td>
+<td align="left">Edmx</td>
+<td align="left">edmx:</td>
+<td align="left">Element</td>
+<td align="left">Represents the root of the EDMX document and always has one DataServices element in the child</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Version<br></td>
-<td align="left">edmx:<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the version of the EDMX document. The attribute value is always '1.0'<br></td>
-<td align="left"><br></td>
+<td align="left">Version</td>
+<td align="left">edmx:</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the version of the EDMX document. The attribute value is always '1.0'</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">DataServices<br></td>
-<td align="left">edmx:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents a data service, with multiple Schema elements for children<br></td>
-<td align="left"><br></td>
+<td align="left">DataServices</td>
+<td align="left">edmx:</td>
+<td align="left">Element</td>
+<td align="left">Represents a data service, with multiple Schema elements for children</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">m:<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the version of the data service. The attribute value is always '1.0'<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">m:</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the version of the data service. The attribute value is always '1.0'</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Schema<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents the top-level element of the CSDL document, Association / ComplexType <br>EntityType / EntityContainer / Having elements of Documentation<br></td>
-<td align="left"><br></td>
+<td align="left">Schema</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">It represents the top-level element of the CSDL document, Association / ComplexType <br>EntityType / EntityContainer / Having elements of Documentation</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Namespace<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">A mandatory attribute representing the name of the schema.<br></td>
-<td align="left">You can not use System, Transient, or Edm as the value<br></td>
+<td align="left">Namespace</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">A mandatory attribute representing the name of the schema.</td>
+<td align="left">You can not use System, Transient, or Edm as the value</td>
 </tr>
 <tr class="odd">
-<td align="left">ComplexType<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents a complex type, and has a child Documentation / Property element<br></td>
-<td align="left"><br></td>
+<td align="left">ComplexType</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">It represents a complex type, and has a child Documentation / Property element</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents a compound schema name, mandatory attribute<br></td>
-<td align="left">Required only if ComplexType exists in the OData collection<br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents a compound schema name, mandatory attribute</td>
+<td align="left">Required only if ComplexType exists in the OData collection</td>
 </tr>
 <tr class="odd">
-<td align="left">Abstract<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents data in the form of a property<br></td>
-<td align="left">Displayed only when Abstract exists<br></td>
+<td align="left">Abstract</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents data in the form of a property</td>
+<td align="left">Displayed only when Abstract exists</td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent a compound type document<br></td>
-<td align="left">Display only when it exists<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent a compound type document</td>
+<td align="left">Display only when it exists</td>
 </tr>
 <tr class="odd">
-<td align="left">EntityType<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents an entity type and has children elements<br>Documentation / HasStream / BaseType / Key / Property / NavigationProperty<br></td>
-<td align="left"><br></td>
+<td align="left">EntityType</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">It represents an entity type and has children elements<br>Documentation / HasStream / BaseType / Key / Property / NavigationProperty</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">HasStream<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents whether an entity is associated with a media resource stream<br></td>
-<td align="left"><br></td>
+<td align="left">HasStream</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents whether an entity is associated with a media resource stream</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">BaseType<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the basic type of an entity type<br></td>
-<td align="left"><br></td>
+<td align="left">BaseType</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the basic type of an entity type</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent document of entity type<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent document of entity type</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Key<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents a key of an entity, and one or more PropertyRefs are always children<br></td>
-<td align="left"><br></td>
+<td align="left">Key</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">It represents a key of an entity, and one or more PropertyRefs are always children</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">PropertyRef<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents the reference property of a key<br></td>
-<td align="left"><br></td>
+<td align="left">PropertyRef</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents the reference property of a key</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the name of the property being referenced and is a required attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the name of the property being referenced and is a required attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">NavigationProperty<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents a NavigationProperty<br></td>
-<td align="left"><br></td>
+<td align="left">NavigationProperty</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents a NavigationProperty</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">It represents the name of the NavigationProperty and it is a required attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">It represents the name of the NavigationProperty and it is a required attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents a document of NavigationProperty<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents a document of NavigationProperty</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Relationship<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the name of the association within the scope of the model and is a required attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Relationship</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the name of the association within the scope of the model and is a required attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">FromRole<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents a referencing role<br></td>
-<td align="left"><br></td>
+<td align="left">FromRole</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents a referencing role</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">ToRole<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents a referenced role<br></td>
-<td align="left"><br></td>
+<td align="left">ToRole</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents a referenced role</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Association<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents an Association, and has child element of Documentation / End<br></td>
-<td align="left"><br></td>
+<td align="left">Association</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">It represents an Association, and has child element of Documentation / End</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents an AssociationName, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents an AssociationName, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent document of Association<br></td>
-<td align="left">Display only when it exists<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent document of Association</td>
+<td align="left">Display only when it exists</td>
 </tr>
 <tr class="odd">
-<td align="left">End<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents the name of the AssociationEnd, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">End</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents the name of the AssociationEnd, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Role<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the name of the AssociationEnd, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Role</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the name of the AssociationEnd, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Type<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the type of AssociationEnd, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Type</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the type of AssociationEnd, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Multiplicity<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the multiplicity of AssociationEnd, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Multiplicity</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the multiplicity of AssociationEnd, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">EntityContainer<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents an entity container and has child elements <br>Documentation / EntitySet / FunctionImport / AssociationSet<br></td>
-<td align="left"><br></td>
+<td align="left">EntityContainer</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">It represents an entity container and has child elements <br>Documentation / EntitySet / FunctionImport / AssociationSet</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents an EntityContainer name, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents an EntityContainer name, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">IsDefaultEntityContainer<br></td>
-<td align="left">m:<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the default EntityContainer flag<br></td>
-<td align="left"><br></td>
+<td align="left">IsDefaultEntityContainer</td>
+<td align="left">m:</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the default EntityContainer flag</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent document of document of EntityContainer<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent document of document of EntityContainer</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">EntitySet<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents an EntitySet and has child elements of Documentation<br></td>
-<td align="left"><br></td>
+<td align="left">EntitySet</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents an EntitySet and has child elements of Documentation</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent document of document of EntityContainer<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent document of document of EntityContainer</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents an EntitySet and has child elements of Documentation<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents an EntitySet and has child elements of Documentation</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">EntityType<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the EntityType of an entity set<br></td>
-<td align="left"><br></td>
+<td align="left">EntityType</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the EntityType of an entity set</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents an EntitySet name, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents an EntitySet name, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">FunctionImport<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents a FunctionImport (model declaration function)<br></td>
-<td align="left"><br></td>
+<td align="left">FunctionImport</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents a FunctionImport (model declaration function)</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents a FunctionImport name, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents a FunctionImport name, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">EntitySet<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents an entity set of FunctionImport and has elements of Documentation as children<br></td>
-<td align="left">Repeat for existing entity sets<br></td>
+<td align="left">EntitySet</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents an entity set of FunctionImport and has elements of Documentation as children</td>
+<td align="left">Repeat for existing entity sets</td>
 </tr>
 <tr class="odd">
-<td align="left">ReturnType<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the return type<br></td>
-<td align="left"><br></td>
+<td align="left">ReturnType</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the return type</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">HttpMethod<br></td>
-<td align="left">m:<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represent method, mandatory attribute<br></td>
-<td align="left">When FunctionImport exists<br></td>
+<td align="left">HttpMethod</td>
+<td align="left">m:</td>
+<td align="left">Attributes</td>
+<td align="left">Represent method, mandatory attribute</td>
+<td align="left">When FunctionImport exists</td>
 </tr>
 <tr class="odd">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent document of FunctionImport<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent document of FunctionImport</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Parameter<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents FunctionImport arguments<br></td>
-<td align="left"><br></td>
+<td align="left">Parameter</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents FunctionImport arguments</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">It represents the argument name of the FunctionImport, and mandatory items<br></td>
-<td align="left">When FunctionImport, Parameter exists<br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">It represents the argument name of the FunctionImport, and mandatory items</td>
+<td align="left">When FunctionImport, Parameter exists</td>
 </tr>
 <tr class="even">
-<td align="left">Type<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">It represents the argument type of FunctionImport, and mandatory items<br></td>
-<td align="left">When FunctionImport, Parameter exists<br></td>
+<td align="left">Type</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">It represents the argument type of FunctionImport, and mandatory items</td>
+<td align="left">When FunctionImport, Parameter exists</td>
 </tr>
 <tr class="odd">
-<td align="left">Mode<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the mode of the FunctionImport argument, valid values: 'In', 'Out', or 'InOut'<br></td>
-<td align="left"><br></td>
+<td align="left">Mode</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the mode of the FunctionImport argument, valid values: 'In', 'Out', or 'InOut'</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent document of FunctionImport argument<br></td>
-<td align="left">Display only when it exists<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent document of FunctionImport argument</td>
+<td align="left">Display only when it exists</td>
 </tr>
 <tr class="odd">
-<td align="left">AssociationSet<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents an AssociationSet and has Documentation and two Ends in its child<br></td>
-<td align="left"><br></td>
+<td align="left">AssociationSet</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents an AssociationSet and has Documentation and two Ends in its child</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents an AssociationSet name, mandatory attribute<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents an AssociationSet name, mandatory attribute</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Association<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents an AssociationSet association, mandatory attributes<br></td>
-<td align="left"><br></td>
+<td align="left">Association</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents an AssociationSet association, mandatory attributes</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent document of AssociationSet<br></td>
-<td align="left">Display only when it exists<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent document of AssociationSet</td>
+<td align="left">Display only when it exists</td>
 </tr>
 <tr class="odd">
-<td align="left">End<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents an AssociationSetEnd, and essential elements<br></td>
-<td align="left"><br></td>
+<td align="left">End</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents an AssociationSetEnd, and essential elements</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Role<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents a role, mandatory attributes<br></td>
-<td align="left"><br></td>
+<td align="left">Role</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents a role, mandatory attributes</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">EntitySet<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Representing an EntitySet, mandatory attributes<br></td>
-<td align="left"><br></td>
+<td align="left">EntitySet</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Representing an EntitySet, mandatory attributes</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -709,90 +707,90 @@ Ignore others</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Node name<br></th>
-<th align="left">Namespace<br></th>
-<th align="left">Node type<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Node name</th>
+<th align="left">Namespace</th>
+<th align="left">Node type</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Property<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents a Property of an EntityType<br></td>
-<td align="left"><br></td>
+<td align="left">Property</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents a Property of an EntityType</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the name of the Property<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the name of the Property</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Type<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the type of Property value<br></td>
-<td align="left"><br></td>
+<td align="left">Type</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the type of Property value</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Nullable<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Indicates whether null value can be assigned<br></td>
-<td align="left"><br></td>
+<td align="left">Nullable</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Indicates whether null value can be assigned</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">MaxLength<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the maximum allowable length of a Property<br></td>
-<td align="left"><br></td>
+<td align="left">MaxLength</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the maximum allowable length of a Property</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DefaultValue<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the default value of a Property<br></td>
-<td align="left"><br></td>
+<td align="left">DefaultValue</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the default value of a Property</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Precision<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the number of significant digits of a Property<br></td>
-<td align="left"><br></td>
+<td align="left">Precision</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the number of significant digits of a Property</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Scale<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the number of decimal places of Property<br></td>
-<td align="left"><br></td>
+<td align="left">Scale</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the number of decimal places of Property</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">CollectionKind<br></td>
-<td align="left">-<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents array type of Property<br></td>
+<td align="left">CollectionKind</td>
+<td align="left">-</td>
+<td align="left">Attributes</td>
+<td align="left">Represents array type of Property</td>
 <td align="left">List if the collection is an array, otherwise None<br>It is not displayed in case of None</td>
 </tr>
 <tr class="even">
-<td align="left">Format<br></td>
-<td align="left">p:<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents the character format of the Property<br></td>
-<td align="left"><br></td>
+<td align="left">Format</td>
+<td align="left">p:</td>
+<td align="left">Attributes</td>
+<td align="left">Represents the character format of the Property</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">IsDeclared<br></td>
-<td align="left">p:<br></td>
-<td align="left">Attributes<br></td>
-<td align="left">Represents whether it is a static Property or not<br></td>
-<td align="left">It is displayed with false for dynamic properties, not for static Properties<br></td>
+<td align="left">IsDeclared</td>
+<td align="left">p:</td>
+<td align="left">Attributes</td>
+<td align="left">Represents whether it is a static Property or not</td>
+<td align="left">It is displayed with false for dynamic properties, not for static Properties</td>
 </tr>
 </tbody>
 </table>
@@ -801,27 +799,27 @@ Ignore others</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Node name<br></th>
-<th align="left">Namespace<br></th>
-<th align="left">Node type<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Node name</th>
+<th align="left">Namespace</th>
+<th align="left">Node type</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Summary<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents a summary of the Document<br></td>
-<td align="left"><br></td>
+<td align="left">Summary</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represents a summary of the Document</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">LongDescription<br></td>
-<td align="left">-<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent Document details<br></td>
-<td align="left"><br></td>
+<td align="left">LongDescription</td>
+<td align="left">-</td>
+<td align="left">Element</td>
+<td align="left">Represent Document details</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -947,13 +945,11 @@ Ignore others</p>
     <span class="kw">&lt;/Schema&gt;</span>
   <span class="kw">&lt;/edmx:DataServices&gt;</span>
 <span class="kw">&lt;/edmx:Edmx&gt;</span></code></pre></div>
-<p><br></p>
 <h3 id="curl-command">cURL Command</h3>
 <h5 id="for-schemas-atom-servicedocument-1">For Schema's Atom ServiceDocument</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/atomsvc+xml&#39;</span></code></pre></div>
 <h5 id="for-user-data-2">For user data</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/xml&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

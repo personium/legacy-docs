@@ -10,7 +10,6 @@
 </head>
 <body>
 <h1 id="personiumhttp">PersoniumのHTTP実装に関する制限事項</h1>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">URL</h4>
 <p>最大サイズ: 50KByte<br />
@@ -27,28 +26,27 @@
 <p>gzip のリクエストに対応予定ですが未対応です。</p>
 <h4 id="time-out">Time-out</h4>
 <p>60秒（リクエスト開始から、サーバがリクエストをすべて受領し終わるまでの時間）</p>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>レスポンスヘッダ</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">説明<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Transfer-Encoding<br></td>
-<td align="left">常にchunkedでレスポンスします<br></td>
+<td align="left">Transfer-Encoding</td>
+<td align="left">常にchunkedでレスポンスします</td>
 </tr>
 <tr class="even">
-<td align="left">Content-Encoding<br></td>
-<td align="left">リクエストヘッダで有効なAccept-Encoding値を設定された場合、その値が入ります<br></td>
+<td align="left">Content-Encoding</td>
+<td align="left">リクエストヘッダで有効なAccept-Encoding値を設定された場合、その値が入ります</td>
 </tr>
 <tr class="odd">
-<td align="left">Date<br></td>
-<td align="left">リクエストを受け付けたUTC時刻を返却します<br></td>
+<td align="left">Date</td>
+<td align="left">リクエストを受け付けたUTC時刻を返却します</td>
 </tr>
 </tbody>
 </table>
@@ -57,10 +55,7 @@
 <h5 id="transfer-encoding-1">Transfer-Encoding</h5>
 <p>原則chunked でレスポンスを行う。</p>
 <h5 id="content-encoding-1">Content-Encoding</h5>
-<p>リクエストヘッダで有効なAccept-Encoding値を設定された場合は、ボディはその形式で圧縮エンコードされます。<br />
-<br><br />
-<br><br />
-<br></p>
+<p>リクエストヘッダで有効なAccept-Encoding値を設定された場合は、ボディはその形式で圧縮エンコードされます。</p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
