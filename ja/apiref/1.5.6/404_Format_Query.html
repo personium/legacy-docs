@@ -54,39 +54,36 @@ $formatのクエリオプション有効値は下表の通り。</p>
 <table>
 <thead>
 <tr class="header">
-<th align="left">$format オプション<br></th>
-<th align="left">レスポンスされるデータの形式<br></th>
+<th align="left">$format オプション</th>
+<th align="left">レスポンスされるデータの形式</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">atom<br></td>
-<td align="left">application/atom+xml<br></td>
+<td align="left">atom</td>
+<td align="left">application/atom+xml</td>
 </tr>
 <tr class="even">
-<td align="left">xml<br></td>
-<td align="left">application/xml<br></td>
+<td align="left">xml</td>
+<td align="left">application/xml</td>
 </tr>
 <tr class="odd">
-<td align="left">JSON<br></td>
-<td align="left">application/json<br></td>
+<td align="left">JSON</td>
+<td align="left">application/json</td>
 </tr>
 <tr class="even">
-<td align="left">上記以外のIANA定義コンテンツ形式<br></td>
-<td align="left">IANA定義コンテンツ形式<br></td>
+<td align="left">上記以外のIANA定義コンテンツ形式</td>
+<td align="left">IANA定義コンテンツ形式</td>
 </tr>
 <tr class="odd">
-<td align="left">ある独自ODataサービスに固有のフォーマットを表すサービス特化型の値 <br></td>
-<td align="left">IANA定義コンテンツ形式<br></td>
+<td align="left">ある独自ODataサービスに固有のフォーマットを表すサービス特化型の値</td>
+<td align="left">IANA定義コンテンツ形式</td>
 </tr>
 </tbody>
 </table>
 <h3 id="curl">cURLサンプル</h3>
 <p>例：セル一覧をJSON形式で取得する場合:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/__ctl/Cell?</span><span class="dt">\$</span><span class="st">format=JSON&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

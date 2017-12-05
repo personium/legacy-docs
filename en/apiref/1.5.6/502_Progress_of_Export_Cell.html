@@ -65,7 +65,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>None</li>
 </ul>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/__export</code></pre>
@@ -82,20 +81,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Query Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Query Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
 </tr>
 </tbody>
 </table>
@@ -110,34 +109,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value} override} $: $ {value}<br></td>
-<td align="left">No<br></td>
-<td align="left">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value} override} $: $ {value}</td>
+<td align="left">No</td>
+<td align="left">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">Supported in V 1.1.7 and later</td>
 </tr>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 </tbody>
 </table>
@@ -145,24 +144,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>None</p>
 <h4 id="request-sample">Request Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Message<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Code</th>
+<th align="left">Message</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">200<br></td>
-<td align="left">OK<br></td>
-<td align="left">On success<br></td>
-<td align="left">Cell Export status refers to response body<br></td>
+<td align="left">200</td>
+<td align="left">OK</td>
+<td align="left">On success</td>
+<td align="left">Cell Export status refers to response body</td>
 </tr>
 </tbody>
 </table>
@@ -175,26 +173,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">Cross domain communication permission header<br></td>
-<td align="left">Return value fixed to &quot;*&quot;<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">Cross domain communication permission header</td>
+<td align="left">Return value fixed to &quot;*&quot;</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">API version that the request is processed<br></td>
-<td align="left">Version of the API used to process the request<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">API version that the request is processed</td>
+<td align="left">Version of the API used to process the request</td>
 </tr>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Format of data to be returned<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">Format of data to be returned</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -211,41 +209,41 @@ The correspondence between key (name) and type, and value are as follows.</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Object<br></th>
-<th align="left">Key<br></th>
-<th align="left">Type<br></th>
-<th align="left">Value<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Object</th>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Root<br></td>
-<td align="left">status<br></td>
-<td align="left">string<br></td>
-<td align="left">One of the following strings: <br>&quot;ready&quot;<br>&quot;exportation in progress&quot;<br></td>
-<td align="left">&quot;ready&quot;:Cell export acceptance accepted<br>&quot;exportation in progress&quot;:Cell export in progress<br></td>
+<td align="left">Root</td>
+<td align="left">status</td>
+<td align="left">string</td>
+<td align="left">One of the following strings: <br>&quot;ready&quot;<br>&quot;exportation in progress&quot;</td>
+<td align="left">&quot;ready&quot;:Cell export acceptance accepted<br>&quot;exportation in progress&quot;:Cell export in progress</td>
 </tr>
 <tr class="even">
-<td align="left">Root<br></td>
-<td align="left">started_at<br></td>
-<td align="left">string<br></td>
-<td align="left">Start time (ISO 8610 UTC format)<br></td>
-<td align="left">Do not output when status is below.<br>&quot;ready&quot;<br></td>
+<td align="left">Root</td>
+<td align="left">started_at</td>
+<td align="left">string</td>
+<td align="left">Start time (ISO 8610 UTC format)</td>
+<td align="left">Do not output when status is below.<br>&quot;ready&quot;</td>
 </tr>
 <tr class="odd">
-<td align="left">Root<br></td>
-<td align="left">progress<br></td>
-<td align="left">string<br></td>
-<td align="left">Progress rate (for example, &quot;30%&quot;)<br></td>
-<td align="left">Do not output when status is below.<br>&quot;ready&quot;<br></td>
+<td align="left">Root</td>
+<td align="left">progress</td>
+<td align="left">string</td>
+<td align="left">Progress rate (for example, &quot;30%&quot;)</td>
+<td align="left">Do not output when status is below.<br>&quot;ready&quot;</td>
 </tr>
 <tr class="even">
-<td align="left">Root<br></td>
-<td align="left">exportation_name<br></td>
-<td align="left">string<br></td>
-<td align="left">Export file name (excluding extension)<br></td>
-<td align="left">Do not output when status is below.<br>&quot;ready&quot;<br></td>
+<td align="left">Root</td>
+<td align="left">exportation_name</td>
+<td align="left">string</td>
+<td align="left">Export file name (excluding extension)</td>
+<td align="left">Do not output when status is below.<br>&quot;ready&quot;</td>
 </tr>
 </tbody>
 </table>
@@ -263,10 +261,8 @@ The correspondence between key (name) and type, and value are as follows.</p>
   <span class="dt">&quot;progress&quot;</span><span class="fu">:</span> <span class="st">&quot;81%&quot;</span><span class="fu">,</span>
   <span class="dt">&quot;exportation_name&quot;</span><span class="fu">:</span> <span class="st">&quot;CellExport_2017_01&quot;</span>
 <span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="curl-sample">cURL Sample</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__export&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

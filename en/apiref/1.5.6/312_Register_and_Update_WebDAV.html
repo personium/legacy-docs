@@ -56,7 +56,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>None</p>
 <h4 id="webdav-restriction">WebDAV restriction</h4>
 <p>Unpublished</p>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{ResourcePath}</code></pre>
@@ -68,26 +67,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Path<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Path</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{CellName}<br></td>
-<td align="left">Cell Name<br></td>
-<td align="left"><br></td>
+<td align="left">{CellName}</td>
+<td align="left">Cell Name</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">{BoxName}<br></td>
-<td align="left">Box Name<br></td>
-<td align="left"><br></td>
+<td align="left">{BoxName}</td>
+<td align="left">Box Name</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">{ResourcePath}<br></td>
-<td align="left">Path to resource<br></td>
-<td align="left">Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br></td>
+<td align="left">{ResourcePath}</td>
+<td align="left">Path to resource</td>
+<td align="left">Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)</td>
 </tr>
 </tbody>
 </table>
@@ -105,20 +104,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Query Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Query Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
 </tr>
 </tbody>
 </table>
@@ -134,34 +133,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">Supported in V 1.1.7 and later</td>
 </tr>
 </tbody>
 </table>
@@ -176,34 +175,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 <tr class="even">
-<td align="left">If-Match<br></td>
-<td align="left">Specifies the target ETag value<br></td>
-<td align="left">ETag value<br></td>
-<td align="left">No<br></td>
-<td align="left">[*] by default<br></td>
+<td align="left">If-Match</td>
+<td align="left">Specifies the target ETag value</td>
+<td align="left">ETag value</td>
+<td align="left">No</td>
+<td align="left">[*] by default</td>
 </tr>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Specify the content format of the registration / update file<br></td>
-<td align="left">String<br></td>
-<td align="left">No<br></td>
-<td align="left">When registering and updating in SWF format<br>Content-Type:application/x-shockwave-flash<br>When registering / updating in PDF format<br>Content-Type:application/pdf<br>When registering and updating in JPG format<br>Content-Type:image/jpeg<br>When registering and updating in js format<br>Content-Type:application/x-javascript<br></td>
+<td align="left">Content-Type</td>
+<td align="left">Specify the content format of the registration / update file</td>
+<td align="left">String</td>
+<td align="left">No</td>
+<td align="left">When registering and updating in SWF format<br>Content-Type:application/x-shockwave-flash<br>When registering / updating in PDF format<br>Content-Type:application/pdf<br>When registering and updating in JPG format<br>Content-Type:image/jpeg<br>When registering and updating in js format<br>Content-Type:application/x-javascript</td>
 </tr>
 </tbody>
 </table>
@@ -217,44 +216,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Designate context information to be registered / updated as a request body in binary<br></td>
-<td align="left">The method specified in the Content-Type header<br></td>
-<td align="left">Yes<br></td>
-<td align="left"><br></td>
+<td align="left">Designate context information to be registered / updated as a request body in binary</td>
+<td align="left">The method specified in the Content-Type header</td>
+<td align="left">Yes</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 <h4 id="request-sample">Request Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Message<br></th>
-<th align="left">Overview<br></th>
+<th align="left">Code</th>
+<th align="left">Message</th>
+<th align="left">Overview</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">201<br></td>
-<td align="left">Created<br></td>
-<td align="left">Successful registration<br></td>
+<td align="left">201</td>
+<td align="left">Created</td>
+<td align="left">Successful registration</td>
 </tr>
 <tr class="even">
-<td align="left">204<br></td>
-<td align="left">No Content<br></td>
-<td align="left">Update success<br></td>
+<td align="left">204</td>
+<td align="left">No Content</td>
+<td align="left">Update success</td>
 </tr>
 </tbody>
 </table>
@@ -267,21 +265,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Format of data to be returned<br></td>
-<td align="left">Only when it failed at the time of update / creation, return it<br></td>
+<td align="left">Content-Type</td>
+<td align="left">Format of data to be returned</td>
+<td align="left">Only when it failed at the time of update / creation, return it</td>
 </tr>
 <tr class="even">
-<td align="left">ETag<br></td>
-<td align="left">Resource version information<br></td>
-<td align="left"><br></td>
+<td align="left">ETag</td>
+<td align="left">Resource version information</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -291,10 +289,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4 id="response-sample">Response Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ResourceName}&quot;</span> -X PUT -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{[File contents]}&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

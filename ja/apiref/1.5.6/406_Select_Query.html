@@ -66,14 +66,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">Path<br></th>
-<th align="left">概要<br></th>
+<th align="left">Path</th>
+<th align="left">概要</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{PropertyName}<br></td>
-<td align="left">返却するプロパティ名<br>複数指定する場合はカンマ区切りで指定する<br></td>
+<td align="left">{PropertyName}</td>
+<td align="left">返却するプロパティ名<br>複数指定する場合はカンマ区切りで指定する</td>
 </tr>
 </tbody>
 </table>
@@ -82,9 +82,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Box?</span><span class="dt">\$</span><span class="st">select=Name&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
 <p>例：Box一覧を取得する際、全プロパティを返却する場合:</p>
 <pre><code>curl &quot;https://{UnitFQDN}/{CellName}/__ctl/Box?\$select=*&quot; -X GET -i -H &#39;Authorization: Bearer {AccessToken}&#39; -H &#39;Accept: application/json&#39;</code></pre>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

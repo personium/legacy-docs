@@ -59,7 +59,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>$formatがatomsvcでなく、Acceptヘッダがapplication/atomsvc+xmlでない場合は、ユーザデータのEDMXを返却する</li>
 <li>ComplexTypeおよび、Documentationタグは対応していないため返却しない</li>
 </ul>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>/{CellName}/{BoxName}/{odataname}/$metadata</code></pre>
@@ -77,20 +76,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -109,34 +108,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">メソッドオーバーライド機能<br></td>
-<td align="left">任意<br></td>
-<td align="left">×<br></td>
-<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">メソッドオーバーライド機能</td>
+<td align="left">任意</td>
+<td align="left">×</td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">ヘッダオーバライド機能<br></td>
-<td align="left">${上書きするヘッダ名}:${値}<br></td>
-<td align="left">×<br></td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br></td>
+<td align="left">X-Override</td>
+<td align="left">ヘッダオーバライド機能</td>
+<td align="left">${上書きするヘッダ名}:${値}</td>
+<td align="left">×</td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 </tbody>
 </table>
@@ -151,27 +150,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Accept<br></td>
-<td align="left">返却されるデータの形式<br></td>
-<td align="left">application/atomsvc+xml<br>application/xml<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、ユーザデータスキーマのスキーマ情報取得となる<br></td>
+<td align="left">Accept</td>
+<td align="left">返却されるデータの形式</td>
+<td align="left">application/atomsvc+xml<br>application/xml</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、ユーザデータスキーマのスキーマ情報取得となる</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {認証トークン}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {認証トークン}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 </tbody>
 </table>
@@ -179,7 +178,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>なし</p>
 <h4>リクエストサンプル</h4>
 <p>なし</p>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <p>200</p>
@@ -188,21 +186,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">クロスドメイン通信許可ヘッダ<br></td>
-<td align="left">返却値は&quot;*&quot;固定<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">クロスドメイン通信許可ヘッダ</td>
+<td align="left">返却値は&quot;*&quot;固定</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">APIの実行バージョン<br></td>
-<td align="left">指定がない場合、最新のAPIバージョンが指定される<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">APIの実行バージョン</td>
+<td align="left">指定がない場合、最新のAPIバージョンが指定される</td>
 </tr>
 </tbody>
 </table>
@@ -210,21 +208,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">返却されるデータの形式<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">返却されるデータの形式</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">ODataのバージョン<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">ODataのバージョン</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -238,36 +236,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">URI<br></th>
-<th align="left">概要<br></th>
-<th align="left">参考prefix<br></th>
+<th align="left">URI</th>
+<th align="left">概要</th>
+<th align="left">参考prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2007/06/edmx" class="uri">http://schemas.microsoft.com/ado/2007/06/edmx</a><br></td>
-<td align="left">edmxの名前空間<br></td>
-<td align="left">edmx:<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/06/edmx" class="uri">http://schemas.microsoft.com/ado/2007/06/edmx</a></td>
+<td align="left">edmxの名前空間</td>
+<td align="left">edmx:</td>
 </tr>
 <tr class="even">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices</a><br></td>
-<td align="left">WCF Data Servicesの名前空間<br></td>
-<td align="left">d:<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices</a></td>
+<td align="left">WCF Data Servicesの名前空間</td>
+<td align="left">d:</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices/metadata</a><br></td>
-<td align="left">WCF Data Services metadataの名前空間<br></td>
-<td align="left">m:<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" class="uri">http://schemas.microsoft.com/ado/2007/08/dataservices/metadata</a></td>
+<td align="left">WCF Data Services metadataの名前空間</td>
+<td align="left">m:</td>
 </tr>
 <tr class="even">
-<td align="left">urn:x-personium:xmlns<br></td>
-<td align="left">Personiumの名前空間 <br></td>
-<td align="left">p:<br></td>
+<td align="left">urn:x-personium:xmlns</td>
+<td align="left">Personiumの名前空間</td>
+<td align="left">p:</td>
 </tr>
 <tr class="odd">
-<td align="left"><a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a><br></td>
-<td align="left">schemeの名前空間<br></td>
-<td align="left">-<br></td>
+<td align="left"><a href="http://schemas.microsoft.com/ado/2006/04/edm" class="uri">http://schemas.microsoft.com/ado/2006/04/edm</a></td>
+<td align="left">schemeの名前空間</td>
+<td align="left">-</td>
 </tr>
 </tbody>
 </table>
@@ -284,510 +282,503 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ノード名<br></th>
-<th align="left">名前空間<br></th>
-<th align="left">ノードタイプ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ノード名</th>
+<th align="left">名前空間</th>
+<th align="left">ノードタイプ</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Edmx <br></td>
-<td align="left">edmx:<br></td>
-<td align="left">要素<br></td>
-<td align="left">EDMXドキュメントのルートを表し、子に必ず１つのDataServices要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">Edmx</td>
+<td align="left">edmx:</td>
+<td align="left">要素</td>
+<td align="left">EDMXドキュメントのルートを表し、子に必ず１つのDataServices要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Version<br></td>
-<td align="left">edmx:<br></td>
-<td align="left">属性<br></td>
-<td align="left">EDMXドキュメントのバージョンを表す。属性値は必ず'1.0'となる<br></td>
-<td align="left"><br></td>
+<td align="left">Version</td>
+<td align="left">edmx:</td>
+<td align="left">属性</td>
+<td align="left">EDMXドキュメントのバージョンを表す。属性値は必ず'1.0'となる</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">DataServices<br></td>
-<td align="left">edmx:<br></td>
-<td align="left">要素<br></td>
-<td align="left">データサービスを表し、子に複数のSchema要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">DataServices</td>
+<td align="left">edmx:</td>
+<td align="left">要素</td>
+<td align="left">データサービスを表し、子に複数のSchema要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">m:<br></td>
-<td align="left">属性<br></td>
-<td align="left">データサービスのバージョンを表す。属性値は必ず'1.0'となる<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">m:</td>
+<td align="left">属性</td>
+<td align="left">データサービスのバージョンを表す。属性値は必ず'1.0'となる</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Schema<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">CSDLドキュメントの最上位要素を表し、子にAssociation・ComplexType・<br>EntityType・EntityContainer・Documentationの要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">Schema</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">CSDLドキュメントの最上位要素を表し、子にAssociation・ComplexType・<br>EntityType・EntityContainer・Documentationの要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Namespace<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">スキーマの名前を表すし、必須な属性。<br></td>
-<td align="left">値として、System、Transient、または Edm を使用することはできない<br></td>
+<td align="left">Namespace</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">スキーマの名前を表すし、必須な属性。</td>
+<td align="left">値として、System、Transient、または Edm を使用することはできない</td>
 </tr>
 <tr class="odd">
-<td align="left">ComplexType<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">複合型を表し、子にDocumentation・Propertyの要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">ComplexType</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">複合型を表し、子にDocumentation・Propertyの要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">複合のスキーマ名を表し、必須な属性<br></td>
-<td align="left">ODataコレクション内にComplexTypeが存在する場合のみ必須<br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">複合のスキーマ名を表し、必須な属性</td>
+<td align="left">ODataコレクション内にComplexTypeが存在する場合のみ必須</td>
 </tr>
 <tr class="odd">
-<td align="left">Abstract<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの形式のデータを表す<br></td>
-<td align="left">Abstractが存在する場合のみ表示<br></td>
+<td align="left">Abstract</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティの形式のデータを表す</td>
+<td align="left">Abstractが存在する場合のみ表示</td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">複合型のドキュメントを表す<br></td>
-<td align="left">存在する場合のみ表示<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">複合型のドキュメントを表す</td>
+<td align="left">存在する場合のみ表示</td>
 </tr>
 <tr class="odd">
-<td align="left">EntityType<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティ型を表し、子にDocumentation・HasStream・BaseType・<br>Key・Property・NavigationPropertyの要素を持つ <br></td>
-<td align="left"><br></td>
+<td align="left">EntityType</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティ型を表し、子にDocumentation・HasStream・BaseType・<br>Key・Property・NavigationPropertyの要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">HasStream<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">エンティティがメディア リソース ストリームに関連付けられているかを表す<br></td>
-<td align="left"><br></td>
+<td align="left">HasStream</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">エンティティがメディア リソース ストリームに関連付けられているかを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">BaseType<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">エンティティ型の基本型を表す<br></td>
-<td align="left"><br></td>
+<td align="left">BaseType</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">エンティティ型の基本型を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティ型のドキュメントを表す<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティ型のドキュメントを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Key<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティのキーを表し、必ず１個以上のPropertyRefが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">Key</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティのキーを表し、必ず１個以上のPropertyRefが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">PropertyRef<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">キーの参照プロパティを表す<br></td>
-<td align="left"><br></td>
+<td align="left">PropertyRef</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">キーの参照プロパティを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">参照されているプロパティの名前を表し、必須の属性となる<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">参照されているプロパティの名前を表し、必須の属性となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">NavigationProperty<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">ナビゲーションプロパティを表す<br></td>
-<td align="left"><br></td>
+<td align="left">NavigationProperty</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">ナビゲーションプロパティを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">ナビゲーションプロパティの名前を表し、必須の属性となる<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">ナビゲーションプロパティの名前を表し、必須の属性となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">ナビゲーションプロパティのドキュメントを表<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">ナビゲーションプロパティのドキュメントを表</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Relationship<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">モデルのスコープ内にあるアソシエーションの名前を表し、必須の属性となる<br></td>
-<td align="left"><br></td>
+<td align="left">Relationship</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">モデルのスコープ内にあるアソシエーションの名前を表し、必須の属性となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">FromRole<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">参照元ロールを表す<br></td>
-<td align="left"><br></td>
+<td align="left">FromRole</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">参照元ロールを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">ToRole<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">参照先ロールを表す<br></td>
-<td align="left"><br></td>
+<td align="left">ToRole</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">参照先ロールを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Association<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">アソシエーションを表し、子にDocumentation・Endの要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">Association</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">アソシエーションを表し、子にDocumentation・Endの要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">アソシエーション名を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">アソシエーション名を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">アソシエーションのドキュメントを表す<br></td>
-<td align="left">存在する場合のみ表示<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">アソシエーションのドキュメントを表す</td>
+<td align="left">存在する場合のみ表示</td>
 </tr>
 <tr class="odd">
-<td align="left">End<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">アソシエーションエンドの名前を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">End</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">アソシエーションエンドの名前を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Role<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">アソシエーションエンドの名前を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Role</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">アソシエーションエンドの名前を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Type<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">アソシエーションエンドの型を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Type</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">アソシエーションエンドの型を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Multiplicity<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">アソシエーションエンドの多重度を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Multiplicity</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">アソシエーションエンドの多重度を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">EntityContainer<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティコンテナを表し、子にDocumentation・EntitySet・<br>FunctionImport・AssociationSetの要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">EntityContainer</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティコンテナを表し、子にDocumentation・EntitySet・<br>FunctionImport・AssociationSetの要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">エンティティコンテナ名を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">エンティティコンテナ名を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">IsDefaultEntityContainer<br></td>
-<td align="left">m:<br></td>
-<td align="left">属性<br></td>
-<td align="left">デフォルトエンティティコンテナフラグを表す<br></td>
-<td align="left"><br></td>
+<td align="left">IsDefaultEntityContainer</td>
+<td align="left">m:</td>
+<td align="left">属性</td>
+<td align="left">デフォルトエンティティコンテナフラグを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティコンテナのドキュメントのドキュメントを表す<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティコンテナのドキュメントのドキュメントを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">EntitySet<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティセットを表し、子に Documentationの要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">EntitySet</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティセットを表し、子に Documentationの要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティコンテナのドキュメントのドキュメントを表す<br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティコンテナのドキュメントのドキュメントを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">エンティティセットを表し、子に Documentationの要素を持つ<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">エンティティセットを表し、子に Documentationの要素を持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">EntityType<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">エンティティセットのエンティティタイプを表す<br></td>
-<td align="left"><br></td>
+<td align="left">EntityType</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">エンティティセットのエンティティタイプを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">エンティティセット名を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">エンティティセット名を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">FunctionImport<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">関数インポート（モデル宣言関数）を表す<br></td>
-<td align="left"><br></td>
+<td align="left">FunctionImport</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">関数インポート（モデル宣言関数）を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">関数インポート名を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">関数インポート名を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">EntitySet<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">関数インポートのエンティティセットを表し、子に Documentationの要素を持つ<br></td>
-<td align="left">存在するエンティティセット分 繰り返す<br></td>
+<td align="left">EntitySet</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">関数インポートのエンティティセットを表し、子に Documentationの要素を持つ</td>
+<td align="left">存在するエンティティセット分 繰り返す</td>
 </tr>
 <tr class="odd">
-<td align="left">ReturnType<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">戻り値の型を表す<br></td>
-<td align="left"><br></td>
+<td align="left">ReturnType</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">戻り値の型を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">HttpMethod<br></td>
-<td align="left">m:<br></td>
-<td align="left">属性<br></td>
-<td align="left">メソッドを表し、必須な属性<br></td>
-<td align="left">FunctionImportが存在する場合<br></td>
+<td align="left">HttpMethod</td>
+<td align="left">m:</td>
+<td align="left">属性</td>
+<td align="left">メソッドを表し、必須な属性</td>
+<td align="left">FunctionImportが存在する場合</td>
 </tr>
 <tr class="odd">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">関数インポートのドキュメントを表す <br></td>
-<td align="left"><br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">関数インポートのドキュメントを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Parameter<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">関数インポートの引数を表す<br></td>
-<td align="left"><br></td>
+<td align="left">Parameter</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">関数インポートの引数を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">関数インポートの引数名を表し、必須な項目<br></td>
-<td align="left">FunctionImport、Parameterが存在する場合<br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">関数インポートの引数名を表し、必須な項目</td>
+<td align="left">FunctionImport、Parameterが存在する場合</td>
 </tr>
 <tr class="even">
-<td align="left">Type<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">関数インポートの引数の型を表し、必須な項目<br></td>
-<td align="left">FunctionImport、Parameterが存在する場合<br></td>
+<td align="left">Type</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">関数インポートの引数の型を表し、必須な項目</td>
+<td align="left">FunctionImport、Parameterが存在する場合</td>
 </tr>
 <tr class="odd">
-<td align="left">Mode<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">関数インポートの引数のモードを表し、有効値：'In'、'Out'、または 'InOut'<br></td>
-<td align="left"><br></td>
+<td align="left">Mode</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">関数インポートの引数のモードを表し、有効値：'In'、'Out'、または 'InOut'</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">関数インポートの引数のドキュメントを表す<br></td>
-<td align="left">存在する場合のみ表示<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">関数インポートの引数のドキュメントを表す</td>
+<td align="left">存在する場合のみ表示</td>
 </tr>
 <tr class="odd">
-<td align="left">AssociationSet<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">アソシエーションセットを表し、子にDocumentationと２つのEndを持つ<br></td>
-<td align="left"><br></td>
+<td align="left">AssociationSet</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">アソシエーションセットを表し、子にDocumentationと２つのEndを持つ</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">アソシエーションセット名を表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">アソシエーションセット名を表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Association<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">アソシエーションセットのアソシエーションを表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Association</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">アソシエーションセットのアソシエーションを表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Documentation<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">アソシエーションセットのドキュメントを表す<br></td>
-<td align="left">存在する場合のみ表示<br></td>
+<td align="left">Documentation</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">アソシエーションセットのドキュメントを表す</td>
+<td align="left">存在する場合のみ表示</td>
 </tr>
 <tr class="odd">
-<td align="left">End<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">アソシエーションセット ENDを表し、必須な要素<br></td>
-<td align="left"><br></td>
+<td align="left">End</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">アソシエーションセット ENDを表し、必須な要素</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Role<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">ロールを表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">Role</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">ロールを表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">EntitySet<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">エンティティセットを表し、必須な属性<br></td>
-<td align="left"><br></td>
+<td align="left">EntitySet</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">エンティティセットを表し、必須な属性</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 <h5>プロパティ</h5>
-<table style="width:28%;">
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
-<th align="left">ノード名<br></th>
-<th align="left">名前空間<br></th>
-<th align="left">ノードタイプ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ノード名</th>
+<th align="left">名前空間</th>
+<th align="left">ノードタイプ</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Property<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">エンティティ型のPropertyを表す<br></td>
-<td align="left"><br></td>
+<td align="left">Property</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">エンティティ型のPropertyを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Name<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの名前を表す<br></td>
-<td align="left"><br></td>
+<td align="left">Name</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティの名前を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Type<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティ値の型を表す<br></td>
-<td align="left"><br></td>
+<td align="left">Type</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティ値の型を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Nullable<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">null 値の割り当ての可否を表す<br></td>
-<td align="left"><br></td>
+<td align="left">Nullable</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">null 値の割り当ての可否を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">MaxLength<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの許容最大長を表す<br></td>
-<td align="left"><br></td>
+<td align="left">MaxLength</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティの許容最大長を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DefaultValue<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの既定値を表す<br></td>
-<td align="left"><br></td>
+<td align="left">DefaultValue</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティの既定値を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Precision<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの有効桁数を表す<br></td>
-<td align="left"><br></td>
+<td align="left">Precision</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティの有効桁数を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Scale<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの小数点以下桁数を表す<br></td>
-<td align="left"><br></td>
+<td align="left">Scale</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティの小数点以下桁数を表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">CollectionKind<br></td>
-<td align="left">-<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの配列種別を表す<br></td>
+<td align="left">CollectionKind</td>
+<td align="left">-</td>
+<td align="left">属性</td>
+<td align="left">プロパティの配列種別を表す</td>
 <td align="left">コレクションが配列の場合List,それ以外はNone<br>Noneの場合は表示されない</td>
 </tr>
 <tr class="even">
-<td align="left">Format<br></td>
-<td align="left">p:<br></td>
-<td align="left">属性<br></td>
-<td align="left">プロパティの文字フォーマットを表す<br></td>
-<td align="left"><br></td>
+<td align="left">Format</td>
+<td align="left">p:</td>
+<td align="left">属性</td>
+<td align="left">プロパティの文字フォーマットを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">IsDeclared<br></td>
-<td align="left">p:<br></td>
-<td align="left">属性<br></td>
-<td align="left">静的プロパティか否かを表す<br></td>
-<td align="left">動的プロパティの場合falseで表示,静的プロパティの場合は表示されない<br></td>
+<td align="left">IsDeclared</td>
+<td align="left">p:</td>
+<td align="left">属性</td>
+<td align="left">静的プロパティか否かを表す</td>
+<td align="left">動的プロパティの場合falseで表示,静的プロパティの場合は表示されない</td>
 </tr>
 </tbody>
 </table>
@@ -796,27 +787,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ノード名<br></th>
-<th align="left">名前空間<br></th>
-<th align="left">ノードタイプ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ノード名</th>
+<th align="left">名前空間</th>
+<th align="left">ノードタイプ</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Summary<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">ドキュメントのサマリを表す<br></td>
-<td align="left"><br></td>
+<td align="left">Summary</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">ドキュメントのサマリを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">LongDescription<br></td>
-<td align="left">-<br></td>
-<td align="left">要素<br></td>
-<td align="left">ドキュメントの詳細を表す<br></td>
-<td align="left"><br></td>
+<td align="left">LongDescription</td>
+<td align="left">-</td>
+<td align="left">要素</td>
+<td align="left">ドキュメントの詳細を表す</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -942,15 +933,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="kw">&lt;/Schema&gt;</span>
   <span class="kw">&lt;/edmx:DataServices&gt;</span>
 <span class="kw">&lt;/edmx:Edmx&gt;</span></code></pre></div>
-<p><br></p>
 <h3 id="curl">cURLサンプル</h3>
 <h5 id="schemaatom-servicedocument-1">SchemaのAtom ServiceDocumentの場合</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/atomsvc+xml&#39;</span></code></pre></div>
 <h5 id="-2">ユーザデータの場合</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/</span><span class="dt">\$</span><span class="st">metadata&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept:application/xml&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

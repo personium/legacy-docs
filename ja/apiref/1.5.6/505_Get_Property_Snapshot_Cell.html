@@ -55,7 +55,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>レスポンスボディで返却するプロパティを指定する機能（現状allpropとなる）</li>
 </ul>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>/{CellName}/__snapshot</code></pre>
@@ -74,20 +73,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -102,48 +101,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">メソッドオーバーライド機能<br></td>
-<td align="left">任意<br></td>
-<td align="left">×<br></td>
-<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">メソッドオーバーライド機能</td>
+<td align="left">任意</td>
+<td align="left">×</td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">ヘッダオーバライド機能<br></td>
-<td align="left">${上書きするヘッダ名}:${値}<br></td>
-<td align="left">×<br></td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br></td>
+<td align="left">X-Override</td>
+<td align="left">ヘッダオーバライド機能</td>
+<td align="left">${上書きするヘッダ名}:${値}</td>
+<td align="left">×</td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 <tr class="odd">
-<td align="left">Depth<br></td>
-<td align="left">取得するリソースの階層<br></td>
-<td align="left">0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース<br></td>
-<td align="left">○<br></td>
-<td align="left"><br></td>
+<td align="left">Depth</td>
+<td align="left">取得するリソースの階層</td>
+<td align="left">0:対象のリソース自身 <br>1:対象のリソースとそれの直下のリソース</td>
+<td align="left">○</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -152,16 +151,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">URI<br></th>
-<th align="left">概要<br></th>
-<th align="left">参考prefix<br></th>
+<th align="left">URI</th>
+<th align="left">概要</th>
+<th align="left">参考prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DAV:<br></td>
-<td align="left">WebDAVの名前空間<br></td>
-<td align="left">D:<br></td>
+<td align="left">DAV:</td>
+<td align="left">WebDAVの名前空間</td>
+<td align="left">D:</td>
 </tr>
 </tbody>
 </table>
@@ -178,27 +177,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ノード名<br></th>
-<th align="left">名前空間<br></th>
-<th align="left">ノードタイプ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ノード名</th>
+<th align="left">名前空間</th>
+<th align="left">ノードタイプ</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">propfind<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">propfindのルート要素を表し、allpropが子となる <br></td>
-<td align="left"><br></td>
+<td align="left">propfind</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">propfindのルート要素を表し、allpropが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">allprop <br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">全プロパティを取得設定を表す <br></td>
-<td align="left">allprop・・・すべてのプロパティを取得する<br>リクエストボディが空の場合も、allpropとして扱う<br>allprop以外の要素は未対応<br></td>
+<td align="left">allprop</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">全プロパティを取得設定を表す</td>
+<td align="left">allprop・・・すべてのプロパティを取得する<br>リクエストボディが空の場合も、allpropとして扱う<br>allprop以外の要素は未対応</td>
 </tr>
 </tbody>
 </table>
@@ -210,22 +209,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">&lt;D:propfind</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span>
   <span class="kw">&lt;D:allprop/&gt;</span>
 <span class="kw">&lt;/D:propfind&gt;</span></code></pre></div>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">コード<br></th>
-<th align="left">メッセージ<br></th>
-<th align="left">概要<br></th>
+<th align="left">コード</th>
+<th align="left">メッセージ</th>
+<th align="left">概要</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">207<br></td>
-<td align="left">Multi-Status<br></td>
-<td align="left">成功<br></td>
+<td align="left">207</td>
+<td align="left">Multi-Status</td>
+<td align="left">成功</td>
 </tr>
 </tbody>
 </table>
@@ -233,26 +231,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">返却されるデータの形式<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">返却されるデータの形式</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">クロスドメイン通信許可ヘッダ<br></td>
-<td align="left">返却値は&quot;*&quot;固定<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">クロスドメイン通信許可ヘッダ</td>
+<td align="left">返却値は&quot;*&quot;固定</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">APIの実行バージョン<br></td>
-<td align="left">リクエストが処理されたAPIバージョン<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">APIの実行バージョン</td>
+<td align="left">リクエストが処理されたAPIバージョン</td>
 </tr>
 </tbody>
 </table>
@@ -261,142 +259,135 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">URI<br></th>
-<th align="left">概要<br></th>
-<th align="left">参考prefix<br></th>
+<th align="left">URI</th>
+<th align="left">概要</th>
+<th align="left">参考prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DAV:<br></td>
-<td align="left">WebDAVの名前空間<br></td>
-<td align="left">D:<br></td>
+<td align="left">DAV:</td>
+<td align="left">WebDAVの名前空間</td>
+<td align="left">D:</td>
 </tr>
 <tr class="even">
-<td align="left">urn:x-personium:xmlns<br></td>
-<td align="left">Personiumの名前空間<br></td>
-<td align="left">p:<br></td>
+<td align="left">urn:x-personium:xmlns</td>
+<td align="left">Personiumの名前空間</td>
+<td align="left">p:</td>
 </tr>
 </tbody>
 </table>
 <p>※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。</p>
 <p>XMLの構造</p>
 <p>ボディはXMLで、以下のスキーマに従っています。</p>
-<table style="width:28%;">
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
-<th align="left">ノード名<br></th>
-<th align="left">名前空間<br></th>
-<th align="left">ノードタイプ<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ノード名</th>
+<th align="left">名前空間</th>
+<th align="left">ノードタイプ</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">multistatus<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">multistatusのルートを表し、1つ以上複数のresponseが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">multistatus</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">multistatusのルートを表し、1つ以上複数のresponseが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">response<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソース取得のレスポンスを表し、hrefとpropstatが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">response</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソース取得のレスポンスを表し、hrefとpropstatが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">href<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソースのurl<br></td>
-<td align="left"><br></td>
+<td align="left">href</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソースのurl</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">propstat<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソースのプロパティ情報を表し、statusとpropが子となる<br></td>
-<td align="left"><br></td>
+<td align="left">propstat</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソースのプロパティ情報を表し、statusとpropが子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">status<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソース取得のレスポンスコードを表す<br></td>
-<td align="left"><br></td>
+<td align="left">status</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソース取得のレスポンスコードを表す</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">prop<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">プロパティ詳細情報を表し、creationdateとresourcetypeとaclとproppatch設定値が子となる<br></td>
-<td align="left"><br></td>
+<td align="left">prop</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">プロパティ詳細情報を表し、creationdateとresourcetypeとaclとproppatch設定値が子となる</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">creationdate<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソース作成時刻<br></td>
-<td align="left"><br></td>
+<td align="left">creationdate</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソース作成時刻</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">getcontentlength<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソースのサイズ<br></td>
-<td align="left">リソースがファイルの場合のみ<br></td>
+<td align="left">getcontentlength</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソースのサイズ</td>
+<td align="left">リソースがファイルの場合のみ</td>
 </tr>
 <tr class="odd">
-<td align="left">getcontenttype<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソースのcontenttype<br></td>
-<td align="left">リソースがファイルの場合のみ<br></td>
+<td align="left">getcontenttype</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソースのcontenttype</td>
+<td align="left">リソースがファイルの場合のみ</td>
 </tr>
 <tr class="even">
-<td align="left">getlastmodified<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソース更新時刻<br></td>
-<td align="left"><br></td>
+<td align="left">getlastmodified</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソース更新時刻</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">resourcetype<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソースのタイプを表す。<br>collectionが子となるか、子は空となる<br></td>
-<td align="left"><br></td>
+<td align="left">resourcetype</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソースのタイプを表す。<br>collectionが子となるか、子は空となる</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">collection<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソースのタイプがコレクションであることを表す<br></td>
-<td align="left">リソースがWebDAVの場合、この要素のみが表示される<br></td>
+<td align="left">collection</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソースのタイプがコレクションであることを表す</td>
+<td align="left">リソースがWebDAVの場合、この要素のみが表示される</td>
 </tr>
 <tr class="odd">
-<td align="left">acl<br></td>
-<td align="left">D:<br></td>
-<td align="left">要素<br></td>
-<td align="left">リソースに設定されているACL設定<br></td>
-<td align="left">ACL要素以下の内容については、<a href="289_Cell_ACL.html">Cell Level アクセス制御設定API</a>を参照<br></td>
+<td align="left">acl</td>
+<td align="left">D:</td>
+<td align="left">要素</td>
+<td align="left">リソースに設定されているACL設定</td>
+<td align="left">ACL要素以下の内容については、<a href="289_Cell_ACL.html">Cell Level アクセス制御設定API</a>を参照</td>
 </tr>
 <tr class="even">
-<td align="left">base<br></td>
-<td align="left">xml:<br></td>
-<td align="left">属性<br></td>
-<td align="left">ACLのPrivilegeのBaseURL<br></td>
-<td align="left">CellへのPROPFINDの場合、デフォルトボックス（&quot;__&quot;）のリソースURL<br></td>
+<td align="left">base</td>
+<td align="left">xml:</td>
+<td align="left">属性</td>
+<td align="left">ACLのPrivilegeのBaseURL</td>
+<td align="left">CellへのPROPFINDの場合、デフォルトボックス（&quot;__&quot;）のリソースURL</td>
 </tr>
 </tbody>
 </table>
@@ -434,12 +425,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         <span class="kw">&lt;/propstat&gt;</span>
     <span class="kw">&lt;/response&gt;</span>
 <span class="kw">&lt;/multistatus&gt;</span></code></pre></div>
-<p><br></p>
 <h3 id="curl">cURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__snapshot/CellExport_2017_01.zip&quot;</span> -X PROPFIND -i  -H <span class="st">&#39;Depth:0&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:propfind xmlns:D=&quot;DAV:&quot;&gt;&lt;D:allprop/&gt;&lt;/D:propfind&gt;&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

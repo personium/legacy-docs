@@ -52,7 +52,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3 id="required-privileges">Required Privileges</h3>
 <p>alter-schema</p>
 <h3 id="restrictions">Restrictions</h3>
-<p>None<br><br></p>
+<p>None</p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>EntityType
@@ -74,27 +74,27 @@ AssociationEnd
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 <tr class="even">
-<td align="left">Accept<br></td>
-<td align="left">Specifies the response body format<br></td>
-<td align="left">application/json<br></td>
-<td align="left">No<br></td>
-<td align="left">[application/json] by default<br></td>
+<td align="left">Accept</td>
+<td align="left">Specifies the response body format</td>
+<td align="left">application/json</td>
+<td align="left">No</td>
+<td align="left">[application/json] by default</td>
 </tr>
 </tbody>
 </table>
@@ -102,26 +102,25 @@ AssociationEnd
 <table>
 <thead>
 <tr class="header">
-<th align="left">Item Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Item Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">uri<br></td>
-<td align="left">Link to AssociationEnd uri<br></td>
-<td align="left">Present AssociationEnd<br></td>
-<td align="left">Yes<br></td>
-<td align="left"><br></td>
+<td align="left">uri</td>
+<td align="left">Link to AssociationEnd uri</td>
+<td align="left">Present AssociationEnd</td>
+<td align="left">Yes</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 <h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;{AssociationEndName}&#39;,_EntityType.Name=null)&quot;</span><span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <p>204</p>
@@ -134,16 +133,16 @@ AssociationEnd
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Item Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Item Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">Version information of ODataProtocol<br></td>
-<td align="left">Return only when AssociationEnd can be created successfully<br>Operation confirmed<br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">Version information of ODataProtocol</td>
+<td align="left">Return only when AssociationEnd can be created successfully<br>Operation confirmed</td>
 </tr>
 </tbody>
 </table>
@@ -153,14 +152,12 @@ AssociationEnd
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4 id="response-sample">Response Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="curl-command">cURL Command</h3>
 <p>EntityType</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/EntityType(Name=&#39;{EntityTypeName}&#39;)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -H <span class="st">&#39;Accept:application/json&#39;</span>
 <span class="ex">-d</span> <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span><span class="dt">{AssociationEndName}_link&#39;,_EntityType.Name=null)&quot;}</span><span class="st">&#39;</span></code></pre></div>
 <p>AssociationEnd</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/AssociationEnd(Name=&#39;{AssociationEndName}2&#39;,_EntityType.Name=Entity)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -H <span class="st">&#39;Accept:application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span><span class="dt">{AssociationEndName}_link&#39;,_EntityType.Name=Entity2)&quot;}</span><span class="st">&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

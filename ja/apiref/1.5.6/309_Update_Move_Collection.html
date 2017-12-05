@@ -57,7 +57,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>なし</p>
 <h4 id="webdav">WebDAV制限</h4>
 <p>未稿</p>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>/{CellName}/{BoxName}/{ResourcePath}/</code></pre>
@@ -75,20 +74,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -106,34 +105,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">メソッドオーバーライド機能<br></td>
-<td align="left">任意<br></td>
-<td align="left">×<br></td>
-<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">メソッドオーバーライド機能</td>
+<td align="left">任意</td>
+<td align="left">×</td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用される</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">ヘッダオーバライド機能<br></td>
-<td align="left">${上書きするヘッダ名}:${値}<br></td>
-<td align="left">×<br></td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する<br></td>
+<td align="left">X-Override</td>
+<td align="left">ヘッダオーバライド機能</td>
+<td align="left">${上書きするヘッダ名}:${値}</td>
+<td align="left">×</td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定する</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 </tbody>
 </table>
@@ -148,41 +147,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Destination<br></td>
-<td align="left">変更先<br></td>
-<td align="left">Absolute URI<br></td>
-<td align="left">○<br></td>
-<td align="left">移動/名前を変更するファイル名を指定する。<br></td>
+<td align="left">Destination</td>
+<td align="left">変更先</td>
+<td align="left">Absolute URI</td>
+<td align="left">○</td>
+<td align="left">移動/名前を変更するファイル名を指定する。</td>
 </tr>
 <tr class="even">
-<td align="left">Overwrite<br></td>
-<td align="left">上書き<br></td>
-<td align="left">&quot;T&quot; or &quot;F&quot;<br></td>
-<td align="left">×<br></td>
-<td align="left">上書き可(&quot;T&quot;)、上書き不可(&quot;F&quot;)を指定する。(初期値は&quot;F&quot;)<br></td>
+<td align="left">Overwrite</td>
+<td align="left">上書き</td>
+<td align="left">&quot;T&quot; or &quot;F&quot;</td>
+<td align="left">×</td>
+<td align="left">上書き可(&quot;T&quot;)、上書き不可(&quot;F&quot;)を指定する。(初期値は&quot;F&quot;)</td>
 </tr>
 <tr class="odd">
-<td align="left">Depth<br></td>
-<td align="left">移動階層<br></td>
-<td align="left">&quot;infinity&quot;<br></td>
-<td align="left">×<br></td>
-<td align="left">移動するコレクション階層の深さを指定する。(初期値は無限)<br></td>
+<td align="left">Depth</td>
+<td align="left">移動階層</td>
+<td align="left">&quot;infinity&quot;</td>
+<td align="left">×</td>
+<td align="left">移動するコレクション階層の深さを指定する。(初期値は無限)</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 </tbody>
 </table>
@@ -190,27 +189,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>なし</p>
 <h4>リクエストサンプル</h4>
 <p>なし</p>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">コード<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">コード</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">201<br></td>
-<td align="left">Created<br></td>
-<td align="left">移動または名称変更に成功(作成)<br></td>
+<td align="left">201</td>
+<td align="left">Created</td>
+<td align="left">移動または名称変更に成功(作成)</td>
 </tr>
 <tr class="even">
-<td align="left">204<br></td>
-<td align="left">No Content<br></td>
-<td align="left">移動または名称変更に成功(上書き)<br></td>
+<td align="left">204</td>
+<td align="left">No Content</td>
+<td align="left">移動または名称変更に成功(上書き)</td>
 </tr>
 </tbody>
 </table>
@@ -218,31 +216,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Location<br></td>
-<td align="left">作成したコレクションのリソースURL<br></td>
-<td align="left">正常にコレクションが作成できた場合のみ返却する<br></td>
+<td align="left">Location</td>
+<td align="left">作成したコレクションのリソースURL</td>
+<td align="left">正常にコレクションが作成できた場合のみ返却する</td>
 </tr>
 <tr class="even">
-<td align="left">ETag<br></td>
-<td align="left">リソースのバージョン情報<br></td>
-<td align="left">正常にコレクションが作成できた場合のみ返却する<br></td>
+<td align="left">ETag</td>
+<td align="left">リソースのバージョン情報</td>
+<td align="left">正常にコレクションが作成できた場合のみ返却する</td>
 </tr>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">クロスドメイン通信許可ヘッダ<br></td>
-<td align="left">返却値は&quot;*&quot;固定<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">クロスドメイン通信許可ヘッダ</td>
+<td align="left">返却値は&quot;*&quot;固定</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">APIの実行バージョン<br></td>
-<td align="left">リクエストが処理されたAPIバージョン<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">APIの実行バージョン</td>
+<td align="left">リクエストが処理されたAPIバージョン</td>
 </tr>
 </tbody>
 </table>
@@ -251,8 +249,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h4>レスポンスサンプル</h4>
-<p>なし<br />
-<br></p>
+<p>なし</p>
 <h3 id="curl">cURLサンプル</h3>
 <p>コレクション名変更(終端の&quot;/&quot;は必須)</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
@@ -260,9 +257,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
 <p>ファイル移動</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span>  <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

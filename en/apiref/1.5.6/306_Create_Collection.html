@@ -60,7 +60,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ul>
 <li>Unpublished</li>
 </ul>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{CollectionName}</code></pre>
@@ -72,26 +71,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Path<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Path</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{CellName}<br></td>
-<td align="left">Cell Name<br></td>
-<td align="left"><br></td>
+<td align="left">{CellName}</td>
+<td align="left">Cell Name</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">{BoxName}<br></td>
-<td align="left">Box Name<br></td>
-<td align="left"><br></td>
+<td align="left">{BoxName}</td>
+<td align="left">Box Name</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">{CollectionName}<br></td>
-<td align="left">Collection Name<br></td>
-<td align="left">Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)<br></td>
+<td align="left">{CollectionName}</td>
+<td align="left">Collection Name</td>
+<td align="left">Valid values Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)</td>
 </tr>
 </tbody>
 </table>
@@ -108,20 +107,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Query Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Query Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
 </tr>
 </tbody>
 </table>
@@ -137,34 +136,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">Supported in V 1.1.7 and later</td>
 </tr>
 </tbody>
 </table>
@@ -179,20 +178,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 </tbody>
 </table>
@@ -201,21 +200,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">URI<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Reference prefix<br></th>
+<th align="left">URI</th>
+<th align="left">Overview</th>
+<th align="left">Reference prefix</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DAV:<br></td>
-<td align="left">WebDAV Namespace<br></td>
-<td align="left">D:<br></td>
+<td align="left">DAV:</td>
+<td align="left">WebDAV Namespace</td>
+<td align="left">D:</td>
 </tr>
 <tr class="even">
-<td align="left">urn:x-personium:xmlns<br></td>
-<td align="left">Personium namespace<br></td>
-<td align="left">p:<br></td>
+<td align="left">urn:x-personium:xmlns</td>
+<td align="left">Personium namespace</td>
+<td align="left">p:</td>
 </tr>
 </tbody>
 </table>
@@ -232,62 +231,62 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Node name<br></th>
-<th align="left">Namespace<br></th>
-<th align="left">Node type<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Node name</th>
+<th align="left">Namespace</th>
+<th align="left">Node type</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">mkcol <br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents the root element of mkcol, set is a child<br></td>
-<td align="left"><br></td>
+<td align="left">mkcol</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Represents the root element of mkcol, set is a child</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">set<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Property setting, prop is a child <br></td>
-<td align="left"><br></td>
+<td align="left">set</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Property setting, prop is a child</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">prop<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents a property setting value, and resourcetype is a child <br></td>
-<td align="left"><br></td>
+<td align="left">prop</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">It represents a property setting value, and resourcetype is a child</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">resourcetype<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">It represents a resource type setting, and one of collection / odata / service is a child<br></td>
-<td align="left"><br></td>
+<td align="left">resourcetype</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">It represents a resource type setting, and one of collection / odata / service is a child</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">collection<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represent a collection<br></td>
-<td align="left">If only the collection node is specified WebDAV collection creation becomes<br></td>
+<td align="left">collection</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Represent a collection</td>
+<td align="left">If only the collection node is specified WebDAV collection creation becomes</td>
 </tr>
 <tr class="even">
-<td align="left">odata<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents an OData collection<br></td>
-<td align="left">If collection node and odata node are specified OData collection creation<br></td>
+<td align="left">odata</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Represents an OData collection</td>
+<td align="left">If collection node and odata node are specified OData collection creation</td>
 </tr>
 <tr class="odd">
-<td align="left">service<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Represents a Service collection<br></td>
-<td align="left">If collection node and service node are specified Service collection creation<br></td>
+<td align="left">service</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Represents a Service collection</td>
+<td align="left">If collection node and service node are specified Service collection creation</td>
 </tr>
 </tbody>
 </table>
@@ -297,7 +296,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">set</span> <span class="dv">(</span><span class="fu">prop</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="dv">(</span><span class="fu">resourcetype</span><span class="dv">)</span> <span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">resourcetype</span> <span class="dv">(</span><span class="fu">collection</span> <span class="fu">or</span> <span class="fu">odata</span> <span class="fu">or</span> <span class="fu">service</span><span class="dv">)</span> <span class="dt">&gt;</span>
-<span class="dt">&lt;!ELEMENT</span> <span class="fu">collection</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>       </code></pre></div>
+<span class="dt">&lt;!ELEMENT</span> <span class="fu">collection</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>   </code></pre></div>
 <h5 id="namespace-p">Namespace p:</h5>
 <div class="sourceCode"><pre class="sourceCode dtd"><code class="sourceCode dtd"><span class="dt">&lt;!ELEMENT</span> <span class="fu">odata</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span>
 <span class="dt">&lt;!ELEMENT</span> <span class="fu">service</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></code></pre></div>
@@ -337,7 +336,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="kw">&lt;/D:prop&gt;</span>
   <span class="kw">&lt;/D:set&gt;</span>
 <span class="kw">&lt;/D:mkcol&gt;</span></code></pre></div>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <p>201</p>
@@ -351,21 +349,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">Cross domain communication permission header<br></td>
-<td align="left">Return value fixed to &quot;*&quot;<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">Cross domain communication permission header</td>
+<td align="left">Return value fixed to &quot;*&quot;</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">API version that the request is processed<br></td>
-<td align="left">Version of the API used to process the request<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">API version that the request is processed</td>
+<td align="left">Version of the API used to process the request</td>
 </tr>
 </tbody>
 </table>
@@ -378,16 +376,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ETag<br></td>
-<td align="left">Resource version information<br></td>
-<td align="left">Return only when collection can be created successfully<br></td>
+<td align="left">ETag</td>
+<td align="left">Resource version information</td>
+<td align="left">Return only when collection can be created successfully</td>
 </tr>
 </tbody>
 </table>
@@ -397,7 +395,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4 id="response-sample">Response Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="curl-command">cURL Command</h3>
 <p>Create WebDAV collection</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:mkcol xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot;&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;D:resourcetype&gt;&lt;D:collection/&gt;&lt;/D:resourcetype&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:mkcol&gt;&#39;</span></code></pre></div>
@@ -405,7 +402,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:mkcol xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot;&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;D:resourcetype&gt;&lt;D:collection/&gt;&lt;p:odata/&gt;&lt;/D:resourcetype&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:mkcol&gt;&#39;</span></code></pre></div>
 <p>Create Service Collection</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;D:mkcol xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot;&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;D:resourcetype&gt;&lt;D:collection/&gt;&lt;p:service/&gt;&lt;/D:resourcetype&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:mkcol&gt;&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

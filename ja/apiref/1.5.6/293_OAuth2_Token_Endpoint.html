@@ -71,7 +71,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>なし</p>
 <h3>制限事項</h3>
 <p>なし</p>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <pre><code>{CellName}/__token</code></pre>
@@ -88,20 +87,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -116,20 +115,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">書式<br></th>
-<th align="left">必須<br></th>
-<th align="left">有効値<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">書式</th>
+<th align="left">必須</th>
+<th align="left">有効値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Basic {String}<br></td>
-<td align="left">×<br></td>
-<td align="left">{{スキーマ認証元のアプリセルURL}:{スキーマ認証元から払い出されたトークン}}をBase64Encodeした値を指定した場合、スキーマ認証になる<br>上記設定時、リクエストボディにclient_idとclient_secretの設定がある場合、Authorizationヘッダの設定が優先される<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Basic {String}</td>
+<td align="left">×</td>
+<td align="left">{{スキーマ認証元のアプリセルURL}:{スキーマ認証元から払い出されたトークン}}をBase64Encodeした値を指定した場合、スキーマ認証になる<br>上記設定時、リクエストボディにclient_idとclient_secretの設定がある場合、Authorizationヘッダの設定が優先される</td>
 </tr>
 </tbody>
 </table>
@@ -145,76 +144,76 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">書式<br></th>
-<th align="left">必須<br></th>
-<th align="left">有効値<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">書式</th>
+<th align="left">必須</th>
+<th align="left">有効値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">grant_type<br></td>
-<td align="left">認証タイプ<br></td>
-<td align="left">String<br></td>
-<td align="left">○<br></td>
-<td align="left">password<br>urn:x-personium:oidc:google<br></td>
+<td align="left">grant_type</td>
+<td align="left">認証タイプ</td>
+<td align="left">String</td>
+<td align="left">○</td>
+<td align="left">password<br>urn:x-personium:oidc:google</td>
 </tr>
 <tr class="even">
-<td align="left">username<br></td>
-<td align="left">ユーザ名<br></td>
-<td align="left">String<br></td>
-<td align="left">○(grant_type=passwordの場合)<br></td>
-<td align="left">登録済のユーザ名<br></td>
+<td align="left">username</td>
+<td align="left">ユーザ名</td>
+<td align="left">String</td>
+<td align="left">○(grant_type=passwordの場合)</td>
+<td align="left">登録済のユーザ名</td>
 </tr>
 <tr class="odd">
-<td align="left">password<br></td>
-<td align="left">パスワード<br></td>
-<td align="left">String<br></td>
-<td align="left">○(grant_type=passwordの場合)<br></td>
-<td align="left">登録済のパスワード<br></td>
+<td align="left">password</td>
+<td align="left">パスワード</td>
+<td align="left">String</td>
+<td align="left">○(grant_type=passwordの場合)</td>
+<td align="left">登録済のパスワード</td>
 </tr>
 <tr class="even">
-<td align="left">id_token<br></td>
-<td align="left">トークンID<br></td>
-<td align="left">JSON Web Token<br></td>
-<td align="left">○(grant_type=urn:x-personium:oidc:googleの場合)<br></td>
-<td align="left">JWT Formed ID Token<br></td>
+<td align="left">id_token</td>
+<td align="left">トークンID</td>
+<td align="left">JSON Web Token</td>
+<td align="left">○(grant_type=urn:x-personium:oidc:googleの場合)</td>
+<td align="left">JWT Formed ID Token</td>
 </tr>
 <tr class="odd">
-<td align="left">p_target<br></td>
-<td align="left">トランスセルトークンターゲット<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークン認証になる<br></td>
+<td align="left">p_target</td>
+<td align="left">トランスセルトークンターゲット</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークン認証になる</td>
 </tr>
 <tr class="even">
-<td align="left">client_id<br></td>
-<td align="left">アプリセルURL<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
+<td align="left">client_id</td>
+<td align="left">アプリセルURL</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される</td>
 </tr>
 <tr class="odd">
-<td align="left">client_secret<br></td>
-<td align="left">アプリセルから払い出されたトークン<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
+<td align="left">client_secret</td>
+<td align="left">アプリセルから払い出されたトークン</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される</td>
 </tr>
 <tr class="even">
-<td align="left">p_owner<br></td>
-<td align="left">ULUUT昇格実行クエリ<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">trueのみ有効<br></td>
+<td align="left">p_owner</td>
+<td align="left">ULUUT昇格実行クエリ</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">trueのみ有効</td>
 </tr>
 <tr class="odd">
-<td align="left">p_cookie<br></td>
-<td align="left">認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">trueのみ有効<br></td>
+<td align="left">p_cookie</td>
+<td align="left">認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">trueのみ有効</td>
 </tr>
 </tbody>
 </table>
@@ -241,55 +240,55 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">書式<br></th>
-<th align="left">必須<br></th>
-<th align="left">有効値<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">書式</th>
+<th align="left">必須</th>
+<th align="left">有効値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">grant_type<br></td>
-<td align="left">認証タイプ<br></td>
-<td align="left">String<br></td>
-<td align="left">○<br></td>
-<td align="left">urn: ietf: params: oauth: grant-type: saml2-bearer<br></td>
+<td align="left">grant_type</td>
+<td align="left">認証タイプ</td>
+<td align="left">String</td>
+<td align="left">○</td>
+<td align="left">urn: ietf: params: oauth: grant-type: saml2-bearer</td>
 </tr>
 <tr class="even">
-<td align="left">assertion<br></td>
-<td align="left">アクセストークン<br></td>
-<td align="left">String<br></td>
-<td align="left">○<br></td>
-<td align="left">有効なトークン<br></td>
+<td align="left">assertion</td>
+<td align="left">アクセストークン</td>
+<td align="left">String</td>
+<td align="left">○</td>
+<td align="left">有効なトークン</td>
 </tr>
 <tr class="odd">
-<td align="left">p_target<br></td>
-<td align="left">トランスセルトークンターゲット<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークンになる<br></td>
+<td align="left">p_target</td>
+<td align="left">トランスセルトークンターゲット</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">払い出されるトークンを使う先（セルURL）<br>指定した場合トランスセルトークンになる</td>
 </tr>
 <tr class="even">
-<td align="left">client_id<br></td>
-<td align="left">アプリセルURL<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
+<td align="left">client_id</td>
+<td align="left">アプリセルURL</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される</td>
 </tr>
 <tr class="odd">
-<td align="left">client_secret<br></td>
-<td align="left">アプリセルから払い出されたトークン<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
+<td align="left">client_secret</td>
+<td align="left">アプリセルから払い出されたトークン</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される</td>
 </tr>
 <tr class="even">
-<td align="left">p_cookie<br></td>
-<td align="left">認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">trueのみ有効<br></td>
+<td align="left">p_cookie</td>
+<td align="left">認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">trueのみ有効</td>
 </tr>
 </tbody>
 </table>
@@ -305,67 +304,66 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">書式<br></th>
-<th align="left">必須<br></th>
-<th align="left">有効値<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">書式</th>
+<th align="left">必須</th>
+<th align="left">有効値</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">grant_type<br></td>
-<td align="left">認証タイプ<br></td>
-<td align="left">String<br></td>
-<td align="left">○<br></td>
-<td align="left">リフレッシュトークン<br></td>
+<td align="left">grant_type</td>
+<td align="left">認証タイプ</td>
+<td align="left">String</td>
+<td align="left">○</td>
+<td align="left">リフレッシュトークン</td>
 </tr>
 <tr class="even">
-<td align="left">refresh_token<br></td>
-<td align="left">リフレッシュトークン名<br></td>
-<td align="left">String<br></td>
-<td align="left">○<br></td>
-<td align="left">有効リフレッシュトークン<br></td>
+<td align="left">refresh_token</td>
+<td align="left">リフレッシュトークン名</td>
+<td align="left">String</td>
+<td align="left">○</td>
+<td align="left">有効リフレッシュトークン</td>
 </tr>
 <tr class="odd">
-<td align="left">p_target<br></td>
-<td align="left">トランスセルトークンターゲット<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">払い出されるトークンを使う先（セルURL） 指定した場合はトランスセルトークン認証になる<br></td>
+<td align="left">p_target</td>
+<td align="left">トランスセルトークンターゲット</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">払い出されるトークンを使う先（セルURL） 指定した場合はトランスセルトークン認証になる</td>
 </tr>
 <tr class="even">
-<td align="left">client_id<br></td>
-<td align="left">アプリセルURL<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
+<td align="left">client_id</td>
+<td align="left">アプリセルURL</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">スキーマ認証元のアプリセルURL<br>client_secretとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される</td>
 </tr>
 <tr class="odd">
-<td align="left">client_secret<br></td>
-<td align="left">アプリセルから払い出されたトークン<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される<br></td>
+<td align="left">client_secret</td>
+<td align="left">アプリセルから払い出されたトークン</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">スキーマ認証元から払い出されたトークンを値に設定する<br>client_idとともに指定した場合スキーマ認証になる<br>同時にAuthorizationヘッダにもスキーマ認証設定がされている場合、Authorizationヘッダの設定が優先される</td>
 </tr>
 <tr class="even">
-<td align="left">p_owner<br></td>
-<td align="left">ULUUT昇格実行クエリ<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">trueのみ有効<br></td>
+<td align="left">p_owner</td>
+<td align="left">ULUUT昇格実行クエリ</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">trueのみ有効</td>
 </tr>
 <tr class="odd">
-<td align="left">p_cookie<br></td>
-<td align="left">認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する<br></td>
-<td align="left">String<br></td>
-<td align="left">×<br></td>
-<td align="left">trueのみ有効<br></td>
+<td align="left">p_cookie</td>
+<td align="left">認証クッキー発行オプション<br>指定された場合は認証クッキーを発行する<br>p_targetが指定された場合は、本パラメタの指定は無視する</td>
+<td align="left">String</td>
+<td align="left">×</td>
+<td align="left">trueのみ有効</td>
 </tr>
 </tbody>
 </table>
 <pre><code>grant_type=refresh_token&amp;refresh_token={token}</code></pre>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <p>200</p>
@@ -373,21 +371,21 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 <table>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">application/json<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">application/json</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">Set-Cookie<br></td>
-<td align="left">クッキー認証情報（p_cookie）<br></td>
-<td align="left">クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ<br></td>
+<td align="left">Set-Cookie</td>
+<td align="left">クッキー認証情報（p_cookie）</td>
+<td align="left">クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ</td>
 </tr>
 </tbody>
 </table>
@@ -400,41 +398,41 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">項目名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">項目名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">access_token<br></td>
-<td align="left">アクセストークン<br></td>
-<td align="left"><br></td>
+<td align="left">access_token</td>
+<td align="left">アクセストークン</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">refresh_token_expires_in<br></td>
-<td align="left">リフレッシュトークンの有効期限<br></td>
-<td align="left">24時間（86400秒）<br>※p_ownerをリクエスト時に設定した場合、返却されない<br></td>
+<td align="left">refresh_token_expires_in</td>
+<td align="left">リフレッシュトークンの有効期限</td>
+<td align="left">24時間（86400秒）<br>※p_ownerをリクエスト時に設定した場合、返却されない</td>
 </tr>
 <tr class="odd">
-<td align="left">refresh_token<br></td>
-<td align="left">リフレッシュトークン<br></td>
-<td align="left">※p_ownerをリクエスト時に設定した場合、返却されない<br></td>
+<td align="left">refresh_token</td>
+<td align="left">リフレッシュトークン</td>
+<td align="left">※p_ownerをリクエスト時に設定した場合、返却されない</td>
 </tr>
 <tr class="even">
-<td align="left">token_type<br></td>
-<td align="left">Bearer<br></td>
-<td align="left"><br></td>
+<td align="left">token_type</td>
+<td align="left">Bearer</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">expires_in<br></td>
-<td align="left">アクセストークンの有効期限<br></td>
-<td align="left">1時間（3600秒）<br></td>
+<td align="left">expires_in</td>
+<td align="left">アクセストークンの有効期限</td>
+<td align="left">1時間（3600秒）</td>
 </tr>
 <tr class="even">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">クッキー認証時に指定する認証値<br>※クッキー発行オプション（p_cookie）をリクエスト時に設定した場合のみ返却する</td>
 </tr>
 </tbody>
 </table>
@@ -459,9 +457,6 @@ WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=password&amp;username={user_name}&amp;password={pass}&amp;client_id=https://{UnitFQDN}/app{CellName}/&amp;client_secret={token_from_app_cell}&#39;</span></code></pre></div>
 <h5 id="-">トークン認証 + トランスセルトークン認証</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&amp;assertion={SAML_token}&amp;p_target=https://{UnitFQDN}/{CellName}/&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

@@ -66,37 +66,36 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li>For EntityType, you can create up to 400 DynamicProperty / DeclaredProperty / ComplexTypeProperty</li>
 </ul>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}({EntityID})}</code></pre>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Path<br></th>
-<th align="left">Overview<br></th>
+<th align="left">Path</th>
+<th align="left">Overview</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{CellName}<br></td>
-<td align="left">Cell Name<br></td>
+<td align="left">{CellName}</td>
+<td align="left">Cell Name</td>
 </tr>
 <tr class="even">
-<td align="left">{BoxName}<br></td>
-<td align="left">Box Name<br></td>
+<td align="left">{BoxName}</td>
+<td align="left">Box Name</td>
 </tr>
 <tr class="odd">
-<td align="left">{ODataCollecitonName}<br></td>
-<td align="left">Collection Name<br></td>
+<td align="left">{ODataCollecitonName}</td>
+<td align="left">Collection Name</td>
 </tr>
 <tr class="even">
-<td align="left">{EntityTypeName}<br></td>
-<td align="left">EntityType name<br></td>
+<td align="left">{EntityTypeName}</td>
+<td align="left">EntityType name</td>
 </tr>
 <tr class="odd">
-<td align="left">{EntityID}<br></td>
-<td align="left">ID of the Entity to acquire<br></td>
+<td align="left">{EntityID}</td>
+<td align="left">ID of the Entity to acquire</td>
 </tr>
 </tbody>
 </table>
@@ -114,20 +113,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only when no Authorization header is specified Specify when using authentication information of cookie<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only when no Authorization header is specified Specify when using authentication information of cookie</td>
 </tr>
 </tbody>
 </table>
@@ -146,34 +145,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">Supported in V 1.1.7 and later</td>
 </tr>
 </tbody>
 </table>
@@ -188,20 +187,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 </tbody>
 </table>
@@ -216,27 +215,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Accept <br></td>
-<td align="left">Specify the format of the response body <br></td>
-<td align="left">application/json<br></td>
-<td align="left">No<br></td>
-<td align="left">When omitted, treat it as [application/json] <br></td>
+<td align="left">Accept</td>
+<td align="left">Specify the format of the response body</td>
+<td align="left">application/json</td>
+<td align="left">No</td>
+<td align="left">When omitted, treat it as [application/json]</td>
 </tr>
 <tr class="even">
-<td align="left">If-None-Match<br></td>
-<td align="left">Specify the value of ETag, if there is no change, 304, if it is changed return the latest resource<br></td>
-<td align="left"><br></td>
-<td align="left">No<br></td>
-<td align="left">Specified when acquiring Entity not matching ETag<br>Not compatible<br></td>
+<td align="left">If-None-Match</td>
+<td align="left">Specify the value of ETag, if there is no change, 304, if it is changed return the latest resource</td>
+<td align="left"></td>
+<td align="left">No</td>
+<td align="left">Specified when acquiring Entity not matching ETag<br>Not compatible</td>
 </tr>
 </tbody>
 </table>
@@ -244,7 +243,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>None</p>
 <h4 id="request-sample">Request Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <p>200</p>
@@ -257,21 +255,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Item Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Item Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Format of data to be returned<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">Format of data to be returned</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">OData version information<br></td>
-<td align="left">Return only when Entity can be successfully acquired<br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">OData version information</td>
+<td align="left">Return only when Entity can be successfully acquired</td>
 </tr>
 </tbody>
 </table>
@@ -286,90 +284,90 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Object<br></th>
-<th align="left">Name(Key)<br></th>
-<th align="left">Type<br></th>
-<th align="left">Value<br></th>
+<th align="left">Object</th>
+<th align="left">Name(Key)</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Root<br></td>
-<td align="left">d<br></td>
-<td align="left">object<br></td>
-<td align="left">Object{1}<br></td>
+<td align="left">Root</td>
+<td align="left">d</td>
+<td align="left">object</td>
+<td align="left">Object{1}</td>
 </tr>
 <tr class="even">
-<td align="left">{1}<br></td>
-<td align="left">results<br></td>
-<td align="left">array<br></td>
-<td align="left">Array object {2}<br></td>
+<td align="left">{1}</td>
+<td align="left">results</td>
+<td align="left">array</td>
+<td align="left">Array object {2}</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__metadata<br></td>
-<td align="left">object<br></td>
-<td align="left">Object{3}<br></td>
+<td align="left">{2}</td>
+<td align="left">__metadata</td>
+<td align="left">object</td>
+<td align="left">Object{3}</td>
 </tr>
 <tr class="even">
-<td align="left">{3}<br></td>
-<td align="left">uri<br></td>
-<td align="left">string<br></td>
-<td align="left">URL to the resource that was created<br></td>
+<td align="left">{3}</td>
+<td align="left">uri</td>
+<td align="left">string</td>
+<td align="left">URL to the resource that was created</td>
 </tr>
 <tr class="odd">
-<td align="left">{3}<br></td>
-<td align="left">etag<br></td>
-<td align="left">string<br></td>
-<td align="left">Etag value<br></td>
+<td align="left">{3}</td>
+<td align="left">etag</td>
+<td align="left">string</td>
+<td align="left">Etag value</td>
 </tr>
 <tr class="even">
-<td align="left">{3}<br></td>
-<td align="left">type<br></td>
-<td align="left">string<br></td>
-<td align="left">UserData.{EntityTypeName}<br></td>
+<td align="left">{3}</td>
+<td align="left">type</td>
+<td align="left">string</td>
+<td align="left">UserData.{EntityTypeName}</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__id<br></td>
-<td align="left">string<br></td>
-<td align="left">EntityID(__id)<br></td>
+<td align="left">{2}</td>
+<td align="left">__id</td>
+<td align="left">string</td>
+<td align="left">EntityID(__id)</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">__published<br></td>
-<td align="left">string<br></td>
-<td align="left">Creation date (UNIX time)<br></td>
+<td align="left">{2}</td>
+<td align="left">__published</td>
+<td align="left">string</td>
+<td align="left">Creation date (UNIX time)</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__updated<br></td>
-<td align="left">string<br></td>
-<td align="left">Update date (UNIX time)<br></td>
+<td align="left">{2}</td>
+<td align="left">__updated</td>
+<td align="left">string</td>
+<td align="left">Update date (UNIX time)</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">_{NP name}<br></td>
-<td align="left">string<br></td>
-<td align="left">Object{4}<br>It is returned only when Link is connected. {NP name}: NavigationPropert name<br></td>
+<td align="left">{2}</td>
+<td align="left">_{NP name}</td>
+<td align="left">string</td>
+<td align="left">Object{4}<br>It is returned only when Link is connected. {NP name}: NavigationPropert name</td>
 </tr>
 <tr class="odd">
-<td align="left">{4}<br></td>
-<td align="left">__deferred<br></td>
-<td align="left">object<br></td>
-<td align="left">Object{5}<br></td>
+<td align="left">{4}</td>
+<td align="left">__deferred</td>
+<td align="left">object</td>
+<td align="left">Object{5}</td>
 </tr>
 <tr class="even">
-<td align="left">{5}<br></td>
-<td align="left">uri<br></td>
-<td align="left">string<br></td>
-<td align="left">uri of the resource that has the relationship<br>Not tested<br></td>
+<td align="left">{5}</td>
+<td align="left">uri</td>
+<td align="left">string</td>
+<td align="left">uri of the resource that has the relationship<br>Not tested</td>
 </tr>
 <tr class="odd">
-<td align="left">{1}<br></td>
-<td align="left">__count<br></td>
-<td align="left">string<br></td>
-<td align="left">Get number of results in $inlinecount query<br></td>
+<td align="left">{1}</td>
+<td align="left">__count</td>
+<td align="left">string</td>
+<td align="left">Get number of results in $inlinecount query</td>
 </tr>
 </tbody>
 </table>
@@ -422,10 +420,8 @@ When output fixed-point number is used for input, the same number of inputs and 
     <span class="fu">}</span>
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

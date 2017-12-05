@@ -60,7 +60,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Acquisition of a list of privileges configurable by the ACL</li>
 </ul></li>
 </ul>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}</code></pre>
@@ -78,20 +77,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Query Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Query Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
 </tr>
 </tbody>
 </table>
@@ -106,34 +105,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">If you specify this value when requesting with the POST method, the specified value will be used as a method.<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">If you specify this value when requesting with the POST method, the specified value will be used as a method.</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later</td>
 </tr>
 </tbody>
 </table>
@@ -148,20 +147,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 </tbody>
 </table>
@@ -170,27 +169,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">URI<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes (prefix)<br></th>
+<th align="left">URI</th>
+<th align="left">Overview</th>
+<th align="left">Notes (prefix)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DAV:<br></td>
-<td align="left">WebDAV Namespace<br></td>
-<td align="left">D:<br></td>
+<td align="left">DAV:</td>
+<td align="left">WebDAV Namespace</td>
+<td align="left">D:</td>
 </tr>
 <tr class="even">
-<td align="left">urn:x-personium:xmlns<br></td>
-<td align="left">Personium namespace<br></td>
-<td align="left">p:<br></td>
+<td align="left">urn:x-personium:xmlns</td>
+<td align="left">Personium namespace</td>
+<td align="left">p:</td>
 </tr>
 </tbody>
 </table>
 <p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
 <h4 id="structure-of-xml">Structure of XML</h4>
-<p>The body is XML and follows the following schema.<br><br />
+<p>The body is XML and follows the following schema.<br />
 For details on the privilege settings within the privilege tag, please refer to the acl_model (<a href="../../user_guide/002_Access_Control.html">Access Control Model</a>).</p>
 <table style="width:28%;">
 <colgroup>
@@ -202,195 +201,195 @@ For details on the privilege settings within the privilege tag, please refer to 
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Node name<br></th>
-<th align="left">Namespace<br></th>
-<th align="left">Node type<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Node name</th>
+<th align="left">Namespace</th>
+<th align="left">Node type</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">acl<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Denotes the root of the ACL (Access Control List); one or more ace nodes will be its child<br></td>
-<td align="left"><br></td>
+<td align="left">acl</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Denotes the root of the ACL (Access Control List); one or more ace nodes will be its child</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">base<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Denotes an ACE (Access Control Element); a pair of principal and grant will be its child<br></td>
-<td align="left"><br></td>
+<td align="left">base</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Denotes an ACE (Access Control Element); a pair of principal and grant will be its child</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">ace<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Denotes the privilege configuration target; href or all will be its child<br></td>
-<td align="left">&quot;invert&quot;, &quot;deny&quot;, &quot;protected&quot;, and &quot;inherited&quot; are not supported in V 1.1 systems<br></td>
+<td align="left">ace</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Denotes the privilege configuration target; href or all will be its child</td>
+<td align="left">&quot;invert&quot;, &quot;deny&quot;, &quot;protected&quot;, and &quot;inherited&quot; are not supported in V 1.1 systems</td>
 </tr>
 <tr class="even">
-<td align="left">principal<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Denotes the privilege configuration target; href or all will be its child<br></td>
-<td align="left"><br></td>
+<td align="left">principal</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Denotes the privilege configuration target; href or all will be its child</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">grant<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Denotes the privilege grant setting; one or more privilege nodes will be its child node<br></td>
-<td align="left"><br></td>
+<td align="left">grant</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Denotes the privilege grant setting; one or more privilege nodes will be its child node</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">href<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Denotes the privilege configuration target role and is the text node to input the role resource URL<br></td>
-<td align="left">Specify the resource URL of the privilege configuration target role<br>It is possible to shorten the URL using the xml:base attribute setting in the acl element<br></td>
+<td align="left">href</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Denotes the privilege configuration target role and is the text node to input the role resource URL</td>
+<td align="left">Specify the resource URL of the privilege configuration target role<br>It is possible to shorten the URL using the xml:base attribute setting in the acl element</td>
 </tr>
 <tr class="odd">
-<td align="left">all<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">All access entity privilege setting<br></td>
-<td align="left">The setting for all roles and non-authorized access entities (without the Authorization header)<br></td>
+<td align="left">all</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">All access entity privilege setting</td>
+<td align="left">The setting for all roles and non-authorized access entities (without the Authorization header)</td>
 </tr>
 <tr class="even">
-<td align="left">privilege<br></td>
-<td align="left">D:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Denotes the privilege setting; one of the following elements will be its child<br></td>
-<td align="left"><br></td>
+<td align="left">privilege</td>
+<td align="left">D:</td>
+<td align="left">Element</td>
+<td align="left">Denotes the privilege setting; one of the following elements will be its child</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">root<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">All privileges<br></td>
-<td align="left"><br></td>
+<td align="left">root</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">All privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">auth<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Authentication management API editing and viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">auth</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Authentication management API editing and viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">auth-read<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Authentication management API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">auth-read</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Authentication management API viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">message<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Message management API editing and viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">message</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Message management API editing and viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">message-read<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Message management API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">message-read</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Message management API viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">event<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Event management API editing and view privileges<br></td>
-<td align="left"><br></td>
+<td align="left">event</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Event management API editing and view privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">event-read<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Event management API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">event-read</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Event management API viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">log<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Event bus log API editing and viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">log</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Event bus log API editing and viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">log-read<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Event bus log API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">log-read</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Event bus log API viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">social<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Relation management API editing and viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">social</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Relation management API editing and viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">social-read<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Relation management API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">social-read</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Relation management API viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">box<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Box management API editing and viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">box</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Box management API editing and viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">box-read<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Box management API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">box-read</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Box management API viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">box-install<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Box installation execution privileges * supported by V 1.2.3<br></td>
-<td align="left"><br></td>
+<td align="left">box-install</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Box installation execution privileges * supported by V 1.2.3</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">box-export<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Box export execution privileges<br></td>
-<td align="left">Unsupported (Configuration disabled)<br></td>
+<td align="left">box-export</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Box export execution privileges</td>
+<td align="left">Unsupported (Configuration disabled)</td>
 </tr>
 <tr class="even">
-<td align="left">acl<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">ACL management API editing and viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">acl</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">ACL management API editing and viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">acl-read<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">ACL management API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">acl-read</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">ACL management API viewing privileges</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">propfind<br></td>
-<td align="left">p:<br></td>
-<td align="left">Element<br></td>
-<td align="left">Property acquisition API viewing privileges<br></td>
-<td align="left"><br></td>
+<td align="left">propfind</td>
+<td align="left">p:</td>
+<td align="left">Element</td>
+<td align="left">Property acquisition API viewing privileges</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -445,23 +444,22 @@ For details on the privilege settings within the privilege tag, please refer to 
             <span class="kw">&lt;D:privilege&gt;&lt;p:root/&gt;&lt;/D:privilege&gt;</span>
         <span class="kw">&lt;/D:grant&gt;</span>
     <span class="kw">&lt;/D:ace&gt;</span>
-<span class="kw">&lt;/D:acl&gt;</span>        </code></pre></div>
-<p><br></p>
+<span class="kw">&lt;/D:acl&gt;</span></code></pre></div>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Message<br></th>
-<th align="left">Overview<br></th>
+<th align="left">Code</th>
+<th align="left">Message</th>
+<th align="left">Overview</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">200<br></td>
-<td align="left">OK<br></td>
-<td align="left">Success<br></td>
+<td align="left">200</td>
+<td align="left">OK</td>
+<td align="left">Success</td>
 </tr>
 </tbody>
 </table>
@@ -469,16 +467,16 @@ For details on the privilege settings within the privilege tag, please refer to 
 <table>
 <thead>
 <tr class="header">
-<th align="left">Item Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Item Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Format of data to be returned<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">Format of data to be returned</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -488,7 +486,6 @@ For details on the privilege settings within the privilege tag, please refer to 
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h3 id="curl-command">cURL Command</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span> -X ACL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;&lt;D:acl xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot; xml:base=&quot;http://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;&gt;  &lt;D:ace&gt;&lt;D:principal&gt;&lt;D:href&gt;{RoleName}&lt;/D:href&gt;&lt;/D:principal&gt;&lt;D:grant&gt;&lt;D:privilege&gt;&lt;p:box-read/&gt;&lt;/D:privilege&gt;&lt;D:privilege&gt;&lt;p:auth/&gt;&lt;/D:privilege&gt;&lt;/D:grant&gt;&lt;/D:ace&gt;&lt;/D:acl&gt;&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

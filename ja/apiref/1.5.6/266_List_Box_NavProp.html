@@ -62,7 +62,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする</li>
 <li>$formatクエリオプションは無視される</li>
 </ul>
-<p><br></p>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
 <h5 id="rolenavigationproperty">RoleへのnavigationProperty</h5>
@@ -92,20 +91,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">クエリ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">クッキー認証値<br></td>
-<td align="left">認証時にサーバから返却されたクッキー認証値<br></td>
-<td align="left">×<br></td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">クッキー認証値</td>
+<td align="left">認証時にサーバから返却されたクッキー認証値</td>
+<td align="left">×</td>
+<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
@@ -129,48 +128,48 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">有効値<br></th>
-<th align="left">必須<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">有効値</th>
+<th align="left">必須</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">メソッドオーバーライド機能<br></td>
-<td align="left">任意<br></td>
-<td align="left">×<br></td>
-<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">メソッドオーバーライド機能</td>
+<td align="left">任意</td>
+<td align="left">×</td>
+<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">ヘッダオーバライド機能<br></td>
-<td align="left">${上書きするヘッダ名}:${値}override} $: $ {value}<br></td>
-<td align="left">×<br></td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。<br></td>
+<td align="left">X-Override</td>
+<td align="left">ヘッダオーバライド機能</td>
+<td align="left">${上書きするヘッダ名}:${値}override} $: $ {value}</td>
+<td align="left">×</td>
+<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値<br></td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字<br></td>
-<td align="left">×<br></td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
+<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td align="left">×</td>
+<td align="left">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">OAuth2.0形式で、認証情報を指定する<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">×<br></td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン<br></td>
+<td align="left">Authorization</td>
+<td align="left">OAuth2.0形式で、認証情報を指定する</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">×</td>
+<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 <tr class="odd">
-<td align="left">Accept<br></td>
-<td align="left">レスポンスボディの形式を指定する<br></td>
-<td align="left">application/json<br></td>
-<td align="left">×<br></td>
-<td align="left">省略時は[application/json]として扱う<br></td>
+<td align="left">Accept</td>
+<td align="left">レスポンスボディの形式を指定する</td>
+<td align="left">application/json</td>
+<td align="left">×</td>
+<td align="left">省略時は[application/json]として扱う</td>
 </tr>
 </tbody>
 </table>
@@ -178,7 +177,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>なし</p>
 <h4>リクエストサンプル</h4>
 <p>なし</p>
-<p><br></p>
 <h3>レスポンス</h3>
 <h4>ステータスコード</h4>
 <p>200</p>
@@ -186,31 +184,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名<br></th>
-<th align="left">概要<br></th>
-<th align="left">備考<br></th>
+<th align="left">ヘッダ名</th>
+<th align="left">概要</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">返却されるデータの形式<br></td>
-<td align="left"><br></td>
+<td align="left">Content-Type</td>
+<td align="left">返却されるデータの形式</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">ODataのバージョン<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">ODataのバージョン</td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">クロスドメイン通信許可ヘッダ<br></td>
-<td align="left">返却値は&quot;*&quot;固定<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">クロスドメイン通信許可ヘッダ</td>
+<td align="left">返却値は&quot;*&quot;固定</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">APIの実行バージョン<br></td>
-<td align="left">リクエストが処理されたAPIバージョン<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">APIの実行バージョン</td>
+<td align="left">リクエストが処理されたAPIバージョン</td>
 </tr>
 </tbody>
 </table>
@@ -218,60 +216,60 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">オブジェクト<br></th>
-<th align="left">項目名<br></th>
-<th align="left">Data Type<br></th>
-<th align="left">備考<br></th>
+<th align="left">オブジェクト</th>
+<th align="left">項目名</th>
+<th align="left">Data Type</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ルート<br></td>
-<td align="left">d<br></td>
-<td align="left">object<br></td>
-<td align="left">オブジェクト{1}<br></td>
+<td align="left">ルート</td>
+<td align="left">d</td>
+<td align="left">object</td>
+<td align="left">オブジェクト{1}</td>
 </tr>
 <tr class="even">
-<td align="left">{1}<br></td>
-<td align="left">results<br></td>
-<td align="left">array<br></td>
-<td align="left">オブジェクト{2}の配列<br></td>
+<td align="left">{1}</td>
+<td align="left">results</td>
+<td align="left">array</td>
+<td align="left">オブジェクト{2}の配列</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__metadata<br></td>
-<td align="left">object<br></td>
-<td align="left">オブジェクト{3}<br></td>
+<td align="left">{2}</td>
+<td align="left">__metadata</td>
+<td align="left">object</td>
+<td align="left">オブジェクト{3}</td>
 </tr>
 <tr class="even">
-<td align="left">{3}<br></td>
-<td align="left">uri<br></td>
-<td align="left">string<br></td>
-<td align="left">作成したリソースへのURL<br></td>
+<td align="left">{3}</td>
+<td align="left">uri</td>
+<td align="left">string</td>
+<td align="left">作成したリソースへのURL</td>
 </tr>
 <tr class="odd">
-<td align="left">{3}<br></td>
-<td align="left">etag<br></td>
-<td align="left">string<br></td>
-<td align="left">Etag値<br></td>
+<td align="left">{3}</td>
+<td align="left">etag</td>
+<td align="left">string</td>
+<td align="left">Etag値</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">__published<br></td>
-<td align="left">string<br></td>
-<td align="left">作成日(UNIX時間)<br></td>
+<td align="left">{2}</td>
+<td align="left">__published</td>
+<td align="left">string</td>
+<td align="left">作成日(UNIX時間)</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">__updated<br></td>
-<td align="left">string<br></td>
-<td align="left">更新日(UNIX時間)<br></td>
+<td align="left">{2}</td>
+<td align="left">__updated</td>
+<td align="left">string</td>
+<td align="left">更新日(UNIX時間)</td>
 </tr>
 <tr class="even">
-<td align="left">{1}<br></td>
-<td align="left">__count<br></td>
-<td align="left">string<br></td>
-<td align="left">$inlinecountクエリでの取得結果件数<br></td>
+<td align="left">{1}</td>
+<td align="left">__count</td>
+<td align="left">string</td>
+<td align="left">$inlinecountクエリでの取得結果件数</td>
 </tr>
 </tbody>
 </table>
@@ -279,30 +277,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">オブジェクト<br></th>
-<th align="left">項目名<br></th>
-<th align="left">Data Type<br></th>
-<th align="left">備考<br></th>
+<th align="left">オブジェクト</th>
+<th align="left">項目名</th>
+<th align="left">Data Type</th>
+<th align="left">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">{3}<br></td>
-<td align="left">type<br></td>
-<td align="left">string<br></td>
-<td align="left">CellCtl.Relation<br></td>
+<td align="left">{3}</td>
+<td align="left">type</td>
+<td align="left">string</td>
+<td align="left">CellCtl.Relation</td>
 </tr>
 <tr class="even">
-<td align="left">{2}<br></td>
-<td align="left">Name<br></td>
-<td align="left">string<br></td>
-<td align="left">Relation名<br></td>
+<td align="left">{2}</td>
+<td align="left">Name</td>
+<td align="left">string</td>
+<td align="left">Relation名</td>
 </tr>
 <tr class="odd">
-<td align="left">{2}<br></td>
-<td align="left">_Box.Name<br></td>
-<td align="left">string<br></td>
-<td align="left">関係対象のBox名<br></td>
+<td align="left">{2}</td>
+<td align="left">_Box.Name</td>
+<td align="left">string</td>
+<td align="left">関係対象のBox名</td>
 </tr>
 </tbody>
 </table>
@@ -346,15 +344,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="ot">]</span>
   <span class="fu">}</span>
 <span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="curl">cURLサンプル</h3>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span>
 <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/_Role&quot;</span> <span class="ex">-X</span> POST -i  -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{RoleName}&quot;}&#39;</span></code></pre></div>
 <h5 id="relation">Relationを取得する場合</h5>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Box(&#39;{BoxName}&#39;)/_Relation&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br />
-<br><br />
-<br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

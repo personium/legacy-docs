@@ -51,40 +51,33 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Use the $inlinecount query to specify the number of retrieved results when retrieving a list<br />
 If omitted, do not include the number of acquisition results in response</p>
 <h3 id="effective-value">Effective Value</h3>
-<table style="width:22%;">
-<colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-</colgroup>
+<table>
 <thead>
 <tr class="header">
-<th align="left">Value<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Example<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Value</th>
+<th align="left">Overview</th>
+<th align="left">Example</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">allpages<br></td>
-<td align="left">Include number of results obtained<br></td>
-<td align="left">$inlinecount=allpages<br></td>
-<td align="left"><br></td>
+<td align="left">allpages</td>
+<td align="left">Include number of results obtained</td>
+<td align="left">$inlinecount=allpages</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">none<br></td>
-<td align="left">Do not include the number of acquisition results<br></td>
-<td align="left">$inlinecount=none<br></td>
-<td align="left"><br></td>
+<td align="left">none</td>
+<td align="left">Do not include the number of acquisition results</td>
+<td align="left">$inlinecount=none</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 <h3 id="curl-command">cURL Command</h3>
 <p>Example: Obtaining the cell list When acquiring the cell count including the number of results:</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/__ctl/Cell?</span><span class="dt">\$</span><span class="st">inlinecount=allpages&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

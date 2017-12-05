@@ -57,7 +57,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>None</p>
 <h4 id="webdav-restriction">WebDAV restriction</h4>
 <p>Unpublished</p>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>/{CellName}/{BoxName}/{ResourcePath}/</code></pre>
@@ -75,20 +74,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Query Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Query Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
 </tr>
 </tbody>
 </table>
@@ -106,34 +105,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">Supported in V 1.1.7 and later</td>
 </tr>
 </tbody>
 </table>
@@ -148,41 +147,41 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Destination<br></td>
-<td align="left">Change destination<br></td>
-<td align="left">Absolute URI<br></td>
-<td align="left">Yes<br></td>
-<td align="left">Move / Specify the file name to change the name.<br></td>
+<td align="left">Destination</td>
+<td align="left">Change destination</td>
+<td align="left">Absolute URI</td>
+<td align="left">Yes</td>
+<td align="left">Move / Specify the file name to change the name.</td>
 </tr>
 <tr class="even">
-<td align="left">Overwrite<br></td>
-<td align="left">Overwrite<br></td>
-<td align="left">&quot;T&quot; or &quot;F&quot;<br></td>
-<td align="left">No<br></td>
-<td align="left">Specify Overwrite available(&quot;T&quot;) and Can not overwrite(&quot;F&quot;).(The initial value is &quot;F&quot;)<br></td>
+<td align="left">Overwrite</td>
+<td align="left">Overwrite</td>
+<td align="left">&quot;T&quot; or &quot;F&quot;</td>
+<td align="left">No</td>
+<td align="left">Specify Overwrite available(&quot;T&quot;) and Can not overwrite(&quot;F&quot;).(The initial value is &quot;F&quot;)</td>
 </tr>
 <tr class="odd">
-<td align="left">Depth<br></td>
-<td align="left">Mobile hierarchy<br></td>
-<td align="left">&quot;infinity&quot;<br></td>
-<td align="left">No<br></td>
-<td align="left">Specify the depth of the moving collection hierarchy. (Initial value is infinite)<br></td>
+<td align="left">Depth</td>
+<td align="left">Mobile hierarchy</td>
+<td align="left">&quot;infinity&quot;</td>
+<td align="left">No</td>
+<td align="left">Specify the depth of the moving collection hierarchy. (Initial value is infinite)</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 </tbody>
 </table>
@@ -190,27 +189,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>None</p>
 <h4 id="request-sample">Request Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Code<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Code</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">201<br></td>
-<td align="left">Created<br></td>
-<td align="left">Move or rename name success (create)<br></td>
+<td align="left">201</td>
+<td align="left">Created</td>
+<td align="left">Move or rename name success (create)</td>
 </tr>
 <tr class="even">
-<td align="left">204<br></td>
-<td align="left">No Content<br></td>
-<td align="left">Move or rename name success (Overwrite)<br></td>
+<td align="left">204</td>
+<td align="left">No Content</td>
+<td align="left">Move or rename name success (Overwrite)</td>
 </tr>
 </tbody>
 </table>
@@ -223,31 +221,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Location<br></td>
-<td align="left">Resource URL of the created collection<br></td>
-<td align="left">Return only when collection can be created successfully<br></td>
+<td align="left">Location</td>
+<td align="left">Resource URL of the created collection</td>
+<td align="left">Return only when collection can be created successfully</td>
 </tr>
 <tr class="even">
-<td align="left">ETag<br></td>
-<td align="left">Resource version information<br></td>
-<td align="left">Return only when collection can be created successfully<br></td>
+<td align="left">ETag</td>
+<td align="left">Resource version information</td>
+<td align="left">Return only when collection can be created successfully</td>
 </tr>
 <tr class="odd">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">Cross domain communication permission header<br></td>
-<td align="left">Return value fixed to &quot;*&quot;<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">Cross domain communication permission header</td>
+<td align="left">Return value fixed to &quot;*&quot;</td>
 </tr>
 <tr class="even">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">API version that the request is processed<br></td>
-<td align="left">Version of the API used to process the request<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">API version that the request is processed</td>
+<td align="left">Version of the API used to process the request</td>
 </tr>
 </tbody>
 </table>
@@ -256,7 +254,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4 id="response-sample">Response Sample</h4>
-<p>None<br><br></p>
+<p>None</p>
 <h3 id="curl-command">cURL Command</h3>
 <p>Change the collection name (&quot;/&quot; at the end is mandatory)</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OldCollectionName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{NewCollectionName}/&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
@@ -264,7 +262,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{OldFileName}/&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{NewFileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
 <p>File move</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span>  <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameA}/{FileName}&quot;</span> -X MOVE -i -H <span class="st">&#39;Destination:https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionNameB}/{FileName}&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

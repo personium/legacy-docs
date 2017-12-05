@@ -62,7 +62,6 @@ Get a list of OData resources linked with following</p>
 <li>Only application/json is supported for Content-Type in the request header and the JSON format for the response body</li>
 <li>Response body data is not ensured if atom or xml is specified in the $format query option, although it does not result in an error</li>
 </ul>
-<p><br></p>
 <h3 id="request">Request</h3>
 <h4 id="request-url">Request URL</h4>
 <pre><code>$links with Property
@@ -80,20 +79,20 @@ Get a list of OData resources linked with following</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Query Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Query Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer<br></td>
-<td align="left">Cookie Authentication Value<br></td>
-<td align="left">The cookie authentication value returned from the server during authentication<br></td>
-<td align="left">No<br></td>
-<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used<br></td>
+<td align="left">p_cookie_peer</td>
+<td align="left">Cookie Authentication Value</td>
+<td align="left">The cookie authentication value returned from the server during authentication</td>
+<td align="left">No</td>
+<td align="left">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
 </tr>
 </tbody>
 </table>
@@ -109,34 +108,34 @@ Get a list of OData resources linked with following</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override<br></td>
-<td align="left">Method override function<br></td>
-<td align="left">User-defined<br></td>
-<td align="left">No<br></td>
-<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method<br></td>
+<td align="left">X-HTTP-Method-Override</td>
+<td align="left">Method override function</td>
+<td align="left">User-defined</td>
+<td align="left">No</td>
+<td align="left">Specifying this value in a request with the POST method indicates that the specified value is used as the method</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override<br></td>
-<td align="left">Header override function<br></td>
-<td align="left">${OverwrittenHeaderName}:${Value}<br></td>
-<td align="left">No<br></td>
-<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers<br></td>
+<td align="left">X-Override</td>
+<td align="left">Header override function</td>
+<td align="left">${OverwrittenHeaderName}:${Value}</td>
+<td align="left">No</td>
+<td align="left">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey<br></td>
-<td align="left">RequestKey field value output in the event log<br></td>
-<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters<br></td>
-<td align="left">No<br></td>
-<td align="left">Supported in V 1.1.7 and later<br></td>
+<td align="left">X-Personium-RequestKey</td>
+<td align="left">RequestKey field value output in the event log</td>
+<td align="left">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td align="left">No</td>
+<td align="left">Supported in V 1.1.7 and later</td>
 </tr>
 </tbody>
 </table>
@@ -151,20 +150,20 @@ Get a list of OData resources linked with following</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Authorization<br></td>
-<td align="left">Specifies authentication information in the OAuth 2.0 format<br></td>
-<td align="left">Bearer {AccessToken}<br></td>
-<td align="left">No<br></td>
-<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API<br></td>
+<td align="left">Authorization</td>
+<td align="left">Specifies authentication information in the OAuth 2.0 format</td>
+<td align="left">Bearer {AccessToken}</td>
+<td align="left">No</td>
+<td align="left">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
 </tr>
 </tbody>
 </table>
@@ -179,27 +178,27 @@ Get a list of OData resources linked with following</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Content-Type<br></td>
-<td align="left">Specifies the request body format<br></td>
-<td align="left">application/json<br></td>
-<td align="left">No<br></td>
-<td align="left">[application/json] by default<br></td>
+<td align="left">Content-Type</td>
+<td align="left">Specifies the request body format</td>
+<td align="left">application/json</td>
+<td align="left">No</td>
+<td align="left">[application/json] by default</td>
 </tr>
 <tr class="even">
-<td align="left">Accept<br></td>
-<td align="left">Specifies the response body format<br></td>
-<td align="left">application/json<br></td>
-<td align="left">No<br></td>
-<td align="left">[application/json] by default<br></td>
+<td align="left">Accept</td>
+<td align="left">Specifies the response body format</td>
+<td align="left">application/json</td>
+<td align="left">No</td>
+<td align="left">[application/json] by default</td>
 </tr>
 </tbody>
 </table>
@@ -216,26 +215,25 @@ Get a list of OData resources linked with following</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Item Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Effective Value<br></th>
-<th align="left">Required<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Item Name</th>
+<th align="left">Overview</th>
+<th align="left">Effective Value</th>
+<th align="left">Required</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">uri<br></td>
-<td align="left">URI of the OData resource to be linked<br></td>
-<td align="left">Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn<br></td>
-<td align="left">Yes<br></td>
-<td align="left"><br></td>
+<td align="left">uri</td>
+<td align="left">URI of the OData resource to be linked</td>
+<td align="left">Number of digits: 1-1024<br>Follow URI format<br>scheme:http / https / urn</td>
+<td align="left">Yes</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
 <h4 id="request-sample">Request Sample</h4>
 <div class="sourceCode"><pre class="sourceCode json"><code class="sourceCode json"><span class="fu">{</span><span class="dt">&quot;uri&quot;</span><span class="fu">:</span><span class="st">&quot;https://{UnitFQDN}/Cell/__ctl/Box(&#39;{BoxName}&#39;)&quot;</span><span class="fu">}</span></code></pre></div>
-<p><br></p>
 <h3 id="response">Response</h3>
 <h4 id="response-code">Response Code</h4>
 <p>204</p>
@@ -248,42 +246,42 @@ Get a list of OData resources linked with following</p>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-Personium-Version<br></td>
-<td align="left">API version that the request is processed<br></td>
-<td align="left">Version of the API used to process the request<br></td>
+<td align="left">X-Personium-Version</td>
+<td align="left">API version that the request is processed</td>
+<td align="left">Version of the API used to process the request</td>
 </tr>
 <tr class="even">
-<td align="left">Access-Control-Allow-Origin<br></td>
-<td align="left">Cross domain communication permission header<br></td>
-<td align="left">Return value fixed to &quot;*&quot;<br></td>
+<td align="left">Access-Control-Allow-Origin</td>
+<td align="left">Cross domain communication permission header</td>
+<td align="left">Return value fixed to &quot;*&quot;</td>
 </tr>
 </tbody>
 </table>
 <table>
 <thead>
 <tr class="header">
-<th align="left">Header Name<br></th>
-<th align="left">Overview<br></th>
-<th align="left">Notes<br></th>
+<th align="left">Header Name</th>
+<th align="left">Overview</th>
+<th align="left">Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">DataServiceVersion<br></td>
-<td align="left">OData version<br></td>
-<td align="left"><br></td>
+<td align="left">DataServiceVersion</td>
+<td align="left">OData version</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td align="left">ETag<br></td>
-<td align="left">Resource version information<br></td>
-<td align="left"><br></td>
+<td align="left">ETag</td>
+<td align="left">Resource version information</td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -293,13 +291,11 @@ Get a list of OData resources linked with following</p>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h4 id="response-sample">Response Sample</h4>
 <p>None</p>
-<p><br></p>
 <h3 id="curl-command">cURL Command</h3>
 <p>EntityType</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/EntityType(Name=&#39;{EntityTypeName}&#39;)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span>assocName_link<span class="st">&#39;,_EntityType.Name=null)&quot;}&#39;</span></code></pre></div>
 <p>AssociationEnd</p>
 <div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/AssociationEnd(Name=&#39;{AssociationEndName}2&#39;,_EntityType.Name=Entity)/</span><span class="va">$links</span><span class="st">/_AssociationEnd&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;uri&quot;: &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/AssociationEnd(Name=&#39;</span><span class="dt">{AssociationEndName}_link&#39;,_EntityType.Name=Entity2)&quot;}</span><span class="st">&#39;</span></code></pre></div>
-<p><br><br><br><br><br></p>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
