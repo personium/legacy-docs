@@ -58,6 +58,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>リクエストボディはJSON形式のみ受け付ける</li>
 <li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする</li>
 <li>$formatクエリオプションは無視される</li>
+<li>リクエストURLに記載された_Box.Nameと、リクエストボディに記載された_Box.Nameが異なる場合、リクエストボディの_Box.Nameは無視される</li>
 </ul>
 <h3>リクエスト</h3>
 <h4 id="url">リクエストURL</h4>
