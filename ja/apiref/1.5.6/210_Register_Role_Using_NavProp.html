@@ -377,8 +377,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>エラーメッセージ一覧</h4>
 <p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
 <h3 id="curl">cURLサンプル</h3>
-<h5 id="rolenavigationproperty">RoleのnavigationProperty経由登録</h5>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_Role&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{RoleName}&quot;}&#39;</span></code></pre></div>
+<h5 id="relationnavigationproperty">RelationのnavigationProperty経由登録</h5>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_Relation&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{RelationName}&quot;}&#39;</span></code></pre></div>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

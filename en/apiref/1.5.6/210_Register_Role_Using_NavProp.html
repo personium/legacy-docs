@@ -382,8 +382,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4 id="error-messages">Error Messages</h4>
 <p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
 <h3 id="curl-command">cURL Command</h3>
-<h5 id="role-registration-via-navigationproperty">Role registration via navigationProperty</h5>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_Role&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{RoleName}&quot;}&#39;</span></code></pre></div>
+<h5 id="relation-registration-via-navigationproperty">Relation registration via navigationProperty</h5>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/Role(&#39;{RoleName}&#39;)/_Relation&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{RelationName}&quot;}&#39;</span></code></pre></div>
 <h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
