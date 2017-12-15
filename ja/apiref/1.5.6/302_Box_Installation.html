@@ -1,52 +1,76 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>302_Box_Installation</title>
   <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/ja/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="box">Boxインストール</h1>
+<h1>Boxインストール</h1>
 <h3>概要</h3>
 <p>barファイルを使って指定されたパスにBoxをインストールする。barファイルフォーマットについては 「<a href="301_Bar_File.html">barファイル</a>」を参照。<br />
 本APIは非同期通信方式を採用しているため、本APIではBoxインストールを受け付けた後、即復帰する。<br />
@@ -65,14 +89,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h3>必要な権限</h3>
 <p>box-install</p>
 <h3>制限事項</h3>
-<h4 id="boxbox">Boxインストール対象Box制限</h4>
+<h4>Boxインストール対象Box制限</h4>
 <ul>
 <li>既に同名のBoxが存在する場合は、Boxインストールできない。</li>
 <li>既に同じscheme URLが設定されたBoxが存在する場合は、Boxインストールできない。</li>
 <li>メインボックスへのBoxインストールはできない。</li>
 <li>barファイル：&quot;/bar/00_meta/00_manifest.json&quot; のschemaフィールドにnullは指定できない。</li>
 </ul>
-<h4 id="bar">barファイル制限</h4>
+<h4>barファイル制限</h4>
 <ul>
 <li>Boxインストール可能なbarファイルのファイルサイズは以下を上限とする。<br />
 上限値を超えた場合はBoxインストールできない。
@@ -82,7 +106,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li>barファイルは、barファイル に定義されている順序で各エントリが格納されいること。</li>
 </ul>
-<h4 id="box">Boxインストールのログ詳細制限</h4>
+<h4>Boxインストールのログ詳細制限</h4>
 <ul>
 <li>Boxインストールのログ詳細は、Boxインストール対象Boxが所属するCellのEventBusへ出力される。 下記※1
 <ul>
@@ -97,34 +121,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Boxインストール処理中にBoxインストール対象Boxを含む配下のリソースへのデータ操作はできない。</li>
 <li>Boxインストール中にエラーが発生した場合のロールバックは行わない。</li>
 </ul>
-<h5 id="box">※1 Boxインストールのログ詳細フォーマット</h5>
+<h5>※1 Boxインストールのログ詳細フォーマット</h5>
 <table>
 <thead>
 <tr class="header">
-<th align="left">状態</th>
-<th align="left">&quot;action&quot;</th>
-<th align="left">&quot;object&quot;</th>
-<th align="left">&quot;result&quot;</th>
+<th style="text-align: left;">状態</th>
+<th style="text-align: left;">&quot;action&quot;</th>
+<th style="text-align: left;">&quot;object&quot;</th>
+<th style="text-align: left;">&quot;result&quot;</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Boxインストール受付</td>
-<td align="left">&quot;MKCOL&quot;</td>
-<td align="left">BoxのURL</td>
-<td align="left">ステータスコード</td>
+<td style="text-align: left;">Boxインストール受付</td>
+<td style="text-align: left;">&quot;MKCOL&quot;</td>
+<td style="text-align: left;">BoxのURL</td>
+<td style="text-align: left;">ステータスコード</td>
 </tr>
 <tr class="even">
-<td align="left">Boxインストール処理中</td>
-<td align="left">処理コード</td>
-<td align="left">barファイル内のエントリパス</td>
-<td align="left">処理コードに対応するメッセージ</td>
+<td style="text-align: left;">Boxインストール処理中</td>
+<td style="text-align: left;">処理コード</td>
+<td style="text-align: left;">barファイル内のエントリパス</td>
+<td style="text-align: left;">処理コードに対応するメッセージ</td>
 </tr>
 <tr class="odd">
-<td align="left">Boxインストール完了</td>
-<td align="left">処理コード</td>
-<td align="left">BoxのURL</td>
-<td align="left">処理コードに対応するメッセージ</td>
+<td style="text-align: left;">Boxインストール完了</td>
+<td style="text-align: left;">処理コード</td>
+<td style="text-align: left;">BoxのURL</td>
+<td style="text-align: left;">処理コードに対応するメッセージ</td>
 </tr>
 </tbody>
 </table>
@@ -132,167 +156,167 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">処理コード</th>
-<th align="left">Message</th>
-<th align="left">Description</th>
+<th style="text-align: left;">処理コード</th>
+<th style="text-align: left;">Message</th>
+<th style="text-align: left;">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">PL-BI-0000</td>
-<td align="left">bar install completed</td>
-<td align="left">Boxインストール完了(正常終了)</td>
+<td style="text-align: left;">PL-BI-0000</td>
+<td style="text-align: left;">bar install completed</td>
+<td style="text-align: left;">Boxインストール完了(正常終了)</td>
 </tr>
 <tr class="even">
-<td align="left">PL-BI-0001</td>
-<td align="left">bar install failed ({原因})</td>
-<td align="left">Boxインストール完了(異常終了)</td>
+<td style="text-align: left;">PL-BI-0001</td>
+<td style="text-align: left;">bar install failed ({原因})</td>
+<td style="text-align: left;">Boxインストール完了(異常終了)</td>
 </tr>
 <tr class="odd">
-<td align="left">PL-BI-1000</td>
-<td align="left">bar install started</td>
-<td align="left">Boxインストール開始</td>
+<td style="text-align: left;">PL-BI-1000</td>
+<td style="text-align: left;">bar install started</td>
+<td style="text-align: left;">Boxインストール開始</td>
 </tr>
 <tr class="even">
-<td align="left">PL-BI-1001</td>
-<td align="left">install started</td>
-<td align="left">barファイル内エントリインストール開始</td>
+<td style="text-align: left;">PL-BI-1001</td>
+<td style="text-align: left;">install started</td>
+<td style="text-align: left;">barファイル内エントリインストール開始</td>
 </tr>
 <tr class="odd">
-<td align="left">PL-BI-1003</td>
-<td align="left">install completed</td>
-<td align="left">barファイル内エントリインストール完了(正常終了)</td>
+<td style="text-align: left;">PL-BI-1003</td>
+<td style="text-align: left;">install completed</td>
+<td style="text-align: left;">barファイル内エントリインストール完了(正常終了)</td>
 </tr>
 <tr class="even">
-<td align="left">PL-BI-1004</td>
-<td align="left">install failed ({cause})</td>
-<td align="left">barファイル内エントリインストール完了(異常終了)</td>
+<td style="text-align: left;">PL-BI-1004</td>
+<td style="text-align: left;">install failed ({cause})</td>
+<td style="text-align: left;">barファイル内エントリインストール完了(異常終了)</td>
 </tr>
 <tr class="odd">
-<td align="left">PL-BI-1005</td>
-<td align="left">Unknown Error ({原因})</td>
-<td align="left">内部エラー</td>
+<td style="text-align: left;">PL-BI-1005</td>
+<td style="text-align: left;">Unknown Error ({原因})</td>
+<td style="text-align: left;">内部エラー</td>
 </tr>
 </tbody>
 </table>
 <h3>リクエスト</h3>
-<h4 id="url">リクエストURL</h4>
+<h4>リクエストURL</h4>
 <pre><code>/{CellName}/{BoxName}</code></pre>
 <h4>メソッド</h4>
 <p>MKCOL</p>
 <h4>リクエストクエリ</h4>
 <table style="width:28%;">
 <colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">クエリ名</th>
-<th align="left">概要</th>
-<th align="left">有効値</th>
-<th align="left">必須</th>
-<th align="left">備考</th>
+<th style="text-align: left;">クエリ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">p_cookie_peer</td>
-<td align="left">クッキー認証値</td>
-<td align="left">認証時にサーバから返却されたクッキー認証値</td>
-<td align="left">×</td>
-<td align="left">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
+<td style="text-align: left;">p_cookie_peer</td>
+<td style="text-align: left;">クッキー認証値</td>
+<td style="text-align: left;">認証時にサーバから返却されたクッキー認証値</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
 </tr>
 </tbody>
 </table>
 <h4>リクエストヘッダ</h4>
 <table style="width:28%;">
 <colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名</th>
-<th align="left">概要</th>
-<th align="left">有効値</th>
-<th align="left">必須</th>
-<th align="left">備考</th>
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">X-HTTP-Method-Override</td>
-<td align="left">メソッドオーバーライド機能</td>
-<td align="left">任意</td>
-<td align="left">×</td>
-<td align="left">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。</td>
+<td style="text-align: left;">X-HTTP-Method-Override</td>
+<td style="text-align: left;">メソッドオーバーライド機能</td>
+<td style="text-align: left;">任意</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。</td>
 </tr>
 <tr class="even">
-<td align="left">X-Override</td>
-<td align="left">ヘッダオーバライド機能</td>
-<td align="left">${上書きするヘッダ名}:${値} override} $: $ {value}</td>
-<td align="left">×</td>
-<td align="left">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。</td>
+<td style="text-align: left;">X-Override</td>
+<td style="text-align: left;">ヘッダオーバライド機能</td>
+<td style="text-align: left;">${上書きするヘッダ名}:${値} override} $: $ {value}</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-RequestKey</td>
-<td align="left">イベントログに出力するRequestKeyフィールドの値</td>
-<td align="left">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
-<td align="left">×</td>
-<td align="left">指定がない場合、PCS-${UNIX時間}を設定する</td>
+<td style="text-align: left;">X-Personium-RequestKey</td>
+<td style="text-align: left;">イベントログに出力するRequestKeyフィールドの値</td>
+<td style="text-align: left;">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">指定がない場合、PCS-${UNIX時間}を設定する<br>V1.1.7以降で対応</td>
 </tr>
 <tr class="even">
-<td align="left">Authorization</td>
-<td align="left">OAuth2.0形式で、認証情報を指定する</td>
-<td align="left">Bearer {AccessToken}</td>
-<td align="left">×</td>
-<td align="left">※認証トークンは認証トークン取得APIで取得したトークン</td>
+<td style="text-align: left;">Authorization</td>
+<td style="text-align: left;">OAuth2.0形式で、認証情報を指定する</td>
+<td style="text-align: left;">Bearer {AccessToken}</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">※認証トークンは認証トークン取得APIで取得したトークン</td>
 </tr>
 <tr class="odd">
-<td align="left">Content-Type</td>
-<td align="left">リクエストボディの形式を指定する</td>
-<td align="left">application/zip</td>
-<td align="left">○</td>
-<td align="left"></td>
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">リクエストボディの形式を指定する</td>
+<td style="text-align: left;">application/zip</td>
+<td style="text-align: left;">○</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left">Content-Length</td>
-<td align="left">リクエストボディのサイズを指定する</td>
-<td align="left">半角数字</td>
-<td align="left">×</td>
-<td align="left"></td>
+<td style="text-align: left;">Content-Length</td>
+<td style="text-align: left;">リクエストボディのサイズを指定する</td>
+<td style="text-align: left;">半角数字</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
 <h4>リクエストボディ</h4>
 <table style="width:22%;">
 <colgroup>
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
-<col width="5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left">概要</th>
-<th align="left">有効値</th>
-<th align="left">必須</th>
-<th align="left">備考</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">インストールするbarファイルをバイナリでリクエストボディに指定する</td>
-<td align="left">Content-Typeヘッダで指定した形式</td>
-<td align="left">○</td>
-<td align="left">barファイル：Zipファイル形式</td>
+<td style="text-align: left;">インストールするbarファイルをバイナリでリクエストボディに指定する</td>
+<td style="text-align: left;">Content-Typeヘッダで指定した形式</td>
+<td style="text-align: left;">○</td>
+<td style="text-align: left;">barファイル：Zipファイル形式</td>
 </tr>
 </tbody>
 </table>
@@ -304,18 +328,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">コード</th>
-<th align="left">メッセージ</th>
-<th align="left">概要</th>
-<th align="left">備考</th>
+<th style="text-align: left;">コード</th>
+<th style="text-align: left;">メッセージ</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">202</td>
-<td align="left">Accepted</td>
-<td align="left">処理受付成功時</td>
-<td align="left"></td>
+<td style="text-align: left;">202</td>
+<td style="text-align: left;">Accepted</td>
+<td style="text-align: left;">処理受付成功時</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -323,26 +347,26 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名</th>
-<th align="left">概要</th>
-<th align="left">備考</th>
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Location</td>
-<td align="left">Boxメタデータ取得API用URL</td>
-<td align="left"></td>
+<td style="text-align: left;">Location</td>
+<td style="text-align: left;">Boxメタデータ取得API用URL</td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left">Access-Control-Allow-Origin</td>
-<td align="left">クロスドメイン通信許可ヘッダ</td>
-<td align="left">返却値は&quot;*&quot;固定</td>
+<td style="text-align: left;">Access-Control-Allow-Origin</td>
+<td style="text-align: left;">クロスドメイン通信許可ヘッダ</td>
+<td style="text-align: left;">返却値は&quot;*&quot;固定</td>
 </tr>
 <tr class="odd">
-<td align="left">X-Personium-Version</td>
-<td align="left">APIの実行バージョン</td>
-<td align="left">リクエストが処理されたAPIバージョン</td>
+<td style="text-align: left;">X-Personium-Version</td>
+<td style="text-align: left;">APIの実行バージョン</td>
+<td style="text-align: left;">リクエストが処理されたAPIバージョン</td>
 </tr>
 </tbody>
 </table>
@@ -356,8 +380,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4>レスポンスサンプル</h4>
 <pre><code>Location: https://{UnitFQDN}/{CellName}/{BoxName}</code></pre>
 <p>Boxメタデータ取得API用URLの詳細は、<a href="303_Progress_of_Bar_File_Installation.html">Boxメタデータ取得</a>を参照。</p>
-<h3 id="curl">cURLサンプル</h3>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></code></pre></div>
-<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+<h3>cURLサンプル</h3>
+<pre class="sourceCode sh" id="cb5"><code class="sourceCode bash"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}&quot;</span> -X MKCOL -i -H <span class="st">&#39;Content-type: application/zip&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> --data-binary @<span class="dt">{FileName}</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>

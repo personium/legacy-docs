@@ -1,61 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
-  <title></title>
-  <style type="text/css">code{white-space: pre;}</style>
-  <link rel="stylesheet" href="/ja/github.css" type="text/css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>003_Common_Limitations_on_HTTP_Implementation</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="/ja/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
-<h1 id="personiumhttp">PersoniumのHTTP実装に関する制限事項</h1>
+<h1>PersoniumのHTTP実装に関する制限事項</h1>
 <h3>リクエスト</h3>
-<h4 id="url">URL</h4>
-<p>最大サイズ: 50KByte<br />
-※URL サイズ = ヘッダサイズ + （URLパスサイズ × ２） + （クエリサイズ × ３）<br />
+<h4>URL</h4>
+<p>最大サイズ: 50KByte ※URL サイズ = ヘッダサイズ + （URLパスサイズ × ２） + （クエリサイズ × ３）<br />
 ※参考）IE7,8の制限値は2048byte、IE9は5120byte、その他の多くブラウザは1Mbyte程度</p>
 <h4>リクエストヘッダ</h4>
 <p>各ヘッダの上限サイズ： 4096byte （キーを含めての長さかどうかは不明）</p>
-<h5 id="accept-encoding">Accept Encoding</h5>
+<h5>Accept Encoding</h5>
 <p>gzip に対応しています。</p>
 <h4>リクエストボディ</h4>
-<h5 id="transfer-encoding">Transfer-Encoding</h5>
+<h5>Transfer-Encoding</h5>
 <p>chunked のリクエストに対応しています。</p>
-<h5 id="content-encoding">Content-Encoding</h5>
+<h5>Content-Encoding</h5>
 <p>gzip のリクエストに対応予定ですが未対応です。</p>
-<h4 id="time-out">Time-out</h4>
+<h4>Time-out</h4>
 <p>60秒（リクエスト開始から、サーバがリクエストをすべて受領し終わるまでの時間）</p>
 <h3>レスポンス</h3>
 <h4>レスポンスヘッダ</h4>
 <table>
 <thead>
 <tr class="header">
-<th align="left">ヘッダ名</th>
-<th align="left">説明</th>
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Transfer-Encoding</td>
-<td align="left">常にchunkedでレスポンスします</td>
+<td style="text-align: left;">Transfer-Encoding</td>
+<td style="text-align: left;">常にchunkedでレスポンスします</td>
 </tr>
 <tr class="even">
-<td align="left">Content-Encoding</td>
-<td align="left">リクエストヘッダで有効なAccept-Encoding値を設定された場合、その値が入ります</td>
+<td style="text-align: left;">Content-Encoding</td>
+<td style="text-align: left;">リクエストヘッダで有効なAccept-Encoding値を設定された場合、その値が入ります</td>
 </tr>
 <tr class="odd">
-<td align="left">Date</td>
-<td align="left">リクエストを受け付けたUTC時刻を返却します</td>
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">リクエストを受け付けたUTC時刻を返却します</td>
 </tr>
 </tbody>
 </table>
 <h4>レスポンスボディ</h4>
-<h5 id="size-limit">Size Limit</h5>
-<h5 id="transfer-encoding-1">Transfer-Encoding</h5>
+<h5>Size Limit</h5>
+<h5>Transfer-Encoding</h5>
 <p>原則chunked でレスポンスを行う。</p>
-<h5 id="content-encoding-1">Content-Encoding</h5>
+<h5>Content-Encoding</h5>
 <p>リクエストヘッダで有効なAccept-Encoding値を設定された場合は、ボディはその形式で圧縮エンコードされます。</p>
-<h6 id="copyright-2017-fujitsu-limited">Copyright 2017 FUJITSU LIMITED</h6>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
