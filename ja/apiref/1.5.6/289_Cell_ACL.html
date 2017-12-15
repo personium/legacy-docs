@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>289_Cell_ACL</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/ja/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>Cell Level アクセス制御設定</h1>
+<h3>概要</h3>
+<p>Cell Level のアクセス制御機能を提供する。</p>
+<h3>必要な権限</h3>
+<p>acl</p>
+<h3>制限事項</h3>
+<p>ACL設定を行うと、既存のACL設定を上書きされる形で更新されます。</p>
+<ul>
+<li>V1.0版での制限
+<ul>
+<li>ACL設定を打ち消す機能（deny）</li>
+<li>ACLで設定出来るprivilegeの一覧取得</li>
+</ul></li>
+</ul>
+<h3>リクエスト</h3>
+<h4>リクエストURL</h4>
+<pre><code>/{CellName}</code></pre>
+<h4>メソッド</h4>
+<p>ACL</p>
+<h4>リクエストクエリ</h4>
+<p>共通リクエストクエリ</p>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">クエリ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">p_cookie_peer</td>
+<td style="text-align: left;">クッキー認証値</td>
+<td style="text-align: left;">認証時にサーバから返却されたクッキー認証値</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">Authorizationヘッダの指定が無い場合のみ有効<br>クッキーの認証情報を利用する場合に指定する</td>
+</tr>
+</tbody>
+</table>
+<h4>共通リクエストヘッダ</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X-HTTP-Method-Override</td>
+<td style="text-align: left;">メソッドオーバーライド機能</td>
+<td style="text-align: left;">任意</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X-Override</td>
+<td style="text-align: left;">ヘッダオーバライド機能</td>
+<td style="text-align: left;">${上書きするヘッダ名}:${値}</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X-Personium-RequestKey</td>
+<td style="text-align: left;">イベントログに出力するRequestKeyフィールドの値</td>
+<td style="text-align: left;">半角英数、-(半角ハイフン)と_(半角アンダーバー)<br>最大128文字</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">指定がない場合、PCS-${UNIX時間}を設定する</td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストヘッダ</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Authorization</td>
+<td style="text-align: left;">OAuth2.0形式で、認証情報を指定する</td>
+<td style="text-align: left;">Bearer {AccessToken}</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">※認証トークンは認証トークン取得APIで取得したトークン</td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストボディ</h4>
+<h4>名前空間</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">URI</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考 (prefix)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">DAV:</td>
+<td style="text-align: left;">WebDAVの名前空間</td>
+<td style="text-align: left;">D:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="urn:x-personium:xmlns" class="uri">urn:x-personium:xmlns</a></td>
+<td style="text-align: left;">Personiumの名前空間</td>
+<td style="text-align: left;">p:</td>
+</tr>
+</tbody>
+</table>
+<p>※ 参考prefixは以下表の可読性を高めるためのもので、このprefix文字列の使用を保証するものでも要求するものでもありません。</p>
+<h4>XMLの構造</h4>
+<p>ボディはXMLで、以下のスキーマに従っています。<br />
+privilegeタグ配下の権限設定の内容については、acl_model（<a href="../../user_guide/002_Access_Control.html">アクセス制御モデル</a>）を参照。</p>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ノード名</th>
+<th style="text-align: left;">Namespace</th>
+<th style="text-align: left;">ノードタイプ</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">acl</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">ACL（アクセス制御リスト）のルートを表し、1つ以上複数のaceが子となる</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">base</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">hrefタグ内に記述するURLの基底を表し、任意の値を属性値とする。</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ace</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">ACE（アクセス制御エレメント）を表し、principalとgrantが一対で子となる</td>
+<td style="text-align: left;">「invert」「deny」「protected」「inherited」はV1.1系未対応</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">principal</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">権限設定対象を表し、hrefまたはallが子となる</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">grant</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">権限付与設定を表し、1つ以上複数のprivilegeが子となる</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">href</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">権限設定対象ロール表し、ロールリソースURLを入力するテキストノード</td>
+<td style="text-align: left;">権限設定対象ロールのリソースURLを指定する<br>acl要素内のxml:base属性の設定によって、URLを短縮する事が出来る</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">all</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">全アクセス主体権限設定</td>
+<td style="text-align: left;">全てのロールや認証されていないアクセス主体（Authorizationヘッダなし）に対してのの設定となります</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">privilege</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">権限設定を表し、以下の要素のいづれか一つが子となる</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">root</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">全権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">auth</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">認証系管理API編集・参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">auth-read</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">認証系管理API参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">メッセージ系管理API編集・参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">message-read</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">メッセージ系管理API参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">event</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">イベント系管理API編集・参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">event-read</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">イベント系管理API参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">log</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">イベントバスのログAPI編集・参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">log-read</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">イベントバスのログAPI参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">social</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">関係系管理API編集・参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">social-read</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">関係系管理API参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">box</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">ボックス管理API編集・参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">box-read</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">ボックス管理API参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">box-install</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">Boxインストール実行権限 ※V1.2.3対応</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">box-export</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">Boxエクスポート実行権限</td>
+<td style="text-align: left;">未対応(設定不可)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">acl</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">ACL管理API編集・参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">acl-read</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">ACL管理API参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">propfind</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">要素</td>
+<td style="text-align: left;">プロパティ取得API参照権限</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h5>DTD表記</h5>
+<p>名前空間：D:</p>
+<pre class="sourceCode dtd" id="cb2"><code class="sourceCode dtd"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="dt">&lt;!ELEMENT</span> <span class="fu">acl</span> <span class="dv">(</span><span class="fu">ace</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-2" data-line-number="2"><span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">base</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-3" data-line-number="3"><span class="dt">&lt;!ELEMENT</span> <span class="fu">ace</span> <span class="dv">((</span><span class="fu">principal</span> <span class="fu">or</span> <span class="fu">invert</span><span class="dv">),</span> <span class="dv">(</span><span class="fu">grant</span> <span class="fu">or</span> <span class="fu">deny</span><span class="dv">),</span> <span class="fu">protected</span><span class="fl">?</span><span class="dv">,</span><span class="fu">inherited</span><span class="fl">?</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-4" data-line-number="4"><span class="dt">&lt;!ELEMENT</span> <span class="fu">principal</span> <span class="dv">(</span><span class="fu">href</span> <span class="fu">or</span> <span class="fu">all</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-5" data-line-number="5"><span class="dt">&lt;!ELEMENT</span> <span class="fu">principal</span> <span class="dv">(</span><span class="fu">privilege</span><span class="fl">+</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-6" data-line-number="6"><span class="dt">&lt;!ELEMENT</span> <span class="fu">href</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-7" data-line-number="7"><span class="dt">&lt;!ELEMENT</span> <span class="fu">all</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-8" data-line-number="8"><span class="dt">&lt;!ELEMENT</span> <span class="fu">privilege</span> <span class="dv">(</span><span class="fu">root</span> <span class="fu">or</span> <span class="fu">auth</span> <span class="fu">or</span> <span class="fu">auth-read</span> <span class="fu">or</span> <span class="fu">message</span> <span class="fu">or</span> <span class="fu">message-read</span> <span class="fu">or</span> <span class="fu">event</span> <span class="fu">or</span> <span class="fu">event-read</span> <span class="fu">or</span> <span class="fu">social</span> <span class="fu">or</span> <span class="fu">social-read</span> <span class="fu">or</span> <span class="fu">box</span> <span class="fu">or</span> <span class="fu">box-read</span> <span class="fu">or</span> <span class="fu">acl</span> <span class="fu">or</span> <span class="fu">acl-read</span> <span class="fu">or</span> <span class="fu">propfind</span><span class="dv">)</span><span class="dt">&gt;</span></div></code></pre>
+<p>名前空間:xml:</p>
+<pre class="sourceCode dtd" id="cb3"><code class="sourceCode dtd"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="dt">&lt;!ATTLIST</span> <span class="fu">acl</span> <span class="fu">base</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></div></code></pre>
+<p>名前空間：p:</p>
+<pre class="sourceCode dtd" id="cb4"><code class="sourceCode dtd"><div class="sourceLine" id="cb4-1" data-line-number="1"><span class="dt">&lt;!ELEMENT</span> <span class="fu">root</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-2" data-line-number="2"><span class="dt">&lt;!ELEMENT</span> <span class="fu">auth</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-3" data-line-number="3"><span class="dt">&lt;!ELEMENT</span> <span class="fu">auth-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-4" data-line-number="4"><span class="dt">&lt;!ELEMENT</span> <span class="fu">message</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-5" data-line-number="5"><span class="dt">&lt;!ELEMENT</span> <span class="fu">message-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-6" data-line-number="6"><span class="dt">&lt;!ELEMENT</span> <span class="fu">event</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-7" data-line-number="7"><span class="dt">&lt;!ELEMENT</span> <span class="fu">event-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-8" data-line-number="8"><span class="dt">&lt;!ELEMENT</span> <span class="fu">log</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-9" data-line-number="9"><span class="dt">&lt;!ELEMENT</span> <span class="fu">log-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-10" data-line-number="10"><span class="dt">&lt;!ELEMENT</span> <span class="fu">social</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-11" data-line-number="11"><span class="dt">&lt;!ELEMENT</span> <span class="fu">social-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-12" data-line-number="12"><span class="dt">&lt;!ELEMENT</span> <span class="fu">box</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-13" data-line-number="13"><span class="dt">&lt;!ELEMENT</span> <span class="fu">box-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-14" data-line-number="14"><span class="dt">&lt;!ELEMENT</span> <span class="fu">box-install</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-15" data-line-number="15"><span class="dt">&lt;!ELEMENT</span> <span class="fu">box-export</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-16" data-line-number="16"><span class="dt">&lt;!ELEMENT</span> <span class="fu">acl</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-17" data-line-number="17"><span class="dt">&lt;!ELEMENT</span> <span class="fu">acl-read</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb4-18" data-line-number="18"><span class="dt">&lt;!ELEMENT</span> <span class="fu">propfind</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div></code></pre>
+<h4>リクエストサンプル</h4>
+<pre class="sourceCode xml" id="cb5"><code class="sourceCode xml"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;utf-8&quot; <span class="kw">?&gt;</span></div>
+<div class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">&lt;D:acl</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="ot"> xml:base=</span><span class="st">&quot;https://example.com/testcell1/__role/box1/&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb5-3" data-line-number="3">    <span class="kw">&lt;D:ace&gt;</span></div>
+<div class="sourceLine" id="cb5-4" data-line-number="4">        <span class="kw">&lt;D:principal&gt;</span></div>
+<div class="sourceLine" id="cb5-5" data-line-number="5">            <span class="kw">&lt;D:all/&gt;</span></div>
+<div class="sourceLine" id="cb5-6" data-line-number="6">        <span class="kw">&lt;/D:principal&gt;</span></div>
+<div class="sourceLine" id="cb5-7" data-line-number="7">        <span class="kw">&lt;D:grant&gt;</span></div>
+<div class="sourceLine" id="cb5-8" data-line-number="8">           <span class="kw">&lt;D:privilege&gt;&lt;p:auth/&gt;&lt;/D:privilege&gt;</span></div>
+<div class="sourceLine" id="cb5-9" data-line-number="9">           <span class="kw">&lt;D:privilege&gt;&lt;p:box/&gt;&lt;/D:privilege&gt;</span></div>
+<div class="sourceLine" id="cb5-10" data-line-number="10">        <span class="kw">&lt;/D:grant&gt;</span></div>
+<div class="sourceLine" id="cb5-11" data-line-number="11">    <span class="kw">&lt;/D:ace&gt;</span></div>
+<div class="sourceLine" id="cb5-12" data-line-number="12">    <span class="kw">&lt;D:ace&gt;</span></div>
+<div class="sourceLine" id="cb5-13" data-line-number="13">        <span class="kw">&lt;D:principal&gt;</span></div>
+<div class="sourceLine" id="cb5-14" data-line-number="14">            <span class="kw">&lt;D:href&gt;</span>role<span class="kw">&lt;/D:href&gt;</span></div>
+<div class="sourceLine" id="cb5-15" data-line-number="15">        <span class="kw">&lt;/D:principal&gt;</span></div>
+<div class="sourceLine" id="cb5-16" data-line-number="16">        <span class="kw">&lt;D:grant&gt;</span></div>
+<div class="sourceLine" id="cb5-17" data-line-number="17">            <span class="kw">&lt;D:privilege&gt;&lt;p:root/&gt;&lt;/D:privilege&gt;</span></div>
+<div class="sourceLine" id="cb5-18" data-line-number="18">        <span class="kw">&lt;/D:grant&gt;</span></div>
+<div class="sourceLine" id="cb5-19" data-line-number="19">    <span class="kw">&lt;/D:ace&gt;</span></div>
+<div class="sourceLine" id="cb5-20" data-line-number="20"><span class="kw">&lt;/D:acl&gt;</span></div></code></pre>
+<h3>レスポンス</h3>
+<h4>ステータスコード</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">コード</th>
+<th style="text-align: left;">メッセージ</th>
+<th style="text-align: left;">概要</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">200</td>
+<td style="text-align: left;">OK</td>
+<td style="text-align: left;">成功</td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスヘッダ</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">返却されるデータの形式</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスボディ</h4>
+<p>なし</p>
+<h4>エラーメッセージ一覧</h4>
+<p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
+<h3>cURLサンプル</h3>
+<pre class="sourceCode sh" id="cb6"><code class="sourceCode bash"><div class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span> -X ACL -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;&lt;D:acl xmlns:D=&quot;DAV:&quot; xmlns:p=&quot;urn:x-personium:xmlns&quot; xml:base=&quot;http://{UnitFQDN}/{CellName}/__role/{BoxName}/&quot;&gt;  &lt;D:ace&gt;&lt;D:principal&gt;&lt;D:href&gt;{RoleName}&lt;/D:href&gt;&lt;/D:principal&gt;&lt;D:grant&gt;&lt;D:privilege&gt;&lt;p:box-read/&gt;&lt;/D:privilege&gt;&lt;D:privilege&gt;&lt;p:auth/&gt;&lt;/D:privilege&gt;&lt;/D:grant&gt;&lt;/D:ace&gt;&lt;/D:acl&gt;&#39;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

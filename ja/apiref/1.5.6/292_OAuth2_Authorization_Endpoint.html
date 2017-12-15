@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>292_OAuth2_Authorization_Endpoint</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/ja/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>OAuth2.0 認可エンドポイント(__authz)</h1>
+<h3>概要</h3>
+<p>OAuth2の認可エンドポイントAPI<br />
+このAPIは、JSアプリケーション・ネイティブアプリでPersoniumを利用する場合のOAuth2の認可エンドポイントである。</p>
+<h3>必要な権限</h3>
+<p>なし</p>
+<h3>前提条件</h3>
+<p>このAPIを実行するためには、アプリセルURLをスキーマに持つBoxを事前に作成しておく必要がある。</p>
+<h3>制限事項</h3>
+<p>リクエストクエリ、リクエストボディの「p_target」パラメータの指定は未サポート</p>
+<ul>
+<li>p_targetを指定した場合、レスポンスヘッダの「Location」の値が4,096文字を超えるため、nginxでエラーとなる。</li>
+<li>Internet Explorerでは、URLの最大長が2,048文字に制限されているため、正しくリダイレクトできない。</li>
+</ul>
+<h3>リクエスト</h3>
+<h4>リクエストURL</h4>
+<pre><code>{CellName}/__authz</code></pre>
+<h4>メソッド</h4>
+<p>GET : 認証フォーム リクエスト POST : 認証フォーム リクエスト、トークン認証</p>
+<h4>リクエストクエリ</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">書式</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">有効値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">response_type</td>
+<td style="text-align: left;">応答タイプ</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">○</td>
+<td style="text-align: left;">トークン</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">client_id</td>
+<td style="text-align: left;">アプリセル URL</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">○</td>
+<td style="text-align: left;">スキーマ認証元のアプリセルURL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">redirect_uri</td>
+<td style="text-align: left;">クライアントのリダイレクトエンドポイントURL</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">○</td>
+<td style="text-align: left;">アプリセルのデフォルトBOX配下に登録されたリダイレクトスクリプトのURL<br>application/x-www-form-urlencodedでフォーマットされたクエリパラメータを含める事ができる<br>フラグメントを含める事はできない<br>有効桁長:512byte</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">state</td>
+<td style="text-align: left;">リクエストとコールバックの間で状態を維持するために使用するランダムな値</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">ランダムな値<br>有効桁長:512byte</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">p_target</td>
+<td style="text-align: left;">トランスセルトークンターゲット</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">払い出されるトークンを使うセルURL<br>指定した場合トランスセルトークンを払い出す</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p_owner</td>
+<td style="text-align: left;">ULUUT昇格実行クエリ</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">trueのみ有効<br>※このクエリを設定した場合、認証情報はCookieで返却されない</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">assertion</td>
+<td style="text-align: left;">アクセストークン</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">有効なトランスセルトークン<br>引数なしの場合トークン認証にはならない</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">username</td>
+<td style="text-align: left;">ユーザ名</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">登録済のユーザ名</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">password</td>
+<td style="text-align: left;">パスワード</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">登録済のパスワード</td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストヘッダ</h4>
+<p>なし</p>
+<h4>リクエストボディ</h4>
+<p>リクエストクエリと同じ</p>
+<h4>リクエストサンプル</h4>
+<p>なし</p>
+<h3>レスポンス</h3>
+<h4>Forms Authentication Request</h4>
+<h5>ステータスコード</h5>
+<p>200</p>
+<h5>レスポンスヘッダ</h5>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">Content-Type of Resource</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h5>レスポンスボディ</h5>
+<p>以下のHTMLフォームを返却する。 <img src="image/OAuth2ResponseBody.png" title="レスポンスボディ" alt="レスポンスボディ" /></p>
+<h5>エラーメッセージ一覧</h5>
+<p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
+<h5>レスポンスサンプル</h5>
+<p>なし</p>
+<h4>Request Token Authentication</h4>
+<h5>ステータスコード</h5>
+<p>302<br />
+ブラウザはredirect_uriにリダイレクトされる。redirect_uriに、「URLパラメータ」で示すフラグメントが格納される。</p>
+<pre><code>{redirect_uri}#access_token={access_token}&amp;token_type=Bearer&amp;expires_in={expires_in}&amp;state={state}</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">redirect_uri</td>
+<td style="text-align: left;">クライアントのリダイレクトエンドポイントURL</td>
+<td style="text-align: left;">リクエストの「redirect_uri」の値</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">access_token</td>
+<td style="text-align: left;">認証・認可要求フォームで取得したアクセストークン</td>
+<td style="text-align: left;">セルローカルトークンもしくは、トランスセルトークンを返却する</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">token_type</td>
+<td style="text-align: left;">Bearer</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">expires_in</td>
+<td style="text-align: left;">上記「access_token」の有効期限</td>
+<td style="text-align: left;">1時間（3600秒）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">state</td>
+<td style="text-align: left;">リクエスト時に設定したstateの値</td>
+<td style="text-align: left;">リクエストとコールバックの間で状態を維持するために使用するランダムな値</td>
+</tr>
+</tbody>
+</table>
+<h5>エラーメッセージ一覧</h5>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">redirect_uri</td>
+<td style="text-align: left;">Redirect URL</td>
+<td style="text-align: left;">リクエストの「redirect_uri」で指定された、<br>クライアントのリダイレクトスプリクトのURL<br>ただし、以下のエラー内容の場合はこの値は「セルのURL + __html/error」に設定される<br>「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">error</td>
+<td style="text-align: left;">エラー内容を示すコード</td>
+<td style="text-align: left;">「error」を参照</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">error_description</td>
+<td style="text-align: left;">エラーの追加情報</td>
+<td style="text-align: left;">例外メッセージなどを設定する</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">error_uri</td>
+<td style="text-align: left;">エラーの追加情報のWebページのURI</td>
+<td style="text-align: left;">空文字を返す<br>※今後のエンハンスに備えて設定</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">state</td>
+<td style="text-align: left;">リクエスト時に設定したstateの値</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">Personiumのエラーコード</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_request</td>
+<td style="text-align: left;">リクエストで必須パラメータが指定されていない<br>リクエストパラメータの形式が不正<br>アカウントロック中</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">unauthorized_client</td>
+<td style="text-align: left;">クライアントが認可されていない<br>ユーザによってキャンセルボタンが押下された</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">access_denied</td>
+<td style="text-align: left;">client_idとredirect_uriのセルが異なる<br>トランスセルトークン認証に失敗した場合</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">unsupported_response_type</td>
+<td style="text-align: left;">response_typeの値が不正</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">server_error</td>
+<td style="text-align: left;">サーバエラー</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Please, input user ID and password.</td>
+<td style="text-align: left;">「username」もしくは「password」が未入力</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">User ID or password is incorrect.</td>
+<td style="text-align: left;">パスワード認証に失敗した場合</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Since the Expiration Date of the authentication passed,<br>You must be authorized again.</td>
+<td style="text-align: left;">Cookie認証に失敗した場合</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h5>Parameter Check Error</h5>
+<p>ブラウザはredirect_uriにリダイレクトされる。<br />
+「redirect_uriがURL形式ではない」「client_idとredirect_uriのセルが異なる」「認可処理失敗」</p>
+<pre><code>{redirect_uri}?code={code}</code></pre>
+<p>上記以外</p>
+<pre><code>{redirect_uri}#error={error}&amp;error_description={error_description}&amp;state={state}&amp;code={code}</code></pre>
+<h3>cURLサンプル</h3>
+<h4>GET</h4>
+<pre class="sourceCode sh" id="cb5"><code class="sourceCode bash"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz?response_type=token&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&amp;client_id=https://{UnitFQDN}/{AppliCellName}&quot;</span> -X GET -i</div></code></pre>
+<h4>POST</h4>
+<pre class="sourceCode sh" id="cb6"><code class="sourceCode bash"><div class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz&quot;</span> -X POST -i -d <span class="st">&#39;response_type=token&amp;client_id=https://{UnitFQDN}/{AppliCellName}&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&amp;state=0000000111&amp;username={AccountUserName}&amp;password={AccountUserPass}&#39;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
