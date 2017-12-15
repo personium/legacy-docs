@@ -82,6 +82,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <li>Only accepts the request body in the JSON format</li>
 <li>Only application/json is supported for Content-Type in the request header and the JSON format for the response body</li>
 <li>$formatQuery options ignored</li>
+<li>If _Box.Name in the request URL is different from _Box.Name in the request body, _Box.Name of the request body is ignored</li>
 </ul>
 <h3>Request</h3>
 <h4>Request URL</h4>
@@ -166,7 +167,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <td style="text-align: left;">RequestKey field value output in the event log</td>
 <td style="text-align: left;">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
 <td style="text-align: left;">No</td>
-<td style="text-align: left;">PCS-${UNIXtime} by default<br>Supported in V 1.1.7 and later</td>
+<td style="text-align: left;">PCS-${UNIXtime} by default</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Authorization</td>

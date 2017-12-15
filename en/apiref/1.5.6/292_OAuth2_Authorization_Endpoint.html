@@ -348,9 +348,9 @@ The browser is redirected to redirect_uri. A fragment indicated by &quot;URL par
 <pre><code>{redirect_uri}#error={error}&amp;error_description={error_description}&amp;state={state}&amp;code={code}</code></pre>
 <h3>cURL Command</h3>
 <h4>GET</h4>
-<pre class="sourceCode sh" id="cb5"><code class="sourceCode bash"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz?response_type=token&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&amp;client_id=https://{UnitFQDN}/{AppliCellName}&quot;</span> -X GET -i</div></code></pre>
+<pre class="sourceCode sh" id="cb5"><code class="sourceCode bash"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz?response_type=token&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&amp;client_id=https://{UnitFQDN}/{AppliCellName}&quot;</span> -X GET -i</div></code></pre>
 <h4>POST</h4>
-<pre class="sourceCode sh" id="cb6"><code class="sourceCode bash"><div class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz&quot;</span> -X POST -i -d <span class="st">&#39;response_type=token&amp;client_id=https://{UnitFQDN}/{AppliCellName}&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.html&amp;state=0000000111&amp;username={AccountUserName}&amp;password={AccountUserPass}&#39;</span></div></code></pre>
+<pre class="sourceCode sh" id="cb6"><code class="sourceCode bash"><div class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__authz&quot;</span> -X POST -i -d <span class="st">&#39;response_type=token&amp;client_id=https://{UnitFQDN}/{AppliCellName}&amp;redirect_uri=https://{UnitFQDN}/{AppliCellName}/__/redirect.md&amp;state=0000000111&amp;username={AccountUserName}&amp;password={AccountUserPass}&#39;</span></div></code></pre>
 <h6>Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
