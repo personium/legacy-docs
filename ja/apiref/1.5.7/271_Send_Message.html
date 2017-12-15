@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>271_Send_Message</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/ja/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>メッセージ送信</h1>
+<h3>概要</h3>
+<p>メッセージを送信する</p>
+<h3>必要な権限</h3>
+<p>message</p>
+<h3>制限事項</h3>
+<ul>
+<li>リクエストヘッダのContent-Typeは全てapplication/jsonとして扱う</li>
+<li>リクエストボディはJSON形式のみ受け付ける</li>
+<li>レスポンスヘッダのContent-Typeはapplication/jsonのみをサポートし、レスポンスボディはJSON形式とする</li>
+<li>$formatクエリオプションにatom または xmlを指定した場合、エラーとはならないが、レスポンスボディのデータの保証はない</li>
+</ul>
+<h3>リクエスト</h3>
+<h4>リクエストURL</h4>
+<pre><code>/{CellName}/__message/send</code></pre>
+<h4>メソッド</h4>
+<p>POST</p>
+<h4>リクエストクエリ</h4>
+<p>クエリは無視する</p>
+<h4>リクエストヘッダ</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X-HTTP-Method-Override</td>
+<td style="text-align: left;">メソッドオーバーライド機能</td>
+<td style="text-align: left;">任意</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">POSTメソッドでリクエスト時にこの値を指定すると、指定した値がメソッドとして使用されます。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X-Override</td>
+<td style="text-align: left;">ヘッダオーバライド機能</td>
+<td style="text-align: left;">${上書きするヘッダ名}:${値}</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">通常のHTTPヘッダの値を上書きします。複数のヘッダを上書きする場合はX-Overrideヘッダを複数指定します。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Authorization</td>
+<td style="text-align: left;">OAuth2.0形式で、認証情報を指定する</td>
+<td style="text-align: left;">Bearer {AccessToken}</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">※認証トークンは認証トークン取得APIで取得したトークン</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">リクエストボディの形式を指定する</td>
+<td style="text-align: left;">application/json</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">省略時は[application/json]として扱う</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Accept</td>
+<td style="text-align: left;">レスポンスボディの形式を指定する</td>
+<td style="text-align: left;">application/json</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">省略時は[application/json]として扱う</td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストボディ</h4>
+<p>JSON</p>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">項目名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">有効値</th>
+<th style="text-align: left;">必須</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">BoxBound</td>
+<td style="text-align: left;">Boxと紐付けるか否か</td>
+<td style="text-align: left;">true / false<br>デフォルト値はfalse</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">Boxに結びつける場合に本項目を「true」にしてスキーマ認証したトークンを送る</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">InReplyTo</td>
+<td style="text-align: left;">返信対象のメッセージID</td>
+<td style="text-align: left;">桁数：32<br>null</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">To</td>
+<td style="text-align: left;">送信先セルURL</td>
+<td style="text-align: left;">URL形式<br>null</td>
+<td style="text-align: left;">※ 1</td>
+<td style="text-align: left;">複数Cellに送信する場合はCSV形式で指定する<br>※1 ToまたはRelationのどちらかは必須,<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ToRelation</td>
+<td style="text-align: left;">送信対象の関係名</td>
+<td style="text-align: left;">桁数：1～128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)と+(プラス)と:(コロン)<br>ただし、先頭文字に_(半角アンダーバー)と:(コロン)は指定不可<br>null</td>
+<td style="text-align: left;">※ 1</td>
+<td style="text-align: left;">※1 ToまたはRelationのどちらかは必須<br>ToまたはRelationで指定できる送信先セルURLの最大件数は1000件</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Type</td>
+<td style="text-align: left;">メッセージタイプ</td>
+<td style="text-align: left;">message<br>req.relation.build<br>req.relation.break<br>req.role.grant<br>req.role.revoke</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">省略時はmessageとして扱う</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Title</td>
+<td style="text-align: left;">メッセージタイトル</td>
+<td style="text-align: left;">桁数：256文字以下</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">省略時は空文字として扱う</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Body</td>
+<td style="text-align: left;">メッセージ本文</td>
+<td style="text-align: left;">桁数：64Kbyte以下</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">省略時は空文字として扱う</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Priority</td>
+<td style="text-align: left;">優先度</td>
+<td style="text-align: left;">1~5</td>
+<td style="text-align: left;">×</td>
+<td style="text-align: left;">省略時は3として扱う</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RequestRelation</td>
+<td style="text-align: left;">登録依頼した関係情報</td>
+<td style="text-align: left;">URL形式<br>null</td>
+<td style="text-align: left;">※ 2</td>
+<td style="text-align: left;">※2 メッセージタイプがmessage以外の場合必須<br>登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名を指定<br>リレーション名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]__relation/__/<br>BoxBoundがfalse：[送信先セルURL]__relation/__/<br>ロール名指定時は以下のURLからの相対URLとみなす<br>BoxBoundがtrue：[対象BoxスキーマURL]__role/__/<br>BoxBoundがfalse：[送信先セルURL]__role/__/</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RequestRelationTarget</td>
+<td style="text-align: left;">関係を結ぶセルURL</td>
+<td style="text-align: left;">URL形式<br>null</td>
+<td style="text-align: left;">※ 2</td>
+<td style="text-align: left;">※2 メッセージタイプがmessage以外の場合必須</td>
+</tr>
+</tbody>
+</table>
+<h4>リクエストサンプル</h4>
+<pre class="sourceCode json" id="cb2"><code class="sourceCode json"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="fu">{</span></div>
+<div class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">&quot;BoxBound&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">&quot;InReplyTo&quot;</span><span class="fu">:</span> <span class="st">&quot;hnKXm44TTZCw-bfSEw4f0A&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-4" data-line-number="4">  <span class="dt">&quot;To&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{TargetCellName}&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-5" data-line-number="5">  <span class="dt">&quot;ToRelation&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-6" data-line-number="6">  <span class="dt">&quot;Type&quot;</span><span class="fu">:</span> <span class="st">&quot;req.relation.build&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-7" data-line-number="7">  <span class="dt">&quot;Title&quot;</span><span class="fu">:</span> <span class="st">&quot;友人登録依頼です&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-8" data-line-number="8">  <span class="dt">&quot;Body&quot;</span><span class="fu">:</span> <span class="st">&quot;先日はありがとうごさいました。友人登録承認をお願いいたします。&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-9" data-line-number="9">  <span class="dt">&quot;Priority&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-10" data-line-number="10">  <span class="dt">&quot;RequestRelation&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{AppCellName}/__relation/__/{RelationName}&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb2-11" data-line-number="11">  <span class="dt">&quot;RequestRelationTarget&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span></div>
+<div class="sourceLine" id="cb2-12" data-line-number="12"><span class="fu">}</span></div></code></pre>
+<h3>レスポンス</h3>
+<h4>ステータスコード</h4>
+<p>201</p>
+<h4>レスポンスヘッダ</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">ヘッダ名</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">返却されるデータの形式</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Location</td>
+<td style="text-align: left;">作成したリソースへのURL</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">DataServiceVersion</td>
+<td style="text-align: left;">ODataのバージョン</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ETag</td>
+<td style="text-align: left;">リソースのバージョン情報</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Access-Control-Allow-Origin</td>
+<td style="text-align: left;">クロスドメイン通信許可ヘッダ</td>
+<td style="text-align: left;">返却値は&quot;*&quot;固定</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X-Personium-Version</td>
+<td style="text-align: left;">APIの実行バージョン</td>
+<td style="text-align: left;">リクエストが処理されたAPIバージョン</td>
+</tr>
+</tbody>
+</table>
+<h4>レスポンスボディ</h4>
+<h5>共通レスポンスボディ</h5>
+<p>レスポンスはJSONオブジェクトで、オブジェクト（サブオブジェクト）に定義されるキー(名前)と型、並びに値の対応は以下のとおりです。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">オブジェクト</th>
+<th style="text-align: left;">名前【キー）</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ルート</td>
+<td style="text-align: left;">d</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">オブジェクト{1}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{1}</td>
+<td style="text-align: left;">results</td>
+<td style="text-align: left;">array</td>
+<td style="text-align: left;">オブジェクト{2}の配列</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">__metadata</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">オブジェクト{3}</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{3}</td>
+<td style="text-align: left;">uri</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">作成したリソースへのURL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{3}</td>
+<td style="text-align: left;">etag</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Etag値</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">__published</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">作成日(UNIX時間)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">__updated</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">更新日(UNIX時間)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{1}</td>
+<td style="text-align: left;">__count</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">$inlinecountクエリでの取得結果件数</td>
+</tr>
+</tbody>
+</table>
+<h5>SentMessage固有レスポンスボディ</h5>
+<table style="width:22%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">オブジェクト</th>
+<th style="text-align: left;">名前【キー】</th>
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">{3}</td>
+<td style="text-align: left;">type</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">CellCtl.ReceivedMessage</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">__id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">受信メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">InReplyTo</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">受信元メッセージID<br>UUIDで「b5d008e9092f489c8d3c574a768afc33」のような32文字の文字列を返却</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">To</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">送信先CellURL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">ToRelation</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">送信対象の関係名</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">Type</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">メッセージタイプ<br>メッセージ：message<br>関係登録依頼(リレーション)：req.relation.build<br>関係削除依頼(リレーション)：req.relation.break<br>関係登録依頼(ロール)：req.role.grant<br>関係削除依頼(ロール)：req.role.revoke</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">Title</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">メッセージタイトル</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">Body</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">メッセージ本文</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">Priority</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">優先度<br>(高)1～5(低)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">RequestRelation</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">登録依頼するリレーションクラスURL、またはリレーション名、またはロールクラスURL、またはロール名<br>メッセージタイプがmessage以外の場合のみ</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">RequestRelationTarget</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">関係を結ぶCellURL<br>メッセージタイプがmessage以外の場合のみ</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">_Box.Name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">関係対象のボックス名</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{2}</td>
+<td style="text-align: left;">Result</td>
+<td style="text-align: left;">array</td>
+<td style="text-align: left;">送信先Cell毎の送信結果<br>オブジェクト{4}の配列</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{4}</td>
+<td style="text-align: left;">To</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">送信先CellURL</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{4}</td>
+<td style="text-align: left;">Code</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">ステータスコード</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{4}</td>
+<td style="text-align: left;">Reason</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">詳細メッセージ</td>
+</tr>
+</tbody>
+</table>
+<h4>エラーメッセージ一覧</h4>
+<p><a href="004_Error_Messages.html">エラーメッセージ一覧</a>を参照</p>
+<h4>レスポンスサンプル</h4>
+<pre class="sourceCode json" id="cb3"><code class="sourceCode json"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="fu">{</span></div>
+<div class="sourceLine" id="cb3-2" data-line-number="2">  <span class="dt">&quot;d&quot;</span><span class="fu">:</span> <span class="fu">{</span></div>
+<div class="sourceLine" id="cb3-3" data-line-number="3">    <span class="dt">&quot;results&quot;</span><span class="fu">:</span> <span class="fu">{</span></div>
+<div class="sourceLine" id="cb3-4" data-line-number="4">      <span class="dt">&quot;__metadata&quot;</span><span class="fu">:</span> <span class="fu">{</span></div>
+<div class="sourceLine" id="cb3-5" data-line-number="5">        <span class="dt">&quot;uri&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__ctl/SentMessage(&#39;3afcc60e35fc49ee9a4e4f6c1ebee426&#39;)&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-6" data-line-number="6">        <span class="dt">&quot;etag&quot;</span><span class="fu">:</span> <span class="st">&quot;W/</span><span class="ch">\&quot;</span><span class="st">1-1486638759524</span><span class="ch">\&quot;</span><span class="st">&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-7" data-line-number="7">        <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;CellCtl.SentMessage&quot;</span></div>
+<div class="sourceLine" id="cb3-8" data-line-number="8">      <span class="fu">},</span></div>
+<div class="sourceLine" id="cb3-9" data-line-number="9">      <span class="dt">&quot;__id&quot;</span><span class="fu">:</span> <span class="st">&quot;3afcc60e35fc49ee9a4e4f6c1ebee426&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-10" data-line-number="10">      <span class="dt">&quot;InReplyTo&quot;</span><span class="fu">:</span> <span class="st">&quot;xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-11" data-line-number="11">      <span class="dt">&quot;To&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-12" data-line-number="12">      <span class="dt">&quot;ToRelation&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-13" data-line-number="13">      <span class="dt">&quot;Type&quot;</span><span class="fu">:</span> <span class="st">&quot;message&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-14" data-line-number="14">      <span class="dt">&quot;Title&quot;</span><span class="fu">:</span> <span class="st">&quot;メッセージサンプルタイトル&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-15" data-line-number="15">      <span class="dt">&quot;Body&quot;</span><span class="fu">:</span> <span class="st">&quot;メッセージサンプル本文です。&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-16" data-line-number="16">      <span class="dt">&quot;Priority&quot;</span><span class="fu">:</span> <span class="dv">3</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-17" data-line-number="17">      <span class="dt">&quot;RequestRelation&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-18" data-line-number="18">      <span class="dt">&quot;RequestRelationTarget&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-19" data-line-number="19">      <span class="dt">&quot;_Box.Name&quot;</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-20" data-line-number="20">      <span class="dt">&quot;Result&quot;</span><span class="fu">:</span> <span class="ot">[</span></div>
+<div class="sourceLine" id="cb3-21" data-line-number="21">        <span class="fu">{</span></div>
+<div class="sourceLine" id="cb3-22" data-line-number="22">          <span class="dt">&quot;To&quot;</span><span class="fu">:</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-23" data-line-number="23">          <span class="dt">&quot;Code&quot;</span><span class="fu">:</span> <span class="st">&quot;201&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-24" data-line-number="24">          <span class="dt">&quot;Reason&quot;</span><span class="fu">:</span> <span class="st">&quot;Created.&quot;</span></div>
+<div class="sourceLine" id="cb3-25" data-line-number="25">        <span class="fu">}</span></div>
+<div class="sourceLine" id="cb3-26" data-line-number="26">      <span class="ot">]</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-27" data-line-number="27">      <span class="dt">&quot;__published&quot;</span><span class="fu">:</span> <span class="st">&quot;/Date(1486638759524)/&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb3-28" data-line-number="28">      <span class="dt">&quot;__updated&quot;</span><span class="fu">:</span> <span class="st">&quot;/Date(1486638759524)/&quot;</span></div>
+<div class="sourceLine" id="cb3-29" data-line-number="29">    <span class="fu">}</span></div>
+<div class="sourceLine" id="cb3-30" data-line-number="30">  <span class="fu">}</span></div>
+<div class="sourceLine" id="cb3-31" data-line-number="31"><span class="fu">}</span></div></code></pre>
+<h3>cURLサンプル</h3>
+<pre class="sourceCode sh" id="cb4"><code class="sourceCode bash"><div class="sourceLine" id="cb4-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__message/send&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;BoxBound&quot;:false,&quot;InReplyTo&quot;:&quot;xnKXmd4TTZCw-bfSEw4f0AxnKXmd4TTZ&quot;,&quot;To&quot;:&quot;https://{UnitFQDN}/{CellName}&quot;,&quot;Type&quot;:&quot;message&quot;,&quot;Title&quot;:&quot;メッセージサンプルタイトル&quot;,&quot;Body&quot;:&quot;メッセージサンプル本文です。&quot;,&quot;Priority&quot;:3}&#39;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
