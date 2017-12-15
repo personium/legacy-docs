@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>293_OAuth2_Token_Endpoint</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/en/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>OAuth2.0 Token Endpoint(__token)</h1>
+<h3>Overview</h3>
+<p>There are three types of authentication as follows</p>
+<p>Password authentication</p>
+<ul>
+<li>Acquires a cell local token that is valid only in the cell of the token issuing source by account authentication.</li>
+<li>Account is locked for 1 second if authentication fails</li>
+<li>When an authentication request for the corresponding account is executed during locking
+<ul>
+<li>An authentication error is returned irrespective of the validity of the user name and password</li>
+<li>Account is extended lock for 1 second from re-authentication request time</li>
+</ul></li>
+</ul>
+<p>Token authentication</p>
+<ul>
+<li>Use a transcell token to obtain a cell local token that is valid only in the issuing cell.</li>
+</ul>
+<p>Refresh token authentication</p>
+<ul>
+<li>Refresh the cell local token and acquire the cell local token again.</li>
+</ul>
+<h3>Required Privileges</h3>
+<p>None</p>
+<h3>Restrictions</h3>
+<p>None</p>
+<h3>Request</h3>
+<h4>Request URL</h4>
+<pre><code>{CellName}/__token</code></pre>
+<h4>Request Method</h4>
+<p>POST</p>
+<h4>Request Query</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Query Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">p_cookie_peer</td>
+<td style="text-align: left;">Cookie Authentication Value</td>
+<td style="text-align: left;">The cookie authentication value returned from the server during authentication</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Header</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Effective Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Authorization</td>
+<td style="text-align: left;">Specifies authentication information in the OAuth 2.0 format</td>
+<td style="text-align: left;">Basic {String}</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">If you specify Base64 Encode value for {{Schema Authenticator's source URL}: {Token paid out from the schema authentication source}}, it becomes schema authentication<br>At the above setting, if there is a setting of client_id and client_secret in the request body, the setting of the authorization header takes precedence</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Body</h4>
+<h5>Password authentication</h5>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Effective Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">grant_type</td>
+<td style="text-align: left;">Authentication type</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">password<br><a href="urn:x-personium:oidc:google" class="uri">urn:x-personium:oidc:google</a></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">username</td>
+<td style="text-align: left;">User name</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Yes(When grant_type = password)</td>
+<td style="text-align: left;">Registered user name</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">password</td>
+<td style="text-align: left;">Password</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Yes(When grant_type = password)</td>
+<td style="text-align: left;">Registered password</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">id_token</td>
+<td style="text-align: left;">Token ID</td>
+<td style="text-align: left;">JSON Web Token</td>
+<td style="text-align: left;">Yes(grant_type=<a href="urn:x-personium:oidc:For" class="uri">urn:x-personium:oidc:For</a> google)</td>
+<td style="text-align: left;">JWT Formed ID Token</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">p_target</td>
+<td style="text-align: left;">Transcell token target</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Where to use the token to be paid (cell URL)<br>If specified, it becomes transcellation token authentication</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">client_id</td>
+<td style="text-align: left;">App cell URL</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">client_secret</td>
+<td style="text-align: left;">Token paid out from the application cell</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p_owner</td>
+<td style="text-align: left;">ULUUT promotion execution Query</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only for true</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">p_cookie</td>
+<td style="text-align: left;">Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only for true</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Sample</h4>
+<p>Password authentication</p>
+<pre><code>grant_type=password&amp;username=username&amp;password=pass</code></pre>
+<p>Password authentication(Issued cookie)</p>
+<pre><code>grant_type=password&amp;username=username&amp;password=pass&amp;p_cookie=true</code></pre>
+<p>Issuing a transcell token by password authentication</p>
+<pre><code>grant_type=password&amp;username=username&amp;password=pass&amp;p_target=https://{UnitFQDN}/{CellName}/</code></pre>
+<p>Password authentication with schema</p>
+<pre><code>grant_type=password&amp;username=username&amp;password=pass&amp;client_id=https://{UnitFQDN}/app{CellName}/&amp;client_secret=
+WjzDmvJSLvM9qVuJL1xxP6hSxt64HijoIea0P5R2CVloXJ2HEvEILl7UOtEtjSDdjlvyx9wrosPBhDRU97Qnn6EQIQ3MwaqtIx7HjuX36_ZBC6qxcgscCDmdtGb4nHgo</code></pre>
+<p>OIDC(Open ID Connect(Google)) authentication</p>
+<pre><code>grant_type=urn:x-personium:oidc:google&amp;id_token=IDTOKEN</code></pre>
+<h5>Token authentication</h5>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Effective Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">grant_type</td>
+<td style="text-align: left;">Authentication type</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">urn: ietf: params: oauth: grant-type: saml2-bearer</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">assertion</td>
+<td style="text-align: left;">Access token</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">A valid token</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">p_target</td>
+<td style="text-align: left;">Transcell token target</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Where to use the token to be paid (cell URL)<br>When specified, it becomes a transcell token</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">client_id</td>
+<td style="text-align: left;">App cell URL</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">client_secret</td>
+<td style="text-align: left;">Token paid out from the application cell</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p_cookie</td>
+<td style="text-align: left;">Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only for true</td>
+</tr>
+</tbody>
+</table>
+<pre><code>grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&amp;assertion={token}</code></pre>
+<h5>Refresh token authentication</h5>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Format</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Effective Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">grant_type</td>
+<td style="text-align: left;">Authentication type</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Refresh token</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">refresh_token</td>
+<td style="text-align: left;">Refresh token name</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Effective refresh token</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">p_target</td>
+<td style="text-align: left;">Transcell token target</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Where to use the token to be paid (cell URL) If specified, it becomes transcell token authentication</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">client_id</td>
+<td style="text-align: left;">App cell URL</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Schema Authenticator's source App cell URL<br>When specified with client_secret, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">client_secret</td>
+<td style="text-align: left;">Token paid out from the application cell</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Set the token that was paid out from the schema authentication source to the value<br>When specified with client_id, it becomes schema authentication<br>At the same time, if the Authorization header also has schema authentication settings, the setting of the Authorization header takes precedence</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p_owner</td>
+<td style="text-align: left;">ULUUT promotion execution Query</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only for true</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">p_cookie</td>
+<td style="text-align: left;">Authentication cookie issuance option<br>If specified, issue an authentication cookie<br>When p_target is specified, specification of this parameter is ignored</td>
+<td style="text-align: left;">String</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only for true</td>
+</tr>
+</tbody>
+</table>
+<pre><code>grant_type=refresh_token&amp;refresh_token={token}</code></pre>
+<h3>Response</h3>
+<h4>Response Code</h4>
+<p>200</p>
+<h4>Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">application/json</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Set-Cookie</td>
+<td style="text-align: left;">Cookie authentication information (p_cookie)</td>
+<td style="text-align: left;">Only when setting cookie issue option (p_cookie) at request</td>
+</tr>
+</tbody>
+</table>
+<h4>Response Body</h4>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">access_token</td>
+<td style="text-align: left;">Access token</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">refresh_token_expires_in</td>
+<td style="text-align: left;">Refresh token expiration date</td>
+<td style="text-align: left;">24 hours (86400 seconds)<br>*If p_owner is set at the time of request, it will not be returned</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">refresh_token</td>
+<td style="text-align: left;">Refresh token</td>
+<td style="text-align: left;">*If p_owner is set at the time of request, it will not be returned</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">token_type</td>
+<td style="text-align: left;">Bearer</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">expires_in</td>
+<td style="text-align: left;">Access token expiration date</td>
+<td style="text-align: left;">1 hour (3600 seconds)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">p_cookie_peer</td>
+<td style="text-align: left;">Cookie Authentication Value</td>
+<td style="text-align: left;">Authentication value specified at the time of cookie authentication<br>*Return only when the cookie issue option (p_cookie) is set at the time of request</td>
+</tr>
+</tbody>
+</table>
+<h4>Response Sample</h4>
+<pre class="sourceCode json" id="cb9"><code class="sourceCode json"><div class="sourceLine" id="cb9-1" data-line-number="1"><span class="fu">{</span></div>
+<div class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">&quot;access_token&quot;</span><span class="fu">:</span> <span class="st">&quot;AA~osIZ4CZ8cZmxf5NidEueHej_6Lj-ww0c_kJZd4HbHBqFyZ0OZBrS29miYr9Jh19b0o39cTJdH2Va3xSMMbu6Eg&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">&quot;refresh_token_expires_in&quot;</span><span class="fu">:</span> <span class="dv">86400</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">&quot;refresh_token&quot;</span><span class="fu">:</span> <span class="st">&quot;RA~uELMJkVpzTtsl1ueh2KlrT9UiOx85-dmg7nGX01YaogoQ86qgfv2VMUxQXSP95uNY9MuWxZe0AQFtEnFYyWMoQ&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">&quot;token_type&quot;</span><span class="fu">:</span> <span class="st">&quot;Bearer&quot;</span><span class="fu">,</span></div>
+<div class="sourceLine" id="cb9-6" data-line-number="6">  <span class="dt">&quot;expires_in&quot;</span><span class="fu">:</span> <span class="dv">3600</span></div>
+<div class="sourceLine" id="cb9-7" data-line-number="7"><span class="fu">}</span></div></code></pre>
+<h4>Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h3>cURL Command</h3>
+<h5>Password authentication</h5>
+<pre class="sourceCode sh" id="cb10"><code class="sourceCode bash"><div class="sourceLine" id="cb10-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=password&amp;username={username}&amp;password={password}&#39;</span></div></code></pre>
+<h5>Token authentication</h5>
+<pre class="sourceCode sh" id="cb11"><code class="sourceCode bash"><div class="sourceLine" id="cb11-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&amp;assertion={token}&#39;</span></div></code></pre>
+<h5>Refresh token authentication</h5>
+<pre class="sourceCode sh" id="cb12"><code class="sourceCode bash"><div class="sourceLine" id="cb12-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=refresh_token&amp;refresh_token={refresh_token}&#39;</span></div></code></pre>
+<h5>Password authentication + Schema authentication</h5>
+<pre class="sourceCode sh" id="cb13"><code class="sourceCode bash"><div class="sourceLine" id="cb13-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=password&amp;username={user_name}&amp;password={pass}&amp;client_id=https://{UnitFQDN}/app{CellName}/&amp;client_secret={token_from_app_cell}&#39;</span></div></code></pre>
+<h5>Token authentication + Transcel token authentication</h5>
+<pre class="sourceCode sh" id="cb14"><code class="sourceCode bash"><div class="sourceLine" id="cb14-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__token&quot;</span> -X POST -i -d <span class="st">&#39;grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&amp;assertion={SAML_token}&amp;p_target=https://{UnitFQDN}/{CellName}/&#39;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

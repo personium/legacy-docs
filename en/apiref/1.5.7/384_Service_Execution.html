@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>384_Service_Execution</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/en/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>Service Execute</h1>
+<h3>Overview</h3>
+<p>Execute the registered service</p>
+<h3>Required Privileges</h3>
+<p>exec</p>
+<h3>Restrictions</h3>
+<ul>
+<li>General Restrictions
+<ul>
+<li>None</li>
+</ul></li>
+<li>WebDAV Restrictions
+<ul>
+<li>Unpublished</li>
+</ul></li>
+</ul>
+<h3>Request</h3>
+<h4>Request URL</h4>
+<pre><code>/{CellName}/{BoxName}/{CollectionName}/{ServiceName}</code></pre>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Path</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">{CellName}</td>
+<td style="text-align: left;">Cell Name</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{BoxName}</td>
+<td style="text-align: left;">Box Name</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{CollectionName}</td>
+<td style="text-align: left;">Service Collection Name</td>
+<td style="text-align: left;">Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{ServiceName}</td>
+<td style="text-align: left;">Specify the name of the registered service</td>
+<td style="text-align: left;">Valid values(limit) <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Method</h4>
+<p>GET / POST / PUT / DELETE</p>
+<h4>Request Query</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Query Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">p_cookie_peer</td>
+<td style="text-align: left;">Cookie Authentication Value</td>
+<td style="text-align: left;">The cookie authentication value returned from the server during authentication</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Header</h4>
+<h5>Common Request Header</h5>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X-HTTP-Method-Override</td>
+<td style="text-align: left;">Method override function</td>
+<td style="text-align: left;">User-defined</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Specifying this value in a request with the POST method indicates that the specified value is used as the method</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X-Override</td>
+<td style="text-align: left;">Header override function</td>
+<td style="text-align: left;">${OverwrittenHeaderName}:${Value}</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">The normal HTTP header value is overwritten. Specify multiple X-Override headers for the overwriting of multiple headers</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X-Personium-RequestKey</td>
+<td style="text-align: left;">RequestKey field value output in the event log</td>
+<td style="text-align: left;">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4>Request Body</h4>
+<p>None</p>
+<h4>Request Sample</h4>
+<p>None</p>
+<h3>Response</h3>
+<h4>Response Code</h4>
+<p>When the script is executed, the response code of the script is returned</p>
+<h4>Response Header</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">Return script-dependent format</td>
+<td style="text-align: left;">text/html</td>
+</tr>
+</tbody>
+</table>
+<h4>Response Body</h4>
+<p>When the script is executed, the response body of the script is returned</p>
+<h4>Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h4>Response Sample</h4>
+<p>None</p>
+<h3>cURL Command</h3>
+<pre class="sourceCode sh" id="cb2"><code class="sourceCode bash"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}/{ServiceName}&quot;</span> -X GET -i -H <span class="st">&quot;Authorization:Bearer {AccessToken}&quot;</span> -H <span class="st">&quot;Accept:application/json&quot;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
