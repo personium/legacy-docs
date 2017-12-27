@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>403_Filter_Query</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/ja/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>$filterクエリ</h1>
+<h3>概要</h3>
+<p>一覧取得時に検索条件を指定する場合は$filterクエリを使用する</p>
+<h3>指定可能な型</h3>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">型</th>
+<th style="text-align: left;">記述例</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">文字列</td>
+<td style="text-align: left;">'StringValue'</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">数値</td>
+<td style="text-align: left;">100</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">真偽値</td>
+<td style="text-align: left;">true<br>false</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">日付</td>
+<td style="text-align: left;">datetime'2017-12-15T09:39:10'<br>datetimeoffset'2017-12-15T18:39:10+09:00'</td>
+<td style="text-align: left;">datetimeはタイムゾーンオフセットを指定不可。<br>タイムゾーンオフセットが指定されていない場合はUTCとして扱う。</td>
+</tr>
+</tbody>
+</table>
+<h3>Operator Support</h3>
+<table style="width:22%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">演算子</th>
+<th style="text-align: left;">意味</th>
+<th style="text-align: left;">記述例</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">eq</td>
+<td style="text-align: left;">等号</td>
+<td style="text-align: left;">$filter=itemKey eq 'searchValue'</td>
+<td style="text-align: left;">文字列、数値、真偽値、日付、NULLに対応</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ne</td>
+<td style="text-align: left;">否定等号</td>
+<td style="text-align: left;">$filter=itemKey ne 'searchValue'</td>
+<td style="text-align: left;">文字列、数値、真偽値、日付、NULLに対応</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gt</td>
+<td style="text-align: left;">より大きい</td>
+<td style="text-align: left;">$filter=itemKey gt 1000</td>
+<td style="text-align: left;">文字列、数値、日付に対応</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ge</td>
+<td style="text-align: left;">以上</td>
+<td style="text-align: left;">$filter=itemKey ge 1000</td>
+<td style="text-align: left;">文字列、数値、日付に対応</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lt</td>
+<td style="text-align: left;">より小さい</td>
+<td style="text-align: left;">$filter=itemKey lt 1000</td>
+<td style="text-align: left;">文字列、数値、日付に対応</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">le</td>
+<td style="text-align: left;">以下</td>
+<td style="text-align: left;">$filter=itemKey le 1000</td>
+<td style="text-align: left;">文字列、数値、日付に対応</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">and</td>
+<td style="text-align: left;">論理積</td>
+<td style="text-align: left;">$filter=itemKey1 eq 'searchValue1' and itemKey2 eq 'searchValue2'</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">or</td>
+<td style="text-align: left;">論理和</td>
+<td style="text-align: left;">$filter=itemKey1 eq 'searchValue1' or itemKey2 eq 'searchValue2'</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">()</td>
+<td style="text-align: left;">優先グループ</td>
+<td style="text-align: left;">$filter=itemKey eq 'searchValue' or (itemKey gt 500 and itemKey lt 1500)</td>
+<td style="text-align: left;">括弧が片方のみの場合、括弧は無視される</td>
+</tr>
+</tbody>
+</table>
+<h3>サポート関数</h3>
+<table style="width:22%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">概要</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">備考</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">startswith</td>
+<td style="text-align: left;">前方一致</td>
+<td style="text-align: left;">$filter=startswith(itemKey, 'searchValue')</td>
+<td style="text-align: left;">文字列のみ対応</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">substringof</td>
+<td style="text-align: left;">部分一致</td>
+<td style="text-align: left;">$filter=substringof('searchValue1', itemKey1)</td>
+<td style="text-align: left;">文字列のみ対応<br>※英数字の部分一致は未対応</td>
+</tr>
+</tbody>
+</table>
+<h3>プロパティ型別の検索仕様</h3>
+<h4>Edm.String型</h4>
+<p>検索に指定したキーワードを文字列型に変換して検索する</p>
+<h4>Edm.Int32型</h4>
+<p>整数値またはnullが指定可能<br />
+文字列型で整数値を指定された場合は数値型に変換して検索する</p>
+<h4>Edm.Single型</h4>
+<p>整数、小数値またはnullが指定可能<br />
+文字列型で整数、小数値を指定された場合は小数値に変換して検索を行う</p>
+<h4>Edm.Boolean型</h4>
+<p>真偽値またはnullが指定可能</p>
+<h4>Edm.DateTime型</h4>
+<p>日付またはnullが指定可能<br />
+整数値が指定された場合はUNIX時間に変換して検索を行う</p>
+<h3>特記事項</h3>
+<p>※クエリを指定する際はURLエンコードが必要<br />
+※検索対象のプロパティの有効値は半角英数字と-(半角ハイフン),_(半角アンダーバー)が有効。<br />
+※検索文字列にシングルクオートを含めたい場合、シングルクオートを２個「''」記述することでシングルクオートを検索文字列に指定することができる<br />
+※$filterに存在しないプロパティ名を指定した場合、そのプロパティ名を無視して検索を行う</p>
+<h3>cURLサンプル</h3>
+<p>例：セル名がsampleのセルを取得する場合:</p>
+<pre class="sourceCode sh" id="cb1"><code class="sourceCode bash"><div class="sourceLine" id="cb1-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/__ctl/Cell?</span><span class="dt">\$</span><span class="st">filter=Name%20eq%20&#39;sample&#39;&quot;</span> -X GET -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
