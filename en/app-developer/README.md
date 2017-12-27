@@ -7,7 +7,8 @@ It is a document for people who want to develop  PDS applications using Personiu
 ### [Client registration & authentication](../user_guide/004_Client_auth.md)
 
 ### API Reference  
-* [1.5.7 -](../apiref/1.5.7/000_Rest_API_Reference.html)
+* [1.5.8 -](../apiref/1.5.8/000_Rest_API_Reference.html)
+* [1.5.7](../apiref/1.5.7/000_Rest_API_Reference.html)
 * [1.5.6](../apiref/1.5.6/000_Rest_API_Reference.html)
 * [1.5.5](../apiref/1.5.5/000_Rest_API_Reference.html)
 * [1.5.2 - 1.5.4](../apiref/1.5.2/000_Rest_API_Reference.html)
