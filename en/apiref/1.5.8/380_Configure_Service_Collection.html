@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>380_Configure_Service_Collection</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/en/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>Service Collection Source Settings</h1>
+<h3>Overview</h3>
+<p>Apply service collection source settings</p>
+<h3>Restrictions</h3>
+<p>Unpublished</p>
+<h3>Required Privileges</h3>
+<p>write-properties</p>
+<h3>Request</h3>
+<h4>Request URL</h4>
+<pre><code>/{CellName}/{BoxName}/{CollectionName}</code></pre>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Path</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">{CellName}</td>
+<td style="text-align: left;">Cell Name</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">{BoxName}</td>
+<td style="text-align: left;">Box Name</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">{CollectionName}</td>
+<td style="text-align: left;">Service Collection Name</td>
+<td style="text-align: left;">Valid values <br>Number of digits:1-128<br>Usable character types<br>alphanumeric character, period(.), under score(_), hyphen(-)</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Method</h4>
+<p>PROPPATCH</p>
+<h4>Request Query</h4>
+<h5>Common Request Query</h5>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Query Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">p_cookie_peer</td>
+<td style="text-align: left;">Cookie Authentication Value</td>
+<td style="text-align: left;">The cookie authentication value returned from the server during authentication</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Header</h4>
+<h5>Common Request Header</h5>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X-HTTP-Method-Override</td>
+<td style="text-align: left;">Method override function</td>
+<td style="text-align: left;">User-defined</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">If you specify this value when requesting with the POST method, the specified value will be used as a method.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X-Override</td>
+<td style="text-align: left;">Header override function</td>
+<td style="text-align: left;">${OverwrittenHeaderName}:${Value}</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X-Personium-RequestKey</td>
+<td style="text-align: left;">RequestKey field value output in the event log</td>
+<td style="text-align: left;">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h5>Service Collection Settings Specific Request Header</h5>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Authorization</td>
+<td style="text-align: left;">Specifies authentication information in the OAuth 2.0 format</td>
+<td style="text-align: left;">Bearer {AccessToken}</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">Specify content format</td>
+<td style="text-align: left;">application/xml</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Accept</td>
+<td style="text-align: left;">Specify acceptable media types in response</td>
+<td style="text-align: left;">application/xml</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4>Request Body</h4>
+<p>Namespace</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">URI</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">reference prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">DAV:</td>
+<td style="text-align: left;">WebDAV Namespace</td>
+<td style="text-align: left;">D:</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">urn:x-personium:xmlns</td>
+<td style="text-align: left;">Personium API namespace</td>
+<td style="text-align: left;">p:</td>
+</tr>
+</tbody>
+</table>
+<p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
+<p>Structure of XML<br />
+The body is XML and follows the following schema.</p>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Node name</th>
+<th style="text-align: left;">Namespace</th>
+<th style="text-align: left;">Node type</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">propertyupdate</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">It represents the root of propertyupdate, and set and remove are children</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">set</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents a property setting, and one or more props are children</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">remove</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents a property deletion setting, and one or more props are children</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">prop</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents a property value, and one or more arbitrary elements are children</td>
+<td style="text-align: left;">When set: Child node name is key<br>When remove: Delete with child node name as key</td>
+</tr>
+</tbody>
+</table>
+<p>DTD notation</p>
+<pre class="sourceCode dtd" id="cb2"><code class="sourceCode dtd"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="dt">&lt;!ELEMENT</span> <span class="fu">propertyupdate</span> <span class="dv">(</span><span class="fu">set</span><span class="dv">,</span> <span class="fu">remove</span><span class="dv">)</span></div>
+<div class="sourceLine" id="cb2-2" data-line-number="2">&lt;!<span class="fu">ELEMENT</span> <span class="fu">set</span> <span class="dv">(</span><span class="fu">prop</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-3" data-line-number="3"><span class="dt">&lt;!ELEMENT</span> <span class="fu">remove</span> <span class="dv">(</span><span class="fu">prop</span><span class="fl">*</span><span class="dv">)</span> <span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb2-4" data-line-number="4"><span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="kw">ANY</span><span class="dt">&gt;</span></div></code></pre>
+<h4>Service collection setting specific definition</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Node name</th>
+<th style="text-align: left;">Namespace</th>
+<th style="text-align: left;">Node type</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">service</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">element</td>
+<td style="text-align: left;">It represents a service setting, and one or more multiple path elements are children</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">language</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">Attributes</td>
+<td style="text-align: left;">It represents the service source language setting, and &quot;JavaScript&quot; is fixed as attribute value</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">subject</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">Attributes</td>
+<td style="text-align: left;">It represents the service subject setting and sets the Account name registered in the cell belonging to as the attribute value</td>
+<td style="text-align: left;">Execute with the Role privilege attached to the Account in which the Personium API in the logic is set up</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">path</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents a service collection setting.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">Attributes</td>
+<td style="text-align: left;">Represents a service call name and an arbitrary character as an attribute value</td>
+<td style="text-align: left;">This setting value becomes the &quot;__src/&quot; path name immediately under the request URL when the service is executed.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">src</td>
+<td style="text-align: left;">p:</td>
+<td style="text-align: left;">Attributes</td>
+<td style="text-align: left;">Represents the service source file name, and sets the file name deployed under __src as the attribute value</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>DTD notation</p>
+<pre class="sourceCode dtd" id="cb3"><code class="sourceCode dtd"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="dt">&lt;!ELEMENT</span> <span class="fu">service</span> <span class="dv">(</span><span class="fu">path</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb3-2" data-line-number="2"><span class="dt">&lt;!ATTLIST</span> <span class="fu">service</span> <span class="fu">language</span> <span class="kw">CDATA</span> <span class="st">&quot;JavaScript&quot;</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb3-3" data-line-number="3"><span class="dt">&lt;!ATTLIST</span> <span class="fu">service</span> <span class="fu">subject</span> <span class="kw">CDATA</span> <span class="kw">#IMPLIED</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb3-4" data-line-number="4"><span class="dt">&lt;!ELEMENT</span> <span class="fu">path</span> <span class="kw">EMPTY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb3-5" data-line-number="5"><span class="dt">&lt;!ATTLIST</span> <span class="fu">path</span> <span class="fu">name</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb3-6" data-line-number="6"><span class="dt">&lt;!ATTLIST</span> <span class="fu">path</span> <span class="fu">src</span> <span class="kw">CDATA</span> <span class="kw">#REQUIRED</span><span class="dt">&gt;</span></div></code></pre>
+<h4>Request Sample</h4>
+<pre class="sourceCode xml" id="cb4"><code class="sourceCode xml"><div class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;D:propertyupdate</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span></div>
+<div class="sourceLine" id="cb4-2" data-line-number="2"><span class="ot">    xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb4-3" data-line-number="3">    <span class="kw">&lt;D:set&gt;</span></div>
+<div class="sourceLine" id="cb4-4" data-line-number="4">        <span class="kw">&lt;D:prop&gt;</span></div>
+<div class="sourceLine" id="cb4-5" data-line-number="5">          <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb4-6" data-line-number="6">            <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;${name}&quot;</span><span class="ot"> src=</span><span class="st">&quot;${src}&quot;</span><span class="kw">/&gt;</span></div>
+<div class="sourceLine" id="cb4-7" data-line-number="7">          <span class="kw">&lt;/p:service&gt;</span></div>
+<div class="sourceLine" id="cb4-8" data-line-number="8">        <span class="kw">&lt;/D:prop&gt;</span></div>
+<div class="sourceLine" id="cb4-9" data-line-number="9">    <span class="kw">&lt;/D:set&gt;</span></div>
+<div class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw">&lt;/D:propertyupdate&gt;</span></div></code></pre>
+<h3>Response</h3>
+<h4>Response Code</h4>
+<p>207</p>
+<h4>Response Header</h4>
+<p>None</p>
+<h4>Response Body</h4>
+<p>Namespace</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">URI</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">reference prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">DAV:</td>
+<td style="text-align: left;">WebDAV Namespace</td>
+<td style="text-align: left;">D:</td>
+</tr>
+</tbody>
+</table>
+<p>* Reference The prefixes are for making it easier to read the following table, but the use of these prefix strings is not ensured or requested.</p>
+<p>Structure of XML<br />
+The body is XML and follows the following schema.</p>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Node name</th>
+<th style="text-align: left;">Namespace</th>
+<th style="text-align: left;">Node type</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">multistatus</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents the route of multistatus and one or more responses are children</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">response</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents the contents of multistatus, and href and propstat are children</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">href</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">URL of the resource that executed PROPPATCH</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">propstat</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents property setting result, prop and status are children</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">prop</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Represents property setting contents</td>
+<td style="text-align: left;">Display the result of resource setting as follows<br>Successful setting: set key and value<br>Deleted Successful: Deleted key</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">status</td>
+<td style="text-align: left;">D:</td>
+<td style="text-align: left;">Element</td>
+<td style="text-align: left;">Property setting status code</td>
+<td style="text-align: left;">In the case of setting success 200 (OK) is returned</td>
+</tr>
+</tbody>
+</table>
+<p>DTD notation</p>
+<pre class="sourceCode dtd" id="cb5"><code class="sourceCode dtd"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="dt">&lt;!ELEMENT</span> <span class="fu">multistatus</span> <span class="dv">(</span><span class="fu">response</span><span class="fl">*</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb5-2" data-line-number="2"><span class="dt">&lt;!ELEMENT</span> <span class="fu">response</span> <span class="dv">(</span><span class="fu">href</span><span class="dv">,</span> <span class="fu">propstat</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb5-3" data-line-number="3"><span class="dt">&lt;!ELEMENT</span> <span class="fu">href</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb5-4" data-line-number="4"><span class="dt">&lt;!ELEMENT</span> <span class="fu">propstat</span> <span class="dv">(</span><span class="fu">prop</span><span class="dv">,</span> <span class="fu">status</span><span class="dv">)</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb5-5" data-line-number="5"><span class="dt">&lt;!ELEMENT</span> <span class="fu">prop</span> <span class="kw">ANY</span><span class="dt">&gt;</span></div>
+<div class="sourceLine" id="cb5-6" data-line-number="6"><span class="dt">&lt;!ELEMENT</span> <span class="fu">status</span> <span class="dv">(</span><span class="kw">#PCDATA</span><span class="dv">)</span><span class="dt">&gt;</span></div></code></pre>
+<h4>Response Sample</h4>
+<pre class="sourceCode xml" id="cb6"><code class="sourceCode xml"><div class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">&lt;multistatus</span><span class="ot"> xmlns=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb6-2" data-line-number="2">    <span class="kw">&lt;response&gt;</span></div>
+<div class="sourceLine" id="cb6-3" data-line-number="3">        <span class="kw">&lt;href&gt;</span>https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}<span class="kw">&lt;/href&gt;</span></div>
+<div class="sourceLine" id="cb6-4" data-line-number="4">        <span class="kw">&lt;propstat&gt;</span></div>
+<div class="sourceLine" id="cb6-5" data-line-number="5">            <span class="kw">&lt;prop&gt;</span></div>
+<div class="sourceLine" id="cb6-6" data-line-number="6">                <span class="kw">&lt;p:service</span><span class="ot"> language=</span><span class="st">&quot;JavaScript&quot;</span><span class="ot"> xmlns:p=</span><span class="st">&quot;urn:x-personium:xmlns&quot;</span><span class="ot"> xmlns:D=</span><span class="st">&quot;DAV:&quot;</span><span class="kw">&gt;</span></div>
+<div class="sourceLine" id="cb6-7" data-line-number="7">                    <span class="kw">&lt;p:path</span><span class="ot"> name=</span><span class="st">&quot;sample&quot;</span><span class="ot"> src=</span><span class="st">&quot;sample.js&quot;</span><span class="kw">/&gt;</span></div>
+<div class="sourceLine" id="cb6-8" data-line-number="8">                <span class="kw">&lt;/p:service&gt;</span></div>
+<div class="sourceLine" id="cb6-9" data-line-number="9">            <span class="kw">&lt;/prop&gt;</span></div>
+<div class="sourceLine" id="cb6-10" data-line-number="10">            <span class="kw">&lt;status&gt;</span>HTTP/1.1 200 OK<span class="kw">&lt;/status&gt;</span></div>
+<div class="sourceLine" id="cb6-11" data-line-number="11">        <span class="kw">&lt;/propstat&gt;</span></div>
+<div class="sourceLine" id="cb6-12" data-line-number="12">    <span class="kw">&lt;/response&gt;</span></div>
+<div class="sourceLine" id="cb6-13" data-line-number="13"><span class="kw">&lt;/multistatus&gt;</span></div></code></pre>
+<h4>Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h3>cURL Command</h3>
+<pre class="sourceCode sh" id="cb7"><code class="sourceCode bash"><div class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{CollectionName}&quot;</span> -X PROPPATCH -i -H <span class="st">&quot;Authorization:Bearer {AccessToken}&quot;</span> -H <span class="st">&quot;Accept:application/json&quot;</span> -d <span class="st">&quot;&lt;?xml version=</span><span class="dt">\&quot;</span><span class="st">1.0</span><span class="dt">\&quot;</span><span class="st"> encoding=</span><span class="dt">\&quot;</span><span class="st">utf-8</span><span class="dt">\&quot;</span><span class="st"> ?&gt;&lt;D:propertyupdate xmlns:D=</span><span class="dt">\&quot;</span><span class="st">DAV:</span><span class="dt">\&quot;</span><span class="st"> xmlns:p=</span><span class="dt">\&quot;</span><span class="st">urn:x-personium:xmlns</span><span class="dt">\&quot;</span><span class="st">&gt;&lt;D:set&gt;&lt;D:prop&gt;&lt;p:service language=</span><span class="dt">\&quot;</span><span class="st">JavaScript</span><span class="dt">\&quot;</span><span class="st">&gt;&lt;p:path name=</span><span class="dt">\&quot;</span><span class="st">sample</span><span class="dt">\&quot;</span><span class="st"> src=</span><span class="dt">\&quot;</span><span class="st">sample.js</span><span class="dt">\&quot;</span><span class="st">/&gt;&lt;/p:service&gt;&lt;/D:prop&gt;&lt;/D:set&gt;&lt;/D:propertyupdate&gt;&quot;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

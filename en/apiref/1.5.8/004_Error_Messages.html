@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>004_Error_Messages</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="/en/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>Error Messages</h1>
+<h3>Authentication API</h3>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">OAUTH error code</th>
+<th style="text-align: left;">Message code</th>
+<th style="text-align: left;">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">unsupported_grant_type</td>
+<td style="text-align: left;">PR400-AN-0001</td>
+<td style="text-align: left;">Unsupported grant type.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_request</td>
+<td style="text-align: left;">PR400-AN-0002</td>
+<td style="text-align: left;">Invalid p_target.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_client</td>
+<td style="text-align: left;">PR400-AN-0003</td>
+<td style="text-align: left;">Failed to parse client secret.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_client</td>
+<td style="text-align: left;">PR400-AN-0004</td>
+<td style="text-align: left;">Client secret is expired and invalid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_client</td>
+<td style="text-align: left;">PR400-AN-0005</td>
+<td style="text-align: left;">Client secret dsig is invalid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_client</td>
+<td style="text-align: left;">PR400-AN-0006</td>
+<td style="text-align: left;">Client secret issuer does not match the client_id.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_client</td>
+<td style="text-align: left;">PR400-AN-0007</td>
+<td style="text-align: left;">Client secret target is wrong.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0008</td>
+<td style="text-align: left;">Trans-Cell access can not represent owner.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0009</td>
+<td style="text-align: left;">Token parse error.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0010</td>
+<td style="text-align: left;">Token expired or invalid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0011</td>
+<td style="text-align: left;">Token dsig is invalid.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0012</td>
+<td style="text-align: left;">Token target is wrong. target=[{0}]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0013</td>
+<td style="text-align: left;">Not a refresh token.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0014</td>
+<td style="text-align: left;">Not allowed to represent owner.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0015</td>
+<td style="text-align: left;">Cell owner does not exist.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_request</td>
+<td style="text-align: left;">PR400-AN-0016</td>
+<td style="text-align: left;">Required parameter [{0}] missing.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0017</td>
+<td style="text-align: left;">Authentication failed.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_client</td>
+<td style="text-align: left;">PR400-AN-0018</td>
+<td style="text-align: left;">Authorization header is invalid.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0019</td>
+<td style="text-align: left;">Authentication failed.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0030</td>
+<td style="text-align: left;">Wrong IDToken Audience [{0}].</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0031</td>
+<td style="text-align: left;">OpenID Connect Authentication failed.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0032</td>
+<td style="text-align: left;">OpenID Connect Invalid Token. ({0})</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">invalid_grant</td>
+<td style="text-align: left;">PR400-AN-0033</td>
+<td style="text-align: left;">OpenID Connect ID Token Expired (at UnixTime: {0}).</td>
+</tr>
+</tbody>
+</table>
+<h3>Other Resource API</h3>
+<table style="width:22%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Response code</th>
+<th style="text-align: left;">Message code</th>
+<th style="text-align: left;">Message</th>
+<th style="text-align: left;">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0001</td>
+<td style="text-align: left;">JSON parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0002</td>
+<td style="text-align: left;">OData Query parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0003</td>
+<td style="text-align: left;">OData $filter Parse Error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0004</td>
+<td style="text-align: left;">OData EntityKey Parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0005</td>
+<td style="text-align: left;">$format value [{0}] is invalid.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0006</td>
+<td style="text-align: left;">request body format error. field [{0}]</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0007</td>
+<td style="text-align: left;">[{0}]</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0008</td>
+<td style="text-align: left;">No such association.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0009</td>
+<td style="text-align: left;">[{0}] is required.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0010</td>
+<td style="text-align: left;">Key for Navigation Property should not be specified in $links POST.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0011</td>
+<td style="text-align: left;">Key for Navigation Property should be specified in $links.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0012</td>
+<td style="text-align: left;">Specifying the type of [{0}] is invalid.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0013</td>
+<td style="text-align: left;">$inlinecount value [{0}] is invalid.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0014</td>
+<td style="text-align: left;">Unknown property was appointed.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0015</td>
+<td style="text-align: left;">Odata $orderby parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0016</td>
+<td style="text-align: left;">Single key should not be null.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0017</td>
+<td style="text-align: left;">OData $select Parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0018</td>
+<td style="text-align: left;">Number of properties exceeds the limit [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0019</td>
+<td style="text-align: left;">AssociationEnd do not put request.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0020</td>
+<td style="text-align: left;">Schema mismatch.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0021</td>
+<td style="text-align: left;">$batch body format is invalid. Request header format is invalid [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0022</td>
+<td style="text-align: left;">$batch body format is invalid. Changeset should not have other changeset.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0023</td>
+<td style="text-align: left;">$batch body parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0024</td>
+<td style="text-align: left;">[{0}] does not exist.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0025</td>
+<td style="text-align: left;">[{0}] does not exist.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0026</td>
+<td style="text-align: left;">OData $expand parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0027</td>
+<td style="text-align: left;">The index definition of another type already exists.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0028</td>
+<td style="text-align: left;">OData EntityKey for $links parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0029</td>
+<td style="text-align: left;">Query value [{0}]=[{1}] is invalid.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0030</td>
+<td style="text-align: left;">$batch body format is invalid. Too many requests. [{0}]</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0031</td>
+<td style="text-align: left;">Cannot create $links because multiplicity is [1:1].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0032</td>
+<td style="text-align: left;">EntityType structure hierarchy exceeds the limit or number of properties exceeds the limit.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0033</td>
+<td style="text-align: left;">EntityType count exceeds the limit.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0034</td>
+<td style="text-align: left;">$batch body format is invalid. Request path format is invalid [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0035</td>
+<td style="text-align: left;">$batch body format is invalid. Request Method not allowed [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0036</td>
+<td style="text-align: left;">OData Query [{0}] parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0037</td>
+<td style="text-align: left;">Total of the specified value of $top exceeds the limit.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0038</td>
+<td style="text-align: left;">$links count exceeds the limit.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0039</td>
+<td style="text-align: left;">Total of the specified value of $expand exceeds the limit.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0040</td>
+<td style="text-align: left;">Cannot specify the list type to $orderby.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0041</td>
+<td style="text-align: left;">Request header {0} value is invalid [{1}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0042</td>
+<td style="text-align: left;">Operation is not supported: {0}</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0043</td>
+<td style="text-align: left;">Unsupported operator specified in query.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0044</td>
+<td style="text-align: left;">Unsupported function specified in query.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0045</td>
+<td style="text-align: left;">An unknown property with name ''{0}'' was found.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0046</td>
+<td style="text-align: left;">Mismatched operand/argument is specified for ''{0}''.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0047</td>
+<td style="text-align: left;">Operand or argument for ''{0}'' has unsupported/invalid format.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0048</td>
+<td style="text-align: left;">Unable to parse operand or argument. ''{0}''</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0049</td>
+<td style="text-align: left;">[{0}] field format error. Cell URL should be normalized URL with http(s) scheme and trailing slash.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-OD-0050</td>
+<td style="text-align: left;">[{0}] field format error. Schema URI should be either normalized URL with http(s) scheme and trailing slash, or URN.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-OD-0000</td>
+<td style="text-align: left;">Not found.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-OD-0001</td>
+<td style="text-align: left;">No such entity set.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-OD-0002</td>
+<td style="text-align: left;">No such entity.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-OD-0003</td>
+<td style="text-align: left;">No such Navigation Property.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-OD-0001</td>
+<td style="text-align: left;">This entity has related data.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-OD-0002</td>
+<td style="text-align: left;">Links exists already.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-OD-0003</td>
+<td style="text-align: left;">The entity already exists.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-OD-0004</td>
+<td style="text-align: left;">The entity already exists. [{0}]</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-OD-0005</td>
+<td style="text-align: left;">The entity already exists. [{0}]</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-OD-0006</td>
+<td style="text-align: left;">Relation between EntityTypes already exists.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">PR412-OD-0001</td>
+<td style="text-align: left;">If-Match header is required.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">PR412-OD-0002</td>
+<td style="text-align: left;">ETag does not match.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">PR412-OD-0003</td>
+<td style="text-align: left;">Conflict.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">415</td>
+<td style="text-align: left;">PR415-OD-0001</td>
+<td style="text-align: left;">Unsupported media type:[{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-OD-0001</td>
+<td style="text-align: left;">Detected a duplicate of the property name:[{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-OD-0002</td>
+<td style="text-align: left;">Internal data inconsistency detected.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0001</td>
+<td style="text-align: left;">XML parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0002</td>
+<td style="text-align: left;">XML content error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0003</td>
+<td style="text-align: left;">Invalid depth header value:[{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0004</td>
+<td style="text-align: left;">Role not found.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0005</td>
+<td style="text-align: left;">Box not found url:[{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0006</td>
+<td style="text-align: left;">XML validate error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0007</td>
+<td style="text-align: left;">Cannot add any more child resources.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0008</td>
+<td style="text-align: left;">Hierarchy of the collection is too deep.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0009</td>
+<td style="text-align: left;">Request header {0} value is invalid [{1}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0010</td>
+<td style="text-align: left;">Header {0} is required.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0011</td>
+<td style="text-align: left;">Prohibited to move service source collection.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0012</td>
+<td style="text-align: left;">Prohibited to overwrite collection resource.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0013</td>
+<td style="text-align: left;">Prohibited to move resource to OData collection.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0014</td>
+<td style="text-align: left;">Prohibited to move resource to file.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0015</td>
+<td style="text-align: left;">Prohibited to move box.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0016</td>
+<td style="text-align: left;">Prohibited to move resource to service collection.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0017</td>
+<td style="text-align: left;">Prohibited to overwrite service source collection.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-DV-0018</td>
+<td style="text-align: left;">Prohibited to create collection under service source collection.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-DV-0001</td>
+<td style="text-align: left;">Infinite depth is not supported.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-DV-0003</td>
+<td style="text-align: left;">Cannot delete collection if it has any child resources.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-DV-0004</td>
+<td style="text-align: left;">Resource name is invalid [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-DV-0005</td>
+<td style="text-align: left;">Destination header value [{0}] equals request URL.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-DV-0001</td>
+<td style="text-align: left;">Resource not found. [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-DV-0002</td>
+<td style="text-align: left;">Box not found at [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-DV-0003</td>
+<td style="text-align: left;">Cell not found.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">405</td>
+<td style="text-align: left;">PR405-DV-0001</td>
+<td style="text-align: left;">Method not allowed. MKCOL can only be executed on a deleted/non-existent resource.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-DV-0001</td>
+<td style="text-align: left;">intermediate collection [{0}] should be created first.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-DV-0002</td>
+<td style="text-align: left;">File [{0}] already exists.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">PR412-DV-0001</td>
+<td style="text-align: left;">ETag does not match.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">PR412-DV-0002</td>
+<td style="text-align: left;">Overwrite header is &quot;F&quot; and the destination URL is already mapped to a resource.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">416</td>
+<td style="text-align: left;">PR416-DV-0001</td>
+<td style="text-align: left;">Requested range not satisfiable.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-DV-0001</td>
+<td style="text-align: left;">File system inconsistency detected.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-DV-0002</td>
+<td style="text-align: left;">Dav system inconsistency detected.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">503</td>
+<td style="text-align: left;">PR503-DV-0001</td>
+<td style="text-align: left;">Failed to access the target resource due to concurrent update/delete operation by another process.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-SM-0001</td>
+<td style="text-align: left;">ToRelation [{0}] does not exist.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-SM-0002</td>
+<td style="text-align: left;">ToRelation [{0}] does not have related ExtCell.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-SM-0003</td>
+<td style="text-align: left;">The maximum number of destinations was exceeded.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-SM-0004</td>
+<td style="text-align: left;">Box corresponding to the schema can not be found from the schema-authenticated token. Schema[{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SM-0001</td>
+<td style="text-align: left;">Sent Message connection error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SM-0002</td>
+<td style="text-align: left;">Sent Message body parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-RM-0001</td>
+<td style="text-align: left;">Requested relation already exists.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-RM-0002</td>
+<td style="text-align: left;">Box corresponding to the schema can not be found. Schema [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-RM-0003</td>
+<td style="text-align: left;">Box corresponding to the RelationClassURL can not be found. RelationClassURL [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-RM-0002</td>
+<td style="text-align: left;">Requested relation does not exists. Type [{0}]. Keys [{1}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-RM-0004</td>
+<td style="text-align: left;">Request relation target does not exist. Type [{0}]. Keys [{1}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-RM-0005</td>
+<td style="text-align: left;">RequestRelation and RequestRelationTarget is not related. [Type [{0}]. Keys[{1}]] - [Type {2}. Keys[{3}]].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SC-0001</td>
+<td style="text-align: left;">Engine connection error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SC-0002</td>
+<td style="text-align: left;">File open error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SC-0003</td>
+<td style="text-align: left;">File close error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SC-0004</td>
+<td style="text-align: left;">IO error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SC-0005</td>
+<td style="text-align: left;">Unknown error at Engine.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SC-0006</td>
+<td style="text-align: left;">Invalid HTTP response was returned from a service.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-AU-0001</td>
+<td style="text-align: left;">Password format is invalid.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-AU-0002</td>
+<td style="text-align: left;">Request parameter is invalid [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-AU-0003</td>
+<td style="text-align: left;">Personium credential required.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0001</td>
+<td style="text-align: left;">Authorization required.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0002</td>
+<td style="text-align: left;">Access token expired.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0003</td>
+<td style="text-align: left;">Invalid authentication scheme.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0004</td>
+<td style="text-align: left;">Basic auth format error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0005</td>
+<td style="text-align: left;">Authentication failed.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0006</td>
+<td style="text-align: left;">Token parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0007</td>
+<td style="text-align: left;">Can not access with refresh token.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0008</td>
+<td style="text-align: left;">Token dsig error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0009</td>
+<td style="text-align: left;">Authentication failed.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0010</td>
+<td style="text-align: left;">Authentication failed.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AU-0011</td>
+<td style="text-align: left;">Authentication failed.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-AU-0001</td>
+<td style="text-align: left;">Unit user access required.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-AU-0002</td>
+<td style="text-align: left;">Necessary privilege is lacking.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-AU-0003</td>
+<td style="text-align: left;">This resource can not be accessed by the Unit User specified in authorization header.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-AU-0004</td>
+<td style="text-align: left;">Schema authentication is required to access this resource.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-AU-0005</td>
+<td style="text-align: left;">This resource can not be accessed with the schema that has been authenticated.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">403</td>
+<td style="text-align: left;">PR403-AU-0006</td>
+<td style="text-align: left;">Insufficient schema authorization level.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-AZ-0001</td>
+<td style="text-align: left;">Unsupported response_type.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-AZ-0002</td>
+<td style="text-align: left;">Request parameter is invalid [client_id].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-AZ-0003</td>
+<td style="text-align: left;">Request parameter is invalid [redirect_uri].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-AZ-0004</td>
+<td style="text-align: left;">Request parameter is invalid [response_type].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AZ-0001</td>
+<td style="text-align: left;">User cancel.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">401</td>
+<td style="text-align: left;">PR401-AZ-0002</td>
+<td style="text-align: left;">Token authorization error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-EV-0001</td>
+<td style="text-align: left;">JSON parse error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-EV-0002</td>
+<td style="text-align: left;">Request header is invalid [X-Personium-RequestKey].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-EV-0003</td>
+<td style="text-align: left;">[{0}] is required.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-EV-0004</td>
+<td style="text-align: left;">[{0}] field format error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-EV-0001</td>
+<td style="text-align: left;">Failed to output http response.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-EV-0002</td>
+<td style="text-align: left;">Cannot open archive eventLog file.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0000</td>
+<td style="text-align: left;">Unknown error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0001</td>
+<td style="text-align: left;">Datastore connection error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0002</td>
+<td style="text-align: left;">Datastore unknown error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0003</td>
+<td style="text-align: left;">Elasticsearch request retry over [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0004</td>
+<td style="text-align: left;">File system access error [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0005</td>
+<td style="text-align: left;">Failed to search from datastore.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0006</td>
+<td style="text-align: left;">Failed to update data store, and failed to rollback.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-0007</td>
+<td style="text-align: left;">Failed to update data store, and completed to rollback.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">503</td>
+<td style="text-align: left;">PR503-SV-0001</td>
+<td style="text-align: left;">Too many concurrent requests.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">503</td>
+<td style="text-align: left;">PR503-SV-0002</td>
+<td style="text-align: left;">Server connection error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">503</td>
+<td style="text-align: left;">PR503-SV-0003</td>
+<td style="text-align: left;">Server error. (Lock Manager) Data lock state unknown.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">503</td>
+<td style="text-align: left;">PR503-SV-0004</td>
+<td style="text-align: left;">Service is under maintenance [restoring].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">503</td>
+<td style="text-align: left;">PR503-SV-0005</td>
+<td style="text-align: left;">Operation is prohibited as one or more disks are almost full.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">503</td>
+<td style="text-align: left;">PR503-SV-0006</td>
+<td style="text-align: left;">Server connection error. (Datastore)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-MC-0001</td>
+<td style="text-align: left;">[{0}] does not exist in the snapshot file.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">404</td>
+<td style="text-align: left;">PR404-MC-0001</td>
+<td style="text-align: left;">URI is not recognized.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">405</td>
+<td style="text-align: left;">PR405-MC-0001</td>
+<td style="text-align: left;">Method not allowed.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">408</td>
+<td style="text-align: left;">PR408-MC-0001</td>
+<td style="text-align: left;">Request timeout in server.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-MC-0001</td>
+<td style="text-align: left;">Cell to be deleted is being accessed by other requests.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">PR412-MC-0001</td>
+<td style="text-align: left;">Precondition failed [Header: {0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">501</td>
+<td style="text-align: left;">PR501-MC-0001</td>
+<td style="text-align: left;">Method not implemented.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">501</td>
+<td style="text-align: left;">PR501-MC-0002</td>
+<td style="text-align: left;">Not implemented. [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-CM-0001</td>
+<td style="text-align: left;">Required key [{0}] missing.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-CM-0002</td>
+<td style="text-align: left;">Field [{0}] format error. Must be [{1}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-CM-0003</td>
+<td style="text-align: left;">Unknown key [{0}] specified.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-CM-0004</td>
+<td style="text-align: left;">JSON parse error. [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-CM-0001</td>
+<td style="text-align: left;">Cell status is [import failed]. Only Unit Level's APIs, CellImport and GetToken are executable.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">409</td>
+<td style="text-align: left;">PR409-CM-0002</td>
+<td style="text-align: left;">Because [{0}] is being executed, writing to cell can not be done.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-CM-0001</td>
+<td style="text-align: left;">Failed to load the request body for some reason.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-CM-0002</td>
+<td style="text-align: left;">Files I/O error caused [{0}] to fail.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0001</td>
+<td style="text-align: left;">Request header is not defined or invalid [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0002</td>
+<td style="text-align: left;">Bar file size too large [{0}B].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0003</td>
+<td style="text-align: left;">Bar file entry size too large [{0}, {1}B].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0004</td>
+<td style="text-align: left;">Install target box is already registered as Box Schema[{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0005</td>
+<td style="text-align: left;">Bar file size invalid[{0}, {1}B].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0006</td>
+<td style="text-align: left;">[{0}] file format error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0007</td>
+<td style="text-align: left;">Cannot open bar file [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0008</td>
+<td style="text-align: left;">Cannot read bar file [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">400</td>
+<td style="text-align: left;">PR400-BI-0009</td>
+<td style="text-align: left;">Invalid bar file structures [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">405</td>
+<td style="text-align: left;">PR405-BI-0001</td>
+<td style="text-align: left;">Install target box is already registered [{0}].</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-BI-0001</td>
+<td style="text-align: left;">Failed to output http response.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-NW-0000</td>
+<td style="text-align: left;">Network error. {0}</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-NW-0001</td>
+<td style="text-align: left;">HTTP {0} request to {1} failed. Response code : {2}.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-NW-0002</td>
+<td style="text-align: left;">Unexpected response from {0}, where {1} expected.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-NW-0003</td>
+<td style="text-align: left;">Unexpected value from key={0}, where &quot;{1}&quot; value expected.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-SV-9999</td>
+<td style="text-align: left;">Unknown Exception [{0}] {1}</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">500</td>
+<td style="text-align: left;">PR500-AN-0001</td>
+<td style="text-align: left;">Root ca certificate setting error.</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">412</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">[&quot;{0}&quot;,&quot;{1}&quot;,&quot;{2}&quot;...]</td>
+<td style="text-align: left;">Return available Personium<br>version number</td>
+</tr>
+</tbody>
+</table>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>

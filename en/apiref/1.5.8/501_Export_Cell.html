@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>501_Export_Cell</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="/en/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>Export Cell</h1>
+<h3>Overview</h3>
+<p>This API export all data in Cell as Cell snapshot file.<br>The snapshot file is created in a special area (Cell snapshot area) in PersoniumUnit.<br>When exported successfully, created the file which suffix is &quot;.zip&quot; and when fail created the file which suffix is &quot;.error&quot;.(In the &quot;.error&quot; file, detail error message is described)<br>The Cell snapshot area is excluded from the Cell export.<br>Since this API employs the asynchronous communication method, it immediately returns after accepting the API.<br>To confirm the Cell export executing status, use <a href="502_Progress_of_Export_Cell.html">Get Cell Export status</a>,<a href="505_Get_Property_Export_Cell.html">Get Cell Snapshot property</a>.<br>An example of calling from acceptance at the client to completion of processing is shown below.</p>
+<pre><code>Call export call example (with 10 seconds polling on the client)
+ 1. Cell export reception
+    -- POST /{CellName}/__export
+ 2. Cell export status check
+    -- GET /{CellName}/__export -&gt; return &quot;in progress&quot;
+    -- wait 10 seconds
+ 3. Cell export finished
+    -- GET /{CellName}/__export -&gt; return &quot;acceptable&quot;
+ 4. confirm Cell export finished successfully
+    -- PROPFIND /{cell}/__snapshot -&gt; when the file suffix is &quot;.zip&quot; exported successfully, &quot;.error&quot; error occured.
+ * The process in the above 2 loops and polls until completion of processing.
+ * When you wish to acquire details at abnormal termination, refer to the contents of &amp; quot; .error &amp; quot; file.</code></pre>
+<h3>Required Privileges</h3>
+<p>root</p>
+<h3>Restrictions</h3>
+<ul>
+<li>Always handles Content-Type in the request header as application/json</li>
+<li>Accept only JSON format for request body</li>
+</ul>
+<h3>Error file</h3>
+<h4>Overview</h4>
+<p>If the Cell export fails, a file with the extension &quot;. Error&quot; is generated in the Cell snapshot area. (The file name is the name specified by the body)<br>The error content is described in JSON format in the quot; .error &amp; quot; file.<br>The format of the &amp; quot;. error &amp; quot; file is shown below.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Object</th>
+<th style="text-align: left;">Key</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Value</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Root</td>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Root</td>
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">lang</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">value</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4>Sample</h4>
+<pre><code>{
+  &quot;code&quot;:&quot;PR503-SV-0001&quot;,
+  &quot;message&quot;:
+  {
+    &quot;lang&quot;:&quot;en&quot;,
+    &quot;value&quot;:&quot;Too many concurrent requests.&quot;
+  }
+}</code></pre>
+<h3>Request</h3>
+<h4>Request URL</h4>
+<pre><code>/{CellName}/__export</code></pre>
+<h4>Request Method</h4>
+<p>POST</p>
+<h4>Request Query</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Query Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">p_cookie_peer</td>
+<td style="text-align: left;">Cookie Authentication Value</td>
+<td style="text-align: left;">The cookie authentication value returned from the server during authentication</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Valid only if no Authorization header specified<br>Specify this when cookie authentication information is to be used</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Header</h4>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">X-HTTP-Method-Override</td>
+<td style="text-align: left;">Method override function</td>
+<td style="text-align: left;">User-defined</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">When this value is specified at the time of request in the POST method, the specified value is used as a method.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X-Override</td>
+<td style="text-align: left;">Header override function</td>
+<td style="text-align: left;">${OverwrittenHeaderName}:${Value}</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Overwrite normal HTTP header value. To overwrite multiple headers, specify multiple X-Override headers.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">X-Personium-RequestKey</td>
+<td style="text-align: left;">RequestKey field value output in the event log</td>
+<td style="text-align: left;">Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>Maximum of 128 characters</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">PCS-${UNIXtime} by default</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Authorization</td>
+<td style="text-align: left;">Specifies authentication information in the OAuth 2.0 format</td>
+<td style="text-align: left;">Bearer {AccessToken}</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">* Authentication tokens are the tokens acquired using the Authentication Token Acquisition API</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">Specifies the request body format</td>
+<td style="text-align: left;">application / json</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">[application/json] by default</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Body</h4>
+<h5>Format</h5>
+<p>JSON</p>
+<table style="width:28%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Item Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Effective Value</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">Snapshot file name (excluding extension)</td>
+<td style="text-align: left;">Number of digits: 1-192<br>Character type: Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Default [{CellName}_yyyyMMdd_HHmmss]</td>
+</tr>
+</tbody>
+</table>
+<h4>Request Sample</h4>
+<pre class="sourceCode json" id="cb4"><code class="sourceCode json"><div class="sourceLine" id="cb4-1" data-line-number="1"><span class="fu">{</span><span class="dt">&quot;Name&quot;</span><span class="fu">:</span><span class="st">&quot;CellExport_2017_01&quot;</span><span class="fu">}</span></div></code></pre>
+<h3>Response</h3>
+<h4>Response Code</h4>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Message</th>
+<th style="text-align: left;">Overview</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">202</td>
+<td style="text-align: left;">Accepted</td>
+<td style="text-align: left;">Processing reception</td>
+</tr>
+</tbody>
+</table>
+<h4>Response Header</h4>
+<table style="width:17%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Header Name</th>
+<th style="text-align: left;">Overview</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">Format of data to be returned</td>
+<td style="text-align: left;">Return only if creation fails</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Location</td>
+<td style="text-align: left;">URL for retrieving Cell export status</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Access-Control-Allow-Origin</td>
+<td style="text-align: left;">Cross domain communication permission header</td>
+<td style="text-align: left;">Return value fixed to &quot;*&quot;</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">X-Personium-Version</td>
+<td style="text-align: left;">API version that the request is processed</td>
+<td style="text-align: left;">Version of the API used to process the request</td>
+</tr>
+</tbody>
+</table>
+<h4>Response Body</h4>
+<p>Return error message only if creation fails</p>
+<h4>Error Messages</h4>
+<p>Refer to <a href="004_Error_Messages.html">Error Message List</a></p>
+<h4>Response Sample</h4>
+<p>None</p>
+<h3>cURL Sample</h3>
+<pre class="sourceCode sh" id="cb5"><code class="sourceCode bash"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/__export&quot;</span> -X POST -i -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;CellExport_2017_01&quot;}&#39;</span></div></code></pre>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
