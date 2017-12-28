@@ -72,7 +72,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <body>
 <h1>Cellエクスポート</h1>
 <h3>概要</h3>
-<p>Cell内の全てのデータをCellスナップショットファイルとしてエクスポートする。<br>スナップショットファイルはPersoniumUnit内の特殊な領域(Cellスナップショット領域)に作成される。<br>処理成功時は拡張子が&quot;.zip&quot;のファイルを、失敗時は&quot;.error&quot;のファイルを生成する。(&quot;.error&quot;ファイルにはJSON形式で失敗原因を記載)<br>Cellスナップショット領域はCellエクスポートの対象外。<br>本APIは非同期通信方式を採用しているため、APIを受け付けた後、即復帰する。<br>Cellエクスポートの状況を確認するには<a href="502_Progress_of_Export_Cell.html">Cellエクスポート状態取得</a>、<a href="505_Get_Property_Export_Cell.html">Cellスナップショットファイル設定取得</a>を使用する。<br>クライアントにおける受付から処理完了までの呼び出し例を以下に示す。</p>
+<p>Cell内の全てのデータをCellスナップショットファイルとしてエクスポートする。<br>スナップショットファイルはPersoniumUnit内の特殊な領域(Cellスナップショット領域)に作成される。<br>処理成功時は拡張子が&quot;.zip&quot;のファイルを、失敗時は&quot;.error&quot;のファイルを生成する。(&quot;.error&quot;ファイルにはJSON形式で失敗原因を記載)<br>Cellスナップショット領域はCellエクスポートの対象外。<br>本APIは非同期通信方式を採用しているため、APIを受け付けた後、即復帰する。<br>Cellエクスポートの状況を確認するには<a href="502_Progress_of_Export_Cell.html">Cellエクスポート状態取得</a>、<a href="505_Get_Property_Snapshot_Cell.html">Cellスナップショットファイル設定取得</a>を使用する。<br>クライアントにおける受付から処理完了までの呼び出し例を以下に示す。</p>
 <pre><code>Cellエクスポートの呼び出し例（クライアントでのポーリングを10秒とした場合)
  1. Cellエクスポート受付
     -- POST /{CellName}/__export
