@@ -70,9 +70,9 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
   <![endif]-->
 </head>
 <body>
-<h1>ComplexTypeProrerty更新</h1>
+<h1>ComplexTypeProperty更新</h1>
 <h3>概要</h3>
-<p>既存のComplexTypeProrerty情報を更新する</p>
+<p>既存のComplexTypeProperty情報を更新する</p>
 <h3>必要な権限</h3>
 <p>alter-schema</p>
 <h3>制限事項</h3>
@@ -84,7 +84,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </ul>
 <h3>リクエスト</h3>
 <h4>リクエストURL</h4>
-<pre><code>/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProrerty(&#39;ComplexTypeProrerty&#39;)</code></pre>
+<pre><code>/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/ComplexTypeProperty(&#39;ComplexTypeProperty&#39;)</code></pre>
 <h4>メソッド</h4>
 <p>PUT</p>
 <h4>リクエストクエリ</h4>
@@ -247,7 +247,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Name</td>
-<td style="text-align: left;">ComplexTypeProrerty名</td>
+<td style="text-align: left;">ComplexTypeProperty名</td>
 <td style="text-align: left;">桁数：1～128<br>文字種:半角英数字と-(半角ハイフン)と_(半角アンダーバー)<br>ただし、先頭文字に-(半角ハイフン)と_(半角アンダーバー)は指定不可</td>
 <td style="text-align: left;">○</td>
 <td style="text-align: left;"></td>
@@ -268,7 +268,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h4>レスポンスサンプル</h4>
 <p>なし</p>
 <h3>cURLサンプル</h3>
-<pre class="sourceCode sh" id="cb3"><code class="sourceCode bash"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/ComplexTypeProrerty(&#39;animal&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;ComplexTypeProrerty&quot;}&#39;</span></div></code></pre>
+<pre class="sourceCode sh" id="cb3"><code class="sourceCode bash"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/ComplexTypeProperty(&#39;animal&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;ComplexTypeProperty&quot;}&#39;</span></div></code></pre>
 <h6>Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
