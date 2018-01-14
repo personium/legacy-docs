@@ -72,7 +72,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <body>
 <h1>Property update</h1>
 <h3>Overview</h3>
-<p>Update existing Prorerty information</p>
+<p>Update existing Property information</p>
 <h3>Required Privileges</h3>
 <p>alter-schema</p>
 <h3>Restrictions</h3>
@@ -84,7 +84,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 </ul>
 <h3>Request</h3>
 <h4>Request URL</h4>
-<pre><code>/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Prorerty(&#39;{PropertyName}&#39;)</code></pre>
+<pre><code>/{CellName}/{BoxName}/{OdataCollecitonPath}/$metadata/Property(&#39;{PropertyName}&#39;)</code></pre>
 <h4>Request Method</h4>
 <p>PUT</p>
 <h4>Request Query</h4>
@@ -254,7 +254,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Name</td>
-<td style="text-align: left;">Prorerty Name</td>
+<td style="text-align: left;">Property Name</td>
 <td style="text-align: left;">Number of digits: 1 - 128<br>Character type: Single-byte alphanumeric characters, hyphens (&quot;-&quot;), and underscores (&quot;_&quot;)<br>However, the string cannot start with a single-byte hyphen (&quot;-&quot;) or underscore (&quot;_&quot;)</td>
 <td style="text-align: left;">Yes</td>
 <td style="text-align: left;"></td>
@@ -275,7 +275,7 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h4>Response Sample</h4>
 <p>None</p>
 <h3>cURL Command</h3>
-<pre class="sourceCode sh" id="cb3"><code class="sourceCode bash"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/Prorerty(&#39;animal&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{PropertyName}&quot;}&#39;</span></div></code></pre>
+<pre class="sourceCode sh" id="cb3"><code class="sourceCode bash"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="ex">curl</span> <span class="st">&quot;https://{UnitFQDN}/{CellName}/{BoxName}/{OdataCollecitonPath}/</span><span class="va">$metadata</span><span class="st">/Property(&#39;animal&#39;)&quot;</span> -X PUT -i -H <span class="st">&#39;If-Match: *&#39;</span> -H <span class="st">&#39;Authorization: Bearer {AccessToken}&#39;</span> -H <span class="st">&#39;Accept: application/json&#39;</span> -d <span class="st">&#39;{&quot;Name&quot;:&quot;{PropertyName}&quot;}&#39;</span></div></code></pre>
 <h6>Copyright 2017 FUJITSU LIMITED</h6>
 </body>
 </html>
