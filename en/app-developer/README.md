@@ -2,7 +2,7 @@
 
 It is a document for people who want to develop  PDS applications using Personium's API
 
-### Application development guide(Written schedule)
+### [Application development guide](./Personium_Apps.md)  
 
 ### [Client registration & authentication](../user_guide/004_Client_auth.md)
 
