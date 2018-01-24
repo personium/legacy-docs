@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>405_Expand_Query</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      div.line-block{white-space: pre-line;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="/ja/github.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1>$expand クエリ</h1>
+<h3>概要</h3>
+<p>$expandクエリにNavigationProperty名を指定することで、関連情報を展開して取得することが可能。<br />
+一覧取得時の関連情報の展開は最大100件まで展開する。<br />
+一件取得時の関連情報の展開は最大10000件まで展開する。<br />
+$expandで取得した関連データのソート順は下記の通り。</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">関連</th>
+<th style="text-align: left;">ソート条件</th>
+<th style="text-align: left;">順序</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">0 .. 1:0 .. 1</td>
+<td style="text-align: left;">展開するナビゲーションプロパティのエンティティ作成日時</td>
+<td style="text-align: left;">降順</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">0 .. 1: *</td>
+<td style="text-align: left;">展開するナビゲーションプロパティのエンティティ作成日時</td>
+<td style="text-align: left;">降順</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">*: 0 .. 1</td>
+<td style="text-align: left;">展開するナビゲーションプロパティのエンティティ作成日時</td>
+<td style="text-align: left;">降順</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><em>: </em></td>
+<td style="text-align: left;">展開するナビゲーションプロパティとのリンク情報作成日時</td>
+<td style="text-align: left;">降順</td>
+</tr>
+</tbody>
+</table>
+<p>※Multiplicityが&quot;1&quot;の場合は、&quot;0..1&quot;と同様のソート結果となる</p>
+<h3>リクエストクエリ</h3>
+<pre><code>$expand={NavigationPropertyName}</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Path</th>
+<th style="text-align: left;">概要</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">{NavigationPropertyName}</td>
+<td style="text-align: left;">展開するナビゲーションプロパティ名<br>複数指定する場合はカンマ区切りで指定する</td>
+</tr>
+</tbody>
+</table>
+<p>※$expandに存在しないNavigationProperty名を指定した場合は「400 Bad Request」を返却する</p>
+<h5>ナビゲーションプロパティ指定可能数</h5>
+<p>一覧取得時のナビゲーションプロパティは2件まで指定可能<br />
+一件取得時のナビゲーションプロパティは10件まで指定可能<br />
+※指定可能なナビゲーションプロパティ数を超えた場合は「400 Bad Request」を返却する</p>
+<h3>cURLサンプル</h3>
+<p>ナビゲーションプロパティに紐付く情報を展開して取得する</p>
+<pre><code>curl &quot;https://{UnitFQDN}/{CellName}/{BoxName}/{ODataCollecitonName}/{EntityTypeName}(&#39;{EntityID}&#39;)?\$expand={NavigationPropertyName}&quot; -X GET -i -H &#39;Authorization: Bearer {AccessToken}&#39; -H &#39;Accept: application/json&#39;</code></pre>
+<h3>制限事項</h3>
+<ul>
+<li>関連情報の展開は1階層のみ可能</li>
+<li>展開した関連情報がすべての件数を返却しているかを示すために、__countを関連情報一覧の項目として追加する（未サポート）</li>
+</ul>
+<h6>Copyright 2017 FUJITSU LIMITED</h6>
+</body>
+</html>
