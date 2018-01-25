@@ -79,6 +79,7 @@ h2 {
   color: black; }
 
 h3 {
+  border: 1px solid #339933;
   font-size: 18px; }
 
 h4 {
