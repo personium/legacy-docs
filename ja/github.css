@@ -80,14 +80,18 @@ h1 {
 h2 {
   font-size: 24px;
   border-left: 15px solid lightseagreen;
-  border-bottom: 1px solid #666666;
+  border-bottom: 1px solid #999999;
   color: black; }
 
 h3 {
-  border-left: 2px dotted green;  
+  border-left: 4px double green;
   border-bottom: 1px dotted #999999;  
-  background-color: white;
+  margin-left: 10px;  
   font-size: 18px; }
+
+th {
+  background: lightblue;
+}
 
 h4 {
   font-size: 16px; }
