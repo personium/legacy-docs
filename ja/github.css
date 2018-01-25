@@ -1,6 +1,6 @@
 body {
   font-family: "メイリオ",  Helvetica, arial, sans-serif;
-  width: 1024px;
+  width: 980px;
   margin-top: 0;
   margin-right: auto;
   margin-left : auto;
@@ -75,7 +75,6 @@ h6 tt, h6 code {
 h1 {
   font-size: 28px;
   border-bottom: 5px solid #339933;
-  background-color: #eeffee;
   color: black; }
 
 h2 {
