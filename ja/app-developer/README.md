@@ -2,7 +2,7 @@
 
 PersoniumのAPIを使用して、PDSアプリを開発したい人向けのドキュメントです
 
-### アプリ開発ガイド（執筆予定）
+### [アプリ開発ガイド](./Personium_Apps.md)  
 
 ### [クライアント登録&認証](../user_guide/004_Client_auth.html)
 
