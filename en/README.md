@@ -5,7 +5,6 @@ All Personium-related documentation are available on this page.
 > __The published documentation will be updated frequently because it is a draft version.__  
 
 If you have any questions, please contact [Slack Community](https://personium-io.slack.com/).  
-
 Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReLg1).  
 
 ## Introduction  
