@@ -8,20 +8,18 @@ If you have any questions, please contact [Slack Community](https://personium-io
 Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReLg1).  
 
 ## Introduction  
-### [What is Personium?](./overview/001_Introduction.html)
+#### [What is Personium?](./overview/001_Introduction.html)
 
 ## Overview
-### [Personium Concepts](./user_guide/001_Personium_Concepts.html)
-### [Design model](./user_guide/005_Model_construction.html)
-### [Glossary](./user_guide/008_Glossary.html)
+#### [Personium Concepts](./user_guide/001_Personium_Concepts.html)
+#### [Design model](./user_guide/005_Model_construction.html)
+#### [Glossary](./user_guide/008_Glossary.html)
 
 
 ## User Guides  
 ### For App Developers  
- 
 #### [App Developer's Guide](./app-developer/index.html)  
 It is a document for people who want to develop PDS applications using Personium's API
-
 #### [Cell Management Client Developer's Guide](./app-developer/index.html)  
 It is a document for people who want to develop an application that manages Personium's Cell
 
