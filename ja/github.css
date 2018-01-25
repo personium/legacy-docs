@@ -2,10 +2,9 @@ body {
   font-family: Helvetica, arial, sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 0px 30px 10px 30px;
   background-color: white;
-  padding: 30px; }
+}
 
 body > *:first-child {
   margin-top: 0 !important; }
@@ -34,13 +33,14 @@ a.anchor {
   bottom: 0; }
 
 h1 {
+  margin: 0 0 20px 0;
   padding: 0;
 }
 h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px 0;
   padding-left: 15px;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
   cursor: text;
@@ -70,6 +70,7 @@ h6 tt, h6 code {
 
 h1 {
   font-size: 28px;
+  border-bottom: 5px solid #339933;
   background-color: #eeffee;
   color: black; }
 
