@@ -10,7 +10,9 @@ Please follow the following instructions to add or modify Personium documentatio
 
 > __GitHub account is needed__
 
-1. Fork your own copy of [Personium repository](https://github.com/personium/personium.github.io) to your account.  
+1. Fork your own copy of document repositories to your account.  
+    1. [API References](https://github.com/personium/api-references)
+    1. [Other Documents](https://github.com/personium/docs)
 1. Clone the repository to your working environment.  
 1. Please edit in markdown format.  
 1. About HTML file.  
