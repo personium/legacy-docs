@@ -70,16 +70,18 @@ h6 tt, h6 code {
 
 h1 {
   font-size: 28px;
+  background-color: #eeffee;
   color: black; }
 
 h2 {
   font-size: 24px;
   border-left: 5px solid #006600;
-  background-color: #dddddd;
+  background-color: #ddeedd;
   color: black; }
 
 h3 {
-  border: 1px solid #339933;
+  border: 1px solid #339933;  
+  background-color: #eeffee;
   font-size: 18px; }
 
 h4 {
