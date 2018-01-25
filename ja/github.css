@@ -1,11 +1,12 @@
 body {
   font-family: "メイリオ",  Helvetica, arial, sans-serif;
   width: 1024px;
+  margin-top: 0;
   margin-right: auto;
   margin-left : auto;
   font-size: 14px;
   line-height: 1.6;
-  padding-top: 0px 30px 10px 30px;
+  padding: 0px 30px 10px 30px;
   background-color: white;
 }
 
