@@ -487,7 +487,7 @@ ACL設定時にACL要素の RequireSchemaAuthz 属性で要求レベルの設定
 
     |アクセスするリソース|設定されたレベル|適用されるレベル|
     |:--|:--|:--|
-    |ボックス|confidential|confidential&nbsp;|
+    |ボックス|confidential|confidential|
     |WebDAVコレクション|public|public|
     |ディレクトリ|設定なし|public|
     |ファイル|none|none|

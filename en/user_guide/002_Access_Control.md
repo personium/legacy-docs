@@ -12,7 +12,7 @@ ACL settings are defined in XML.
 
 ## ACL
 
-The access control to the access subject by the ACL is done by applying [ WebDAV ACL ](http://www.ietf.org/rfc/rfc3744) to role based access control.
+The access control to the access subject by the ACL is done by applying [WebDAV ACL](http://www.ietf.org/rfc/rfc3744) to role based access control.
 
 By setting the ACL with the ACL method for Cell, Box, Collection, etc., access right to that resource can be set. 
 
@@ -77,7 +77,7 @@ The target access agent is defined as a Principal element, and the authorization
 
     With the above setting, all operations are released to all accesses accessed. 
 
-    **However, if schema authentication level setting is done, that checking will take effect. **
+    **However, if schema authentication level setting is done, that checking will take effect.**
 
     ####  Setting example 
 
@@ -109,7 +109,7 @@ The target access agent is defined as a Principal element, and the authorization
      </D:acl>
     ```
 
-    ###  (2) Roll 
+    ###  (2) Role 
 
     To define a role for the target access agent, enclose it in an href element and set the role resource URL.
     For specifications on role resources see Role Issue. 
@@ -492,7 +492,7 @@ For schema authentication specifications, see "Schema authentication (applicatio
 
     | Resources to access | Set level| Applicable level|
     |:--|:--|:--|
-    | Box | confidential | confidential &nbsp; |
+    | Box | confidential | confidential|
     | WebDAV Collection | public | public|
     | Directory | no settings| public|
     | File| none | none|
