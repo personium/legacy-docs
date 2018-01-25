@@ -79,13 +79,15 @@ h1 {
 
 h2 {
   font-size: 24px;
-  border-left: 5px solid #006600;
+  border-left: 15px solid lightseagreen;
+  border-bottom: 1px solid #666666;
   background-color: #ddeedd;
   color: black; }
 
 h3 {
-  border: 1px solid #339933;  
-  background-color: #eeffee;
+  border-left: 2px dotted green;  
+  border-bottom: 1px dotted #999999;  
+  background-color: white;
   font-size: 18px; }
 
 h4 {
