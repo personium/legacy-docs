@@ -11,7 +11,7 @@ PersoniumはOSSプロジェクトであり、ドキュメントに対しても�
 > __GitHubアカウントをご用意ください__
 
 1. GitHubリポジトリをForkする  
-    1. [APIリファレンス](https://github.com/personium/api-reference)
+    1. [APIリファレンス](https://github.com/personium/api-references)
     1. [他ドキュメント](https://github.com/personium/docs)
 1. Localリポジトリにクローンする
 1. markdown形式でドキュメントを記述し、ファイルを編集する
