@@ -19,33 +19,34 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 ## User Guides  
 ### For App Developers  
  
-### [App Developer's Guide](./app-developer/index.html)  
+#### [App Developer's Guide](./app-developer/index.html)  
 It is a document for people who want to develop PDS applications using Personium's API
 
-### [Cell Management Client Developer's Guide](./app-developer/index.html)  
+#### [Cell Management Client Developer's Guide](./app-developer/index.html)  
 It is a document for people who want to develop an application that manages Personium's Cell
 
 
 
 ### For Personium Operators  
-<ul class="listStyleTypeNone">
-<li><h3 id="unit-administrators-guide"><a href="./unit-administrator/index.html">Unit Administrator's Guide</a></h3></li>
-<li><p>It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium</p></li>
-<li><h3 id="server-software-operators-guide"><a href="./server-operator/index.html">Server Software Operator's Guide</a></h3></li>
-<li><p>It is a document for people who want to provide / operate PDS service environment using Personium</p></li>
-</ul>
+
+#### [Unit Administrator's Guide](./unit-administrator/index.html)  
+It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium
+
+#### [Server Software Operator's Guide](./server-operator/index.html)  
+It is a document for people who want to provide / operate PDS service environment using Personium
+
+
 
 ## Contributor Guides  
 ### For Document Contribution  
-<ul class="listStyleTypeNone">
-<li><h3 id="documentation-contributor's-guide"><a href="./document-writer/index.html">Documentation Contributor's Guide</a></h3></li>
-<li><p>Personium Project is looking for documentation contributors</p></li>  
-</ul>
+
+#### [Documentation Contributor's Guide](./document-writer/index.html)  
+Personium Project is looking for documentation contributors.
 
 ### For Code Contribution  
-<ul class="listStyleTypeNone">
-<li><h3 id="server-plugin-developers-guide"><a href="./plugin-developer/index.html">Server Plugin Developer's Guide</a></h3></li>
-<li><p>It is a document for people who want to develop and use plugins to extend Personium's server function</p></li>
-<li><h3 id="server-developers-guide"><a href="./software-developer/index.html">Server Developer's Guide</a></h3></li>
-<li><p>It is a document for people who want to develop Personium's OSS function or who want to commit to OSS</p></li>
-</ul>
+
+#### [Server Plugin Developer's Guide](./plugin-developer/index.html)  
+It is a document for people who want to develop and use plugins to extend Personium's server function
+#### [Server Developer's Guidee](./software-developer/index.html)  
+It is a document for people who want to develop Personium's OSS function or who want to commit to OSS
+
