@@ -6,22 +6,22 @@
 Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODgVX6eMkRDtReLg1)からどうぞ。
 
 ## はじめに
-* [Personiumとは](./overview/001_Introduction.html)
+### [Personiumとは](./overview/001_Introduction.html)
 
 ## 概要
-* [Personiumの概念](./user_guide/001_Personium_Concepts.html)
-* [設計モデル](./user_guide/005_Model_construction.html)
-* [用語集](./user_guide/008_Glossary.html)
+### [Personiumの概念](./user_guide/001_Personium_Concepts.html)
+### [設計モデル](./user_guide/005_Model_construction.html)
+### [用語集](./user_guide/008_Glossary.html)
 
 ## ユーザーガイド  
-### アプリ開発者向けガイド  
+### アプリ開発者向け  
 ### [アプリ開発者向けガイド](./app-developer/index.html)  
 PersoniumのAPIを使用して、PDSアプリを開発したい人向けのドキュメントです
 
 ### [Cell管理クライアント開発者向けガイド](./cell-client-developer/index.html)  
 PersoniumのCellを管理するアプリを開発したい人向けのドキュメントです
 
-### Personium 運用者向けガイド
+### Personium 運用者向け
 ### [ユニット管理者向けガイド](./unit-administrator/index.html)
 Personiumを使用したPDSサービスを提供するため、構築済みのPersoniumユニットを管理したい人、PDSアプリをユーザーに利用してもらいたい人向けのドキュメントです
 
