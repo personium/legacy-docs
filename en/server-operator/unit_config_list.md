@@ -43,6 +43,8 @@ It is a setting which change from default as optional when operating Personium.
 |thread.pool.num|Number of thread pools|int|20|core|PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.|
 |plugin.path|Personium plugin placement destination path|Plugin placement destination Full path|/personium/personium-core/plugins|core|<br>|
 |unitScheme|Unit scheme setting|"http" or "https"|https|core|Please set https when you operate it though it is also possible to set http to the development usage.|
+|unitPort|Unit port setting|Port number||core||
+|unitPath|Unit path of URL|String||core|When UnitURL is "https://p-test:8080/", unitPath becomes "p-test"|
 |masterToken|Master Token|Token string||core, engine|Please do not set it when you operate it though it is possible to set by the development usage.|
 
 #### OData
@@ -168,3 +170,11 @@ http://{engine.host}:{engine.port}/{engine.path}
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |cellSnapshot.root|Route path to store snapshot data|Full path of directory|/personium_nfs/personium-core/snapshot|core|<br>|
+
+#### EventBus
+|Key|Description|Value|Default value|Used component|Notes|
+|:--|:--|:--|:--|:--|:--|
+|eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core||
+|eventbus.queue|Queue name of event|String|personium_event_queue|core||
+|eventbus.topic.all|Topic name for all event|String|personium_event_topic|core||
+|eventbus.topic.rule|Topic name for rule event|String|personium_event_topic_rule|core||
