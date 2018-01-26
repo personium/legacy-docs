@@ -1,30 +1,43 @@
 # ユニット管理者向けガイド
 
-Personiumを使用したPDSサービスを提供するため、構築済みのPersoniumユニットを管理したい人、PDSアプリをユーザーに利用してもらいたい人向けのドキュメントです
-### [ユニットユーザ](./Unit-User.md)
+構築・設定済のPersoniumユニットに対してユニットユーザトークンを使ってアクセスして、
+ユニット管理者の主たる業務、すなわちCellの作成・払出しや、払出したCellの管理等を実施する方のためのドキュメントです。
 
-### [データの管理](./Data_Management.md)
+Personiumユニットを構築したい方や、Personiuサーバプログラムをビルド・デプロイし設定をする方は[サーバソフトウェア運用者向けガイド](../server-operator/README.md)をご覧ください。
 
-### APIリファレンス<br>
-[1.5.8 -](../apiref/1.5.8/000_Rest_API_Reference.md)
+## ユニットユーザとユニットレベルAPI
 
-[1.5.7](../apiref/1.5.7/000_Rest_API_Reference.md)
+Personiumユニットで認識されるユニットユーザトークンの発行を受けられるユーザをユニットユーザと呼んでいます。
 
-[1.5.6](../apiref/1.5.6/000_Rest_API_Reference.md)
+* [ユニットユーザ](./Unit-User.md)
 
-[1.5.5](../apiref/1.5.5/000_Rest_API_Reference.md)
+Cellの生成や管理を司るUnitレベルAPIへのアクセスにはユニットユーザトークンが必要です。また
+Cellは生成されたときにどのユニットユーザトークンで生成されたかを覚えています。
+ユニットユーザはユニットユーザトークンを使ったAPIアクセスで、自身が作ったCellに対しては、
+Cellレベル・BoxレベルのすべてのAPIに特権アクセス可能です。
 
-[1.5.2 - 1.5.4](../apiref/1.5.2/000_Rest_API_Reference.md)
 
-[1.5.1](../apiref/1.5.1/000_Rest_API_Reference.md)
+## GUIを利用したユニットの管理
 
-[1.5.0](../apiref/1.5.0/000_Rest_API_Reference.md)
+ユニットマネージャGUIを使うことで、ほぼすべてのAPIアクセスをユニットユーザとして実施することができます。
 
-[1.4.2 - 1.4.6](../apiref/1.4.6/000_Rest_API_Reference.md)
-
-[1.4.1以前](http://personium.io/docs/api/1.3.25/Japanese/Japanese.htm#docs/ja/HomePage.htm)
-
-### 関連するリポジトリ<br>
 [app-uc-unit-manager](https://github.com/personium/app-uc-unit-manager)
 
+このツールは、複数の起動方法をサポートしており、ユーザCellのHomeアプリから起動したときは、
+アクセスすべき対象CellのURLやアクセスのためのトークン情報が起動パラメタとして付加された形で起動します。
+
+特にそのようなパラメタ指定なく起動したときは、ユニットマネージャGUIとして起動します。
+
+## Cell払出サンプルクライアント
+
 [app-uc-cell-creator](https://github.com/personium/app-uc-cell-creator)
+
+## その他
+
+* [データの管理](./Data_Management.md)
+
+
+## 関連するリポジトリ
+* [app-uc-unit-manager](https://github.com/personium/app-uc-unit-manager)
+* [app-uc-cell-creator](https://github.com/personium/app-uc-cell-creator)
+
