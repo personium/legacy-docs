@@ -35,7 +35,7 @@ For details, refer to Certification Model.
 ##### bar file
 <font size=1>[Personium]</font> An abbreviation of "box archive file". This archive file is a compilation of box structure details.  
 The hierarchical structure in the folder represents the hierarchical structure of WebDAV collections, and the files stored in WebDAV are retained by storing files at these hierarchical levels.  
-For details, refer to [bar File](../apiref/1.5.8/301_Bar_File.html).
+For details, refer to [bar File](../apiref/1.5.8/301_Bar_File.md).
 
 
 ##### Box
@@ -43,11 +43,11 @@ For details, refer to [bar File](../apiref/1.5.8/301_Bar_File.html).
 
 
 ##### Box installation
-<font size=1>[Personium]</font> To create a box using the bar file. For details, refer to the [Box Installation](../apiref/1.5.8/302_Box_Installation.html) API.
+<font size=1>[Personium]</font> To create a box using the bar file. For details, refer to the [Box Installation](../apiref/1.5.8/302_Box_Installation.md) API.
 
 
 ##### Box level ACL
-<font size=1>[Personium]</font> The ACL for resources under the box. For details, refer to [Access Control Model](./002_Access_Control.html).
+<font size=1>[Personium]</font> The ACL for resources under the box. For details, refer to [Access Control Model](./002_Access_Control.md).
 
 
 ##### <a name="anc_c"> C</a>
@@ -81,18 +81,18 @@ For details, refer to [bar File](../apiref/1.5.8/301_Bar_File.html).
 
 
 ##### CORS
-<font size=1>[General]</font> An abbreviation of "Cross-Origin Resource Sharing". JavaScript shall permit XMLHttpRequest for other domains in the Web page. Refer to [CORS Support](../apiref/1.5.8/002_CORS_Support.html).  
+<font size=1>[General]</font> An abbreviation of "Cross-Origin Resource Sharing". JavaScript shall permit XMLHttpRequest for other domains in the Web page. Refer to [CORS Support](../apiref/1.5.8/002_CORS_Support.md).  
 (For details, refer to [External Site](http://www.w3.org/TR/cors/))
 
 
 ##### Cross Domain Access Control
-<font size=1>[General]</font> Access control for servers that have different domains. In Personium, the [Cross Domain Access Policy File](../apiref/1.5.8/001_Cross_Domain_Policy_File.html) based on XMLHttpRequest Level2 is used for control.
+<font size=1>[General]</font> Access control for servers that have different domains. In Personium, the [Cross Domain Access Policy File](../apiref/1.5.8/001_Cross_Domain_Policy_File.md) based on XMLHttpRequest Level2 is used for control.
 
 
 ##### <a name="anc_d"> D</a>
 ##### <a name="anc_e"> E</a>
 ##### Engine Service Collection
-<font size=1>[Personium]</font> A special collection for the user to register new logic on the server side. For details, refer to [Engine Service Collection](../apiref/1.5.8/379_Engine_Service_Collection_APIs.html).
+<font size=1>[Personium]</font> A special collection for the user to register new logic on the server side. For details, refer to [Engine Service Collection](../apiref/1.5.8/379_Engine_Service_Collection_APIs.md).
 
 
 ##### Entity
@@ -109,15 +109,15 @@ This makes use of the cache more effective and secures bandwidth when it is not 
 
 
 ##### Event
-<font size=1>[Personium]</font> An instance that occurs inside or outside Personium. For details, refer to [Event Overview](../apiref/1.5.8/277_Event_Summary.html).
+<font size=1>[Personium]</font> An instance that occurs inside or outside Personium. For details, refer to [Event Overview](../apiref/1.5.8/277_Event_Summary.md).
 
 
 ##### EventLog
-<font size=1>[Personium]</font> External and internal event occurrence logs. These can be acquired using the [Log Acquisition API](../apiref/1.5.8/285_Retrieve_Log_File.html).
+<font size=1>[Personium]</font> External and internal event occurrence logs. These can be acquired using the [Log Acquisition API](../apiref/1.5.8/285_Retrieve_Log_File.md).
 
 
 ##### $expand query
-<font size=1>[OData]</font> One of the supported OData queries. This query is for acquiring specified relation information simultaneously by addition to a data acquisition request. ([Details](../apiref/1.5.8/405_Expand_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. This query is for acquiring specified relation information simultaneously by addition to a data acquisition request. ([Details](../apiref/1.5.8/405_Expand_Query.md))
 
 
 ##### External Cell
@@ -130,11 +130,11 @@ This makes use of the cache more effective and secures bandwidth when it is not 
 
 ##### <a name="anc_f"> F</a>
 ##### $filter query
-<font size=1>[OData]</font> One of the supported OData queries. This query is for refining data by specifying search conditions. ([Details](../apiref/1.5.8/403_Filter_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. This query is for refining data by specifying search conditions. ([Details](../apiref/1.5.8/403_Filter_Query.md))
 
 
 ##### $format query
-<font size=1>[OData]</font> One of the supported OData queries. This query is for specifying the media type in the HTTP response. ([Details](../apiref/1.5.8/404_Format_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. This query is for specifying the media type in the HTTP response. ([Details](../apiref/1.5.8/404_Format_Query.md))
 
 
 ##### FQDN
@@ -143,7 +143,7 @@ This represents the complete domain name that defines a specific computer or hos
 
 
 ##### Full-Text Search Query
-<font size=1>[OData]</font> The query for performing a search that compares every word in the entire data included in the EntityType by adding q="Search word" to a request. ([Details](../apiref/1.5.8/408_Full_Text_Search_Query.html))
+<font size=1>[OData]</font> The query for performing a search that compares every word in the entire data included in the EntityType by adding q="Search word" to a request. ([Details](../apiref/1.5.8/408_Full_Text_Search_Query.md))
 
 
 ##### <a name="anc_g"> G</a>
@@ -155,7 +155,7 @@ For details, refer to [External Site](http://openid-foundation-japan.github.io/d
 
 
 ##### $inlinecount query
-<font size=1>[OData]</font> One of the supported OData queries. This query is for displaying the count of entities in the collection. ([Details](../apiref/1.5.8/407_Inlinecount_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. This query is for displaying the count of entities in the collection. ([Details](../apiref/1.5.8/407_Inlinecount_Query.md))
 
 
 ##### <a name="anc_j"> J</a>
@@ -192,7 +192,7 @@ For details on OData, click [here](http://www.odata.org/).
 
 
 ##### $orderby query
-<font size=1>[OData]</font> One of the supported OData queries. The values are displayed sorted in the order specified by the user. The default is ascending order. ([Details](../apiref/1.5.8/400_Orderby_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. The values are displayed sorted in the order specified by the user. The default is ascending order. ([Details](../apiref/1.5.8/400_Orderby_Query.md))
 
 
 ##### <a name="anc_p"> P</a>
@@ -202,7 +202,7 @@ For details on OData, click [here](http://www.odata.org/).
 
 ##### Privilege
 <font size=1>[Personium]</font> Privileges granted to the roles defined in the cell to access data in the box associated with specific roles.  
-Privileges are defined in ACL configuration in Personium. For details, refer to [Access Control Model](./002_Access_Control.html).
+Privileges are defined in ACL configuration in Personium. For details, refer to [Access Control Model](./002_Access_Control.md).
 
 
 ##### <a name="anc_q"> Q</a>
@@ -272,7 +272,7 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 
 
 ##### $select query
-<font size=1>[OData]</font> One of the supported OData queries. This query is for specifying and acquiring only a specific property during data acquisition. Multiple properties can also be specified. ([Details](../apiref/1.5.8/406_Select_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. This query is for specifying and acquiring only a specific property during data acquisition. Multiple properties can also be specified. ([Details](../apiref/1.5.8/406_Select_Query.md))
 
 
 ##### SentMessage
@@ -288,7 +288,7 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 
 
 ##### $skip query
-<font size=1>[OData]</font> One of the supported OData queries. This query is for extracting data excluding the specified count from the display among acquired data. ([Details](../apiref/1.5.8/402_Skip_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. This query is for extracting data excluding the specified count from the display among acquired data. ([Details](../apiref/1.5.8/402_Skip_Query.md))
 
 
 ##### <a name="anc_t"> T</a>
@@ -301,11 +301,11 @@ There are the following types in Personium, and the tokens are changed an hour a
 
 
 ##### Token authentication
-<font size=1>[General]</font> One of authentication processes. The method for authentication using the access token described in the cURL requested by a client. For details, refer to [Certification Model](./003_Auth.html).
+<font size=1>[General]</font> One of authentication processes. The method for authentication using the access token described in the cURL requested by a client. For details, refer to [Certification Model](./003_Auth.md).
 
 
 ##### $top query
-<font size=1>[OData]</font> One of the supported OData queries. This specifies the maximum number of acquired data records and returns data for that count. Extracted data is counted from the beginning in the set. ([Details](../apiref/1.5.8/401_Top_Query.html))
+<font size=1>[OData]</font> One of the supported OData queries. This specifies the maximum number of acquired data records and returns data for that count. Extracted data is counted from the beginning in the set. ([Details](../apiref/1.5.8/401_Top_Query.md))
 
 
 ##### <a name="anc_u"> U</a>

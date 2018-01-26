@@ -32,7 +32,7 @@
 ##### bar ファイル
 <font size=1>[Personium]</font> box archive ファイルの略称。Boxの構成内容をまとめたアーカイブファイル。  
 フォルダ内の階層構造でWebDAVコレクションの階層構造を表し、その階層毎にファイルを格納することで、WebDAV内に格納するファイルを保持する。
-詳細は[barファイル](../apiref/1.5.8/301_Bar_File.html)参照。  
+詳細は[barファイル](../apiref/1.5.8/301_Bar_File.md)参照。  
 
 
 ##### Box
@@ -40,11 +40,11 @@
 
 
 ##### Box インストール
-<font size=1>[Personium]</font> barファイルを用いて、Boxを作成すること。詳細は[Boxインストール](../apiref/1.5.8/302_Box_Installation.html)APIを参照。
+<font size=1>[Personium]</font> barファイルを用いて、Boxを作成すること。詳細は[Boxインストール](../apiref/1.5.8/302_Box_Installation.md)APIを参照。
 
 
 ##### Box レベル ACL
-<font size=1>[Personium]</font> Box配下のリソース対するACL。詳細は[アクセス制御モデル](./002_Access_Control.html)参照。
+<font size=1>[Personium]</font> Box配下のリソース対するACL。詳細は[アクセス制御モデル](./002_Access_Control.md)参照。
 
 
 ##### <a name="anc_c"> C</a>
@@ -80,18 +80,18 @@
 
 
 ##### CORS
-<font size=1>[一般]</font> Cross-Origin Resource Sharingの略称。Webページにおいて、JavaScriptが他のドメインに対しXMLHttpRequestを許可すること。[CORS対応](../apiref/1.5.8/002_CORS_Support.html)を参照。  
+<font size=1>[一般]</font> Cross-Origin Resource Sharingの略称。Webページにおいて、JavaScriptが他のドメインに対しXMLHttpRequestを許可すること。[CORS対応](../apiref/1.5.8/002_CORS_Support.md)を参照。  
 （詳細については[外部サイト](http://www.w3.org/TR/cors/)を参照）
 
 
 ##### Cross Domain Access Control(クロスドメインアクセス制御)
-<font size=1>[一般]</font> 異なるドメインを持つサーバに対するアクセスの制御を行うこと。Personiumでは、XMLHttpRequest Level2に基づいた[クロスドメインポリシーファイル](../apiref/1.5.8/001_Cross_Domain_Policy_File.html)によって制御されている。
+<font size=1>[一般]</font> 異なるドメインを持つサーバに対するアクセスの制御を行うこと。Personiumでは、XMLHttpRequest Level2に基づいた[クロスドメインポリシーファイル](../apiref/1.5.8/001_Cross_Domain_Policy_File.md)によって制御されている。
 
 
 ##### <a name="anc_d"> D</a>
 ##### <a name="anc_e"> E</a>
 ##### Engine Service Collection
-<font size=1>[Personium]</font> ユーザがサーバ側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスレクション](../apiref/1.5.8/379_Engine_Service_Collection_APIs.html)を参照。
+<font size=1>[Personium]</font> ユーザがサーバ側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスレクション](../apiref/1.5.8/379_Engine_Service_Collection_APIs.md)を参照。
 
 
 ##### Entity
@@ -108,15 +108,15 @@
 
 
 ##### Event
-<font size=1>[Personium]</font> Personiumの内部および外部から発生するインスタンス。詳細は[イベント概要](../apiref/1.5.8/277_Event_Summary.html)参照。
+<font size=1>[Personium]</font> Personiumの内部および外部から発生するインスタンス。詳細は[イベント概要](../apiref/1.5.8/277_Event_Summary.md)参照。
 
 
 ##### EventLog
-<font size=1>[Personium]</font> 外部および内部イベントの発生ログ。[ログ取得API](../apiref/1.5.8/285_Retrieve_Log_File.html)によって取得可能。
+<font size=1>[Personium]</font> 外部および内部イベントの発生ログ。[ログ取得API](../apiref/1.5.8/285_Retrieve_Log_File.md)によって取得可能。
 
 
 ##### $expand クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。データ取得リクエストに付加し、指定した関連情報を同時に取得するクエリ。（[詳細事項](../apiref/1.5.8/405_Expand_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。データ取得リクエストに付加し、指定した関連情報を同時に取得するクエリ。（[詳細事項](../apiref/1.5.8/405_Expand_Query.md)）
 
 
 ##### External Cell
@@ -129,11 +129,11 @@
 
 ##### <a name="anc_f"> F</a>
 ##### $filter クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。検索条件を指定しデータを絞り込むクエリ。（[詳細事項](../apiref/1.5.8/403_Filter_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。検索条件を指定しデータを絞り込むクエリ。（[詳細事項](../apiref/1.5.8/403_Filter_Query.md)）
 
 
 ##### $format クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（[詳細事項](../apiref/1.5.8/404_Format_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（[詳細事項](../apiref/1.5.8/404_Format_Query.md)）
 
 
 ##### FQDN
@@ -142,7 +142,7 @@
 
 
 ##### 全文検索クエリ(Full-Text Search Query)
-<font size=1>[OData]</font> リクエストに「q="検索語"」を付加することで、EntityTypeに含まれている全データを対象とした全文検索を行うクエリ。（[詳細事項](../apiref/1.5.8/408_Full_Text_Search_Query.html)）
+<font size=1>[OData]</font> リクエストに「q="検索語"」を付加することで、EntityTypeに含まれている全データを対象とした全文検索を行うクエリ。（[詳細事項](../apiref/1.5.8/408_Full_Text_Search_Query.md)）
 
 
 ##### <a name="anc_g"> G</a>
@@ -154,7 +154,7 @@
 
 
 ##### $inlinecount クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。コレクションにおける、エンティティの数のカウントを表示するクエリ。（[詳細事項](../apiref/1.5.8/407_Inlinecount_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。コレクションにおける、エンティティの数のカウントを表示するクエリ。（[詳細事項](../apiref/1.5.8/407_Inlinecount_Query.md)）
 
 
 ##### <a name="anc_j"> J</a>
@@ -191,7 +191,7 @@ ODataについての詳細は[こちら](http://www.odata.org/)。
 
 
 ##### $orderby クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。ユーザーが特定した順序でソートされた値を表示する。デフォルトでは昇順。（[詳細事項](../apiref/1.5.8/400_Orderby_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。ユーザーが特定した順序でソートされた値を表示する。デフォルトでは昇順。（[詳細事項](../apiref/1.5.8/400_Orderby_Query.md)）
 
 
 ##### <a name="anc_p"> P</a>
@@ -201,7 +201,7 @@ ODataについての詳細は[こちら](http://www.odata.org/)。
 
 ##### Privilege
 <font size=1>[Personium]</font> Cell内に定義されたRoleに対し、特定のRoleに紐付けられたBox内部のデータにアクセスする権限。  
-PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](./002_Access_Control.html)参照。
+PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](./002_Access_Control.md)参照。
 
 
 ##### <a name="anc_q"> Q</a>
@@ -271,7 +271,7 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 
 
 ##### $select クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。データ取得時に、特定のPropertyのみ指定して取得するクエリ。複数指定も可能。（[詳細事項](../apiref/1.5.8/406_Select_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。データ取得時に、特定のPropertyのみ指定して取得するクエリ。複数指定も可能。（[詳細事項](../apiref/1.5.8/406_Select_Query.md)）
 
 
 ##### SentMessage
@@ -287,7 +287,7 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 
 
 ##### $skip クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。取得したデータのうち、指定した個数の分だけ、表示から除外して抽出するクエリ。（[詳細事項](../apiref/1.5.8/402_Skip_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。取得したデータのうち、指定した個数の分だけ、表示から除外して抽出するクエリ。（[詳細事項](../apiref/1.5.8/402_Skip_Query.md)）
 
 
 ##### <a name="anc_t"> T</a>
@@ -300,11 +300,11 @@ Personiumでは以下の種類:があり、発行から1時間で変更される
 
 
 ##### Token (トークン)認証
-<font size=1>[一般]</font> 認証プロセスの一つ。クライアントがリクエストするcURLのアクセストークンによる認証方法。詳細は[認証モデル](./003_Auth.html)を参照。
+<font size=1>[一般]</font> 認証プロセスの一つ。クライアントがリクエストするcURLのアクセストークンによる認証方法。詳細は[認証モデル](./003_Auth.md)を参照。
 
 
 ##### $top クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。取得したデータの最大記録数を指定しその個数分を返す。抽出データは、セット内の最初から数えられる。（[詳細事項](../apiref/1.5.8/401_Top_Query.html)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。取得したデータの最大記録数を指定しその個数分を返す。抽出データは、セット内の最初から数えられる。（[詳細事項](../apiref/1.5.8/401_Top_Query.md)）
 
 
 ##### <a name="anc_u"> U</a>
