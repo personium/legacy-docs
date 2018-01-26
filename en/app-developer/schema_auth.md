@@ -1,69 +1,56 @@
-# Schema認証
-## Schema認証とは
-Personium Boxは、Cellを保有している主体が個人に紐づくデータを利用する何らかのサービスを活用する際、
-そのデータを他のサービスが不正にアクセスしたり改変したりできないようにする仕組みを提供することを目的とした実装を含んでいます。
+# Schema authentication
+## What is Schema authentication?
+When Personium Box utilizes some kind of service that utilizes data associated with individuals, an entity that owns Cells,
+It includes implementations aimed at providing a mechanism that prevents other services from illegally accessing or modifying the data.
 
-そのため、「あるBoxを操作することのできる権限の持ち主が、同じトークンで他のBoxにアクセスすることを不可能にする」認証の枠組みが提供されており、
-Personium ではそれを**Schema認証**と呼びます。（直感的理解のため、アプリ認証と説明することもありますが非公式の用語とします）
+Therefore, there is provided a framework of authentication "to make it impossible for owner of authority to operate certain Box to access other Box with the same token"
+Personium calls it **Schema authentication**. (Although it may be described as application authentication for intuitive understanding, it is assumed to be an unofficial term)
 
-Schema認証APIは、OAuth2.0におけるクライアント認証の枠組みの中で規定されたものであるため、
-ClientIDとClientSecretをパラメータとして認証時に付加するのみで実施可能です。
+Since the Schema authentication API is prescribed in the framework of client authentication in OAuth 2.0,
+It can be implemented only by adding ClientID and ClientSecret as parameters at the time of authentication.
 
 ```
     A client application consisting of multiple components, each with its
-
     own client type (e.g. a distributed client with both a confidential
-
     server-based component and a public browser-based component), MUST
-
     register each component separately as a different client to ensure
-
     proper handling by the authorization server.
 ```
 
-意訳
+## Setting for Schema authentication
+### Overview
+In order for an application to access data in a Box, normally, authentication is first performed with a Target specification as an application client in a central cell (application Cell) managed by a service provider, and <br>
+After that, by executing Schema authentication by designation of normal ID / PW, ClientID, ClientSecret, a token that accesses only that Box is issued.
+
+Alternatively, when updating the expiration date using RefreshToken acquired when executing normal ID / PW authentication, you can issue TransCell token by specifying ClientID · ClientSecret as described above. (V1.5.2 or later)
+
+### premise
+In order to perform Schema authentication, the following cells are mandatory. <br>
+· {Appcell}: application cell (schema authentication cell)
+· {Cell}: User cell
+
+### Flow of authentication
+In Personium, we perform <br> Schema authentication (application authentication) by tying a special role (`{issuerUrl} + / __ role / __ / confidentialClient`) to the application's account. (Schema authentication level `confidential`)
+User authentication and schema authentication are evaluated together by performing user authentication by including schema authentication information in `client_id` and` client_secret` at the time of user cell authentication.
+
+## Schema authentication procedure
+### App authentication information setting to the application cell
+
+Create an account on the app store (normal account creation)
+Creating roles (normal role creation)
+Creating a role is optional. Executed only when performing the top level schema authentication (Confidential Client)
+Connecting accounts and roles (normal association process)
+For the same reason as creating a role,
+
+### Schema authentication level setting for user cell collection
+Configure schema authentication level using ACL.
+
+Sample Schema Authentication Configuration ACL
 
 ```
-    Clientはユーザーに代わって保護リソースにアクセスするアプリケーションです。
-    Client Typesとして、秘密鍵を安全に管理できるconfidential、クライアントサイドで動いて管理できないのはpublic
-    ConfidentialならAuthZ Code, PublicなのはImplicit使え
-    サーバーサイドとクライアントサイドの両方のComponentから構成されている場合、別々で登録出来る必要があります
-```
-## Schema認証をするための設定
-### 概要
-* アプリケーションがBox内のデータにアクセスするためには、通常、まずサービス提供者が管理する中央Cell（アプリCell）にてアプリクライアントとしてのTarget指定で認証を行い、<br>
-その後通常のID/PWおよびClientID・ClientSecretの指定によるSchema認証を実施することで、そのBoxのみにアクセスするトークンを発行します。
-
-* または、通常のID/PW認証を実施したときに取得したRefreshTokenを用いて有効期限更新をする際に、<br>上記と同様にClientID・ClientSecret指定によるTransCellトークン発行が可能です。（v1.5.2以降）
-
-### 前提
-* Schema認証を実施するには、以下のセルが必須となります。<br>
-	* ・{appcell}: アプリセル（スキーマ認証セル）
-	* ・{cell}: ユーザーセル
-
-### 認証の流れ
-* Personiumではアプリセルのアカウントに特殊ロール（`{issuerUrl} + /__role/__/confidentialClient`）を結びつけることで、<br>スキーマ認証（アプリ認証）を行います。（スキーマ認証レベル `confidential` の場合）
-* ユーザーセル認証時の`client_id`と `client_secret` にスキーマ認証情報を入れてユーザ認証を行うことでユーザ認証、スキーマ認証の評価を一緒に行います。
-
-## Schema認証手順
-### アプリセルへアプリ認証情報設定
-
-* アプリセルにアカウント作成（通常のアカウント作成）
-* アプリセルにロール作成（通常のロール作成）
-	* ロールの作成は任意。最上位のスキーマ認証（Confidential Client）を行う場合のみ実施
-* アカウントとロールの結びつけ（通常の結びつけ処理）
-	* ロールの作成と同じ理由により任意
-
-### ユーザーセルのコレクションにスキーマ認証レベル設定
-
-* ACLを使ってスキーマ認証レベルの設定を行います。
-
-* スキーマ認証設定ACLのサンプル
-
-* ```
 <D:acl xmlns:D="DAV:" xml:base="https://demo.personium.io/cell/__role/box/"
 xmlns:p="urn:x-personium:xmlns"
-p:requireSchemaAuthz="{スキーマ認証レベル}">
+p:requireSchemaAuthz="{Schema authentication level}">
     <D:ace>
         <D:principal>
             <D:all/>
@@ -75,43 +62,37 @@ p:requireSchemaAuthz="{スキーマ認証レベル}">
     </D:ace>
 </D:acl>
 ```
+#### Possible Values for Schema Authentication Level
 
+| Level value | Contents |
+|: - |: - |
+| none | accessible without schema (default) |
+| public | accessible if schema is present |
+| confidential | accessible if schema has special role confidentialClient |
 
-#### スキーマ認証レベルの取りうる値
+### Authenticating with an applet
+Acquire transcell token for data cell by authenticating to application cell from application
+Here, normal password authentication
 
-| レベル値     | 内容                                                       |
-|:--|:--|
-| none         | スキーマ無しでアクセス可能（デフォルト）                   |
-| public       | スキーマがあればアクセス可能                               |
-| confidential | スキーマに特殊ロールconfidentialClientがあればアクセス可能 |
+### Authentication with User Cell
+We perform normal password authentication from the Personium application to the user cell and at the same time authenticate by adding the transit token received from the application cell to the client_secret and the URL of the <br> application cell to the client_id.
+Check `issuer` and` client_id` in client_secret, and if they match, give schema information (URL) to the access token to be issued.
+Check the role (`AttributeStatement \ Attribute \ AttributeValue`) in client_secret and if the <br> role is a special value (` {issuerUrl} + / __ role / __ / confidentialClient`) Give c (a sign that it is conficential).
 
-### アプリセルでの認証
-
-* アプリからアプリセルに対して認証してデータセル向けトランスセルトークン取得
-* ここでは通常のパスワード認証
-
-### ユーザーセルでの認証
-
-* Personiumアプリからユーザーセルに対して通常のパスワード認証をすると同時にアプリセルから受け取ったトランスセルトークンをclient_secret、<br>アプリセルのURLをclient_idに入れて認証します。
-* client_secret 内の`issuer`と`client_id`をチェックし、一致していれば発行するアクセストークンにスキーマ情報（URL）を付与します。
-* client_secret 内のロール（`AttributeStatement\Attribute\AttributeValue`の値）をチェックし、<br>ロールが特殊な値（`{issuerUrl} + /__role/__/confidentialClient`）であればスキーマ情報の後ろに#c（conficentialであることの印）を付与します。
-
-
-* ```
-curl -X POST '{UnitURL}/{cell}}/__auth' -d \
-'grant_type=password&username=user&password=pass&client_id={UnitURL}/{appcell}/&client_secret={アプリセルから受け取ったトランセルトークン}'
+```
+curl - X POST '{UnitURL} / {cell}} / __ auth' - d \
+'grant_type = password & username = user & password = pass & client_id = {UnitURL} / {appcell} / & client_secret = {trancel token received from the application cell}
 ```
 
-### ボックス及びコレクションのデータアクセス制御
+### Data access control for boxes and collections
+Check the schema authentication information of the access token when accessing the box and collection and the schema set in the <br> box (the box to which the access destination belongs in the collection).
 
-* ボックス及びコレクションにアクセスする際のアクセストークンのスキーマ認証情報と、<br>ボックスに設定されているスキーマ（アクセス先がコレクションの場合属するボックス）のチェックを行います。
+Schema of the box / collection to access Compares the authentication level setting with the schema information of the access token, and rejects access if it does not match the <br> level setting.
 
-* アクセスするボックス/コレクションのスキーマ認証レベル設定とアクセストークンのスキーマ情報を比較し、<br>レベル設定に合わない場合はアクセスを拒否します。
+· None => Do not perform schema authentication check
 
-	* ・none => スキーマ認証チェックを行わない
+· Public => Perform schema authentication check and make it accessible if schema authentication is done
 
-	* ・public => スキーマ認証チェックを行い、スキーマ認証されていればアクセス可能にする
+· Confidential => Perform schema authentication check and make it accessible if there is a special role (confidentialClient)
 
-	* ・confidential => スキーマ認証チェックを行い、特殊ロール（confidentialClient）があればアクセス可能にする
-
-* アクセスするボックスのスキーマ値とアクセストークンのスキーマ値を比較し、値が異なる場合はアクセスを拒否します。
+Compare the schema value of the accessed box with the schema value of the access token, and deny access if the values ​​are different.

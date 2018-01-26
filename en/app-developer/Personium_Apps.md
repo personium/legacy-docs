@@ -6,7 +6,7 @@ Personium Project has implemented several sample GUI tools to demonstrate the fu
 
 However, Personium App developer should note that other Personium App developers are involved in this open ecosystem. Therefore, it is inevitable that all of us should follow certain basic developer guidelines (Likewise for any other OSS communities).  
 
-![Diagram](https://github.com/personium/Hands-on-Demo/blob/master/doc/app_overview.png)  
+![Diagram](https://raw.githubusercontent.com/personium/Hands-on-Demo/master/doc/app_overview.png)  
 
 ## Video Demonstrations  
 1. Data Synchronization  
@@ -154,7 +154,7 @@ The following functions are under planning.
 
 #### Sample Apps  
 1. [HomeApp Repository](https://github.com/dixonsiu/app-cc-home/)    
-	- [Overview](https://github.com/dixonsiu/app-cc-home/blob/master/README.md)  
+	- [Overview](https://github.com/dixonsiu/app-cc-home/blob/master/)  
 	- [Demo with tutorial](https://demo.personium.io/democell/io_personium_demo_HomeApplication/src/login.html?lng=en)  
 	- [Demo](https://demo.personium.io/HomeApplication/__/box-resources/login.html?lng=en&mode=global)  
 

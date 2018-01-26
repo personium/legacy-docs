@@ -19,7 +19,7 @@ There are two types of access token and refresh token. Trans-cell token is used 
 
 ## Grant Flow
 
-Before initiating flow, please [register client](https://personium.github.io/en/user_guide/004_Client_auth.html) if client authentication is required.
+Before initiating flow, please [register client](./004_Client_auth.md) if client authentication is required.
 
 #### Resouce Owner Password Credentials Grant
 

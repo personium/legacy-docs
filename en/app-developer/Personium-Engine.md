@@ -1,52 +1,40 @@
 # Personium Engine
 ## Overview
 
-Personium Engine は、簡単なサーバサイドロジックを登録しこれを走行させるための仕組みです。ロジック記述言語としては現在のところJavaScriptのみをサポートしています。EngineへのアクセスはBox内に作成した Engine Service Collection (ESC)を介して行います。
+Personium Engine is a mechanism for registering simple server side logic and running it. Currently only JavaScript is supported as a logic description language. Access to the Engine is done via the Engine Service Collection (ESC) created in Box.
 
-1. ESC内にJavaScriptファイル配置
-1. ESCへのPROPPATCHメソッド発行でルーティング設定（どのパスでどのロジックを走行させるかという設定）を実施
-1. ESCや親ディレクトリへのACLメソッド発行でexec権限を付与
+1. Place JavaScript file in ESC
+1. Routing setting (setting which logic to run in which pass) by issuing PROPPATCH method to ESC
+1. Grant exec privilege by issuing ACL method to ESC or parent directory
 
-上記3ステップの準備をすることで、指定パスでサーサイドロジックが走行するようになります。
+By preparing for the above three steps, SERSAI logic will run on the specified path.
 
-サーバサイドロジックはJSGI仕様に従った関数として定義します。関数内では一般的なJavaScriptロジック記述に加えて、PersoniumのAPI呼出を行うための関数群であるEngine Library をはじめとするいくつかのグローバルオブジェクトが使用可能です。
+We define server side logic as a function according to JSGI specification. Within the function, in addition to general JavaScript logic description, it is possible to use several global objects including Engine Library which is a group of functions for calling Personium 's API.
 
-ユニットの管理者はEngine Extensionをユニットに設定することでEngine Libraryを拡張することもできます。具体的にはJava言語で特定の方法で書かれたロジックをjarファイルとしてユニットに設定することで、Engine Library内に新たなJavaScriptクラスを定義して使用可能とすることができます。
+Unit administrators can also extend Engine Library by setting Engine Extension as a unit. Specifically, by setting logic written in a specific way in the Java language as a jar file in the unit, you can define a new JavaScript class in the Engine Library and make it available.
 
 ## Engine Service Collection
+Engine Service Collection is a special collection that can be created anywhere in Box's WebDAV space. ESC has two roles of storing and managing Engine Script and providing an end point for execution.
 
-Engine Service CollectionはBox内WebDAV空間の任意の場所に作成できる特殊Collectionです。ESCはEngine Scriptの格納・管理と実行のためのエンドポイント提供という二つの役割を持っています。
-
-### ESCの作成・削除
-
-ESCの作成はMKCOLメソッドを使って以下のように行います。まだDELETEメソッドの発行で削除が可能です。MOVEメソッドでのリネームや移動が可能です。ACLメソッドを使ってのアクセス権設定においては、exec権限の付与が重要となります。
+### Create / delete ESC
+To create an ESC, use the MKCOL method as follows. Deletion is still possible by issuing the DELETE method. You can rename and move with the MOVE method. Granting exec privilege is important in setting access rights using ACL method.
 
 ### Script Source Collection
+When creating an ESC, the collection directory for __src / is automatically created internally automatically. This is the Script Source Collection. It stores Engine Script written in JavaScript here. It is the same as ordinary WebDAV Collection, except that child directory can not be created in this directory and MOVE and DELETE can not be done, and it registers, deletes and updates Engine Script by WebDAV operation.
 
-ESCを作成すると内部に自動的に自動的に__src/というソース格納用のCollectionディレクトリが作成されます。これがScript Source Collectionです。ここにJavaScriptで記述したEngine Scriptを格納します。このディレクトリには子ディレクトリを作成することはできずMOVEやDELETEができないといった点をのぞき通常のWebDAV Collectionと同じであり、WebDAV操作によってEngine Scriptの登録・削除・更新を行います。
-
-### ロジック実行エンドポイント設定
-
-ESCにPROPPATCHメソッドを発行しプロパティを設定することによりロジック実行エンドポイントを設定できます。
-
->
+### Logic execution endpoint setting
+You can set the logic execution endpoint by issuing the PROPPATCH method to ESC and setting its properties.
 
 ## Engine Script
-
-Engine ScriptはESCの中に登録するスクリプトです。現在JavaScriptのみをサポートしています。Engine ScriptはJSGI仕様に従った関数として定義します。関数内では一般的なJavaScriptロジック記述に加えて、PersoniumのAPI呼出を行うための関数群であるPersonium Engine Library をはじめとするいくつかのグローバルオブジェクトが使用可能です。
+Engine Script is a script to register in ESC. Currently only JavaScript is supported. Engine Script is defined as a function conforming to the JSGI specification. Within the function, in addition to general JavaScript logic description, several global objects such as Personium Engine Library, which is a group of functions for calling Personium 's API, can be used.
 
 ## Engine Library
-
-Engine LibrayはEngine Scriptの中で使うことのできるライブラリで_pというグローバル変数からアクセスします。自Cellの自Boxはもちろん、他Cellや他Boxへのアクセスもアクセスが許されていれば可能です。
-
+Engine Libray is a library that you can use in Engine Script to access from the global variable _p. Access to other Cell and other Box as well as own Box of its own cell is possible as long as access is permitted.
 
 ### Sample
 
-
 ### API Reference
-
-Engine Librayの詳細は以下のAPIリファレンスもご覧ください。
+For details of Engine Libray, please also refer to the API reference below.
 
 ## Engine Extension
-
-Engine ExtensionはEngine Libraryを拡張するための機構です。指定の方法で定義されたJavaクラスをユニットに設定することでEngine Libraryの機能不足を補うことができます。Engine Extensionの導入はユニット管理者でないと行うことができません。
+Engine Extension is a mechanism for extending Engine Library. By setting the Java class defined by the specified method to the unit, it is possible to compensate for lack of function of Engine Library. Installation of Engine Extension can not be done unless it is a unit administrator.
