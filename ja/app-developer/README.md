@@ -6,7 +6,7 @@ PersoniumのAPIを使用して、PDSアプリを開発したい人向けのド�
 
 ### [クライアント登録&認証](../user_guide/004_Client_auth.html)
 
-### [Schema認証](./schema_auth.html)
+### [アプリ認証](./app_authn.html)
 
 ### [Personium Engine](./Personium-Engine.html)
 
