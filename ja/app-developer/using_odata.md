@@ -32,14 +32,14 @@ ODataのEntityTypeにはOpenTypeという考え方があります。これはス
 現状のPersoniumのEntityTypeはすべてOpenTypeとなります。すなわち、未定義の項目を含むデータ登録リクエストがあったとき、
 これを受け入れデータを格納します。
 
-> スキーマ情報(EDMX）上では、EntityType要素のOpenType属性が必ずTrueになるかたちで現れます。このような動作を嫌う利用者のために、
-OpenType=falseなEntityType（未定義項目の登録はエラーにする）のサポートも予定していますが未実装です。
+> スキーマ情報(EDMX）上では、EntityType要素のOpenType属性が必ずTrueになるかたちで現れます。このような動作を嫌う利用者のために、OpenType=falseなEntityType（未定義項目の登録はエラーにする）のサポートも予定していますが未実装です。
 
 このようにして格納された項目はODataではDynamicPropertyと呼ばれ、
 Personiumではスキーマ上はDeclared=falseという属性のついた未宣言プロパティとして認識され、スキーマ定義上確認も可能です。
 
-> このDeclared属性をあとでtrueに変更する機能も実装を予定していますが未実装です。　
-　
+> このDeclared属性をあとでtrueに変更する機能も実装を予定していますが未実装です。
+
+
 DynamicPropertyはアジャイルな開発を支援するための機能で、例えばスキーマ定義としてEntityTypeだけを作成し、PropertyはすべてDynamicにしてしまうという使い方も可能です。
 
 ### 現状の制限
