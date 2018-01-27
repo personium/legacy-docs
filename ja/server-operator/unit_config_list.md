@@ -1,28 +1,29 @@
 # Unitの設定一覧
 ユニット設定ファイルは、Personiumユニットの設定を管理するファイルです。  
 デフォルトの設定は、GitHubソース上の"personium-unit-config-default.properties"ファイルで定義されています。  
-デフォルトの設定は変更しないでください。  
-設定を変更したい場合、"personium-unit-config.properties"という名前のjavaプロパティファイルを配置し、サーブレットコンテナを起動してください。  
-その後ユニットは、"personium-unit-config.properties"で定義された各設定項目の値で、"personium-unit-config-default.properties"で定義されているデフォルト値を置き換えます。  
+設定を変更したい場合このファイルを変更せず、"personium-unit-config.properties"という名前のjavaプロパティファイルを所定の場所に配置し、サーブレットコンテナを起動してください。 するとユニットはこのファイルで定義された項目はその設定値を使い、定義されていない項目についてのみデフォルトの設定値を使って動作します。
 
 "personium-unit-config.properties"の配置場所はJavaのシステムプロパティで指定可能です。
 ```
 io.personium.configurationFile={ファイル名まで含めたPath}
 ```
 指定されたファイルが存在しない、またはシステムプロパティで指定されていない場合、クラスパス上の"personium-unit-config.properties"を読み込みます。
-<br>
+
+personium-unit-config.propertiesが正しく読み取られたかどうかを確認するには、起動ログをご確認ください。
+
 #### キー名について
 すべてのキーは、以下のキープレフィックスを持ちます。
 ```
 io.personium.core.
 ```
+
 例としてユニット証明書の設定には次のキーを使用する必要があります。
 ```
 io.personium.core.x509.crt
 ```
-<br>
+
 ### 変更必須設定
-Personiumを運用する上でデフォルトから変更を必須としている設定です。
+Personiumを運用する上でデフォルトから変更を必須としている設定です。これら設定を変更せずにPersoniumユニットを起動すると、正しく動作しなかったり、セキュリティ上の問題が発生します。必ず設定を行ってください。
 
 |キー|説明|値|記載例|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
@@ -33,7 +34,7 @@ Personiumを運用する上でデフォルトから変更を必須としてい�
 |security.auth.password.salt|パスワードハッシュソルト値|16桁の16進文字列|saltijkl|core|<br>|
 |unitUser.issuers|ユニットユーザトークン発⾏者として認定する文字列<br>セルURLを指定することでそのセルをユニットユーザトークン発行者として指定できます|文字列URL<br>スペース区切りで複数指定可能|http://localhost:8080/UnitUserCell/ |core|<br>|
 
-<br>
+
 ### 変更任意設定
 Personiumを運用する上でデフォルトからの変更を任意としている設定です。
 
