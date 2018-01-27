@@ -4,169 +4,163 @@
 ##### [A](#anc_a) | [B](#anc_b) | [C](#anc_c) | [D](#anc_d) | [E](#anc_e) | [F](#anc_f) | [G](#anc_g) | [H](#anc_h) | [I](#anc_i) | [J](#anc_j) | [K](#anc_k) | [L](#anc_l) | [M](#anc_m) | [N](#anc_n) | [O](#anc_o) | [P](#anc_p) | [Q](#anc_q) | [R](#anc_r) | [S](#anc_s) | [T](#anc_t) | [U](#anc_u) | [V](#anc_v) | [W](#anc_w) | [X](#anc_x) | [Y](#anc_y) | [Z](#anc_z)
 
 
-### <a name="anc_a"> A</a>
-##### ACL
+## <a name="anc_a"> A</a>
+### ACL
 <font size=1>[一般]</font> Access Control Listの略称。  
 オブジェクトに付与するユーザのアクセス権限を列挙したリスト。PersoniumにおいてはCell,Boxに設定することができる。オブジェクトに付与した権限によって、どのユーザがアクセスを許可されているか、どのような制御命令の使用が許可されているかを定義する。  
 （例：Read:読込許可、Write:編集許可、Read/Write:読込/編集許可）
 
 
-##### Account
+### Account
 <font size=1>[一般]</font> 特定のセルに属するユーザを意味する。アカウント名やパスワードといった情報によって構成される。１セルに複数の登録が可能。  
 
 
-##### Association
+### Association
 <font size=1>[OData]</font> 2つ以上のEntityType（RDBにおけるテーブル）間の関係性を示す。1対のAssociationEndとその間の$linksによって構成される。  
 「1対1」「1対多」「多対多」の種類に分けて扱われる。
 
 
-##### AssociationEnd
+### AssociationEnd
 <font size=1>[OData]</font> Associationを構成するエンドポイントとなっているEntityType。1対のAssociationEndとその間の$linksによってAssociationが構成される。  
 
 
-##### Authentication
+### Authentication
 <font size=1>[一般]</font> 認証。Personiumのアカウント認証では、作成済みのアカウント名とパスワードでの認証を行い、トークンを取得する方式を採用している。  
 
 
-### <a name="anc_b"> B</a>
-##### bar ファイル
+## <a name="anc_b"> B</a>
+### bar ファイル
 <font size=1>[Personium]</font> box archive ファイルの略称。Boxの構成内容をまとめたアーカイブファイル。  
 フォルダ内の階層構造でWebDAVコレクションの階層構造を表し、その階層毎にファイルを格納することで、WebDAV内に格納するファイルを保持する。
 詳細は[barファイル](../apiref/1.5.8/301_Bar_File.md)参照。  
 
 
-##### Box
+### Box
 <font size=1>[Personium]</font> アプリケーションに用いるデータを格納する領域。自身もWebDAVコレクションの一つである。一意の名前とスキーマURLを持つ。Cellは、Box未作成でも初期状態で1つのBox（メインボックス） を持ち、削除は不可。
 
 
-##### Box インストール
+### Box インストール
 <font size=1>[Personium]</font> barファイルを用いて、Boxを作成すること。詳細は[Boxインストール](../apiref/1.5.8/302_Box_Installation.md)APIを参照。
 
 
-##### Box レベル ACL
+### Box レベル ACL
 <font size=1>[Personium]</font> Box配下のリソース対するACL。詳細は[アクセス制御モデル](./002_Access_Control.md)参照。
 
 
-### <a name="anc_c"> C</a>
-##### Cell
+## <a name="anc_c"> C</a>
+### Cell
 <font size=1>[Personium]</font> データ主体ごとのData Strore。個人で使う場合はPDS(Personal Data Store)となる。Personiumでは、データ主体という概念を人のみでなく組織やモノなどにも拡張したモデル化を行っているため、組織やモノのデータストアとしても使うことが可能。  
 （例、私のCell, あなたのCell, ○○会社のCell, ○○部のCell, 私の車のCell）
 
 
 
-##### Cell制御オブジェクト
+### Cell制御オブジェクト
 <font size=1>[Personium]</font> セルが持つ機能を個別に定義する定義体。Role,   Account, Box, ExtCell, ExtRoleなどがある。
 
 
-##### Cell レベル ACL
+### Cell レベル ACL
 <font size=1>[Personium]</font> Boxレベルのアクセス権限を除いたCellへのACL。Cell制御オブジェクトの操作や配下のBoxに対するアクセス制御を定義する。
 
 
-##### Cell Profile
+### Cell Profile
 <font size=1>[Personium]</font> Personiumセルの情報を格納する定義体。ホームアプリケーション等のアプリケーションでセル名、イメージ、 そのセルの情報などを表示する項目。
 
 
-##### Collection （コレクション）
+### Collection （コレクション）
 <font size=1>[Personium]</font> セルにあるBoxの中に格納されたデータ集合。「WebDAV」「OData Service Collection」「Engine Service Collection」の3種類がある。
 
 
-##### ComplexType
+### ComplexType
 <font size=1>[OData]</font> 下位属性を伴った属性を持つPropertyのこと。項目名はComplexTypeProperty。  
 （例えば、「住所」をComplexTypeとすると、通り1・通り2・国・郵便番号・都道府県・市区町村などがComplexTypePropertyとなる。）
 
 
-##### ComplexTypeProperty
+### ComplexTypeProperty
 <font size=1>[OData]</font> ComplexTypeの下位属性の名称。例えば、 ComplexTypeが「住所」の場合、通り1・通り2・国・郵便番号・都道府県・市区町村などがComplexTypePropertyとなる。
 
 
-##### CORS
+### CORS
 <font size=1>[一般]</font> Cross-Origin Resource Sharingの略称。Webページにおいて、JavaScriptが他のドメインに対しXMLHttpRequestを許可すること。[CORS対応](../apiref/1.5.8/002_CORS_Support.md)を参照。  
 （詳細については[外部サイト](http://www.w3.org/TR/cors/)を参照）
 
 
-##### Cross Domain Access Control(クロスドメインアクセス制御)
+### Cross Domain Access Control(クロスドメインアクセス制御)
 <font size=1>[一般]</font> 異なるドメインを持つサーバに対するアクセスの制御を行うこと。Personiumでは、XMLHttpRequest Level2に基づいた[クロスドメインポリシーファイル](../apiref/1.5.8/001_Cross_Domain_Policy_File.md)によって制御されている。
 
 
-### <a name="anc_d"> D</a>
-### <a name="anc_e"> E</a>
-##### Engine Service Collection
+## <a name="anc_e"> E</a>
+### Engine Service Collection
 <font size=1>[Personium]</font> ユーザがサーバ側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスレクション](../apiref/1.5.8/379_Engine_Service_Collection_APIs.md)を参照。
 
 
-##### Entity
+### Entity
 <font size=1>[OData]</font> データの記録構造のことであり、RDBにおけるテーブル1行分に相当する。例えば、名前・住所・性別といった情報に格納された値を表したもの。
 
 
-##### EntityType
+### EntityType
 <font size=1>[OData]</font> データの構造をEntity Data Model(EDM)であらわすための定義体。EntityがRDBにおけるテーブル1行分に相当するのに対し、EntityTypeはテーブルの上位概念を表したもの（顧客、注文内容など）
 
 
-##### ETag
+### ETag
 <font size=1>[Personium]</font> Entity Tagのこと。Webキャッシュの検証に用いる固有の識別子でクライアントの状況に応じたリクエストの送信を可能にする。  
 コンテンツの更新がない場合において、レスポンスをすべて返す必要がないときにキャッシュの効果的な使用を高め、データの転送量を減らすことで帯域幅を確保する。
 
 
-##### Event
+### Event
 <font size=1>[Personium]</font> Personiumの内部および外部から発生するインスタンス。詳細は[イベント概要](../apiref/1.5.8/277_Event_Summary.md)参照。
 
 
-##### EventLog
+### EventLog
 <font size=1>[Personium]</font> 外部および内部イベントの発生ログ。[ログ取得API](../apiref/1.5.8/285_Retrieve_Log_File.md)によって取得可能。
 
 
-##### $expand クエリ
+### $expand クエリ
 <font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。データ取得リクエストに付加し、指定した関連情報を同時に取得するクエリ。（[詳細事項](../apiref/1.5.8/405_Expand_Query.md)）
 
 
-##### External Cell
+### External Cell
 <font size=1>[Personium]</font> 外部セル。セル制御オブジェクトの1つ(ExtCell)。あるセルの外にある他のセル。あらゆるユニットのセルを外部セルとして扱う事ができる。
 
 
-##### External Role
+### External Role
 <font size=1>[Personium]</font> 外部ロール。セル制御オブジェクトの1つ(ExtRole)。特定の関係にある外部セルにて、特定の役割（Role）を付与された利用者主体を表す。
 
 
-### <a name="anc_f"> F</a>
-##### $filter クエリ
+## <a name="anc_f"> F</a>
+### $filter クエリ
 <font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。検索条件を指定しデータを絞り込むクエリ。（[詳細事項](../apiref/1.5.8/403_Filter_Query.md)）
 
 
-##### $format クエリ
+### $format クエリ
 <font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。HTTPレスポンスにおいてメディアタイプを指定するクエリ。（[詳細事項](../apiref/1.5.8/404_Format_Query.md)）
 
 
-##### FQDN
+### FQDN
 <font size=1>[一般]</font> Fully Qualified Domain Name（完全修飾ドメイン名）の略称。  
 インターネット上の特定のコンピュータやホストを一意に定義する完全なドメイン名をあらわす  （例：host-name.domain-name.com）
 
 
-##### 全文検索クエリ(Full-Text Search Query)
+### 全文検索クエリ(Full-Text Search Query)
 <font size=1>[OData]</font> リクエストに「q="検索語"」を付加することで、EntityTypeに含まれている全データを対象とした全文検索を行うクエリ。（[詳細事項](../apiref/1.5.8/408_Full_Text_Search_Query.md)）
 
 
-### <a name="anc_g"> G</a>
-### <a name="anc_h"> H</a>
-### <a name="anc_i"> I</a>
-##### Implicit Flow
+## <a name="anc_i"> I</a>
+### Implicit Flow
 <font size=1>[OAuth2.0]</font> <a href="http://tools.ietf.org/pdf/rfc6749.pdf">OAuth2.0</a>で規定された認可付与フローの一つ。 クライアントが (リソースオーナー認可の結果) 認可コードの代わりに直接アクセストークンを受け取る。  
 詳細は[外部サイト](http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#grant-implicit)参照。
 
 
-##### $inlinecount クエリ
+### $inlinecount クエリ
 <font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。コレクションにおける、エンティティの数のカウントを表示するクエリ。（[詳細事項](../apiref/1.5.8/407_Inlinecount_Query.md)）
 
 
-### <a name="anc_j"> J</a>
-### <a name="anc_k"> K</a>
-### <a name="anc_l"> L</a>
-### <a name="anc_m"> M</a>
-##### Main Box　（メインボックス）
+## <a name="anc_m"> M</a>
+### Main Box　（メインボックス）
 <font size=1>[Personium]</font> セル作成時にデフォルトで作成される、”\__”(アンダーバー2つ)と名づけられたBox。動作は通常のBoxと同様だが、削除は不可。  
 アプリケーションデータを保管する目的以外にも、そのCellの固有情報（json形式を用いる）の格納に使われる。
 
 
-##### Message
+### Message
 <font size=1>[Personium]</font> Personiumにおいて、セルの間でメッセージを送受信する機能。ユーザ任意のメッセージの送受信およびセル間の関係性($links)の発行が可能。
 
 
