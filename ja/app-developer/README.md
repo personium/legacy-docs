@@ -2,13 +2,16 @@
 
 PersoniumのAPIを使用して、PDSアプリを開発したい人向けのドキュメントです
 
-### [アプリ開発ガイド](./Personium_Apps.md)  
+## 概要
 
-### [クライアント登録&認証](../user_guide/004_Client_auth.md)
+## 技術情報
 
-### [アプリ認証](./app_authn.md)
+* [アプリ開発ガイド](./Personium_Apps.md)  
+* [クライアント登録&認証](../user_guide/004_Client_auth.md)
+* [アプリ認証](./app_authn.md)
+* [Homeアプリからの起動](./launch_from_homeapp.md)
+* [Personium Engine](./Personium-Engine.md)
 
-### [Personium Engine](./Personium-Engine.md)
 
 ## サンプルアプリ
 
