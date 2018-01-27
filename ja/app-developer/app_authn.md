@@ -13,6 +13,7 @@ PersoniumのCellは様々なアプリケーションプログラム（アプリ�
 Cellはどのようなアプリをどのようなユーザが操作しているかを確認してアクセス制御を行います。そのため多くの場合アプリ認証はユーザを認証するためのユーザ認証と組み合わせて使用します。
 
 |認証の種類|目的|
+|:--|:--|
 |ユーザ認証|リクエスト主体のユーザを識別するとともに、なりすましではなくリクエストが正当なユーザによるものであることを確認するための認証プロセス|
 |アプリ認証|リクエスト主体のアプリを識別するとともに、なりすましではなくリクエストが正当なアプリによるものであることを確認するための認証プロセス|
 
@@ -26,6 +27,7 @@ Personiumのアプリ認証はOAuth2.0 におけるクライアント認証の�
 Personiumでは具体的には以下の情報を使う仕様としてます。
 
 |OAuth 2.0 パラメタ|Personiumでの指定値|概要|
+|:--|:--|:--|
 |client_id|スキーマURL|アプリやアプリ群・アプリ開発元を示すURL|
 |client_secret|アプリ認証トークン|上記URLをIssuer・Subjectとする有効な署名のついたSAML Assertionをbase64urlエンコードした文字列|
 
@@ -63,7 +65,7 @@ Personiumでは具体的には以下の情報を使う仕様としてます。
 
 * スキーマ認証設定ACLのサンプル
 
-* ```
+```
 <D:acl xmlns:D="DAV:" xml:base="https://demo.personium.io/cell/__role/box/"
 xmlns:p="urn:x-personium:xmlns"
 p:requireSchemaAuthz="{スキーマ認証レベル}">
@@ -100,7 +102,7 @@ p:requireSchemaAuthz="{スキーマ認証レベル}">
 * client_secret 内のロール（`AttributeStatement\Attribute\AttributeValue`の値）をチェックし、<br>ロールが特殊な値（`{issuerUrl} + /__role/__/confidentialClient`）であればスキーマ情報の後ろに#c（conficentialであることの印）を付与します。
 
 
-* ```
+```
 curl -X POST '{UnitURL}/{cell}}/__auth' -d \
 'grant_type=password&username=user&password=pass&client_id={UnitURL}/{appcell}/&client_secret={アプリセルから受け取ったトランセルトークン}'
 ```
