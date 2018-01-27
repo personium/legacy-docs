@@ -10,8 +10,8 @@ PersoniumのAPIを使用して、PDSアプリを開発したい人向けのド�
 * [クライアント登録&認証](../user_guide/004_Client_auth.md)
 * [アプリ認証](./app_authn.md)
 * [Homeアプリからの起動](./launch_from_homeapp.md)
+* [Box内でODataを使う](./using_odata.md)
 * [Personium Engine](./Personium-Engine.md)
-
 
 ## サンプルアプリ
 
