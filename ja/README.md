@@ -16,7 +16,8 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 
 ## ユーザーガイド  
 ### アプリ開発者向け  
-#### [アプリ開発者向けガイド](./app-developer/)  
+
+#### [Personiumアプリ開発者向けガイド](./app-developer/)  
 PersoniumのAPIを使用して、一般的なPDSアプリを開発したい人向けのドキュメントです
 
 #### [Cell管理クライアント開発者向けガイド](./cell-client-developer/)  
