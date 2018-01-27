@@ -15,6 +15,8 @@ Personiumはスケーラブルなアーキテクチャを採用しています�
 
 ユニットの構築にはAnsibleを使うのが便利です。またOpen Stack ベースのクラウド環境に構築する場合は Heat Template を使えば、ほぼ自動でユニット構築が可能です。もちろん、これら自動構築ツールを使わないで任意のクラウドや物理/仮想マシンを使ってユニット構築を行うこともできます。しかし、そのための手順等ドキュメントを私たちが準備しメンテナンスする体力がないため、以下Open StackのHeatを使ったサーバインフラ構築手順やAnsibleを使ったユニット自動構築手順を参考に構築を行ってください。
 
+さまざまな環境でユニットが構築できたというお話をコミュニティの#infraチャネルで聞かせて頂けると嬉しく思います。
+
 ### Open Stack Heatを使ったサーバインフラの自動構築
 
 * [Heatを使ったサーバインフラの自動構築](https://github.com/personium/openstack-heat/blob/master/README_ja.md)
@@ -23,24 +25,27 @@ Personiumはスケーラブルなアーキテクチャを採用しています�
 
 Ansibleを使って、評価用の1台構成のユニットや小規模な本番利用のための3台構成のユニットを構築するためのガイドを公開しています。
 
-* [構築ガイド](./setup_ja.md)
+* [Ansibleを使ったユニット構築ガイド](./setup_ja.md)
 
 上記で紹介しているAnsibleのPlaybookをカスタマイズすれば様々な構成のユニットを構築可能です。
 
 ## ユニットの設定
 
-### [Unitの運用設計と設定](./unit_operation_design.md)
+ユニットの構成ができたら、ユニットを正しく設定する必要があります。
+Ansibleで自動構築ユニットには基本的な設定はひととおりされていますが、完全ではありません。以下を参照し適切な設定を行ってください。
 
-### [Unitの設定一覧](./unit_config_list.md)
-
-### [Unit間連携の設定方法](./unit_coordination.md)
+* [Unitの運用設計と設定](./unit_operation_design.md)
+* [Unitの設定一覧](./unit_config_list.md)
+* [Unit間連携の設定方法](./unit_coordination.md)
 
 ## ユニットの運用
 
+多くの場合Personiumのユニットには個人のプライバシーに関わる情報が入りますし、そもそもインターネット上にサーバを立てる上でセキュリティ対策は必須です。初期構築されたままでユニットを放置せず、適切にセキュリティパッチを適用してください。
+
 
 ### 関連するリポジトリ
-[ansible](https://github.com/personium/ansible)
 
-[openstack-heat](https://github.com/personium/openstack-heat)
+* [ansible](https://github.com/personium/ansible)
+* [openstack-heat](https://github.com/personium/openstack-heat)
+* [openstack-heat_cent6_8](https://github.com/personium/openstack-heat_cent6_8)
 
-[openstack-heat_cent6_8](https://github.com/personium/openstack-heat_cent6_8)
