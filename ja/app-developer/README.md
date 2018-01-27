@@ -4,11 +4,11 @@ PersoniumのAPIを使用して、PDSアプリを開発したい人向けのド�
 
 ### [アプリ開発ガイド](./Personium_Apps.md)  
 
-### [クライアント登録&認証](../user_guide/004_Client_auth.html)
+### [クライアント登録&認証](../user_guide/004_Client_auth.md)
 
-### [アプリ認証](./app_authn.html)
+### [アプリ認証](./app_authn.md)
 
-### [Personium Engine](./Personium-Engine.html)
+### [Personium Engine](./Personium-Engine.md)
 
 ## サンプルアプリ
 
@@ -27,7 +27,8 @@ Webブラウザ向けのAjaxアプリとしてのサンプルアプリがいく�
 
 #### [Cell Manager](https://github.com/personium/app-uc-unit-manager)
 Cell ManagerはCellの管理者としてPersonium CellのほぼすべてのAPI呼び出しを行うことができるGUIツールです。
-[![Cell Manager Intro](https://img.youtube.com/vi/d1_pET0M-YA/0.jpg)](https://www.youtube.com/embed/d1_pET0M-YA)
+[![Cell Manager Intro](https://img.youtube.com/vi/d1_pET0M-YA/3.jpg)](https://www.youtube.com/embed/d1_pET0M-YA)
+
 アプリ開発で正しくデータが入ったかどうか確認を行ったり、テストデータを入力・削除等行ったりするのに便利です。
 
 詳しくは[Cell Managerのリポジトリ](https://github.com/personium/app-uc-unit-manager)のREADMEファイルをご覧ください。
