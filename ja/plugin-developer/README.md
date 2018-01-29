@@ -8,8 +8,10 @@ Personiumのサーバ機能を拡張するために、プラグインを開発�
 
 ### コントリビューターガイド
 
-### APIリファレンス<br>
-[1.5.8 -](../apiref/1.5.8/000_Rest_API_Reference.md)
+### APIリファレンス
+[1.6.0](../apiref/1.6.0/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
+
+[1.5.8](../apiref/1.5.8/000_Rest_API_Reference.md)
 
 [1.5.7](../apiref/1.5.7/000_Rest_API_Reference.md)
 
@@ -27,7 +29,7 @@ Personiumのサーバ機能を拡張するために、プラグインを開発�
 
 [1.4.1以前](http://personium.io/docs/api/1.3.25/Japanese/Japanese.htm#docs/ja/HomePage.htm)
 
-### 関連するリポジトリ<br>
+### 関連するリポジトリ
 [personium-plugin-base](https://github.com/personium/personium-plugin-base)
 
 [personium-ex-mailsender](https://github.com/personium/personium-ex-mailsender)

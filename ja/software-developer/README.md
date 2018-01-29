@@ -7,7 +7,9 @@ PersoniumのOSSの機能を開発したい人、OSSにコミットしたい人�
 ### コントリビューターガイド
 
 ### APIリファレンス
-[1.5.8 -](../apiref/1.5.8/000_Rest_API_Reference.md)
+[1.6.0](../apiref/1.6.0/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
+
+[1.5.8](../apiref/1.5.8/000_Rest_API_Reference.md)
 
 [1.5.7](../apiref/1.5.7/000_Rest_API_Reference.md)
 
