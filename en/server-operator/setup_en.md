@@ -15,13 +15,14 @@ Although you may construct the Personium unit without using the setup tool, but 
 
 Personium unit construction requires to assign the combination of following 7 roles on a single or multiple interconnected servers properly.
 
-|Role<br>|Usage<br>|definition<br>|
+|Role|Usage<br>|definition<br>|
 |:--|:--|:--|
-|Web<br>|Required<br>|Reverse proxy server, contains Global IP and also should be accessible to the internet.<br>|
-|AP<br>|Required<br>|Application server, where Personium will be executed.<br>|
-|ES<br>|Required<br>|server to operate `ElasticSearch`.<br>|
-|NFS<br>|Required<br>|server to operate `Network File System (NFS)`.<br>|
-|Bastion<br>|Optional<br>|Bastion server. Used to execute ansible and to connect other servers by ssh.<br>|
+|Web|Required<br>|Reverse proxy server, contains Global IP and also should be accessible to the internet.<br>|
+|AP|Required<br>|Application server, where Personium will be executed.<br>|
+|ES|Required<br>|server to operate `ElasticSearch`.<br>|
+|MQ|Required<br>|server to operate `ActiveMQ`.|
+|NFS|Required<br>|server to operate `Network File System (NFS)`.<br>|
+|Bastion|Optional<br>|Bastion server. Used to execute ansible and to connect other servers by ssh.<br>|
 
 ### Personium setup tool
 
@@ -38,7 +39,7 @@ If interested, you may try to construct Personium unit on your local machine (vi
 
 -   Machine environment : **Linux**
 -   The number of Personium unit servers : **1 Server**
--   Server-1 elements : Bastion, Web, AP, ES
+-   Server-1 elements : Bastion, Web, AP, ES, MQ
 -   Setup time : 1 hour
 -   Setup tool: [ansible/1-server\_unit](https://github.com/personium/ansible/tree/master/1-server_unit "1-server_unit")
 -   Note  
@@ -49,7 +50,7 @@ If interested, you may try to construct Personium unit on your local machine (vi
 -   Machine environment : **Linux**
 -   The number of Personium unit servers : **3 Servers**
 -   Server-1 elements : Bastion,Web
--   Server-2 elements : AP,NFS
+-   Server-2 elements : AP, MQ, NFS
 -   Server-3 elements : ES
 -   Setup time : 2 hours
 -   Setup tool: [ansible/3-server\_unit](https://github.com/personium/ansible/tree/master/3-server_unit "3-server_unit")
