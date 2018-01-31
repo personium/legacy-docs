@@ -17,13 +17,14 @@ Personiumのユニットはセットアップツールを使用せずに構築�
 
 Personiumのユニットは以下の役割を持ったサーバーから構成されます。これらの役割は相互に接続された単独または複数のサーバーに割り当てることが可能です。
 
-|役割<br>|必須<br>|詳細<br>|
+|役割|必須|詳細|
 |:--|:--|:--|
-|Web<br>|必須<br>|リバースプロキシーサーバー。インターネットからのアクセスが可能なグローバルなIPアドレスを保有する必要があります。<br>|
-|AP<br>|必須<br>|Personiumが動作するアプリケーションサーバーです。<br>|
-|ES<br>|必須<br>|ElasticSearchが動作するサーバーです。<br>|
-|NFS<br>|必須<br>|ネットワークファイルシステム(NFS)が動作するサーバーです。<br>|
-|Bastion<br>|オプション<br>|踏み台サーバ。各サーバへのsshでのアクセスを中継させるためにのサーバです。<br>|
+|Web|必須|リバースプロキシーサーバー。インターネットからのアクセスが可能なグローバルなIPアドレスを保有する必要があります。<br>|
+|AP|必須|Personiumが動作するアプリケーションサーバーです。<br>|
+|ES|必須|ElasticSearchが動作するサーバーです。<br>|
+|MQ|必須|ActiveMQが動作するサーバーです。<br>|
+|NFS|必須<br>|ネットワークファイルシステム(NFS)が動作するサーバーです。<br>|
+|Bastion|オプション|踏み台サーバ。各サーバへのsshでのアクセスを中継させるためにのサーバです。<br>|
 
 ### Personiumセットアップツール
 
@@ -40,7 +41,7 @@ Personiumに興味がおありならば、Personiumの環境をあなたのロ�
 
 -   機器環境 : **Linux**
 -   Personiumユニット構成サーバー台数 : **1 Server**
--   サーバー1の構成 : Web, AP, ES, NFS
+-   サーバー1の構成 : Web, AP, ES, MQ, NFS
 -   構築時間: 1 時間
 -   使用するセットアップツール: [ansible/1-server\_unit](https://github.com/personium/ansible/tree/master/1-server_unit "1-server_unit")
 -   注意  
@@ -50,8 +51,8 @@ Personiumに興味がおありならば、Personiumの環境をあなたのロ�
 
 -   機器環境 : **Linux**
 -   Personiumユニット構成サーバー台数 : **3 Servers**
--   サーバー1の構成 : Bastion,Web
--   サーバー2の構成 : AP,NFS
+-   サーバー1の構成 : Bastion, Web
+-   サーバー2の構成 : AP, MQ, NFS
 -   サーバー3の構成 : ES
 -   構築時間 : 2 時間
 -   使用するセットアップツール: [ansible/3-server\_unit](https://github.com/personium/ansible/tree/master/3-server_unit "3-server_unit")
