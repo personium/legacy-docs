@@ -126,6 +126,7 @@ header ul {
 header ul li {
   list-style-type: none;
   display: inline-block;
+  position: relative;
 }
 header ul li a {
   text-decoration: none;
