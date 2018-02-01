@@ -114,6 +114,16 @@ hr {
   color: #cccccc;
   padding: 0; }
 
+#logo {
+  font-family: 'Raleway', sans-serif;
+  display: inline;
+  color: red;
+  font-size: 24px;
+}
+header nav {
+  display: inline;
+}
+
 body > h2:first-child {
   margin-top: 0;
   padding-top: 0; }
