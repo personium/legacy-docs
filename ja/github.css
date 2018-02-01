@@ -138,7 +138,18 @@ header ul li a:hover {
 
 
 header ul li.submenu ul {
-  display: none;
+  opacity: 0;
+  top: 50%;
+  visibility: hidden;
+  transition: .5s;
+  position: absolute;
+}
+
+header ul li.submenu:hover ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+
 }
 
 #logo {
