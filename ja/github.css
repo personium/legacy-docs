@@ -121,11 +121,22 @@ header {
 header ul {
   display: inline-block;
   float: right;
+  margin: 0;
 }
 header ul li {
   list-style-type: none;
   display: inline-block;
 }
+header ul li a {
+  text-decoration: none;
+  color: black;
+}
+header ul li a:hover {
+  color: black;
+  border: 1px solid #ccc;
+}
+
+
 header ul li.submenu ul {
   display: none;
 }
