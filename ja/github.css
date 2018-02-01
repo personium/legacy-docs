@@ -126,15 +126,16 @@ header ul {
 header ul li {
   list-style-type: none;
   display: inline-block;
-  width: 180px;
-  padding: 5px 15px 5px 10px;
+  padding: 5px 15px 5px 15px;
+  margin: 5px 0 0 0;
   position: relative;
 }
 header ul li a {
   text-decoration: none;
+  display: inline-block;
   color: black;
 }
-header ul li:hover {
+header ul li a:hover {
   background: #eee;
 }
 
