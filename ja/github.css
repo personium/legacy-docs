@@ -116,13 +116,18 @@ hr {
 
 header {
   display: block;
+  border-bottom: 1px solid #cccccc;
 }
 header ul {
   display: inline-block;
+  float: right;
 }
 header ul li {
   list-style-type: none;
   display: inline-block;
+}
+header ul li.submenu ul {
+  display: none;
 }
 
 #logo {
