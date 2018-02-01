@@ -308,3 +308,7 @@ pre {
   pre code, pre tt {
     background-color: transparent;
     border: none; }
+
+footer {
+  border-top: 1px solid #339933;
+}
