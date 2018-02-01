@@ -144,6 +144,8 @@ header ul li.submenu ul {
   visibility: hidden;
   transition: .5s;
   position: absolute;
+  z-index: 9999;
+  padding: 0;
 }
 
 header ul li.submenu:hover ul {
@@ -155,6 +157,7 @@ header ul li.submenu:hover ul {
 header ul li.submenu ul li {
   background: white;
   border: 1px solid #ccc;
+  padding: 0;
 }
 
 #logo {
