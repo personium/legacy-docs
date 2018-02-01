@@ -18,7 +18,7 @@ body.listStyleTypeNone li {
   list-style-type: none;
 }
 
-div.container {
+div#container {
   width: 980px;
   margin-top: 30px
   margin-right: auto;
@@ -127,6 +127,8 @@ hr {
 header {
   display: block;
   border-bottom: 1px solid #cccccc;
+  background: white;
+  margin: 0;
 }
 header ul {
   display: inline-block;
