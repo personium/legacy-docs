@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="$lang$" xml:lang="$lang$"$if(dir)$ dir="$dir$"$endif$>
 <head>
+  <!-- TEST -->
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
@@ -13,7 +14,7 @@ $endif$
 $if(keywords)$
   <meta name="keywords" content="$for(keywords)$$keywords$$sep$, $endfor$" />
 $endif$
-  <title>TEST $if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
   <style type="text/css">
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -42,6 +43,7 @@ $for(header-includes)$
 $endfor$
 </head>
 <body>
+  <H1> Hi </H1>
 $for(include-before)$
 $include-before$
 $endfor$
