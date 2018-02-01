@@ -128,11 +128,11 @@ header, header ul {
   text-decoration: none;
   color: red;
 }
-header nav {
-  display: inline;
+header, header ul{
+  display: flex;
 }
-header nav ul li {
-  display: inline;
+header ul li {
+  list-style-type: none;
 }
 
 body > h2:first-child {
