@@ -310,5 +310,8 @@ pre {
     border: none; }
 
 footer {
-  border-top: 1px solid #339933;
+    border-top: 1px solid #339933;
+    margin: 40px 0 0 0;
+    padding: 10px;
+    background: #f0ffee;
 }
