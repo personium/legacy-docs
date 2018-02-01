@@ -133,7 +133,7 @@ header ul li a {
 }
 header ul li a:hover {
   color: black;
-  border: 1px solid #ccc;
+  background: #eee;
 }
 
 
