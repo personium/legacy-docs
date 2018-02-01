@@ -152,6 +152,10 @@ header ul li.submenu:hover ul {
   visibility: visible;
 
 }
+header ul li.submenu ul li {
+  background: white;
+  border: 1px solid #ccc;
+}
 
 #logo {
   font-family: 'Raleway', sans-serif;
