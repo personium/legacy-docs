@@ -123,6 +123,9 @@ hr {
 header nav {
   display: inline;
 }
+header nav ul li {
+  display: inline;
+}
 
 body > h2:first-child {
   margin-top: 0;
