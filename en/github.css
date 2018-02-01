@@ -1,10 +1,13 @@
 body {
-  font-family:  Helvetica, arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: Helvetica, arial, sans-serif;
+  width: 980px;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left : auto;  
   font-size: 14px;
   line-height: 1.6;
-  background-color: #efd;
+  padding: 0px 30px 10px 30px;
+  background-color: white;
 }
 
 body > *:first-child {
@@ -12,19 +15,8 @@ body > *:first-child {
 body > *:last-child {
   margin-bottom: 0 !important; }
 
-body.listStyleTypeNone li {
+.listStyleTypeNone li {
   list-style-type: none;
-}
-
-div#container {
-  width: 980px;
-  margin-top: 30px;
-  margin-right: auto;
-  margin-left : auto;
-  margin-bottom: 30px;
-  padding: 15px 30px 15px 30px;
-  background-color: white;
-  min-height: calc(100vh - 195px);
 }
 
 p, li, th, td, h1, h2, h3, h4, h5, h6 {
@@ -53,6 +45,7 @@ h2, h3, h4, h5, h6 {
   padding-left: 15px;
 }
 h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
   font-weight: bold;
   -webkit-font-smoothing: antialiased;
   cursor: text;
@@ -83,13 +76,15 @@ h6 tt, h6 code {
 h1 {
   font-size: 28px;
   border-bottom: 5px solid #339933;
-  color: black; }
+  color: black; 
+}
 
 h2 {
   font-size: 24px;
   border-left: 15px solid lightseagreen;
   border-bottom: 1px solid #999999;
-  color: black; }
+  color: black; 
+}
 
 h3 {
   border-left: 4px double green;
@@ -121,71 +116,6 @@ hr {
   background: transparent url("c:///users/admin/documents/fj/pandocgithub/dirty-shade.png") repeat-x 0 0;
   color: #cccccc;
   padding: 0; }
-
-header {
-  display: block;
-  border-bottom: 1px solid #ddd;
-  background: #fff;
-  margin: 0;
-  padding: 5px 15px 5px 15px;
-}
-header ul {
-  display: inline-block;
-  float: right;
-  margin: 0;
-}
-header ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 5px 15px 5px 15px;
-  margin: 5px 0 0 0;
-  position: relative;
-}
-header ul li a {
-  text-decoration: none;
-  display: inline-block;
-  color: black;
-}
-header ul li a:hover {
-  background: #eee;
-}
-
-
-header ul li.submenu ul {
-  opacity: 0;
-  top: 50%;
-  visibility: hidden;
-  transition: .5s;
-  position: absolute;
-  z-index: 9999;
-  padding: 0;
-}
-
-header ul li.submenu:hover ul {
-  opacity: 1;
-  top: 100%;
-  visibility: visible;
-
-}
-header ul li.submenu ul li {
-  background: white;
-  border: 1px solid #ccc;
-  padding: 5px 15px 5px 10px;
-  margin: 1px;
-  display: list-item;
-}
-
-#logo {
-  font-family: 'Raleway', sans-serif;
-  display: inline-block;
-  font-size: 24px;
-}
-
-#logo a, #logo a:hover{
-  text-decoration: none;
-  color: red;
-}
-
 
 body > h2:first-child {
   margin-top: 0;
@@ -378,10 +308,3 @@ pre {
   pre code, pre tt {
     background-color: transparent;
     border: none; }
-
-footer {
-    border-top: 1px solid #339933;
-    margin: 40px 0 0 0;
-    padding: 10px;
-    background: #f0ffee;
-}
