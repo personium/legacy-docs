@@ -123,8 +123,8 @@ hr {
 
 header {
   display: block;
-  border-bottom: 1px solid #ccddcc;
-  background: #f6Fef6;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
   margin: 0;
   padding: 5px 15px 5px 15px;
 }
