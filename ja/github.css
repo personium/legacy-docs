@@ -114,13 +114,20 @@ hr {
   color: #cccccc;
   padding: 0; }
 
-header, header ul {
-  display: flex;
+header {
+  display: block;
+}
+header ul {
+  display: inline-block;
+}
+header ul li {
+  list-style-type: none;
+  display: inline-block;
 }
 
 #logo {
   font-family: 'Raleway', sans-serif;
-  display: inline;
+  display: inline-block;
   font-size: 24px;
 }
 
@@ -128,12 +135,7 @@ header, header ul {
   text-decoration: none;
   color: red;
 }
-header, header ul{
-  display: flex;
-}
-header ul li {
-  list-style-type: none;
-}
+
 
 body > h2:first-child {
   margin-top: 0;
