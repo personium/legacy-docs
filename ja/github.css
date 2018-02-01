@@ -117,8 +117,12 @@ hr {
 #logo {
   font-family: 'Raleway', sans-serif;
   display: inline;
-  color: red;
   font-size: 24px;
+}
+
+#logo a, #logo a:hover{
+  text-decoration: none;
+  color: red;
 }
 header nav {
   display: inline;
