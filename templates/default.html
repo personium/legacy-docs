@@ -29,7 +29,15 @@ $if(highlighting-css)$
 $highlighting-css$
   </style>
 $endif$
-  <script src="/_doccheck/personium_docs.js" type="text/javascript"></script>
+  <script type="text/javascript">
+      var path = location.pathname.split('/');
+      var pathCssCommon = [ path[0], path[1], "personium.css" ];
+      var pathJs = [ path[0], path[1], path[2], "personium_docs.js" ];
+
+      document.write('<link rel="stylesheet" href="' + pathCssCommon.join('/') + '" type="text/css" />');
+      document.write('<link rel="stylesheet" href="' + pathCssLocale.join('/') + '" type="text/css" />');
+      document.write('<script src="' + pathJs.join('/') + '" type="text/javascript" />');
+  </script>
   
 $if(math)$
   $math$
