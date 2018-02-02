@@ -9,3 +9,12 @@ var setLang = function(lang) {
   path[2] = lang;
   location.href = path.join('/'); 
 };
+
+document.addEventListener('DOMContentLoaded', function() {
+  var h1 = document.getElementsByName('h1');
+  var t = 'Documents';
+  if (h1.length == 1) {
+    t = h1[0];
+  }
+  document.title = 'Personium : ' + t;
+})
