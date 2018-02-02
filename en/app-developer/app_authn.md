@@ -1,12 +1,12 @@
-# Schema authentication
-## What is Schema authentication?
+# App authentication
+## What is App authentication?
 When Personium Box utilizes some kind of service that utilizes data associated with individuals, an entity that owns Cells,
 It includes implementations aimed at providing a mechanism that prevents other services from illegally accessing or modifying the data.
 
 Therefore, there is provided a framework of authentication "to make it impossible for owner of authority to operate certain Box to access other Box with the same token"
-Personium calls it **Schema authentication**. (Although it may be described as application authentication for intuitive understanding, it is assumed to be an unofficial term)
+Personium calls it **App authentication**. (It was used to be called schema authentication. Official term changed.)
 
-Since the Schema authentication API is prescribed in the framework of client authentication in OAuth 2.0,
+Since the App authentication API is prescribed in the framework of client authentication in OAuth 2.0,
 It can be implemented only by adding ClientID and ClientSecret as parameters at the time of authentication.
 
 ```
@@ -17,7 +17,7 @@ It can be implemented only by adding ClientID and ClientSecret as parameters at 
     proper handling by the authorization server.
 ```
 
-## Setting for Schema authentication
+## Setting for App authentication
 ### Overview
 In order for an application to access data in a Box, normally, authentication is first performed with a Target specification as an application client in a central cell (application Cell) managed by a service provider, and <br>
 After that, by executing Schema authentication by designation of normal ID / PW, ClientID, ClientSecret, a token that accesses only that Box is issued.
@@ -33,7 +33,7 @@ In order to perform Schema authentication, the following cells are mandatory. <b
 In Personium, we perform <br> Schema authentication (application authentication) by tying a special role (`{issuerUrl} + / __ role / __ / confidentialClient`) to the application's account. (Schema authentication level `confidential`)
 User authentication and schema authentication are evaluated together by performing user authentication by including schema authentication information in `client_id` and` client_secret` at the time of user cell authentication.
 
-## Schema authentication procedure
+## App authentication procedure
 ### App authentication information setting to the application cell
 
 Create an account on the app store (normal account creation)
@@ -42,7 +42,7 @@ Creating a role is optional. Executed only when performing the top level schema 
 Connecting accounts and roles (normal association process)
 For the same reason as creating a role,
 
-### Schema authentication level setting for user cell collection
+### App authentication level setting for user cell collection
 Configure schema authentication level using ACL.
 
 Sample Schema Authentication Configuration ACL
@@ -95,4 +95,4 @@ Schema of the box / collection to access Compares the authentication level setti
 
 · Confidential => Perform schema authentication check and make it accessible if there is a special role (confidentialClient)
 
-Compare the schema value of the accessed box with the schema value of the access token, and deny access if the values ​​are different.
+Compare the schema value of the accessed box with the schema value of the access token, and deny access if the values are different.
