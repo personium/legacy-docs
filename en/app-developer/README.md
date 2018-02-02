@@ -6,7 +6,7 @@ It is a document for people who want to develop  PDS applications using Personiu
 
 ### [Client registration & authentication](../user_guide/004_Client_auth.md)
 
-### [Schema authentication](./schema_auth.md)
+### [App authentication](./app_authn.md)
 
 ### [Personium Engine](./Personium-Engine.md)
 
