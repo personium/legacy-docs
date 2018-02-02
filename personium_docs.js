@@ -11,7 +11,7 @@ var setLang = function(lang) {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-  var h1 = document.getElementsByName('h1');
+  var h1 = document.getElementsByTagName('h1');
   var t = 'Documents';
   if (h1.length == 1) {
     t = h1[0];
