@@ -1,6 +1,6 @@
 # Personium Concepts  
 
-### Based on Standard  
+## Based on Standard  
 
 Personium's API is build on international standards.  
 
@@ -10,18 +10,18 @@ Personium's API is build on international standards.
 <li>OData for relational data</li>
 </ul>
 
-### The three-layered object  
+## The three-layered object  
 Personium is made up of the following three layer which are the basic.  
 ![3LayerObject](image/3LayerStructure.png "3LayerObject")  
 
-#### Unit  
+### Unit  
 <ul class="listStyleTypeNone">
 <li><p>A unit is a system infrastructure which runs Personium which have a unique FQDN.</p></li>
 <li><p>Since Personium adopts unique distributed architecture, it is possible to create a relationship between units and give privilege based on it.</p></li>
 <li><p>In a unit, it is possible to create multiple Cell.</p></li>
 </ul>
 
-#### Cell  
+### Cell  
 <ul class="listStyleTypeNone">
 <li>A cell is a fundamental concepts of personium.io.</li>
 <li><p>Each Cells are independent as if they are different tenant in multi-tenancy model.</p></li>
@@ -35,7 +35,7 @@ Personium is made up of the following three layer which are the basic.
 </ul>
 
 
-#### Box  
+### Box  
 <ul class="listStyleTypeNone">
 <li><p>A box is data store for application.</p></li>
 <li><p>A box can store following data.</p>
