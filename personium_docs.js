@@ -16,5 +16,5 @@ document.addEventListener('DOMContentLoaded', function() {
   if (h1.length == 1) {
     t = h1[0].innerText;
   }
-  document.title = t + ' : Personium';
+  document.title = t + ' - Personium';
 })
