@@ -4,7 +4,7 @@ body {
   padding: 0;
   font-size: 14px;
   line-height: 1.6;
-  background-color: #efd;
+  background-color: #eee;
 }
 
 body > *:first-child {
@@ -380,8 +380,8 @@ pre {
     border: none; }
 
 footer {
-    border-top: 1px solid #339933;
+    border-top: 1px solid #ccc;
     margin: 40px 0 0 0;
     padding: 10px;
-    background: #f0ffee;
+    background: #white;
 }
