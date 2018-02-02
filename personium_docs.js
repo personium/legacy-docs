@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var h1 = document.getElementsByTagName('h1');
   var t = 'Documents';
   if (h1.length == 1) {
-    t = h1[0];
+    t = h1[0].innerText;
   }
   document.title = 'Personium : ' + t;
 })
