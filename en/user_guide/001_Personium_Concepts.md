@@ -15,53 +15,41 @@ Personium is made up of the following three layer which are the basic.
 ![3LayerObject](image/3LayerStructure.png "3LayerObject")  
 
 ### Unit  
-<ul class="listStyleTypeNone">
-<li><p>A unit is a system infrastructure which runs Personium which have a unique FQDN.</p></li>
-<li><p>Since Personium adopts unique distributed architecture, it is possible to create a relationship between units and give privilege based on it.</p></li>
-<li><p>In a unit, it is possible to create multiple Cell.</p></li>
-</ul>
+* A unit is a system infrastructure which runs Personium which have a unique FQDN.
+* Since Personium adopts unique distributed architecture, it is possible to create a relationship between units and give privilege based on it.
+* In a unit, it is possible to create multiple Cell.
 
 ### Cell  
-<ul class="listStyleTypeNone">
-<li>A cell is a fundamental concepts of personium.io.</li>
-<li><p>Each Cells are independent as if they are different tenant in multi-tenancy model.</p></li>
-<li><p>A Cell provides following feature</p>
-<ul class="listStyleTypeNone">
-<li>Authentication and authorization</li>
-<li>Access Control</li>
-<li>Data Store for Applications (Box)</li>
-<li>Event Processing, Messaging, Script Execution</li>
-</ul></li>
-</ul>
+
+* A cell is a fundamental concepts of Personium
+* Each Cells are independent as if they are different tenant in multi-tenancy model.
+* A Cell provides following feature  
+    * Authentication and authorization
+    * Access Control
+    * Data Store for Applications (Box)
+    * Event Processing, Messaging, Script Execution
 
 
 ### Box  
-<ul class="listStyleTypeNone">
-<li><p>A box is data store for application.</p></li>
-<li><p>A box can store following data.</p>
-<ul class="listStyleTypeNone">
-<li>Directory</li>
-<li>File Object</li>
-<li>OData Data Service</li>
-</ul></li>
-</ul>
+
+* A box is data store for application.
+* A box can store following data.  
+    * Directory
+    * File Object
+    * OData Data Service
 
 ### Box installation  
-<ul class="listStyleTypeNone">
-<li>It is possible to install the Box in the specified path using the bar file.</li>
-<li>For more details, please click <a href="./006_Box_install.html">here</a>.</li>
-</ul>
+
+* It is possible to install the Box in the specified path using the bar file.
+* For more details, please click <a href="./006_Box_install.md">here</a>.
 
 ### Collection  
-<ul class="listStyleTypeNone">
-<li>Collection is a data set stored in Box.</li>
-<li><p>There are the following three types.</p>
-<ul class="listStyleTypeNone">
-<li><h6 id="webdav-model"><a href="./007_WebDAV_model.html">WebDAV model</a></h6></li>
-<li><h6 id="odata-model">OData model</h6></li>
-<li><h6 id="service-model">Service model</h6></li>
-</ul></li>
-</ul>
+
+* Collection is a data set stored in Box.
+* There are the following three types.  
+    * <a href="./007_WebDAV_model.html">WebDAV model</a>
+    * OData model
+    * Service model
 
 ### Cell control object
 ![Cell control object E-R diagram](image/cell_ctrl_obj.png "Cell control object E-R diagram")
