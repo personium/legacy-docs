@@ -15,4 +15,4 @@ p.setTitle = function() {
   // Adding Prefix.
   document.title = t + ' - Personium';
 };
-document.addEventListener('load', p.setTitle);
+window.addEventListener('load', p.setTitle);
