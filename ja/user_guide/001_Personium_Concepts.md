@@ -1,17 +1,15 @@
 # Personiumのアーキテクチャ
 
-## 国際標準に基づく設計
-
-Personiumは様々な国際標準をベースにこれを拡張したり組み合わせて構築されています。
-
-* 認可のためのOAuth2.0
-* ファイル操作のためのWebDAV
-* リレーショナルデータのOData
-
 ## 基本となる3階層のオブジェクト
 Personiumは基本となる以下の3階層で構成されています。
 
 ![3階層オブジェクト](image/3LayerStructure.png "3階層オブジェクト")
+
+|名称|概要|URL例|
+|:--|:--|:--|
+|Unit|多数のCellをホストするサーバ|https://personium.example/|
+|Cell|データ主体ごとのデータストア|https://personium.example/john.doe/|
+|Box|アプリケーション毎のデータ領域|https://personium.example/john.doe/schedule/|
 
 ### Unit
 
@@ -34,10 +32,17 @@ Personiumは基本となる以下の3階層で構成されています。
 ### Box
 
 * Boxは、アプリケーション用のデータストアです。
-
 * Boxには、以下のデータを格納できます。
 
 	* ディレクトリ
 	* ファイルオブジェクト
 	* ODataデータサービス
 
+
+## 国際標準に基づく設計
+
+Personiumは様々な国際標準をベースにこれを拡張したり組み合わせて構築されています。
+
+* 認可のためのOAuth2.0
+* ファイル操作のためのWebDAV
+* リレーショナルデータのOData
