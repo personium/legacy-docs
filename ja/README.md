@@ -8,8 +8,8 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 
 ## はじめに
 #### [Personiumとは](./overview/001_Introduction.md)
-#### [Personiumのアーキテクチャ](./user_guide/001_Personium_Concepts.md)
-#### [設計モデル](./user_guide/005_Model_construction.md)
+#### [Personiumのアーキテクチャ](./user_guide/001_Personium_Architecture.md)
+#### [Cellのモデル](./user_guide/005_Model_construction.md)
 #### [用語集](./user_guide/008_Glossary.md)
 
 ## ユーザーガイド  
