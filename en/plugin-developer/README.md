@@ -4,7 +4,6 @@ It is a document for people who want to develop and use plugins to extend Person
 
 ### [Personium authentication plugin development guide](./Personium_AuthenticationPluginDeveloperManual.md)  
 
-### Contributor guide  
 
 ### API Reference  
 [1.6.0](../apiref/1.6.0/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
