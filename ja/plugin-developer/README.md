@@ -1,12 +1,20 @@
 # サーバプラグイン開発者向けガイド
 
-Personiumのサーバ機能を拡張するために、プラグインを開発して利用したい人向けのドキュメントです
+Personiumのサーバ機能を拡張するために、プラグインを開発して利用したい人向けのドキュメントです。現在2種類の拡張モジュールを作成することができます。
 
-### [Engine Extensionの実装及び配備仕様](./EngineExtension_Imple_and_Deploy.md)
-### [Extension: メール送信機能](./Extension_Send_Mail.md)
-### [Personium認証プラグイン開発ガイド](./Personium_AuthenticationPluginDeveloperManual.md)
+* 認証プラグイン
+* エンジン拡張
 
-### コントリビューターガイド
+## 認証プラグイン
+
+* [Personium認証プラグイン開発ガイド](./Personium_AuthenticationPluginDeveloperManual.md)
+
+## エンジン拡張
+
+#### [Engine Extensionの実装及び配備仕様](./EngineExtension_Imple_and_Deploy.md)  
+### 例
+* [Extension: メール送信機能](./Extension_Send_Mail.md)
+
 
 ### APIリファレンス
 [1.6.0](../apiref/1.6.0/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
