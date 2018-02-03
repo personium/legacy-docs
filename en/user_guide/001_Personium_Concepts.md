@@ -1,18 +1,15 @@
 # Personium Architecture  
 
-## Based on Standard  
-
-Personium's API is build on international standards.  
-
-<ul class="listStyleTypeNone">
-<li>OAuth2.0 for Authorization</li>
-<li>WebDAV for File operation</li>
-<li>OData for relational data</li>
-</ul>
 
 ## The three-layered object  
 Personium is made up of the following three layer which are the basic.  
 ![3LayerObject](image/3LayerStructure.png "3LayerObject")  
+
+|Name|Overview|URL example|
+|:--|:--|:--|
+|Unit|A server to host multiple Cells|https://personium.example/|
+|Cell|A datastore for a data subject|https://personium.example/john.doe/|
+|Box|Per-app datastores installed on each Cell|https://personium.example/john.doe/schedule/|
 
 ### Unit  
 * A unit is a system infrastructure which runs Personium which have a unique FQDN.
@@ -38,35 +35,13 @@ Personium is made up of the following three layer which are the basic.
     * File Object
     * OData Data Service
 
-### Box installation  
 
-* It is possible to install the Box in the specified path using the bar file.
-* For more details, please click <a href="./006_Box_install.md">here</a>.
 
-### Collection  
+## Based on Standards  
 
-* Collection is a data set stored in Box.
-* There are the following three types.  
-    * <a href="./007_WebDAV_model.html">WebDAV model</a>
-    * OData model
-    * Service model
+Personium's API is build on international standards.  
 
-### Cell control object
-![Cell control object E-R diagram](image/cell_ctrl_obj.png "Cell control object E-R diagram")
+* OAuth2.0 for Authorization
+* WebDAV for File operation
+* OData for relational data
 
-![$Links creation combination list of cell control objects](image/LinkingCellControlObjects.gif "$Links creation combination list of cell control objects")
-
-### Account
-coming soon
-
-### Role
-coming soon
-
-### Relation
-coming soon
-
-### ExtCell
-coming soon
-
-### ExtRole
-coming soon
