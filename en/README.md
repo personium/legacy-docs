@@ -9,8 +9,8 @@ Register to join the Slack community [here](https://goo.gl/forms/ODgVX6eMkRDtReL
 
 ## Introduction  
 #### [What is Personium?](./overview/001_Introduction.html)
-#### [Personium Architecture](./user_guide/001_Personium_Concepts.html)
-#### [Design model](./user_guide/005_Model_construction.html)
+#### [Personium Architecture](./user_guide/001_Personium_Architecture.html)
+#### [Cell model](./user_guide/005_Model_construction.html)
 #### [Glossary](./user_guide/008_Glossary.html)
 
 
