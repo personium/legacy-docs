@@ -41,35 +41,3 @@ Personiumは基本となる以下の3階層で構成されています。
 	* ファイルオブジェクト
 	* ODataデータサービス
 
-### Boxインストール
-* barファイルを使って指定されたパスにBoxをインストールすることが可能です。
-* 詳細は[こちら](./006_Box_install.html)をご覧下さい。
-
-
-### Collection
-* Collectionは、Boxの中に格納されたデータ集合です。
-* 以下の3種類が存在します。
-
-	* ###### [WebDAVモデル](./007_WebDAV_model.html)
-	* ###### ODataモデル
-	* ###### サービスのモデル
-
-### Cell制御オブジェクト
-![Cell制御オブジェクトE-R図](image/cell_ctrl_obj.png "Cell制御オブジェクトE-R図")
-
-![セル制御オブジェクトの$link作成組み合わせ一覧](image/LinkingCellControlObjects.gif "セル制御オブジェクトの$link作成組み合わせ一覧")
-
-### Account
-準備中
-
-### Role
-準備中
-
-### Relation
-準備中
-
-### ExtCell
-準備中
-
-### ExtRole
-準備中
