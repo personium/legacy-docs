@@ -1,4 +1,4 @@
-# Personium Concepts  
+# Personium Architecture  
 
 ## Based on Standard  
 
