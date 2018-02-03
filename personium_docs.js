@@ -1,11 +1,10 @@
-
-var setLang = function(lang) {
+var p = {};
+p.setLang = function(lang) {
   var path = location.pathname.split('/');
   path[2] = lang;
   location.href = path.join('/'); 
 };
-
-document.addEventListener('DOMContentLoaded', function() {
+p.setTitle = function() {
   // set the document title, using the content of h1 tag
   var h1 = document.getElementsByTagName('h1');
   // Default Documents if not a single h1 tag does not exist. 
@@ -15,4 +14,5 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   // Adding Prefix.
   document.title = t + ' - Personium';
-})
+};
+    
