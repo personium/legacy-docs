@@ -1,13 +1,12 @@
 # Personium Architecture  
 
-
-## The three-layered object  
-Personium is made up of the following three layer which are the basic.  
+## Basic three-layered objects
+Personium defines the following three layered basic objects in order to achieve a new ICT model centered around data subjects.
 ![3LayerObject](image/3LayerStructure.png "3LayerObject")  
 
 |Name|Overview|URL example|
 |:--|:--|:--|
-|Unit|A server to host multiple Cells|https://personium.example/|
+|Unit|A server to host multiple Cells. What you get by server installation|https://personium.example/|
 |Cell|A datastore for a data subject|https://personium.example/john.doe/|
 |Box|Per-app datastores installed on each Cell|https://personium.example/john.doe/schedule/|
 
