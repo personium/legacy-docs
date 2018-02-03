@@ -40,6 +40,7 @@ $endif$
       ps.src = pathRoot + 'personium_docs.js';
       var s = document.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(ps, s);
+
   </script>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -62,8 +63,8 @@ $endfor$
       <li class="submenu">
         <a href="" >Languages</a>
         <ul>
-            <li><a href="javascript:setLang('en');">English</a></li>
-            <li><a href="javascript:setLang('ja');">Japanese</a></li>
+            <li><a href="javascript:p.setLang('en');">English</a></li>
+            <li><a href="javascript:p.setLang('ja');">Japanese</a></li>
         </ul>
       </li>
       <li><a href="https://github.com/personium/" class="button special" target="_blank" rel="external"">Fork me on GitHub</a></li>
