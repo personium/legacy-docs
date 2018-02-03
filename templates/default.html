@@ -36,10 +36,10 @@ $endif$
 
       document.write('<link rel="stylesheet" href="' + pathRoot + 'personium.css" type="text/css" />');
       document.write('<link rel="stylesheet" href="' + pathLang + 'locale.css" type="text/css" />');
-      var scriptElement = document.createElement('script');
-      scriptElement.src = pathRoot + 'personium_docs.js';
-      var target = document.getElementsByTagName('script')[0];
-      target.parentNode.insertBefore(scriptElement);
+      var ps = document.createElement('script');
+      ps.src = pathRoot + 'personium_docs.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ps, s);
   </script>
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
