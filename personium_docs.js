@@ -1,4 +1,8 @@
 var p = {};
+p.getLangRoot = function() {
+  var path = location.pathname.split('/');
+  return [path[0], path[1], path[2]].join('/');
+};
 p.setLang = function(lang) {
   var path = location.pathname.split('/');
   path[2] = lang;
@@ -16,3 +20,14 @@ p.setTitle = function() {
   document.title = t + ' - Personium';
 };
 window.addEventListener('load', p.setTitle);
+
+p.toPage = function(relUrl) {
+  location.href = p.getLangRoot() + relUrl; 
+};
+
+p.toApiRef = function(elemOrVersion) {
+  if (elemOrVersion.innerText) {
+    elemOrVersion = elemOrVersion.innerText;
+  }
+  location.href = p.getLangRoot() + "/apiref/" + elemOrVersion + "000_Rest_API_Reference.html"; 
+};
