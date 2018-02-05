@@ -168,6 +168,8 @@ header ul li.submenu ul {
   position: absolute;
   z-index: 9999;
   padding: 0;
+  white-space: nowrap;
+  min-width: 150px;
 }
 
 header ul li.submenu:hover ul {
