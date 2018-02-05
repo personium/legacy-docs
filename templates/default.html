@@ -57,9 +57,34 @@ $endfor$
 </head>
 <body>
   <header>
+    <nav>
     <div id="logo"><a href="/">Personium</a></div>
     <ul>
       <li>Documentation</li>
+      <li class="submenu">
+        <a href="" >Introduction</a>
+        <ul>
+            <li><a href="javascript:p.toPage('/user_guide/001_Introduction.html');">What's Personium?</a></li>
+            <li><a href="javascript:p.toPage('/user_guide/001_Personium_Architecture.html');">Architecture</a></li>
+            <li><a href="javascript:p.toPage('/user_guide/008_Glossary.html');">Glossary</a></li>
+        </ul>
+      </li>
+      <li class="submenu">
+        <a href="" >API Reference</a>
+        <ul>
+            <li><a href="javascript:p.toApiRef(this);">current</a></li>
+            <li><a href="javascript:p.toApiRef(this);">1.6.0</a></li>
+            <li><a href="javascript:p.toApiRef(this);">1.5.8</a></li>
+            <li><a href="javascript:p.toApiRef(this);">1.5.7</a></li>
+            <li><a href="javascript:p.toApiRef(this);">1.5.6</a></li>
+            <li><a href="javascript:p.toApiRef(this);">1.5.5</a></li>
+            <li><a href="javascript:p.toApiRef('1.5.2');">1.5.2-1.5.4</a></li>
+            <li><a href="javascript:p.toApiRef(this);">1.5.1</a></li>
+            <li><a href="javascript:p.toApiRef(this);">1.5.0</a></li>
+            <li><a href="javascript:p.toApiRef('1.4.2');">1.4.2-1.4.6</a></li>
+            <li><a href="javascript:p.toApiRef('1.4.1');">- 1.4.1</a></li>
+        </ul>
+      </li>
       <li class="submenu">
         <a href="" >Languages</a>
         <ul>
@@ -67,8 +92,8 @@ $endfor$
             <li><a href="javascript:p.setLang('ja');">Japanese</a></li>
         </ul>
       </li>
-      <li><a href="https://github.com/personium/" class="button special" target="_blank" rel="external"">Fork me on GitHub</a></li>
     </ul>
+    <nav>
   </header>
 
 $for(include-before)$
