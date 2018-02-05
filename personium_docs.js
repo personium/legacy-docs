@@ -29,5 +29,5 @@ p.toApiRef = function(elemOrVersion) {
   if (elemOrVersion.innerText) {
     elemOrVersion = elemOrVersion.innerText;
   }
-  location.href = p.getLangRoot() + "/apiref/" + elemOrVersion + "000_Rest_API_Reference.html"; 
+  location.href = p.getLangRoot() + "/apiref/" + elemOrVersion + "/000_Rest_API_Reference.html"; 
 };
