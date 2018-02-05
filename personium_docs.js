@@ -26,8 +26,8 @@ p.toPage = function(relUrl) {
 };
 
 p.toApiRef = function(version) {
-  if (version.target) {
-    version = version.target.innerText;
+  if (version.innerText) {
+    version = version.innerText;
   }
   location.href = p.getLangRoot() + "/apiref/" + version + "/000_Rest_API_Reference.html"; 
 };
