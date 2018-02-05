@@ -146,13 +146,14 @@ header ul {
 header ul li {
   list-style-type: none;
   display: inline-block;
-  padding: 5px 15px 5px 15px;
+  padding: 0;
   margin: 5px 0 0 0;
   position: relative;
 }
 header ul li a {
   text-decoration: none;
-  display: inline-block;
+  display: block;
+  padding: 5px 15px 5px 15px;
   color: black;
 }
 header ul li a:hover {
@@ -181,7 +182,7 @@ header ul li.submenu:hover ul {
 header ul li.submenu ul li {
   background: white;
   border: 1px solid #ccc;
-  padding: 5px 15px 5px 10px;
+  padding: 0px;
   margin: 1px;
   display: list-item;
 }
