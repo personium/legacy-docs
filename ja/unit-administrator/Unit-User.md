@@ -93,7 +93,7 @@ personium-unit-config.propertiesの`io.personium.core.unitUser.issuers={UnitURL}
 
 
 ```sh
-curl "{UnitURL}/{Cell}/__token" -X GET \
+curl "{UnitURL}/{Cell}/__token" -X POST \
 -d 'grant_type=password&username=user&password=pass&p_target={UnitURL}/'
 ```
 

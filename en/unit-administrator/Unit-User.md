@@ -90,7 +90,7 @@ When issuing a UUT in a cell
 Set `io.personium.core.unitUser.issuers={UnitURL}/{Cell}/` in personium-unit-config.properties
 
 ```sh
-curl "{UnitURL}/{Cell}/__ token" -X GET \
+curl "{UnitURL}/{Cell}/__ token" -X POST \
 -d 'grant_type = password & username = user & password = pass & p_target = {UnitURL} /'
 ```
 
