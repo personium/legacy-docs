@@ -45,14 +45,14 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |thread.pool.num|スレッドプール数|int|20|core|PersoniumUnit全体のスレッドプール数。今後機能ごとにスレッドプールを分割予定。|
 |plugin.path|Personiumプラグイン配置先パス|プラグイン配置先フルパス|/personium/personium-core/plugins|core|<br>|
 |unitScheme|ユニットのスキーム設定|"http" または "https"|https|core|開発用途にhttpを設定することも可能ですが、運用時には必ずhttpsを設定してください。|
-|unitPort|ユニットのポート番号|ポート番号||core||
-|unitPath|ユニットのURLPath|文字列||core|UnitURLが "https://p-test:8080/" の場合、unitPathは"p-test"になります。|
+|unitPort|ユニットのポート番号|ポート番号||core|UnitURLが "https://p-host:8080/" の場合、unitPortは8080になります。UnitURLが "https://p-host/" の場合、unitPortは設定しません。|
+|unitPath|ユニットのURLPath|文字列||core|UnitURLが "https://p-host:8080/p-path/" の場合、unitPathは"/p-path"になります。UnitURLが "https://p-host:8080/" の場合、unitPathは設定しません。|
 |masterToken|マスタートークン|トークン文字列||core, engine|デフォルトは無効です。開発用途などで設定することもできますが、運用時には設定しないでください。|
 
 
 #### OData
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
-|:--|:--|:--|:--|:--|
+|:--|:--|:--|:--|:--|:--|
 |odata.batch.bulkRequestMaxSize|$batch処理を行う際のリクエスト最大件数|Int|1000|core|<br>|
 |odata.batch.timeoutInMillis|$batch処理のタイムアウト時間(msec)|Long|270000|core|<br>|
 |odata.batch.sleepInMillis|$batch処理のスリープ時間(msec)|Long|50|core|<br>|
@@ -130,6 +130,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |event.log.current.dir|イベントログファイルの格納ディレクトリ|ディレクトリのフルパス|/personium_nfs/personium-core/eventlog|core|<br>|
+|event.hop.maxnum|あるイベントを契機としたイベント処理を繰り返す最大数|Int|3|core|0に設定するとルールによるイベント処理は行われなくなります。|
 
 #### キャッシュ
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|

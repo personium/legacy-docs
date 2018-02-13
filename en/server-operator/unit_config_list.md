@@ -43,8 +43,8 @@ It is a setting which change from default as optional when operating Personium.
 |thread.pool.num|Number of thread pools|int|20|core|PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.|
 |plugin.path|Personium plugin placement destination path|Plugin placement destination Full path|/personium/personium-core/plugins|core|<br>|
 |unitScheme|Unit scheme setting|"http" or "https"|https|core|Please set https when you operate it though it is also possible to set http to the development usage.|
-|unitPort|Unit port setting|Port number||core||
-|unitPath|Unit path of URL|String||core|When UnitURL is "https://p-test:8080/", unitPath becomes "p-test"|
+|unitPort|Unit port setting|Port number||core|When UnitURL is "https://p-host:8080/", unitPort becomes 8080. When UnitURL is "https://p-host/", unitPort is no need.|
+|unitPath|Unit path of URL|String||core|When UnitURL is "https://p-host:8080/p-path/", unitPath becomes "/p-path". When UnitURL is "https://p-host:8080/", unitPath is no need.|
 |masterToken|Master Token|Token string||core, engine|Please do not set it when you operate it though it is possible to set by the development usage.|
 
 #### OData
@@ -127,6 +127,7 @@ It is a setting which change from default as optional when operating Personium.
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |event.log.current.dir|Event log file storage directory|Full path of directory|/personium_nfs/personium-core/eventlog|core|<br>|
+|event.hop.maxnum|Event hop limitation|Int|3|core|When you want to stop event processing, set to 0.|
 
 #### Cache
 |Key|Description|Value|Default value|Used component|Notes|
