@@ -113,7 +113,7 @@ The following diagram shows the folder structure of a very simple Personium App.
 ##### Explanation and deployment procedures    
 |#|Resource (Folder/File)|Description|
 |:--|:-------|:---|
-|1|bar     |Contains [definitions and contents](../user_guide/006_Box_install.md) needed to create a [BAR file](../../apiref/current/301_Bar_File.md) which will be installed as Box onto the user's Cell. Compress (zip) this folder and name the compressed file with a ".bar" extension.|
+|1|bar     |Contains [definitions and contents](../user_guide/006_Box_install.md) needed to create a [BAR file](../apiref/current/301_Bar_File.md) which will be installed as Box onto the user's Cell. Compress (zip) this folder and name the compressed file with a ".bar" extension.|
 |2|icon    |Icon to be displayed in HomeApp.|
 |3|launch.json|Contains information used by the HomeApp to lauch the app. [Sample file](https://github.com/personium/template-app-cell/blob/master/launch.json) has entry that allow launching native App (Android/iOS) which will be supported in the near future.|
 |4||Defaults to be used when the App developer decides not to provide multilingual support.|

@@ -17,7 +17,7 @@ To create a new Box which is a data storage unit for each application, use the "
 By storing the file for each hierarchy, it holds the file to be stored in webDAV.  
 For the Scheme information of OData, define the structure with "edmx.xml".
 
-* See [Bar file](../apiref/1.5.2/301_Bar_File.md) for details.
+* See [Bar file](../apiref/current/301_Bar_File.md) for details.
 
 ### Runtime flow
 * Box Running the installation API
@@ -44,7 +44,7 @@ For the reasons and causes of abnormal termination, execute the "Box metadata ac
 * Unlike other APIs, installing sometimes creates various resources during processing during installation,  
 Processing takes time from receipt of processing to completion of registration.
 
-* To check the progress of the process, use [Box metadata acquisition](../apiref/1.5.2/303_Progress_of_Bar_File_Installation.md).
+* To check the progress of the process, use [Box metadata acquisition](../apiref/current/303_Progress_of_Bar_File_Installation.md).
 
 * ##### Condition check by acquiring Box metadata
 	* In order to execute the Box metadata acquisition API, you need "box" authority of box level ACLPrivilege.
@@ -72,5 +72,5 @@ For details of the reason for failure, please check with the log acquisition API
 
 ### Confirm processing result
 * Box Installation processing contents are output as a log to the EventBus of Cell to which box installation target Box belongs.  
-To refer to that log, use [Log file acquisition API](../apiref/1.5.2/285_Retrieve_Log_File.md) to refer to it.
+To refer to that log, use [Log file acquisition API](../apiref/current/285_Retrieve_Log_File.md) to refer to it.
 Also, in order to use the above API, "log - read" authority is required.
