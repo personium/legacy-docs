@@ -116,7 +116,7 @@ To participate in the Personium unit ecosystem, please ask the Personium project
 ### Self-issuing case
 
 To make settings that do not work with other units, you can do this by setting a self-signed unit certificate.
-https://github.com/personium/ansible/blob/master/3-server_unit/How_to_generate_Self-signed_Unit_Certificate.md
+https://github.com/personium/ansible/tree/master/3-server_unit
 
 ## Setting up private key and certificate
 

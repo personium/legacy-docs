@@ -121,7 +121,7 @@ Personiumユニットエコシステムへ参加させる場合は、Personium�
 
 他のユニットと連携させない設定をする場合は、自己署名のユニット証明書を設定することによりこれを行うことができます。
 
-https://github.com/personium/ansible/blob/master/3-server_unit/How_to_generate_Self-signed_Unit_Certificate.md
+https://github.com/personium/ansible/tree/master/3-server_unit
 
 
 ## 秘密鍵と証明書の設定

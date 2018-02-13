@@ -8,7 +8,7 @@ Personiumのインターフェースは基本的にREST APIのみでありGUIを
 
 ただし、Personiumアプリにおいて注意すべきことは、Openなエコシステムとして多くのプレーヤーにアプリ開発を参入してもらうことを想定し、ある程度の規約が存在することである。（その点についてはWebにおける各種プロトコルや、AndroidなどのMobile OSと同様である）  
 
-![Diagram](https://github.com/personium/Hands-on-Demo/blob/master/doc/app_overview.png)  
+![Diagram](https://raw.githubusercontent.com/personium/Hands-on-Demo/master/doc/app_overview.png) 
 
 ### 挙動イメージ  
 [YouTube動画](https://www.youtube.com/watch?v=qlq0xM5TGiw&index=3&list=PLZDdjLhDam_SvjUZ5hN7I70KubzMEy3AX)  
@@ -98,7 +98,7 @@ GitHubで公開している各種アプリのフォルダ構成は一定のル�
 
 |#|フォルダ、ファイル|用途|
 |:--|:-------|:---|
-|1|bar     |各ユーザーの[box内にデータ構造を展開するarchiveファイル](../user_guide/006_Box_install.md)のソース。.bar形式にZip圧縮してデプロイする（[barファイル詳細](../apiref/current/301_Bar_File.md)|
+|1|bar     |各ユーザーの[box内にデータ構造を展開するarchiveファイル](../user_guide/006_Box_install.md)のソース。.bar形式にZip圧縮してデプロイする（[barファイル詳細](../../apiref/current/301_Bar_File.md)|
 |2|icon    |Homeアプリ内で表示されるicon|
 |3|launch.json|アプリの起動URIを記述したドキュメント。<br>URLスキームをカスタムすることにより、ネイティブアプリを起動することが可能となる予定。|
 |4||アプリのDefaultファイル|
@@ -138,8 +138,8 @@ Cellの管理権限相当の操作はCellレベルAPIで
 1. ユーザー定義Eventの設定、発火ログの閲覧 
 
 #### サンプル実装  
-1. [ホームアプリ  
-    - [概要](https://github.com/dixonsiu/app-cc-home/blob/master/README_ja.md)  
+1. [ホームアプリ](https://github.com/dixonsiu/app-cc-home/)  
+    - [概要](https://github.com/dixonsiu/app-cc-home/)  
     - [デモ(チュートリアル有)](https://demo.personium.io/democell/io_personium_demo_HomeApplication/src/login.html?lng=ja)  
     - [デモ](https://demo.personium.io/HomeApplication/__/box-resources/login.html?lng=ja&mode=global)  
 
@@ -147,7 +147,7 @@ Cellの管理権限相当の操作はCellレベルAPIで
 
 Unit管理クライアントはUnitレベルの操作（Cellの新規作成や削除などの管理操作）を実施するためのGUIである。現状以下のものが公開されている。
 
-1. [UnitManager](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.md)  
+1. [UnitManager](https://github.com/personium/app-uc-unit-manager/)  
 [![Unit/Cell Manager YouTube](https://i.ytimg.com/vi/d1_pET0M-YA/1.jpg?time=1514263611186)](https://youtu.be/d1_pET0M-YA)  
 1. [Cell作成クライアント](https://github.com/personium/app-uc-cell-creator-wizard)  
 [![Cell Creator Wizard YouTube](https://i.ytimg.com/vi/M4cYLFYRyEk/1.jpg)](https://youtu.be/M4cYLFYRyEk)  
