@@ -4,7 +4,7 @@ Personium manages user's data with Elasticsearch and file system.<br>Data on Ela
 
 * OData (Open Data Protocol)<br>A protocol that standardized data access method in Web application.<br>It returns JSON or XML data as a response in the standard WebAPI HTTP request.<br>OData official : http://www.odata.org/
 
-* WebDAV (Web-based Distributed Authoring and Versioning)<br>Protocol aimed at managing files on a Web server that extends HTTP 1.1.<br>It can be used without problem even under Proxy environment because of pure HTTP extension.<br>In addition to the HTTP standard, several methods such as PROPFIND have been added.<br>WebDAV official : http://webdav.org/
+* WebDAV (Web-based Distributed Authoring and Versioning)<br>Protocol aimed at managing files on a Web server that extends HTTP 1.1.<br>It can be used without problem even under Proxy environment because of pure HTTP extension.<br>In addition to the HTTP standard, several methods such as PROPFIND have been added.<br>WebDAV official : https://web.archive.org/web/20120626092812/http://webdav.org/
 
 ### Management of each object data
 Indicates management of each object of Personium.

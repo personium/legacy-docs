@@ -3,7 +3,7 @@
 Personiumのサーバソフトウェアを使ってPersoniumユニットを構築する方や、Personiumサーバプログラムをビルド・デプロイ・設定する方、
 Personiumを使用したPDSサービス環境を提供・運用したい方向けのドキュメントです。
 
-構築・設定済のPersoniumユニットに対してユニットユーザトークンを使ってアクセスして、 ユニット管理者の主たる業務、すなわちCellの作成・払出しや、払出したCellの管理等を実施する方は、[ユニット管理者向けガイド](../unit-administrator/README.md)をご覧ください。
+構築・設定済のPersoniumユニットに対してユニットユーザトークンを使ってアクセスして、 ユニット管理者の主たる業務、すなわちCellの作成・払出しや、払出したCellの管理等を実施する方は、[ユニット管理者向けガイド](../unit-administrator/)をご覧ください。
 
 ## ユニット構成設計
 
@@ -19,7 +19,7 @@ Personiumはスケーラブルなアーキテクチャを採用しています�
 
 ### Open Stack Heatを使ったサーバインフラの自動構築
 
-* [Heatを使ったサーバインフラの自動構築](https://github.com/personium/openstack-heat/blob/master/README_ja.md)
+* [Heatを使ったサーバインフラの自動構築](https://github.com/personium/openstack-heat)
 
 ### Ansibleを使ったユニットの自動構築
 

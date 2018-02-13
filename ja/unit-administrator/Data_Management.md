@@ -4,7 +4,7 @@ PersoniumではユーザのデータをElasticsearchとファイルシステム�
 
 * OData (Open Data Protocol)<br>Webアプリにおいてデータのアクセス方法を標準化したプロトコル。<br>WebAPIの標準的なHTTPリクエストでJSONやXMLデータをレスポンスとして返す。<br>OData公式 : http://www.odata.org/
 
-* WebDAV (Web-based Distributed Authoring and Versioning)<br>HTTP1.1を拡張したWebサーバ上のファイル管理を目的としたプロトコル。<br>純粋なHTTP拡張の為Proxy環境下などでも問題なく利用が可能。<br>HTTP標準に加え、PROPFINDなどいくつかのメソッドが追加されている。<br>WebDAV公式 : http://webdav.org/
+* WebDAV (Web-based Distributed Authoring and Versioning)<br>HTTP1.1を拡張したWebサーバ上のファイル管理を目的としたプロトコル。<br>純粋なHTTP拡張の為Proxy環境下などでも問題なく利用が可能。<br>HTTP標準に加え、PROPFINDなどいくつかのメソッドが追加されている。<br>WebDAV公式 : https://web.archive.org/web/20120626092812/http://webdav.org/
 
 ### 各オブジェクトデータの管理
 Personiumの各オブジェクトの管理を示す。
