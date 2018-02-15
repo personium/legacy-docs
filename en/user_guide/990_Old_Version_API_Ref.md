@@ -1,4 +1,4 @@
-# Old Version API Reference
+# Old Version API References
 
 ### Ver. 1.5 series
 
