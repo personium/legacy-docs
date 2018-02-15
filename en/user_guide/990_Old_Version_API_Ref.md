@@ -16,8 +16,8 @@
 
 [1.5.0](../apiref/1.5.0/000_Rest_API_Reference.md)
 
-### Ver. 1.4 series
+### Ver. 1.4 series or older
 
 [1.4.2 - 1.4.6](../apiref/1.4.6/000_Rest_API_Reference.md)
 
-[1.4.1以前](http://personium.io/docs/api/1.3.25/Japanese/Japanese.htm#docs/ja/HomePage.htm)
+[1.4.1 or older](http://personium.io/docs/api/1.3.25/Japanese/Japanese.htm#docs/ja/HomePage.htm)
