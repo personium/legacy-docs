@@ -154,7 +154,7 @@ The following functions are under planning.
 
 #### Sample Apps  
 1. [HomeApp Repository](https://github.com/dixonsiu/app-cc-home/)    
-	- [Overview](https://github.com/dixonsiu/app-cc-home/blob/master/)  
+	- [Overview](https://github.com/dixonsiu/app-cc-home/)  
 	- [Demo with tutorial](https://demo.personium.io/democell/io_personium_demo_HomeApplication/src/login.html?lng=en)  
 	- [Demo](https://demo.personium.io/HomeApplication/__/box-resources/login.html?lng=en&mode=global)  
 

@@ -311,7 +311,7 @@ Personiumでは以下の種類:があり、発行から1時間で変更される
 ### WebDAV
 <font size=1>[WebDAV]</font> Web-based Distributed Authoring and Versioningの略称。HTTPの拡張であり、Webサーバ内のドキュメントやファイルを異なるユーザで共同で執筆するためのプロトコル。  
 Personiumでは、WebDAVコレクションはファイルやフォルダであり、またCRUDの機能が動作する。  
-[WebDAV Resources](http://www.webdav.org/)を参照。
+[WebDAV Resources](https://web.archive.org/web/20120626092812/http://webdav.org/)を参照。
 
 
 ##### [A](#anc_a) | [B](#anc_b) | [C](#anc_c) | D | [E](#anc_e) | [F](#anc_f) | G | H | [I](#anc_i) | J | K | L | [M](#anc_m) | [N](#anc_n) | [O](#anc_o) | [P](#anc_p) | Q | [R](#anc_r) | [S](#anc_s) | [T](#anc_t) | [U](#anc_u) | V | [W](#anc_w) | X | Y | Z

@@ -317,7 +317,7 @@ There are the following types in Personium, and the tokens are changed an hour a
 ### WebDAV
 <font size=1>[WebDAV]</font> An abbreviation of "Web-based Distributed Authoring and Versioning". This is the protocol for various users to co-write documents and files on the Web server; it is an extension of HTTP.  
 On the Personium portal, WebDAV collections are files and folders, and CRUD functions are used.  
-Refer to [WebDAV Resources](http://www.webdav.org/).
+Refer to [WebDAV Resources](https://web.archive.org/web/20120626092812/http://webdav.org/).
 
 
 
