@@ -6,7 +6,9 @@ It is a document for people who want to develop and use plugins to extend Person
 
 
 ### API Reference  
-[1.6.0](../apiref/1.6.0/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
+[1.6.2](../apiref/1.6.2/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
+
+[1.6.0 - 1.6.1](../apiref/1.6.0/000_Rest_API_Reference.md)
 
 [1.5.8](../apiref/1.5.8/000_Rest_API_Reference.md)
 
