@@ -19,7 +19,6 @@ p.setTitle = function() {
   // Adding Prefix.
   document.title = t + ' - Personium';
 };
-window.addEventListener('load', p.setTitle);
 
 p.toPage = function(relUrl) {
   location.href = p.getLangRoot() + relUrl; 
@@ -46,3 +45,7 @@ p.renderApiRefLinks = function() {
   list.innerHTML = html + list.innerHTML;
 };
 
+window.addEventListener('load', function() {
+  p.setTitle();
+  p.renderApiRefLinks();
+});
