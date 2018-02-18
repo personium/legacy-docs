@@ -38,7 +38,7 @@ p.renderApiRefLinks = function() {
       html += '<li><a href="#" onclick="p.toApiRef(this);return false;">' + v + '</a></li>';
     } else {
       for (var k in v) {
-        html += '<li><a href="javascript:p.toApiRef(\''+ k + '\');">' + v (k)+ '</a></li>';
+        html += '<li><a href="javascript:p.toApiRef(\''+ k + '\');">' + v[k] + '</a></li>';
       }
     }
   });
