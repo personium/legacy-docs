@@ -1,4 +1,4 @@
-var ApirefVersions= [
+var ApiRefVersions= [
   "current",
   "1.6.2",
   {"1.6.0": "1.6.0-1.6.1"},
