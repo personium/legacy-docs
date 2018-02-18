@@ -31,6 +31,9 @@ p.toApiRef = function(version) {
   location.href = p.getLangRoot() + "/apiref/" + version + "/000_Rest_API_Reference.html"; 
 };
 p.renderApiRefLinks = function() {
+  if (!ApiRefVersions) {
+    return;
+  }
   var list = document.getElementById("api-ref-list");
   var html ='';
   ApiRefVersions.forEach(function(v) {
