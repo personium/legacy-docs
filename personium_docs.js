@@ -35,7 +35,7 @@ p.renderApiRefLinks = function() {
   var list = document.getElementById("api-ref-list");
   var html ='';
   ApiRefVersions.forEach(function(v) {
-    if (v typeof 'string') {
+    if (typeof v === 'string') {
       html += '<li><a href="#" onclick="p.toApiRef(this);return false;">' + v + '</a></li>';
     } else {
       v.forEach(function(k){
