@@ -3,7 +3,9 @@
 PersoniumのCellを管理するアプリを開発したい人向けのドキュメントです
 
 ### APIリファレンス
-[1.6.2](../apiref/1.6.2/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
+[1.6.3](../apiref/1.6.3/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
+
+[1.6.2](../apiref/1.6.2/000_Rest_API_Reference.md)
 
 [1.6.0 - 1.6.1](../apiref/1.6.0/000_Rest_API_Reference.md)
 
