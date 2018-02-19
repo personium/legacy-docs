@@ -15,7 +15,7 @@ Currently two types of extension mechanisms are available.
 #### [Spec for Engine Extension implementation and deployment](./EngineExtension_Imple_and_Deploy.md)  
 ### Implementation Examples 
 
-* [Extension: E-Mail Sending Function](./Extension_Send_Mail.md)
+* [Extension: E-Mail Sending Function](https://github.com/personium/personium-ex-mailsender)
 * [Extension: HTTP Client Function](https://github.com/personium/personium-ex-httpclient)
 
 
