@@ -2,44 +2,60 @@
 
 It is a document for people who want to develop  PDS applications using Personium's API
 
-### [Application development guide](./Personium_Apps.md)  
+## Development of Apps that uses Personium
 
-### [Client registration & authentication](../user_guide/004_Client_auth.md)
 
-### [App authentication](./app_authn.md)
+## Personium Apps Development
 
-### [Personium Engine](./Personium-Engine.md)
+* [Application development guide](./Personium_Apps.md)  
+* [Client registration & authentication](../user_guide/004_Client_auth.md)
+* [App authentication](./app_authn.md)
+* [Launging from Home App](./launch_from_homeapp.md)
+* [Personium Engine](./Personium-Engine.md)
 
-### API Reference  
-[1.6.2](../apiref/1.6.2/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
 
-[1.6.0 - 1.6.1](../apiref/1.6.0/000_Rest_API_Reference.md)
+## Sample Apps
 
-[1.5.8](../apiref/1.5.8/000_Rest_API_Reference.md)  
+Some sample apps are available. They are implemented in the form of AJAX apps for Web browsers.
 
-[1.5.7](../apiref/1.5.7/000_Rest_API_Reference.md)  
+* [app-myboard](https://github.com/personium/app-myboard)
+* [app-sample-calorie-smile](https://github.com/personium/app-sample-calorie-smile)
 
-[1.5.6](../apiref/1.5.6/000_Rest_API_Reference.md)  
+Also, a project template is available for the use as a base to develop an AJAX app for web browsers.
 
-[1.5.5](../apiref/1.5.5/000_Rest_API_Reference.md)  
+* [template-app-cell](https://github.com/personium/template-app-cell)
 
-[1.5.2 - 1.5.4](../apiref/1.5.2/000_Rest_API_Reference.md)  
 
-[1.5.1](../apiref/1.5.1/000_Rest_API_Reference.md)  
+## Developer Tools
 
-[1.5.0](../apiref/1.5.0/000_Rest_API_Reference.md)  
+#### [Cell Manager](https://github.com/personium/app-uc-unit-manager)
+Cell Manager is a GUI tool to handle almost all API calls against a Personium Cell as a Cell administrator.
 
-[1.4.2 - 1.4.6](../apiref/1.4.6/000_Rest_API_Reference.md)  
+[![Cell Manager Intro](https://img.youtube.com/vi/d1_pET0M-YA/3.jpg)](https://www.youtube.com/embed/d1_pET0M-YA)
 
-[1.4.1 or before](http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm)  
 
-### Related Repositories
-[app-myboard](https://github.com/personium/app-myboard)  
 
-[app-sample-calorie-smile](https://github.com/personium/app-sample-calorie-smile)  
+It can be used conveniently in the app development to register, delete test data, and make sure if the data is correctly registered or not.
 
-[personium-client-java](https://github.com/personium/personium-client-java)  
+Please see the README file of [Cell Manager Repository](https://github.com/personium/app-uc-unit-manager) for details. 
 
-[js-client](https://github.com/personium/js-client)  
+#### [PCUI](https://github.com/personium/pcui)
 
-[template-app-cell](https://github.com/personium/template-app-cell)  
+PCUI is a tool or sample to demonstrate Personium API calls via Script language rather than curl command.
+Mainly referencinf API'a are covered currently.  
+
+The following environment is required in order to try PCUI
+* Ruby 2.0 or above
+    * Depending on your Ruby package, following libraries needs to be installed additionally. If load error occurs on 'require', please install necessary libraries using a packaging sysgem on your environ
+        * readline
+        * rest-client
+        * io/console
+
+
+## Related Repositories
+
+* [app-myboard](https://github.com/personium/app-myboard)
+* [app-sample-calorie-smile](https://github.com/personium/app-sample-calorie-smile)
+* [personium-client-java](https://github.com/personium/personium-client-java)
+* [js-client](https://github.com/personium/js-client)
+* [template-app-cell](https://github.com/personium/template-app-cell)
