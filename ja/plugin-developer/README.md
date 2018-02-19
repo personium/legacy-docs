@@ -12,15 +12,14 @@ Personiumのサーバ機能を拡張するために、プラグインを開発�
 ## エンジン拡張
 
 #### [Engine Extensionの実装及び配備仕様](./EngineExtension_Imple_and_Deploy.md)  
-### 例
+### 実装例
 * [Extension: メール送信機能](./Extension_Send_Mail.md)
+* [Extension: HTTPクライアント機能](https://github.com/personium/personium-ex-httpclient)
 
 
 ### 関連するリポジトリ
-[personium-plugin-base](https://github.com/personium/personium-plugin-base)
 
-[personium-ex-mailsender](https://github.com/personium/personium-ex-mailsender)
-
-[personium-ex-httpclient](https://github.com/personium/personium-ex-httpclient)
-
-[personium-ex-base](https://github.com/personium/personium-ex-base)
+* [personium-plugin-base](https://github.com/personium/personium-plugin-base)
+* [personium-ex-mailsender](https://github.com/personium/personium-ex-mailsender)
+* [personium-ex-httpclient](https://github.com/personium/personium-ex-httpclient)
+* [personium-ex-base](https://github.com/personium/personium-ex-base)
