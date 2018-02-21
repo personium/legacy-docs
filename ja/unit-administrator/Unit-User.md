@@ -10,14 +10,16 @@ Personiumユニットは外部のユニットユーザ管理機構の存在を�
 
 Cellの生成・削除にかかわるユニットレベルのAPIとそれを操作するユニットユーザのアクセス制御のモデルは、一般のセルで認証されたユーザの自セルや他セルへのアクセス制御のモデルとは全く異なります。
 
-一方でOAuth 2.0で定義されているBearerトークンを使うという点は共通しています。取得したトークンをHTTPのAuthorizationヘッダで送信することで、保護されたAPIにアクセスするという点は全く同じです。
+一方でアクセス主体を識別するためにOAuth 2.0のBearerトークン送信を使って保護されたAPIにアクセスするという点は全く同じです。つまりアクセス主体は取得したトークンを以下のようにHTTPのAuthorizationヘッダで送信することで、自身を証明し識別させます。
 
-    Authorization: Bearer someaccesstoken
+    Authorization: Bearer unitLevelAccessToken
 
 ユニットレベルのAPIが認識するトークンは以下の2種類です。
 
 * ユニットユーザトークン（Unit User Token (UUT)）
 * ユニットマスタートークン（Unit Master Token (UMT)）
+
+これらトークンでのアクセス時にはセルレベルのACLは全く考慮されません。またセルレベルのAPIアクセスでのトランスセルトークンのように他のユニットにまたがったようなアクセスもできません。
 
 
 ### ユニットマスタートークン（Unit Master Token (UMT)）
