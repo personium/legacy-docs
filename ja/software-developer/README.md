@@ -15,8 +15,9 @@ Personiumの主要構成要素は以下2つのJava Web アプリケーション�
 |:--|:--|:--|
 |personium-lib-common|core/engineで共通的に使うユーティリティ|core, engine|
 |personium-lib-es-adapter|ElasticSearchへの接続を担うモジュール。ElasticSearchバージョンアップに伴う軽微非互換を吸収することを主たる目的としています。|core, engine|
-|personium-client-java|PersoniumのJava client ライブラリ. Engineで使用|engine|
-
+|personium-client-java|Personium のJava client ライブラリ. Engineで使用|engine|
+|personium-plugin-base|Personium プラグイン記述のためのベース|core|
+|personium-ex-base|Personium エンジン拡張記述のためのベース|engine|
 
 ## Personium Core
 
