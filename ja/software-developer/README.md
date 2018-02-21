@@ -4,7 +4,7 @@ Personiumのサーバソフトウェアそのものの開発に貢献したい�
 
 ## サーバソフトウェアの構成
 
-Personiumの主要構成要素は以下2つのJava Web アプリケーションプログラムです。
+Personiumの主要構成要素は以下2つのJava Web アプリケーションプログラムで、いずれもサーブレットコンテナ上で動作します。
 
 * personium-core
 * personium-engine
@@ -18,6 +18,11 @@ Personiumの主要構成要素は以下2つのJava Web アプリケーション�
 |personium-client-java|Personium のJava client ライブラリ. Engineで使用|engine|
 |personium-plugin-base|Personium プラグイン記述のためのベース|core|
 |personium-ex-base|Personium エンジン拡張記述のためのベース|engine|
+
+ライブラリの依存関係についてはMavenにて管理しており、現在は以下にあるプロジェクトのmavenリポジトリで管理をしています。
+
+    http://personium.io/mvnrepo/
+
 
 ## Personium Core
 
