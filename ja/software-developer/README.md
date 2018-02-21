@@ -24,24 +24,28 @@ Personiumの主要構成要素は以下2つのJava Web アプリケーション�
 
 ## 依存ライブラリとその管理
 
-Personium のサーバモジュール (core/engine)は以下のライブラリやその他のオープンソースライブラリに依存しています。
+Personium のサーバモジュール (core/engine)は、それら共通的に使う機能などは以下のライブラリとして実装している部分があります。サーバの機能追加・変更に当たっては場合によってこれらライブラリを改造する必要となる場合もあります。
 
 |ライブラリ|概要|依存モジュール|JavaDoc|
 |:--|:--|:--|:--|
 |[personium-lib-common](https://github.com/personium/personium-lib-common)|core/engineで共通的に使うユーティリティ|core, engine|準備中|
 |[personium-lib-es-adapter](https://github.com/personium/personium-lib-es-adapter)|ElasticSearchへの接続を担うモジュール。ElasticSearchバージョンアップに伴う軽微非互換を吸収することを主たる目的としています。|core, engine|準備中|
 |[personium-client-java](https://github.com/personium/personium-client-java)|Personium のJava client ライブラリ. Engineで使用|engine|準備中|
-|personium-plugin-base|Personium プラグイン記述のためのベース|core|準備中|
-|personium-ex-base|Personium エンジン拡張記述のためのベース|engine|準備中|
+|[personium-plugin-base](https://github.com/personium/personium-plugin-base)|Personium プラグイン記述のためのベース|core|準備中|
+|[personium-ex-base](https://github.com/personium/personium-ex-base)|Personium エンジン拡張記述のためのベース|engine|準備中|
 
-ライブラリの依存関係についてはMavenにて管理しており、現在は以下にあるプロジェクトのmavenリポジトリで管理をしています。
+Personiumはこれらのライブラリのほかに多くのオープンソースライブラリを活用しています。
+ライブラリの依存関係についてはMavenにて管理しており、上記のプロジェクトライブラリについては現在は以下にあるプロジェクトのmavenリポジトリで管理をしています。
 
     http://personium.io/mvnrepo/
 
-詳しくは各プロジェクトのルートにあるpom.xmlを参照してください。Personiumプロジェクトでは私たちの成果物をApache 2.0ライセンスに基づいてユーザの皆さんに気軽に安心して使っていただけるよう、同ライセンスと互換性の高いライブラリのみで構成するポリシーとしています。具体的には再配布禁止条項を含むライセンスのライブラリは使用しないポリシーとしています。
+詳しくは各プロジェクトのルートにあるpom.xmlを参照してください。
 
+### ライセンスに関する考慮
 
-### 関連するリポジトリ
+Personiumプロジェクトでは私たちの成果物をApache 2.0ライセンスに基づいてユーザの皆さんに気軽に安心して使っていただけるよう、同ライセンスと互換性の高いライブラリのみで構成するポリシーとしています。具体的には再配布禁止条項を含むライセンスのライブラリは使用しないポリシーとしています。
+
+## 関連するリポジトリ
 
 * [personium-core](https://github.com/personium/personium-core)
 * [personium-engine](https://github.com/personium/personium-engine)
