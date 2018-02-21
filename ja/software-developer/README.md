@@ -6,8 +6,10 @@ Personiumのサーバソフトウェアそのものの開発に貢献したい�
 
 Personiumの主要構成要素は以下2つのJava Web アプリケーションプログラムで、いずれもサーブレットコンテナ上で動作します。
 
-* personium-core
-* personium-engine
+|モジュール名|概要|リポジトリ|
+|:--|:--|:--|
+|personium-core|Personiumのメインサーバプログラム|https://github.com/personium/personium-core|
+|personium-engine|coreの配下でEngine機能を担当するサブサーバプログラム|https://github.com/personium/personium-engine|
 
 これらのモジュールは以下の共通ライブラリに依存しています。
 
