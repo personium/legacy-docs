@@ -6,14 +6,14 @@ Personiumのサーバソフトウェアそのものの開発に貢献したい�
 
 Personiumの主要構成要素は以下2つのJava Web アプリケーションプログラムで、いずれもサーブレットコンテナ上で動作します。
 
-|モジュール名|概要|リポジトリ|
+|モジュール名|概要|JavaDoc|
 |:--|:--|:--|
-|personium-core|Personiumのメインサーバプログラム|https://github.com/personium/personium-core|
-|personium-engine|coreの配下でEngine機能を担当するサブサーバプログラム|https://github.com/personium/personium-engine|
+|[personium-core](https://github.com/personium/personium-core)|Personiumのメインサーバプログラム|準備中|
+|[personium-engine](https://github.com/personium/personium-engine)|coreの配下でEngine機能を担当するサブサーバプログラム|準備中|
 
 これらのモジュールは以下の共通ライブラリに依存しています。
 
-|ライブラリ|概要|依存モジュール|
+|ライブラリ|概要|依存モジュール|リポジトリ|JavaDoc|
 |:--|:--|:--|
 |personium-lib-common|core/engineで共通的に使うユーティリティ|core, engine|
 |personium-lib-es-adapter|ElasticSearchへの接続を担うモジュール。ElasticSearchバージョンアップに伴う軽微非互換を吸収することを主たる目的としています。|core, engine|
