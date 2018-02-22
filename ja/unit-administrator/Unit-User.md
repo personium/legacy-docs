@@ -10,7 +10,9 @@ Personiumユニットは外部のユニットユーザ管理機構の存在を�
 
 セルの生成・削除にかかわるユニットレベルのAPIもアクセス主体を識別するためにOAuth 2.0のBearerトークン送信を使って保護されたAPIにアクセスするという点は全く同じです。つまりアクセス主体は取得したトークンを以下のようにHTTPのAuthorizationヘッダで送信することで、自身を証明し識別させます。
 
-    Authorization: Bearer unitLevelAccessToken
+```
+Authorization: Bearer unitLevelAccessToken
+```
 
 一方でユニットレベルのAPIとそれを操作するユニットユーザのアクセス制御のモデルは、一般のセルで認証されたユーザの自セルや他セルへのアクセス制御のモデルとは全く異なります。
 
