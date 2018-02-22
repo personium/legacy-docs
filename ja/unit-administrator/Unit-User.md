@@ -113,24 +113,48 @@ curl "{UnitURL}/__ctl/Cell" -X GET \
 
 ## ユニットユーザロール（Unit User Role）
 
-Personiumのユニットはユニットユーザのロールとして以下を認識します。トークン内でその他のロールが付与されていたとしてもこれを認識はしない。（無視する）
+Personiumのユニットはユニットユーザトークン内のattribute要素の値として特定の文字列が設定されていたとき、これをユニットユーザのロールとして認識します。これをユニットユーザロールと呼びます。（その他の文字列が設定されていたとしてもこれを認識はせず無視します。）
+
+なお、ユニット管理用のセルを作成してこれをユニットユーザートークン発行元として登録して用いたときは、Boxに紐づけないロールとしてこれらロールを作成してアカウントと紐づけることで、ユニットユーザロールのついたユニットユーザトークンを発行可能です。
+
+ユニットユーザロールには以下のものがあります。
 
 ### UnitAdminロール
 
-{UnitURL}/{Cell}/\_\_role/\_\_/UnitAdmin
+    {UnitUserName}/\_\_role/\_\_/UnitAdmin
 
-UnitAdminロールが付与されている場合、そのユーザはユニットアドミンとなる。  
-各種ユニット管理業務は、このロールのトークンを用いてAPI呼び出しを行うべきである。
+UnitAdminロールが付与されている場合、そのユーザはユニットアドミンとなります。  
+各種ユニット管理業務は、このロールのトークンを用いてAPI呼び出しを行うべきです。
+
+* 注意）[v1.6.3以前は使用が異なります](#ref163)
 
 ### CellContentsReaderロール
 
-{UnitURL}/{Cell}/\_\_role/\_\_/CellContentsReader
+    {UnitUserName}/\_\_role/\_\_/CellContentsReader
 
-CellContentsReaderロールが付与されている場合、そのユーザのユニットユーザトークンはCellの内容のRead権限を持つ。  
+CellContentsReaderロールが付与されている場合、そのユーザのユニットユーザトークンはCellの内容のRead権限を持ちます。内容参照しか行わずデータの登録や書き換えにつながる処理を実行することはできません。
 
 ### CellContentsAdminロール
 
-{UnitURL}/{Cell}/\_\_role/\_\_/CellContentsAdmin
+    {UnitUserName}/\_\_role/\_\_/CellContentsAdmin
 
-CellContentsAdminロールが付与されている場合、そのユーザのユニットユーザトークンはCellの内容のRead権限、及びWrite権限を持つ。  
-ユニットユーザに"UnitAdminロール"、及び"CellContentsAdminロール"を付与することで、そのユーザのユニットユーザトークンはユニットマスタートークンと同等になる。
+CellContentsAdminロールが付与されている場合、そのユーザのユニットユーザトークンはCellの内容の全権限を持ちます。  ユニットユーザに"UnitAdminロール"、及び"CellContentsAdminロール"を付与することで、そのユーザのユニットユーザトークンはユニットマスタートークンと同等の権限を持つこととなります。
+
+<a name="ref163"></a>
+
+## Version 1.6.3 以前の仕様
+
+### ユニットユーザロールについて
+
+* Version 1.6.3 以前で唯一存在したunitAdminロールの先頭文字は小文字です。以下文字列が有効となります。
+
+    {UnitUserName}/\_\_role/\_\_/unitAdmin
+
+* CellContentsReaderロール、CellContentsAdminロールは存在しません。
+* ユニットユーザは特に何もユニットユーザロールがなくても自身の作成したセルに対してはすべての権限を持ちます。（CellContentsAdminロール相当）
+* ユニットアドミンはユニット上のすべてのセルに対してすべての権限を持ちます。
+
+### X-Personium-Unit-Userヘッダの制限
+
+* ユニットマスタートークン使用時以外はX-Personium-Unit-Userヘッダは有効ではありません。
+* unitAdminロールが付与されたトークンでのアクセス時もX-Personium-Unit-Userヘッダは有効ではありません。
