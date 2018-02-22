@@ -59,10 +59,11 @@ curl "{UnitURL}/{Cell}/__token" -X POST \
 -d 'grant_type=password&username=user&password=pass&p_target={UnitURL}/'
 ```
 
-io.personium.core.unitUser.issuers は複数URL設定可能
+* io.personium.core.unitUser.issuers は複数URL設定可能です。
+* UUTは通常、CellのCRUD以外のアクセス権限を持っていません。 
+* Cellの内容を操作したい場合、後述のユニットユーザロール(CellContentsReader, CellContentsAdmin)を付与する必要があります。
+    * 注意）[v1.6.3以前は仕様が異なります](#ref163)
 
-UUTは通常、CellのCRUD以外のアクセス権限を持っていません。 
-Cellの内容を操作したい場合、後述のユニットユーザロール(CellContentsReader, CellContentsAdmin)を付与する必要があります。(v1.6.4以降）
 
 
 ## ユニットユーザの種類
@@ -73,8 +74,8 @@ Cellの内容を操作したい場合、後述のユニットユーザロール(
 
 * セル検索時、そのユニット上のすべてのセルが対象になる
 * そのユニット上のすべてのセルに対して削除が可能。
-* X-Personium-Unit-Userヘッダに任意の文字列を指定することで、その文字列をユニットユーザ名とするユニットユーザとして動くことも可能です。
-    * 注意）[v1.6.3以前は仕様が異なります](#ref163)
+* X-Personium-Unit-Userヘッダに任意の文字列を指定することで、その文字列をユニットユーザ名とするユニットユーザとして動くことも可能です。  
+    * 注意）[v1.6.3以前は仕様が異なります](#ref163)
 
 例
 
