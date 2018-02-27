@@ -13,8 +13,8 @@ By using the mail sending function of Extension, send a mail transmission reques
 |To/Cc/Bcc|Destination mail address|Multiple designation possible<br>Display name can be given<br>The display name is converted to Base64 encoding|
 |From|Source mail address| Only one can be specified<br>Display name can be given<br>The display name is converted to Base64 encoding|
 |Return-Path|Notification destination of sending error|Only one can be specified|
-|Content-Type|Format of body|『Content-Type: text/plain; charset="ISO-2022-JP"』Default|
-|Content-Transfer-Encoding|Encoding format of body|『Content-Transfer-Encoding: quoted-printable』Default |
+|Content-Type|Format of body|[Content-Type: text/plain; charset="ISO-2022-JP"]Default|
+|Content-Transfer-Encoding|Encoding format of body|[Content-Transfer-Encoding: quoted-printable]Default |
 |Subject|Title|Subject is converted to Base64 encoding|
 |Date|Sent date|Automatically given at the time of transmission|
 |No header|Body|Specify body <br>According to the contents of Content-Type, Content-Transfer-Encoding described above, the mail is transmitted|
