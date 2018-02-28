@@ -31,7 +31,7 @@ Passive data subject： For infants, the elderly, etc., PDS can be handed over t
 ### Configure web of PDS  
 Groups of PDSs composed of the data disclosing and disclosed parties become a decentralized network which does not favor a specific business operator (the only winner). (Distributed social graph)
 
-It is possible to form a huge web of PDSs in which the disparate PDSs are linked together as if the web site hosted on a web server built in pieces was linked and www was created.
+It is possible to link together dispersed PDSs to form a huge web of PDSs as if the WWW is formed by linking web sites which are hosted on dispersed web servers.  
 
 We also implement security that is necessary for the formation of an open ecosystem.
 
