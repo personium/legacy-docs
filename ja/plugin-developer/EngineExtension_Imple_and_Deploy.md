@@ -58,7 +58,7 @@
 
 ### 実装サンプル
 * #### アノテーションを利用しない場合
-* ```
+```
 package io.personium.engine.extension.sampleproject;
 import io.personium.engine.extension.support.AbstractExtensionScriptableObject;
 public class Ext_Sample extends AbstractExtensionScriptableObject {
@@ -93,7 +93,7 @@ public class Ext_Sample extends AbstractExtensionScriptableObject {
 ```
 
 * #### アノテーションを利用する場合
-* ```
+```
 package io.personium.engine.extension.sampleproject;
 import io.personium.engine.extension.support.AbstractExtensionScriptableObject;
 import org.mozilla.javascript.annotations.JSConstructor;
