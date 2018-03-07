@@ -40,11 +40,11 @@ It is a setting which change from default as optional when operating Personium.
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |version|version|String|1.5.3|core, engine|<br>|
-|thread.pool.num|Number of thread pools|int|20|core|PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.|
+|thread.pool.num|Number of thread pools|int|20|core|v1.5.4 or later. PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.|
 |plugin.path|Personium plugin placement destination path|Plugin placement destination Full path|/personium/personium-core/plugins|core|<br>|
 |unitScheme|Unit scheme setting|"http" or "https"|https|core|Please set https when you operate it though it is also possible to set http to the development usage.|
-|unitPort|Unit port setting|Port number||core|When UnitURL is "https://p-host:8080/", unitPort becomes 8080. When UnitURL is "https://p-host/", unitPort is no need.|
-|unitPath|Unit path of URL|String||core|When UnitURL is "https://p-host:8080/p-path/", unitPath becomes "/p-path". When UnitURL is "https://p-host:8080/", unitPath is no need.|
+|unitPort|Unit port setting|Port number||core|v1.6.0 or later. When UnitURL is "https://p-host:8080/", unitPort becomes 8080. When UnitURL is "https://p-host/", unitPort is no need.|
+|unitPath|Unit path of URL|String||core|v1.6.0 or later. When UnitURL is "https://p-host:8080/p-path/", unitPath becomes "/p-path". When UnitURL is "https://p-host:8080/", unitPath is no need.|
 |masterToken|Master Token|Token string||core, engine|Please do not set it when you operate it though it is possible to set by the development usage.|
 
 #### OData
@@ -77,7 +77,7 @@ It is a setting which change from default as optional when operating Personium.
 #### Security
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
-|security.dav.encrypt.enabled|Whether to encrypt the WebDAV file|true:To encrypt<br>false:Do not encrypt|false|core|<br>|
+|security.dav.encrypt.enabled|Whether to encrypt the WebDAV file|true:To encrypt<br>false:Do not encrypt|false|core|v1.5.1 or later|
 
 #### Lock
 |Key|Description|Value|Default value|Used component|Notes|
@@ -127,7 +127,7 @@ It is a setting which change from default as optional when operating Personium.
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |event.log.current.dir|Event log file storage directory|Full path of directory|/personium_nfs/personium-core/eventlog|core|<br>|
-|event.hop.maxnum|Event hop limitation|Int|3|core|When you want to stop event processing, set to 0.|
+|event.hop.maxnum|Event hop limitation|Int|3|core|v1.6.2 or later. When you want to stop event processing, set to 0.|
 
 #### Cache
 |Key|Description|Value|Default value|Used component|Notes|
@@ -170,12 +170,12 @@ http://{engine.host}:{engine.port}/{engine.path}
 #### CellSnapshot
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
-|cellSnapshot.root|Route path to store snapshot data|Full path of directory|/personium_nfs/personium-core/snapshot|core|<br>|
+|cellSnapshot.root|Route path to store snapshot data|Full path of directory|/personium_nfs/personium-core/snapshot|core|v1.5.4 or later|
 
 #### EventBus
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
-|eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core||
-|eventbus.queue|Queue name of event|String|personium_event_queue|core||
-|eventbus.topic.all|Topic name for all event|String|personium_event_topic|core||
-|eventbus.topic.rule|Topic name for rule event|String|personium_event_topic_rule|core||
+|eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core|v1.6.0 or later|
+|eventbus.queue|Queue name of event|String|personium_event_queue|core|v1.6.0 or later|
+|eventbus.topic.all|Topic name for all event|String|personium_event_topic|core|v1.6.0 or later|
+|eventbus.topic.rule|Topic name for rule event|String|personium_event_topic_rule|core|v1.6.0 or later|

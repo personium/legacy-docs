@@ -42,11 +42,11 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |version|バージョン|文字列|1.5.3|core, engine|<br>|
-|thread.pool.num|スレッドプール数|int|20|core|PersoniumUnit全体のスレッドプール数。今後機能ごとにスレッドプールを分割予定。|
+|thread.pool.num|スレッドプール数|int|20|core|v1.5.4以降。PersoniumUnit全体のスレッドプール数。今後機能ごとにスレッドプールを分割予定。|
 |plugin.path|Personiumプラグイン配置先パス|プラグイン配置先フルパス|/personium/personium-core/plugins|core|<br>|
 |unitScheme|ユニットのスキーム設定|"http" または "https"|https|core|開発用途にhttpを設定することも可能ですが、運用時には必ずhttpsを設定してください。|
-|unitPort|ユニットのポート番号|ポート番号||core|UnitURLが "https://p-host:8080/" の場合、unitPortは8080になります。UnitURLが "https://p-host/" の場合、unitPortは設定しません。|
-|unitPath|ユニットのURLPath|文字列||core|UnitURLが "https://p-host:8080/p-path/" の場合、unitPathは"/p-path"になります。UnitURLが "https://p-host:8080/" の場合、unitPathは設定しません。|
+|unitPort|ユニットのポート番号|ポート番号||core|v1.6.0以降。UnitURLが "https://p-host:8080/" の場合、unitPortは8080になります。UnitURLが "https://p-host/" の場合、unitPortは設定しません。|
+|unitPath|ユニットのURLPath|文字列||core|v1.6.0以降。UnitURLが "https://p-host:8080/p-path/" の場合、unitPathは"/p-path"になります。UnitURLが "https://p-host:8080/" の場合、unitPathは設定しません。|
 |masterToken|マスタートークン|トークン文字列||core, engine|デフォルトは無効です。開発用途などで設定することもできますが、運用時には設定しないでください。|
 
 
@@ -80,7 +80,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 #### セキュリティ
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
-|security.dav.encrypt.enabled|WebDAVファイルを暗号化するか|true:暗号化する<br>false:暗号化しない|false|core|<br>|
+|security.dav.encrypt.enabled|WebDAVファイルを暗号化するか|true:暗号化する<br>false:暗号化しない|false|core|v1.5.1以降|
 
 #### Lock
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
@@ -130,7 +130,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |event.log.current.dir|イベントログファイルの格納ディレクトリ|ディレクトリのフルパス|/personium_nfs/personium-core/eventlog|core|<br>|
-|event.hop.maxnum|あるイベントを契機としたイベント処理を繰り返す最大数|Int|3|core|0に設定するとルールによるイベント処理は行われなくなります。|
+|event.hop.maxnum|あるイベントを契機としたイベント処理を繰り返す最大数|Int|3|core|v1.6.2以降。0に設定するとルールによるイベント処理は行われなくなります。|
 
 #### キャッシュ
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
@@ -173,12 +173,12 @@ http://{engine.host}:{engine.port}/{engine.path}
 #### CellSnapshot
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
-|cellSnapshot.root|snapshotデータを格納するルートパス|ディレクトリのフルパス|/personium_nfs/personium-core/snapshot|core|<br>|
+|cellSnapshot.root|snapshotデータを格納するルートパス|ディレクトリのフルパス|/personium_nfs/personium-core/snapshot|core|v1.5.4以降|
 
 #### EventBus
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
-|eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core||
-|eventbus.queue|イベントのキュー名|文字列|personium_event_queue|core||
-|eventbus.topic.all|イベントのトピック名|文字列|personium_event_topic|core||
-|eventbus.topic.rule|ルールイベントのトピック名|文字列|personium_event_topic_rule|core||
+|eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core|v1.6.0以降|
+|eventbus.queue|イベントのキュー名|文字列|personium_event_queue|core|v1.6.0以降|
+|eventbus.topic.all|イベントのトピック名|文字列|personium_event_topic|core|v1.6.0以降|
+|eventbus.topic.rule|ルールイベントのトピック名|文字列|personium_event_topic_rule|core|v1.6.0以降|

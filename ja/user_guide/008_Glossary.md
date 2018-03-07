@@ -41,7 +41,7 @@
 
 
 ### Box レベル ACL
-<font size=1>[Personium]</font> Box配下のリソース対するACL。詳細は[アクセス制御モデル](./002_Access_Control.md)参照。
+<font size=1>[Personium]</font> Box配下のリソース対するACL。詳細は[アクセス制御モデル](../apiref/current/006_Access_Control.md)参照。
 
 
 ## <a name="anc_c"> C</a>
@@ -191,7 +191,7 @@ AssociationEndの多重度の表記は、2つのEntityTypeの間の関係では�
 
 ### Privilege
 <font size=1>[Personium]</font> Cell内に定義されたRoleに対し、特定のRoleに紐付けられたBox内部のデータにアクセスする権限。  
-PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](./002_Access_Control.md)参照。
+PersoniumではACLの設定によって定義される。詳細は[アクセス制御モデル](../apiref/current/006_Access_Control.md)参照。
 
 ## <a name="anc_r"> R</a>
 ### RBAC

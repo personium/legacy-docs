@@ -47,7 +47,7 @@ For details, refer to [bar File](../apiref/current/301_Bar_File.md).
 
 
 ### Box level ACL
-<font size=1>[Personium]</font> The ACL for resources under the box. For details, refer to [Access Control Model](./002_Access_Control.md).
+<font size=1>[Personium]</font> The ACL for resources under the box. For details, refer to [Access Control Model](../apiref/current/006_Access_Control.md).
 
 
 ## <a name="anc_c"> C</a>
@@ -195,7 +195,7 @@ For details on OData, click [here](http://www.odata.org/).
 
 ### Privilege
 <font size=1>[Personium]</font> Privileges granted to the roles defined in the cell to access data in the box associated with specific roles.  
-Privileges are defined in ACL configuration in Personium. For details, refer to [Access Control Model](./002_Access_Control.md).
+Privileges are defined in ACL configuration in Personium. For details, refer to [Access Control Model](../apiref/current/006_Access_Control.md).
 
 
 ## <a name="anc_r"> R</a>
