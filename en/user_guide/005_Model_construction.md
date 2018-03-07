@@ -13,7 +13,7 @@
 ### Box installation  
 
 * It is possible to install the Box in the specified path using the bar file.
-* For more details, please click <a href="./006_Box_install.md">here</a>.
+* For more details, please click [here](../apiref/current/007_Box_install.md).
 
 ### Collection  
 
