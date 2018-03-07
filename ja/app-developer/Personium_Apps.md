@@ -98,7 +98,7 @@ GitHubで公開している各種アプリのフォルダ構成は一定のル�
 
 |#|フォルダ、ファイル|用途|
 |:--|:-------|:---|
-|1|bar     |各ユーザーの[box内にデータ構造を展開するarchiveファイル](../user_guide/006_Box_install.md)のソース。.bar形式にZip圧縮してデプロイする（[barファイル詳細](../apiref/current/301_Bar_File.md)|
+|1|bar     |各ユーザーの[box内にデータ構造を展開するarchiveファイル](../apiref/current/007_Box_install.md)のソース。.bar形式にZip圧縮してデプロイする（[barファイル詳細](../apiref/current/301_Bar_File.md)|
 |2|icon    |Homeアプリ内で表示されるicon|
 |3|launch.json|アプリの起動URIを記述したドキュメント。<br>URLスキームをカスタムすることにより、ネイティブアプリを起動することが可能となる予定。|
 |4||アプリのDefaultファイル|

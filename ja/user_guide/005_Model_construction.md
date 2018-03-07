@@ -11,7 +11,7 @@
 
 ### Boxインストール
 * barファイルを使って指定されたパスにBoxをインストールすることが可能です。
-* 詳細は[こちら](./006_Box_install.html)をご覧下さい。
+* 詳細は[こちら](../apiref/current/007_Box_install.md)をご覧下さい。
 
 ### Cell制御オブジェクト
 ![Cell制御オブジェクトE-R図](image/cell_ctrl_obj.png "Cell制御オブジェクトE-R図")
