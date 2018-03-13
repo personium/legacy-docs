@@ -69,6 +69,43 @@ function(request) {
 }
 ```
 
+bodyとして返す配列要素はinputStreamを取ることができます。
+
+```
+function(request) {
+  var is = .... (ファイル取得など)
+  return {
+        status: 200,
+        headers: {"Content-Type":"text/plain"},
+        body: [is]
+  };
+}
+```
+
+bodyとして返すオブジェクトはforEachメソッドが実装されていることが要件ですので、以下のようなオブジェクトで返すことも可能です。
+
+```
+function(request) {
+  var bodyObj = {
+     min: 0,
+     max: 2000,
+     forEach: function(f) {
+       var i = min;
+       while (i < max) {
+          f(i + ",");
+          i++;
+       }
+     }
+  };
+  return {
+        status: 200,
+        headers: {"Content-Type":"text/plain"},
+        body: bodyObj
+  };
+}
+```
+
+
 
 ## リクエストの受取
 
