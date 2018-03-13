@@ -103,8 +103,8 @@ Engine Extension は、概要で記載のとおりサンドボックス環境と
 
 ### 様々な Engine Extension
 
-* メール送信 Extension
-* HTTPクライアント Extension
+* [メール送信](./Extension_Send_Mail.md)
+* [HTTPクライアント](https://github.com/personium/personium-ex-httpclient)
 
 ### Engine Extension の開発
 
