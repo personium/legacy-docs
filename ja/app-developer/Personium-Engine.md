@@ -52,9 +52,7 @@ ESCにPROPPATCHメソッドを発行しプロパティを設定することに�
 
 ## Engine Script
 
-Engine ScriptはESCの中に登録するスクリプトです。現在JavaScriptのみをサポートしています。Engine ScriptはJSGI仕様に従った関数として定義します。関数内では一般的なJavaScriptロジック記述に加えて、PersoniumのAPI呼出を行うための関数群であるPersonium Engine Library をはじめとするいくつかのグローバルオブジェクトが使用可能です。
-
-##### Sample
+Engine ScriptはESCの中に登録する以下のようなスクリプトです。現在JavaScriptのみをサポートしています。
 
 ```
 function(request) {
@@ -66,13 +64,21 @@ function(request) {
 }
 ```
 
+Engine ScriptはJSGI仕様に従った関数として定義します。
+
+* [Engine Scriptのサンプル](./671_Engine_Script_Samples.md)
+
+
+
+関数内では一般的なJavaScriptロジック記述に加えて、PersoniumのAPI呼出を行うための関数群であるPersonium Engine Library をはじめとするいくつかのグローバルオブジェクトが使用可能です。
+
+
 
 ### 使用可能なグローバルオブジェクト
 
 * JSON
 * String
 
-等
 
 
 ## Engine Library
