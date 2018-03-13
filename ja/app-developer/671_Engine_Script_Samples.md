@@ -76,7 +76,7 @@ function(request) {
 
 request.method　でメソッドが取得できます。
 
-####　GETメソッド以外はエラーとする
+#### GETメソッド以外はエラーとする
 
 ```
 function(request) {
@@ -97,7 +97,7 @@ function(request) {
 
 request.headers　でリクエストヘッダが取得できます。
 
-####　特定リクエストヘッダの値を返す
+#### 特定リクエストヘッダの値を返す
 
 ```
 function(request) {
