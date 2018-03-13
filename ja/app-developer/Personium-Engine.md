@@ -64,17 +64,44 @@ function(request) {
 }
 ```
 
-Engine ScriptはJSGI仕様に従った関数として定義します。
+Engine ScriptはJSGI仕様に従った関数として定義します。リクエストの情報は定義する関数の引数として引き渡されます。また関数の戻り値として定義するオブジェクトをもとにレスポンスが生成されます。
+
+### リクエスト
+
+エンドポイントへのアクセスがあると以下仕様でリクエスト情報の入ったオブジェクトが引数として渡されるかたちで関数が実行されます。
+
+|キー|型|値|
+|:--|:--|:--|
+|method|文字列|HTTP のリクエストメソッド|
+|headers|Object|HTTP リクエストヘッダ|
+|input|Object|HTTP リクエストボディ|
+|scheme|文字列|HTTP リクエストURLのscheme部|
+|host|文字列|HTTP リクエストURLのhost部|
+|port|文字列|HTTP リクエストURLのport部|
+|pathInfo|文字列|HTTP リクエストURLのpathInfo部|
+|scriptName|文字列|スクリプト名|
+|queryString|文字列|HTTP リクエストURLのqueryString部|
+
+
+### レスポンス
+
+以下仕様のオブジェクトを関数の戻り値として返すようにしてください。それにより適切なHTTP応答をします。
+
+|キー|型|値|
+|:--|:--|:--|
+|status|Number|HTTP のステータスコード|
+|headers|Object|HTTP レスポンスヘッダ|
+|body|forEach関数が定義されたオブジェクト|HTTP レスポンスボディ|
+
 
 * [Engine Scriptのサンプル](./671_Engine_Script_Samples.md)
 
 
+### 使用可能なグローバルオブジェクト
+
 
 関数内では一般的なJavaScriptロジック記述に加えて、PersoniumのAPI呼出を行うための関数群であるPersonium Engine Library をはじめとするいくつかのグローバルオブジェクトが使用可能です。
 
-
-
-### 使用可能なグローバルオブジェクト
 
 * JSON
 * String
