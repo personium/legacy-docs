@@ -72,9 +72,11 @@ function(request) {
 
 ## リクエストの受取
 
-#### メソッドに応じて処理を振り分ける
+### リクエストメソッド
 
-GETメソッド以外はエラーとする
+request.method　でメソッドが取得できます。
+
+####　GETメソッド以外はエラーとする
 
 ```
 function(request) {
@@ -89,6 +91,36 @@ function(request) {
         body: ["GET method is fine"]
   };
 }
+```
+
+### リクエストヘッダ
+
+request.headers　でリクエストヘッダが取得できます。
+
+####　特定リクエストヘッダの値を返す
+
+```
+function(request) {
+  var headerVal = request.headers['X-Some-Header'];
+  if (!headerVal) {
+    return {
+      status: 400,
+      body: ['X-Some-Header required']
+    };
+  }
+  return {
+        status: 200,
+        body: ["X-Some-Header value = " + headerVal]
+  };
+}
+```
+
+### リクエストボディ
+
+request.input　でリクエストボディにストリームとしてアクセス可能です。
+
+```
+    var reqString = request.input.readAll();
 ```
 
 #### リクエストボディのパース
