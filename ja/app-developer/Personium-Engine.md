@@ -1,7 +1,8 @@
 # Personium Engine
-## Overview
+## 概要
 
-Personium Engine は、簡単なサーバサイドロジック（Engine Script）を登録しこれを走行させるための仕組みです。ロジック記述言語としては現在のところJavaScriptのみをサポートしています。EngineへのアクセスはBox内に作成した Engine Service Collection (ESC)を介して行います。
+Personium Engine は、簡単なサーバサイドロジック（Engine Script）を登録しこれを走行させるための仕組みです。
+EngineへのアクセスはBox内に作成した Engine Service Collection (ESC)を介して行います。
 
 1. ESC内に Engine Script ファイル配置
 1. ESCへのPROPPATCHメソッド発行でルーティング設定（どのパスでどのロジックを走行させるかという設定）を実施
@@ -9,9 +10,13 @@ Personium Engine は、簡単なサーバサイドロジック（Engine Script�
 
 上記3ステップの準備をすることで、指定パスの呼出でサーバサイドロジックが走行するようになります。
 
-Engine Script はJSGI仕様に従ったJava Scriptの関数として定義します。
+多くの場合 Engine Script はアプリ開発者がbarファイルの中に含めて配布を行い、セルのオーナが box インストールを行うことで実行可能となります。またセルのオーナはアプリを操作する中でそれがどれだけUnitに負荷をかけるのかをイメージすることなくアプリを操作しますし、そういった操作を契機にEngine Scriptは実行されることとなります。
 
-ユニットの管理者はEngine Extensionをユニットに設定することでEngine Libraryを拡張することもできます。具体的にはJava言語で特定の方法で書かれたロジックをjarファイルとしてユニットに設定することで、Engine Library内に新たなJavaScriptクラスを定義して使用可能とすることができます。
+そのため EngineはUnit に過度な負荷をかけたり、Unit を内部から攻撃するようなコードが記述できないようなサンドボックス環境として設計されています。
+
+一方で、その制約がきつすぎる場合には行えることが限定的になりすぎることもあるため、
+ユニットの管理者が設定をすれば機能拡張を行えるような枠組みとして Engine Extension を用意しています。
+
 
 ## Engine Service Collection (ESC)
 
@@ -93,13 +98,14 @@ function(request) {
 Engine ExtensionはEngine Libraryの機能を拡張するための機構です。具体的にはJava言語で特定の方法で書かれたクラスを含んだjarファイルを
 ユニットに設定することにより、 Engine Script内で _p.extension. パッケージ以下に新たな機能を提供するオブジェクトが現れ、利用可能となります。
 
-Engineはもともと任意のScriptが無制限に走行してよい環境ではなく、サーバに過度な負荷をかけたり、
-サーバを内部から攻撃するようなコードが記述できないようなサンドボックス環境として設計されています。
-
-一方で、その制約がきつすぎる場合には行えることが限定的になりすぎることもあるため、
-ユニットの管理者が設定をすれば機能拡張を行えるような枠組みを用意しています。それが Engine Extension です。
-
+Engine Extension は、概要で記載のとおりサンドボックス環境として設計されているengineの制約を緩和するための機構です。
 そのため Engine Extensionの導入はユニット管理者でないと行うことができません。
+
+### 様々な Engine Extension
 
 * メール送信 Extension
 * HTTPクライアント Extension
+
+### Engine Extension の開発
+
+Engine Extensionを開発したい方は、[プラグイン開発者向けガイド](../plugin-developer/)をご覧ください。
