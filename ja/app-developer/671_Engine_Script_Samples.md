@@ -247,20 +247,19 @@ function(request) {
 }
 ```
 
-#### ファイル作成
+#### ファイル作成・上書き更新
 
 ```
 function(request) {
   var content = request.input.readAll();
   var thisBox = _p.as('client').cell().box();
-  var pictureStream = thisBox.put('conf.json', content);
+  var pictureStream = thisBox.put('conf.json', 'application/json', content);
   return {
         status: 201,
         body: [content]
   };
 }
 ```
-
 
 #### ファイル削除
 
@@ -274,4 +273,79 @@ function(request) {
   };
 }
 ```
+
+
+#### 衝突検知でファイル更新
+
+If-Matchヘッダで送信されたetag情報が合致するときのみファイル更新
+
+```
+function(request) {
+  var etag = request.headers['If-Match'];
+  var content = request.input.readAll();
+  var thisBox = _p.as('client').cell().box();
+  try {
+    var pictureStream = thisBox.put('conf.json', 'application/json', content, etag);
+  } catch (e) {
+    return {
+        status: 409,
+        body: ["conflict"]
+    };  
+  }
+  return {
+        status: 204,
+        body: []
+  };
+}
+```
+
+
+
+
+
+
+#### ディレクトリ作成
+
+```
+function(request) {
+  var content = request.input.readAll();
+  var thisBox = _p.as('client').cell().box();
+  thisBox.mkCol('folder1');
+  return {
+        status: 201,
+        body: [content]
+  };
+}
+```
+
+#### OData Service Collection 作成
+
+```
+function(request) {
+  var content = request.input.readAll();
+  var thisBox = _p.as('client').cell().box();
+  thisBox.mkOData('odata');
+  return {
+        status: 201,
+        body: [content]
+  };
+}
+```
+
+
+#### Engine Service Collection 作成
+
+```
+function(request) {
+  var content = request.input.readAll();
+  var thisBox = _p.as('client').cell().box();
+  thisBox.mkService('svc');
+  return {
+        status: 201,
+        body: [content]
+  };
+}
+```
+
+
 
