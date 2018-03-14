@@ -216,11 +216,26 @@ Engine Script 内では _pというグローバルオブジェクトを介して
 ```
 function(request) {
   var thisBox = _p.as('client').cell().box();
-  var picture = thisBox.col('img').get('picture.jpg');
+  var pictureStream = thisBox.col('img').getStream('picture.jpg');
   return {
         status: 200,
         headers: {"Content-Type":"image/jpeg"},
-        body: [picture]
+        body: [pictureStream]
+  };
+}
+```
+
+### ファイルの操作
+
+#### ファイル削除
+
+```
+function(request) {
+  var thisBox = _p.as('client').cell().box();
+  var pictureStream = thisBox.col('img').del('picture.jpg');
+  return {
+        status: 204,
+        body: []
   };
 }
 ```
