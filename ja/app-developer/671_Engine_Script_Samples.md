@@ -207,7 +207,7 @@ function(request) {
 }
 ```
 
-### Personium のAPI呼出処理
+## Personium のAPI呼出処理
 
 Engine Script 内では _pというグローバルオブジェクトを介してPersoniumの様々なAPIを呼び出し可能です。
 
