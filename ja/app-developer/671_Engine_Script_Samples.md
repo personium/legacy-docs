@@ -300,20 +300,19 @@ function(request) {
 ```
 
 
+### コレクションの操作
 
+#### WebDAVコレクション作成
 
-
-
-#### ディレクトリ作成
+コレクションはWebDAVにおいてディレクトリに相当する用語です。
 
 ```
 function(request) {
-  var content = request.input.readAll();
   var thisBox = _p.as('client').cell().box();
   thisBox.mkCol('folder1');
   return {
         status: 201,
-        body: [content]
+        body: []
   };
 }
 ```
@@ -322,12 +321,11 @@ function(request) {
 
 ```
 function(request) {
-  var content = request.input.readAll();
   var thisBox = _p.as('client').cell().box();
   thisBox.mkOData('odata');
   return {
         status: 201,
-        body: [content]
+        body: []
   };
 }
 ```
@@ -337,15 +335,29 @@ function(request) {
 
 ```
 function(request) {
-  var content = request.input.readAll();
   var thisBox = _p.as('client').cell().box();
   thisBox.mkService('svc');
   return {
         status: 201,
-        body: [content]
+        body: []
   };
 }
 ```
 
 
+### OData Service Collectionの操作
+
+#### Entityの取得
+
+テーブルのデータを１件取得します
+```
+function(request) {
+  var thisBox = _p.as('client').cell().box();
+  var item = thisBox.odata('odata').entitySet('items').get('key1');
+  return {
+        status: 200,
+        body: [JSON.stringify(item)]
+  };
+}
+```
 
