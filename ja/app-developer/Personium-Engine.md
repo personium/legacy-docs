@@ -102,11 +102,13 @@ Engine ScriptはJSGI仕様に従った関数として定義します。リクエ
 
 関数内では一般的なJavaScriptロジック記述に加えて、PersoniumのAPI呼出を行うための関数群であるPersonium Engine Library をはじめとするいくつかのグローバルオブジェクトが使用可能です。
 
-
 * JSON
 * String
-
-
+* RegExp
+* Object
+* Array
+* Math
+* 等
 
 ## Engine Library
 
