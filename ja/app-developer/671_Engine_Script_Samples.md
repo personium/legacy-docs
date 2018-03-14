@@ -347,13 +347,28 @@ function(request) {
 
 ### OData Service Collectionの操作
 
+#### Entityの作成
+
+テーブルにデータを１件追加します
+```
+function(request) {
+  var thisBox = _p.as('client').cell().box();
+  var entitySet = thisBox.odata('odata').entitySet('items')
+  var item = entitySet.create({Name: 'Chocolate', Price: 2.7});
+  return {
+        status: 200,
+        body: [JSON.stringify(item)]
+  };
+}
+```
+
 #### Entityの取得
 
 テーブルのデータを１件取得します
 ```
 function(request) {
   var thisBox = _p.as('client').cell().box();
-  var item = thisBox.odata('odata').entitySet('items').get('key1');
+  var item = thisBox.odata('odata').entitySet('items').retrieve('key1');
   return {
         status: 200,
         body: [JSON.stringify(item)]
