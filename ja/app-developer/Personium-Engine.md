@@ -75,12 +75,12 @@ Engine ScriptはJSGI仕様に従った関数として定義します。リクエ
 |method|文字列|HTTP のリクエストメソッド|
 |headers|Object|HTTP リクエストヘッダ|
 |input|Object|HTTP リクエストボディ|
+|queryString|文字列|HTTP リクエストURLのqueryString部|
+|pathInfo|文字列|HTTP リクエストURLのpathInfo部|
 |scheme|文字列|HTTP リクエストURLのscheme部|
 |host|文字列|HTTP リクエストURLのhost部|
 |port|文字列|HTTP リクエストURLのport部|
-|pathInfo|文字列|HTTP リクエストURLのpathInfo部|
 |scriptName|文字列|スクリプト名|
-|queryString|文字列|HTTP リクエストURLのqueryString部|
 
 
 ### レスポンス
