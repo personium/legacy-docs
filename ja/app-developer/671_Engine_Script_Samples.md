@@ -211,7 +211,29 @@ function(request) {
 
 Engine Script 内では _pというグローバルオブジェクトを介してPersoniumの様々なAPIを呼び出し可能です。
 
-以下の例ではこのScriptが走行するBox内の /img/picture.jpgというファイルに対して クライアントから受け取ったアクセストークンをそのまま使ってアクセスし、取得できた内容をレスポンスボディとして返しています。
+### ファイルの操作
+
+#### 取得
+
+以下の例ではクライアントから受け取ったアクセストークンをそのまま使ってアクセスし、
+このScriptが走行するBoxの ルートにあるconf.jsonというファイルを文字列として取得。
+ファイル内容をパースして、modeというキーの値を返しています。
+
+```
+function(request) {
+  var thisBox = _p.as('client').cell().box();
+  var jsonStr = thisBox.getString('conf.json');
+
+  var conf = JSON.parse(jsonStr);
+  return {
+        status: 204,
+        headers: { 'Content-Type' : 'text/plain'},
+        body: [conf.mode]
+  };
+}
+```
+
+このScriptが走行するBox内の /img/picture.jpgというファイルに対して クライアントから受け取ったアクセストークンをそのまま使ってアクセスし、取得できた内容をレスポンスボディとして返しています。
 
 ```
 function(request) {
@@ -225,7 +247,20 @@ function(request) {
 }
 ```
 
-### ファイルの操作
+#### ファイル作成
+
+```
+function(request) {
+  var content = request.input.readAll();
+  var thisBox = _p.as('client').cell().box();
+  var pictureStream = thisBox.put('conf.json', content);
+  return {
+        status: 201,
+        body: [content]
+  };
+}
+```
+
 
 #### ファイル削除
 
@@ -239,5 +274,4 @@ function(request) {
   };
 }
 ```
-
 
