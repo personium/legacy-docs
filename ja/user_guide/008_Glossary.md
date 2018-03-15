@@ -177,7 +177,7 @@ AssociationEndの多重度の表記は、2つのEntityTypeの間の関係では�
 
 
 ### OData Service Collection
-<font size=1>[Personium]</font> ODataプロトコルで任意のリレーショナルデータを扱う操作するための特殊WebDAV拡張コレクションで、Box内の任意の階層に複数作成することができる。このコレクション以下自体がODataのサービスのルートとなっているとともに、スキーマ情報を格納する$metadata自体もスキーマ設定を行うためのOData空間のルートとなっており、ここで定義した任意のスキーマに基づいてリレーショナルデータを扱うことができる。
+<font size=1>[Personium]</font> ODataプロトコルで任意のリレーショナルデータを扱うための特殊WebDAV拡張コレクションで、Box内の任意の階層に複数作成することができる。このコレクション配下自体がODataのサービスのルートとなっているとともに、スキーマ情報を格納する$metadata自体もスキーマ設定を行うためのOData空間のルートとなっており、ここで定義した任意のスキーマに基づいてリレーショナルデータを扱うことができる。
 
 
 ### $orderby クエリ
@@ -235,7 +235,7 @@ ${Cell URL}/\__relation/${BoxName}/${RelationName}
 
 
 ### Role
-<font size=1>[Personium]</font> セル制御オブジェクトの1つ。そのCellの中で有効「役割」をあらわす。（例：administrator、teacher、student）  
+<font size=1>[Personium]</font> セル制御オブジェクトの1つ。そのCellの中で有効な「役割」をあらわす。（例：administrator、teacher、student）  
 どのアカウント(ユーザ)が、そのCellにアクセスすることができるかを指定できるようになるので、Cellのアカウント所有権を規定するアクセス権限の異なった設定を持つことができる。  
 
 ### Role クラス URL
