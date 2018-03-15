@@ -31,7 +31,7 @@ It is a setting that requires changing from the default in order to operate Pers
 |x509.root|X509 Path where root certificate is placed|Full path of trusted DER format root certificate<br>More than one space can be specified|/opt/x509/personium_ca.crt|core, engine|If you do not specify anything (do not define the key), the certificate of Personium official CA will be automatically trusted.|
 |security.secret16|Encryption key when generating token or file|16 hexadecimal character string|secret16abcdefgh|core, engine|<br>|
 |security.auth.password.salt|Password hash salt value|16 hexadecimal character string|saltijkl|core|<br>|
-|unitUser.issuers|Character string<br>The cell can be specified by specifying cell URL for a unit user token publisher. |Cell URL<br>More than one space can be specified|http://localhost:8080/UnitUserCell/ |core|<br>|
+|unitUser.issuers|Character string<br>The cell can be specified by specifying cell URL for a unit user token publisher. |Cell URL<br>More than one space can be specified|http&#58;//localhost:8080/UnitUserCell/ |core|<br>|
 <br>
 ### Change optional setting
 It is a setting which change from default as optional when operating Personium.
@@ -43,8 +43,8 @@ It is a setting which change from default as optional when operating Personium.
 |thread.pool.num|Number of thread pools|int|20|core|v1.5.4 or later. PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.|
 |plugin.path|Personium plugin placement destination path|Plugin placement destination Full path|/personium/personium-core/plugins|core|<br>|
 |unitScheme|Unit scheme setting|"http" or "https"|https|core|Please set https when you operate it though it is also possible to set http to the development usage.|
-|unitPort|Unit port setting|Port number||core|v1.6.0 or later. When UnitURL is "https://p-host:8080/", unitPort becomes 8080. When UnitURL is "https://p-host/", unitPort is no need.|
-|unitPath|Unit path of URL|String||core|v1.6.0 or later. When UnitURL is "https://p-host:8080/p-path/", unitPath becomes "/p-path". When UnitURL is "https://p-host:8080/", unitPath is no need.|
+|unitPort|Unit port setting|Port number||core|v1.6.0 or later. When UnitURL is "https&#58;//p-host:8080/", unitPort becomes 8080. When UnitURL is "https&#58;//p-host/", unitPort is no need.|
+|unitPath|Unit path of URL|String||core|v1.6.0 or later. When UnitURL is "https&#58;//p-host:8080/p-path/", unitPath becomes "/p-path". When UnitURL is "https&#58;//p-host:8080/", unitPath is no need.|
 |masterToken|Master Token|Token string||core, engine|Please do not set it when you operate it though it is possible to set by the development usage.|
 
 #### OData

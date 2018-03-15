@@ -7,9 +7,9 @@ Personiumはデータ主体中心のICT実現のため以下3階層の基本オ�
 
 |名称|概要|URL例|
 |:--|:--|:--|
-|Unit|多数のCellをホストするサーバ|https://personium.example/|
-|Cell|データ主体ごとのデータストア|https://personium.example/john.doe/|
-|Box|アプリケーション毎のデータ領域|https://personium.example/john.doe/schedule/|
+|Unit|多数のCellをホストするサーバ|https&#58;//personium.example/|
+|Cell|データ主体ごとのデータストア|https&#58;//personium.example/john.doe/|
+|Box|アプリケーション毎のデータ領域|https&#58;//personium.example/john.doe/schedule/|
 
 ### Unit
 
