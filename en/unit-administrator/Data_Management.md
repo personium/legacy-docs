@@ -20,7 +20,7 @@ Indicates management of each object of Personium.
 <br>
 #### Reference information
 For example, if you want to acquire the data in the cell for backup purposes etc., it can be done by executing the Personium API.
-> Account password can not be obtained.<br>We plan to implement an API that can collect data all at once.
+> Account password can not be obtained.
 
 ##### How to get OData's data
 Execute list acquisition API of each object and obtain data.<br>In the case of a large amount of data, it is good to utilize the query at the time of API execution and acquire it in multiple times.
