@@ -16,8 +16,8 @@ function(request) {
 
 ## Receiving Request
 
-リクエストは関数の引数で与えられます。以下では関数の引数を request と記述したときに、
-リクエストに関する各種情報をどのように取得するかサンプル提示しながら説明します。
+Requests are given as function arguments. In the following, when the function argument is described as request,
+I will explain how to obtain various information on request while presenting sample.
 
 ### Request Method
 
@@ -97,20 +97,21 @@ can be parsed using standard JSON object.
 
 #### binary body
 
-リクエストボディがバイナリである場合はストリームのまま処理するのがよいでしょう。
+If the request body is binary, it is a good idea to process the stream as it is.
 
 ```
     var stream = request.input;
 ```
 
-取得したストリームをファイルに書き出したり、応答で使ったりといったことが可能です。
+It is possible to write the acquired stream to a file or use it in response.
 
 
 ## Returning Response
 
-### レスポンスのバリエーション
+### Response variations
 
-#### HTMLでのレスポンス
+
+#### Response in HTML
 
 ```
 function(request) {
@@ -138,9 +139,9 @@ function(request) {
 }
 ```
 
-#### ステータスコードを変えてみる
+#### Changing the status code
 
-403 Forbidden エラー応答
+403 Forbidden Error response
 
 ```
 function(request) {
@@ -151,9 +152,10 @@ function(request) {
 }
 ```
 
-### bodyのバリエーション
+### Variation of body
 
-bodyとして文字列の配列を返すと、それらをつなげた応答となります。
+
+If you return an array of strings as body, it will be a response connecting them.
 
 ```
 function(request) {
@@ -165,11 +167,12 @@ function(request) {
 }
 ```
 
-bodyとして返す配列要素はinputStreamを取ることができます。
+The array element returned as body can take an inputStream.
 
 ```
 function(request) {
-  var is = .... (ファイル取得など)
+  var is = .... (File acquisition etc)
+
   return {
         status: 200,
         headers: {"Content-Type":"text/plain"},
@@ -178,7 +181,7 @@ function(request) {
 }
 ```
 
-以下の例では入力されたリクエストボディをそのままレスポンスボディとして返します。
+In the following example, the input request body is returned as it is as a response body.
 
 ```
 function(request) {
@@ -190,7 +193,7 @@ function(request) {
 }
 ```
 
-bodyとして返すオブジェクトはforEachメソッドが実装されていることが要件ですので、以下のようなオブジェクトで返すことも可能です。
+The object to be returned as body must implement the forEach method, therefore, it is possible to return it with the following object.
 
 ```
 function(request) {
@@ -221,9 +224,9 @@ In Engine Scripts, Personium API's can be accessed via a global object named _p.
 
 #### Retrieval
 
-以下の例ではクライアントから受け取ったアクセストークンをそのまま使ってアクセスし、
-このScriptが走行するBoxの ルートにあるconf.jsonというファイルを文字列として取得。
-ファイル内容をパースして、modeというキーの値を返しています。
+In the following example, the access token received from the client is accessed as it is, and a file called conf.json in the root of the Box where this script runs is acquired as a character string.
+I parse the file contents and return the value of the mode key.
+
 
 ```
 function(request) {
@@ -239,7 +242,8 @@ function(request) {
 }
 ```
 
-このScriptが走行するBox内の /img/picture.jpgというファイルに対して クライアントから受け取ったアクセストークンをそのまま使ってアクセスし、取得できた内容をレスポンスボディとして返しています。
+I access the file /img/picture.jpg in the Box where this script runs using the access token received from the client as it is.
+I got the contents that I got there so that it is returned as a response body.
 
 ```
 function(request) {
@@ -253,7 +257,7 @@ function(request) {
 }
 ```
 
-#### ファイル作成・上書き更新
+#### File creation / overwrite update
 
 ```
 function(request) {
@@ -267,7 +271,7 @@ function(request) {
 }
 ```
 
-#### ファイル削除
+#### Delete file
 
 ```
 function(request) {
@@ -281,9 +285,9 @@ function(request) {
 ```
 
 
-#### 衝突検知でファイル更新
+#### File update with collision detection
 
-If-Matchヘッダで送信されたetag情報が合致するときのみファイル更新
+File update only when the etag information sent by the If-Match header matches
 
 ```
 function(request) {
@@ -306,11 +310,11 @@ function(request) {
 ```
 
 
-### コレクションの操作
+### Operation of Collections
 
-#### WebDAVコレクション作成
+#### Create WebDAV collection
 
-コレクションはWebDAVにおいてディレクトリに相当する用語です。
+A collection is a term equivalent to a directory in WebDAV.
 
 ```
 function(request) {
@@ -323,7 +327,7 @@ function(request) {
 }
 ```
 
-#### OData Service Collection 作成
+#### Create OData Service Collection
 
 ```
 function(request) {
@@ -337,7 +341,7 @@ function(request) {
 ```
 
 
-#### Engine Service Collection 作成
+#### Create Engine Service Collection
 
 ```
 function(request) {
@@ -351,11 +355,12 @@ function(request) {
 ```
 
 
-### OData Service Collectionの操作
+### Operation of OData Service Collection
 
-#### Entityの作成
+#### Create Entity
 
-テーブルにデータを１件追加します
+Add 1 data to the table.
+
 ```
 function(request) {
   var thisBox = _p.as('client').cell().box();
@@ -368,9 +373,10 @@ function(request) {
 }
 ```
 
-#### Entityの取得
+#### Acquisition of Entity
 
-テーブルのデータを１件取得します
+Acquire 1 table of data
+
 ```
 function(request) {
   var thisBox = _p.as('client').cell().box();
