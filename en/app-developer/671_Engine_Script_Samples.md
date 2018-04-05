@@ -227,7 +227,9 @@ In Engine Scripts, Personium API's can be accessed via a global object named _p.
 
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   var jsonStr = thisBox.getString('conf.json');
 
   var conf = JSON.parse(jsonStr);
@@ -243,7 +245,9 @@ function(request) {
 
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   var pictureStream = thisBox.col('img').getStream('picture.jpg');
   return {
         status: 200,
@@ -258,7 +262,9 @@ function(request) {
 ```
 function(request) {
   var content = request.input.readAll();
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   var pictureStream = thisBox.put('conf.json', 'application/json', content);
   return {
         status: 201,
@@ -271,7 +277,9 @@ function(request) {
 
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   var pictureStream = thisBox.col('img').del('picture.jpg');
   return {
         status: 204,
@@ -289,7 +297,9 @@ If-Matchヘッダで送信されたetag情報が合致するときのみファ�
 function(request) {
   var etag = request.headers['If-Match'];
   var content = request.input.readAll();
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   try {
     var pictureStream = thisBox.put('conf.json', 'application/json', content, etag);
   } catch (e) {
@@ -314,7 +324,9 @@ function(request) {
 
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   thisBox.mkCol('folder1');
   return {
         status: 201,
@@ -327,7 +339,9 @@ function(request) {
 
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   thisBox.mkOData('odata');
   return {
         status: 201,
@@ -341,7 +355,9 @@ function(request) {
 
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   thisBox.mkService('svc');
   return {
         status: 201,
@@ -358,7 +374,9 @@ function(request) {
 テーブルにデータを１件追加します
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   var entitySet = thisBox.odata('odata').entitySet('items')
   var item = entitySet.create({Name: 'Chocolate', Price: 2.7});
   return {
@@ -373,7 +391,9 @@ function(request) {
 テーブルのデータを１件取得します
 ```
 function(request) {
-  var thisBox = _p.as('client').cell().box();
+  var thisBox = _p.localbox();
+// Please use the following format to get local Box for Ver. before 1.6.5
+// var thisBox = _p.as('client').cell().box();
   var item = thisBox.odata('odata').entitySet('items').retrieve('key1');
   return {
         status: 200,
