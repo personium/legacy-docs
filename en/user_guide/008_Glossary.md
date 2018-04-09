@@ -12,8 +12,7 @@ It defines which users are authorized to access and which control instructions a
 
 
 ### Account
-<font size=1>[General]</font> Refers to a user belonging to a specific cell. It is retained using the account name and password information. Multiple accounts can be registered for one cell.  
-For details, refer to Cell Control Object.
+<font size=1>[Pesronium]</font> One of the cell control objects. It represents user authentication means in that cell, and can register multiple cells per cell. The basic type (selected by default) is composed of information such as account name and password. It is also possible to correspond to other authentication means such as OpenID Connect by installing a plugin. It may be used to register multiple authentication means in an individual's cell or may be used to authenticate an organization member in an organization's cell.
 
 
 ### Association
@@ -22,13 +21,11 @@ Associations are categorized into "one-to-one", "one-to-many", and "many-to-many
 
 
 ### AssociationEnd
-<font size=1>[OData]</font> Defines the EntityType that is the association end point. An association is defined by a pair of AssociationEnds and $links in between.  
-For details, refer to User OData Model.
+<font size=1>[OData]</font>The EntityType that is the endpoint that constitutes the Association. The Association consists of a pair of AssociationEnds and $ links between them.
 
 
 ### Authentication
 <font size=1>[General]</font> Authentication. For the account authentication of Personium, the method that performs authentication based on the created account name and password to acquire tokens has been adopted.  
-For details, refer to Certification Model.
 
 
 ## <a name="anc_b"> B</a>
@@ -39,7 +36,7 @@ For details, refer to [bar File](../apiref/current/301_Bar_File.md).
 
 
 ### Box
-<font size=1>[Personium]</font> The area that stores data used for the application. It is also a WebDAV collection. It has a unique name and schema URL. One box is initially retained in a cell (the main box) even before boxes are created, but it cannot be deleted. For details, refer to Cell Control Object.
+<font size=1>[Personium]</font> The area that stores data used for the application. It is also a WebDAV collection. It has a unique name and schema URL. One box is initially retained in a cell (the main box) even before boxes are created, but it cannot be deleted.
 
 
 ### Box installation
@@ -52,7 +49,8 @@ For details, refer to [bar File](../apiref/current/301_Bar_File.md).
 
 ## <a name="anc_c"> C</a>
 ### Cell
-<font size=1>[Personium]</font> The alias of "Personium". This is the data area that becomes the center of data and application sharing.
+<font size=1>[Personium]</font> Data store for each data subject. PDS (Personal Data Store) is used for personal use. In Personium, it is possible to use the concept of data principals not only for people but also for data and organizations of organizations and objects.  
+(Eg My Cell, Your Cell, Cell of a Company, Cell of a Department, Cell of My Car)
 
 
 ### Cell control object
@@ -60,7 +58,7 @@ For details, refer to [bar File](../apiref/current/301_Bar_File.md).
 
 
 ### Cell level ACL
-<font size=1>[Personium]</font> The ACL for a cell, excluding box level access privileges. For details, refer to Certification Model.
+<font size=1>[Personium]</font> ACL to Cell excluding Box level access authority. Define the operation of the Cell control object and the access control to the subordinate Box.
 
 
 ### Cell Profile
@@ -68,7 +66,7 @@ For details, refer to [bar File](../apiref/current/301_Bar_File.md).
 
 
 ### Collection
-<font size=1>[Personium]</font> Denotes a collection of data stored in a box in the cell. There are three types including "WebDAV", "OData Service Collection", and "Engine Service Collection".
+<font size=1>[WebDAV]</font> Corresponds to the folder / directory in the ordinary file system. Personium can handle special collections called "OData Service Collection" and "Engine Service Collection" in addition to regular collections.
 
 
 ### ComplexType
@@ -124,8 +122,7 @@ This makes use of the cache more effective and secures bandwidth when it is not 
 
 
 ### External Role
-<font size=1>[Personium]</font> An external role. It is one of the cell control objects (ExtRole). It represents a user entity to which a specific role has been granted in an external cell that has a specific relationship. For details, refer to Cell Control Object.
-
+<font size=1>[Personium]</font> An external role. It is one of the cell control objects (ExtRole). It represents a user entity to which a specific role has been granted in an external cell that has a specific relationship. For example, it is possible to register "External Role" such as "administrator (Role) of affiliated organization (Cell) " or "consulting doctor (Role) of goods purchase customer (Cell) ", etc., and by linking this with the role, operations such as data disclosure etc. to indirectly related others It is possible to use like to forgive.
 
 ## <a name="anc_f"> F</a>
 ### $filter query
@@ -181,7 +178,7 @@ For details on OData, click [here](http://www.odata.org/).
 
 
 ### OData Service Collection
-<font size=1>[WebDAV]</font> A special collection for the user to operate OData. Refer to User OData Model.
+<font size=1>[Personium]</font> It is a special WebDAV extension collection for handling arbitrary relational data with OData protocol, and it can be created in arbitrary hierarchy in Box. Under this collection itself is the root of the service of OData and $ metadata itself storing the schema information is also the root of the OData space for setting the schema. Relational data can be handled based on arbitrary schema defined here.
 
 
 ### $orderby query
@@ -204,20 +201,19 @@ Privileges are defined in ACL configuration in Personium. For details, refer to 
 
 
 ### ReceivedMessage
-<font size=1>[Personium]</font> The definition structure that receives relation issue requests and messages from a specific cell. For details, refer to Message Model.
+<font size=1>[Personium]</font> A definition body that receives Relation issue requests and messages from specific cells.
 
 
 ### Refresh token
-<font size=1>[OAuth2]</font> The token used for reissuing access tokens. The refresh token is valid for 24 hours. For details, refer to Certification Model.
+<font size=1>[OAuth2]</font> The token used for reissuing access tokens. The refresh token is valid for 24 hours.
 
 
 ### Refresh token authentication
-<font size=1>[Personium]</font> The process that reissues access tokens. For details, refer to Certification Model.
+<font size=1>[Personium]</font> The process that reissues access tokens..
 
 
 ### Relation
-<font size=1>[Personium]</font> The definition structure that shows the relation between the cell and an external cell. Relations can be established with external cells belonging to the same or a different unit.  
-Relations are always associated with the box to make them cell-specific. Refer to Cell Control Object.
+<font size=1>[Personium]</font> A cell control object indicating the relationship between itself (own cell) and another person (external cell). By linking the cell control object Relation and Role, it is possible to collectively assign roles to accessers from other cells in a specific relationship. Be aware that it is a model that independently defines unilateral relationships of relationships to others seen by themselves. In principle, Relation registration of own cell and link to external cell can be done without consent of the other party. For example, when expressing a mutual relationship of "parent and child", a Relation object "My child" is registered in the parent cell and associated with a child cell whose parent cell is registered as an external cell In addition to this, it is desirable to register Relation objects having the opposite meaning of "my parents" in the child cells to the parent cell that the child cell registers as an external cell, and link them.
 
 
 ### Relation class URL
@@ -317,13 +313,13 @@ There are the following types in Personium, and the tokens are changed an hour a
 ### WebDAV
 <font size=1>[WebDAV]</font> An abbreviation of "Web-based Distributed Authoring and Versioning". This is the protocol for various users to co-write documents and files on the Web server; it is an extension of HTTP.  
 On the Personium portal, WebDAV collections are files and folders, and CRUD functions are used.  
-Refer to [WebDAV Resources](https://web.archive.org/web/20120626092812/http://webdav.org/).
+Refer to [WebDAV Resources](https://web.archive.org/web/20120626092812/http://webdav.org/).  
+  
+  
+  
 
-
-
-
-##### [A](#anc_a) | [B](#anc_b) | [C](#anc_c) | D | [E](#anc_e) | [F](#anc_f) | G | H | [I](#anc_i) | J | K | L | [M](#anc_m) | [N](#anc_n) | [O](#anc_o) | [P](#anc_p) | Q | [R](#anc_r) | [S](#anc_s) | [T](#anc_t) | [U](#anc_u) | V | [W](#anc_w) | X | Y | Z
-<br>
-<br>
-<br>
+##### [A](#anc_a) | [B](#anc_b) | [C](#anc_c) | D | [E](#anc_e) | [F](#anc_f) | G | H | [I](#anc_i) | J | K | L | [M](#anc_m) | [N](#anc_n) | [O](#anc_o) | [P](#anc_p) | Q | [R](#anc_r) | [S](#anc_s) | [T](#anc_t) | [U](#anc_u) | V | [W](#anc_w) | X | Y | Z  
+  
+  
+  
 
