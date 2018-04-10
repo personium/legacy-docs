@@ -101,7 +101,7 @@ For details, refer to [bar File](../apiref/current/301_Bar_File.md).
 
 
 ### ETag
-<font size=1>[Personium]</font> Refers to the Entity Tag. It is possible to send requests depending on the client status using unique identifiers used for Web cache verification.  
+<font size=1>[HTTP]</font> Refers to the Entity Tag. It is possible to send requests depending on the client status using unique identifiers used for Web cache verification.  
 This makes use of the cache more effective and secures bandwidth when it is not necessary to return all responses in a situation where contents are not updated.
 
 
