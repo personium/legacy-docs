@@ -178,7 +178,7 @@ http://{engine.host}:{engine.port}/{engine.path}
 #### EventBus
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
-|eventbus.mq|メッセージキュー|activemq<br>kafka|activemq|core|仕様するメッセージキューを選択します<br>v1.6.8以降|
+|eventbus.mq|メッセージキュー|activemq<br>kafka|activemq|core|使用するメッセージキューを選択します<br>v1.6.8以降|
 |eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core|v1.6.0以降|
 |eventbus.kafka.bootstrap.servers|Kakfaのサーバ|ホストとポートのカンマ区切りリスト|localhost:9092|core|v1.6.8以降|
 |eventbus.queue|イベントのキュー名|文字列|personium_event_queue|core|v1.6.0以降|
