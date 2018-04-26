@@ -175,7 +175,15 @@ http://{engine.host}:{engine.port}/{engine.path}
 #### EventBus
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
+|eventbus.mq|Message Queue|activemq<br>kakfa|activemq|core|Select 'activemq' or 'kafka'.<br>v1.6.8 or later|
 |eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core|v1.6.0 or later|
+|eventbus.kafka.bootstrap.servers|Kafka server list|Comma-separated host:port list|localhost:9092|core|v1.6.8 or later|
 |eventbus.queue|Queue name of event|String|personium_event_queue|core|v1.6.0 or later|
 |eventbus.topic.all|Topic name for all event|String|personium_event_topic|core|v1.6.0 or later|
 |eventbus.topic.rule|Topic name for rule event|String|personium_event_topic_rule|core|v1.6.0 or later|
+|eventbus.eventProcessing.thread.num|Number of threads to process event.|Int|1|core|v1.6.8 or later|
+
+#### Rule
+|Key|Description|Value|Default value|Used component|Notes|
+|:--|:--|:--|:--|:--|:--|
+|rule.timerEvent.thread.num|Number of threads to manage timer event.|Int|1|core|v1.6.8 or later|
