@@ -3,7 +3,17 @@
 It is a document for people who want to develop an application that manages Personium's Cell
 
 ### API Reference  
-[1.6.3](../apiref/1.6.3/000_Rest_API_Reference.md) ([current](../apiref/current/000_Rest_API_Reference.md))
+[current](../apiref/current/000_Rest_API_Reference.md)
+
+[1.6.8](../apiref/1.6.8/000_Rest_API_Reference.md)
+
+[1.6.7](../apiref/1.6.7/000_Rest_API_Reference.md)
+
+[1.6.6](../apiref/1.6.6/000_Rest_API_Reference.md)
+
+[1.6.5](../apiref/1.6.5/000_Rest_API_Reference.md)
+
+[1.6.3-1.6.4](../apiref/1.6.3/000_Rest_API_Reference.md)
 
 [1.6.2](../apiref/1.6.2/000_Rest_API_Reference.md)
 
