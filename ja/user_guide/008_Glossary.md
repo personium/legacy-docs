@@ -87,7 +87,7 @@
 
 ## <a name="anc_e"> E</a>
 ### Engine Service Collection
-<font size=1>[Personium]</font> ユーザがサーバ側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスレクション](../apiref/current/379_Engine_Service_Collection_APIs.md)を参照。
+<font size=1>[Personium]</font> ユーザがサーバ側のロジックを新たに登録するための特別なコレクション。詳細は[Engineサービスコレクション](../apiref/current/379_Engine_Service_Collection_APIs.md)を参照。
 
 
 ### Entity
