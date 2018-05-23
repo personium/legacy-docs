@@ -14,8 +14,8 @@ The application launcher of the home application executes the application by cal
 
 Example
 
-    myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/
-    https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/
+    myapp-custom-scheme://#cell=https%3A%2F%2Fdemo.personium.io%2Fjohn.doe%2F
+    https://some.svr.example/my-app/index.html#cell=https%3A%2F%2Fpds.personium.example%2Fjohn.doe%2F
 
 ## Processing to be done after launching the application
 
