@@ -5,7 +5,7 @@ There are various forms of Personium applications, but here we will explain abou
 + Parameters passed at application startup
 + Processing to be done after launching the application
 
-Caution: Personium core version 1.6.9 and above required
+Caution: Personium core version 1.6.9 or above required
 
 ## Parameters passed at application startup
 
@@ -18,7 +18,7 @@ Example
     myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/
     https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/
 
-## Processing to be done after launching the application
+## Steps after launching the application
 
 The actual process of application development depends on the implementation method of the application (Android application, HTML5 application, iOS application, etc.) and the implementation language, but the flow to be done after the application is started is the same.  
 
@@ -37,7 +37,6 @@ Parsing # from the startup URL that could be acquired next and acquire the cell,
 |Item|Overview|
 |:--|:--|
 |cell|User Cell URL to be targeted|
-|refresh_token|Refresh token for acquiring an access token of a currently accessing user issued in the cell of the user to be targeted and effective there|
 
 These parameters are needed in the subsequent process.
 
@@ -46,7 +45,6 @@ These parameters are needed in the subsequent process.
 In order to prove the validity of your application to the user Cell, we obtain an application authentication token. This is security for protecting your application and user Cell from attacks from malicious applications such as phishing apps.  
 
 You can obtain the application authentication token by sending the ID / password of the application to the Token endpoint of the application Cell. Specifically, I will POST the following information.
-
 
     grant_type=password&p_target={User Cell URL}&username={Application ID}&password={Application Password} 
 
