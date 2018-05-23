@@ -10,18 +10,18 @@ There are various forms of Personium applications, but here we will explain abou
 
 The application launcher of the home application executes the application by calling the following URL.  
 
-    {AppUrl}#cell={cellUrl}&refresh_token={refreshToken}
+    {AppUrl}#cell={cellUrl}
 
 Example
 
-    myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/&refresh_token=RA~egJWZ....FQ
-    https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/&refresh_token=RA~egJ....FQ
+    myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/
+    https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/
 
 ## Processing to be done after launching the application
 
 The actual process of application development depends on the implementation method of the application (Android application, HTML5 application, iOS application, etc.) and the implementation language, but the flow to be done after the application is started is the same.  
 
-1. Receive necessary parameters from startup URL
+1. Receive Cell URL from startup URL
 1. Acquire application authentication token
 1. Receive access token
 1. Get the URL of Box
