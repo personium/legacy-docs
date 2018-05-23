@@ -15,8 +15,8 @@ Personiumアプリには様々な形態がありますが、ここでは最も�
 
 例
 
-    myapp-custom-scheme://#cell=https%3A%2F%2Fdemo.personium.io%2Fjohn.doe%2F
-    https://some.svr.example/my-app/index.html#cell=https%3A%2F%2Fpds.personium.example%2Fjohn.doe%2F
+    myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/
+    https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/
 
 ## アプリ起動後に行うべき処理
 
