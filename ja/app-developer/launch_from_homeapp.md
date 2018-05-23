@@ -5,29 +5,30 @@ Personiumアプリには様々な形態がありますが、ここでは最も�
 + アプリ起動時に渡されるパラメタ
 + アプリ起動後に行うべき処理
 
+注）Personium coreのバージョン1.6.9以降のみが対応しています。
+
 ## アプリ起動時に渡されるパラメタ
 
 ホームアプリのアプリランチャは以下のURLを呼び出すことでアプリ起動を行います。
 
-    {AppUrl}#cell={cellUrl}&refresh_token={refreshToken}
+    {AppUrl}#cell={cellUrl}
 
 例
 
-    myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/&refresh_token=RA~egJWZ....FQ
-    https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/&refresh_token=RA~egJ....FQ
+    myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/
+    https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/
 
 ## アプリ起動後に行うべき処理
 
 アプリケーション開発の実際のプロセスはアプリケーションの実装手段(Androidアプリ、HTML5アプリ、iOSアプリ, etc.)や実装言語によって異なりますが、
 アプリ起動後に行うべき流れは共通です。
 
-1. 起動URLから必要パラメタを受け取る
-1. アプリ認証トークンを取得する
-1. アクセストークンを受け取る
-1. BoxのURLを取得する
-1. Box配下の各種リソースにアクセスする。
+1. 起動URLからCellのURLを受け取る
+1. OAuth2のcodeフローに準じた手順でアプリ認証のうえ、アクセストークンを受け取る
+1. 対象Cell上の自アプリ向けBoxのURLを取得する
+1. 対象Cell上の自アプリ向けBox配下の各種リソースにアクセスする。
 
-### 起動URLから必要パラメタを受け取る
+### 起動URLからCellのURLを受け取る
 
 Home Appのランチャから起動されるPersnium Appは、何らかの起動URLにより起動します。
 起動URLはhttpsから始まるものかもしれませんし、何等かのカスタムスキームから始まるものかもしれません。
@@ -35,14 +36,13 @@ Home Appのランチャから起動されるPersnium Appは、何らかの起動
 またhttpsから始まるURLであればブラウザが起動するでしょうが、ブラウザアプリであっても自身がどのようなURLで起動されたかを取得可能です。
 まず、それぞれの実装において起動URLを取得してください。
 
-次に取得できた起動URLから#以下をパースして、cell, refresh_tokenパラメタを取得してください。
+次に取得できた起動URLから#以下をパースして、cellパラメタを取得してください。
 
 |項目|概要|
 |:--|:--|
 |cell|ターゲットとすべきユーザのCell URL|
-|refresh_token|ターゲットとすべきユーザのCellで発行され、そこで有効である、現在アクセス中のユーザのアクセストークン取得のためのリフレッシュトークン|
 
-これらのパラメタはこの先のプロセスで必要になります。
+このパラメタはこの先のプロセスで必要になります。
 
 ### アプリ認証トークンを取得する
 
