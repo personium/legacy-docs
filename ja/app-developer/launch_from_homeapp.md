@@ -15,8 +15,8 @@ Personiumアプリには様々な形態がありますが、ここでは最も�
 
 例
 
-    myapp-custom-scheme://#cell=https://demo.personium.io/john.doe/
-    https://some.svr.example/my-app/index.html#cell=https://pds.personium.example/john.doe/
+    myapp-custom-scheme://#cell=https%3A%2F%2Fdemo.personium.io%2Fjohn.doe%2F
+    https://some.svr.example/my-app/index.html#cell=https%3A%2F%2Fpds.personium.example%2Fjohn.doe%2F
 
 ## アプリ起動後に行うべき処理
 
@@ -24,6 +24,7 @@ Personiumアプリには様々な形態がありますが、ここでは最も�
 アプリ起動後に行うべき流れは共通です。
 
 1. 起動URLからCellのURLを受け取る
+1. codeから。
 1. OAuth2のcodeフローに準じた手順でアプリ認証のうえ、アクセストークンを受け取る
 1. 対象Cell上の自アプリ向けBoxのURLを取得する
 1. 対象Cell上の自アプリ向けBox配下の各種リソースにアクセスする。
@@ -44,7 +45,7 @@ Home Appのランチャから起動されるPersnium Appは、何らかの起動
 
 このパラメタはこの先のプロセスで必要になります。
 
-### アプリ認証トークンを取得する
+### OAuth2のcodeフローに準じた手順でアプリ認証のうえ、アクセストークンを受け取る
 
 あなたのアプリの正当性をユーザCellに対して証明するために、アプリ認証トークンを取得します。これはフィッシングアプリなど、
 悪意のあるアプリケーションからの攻撃からあなたのアプリや、ユーザCellを守るためのセキュリティです。
@@ -63,18 +64,21 @@ Home Appのランチャから起動されるPersnium Appは、何らかの起動
 参考： http://personium.io/docs/ja/apiref/current/293_OAuth2_Token_Endpoint.html
 
 
-### アクセストークンを受け取る
+### Tokenエンドポイントからアクセストークンを受け取る
 
 ユーザCellに対するあなたのAppとしてのアクセストークンを受け取ります。
 
 1. アプリ認証トークン
-1. リフレッシュトークン
 
 今度はユーザCellのTokenエンドポイントに対して、以下の情報をPOSTします。
 
-    grant_type=refresh&refresh_token={refreshToken}&client_id={アプリCellURL}&client_secret={アプリ認証トークン}
+    grant_type=authorization_code&code={grantCode}&client_id={アプリCellURL}&client_secret={アプリ認証トークン}
 
 ここで返ってくるレスポンスJSONの中の"access_token"項目が、対象ユーザCellに対するあなたのアプリのためのアクセストークンです。
+この処理はアプリセル上のengineスクリプトで実装することをお勧めします。
+
+参考： http://personium.io/docs/ja/apiref/current/293_OAuth2_Token_Endpoint.html
+
 
 ### BoxのURLを取得する
 
