@@ -5,6 +5,7 @@ There are various forms of Personium applications, but here we will explain abou
 + Parameters passed at application startup
 + Processing to be done after launching the application
 
+Caution: Personium core version 1.6.9 and above required
 
 ## Parameters passed at application startup
 
