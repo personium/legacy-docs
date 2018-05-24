@@ -1,5 +1,6 @@
 var ApiRefVersions= [
   "current",
+  "1.6.9",
   "1.6.8",
   "1.6.7",
   "1.6.6",
