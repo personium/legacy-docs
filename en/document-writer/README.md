@@ -28,18 +28,18 @@ We are waiting for your cooperation.
  * Line break in sentences 
     If you wish to line break in sentences, do not use `<br>`, enter two space characters and enter a new line.
     However, please use `<br>` if you want line break in the table.
-    Description example)  
+   For example)  
        abcdefg  (two space characters)  
        hijklmn
 
- * How to not link  
-    When describing "http&#58;//" or "https&#58;//", if you do not want link because it is a nonexistent URL, please write `:`(colon) to  `&#58;`.
-    Description example)
+ * How to disable the automatic conversion of URL to hyperlink during the MD to HTML conversion  
+    If you make an entry like "http://~" in the MD file, it will be automatically converted to a hyperlink. If you do not want to have a hyperlink in the description. You have to explicitly write "`&#58;`" instead of ":".
+    For example)
        `http&#58;//`
 
  * How to write of the cURL command sample  
     If the cURL command sample is longer than **100 characters**, please make a line feed so that the length per line is less than 100 characters.
-    Description example) 
+    For example) 
     curl "https&#58;//{UnitFQDN}/__ctl/Cell" -X POST -i -H 'Authorization: Bearer {AccessToken}' `\`(Append \ to the line break position)
     -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
 
