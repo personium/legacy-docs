@@ -33,7 +33,7 @@ We are waiting for your cooperation.
        hijklmn
 
  * How to disable the automatic conversion of URL to hyperlink during the MD to HTML conversion  
-    If you make an entry like "http://~" in the MD file, it will be automatically converted to a hyperlink. If you do not want to have a hyperlink in the description. You have to explicitly write "`&#58;`" instead of ":".
+    If you make an entry like "http&#58;//~" in the MD file, it will be automatically converted to a hyperlink. If you do not want to have a hyperlink in the description. You have to explicitly write "`&#58;`" instead of ":".
     For example)
        `http&#58;//`
 
