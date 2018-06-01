@@ -20,3 +20,26 @@ In the open source project Personium, not only code but also document contributi
 By conducting the above procedure, we will review it with Personium project members and publish it in the appropriate form.  
 We are waiting for your cooperation.
 
+
+***
+
+> __Note of the Document description__
+
+ * Line break in sentences 
+    If you wish to line break in sentences, do not use `<br>`, enter two space characters and enter a new line.
+    However, please use `<br>` if you want line break in the table.
+   For example)  
+       abcdefg  (two space characters)  
+       hijklmn
+
+ * How to disable the automatic conversion of URL to hyperlink during the MD to HTML conversion  
+    If you make an entry like "http&#58;//~" in the MD file, it will be automatically converted to a hyperlink. If you do not want to have a hyperlink in the description. You have to explicitly write "`&#58;`" instead of ":".
+    For example)
+       `http&#58;//`
+
+ * How to write of the cURL command sample  
+    If the cURL command sample is longer than **100 characters**, please make a line feed so that the length per line is less than 100 characters.
+    For example) 
+    curl "https&#58;//{UnitFQDN}/__ctl/Cell" -X POST -i -H 'Authorization: Bearer {AccessToken}' `\`(Append \ to the line break position)
+    -H 'Accept: application/json' -d '{"Name":"{CellName}"}'
+
