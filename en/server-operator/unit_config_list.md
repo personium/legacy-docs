@@ -39,8 +39,11 @@ It is a setting which change from default as optional when operating Personium.
 #### Basic configuration
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
-|version|version|String|1.5.3|core, engine|<br>|
-|thread.pool.num|Number of thread pools|int|20|core|v1.5.4 or later. PersoniumUnit The total number of thread pools. We plan to divide the thread pool for each function in the future.|
+|version|version|String||core, engine|<br>|
+|thread.pool.num|Number of thread pools|int|20|core|v1.5.4 - v1.6.9. PersoniumUnit The total number of thread pools. Split the thread pool for each function since v1.6.10.|
+|thread.pool.num.io.cell|Number of thread pools used for Cell Export/Import|int|10|core|v1.6.10 or later.|
+|thread.pool.num.io.box|Number of thread pools used for Box Export/Install|int|20|core|v1.6.10 or later.|
+|thread.pool.num.misc|Number of general thread pool|int|10|core|v1.6.10 or later.|
 |plugin.path|Personium plugin placement destination path|Plugin placement destination Full path|/personium/personium-core/plugins|core|<br>|
 |unitScheme|Unit scheme setting|"http" or "https"|https|core|Please set https when you operate it though it is also possible to set http to the development usage.|
 |unitPort|Unit port setting|Port number||core|v1.6.0 or later. When UnitURL is "https&#58;//p-host:8080/", unitPort becomes 8080. When UnitURL is "https&#58;//p-host/", unitPort is no need.|

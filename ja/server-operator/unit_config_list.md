@@ -41,8 +41,11 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 #### 基本設定
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
-|version|バージョン|文字列|1.5.3|core, engine|<br>|
-|thread.pool.num|スレッドプール数|int|20|core|v1.5.4以降。PersoniumUnit全体のスレッドプール数。今後機能ごとにスレッドプールを分割予定。|
+|version|バージョン|文字列||core, engine|<br>|
+|thread.pool.num|スレッドプール数|int|20|core|v1.5.4～v1.6.9。PersoniumUnit全体のスレッドプール数。v1.6.10以降は機能ごとにスレッドプールを分割。|
+|thread.pool.num.io.cell|Cell Export/Importで使用するスレッドプール数|int|10|core|v1.6.10以降。|
+|thread.pool.num.io.box|Box Export/Installで使用するスレッドプール数|int|20|core|v1.6.10以降。|
+|thread.pool.num.misc|汎用スレッドプール数|int|10|core|v1.6.10以降。|
 |plugin.path|Personiumプラグイン配置先パス|プラグイン配置先フルパス|/personium/personium-core/plugins|core|<br>|
 |unitScheme|ユニットのスキーム設定|"http" または "https"|https|core|開発用途にhttpを設定することも可能ですが、運用時には必ずhttpsを設定してください。|
 |unitPort|ユニットのポート番号|ポート番号||core|v1.6.0以降。UnitURLが "https&#58;//p-host:8080/" の場合、unitPortは8080になります。UnitURLが "https&#58;//p-host/" の場合、unitPortは設定しません。|
