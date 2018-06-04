@@ -29,6 +29,10 @@ Ansibleを使って、評価用の1台構成のユニットや小規模な本番
 
 上記で紹介しているAnsibleのPlaybookをカスタマイズすれば様々な構成のユニットを構築可能です。
 
+### Pluginの導入
+
+* [Engine Extensionのセットアップ](./setup_engine_extensions.md)
+
 ## ユニットの設定
 
 ユニットの構成ができたら、ユニットを正しく設定する必要があります。
@@ -61,4 +65,3 @@ Ansibleで自動構築ユニットには基本的な設定はひととおりさ�
 * [ansible](https://github.com/personium/ansible)
 * [openstack-heat](https://github.com/personium/openstack-heat)
 * [openstack-heat_cent6_8](https://github.com/personium/openstack-heat_cent6_8)
-
