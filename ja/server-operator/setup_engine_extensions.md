@@ -13,7 +13,7 @@ Engine ExtensionはEngine Libraryの機能を拡張するための機構です�
 ## Installation
 ### JARファイルの作成
 Engine ExtensionのビルドにはMavenが必要です。  
-http://maven.apache.org/download.cgi#Installation を参考にインストールを行ってください。  
+http://maven.apache.org/install.html を参考にインストールを行ってください。  
 
 対象のリポジトリ(personium-ex-xxxxx)をチェックアウトし、以下を行ってください。  
 ```

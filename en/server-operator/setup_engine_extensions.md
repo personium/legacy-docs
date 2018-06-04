@@ -13,7 +13,7 @@ This page describes how to set up the Engine Extension published by Personium Op
 ## Installation
 ### Make jar file
 Maven is required for build.  
-Refer to http://maven.apache.org/download.cgi#Installation and install maven.  
+Refer to http://maven.apache.org/install.html and install maven.  
 
 Check out the target repository (personium-ex-xxxxx) and do the following:  
 ```
