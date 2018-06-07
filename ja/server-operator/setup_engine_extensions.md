@@ -23,11 +23,11 @@ mvn clean package -DskipTests
 "personium-ex-xxxxx/target"配下にJARファイルが作成されます。
 
 ### Install
-JARファイルをAPサーバに配備し、再起動してください。
-デフォルトの配備先Pathは"/personium/personium-engine/extensions"です。
+JARファイルをAPサーバに配備し、再起動してください。  
+デフォルトの配備先Pathは"/personium/personium-engine/extensions"です。  
 ```
-cp personium-ex-xxxxx/target/personium-ex-xxxxx.jar /personium/personium-engine/extensions
-sudo systemctl restart tomcat
+# cp personium-ex-xxxxx/target/personium-ex-xxxxx.jar /personium/personium-engine/extensions
+# systemctl restart tomcat
 ```
 
 ### Update

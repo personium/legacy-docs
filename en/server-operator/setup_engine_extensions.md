@@ -26,8 +26,8 @@ Jar file is created under "personium-ex-xxxxx/target".
 Deploy the jar file to your AP server and restart it.  
 The default deploy path is "/personium/personium-engine/extensions".  
 ```
-cp personium-ex-xxxxx/target/personium-ex-xxxxx.jar /personium/personium-engine/extensions
-sudo systemctl restart tomcat
+# cp personium-ex-xxxxx/target/personium-ex-xxxxx.jar /personium/personium-engine/extensions
+# systemctl restart tomcat
 ```
 
 ### Update
