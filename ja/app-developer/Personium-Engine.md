@@ -127,7 +127,6 @@ function(request) {
 ```
 
 
-
 ## Engine Extension
 
 Engine ExtensionはEngine Libraryの機能を拡張するための機構です。具体的にはJava言語で特定の方法で書かれたクラスを含んだjarファイルを
@@ -136,10 +135,9 @@ Engine ExtensionはEngine Libraryの機能を拡張するための機構です�
 Engine Extension は、概要で記載のとおりサンドボックス環境として設計されているengineの制約を緩和するための機構です。
 そのため Engine Extensionの導入はユニット管理者でないと行うことができません。
 
-### 様々な Engine Extension
+### Engine Extension のセットアップ
 
-* [メール送信](../plugin-developer/Extension_Send_Mail.md)
-* [HTTPクライアント](https://github.com/personium/personium-ex-httpclient)
+Engine Extensionを使用したい方は、[Engine Extensionのセットアップ](../server-operator/setup_engine_extensions.md)をご覧ください。
 
 ### Engine Extension の開発
 

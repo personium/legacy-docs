@@ -23,11 +23,11 @@ mvn clean package -DskipTests
 Jar file is created under "personium-ex-xxxxx/target".  
 
 ### Install
-Deploy the jar file to your PersoniumUnit and restart it.  
+Deploy the jar file to your AP server and restart it.  
 The default deploy path is "/personium/personium-engine/extensions".  
 ```
 cp personium-ex-xxxxx/target/personium-ex-xxxxx.jar /personium/personium-engine/extensions
-service restart tomcat
+sudo systemctl restart tomcat
 ```
 
 ### Update

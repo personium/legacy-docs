@@ -29,13 +29,7 @@ Personium unit construction requires to assign the combination of following 7 ro
 This setup tool will install middleware and configure the OS and its network on your machine (linux server or virtual machine on windows/mac) before installing Personium module.  
 There are different patterns of setup tools to construct the Personium unit. Please select the setup tool based on you purpose.
 
-#### Pattern-1 : Evaluation
-
-If interested, you may try to construct Personium unit on your local machine (virtualbox) as a separate project using the setup tool.
-
--   Please refer to setup-vagrant: <https://github.com/personium/setup-vagrant/> <font color="Red">Sorry, this pattern does not work now. Please use 3 server version ansible.</font>
-
-#### Pattern-2 : Development, Verification
+#### Pattern-1 : 1 Server
 
 -   Machine environment : **Linux**
 -   The number of Personium unit servers : **1 Server**
@@ -45,7 +39,7 @@ If interested, you may try to construct Personium unit on your local machine (vi
 -   Note  
     If you are more curious about Personium and want to develop some simple applications or to test this system, you can select this pattern. You will get Personium unit on a single server.
 
-#### Pattern-3 : Production
+#### Pattern-2 : 3 Servers
 
 -   Machine environment : **Linux**
 -   The number of Personium unit servers : **3 Servers**

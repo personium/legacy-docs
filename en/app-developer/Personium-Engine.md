@@ -40,7 +40,7 @@ You can set the logic execution endpoint by issuing the PROPPATCH method to ESC 
 * [Execution setting of ESC](../apiref/current/380_Configure_Service_Collection.html)
 
 ## Engine Script
-Engine Script is a script to register in ESC. Currently only JavaScript is supported. 
+Engine Script is a script to register in ESC. Currently only JavaScript is supported.
 
 ```
 function(request) {
@@ -122,10 +122,9 @@ Engine Extension is a mechanism for extending the function of Engine Library. Sp
 The Engine Extension is a mechanism for relaxing the constraint of the engine designed as a sandbox environment as described in the overview. Therefore, you can not do the installation of Engine Extension unless you are a unit administrator.  
 
 
-### Various Engine Extensions
+### Setup Engine Extensions
 
-* [send e-mail](../plugin-developer/Extension_Send_Mail.md)
-* [HTTP client](https://github.com/personium/personium-ex-httpclient)
+If you would like to use Engine Extension please see [Setup Engine Extensions](../server-operator/setup_engine_extensions.md).
 
 ### Engine Extension development
 
