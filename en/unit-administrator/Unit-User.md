@@ -133,7 +133,7 @@ Following Unit User Roles can be used.
 
 #### UnitAdmin Role
 
-{UnitURL}/{Cell}/\_\_role/\_\_/UnitAdmin
+    {UnitURL}/{Cell}/__role/__/UnitAdmin
 
 If the UnitAdmin role is granted, that user becomes Unit Admin.  
 In V 0, the master token was abused for various unit management tasks, but such operation is undesirable from the viewpoint of security. <br>
@@ -143,7 +143,7 @@ For various unit management tasks, API calls should be made using the token of t
 
 #### CellContentsReader Role
 
-{UnitURL}/{Cell}/\_\_role/\_\_/CellContentsReader
+    {UnitURL}/{Cell}/__role/__/CellContentsReader
 
 If the CellContentsReader role has been granted, the Unit User Token for that user has read permission on the contents of Cell.  
 
@@ -152,7 +152,7 @@ If the CellContentsReader role has been granted, the Unit User Token for that us
 
 #### CellContentsAdmin Role
 
-{UnitURL}/{Cell}/\_\_role/\_\_/CellContentsAdmin
+    {UnitURL}/{Cell}/__role/__/CellContentsAdmin
 
 If the CellContentsAdmin role has been granted, the Unit User Token for that user has read and write permissions on the contents of Cell.  
 By assigning "UnitAdmin role" and "CellContentsAdmin role" to the unit user, the Unit User Token of that user becomes equivalent to the Unit Master Token.

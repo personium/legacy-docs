@@ -125,7 +125,7 @@ Personiumのユニットはユニットユーザトークン内のattribute要�
 
 ### UnitAdminロール
 
-    {UnitUserName}/\_\_role/\_\_/UnitAdmin
+    {UnitUserName}/__role/__/UnitAdmin
 
 UnitAdminロールが付与されている場合、そのユーザはユニットアドミンとなります。  
 各種ユニット管理業務は、このロールのトークンを用いてAPI呼び出しを行うべきです。
@@ -134,7 +134,7 @@ UnitAdminロールが付与されている場合、そのユーザはユニッ�
 
 ### CellContentsReaderロール
 
-    {UnitUserName}/\_\_role/\_\_/CellContentsReader
+    {UnitUserName}/__role/__/CellContentsReader
 
 CellContentsReaderロールが付与されている場合、そのユーザのユニットユーザトークンはCellの内容のRead権限を持ちます。内容参照しか行わずデータの登録や書き換えにつながる処理を実行することはできません。
 
@@ -142,7 +142,7 @@ CellContentsReaderロールが付与されている場合、そのユーザの�
 
 ### CellContentsAdminロール
 
-    {UnitUserName}/\_\_role/\_\_/CellContentsAdmin
+    {UnitUserName}/__role/__/CellContentsAdmin
 
 CellContentsAdminロールが付与されている場合、そのユーザのユニットユーザトークンはCellの内容の全権限を持ちます。  ユニットユーザに"UnitAdminロール"、及び"CellContentsAdminロール"を付与することで、そのユーザのユニットユーザトークンはユニットマスタートークンと同等の権限を持つこととなります。
 
