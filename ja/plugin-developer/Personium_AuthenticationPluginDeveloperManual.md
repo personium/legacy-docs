@@ -123,13 +123,13 @@ PluginManagerクラスを生成します。
 
 最低限実装すべきメソッドは以下です。
 - getType()
- - PluginのTypeを返す。現状は"auth"のみ。
+  - PluginのTypeを返す。現状は"auth"のみ。
 - getGrantType()
- - 対応するgrant_type値を返す。
+  - 対応するgrant_type値を返す。
 - getAccountType()
- - 対応するAccountのType値を返す。
+  - 対応するAccountのType値を返す。
 - authenticate()
- - 認証処理。
+  - 認証処理。
 
 ## Pluginの作成手順
 

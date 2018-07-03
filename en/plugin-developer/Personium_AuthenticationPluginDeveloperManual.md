@@ -124,13 +124,13 @@ public class PersoniumCoreApplication extends Application {
 
 The method to be implemented is as follows.  
 - getType()
- - Returns the type of Plugin. Currently only "auth".
+  - Returns the type of Plugin. Currently only "auth".
 - getGrantType()
- - Returns the corresponding grant_type value.
+  - Returns the corresponding grant_type value.
 - getAccountType()
- - Returns the Type value of the corresponding account.
+  - Returns the Type value of the corresponding account.
 - authenticate()
- - Authentication processing.
+  - Authentication processing.
 
 ## Procedure for creating plugin
 

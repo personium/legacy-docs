@@ -30,6 +30,7 @@ If you customize Ansible's Playbook introduced above, you can build units of var
 
 ### Apply plugin
 
+* [Setup Authentication Plugins](./setup_authentication_plugins.md)
 * [Setup Engine Extensions](./setup_engine_extensions.md)
 
 ## Unit settings

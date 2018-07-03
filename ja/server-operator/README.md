@@ -31,6 +31,7 @@ Ansibleを使って、評価用の1台構成のユニットや小規模な本番
 
 ### Pluginの導入
 
+* [認証Pluginのセットアップ](./setup_authentication_plugins.md)
 * [Engine Extensionのセットアップ](./setup_engine_extensions.md)
 
 ## ユニットの設定
