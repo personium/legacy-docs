@@ -41,6 +41,8 @@ Personiumのユニットは以下の役割を持ったサーバーから構成�
 -   注意  
     もしもあなたが、Personiumにより一層興味を持ち、アプリケーションの開発やテストを実施してみたいと思ったならば、本構成を使用することができます。あなたは1台構成のPersonium環境を入手することができます。
 
+\* Vagrant を利用して簡単にローカルマシン環境に仮想マシンを構築し、Personium の動作を確認することが可能です。設定方法については[setup-vagrant](https://github.com/personium/setup-vagrant)を参照してください。
+
 #### パターン2 : 3 Servers
 
 -   機器環境 : **Linux**
