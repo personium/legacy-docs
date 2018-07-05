@@ -39,6 +39,9 @@ There are different patterns of setup tools to construct the Personium unit. Ple
 -   Note  
     If you are more curious about Personium and want to develop some simple applications or to test this system, you can select this pattern. You will get Personium unit on a single server.
 
+\* By using Vagrant it is possible to easily build a virtual machine in the local machine environment and check the operation of Personium.  
+For the setting procedure, please refer to [setup-vagrant](https://github.com/personium/setup-vagrant).
+
 #### Pattern-2 : 3 Servers
 
 -   Machine environment : **Linux**
