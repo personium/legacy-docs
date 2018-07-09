@@ -24,7 +24,7 @@ We are pleased to hear the story that the unit was built in various environments
 
 Using Ansible, we are publishing guides for building a single unit for evaluation and a unit with three units for small-scale production use.
 
-* [Getting Started with Personium using Ansible](./setup_en.md)
+* [Getting Started with Personium using Ansible](./setup.md)
 
 If you customize Ansible's Playbook introduced above, you can build units of various configurations.
 
