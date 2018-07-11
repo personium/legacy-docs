@@ -63,59 +63,14 @@ Personiumでは認証Pluginが上記3の応答として返却した認証済み�
 > - 認証Pluginは、Typeに”auth”とGrantTypeに各プロバイダを指定し、authenticateメソッドを記述することで、対象のpluginが選択されauthenticateメソッドが実行されます。
 
 ### 1.Plugin初期化処理
-####<i class="icon-file"></i>PersoniumCoreApplication.java
-```
-public class PersoniumCoreApplication extends Application {
-    private static PluginManager pm;
-
-    static {
-        try {
-            TransCellAccessToken.configureX509(PersoniumUnitConfig.getX509PrivateKey(),
-                    PersoniumUnitConfig.getX509Certificate(), PersoniumUnitConfig.getX509RootCertificate());
-            LocalToken.setKeyString(PersoniumUnitConfig.getTokenSecretKey());
-            DataCryptor.setKeyString(PersoniumUnitConfig.getTokenSecretKey());
-            pm = new PluginManager();
-        } catch (Exception e) {
-            PersoniumCoreLog.Server.FAILED_TO_START_SERVER.reason(e).writeLog();
-            throw new RuntimeException(e);
-        }
-    }
-```
-pm = new PluginManager();
-PluginManagerクラスを生成します。
+#### <i class="icon-file"></i> [PersoniumCoreApplication.java](https://github.com/personium/personium-core/blob/master/src/main/java/io/personium/core/rs/PersoniumCoreApplication.java)  
+pm = new PluginManager();  
+PluginManagerクラスを生成します。  
 
 ### 2.認証プロセスの呼び出し
-####<i class="icon-file"></i>TokenEndPointResource.java
-```
-        // Plugin manager.
-        PluginManager pm = PersoniumCoreApplication.getPluginManager();
-        // Search target plugin.
-        PluginInfo pi = pm.getPluginsByGrantType(grantType);
-        if (pi == null) {
-            // When there is no plugin.
-            throw PersoniumCoreAuthnException.UNSUPPORTED_GRANT_TYPE
-                    .realm(this.cell.getUrl());
-        }
+#### <i class="icon-file"></i> [TokenEndPointResource.java](https://github.com/personium/personium-core/blob/master/src/main/java/io/personium/core/rs/cell/TokenEndPointResource.java)  
+callAuthPlugins()メソッドで認証プロセスを呼び出しています。  
 
-        AuthenticatedIdentity ai = null;
-        // Invoke the plug-in function.
-        Map<String, List<String>> body = new HashMap<String, List<String>>();
-        if (params != null) {
-            for (String key : params.keySet()) {
-                body.put(key, params.get(key));
-            }
-        }
-        Object plugin = (Plugin) pi.getObj();
-        try {
-            ai = ((AuthPlugin) plugin).authenticate(body);
-        } catch (PluginException pe) {
-            throw PersoniumCoreException.create(pe);
-        } catch (Exception e) {
-            // Unexpected exception throwed from "Plugin", create default PersoniumCoreAuthException
-            // and set reason from catched Exception.
-            throw PersoniumCoreException.Plugin.UNEXPECTED_ERROR.reason(e);
-        }
-```
 ---
 ## サンプル実装
 
