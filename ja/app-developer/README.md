@@ -60,7 +60,7 @@ Webブラウザ向けのAjaxアプリとしてのサンプルアプリがいく�
 * [app-myboard](https://github.com/personium/app-myboard)
 * [app-sample-calorie-smile](https://github.com/personium/app-sample-calorie-smile)
 
-また、Webブラウザ向けのAjaxアプリを作る際の土台となるプロジェクトテンプレートもも公開してます。
+また、Webブラウザ向けのAjaxアプリを作る際の土台となるプロジェクトテンプレートも公開してます。
 
 * [template-app-cell](https://github.com/personium/template-app-cell)
 
