@@ -6,7 +6,7 @@
 
 #### [認証モデル](./003_Auth.html)
 
-#### [アクセス制御モデル](./002_Access_Control.html)
+#### [アクセス制御モデル](../apiref/current/006_Access_Control.md)
 
 
 ### Boxインストール

@@ -1,4 +1,4 @@
-# Cell model  
+<# Cell model  
 
 #### Message model  
 
@@ -6,7 +6,7 @@
 
 #### [Authentication model](./003_Auth.md)  
 
-#### [Access control model](./002_Access_Control.md)  
+#### [Access control model](../apiref/current/006_Access_Control.md)  
 
 
 
