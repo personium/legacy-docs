@@ -12,7 +12,7 @@ Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODg
 #### [Cellのモデル](./user_guide/005_Model_construction.md)
 #### [用語集](./user_guide/008_Glossary.md)
 
-## ユーザーガイド  
+## ユーザガイド  
 ### アプリ開発者向け  
 
 #### [Personiumアプリ開発者向けガイド](./app-developer/)  

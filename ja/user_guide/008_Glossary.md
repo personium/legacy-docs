@@ -181,7 +181,7 @@ AssociationEndの多重度の表記は、2つのEntityTypeの間の関係では�
 
 
 ### $orderby クエリ
-<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。ユーザーが特定した順序でソートされた値を表示する。デフォルトでは昇順。（[詳細事項](../apiref/current/400_Orderby_Query.md)）
+<font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。ユーザが特定した順序でソートされた値を表示する。デフォルトでは昇順。（[詳細事項](../apiref/current/400_Orderby_Query.md)）
 
 
 ## <a name="anc_p"> P</a>
