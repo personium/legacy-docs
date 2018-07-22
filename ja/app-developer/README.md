@@ -50,6 +50,7 @@ Personiumは個人をはじめとするデータ主体を中心としたコン�
 * [Personium アプリ開発](./Personium_Apps.md)  
 * [クライアント登録&認証](../user_guide/004_Client_auth.md)
 * [アプリ認証](./app_authn.md)
+* [Personiumにおけるロール](./Roles.md)
 * [Homeアプリからの起動](./launch_from_homeapp.md)
 * [Personium Engine](./Personium-Engine.md)
 
