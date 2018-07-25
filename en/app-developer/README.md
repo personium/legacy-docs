@@ -61,6 +61,7 @@ It would be better to first grasp the overview of OData and WebDAV.
 * [Application development guide](./Personium_Apps.md)  
 * [Client registration & authentication](../user_guide/004_Client_auth.md)
 * [App authentication](./app_authn.md)
+* [Role in Personium](./Roles.md)
 * [Launging from Home App](./launch_from_homeapp.md)
 * [Personium Engine](./Personium-Engine.md)
 
