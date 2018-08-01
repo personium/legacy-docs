@@ -4,7 +4,7 @@
 > __まだ不完全な記述も多く申し訳ありません。随時加筆・更新してゆきます。__
 
 ご不明な点がございましたら、[Slackコミュニティ](https://personium-io.slack.com/)までお問い合わせください。
-Slackコミュニティへの参加登録は[こちら](https://goo.gl/forms/ODgVX6eMkRDtReLg1)からどうぞ。
+Slackコミュニティへの参加登録は[こちら](https://join.slack.com/t/personium-io/shared_invite/enQtNDA4OTg1MzI3NjM3LTIwNjVkZjZkZDVlNTQ2NjFmZTFjMTljMzAwNzk0ZjQ0MGJhMDIzOGIxN2UyZmMxYTkwMzIzOTU5ZmZkMmEyNzE)からどうぞ。
 
 ## はじめに
 #### [Personiumとは](./overview/001_Introduction.md)
