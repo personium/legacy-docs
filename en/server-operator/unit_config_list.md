@@ -50,6 +50,12 @@ It is a setting which change from default as optional when operating Personium.
 |unitPath|Unit path of URL|String||core|v1.6.0 or later. When UnitURL is "https&#58;//p-host:8080/p-path/", unitPath becomes "/p-path". When UnitURL is "https&#58;//p-host:8080/", unitPath is no need.|
 |masterToken|Master Token|Token string||core, engine|Please do not set it when you operate it though it is possible to set by the development usage.|
 
+#### Cell
+|Key|Description|Value|Default value|Used component|Notes|
+|:--|:--|:--|:--|:--|:--|
+|cell.relayhtmlurl.default|URL to access when executing Get Cell Root API.|URL||core|v1.6.15 or later.|
+|cell.authorizationhtmlurl.default|URL to access when executing authentication form request for OAuth2.0 Authorization Endpoint API.|URL||core|v1.6.15 or later.|
+
 #### OData
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|

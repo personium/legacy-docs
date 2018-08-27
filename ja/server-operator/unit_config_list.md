@@ -32,7 +32,7 @@ Personiumを運用する上でデフォルトから変更を必須としてい�
 |x509.root|X509ルート証明書を配置したパス|信頼すべきPEM形式ルート証明書のフルパス<br>スペース区切りで複数指定可能|/opt/x509/personium_ca.crt|core, engine|何も指定しなければ(キーの定義もしない)、Personiumプロジェクト公式CAの証明書は自動的に信頼されます。|
 |security.secret16|トークンとファイル生成時の暗号化キー|16桁の16進文字列|secret16abcdefgh|core, engine|<br>|
 |security.auth.password.salt|パスワードハッシュソルト値|16桁の16進文字列|saltijkl|core|<br>|
-|unitUser.issuers|ユニットユーザトークン発⾏者として認定する文字列<br>セルURLを指定することでそのセルをユニットユーザトークン発行者として指定できます|文字列URL<br>スペース区切りで複数指定可能|http&#58;//localhost:8080/UnitUserCell/ |core|<br>|
+|unitUser.issuers|ユニットユーザトークン発⾏者として認定する文字列<br>セルURLを指定することでそのセルをユニットユーザトークン発行者として指定できます|URL<br>スペース区切りで複数指定可能|http&#58;//localhost:8080/UnitUserCell/ |core|<br>|
 
 
 ### 変更任意設定
@@ -52,6 +52,11 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |unitPath|ユニットのURLPath|文字列||core|v1.6.0以降。UnitURLが "https&#58;//p-host:8080/p-path/" の場合、unitPathは"/p-path"になります。UnitURLが "https&#58;//p-host:8080/" の場合、unitPathは設定しません。|
 |masterToken|マスタートークン|トークン文字列||core, engine|デフォルトは無効です。開発用途などで設定することもできますが、運用時には設定しないでください。|
 
+#### Cell
+|キー|説明|値|デフォルト値|使用コンポーネント|備考|
+|:--|:--|:--|:--|:--|:--|
+|cell.relayhtmlurl.default|Cellルート取得API実行時にアクセスするURL|URL||core|v1.6.15以降。|
+|cell.authorizationhtmlurl.default|OAuth2.0 認可エンドポイントAPIの認証フォームリクエスト実行時にアクセスするURL|URL||core|v1.6.15以降。|
 
 #### OData
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
