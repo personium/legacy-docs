@@ -158,7 +158,7 @@ header ul li {
 header ul li a {
   text-decoration: none;
   display: block;
-  padding: 5px 15px 5px 15px;
+  padding: 0px 15px 5px 5px;
   color: black;
 }
 header ul li a:hover {
@@ -198,9 +198,8 @@ header ul li.submenu ul li {
   font-size: 24px;
 }
 
-#logo a, #logo a:hover{
-  text-decoration: none;
-  color: red;
+#logo a img{
+  width: 180px;
 }
 
 
