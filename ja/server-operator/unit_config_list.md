@@ -51,6 +51,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |unitPort|ユニットのポート番号|ポート番号||core|v1.6.0以降。UnitURLが "https&#58;//p-host:8080/" の場合、unitPortは8080になります。UnitURLが "https&#58;//p-host/" の場合、unitPortは設定しません。|
 |unitPath|ユニットのURLPath|文字列||core|v1.6.0以降。UnitURLが "https&#58;//p-host:8080/p-path/" の場合、unitPathは"/p-path"になります。UnitURLが "https&#58;//p-host:8080/" の場合、unitPathは設定しません。|
 |masterToken|マスタートークン|トークン文字列||core, engine|デフォルトは無効です。開発用途などで設定することもできますが、運用時には設定しないでください。|
+|pathBasedCellUrl.enabled|セルにアクセスするURL形式|true:path based cell url<br>false:per cell fqdn url|true|core|v1.7.0以降|
 
 #### Cell
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
