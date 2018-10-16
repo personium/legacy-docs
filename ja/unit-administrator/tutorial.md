@@ -641,7 +641,7 @@ $ sudo su -
 ##### Major Settings Items #####
 # Unit Master Token.
 # Blank string should be configured in production use to disable it.
-io.personium.core.masterToken={master_token}
+io.personium.core.masterToken={master_token}                         <- このパラメータがマスタートークンの設定値
 #
 ...
 ```
@@ -657,7 +657,7 @@ $ sudo su -
 ##### Major Settings Items #####
 # Unit Master Token.
 # Blank string should be configured in production use to disable it.
-io.personium.core.masterToken=NewMasterToken
+io.personium.core.masterToken=NewMasterToken                         <- このパラメータに"NewMasterToken"を設定する
 #
 ...
 # systemctl restart tomcat
@@ -674,7 +674,7 @@ $ sudo su -
 ##### Major Settings Items #####
 # Unit Master Token.
 # Blank string should be configured in production use to disable it.
-io.personium.core.masterToken=
+# io.personium.core.masterToken=                                       <- このパラメータをコメントアウトする
 #
 ...
 # systemctl restart tomcat
