@@ -29,6 +29,13 @@ Ansibleを使って、評価用の1台構成のユニットや小規模な本番
 
 上記で紹介しているAnsibleのPlaybookをカスタマイズすれば様々な構成のユニットを構築可能です。
 
+### ユニット構築後のチュートリアル
+
+Personiumユニットを管理するための基本的な流れをご理解いただけるようチュートリアルを公開しています。
+Personiumユニットを初めて管理される方は是非ともご活用ください。
+
+* [Personiumユニット管理 チュートリアル](./tutorial.md)
+
 ### Pluginの導入
 
 * [認証Pluginのセットアップ](./setup_authentication_plugins.md)
