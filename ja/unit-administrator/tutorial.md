@@ -617,7 +617,7 @@ HTTP/1.1 204 No Content
 ```
 
 なお、[5. PDSを利用者に払い出す](#sect5) ～ [6. 払い出したPDSを削除する](#sect6)と同様の操作を、「Unit Manager」と呼ばれるツールを用いてGUIで実施することができます。
-詳細は[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.md)をご覧ください。
+詳細は[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.%6D%64)をご覧ください。
 「Unit Manager」使用時に必要となるログイン情報は、「4. 本文書で使用する情報を取得する」で取得したユニット管理アカウント情報をご使用ください。
 
 

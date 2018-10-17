@@ -26,7 +26,8 @@ Using Ansible, we are publishing guides for building a single unit for evaluatio
 
 * [Getting Started with Personium using Ansible](./setup.md)
 
-If you customize Ansible's Playbook introduced above, you can build units of various configurations.
+If you customize Ansible's Playbook introduced above, you can build units of various configurations.  
+When you want to check how to manage the unit after build, please click [here](../unit-administrator/).
 
 ### Apply plugin
 
