@@ -29,7 +29,6 @@ A sample source using javascript is released, please feel free to use them.
 
 * [MinimalApp](https://github.com/personium/template-app-cell) … Personium's "Hello, World!" app.
 * [MyBoard](https://github.com/personium/app-myboard) … Personium app that demonstrates ACL management and data enquiry/approval.
-* [Calorie Smile Sync](https://github.com/personium/app-sample-calorie-smile) … Similar to MyBoard but with additional function which sync data from an external Web server to a Personium Cell.
 
 [cURL](https://curl.haxx.se/) is used for all samples that call API in this tutorial.
 
@@ -67,8 +66,11 @@ $ sudo su -
 unitadmin_account={unitadmin_account}  
 unitudmin_password={unitudmin_password}  
 Personium_FQDN={Personium_FQDN}  
-# master_token=`grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
+# echo `grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
 ```
+
+>**[Note]**
+>**Since the information acquired here is the initial value, if you change it, please manage by yourself.**
 
 ## <a name="sect5">5. Issue PDS to Users</a>
 This series of API operations will be automated by a program in the actual Personium Service operation, but these tutorials show how to manually perform these operations step by step.
@@ -593,8 +595,8 @@ Let's check the operation with GUI using the above information.
 https://{Personium_FQDN}/usercell
 ```
 
-The registered profile.json information is displayed on the login screen and you should be able to confirm the login with the administrator account.
-
+The registered profile.json information is displayed on the login screen and you should be able to confirm the login with the administrator account.  
+If you want to install it yourself without using the sample GUI published in the open source project, please click [here](https://github.com/personium/app-cc-home).
 
 ## <a name="sect6">6. Delete the Issued PDS</a>
 Delete the issued Cell.
@@ -617,6 +619,11 @@ HTTP/1.1 204 No Content
 ```
 
 Furthermore, the complicated operations of 6. Issue PDS to Users and 7. Delete the Issued PDS can be simplified using the graphical user interface ("Unit Manager").  
+
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d1_pET0M-YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
 For details see [Unit Manager](https://github.com/personium/app-uc-unit-manager/blob/master/README.%6D%64).  
 Please use the unit management account information acquired in "4. Acquire the information used in this document" for login information required when using "Unit Manager".
 
@@ -711,43 +718,17 @@ The "access_token" value acquired here becomes the unit user token.
 ```
 
 ## <a name="sect10">10. Change a Unit Administration Password</a>
-To change unit admin client password, obtain a token (Cell local token) that is valid only in the token issuing Cell.
-
-The cell local token is acquired using the unit management account information acquired in "4. Acquire the information used in this document".
-
-Use the OAuth 2 Token_Endpoint_API. (Once acquired, the token is valid for one hour)
-
-```sh
-curl "https://{Personium_FQDN}/unitadmin/__token" \
--X POST -i -k \
--d "grant_type=password&username={unitadmin_account}&password={unitudmin_password}" \
--H "Content-Type: application/x-www-form-urlencoded"
-```
-
-If successful, a response in the JSON format is returned from the API.  
-The "access_token" value acquired here is used as {CellLocalToken} in the next operation.
-
-```json
-{
-	"access_token":"AA~4l........(snip)........auMhw",
-	"refresh_token_expires_in":86400,
-	"refresh_token":"RA~Ra........(snip)........v7jX8",
-	"token_type":"Bearer",
-	"expires_in":3600
-}
-```
-
-Now, actually change unit administration password by using the Cell local token obtained above.  
-When calling the Password_Change_API, specify the desired after changing password.  
+Let's actually change the unit management password by using the unit user token acquired in the previous section.
+In order to change the password, when you call up the Account Update API, specify the changed password arbitrarily.
 In this example, "abcd1234" will be the after changing password.  
 >**[Note]**
 >**Since the unit administrator has strong authority, please designate a password that is hard to guess.**
 
 ```sh
-curl "https://{Personium_FQDN}/unitadmin/__mypassword" \
+curl "https://{Personium_FQDN}/unitadmin/__ctl/Account('{unitadmin_account}')" \
 -X PUT -i -k \
--H "X-Personium-Credential:abcd1234" \
--H "Authorization:Bearer {CellLocalToken}"
+-d "{\"Name\":\"{unitadmin_account}\"}" \
+-H "X-Personium-Credential:abcd1234" -H "Content-Type: application/json" -H "Authorization:Bearer {UnitUserToken}"
 ```
 
 This API does not return a json format response (body).  
@@ -759,7 +740,3 @@ HTTP/1.1 204 No Content
 
 >**[Note]**
 >**When forgetting the changed "unit management password", it is necessary to change the unit management password using the master token.**　　
-
-
-The operations so far are the basis of unit management method.
-If you would like to know about information on application development, please click [here](https://personium.io/docs/en/app-developer/).

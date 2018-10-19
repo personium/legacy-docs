@@ -29,7 +29,6 @@ javascriptを用いたサンプルソースが公開されていますので、�
 
 * [MinimalApp](https://github.com/personium/template-app-cell) … 「Hello world」相当の最小限のアプリ。
 * [MyBoard](https://github.com/personium/app-myboard) … ACL管理・データ開示の操作をdemoするPersoniumアプリ。
-* [Calorie Smile Sync](https://github.com/personium/app-sample-calorie-smile) … MyBoardと同様の操作に加え、外部サイトから情報をPersoniumのセルに同期する。
 
 なお、本文書でAPIを呼び出すサンプルについては、すべて[cURL](https://curl.haxx.se/)を使用しています。
 
@@ -67,8 +66,11 @@ $ sudo su -
 unitadmin_account={unitadmin_account}  
 unitudmin_password={unitudmin_password}  
 Personium_FQDN={Personium_FQDN}  
-# master_token=`grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
+# echo `grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
 ```
+
+>**（注意）**
+>**ここで取得した情報は初期値であるため、ユーザが変更した場合は各自で管理するようにしてください。**
 
 ## <a name="sect5">5. PDSを利用者に払い出す</a>
 実際のPersoniumの運用において、これら一連のAPI操作はプログラムで自動化することになるかと思いますが、本チュートリアルでは一つ一つ手動で実施してみましょう。
@@ -593,8 +595,8 @@ io.personium.core.cell.relayhtmlurl.default
 https://{Personium_FQDN}/usercell
 ```
 
-登録した profile.json の情報がログイン画面に表示され、管理アカウントでのログインが確認出来ます。
-
+登録した profile.json の情報がログイン画面に表示され、管理アカウントでのログインが確認出来ます。  
+オープンソースプロジェクトで公開されているサンプルGUIを使用せず、独自でインストールしたい方は[こちら](https://github.com/personium/app-cc-home)をご覧ください。
 
 ## <a name="sect6">6. 払い出したPDSを削除する</a>
 払い出したCellを削除します。
@@ -617,6 +619,11 @@ HTTP/1.1 204 No Content
 ```
 
 なお、[5. PDSを利用者に払い出す](#sect5) ～ [6. 払い出したPDSを削除する](#sect6)と同様の操作を、「Unit Manager」と呼ばれるツールを用いてGUIで実施することができます。
+
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d1_pET0M-YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
 詳細は[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.%6D%64)をご覧ください。
 「Unit Manager」使用時に必要となるログイン情報は、「4. 本文書で使用する情報を取得する」で取得したユニット管理アカウント情報をご使用ください。
 
@@ -711,43 +718,17 @@ curl "https://{Personium_FQDN}/unitadmin/__token" \
 ```
 
 ## <a name="sect10">10. ユニット管理パスワードを変更する</a>
-ユニット管理パスワードを変更するため、トークン発行元のセルでのみ有効なトークン(セルローカルトークン)を取得します。
-
-セルローカルトークンは、「4. 本文書で使用する情報を取得する」で取得したユニット管理アカウント情報を用いて取得します。<br>
-
-OAuth2 Token エンドポイントAPIを使用します。（一旦取得したトークンは、１時間有効です）
-
-```sh
-curl "https://{Personium_FQDN}/unitadmin/__token" \
--X POST -i -k \
--d "grant_type=password&username={unitadmin_account}&password={unitudmin_password}" \
--H "Content-Type: application/x-www-form-urlencoded"
-```
-
-成功するとAPIからJSON形式でレスポンスが返ります。
-ここで取得した"access_token"の値は、次の操作で{CellLocalToken}として使います。
-
-```json
-{
-	"access_token":"AA~4l........(省略)........auMhw",
-	"refresh_token_expires_in":86400,
-	"refresh_token":"RA~Ra........(省略)........v7jX8",
-	"token_type":"Bearer",
-	"expires_in":3600
-}
-```
-
-では、上記で取得したセルローカルトークンを使って、実際にユニット管理パスワードを変更してみましょう。
-パスワード変更APIを呼び出す際に、変更後のパスワードを任意に指定します。
+前項で取得したユニットユーザトークンを使って、実際にユニット管理パスワードを変更してみましょう。
+パスワード変更を行うため、Account更新APIを呼び出す際に、変更後のパスワードを任意に指定します。
 この例では "abcd1234" が 変更後のパスワードになります。
 >**（注意）**
 >**ユニット管理アカウントは強い権限を持っているため、変更後のパスワードには推測されにくいものを指定してください。**
 
 ```sh
-curl "https://{Personium_FQDN}/unitadmin/__mypassword" \
+curl "https://{Personium_FQDN}/unitadmin/__ctl/Account('{unitadmin_account}')" \
 -X PUT -i -k \
--H "X-Personium-Credential:abcd1234" \
--H "Authorization:Bearer {CellLocalToken}"
+-d "{\"Name\":\"{unitadmin_account}\"}" \
+-H "X-Personium-Credential:abcd1234" -H "Content-Type: application/json" -H "Authorization:Bearer {UnitUserToken}"
 ```
 
 このAPIはjson形式のレスポンス(ボディ)を返しません。
@@ -759,7 +740,3 @@ HTTP/1.1 204 No Content
 
 >**（注意）**
 >**変更した「ユニット管理パスワード」を忘却したときはマスタートークンを用いユニット管理パスワードを変更する必要があります。**　　
-
-
-ここまでの操作がユニットの管理方法の基本になります。
-続いてアプリ開発に関する情報を知りたい場合は[こちら](https://personium.io/docs/ja/app-developer/)をご覧ください。
