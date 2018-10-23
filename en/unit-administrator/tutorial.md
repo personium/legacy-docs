@@ -618,13 +618,23 @@ If the status code 204 is returned, processing was successful.
 HTTP/1.1 204 No Content
 ```
 
-Furthermore, the complicated operations of 6. Issue PDS to Users and 7. Delete the Issued PDS can be simplified using the graphical user interface ("Unit Manager").  
+Furthermore, the complicated operations of [5. Issue PDS to Users](#sect5) and [6. Delete the Issued PDS](#sect6) can be simplified using the graphical user interface ("Cell Creator Wizard","Unit Manager").
+<br>
+
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/M4cYLFYRyEk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+For details see [Cell Creator Wizard](https://github.com/personium/app-uc-cell-creator-wizard).
+<br>
 
 <div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d1_pET0M-YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-For details see [Unit Manager](https://github.com/personium/app-uc-unit-manager/blob/master/README.%6D%64).  
+For details see [Unit Manager](https://github.com/personium/app-uc-unit-manager/blob/master/README.%6D%64).
+<br>
+
 Please use the unit management account information acquired in "4. Acquire the information used in this document" for login information required when using "Unit Manager".
 
 
