@@ -54,8 +54,8 @@ Example:)
     -----------------------------------------------------------------------------------
 ```
 
-ここで得られたunit.keyが秘密鍵です。
-Confirm that the unit.key is created
+unit.keyが作成されたことを確認します。
+ここで作成されたunit.keyが秘密鍵です。
 
 ```console
     # ls -l
@@ -72,7 +72,7 @@ Example:)
 ## CSRの作成
 
 unit.keyを使ってCSRを作成します。以下で得られるunit.csrがCSRです。
-CSR作成時に、CN項目にユニットを運用しようとしているFQDNを設定してください。
+CSR作成時に、CN項目にPersonium ユニットのFQDNを設定してください。
 
 
 ```console
