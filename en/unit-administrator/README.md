@@ -1,28 +1,28 @@
 # Unit Administrator's Guide  
 
-It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium  
+It is a document for people who want to manage pre-built Personium Unit and those who want users to use PDS applications to provide PDS service using Personium  
 
-For those who build Personium units, and how to build / deploy / configure Personium server programs, please refer to [Server Software Operator's Guide](../server-operator/).
+For those who build Personium Unit, and how to build / deploy / configure Personium server programs, please refer to [Server Software Operator's Guide](../server-operator/).
 
 ## Unit User and Unit level API
 
-Unit User is a user who is issued a unit user token recognized by the Personium unit and is a main entity capable of operating unit level API such as CRUD of Cell.
+Unit User is a user who is issued a Unit User Token recognized by the Personium Unit and is a main entity capable of operating Unit level API such as CRUD of Cell.
 
 * [Unit User](./Unit-User.md)
 
-Unit User Token (UUT) is required for access to the unit level API, which manages cell generation and management.
-In addition, Cell remembers which UUT was generated when it was created, and always grants privileged access to all APIs at Cell level and Box level for unit users who created them.
+Unit User Token (UUT) is required for access to the Unit level API, which manages cell generation and management.
+In addition, Cell remembers which UUT was generated when it was created, and always grants privileged access to all APIs at Cell level and Box level for Unit User who created them.
 
 ## Tutorial
 
 We have released a tutorial on basic operations for managing Personium Unit.
 If you are the first person to manage Personium Unit please check.
 
-* [Personium unit management tutorial](./tutorial.md)
+* [Personium Unit management tutorial](./tutorial.md)
 
 ## Management of Unit using GUI
 
-By using the following unit manager GUI, almost all API access can be implemented as a Unit User.
+By using the following Unit manager GUI, almost all API access can be implemented as a Unit User.
 
 [app-uc-unit-manager](https://github.com/personium/app-uc-unit-manager)
 
@@ -31,7 +31,7 @@ In that case, this application behaves as a Cell Manager. On the other hand, esp
 
 ## Cell Creator sample GUI
 
-Using the Unit Manager GUI above, you can try various API operations manually, but it would be unrealistic for unit administrators to manually add records to Cell Publishers.
+Using the Unit Manager GUI above, you can try various API operations manually, but it would be unrealistic for Unit administrators to manually add records to Cell Publishers.
 
 In many cases, you will need to create a program to create Cell with the prescribed specifications, create a cell usage application screen, and so on. In that case please use the sample application below.
 
