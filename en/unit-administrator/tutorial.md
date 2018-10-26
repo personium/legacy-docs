@@ -1,5 +1,5 @@
 **\* This document is intended for those who use Personium Version 1.6.15 or later.**
-# Personium unit management tutorial
+# Personium Unit management tutorial
 ##### [1. About this document](#sect1)
 ##### [2. Who should read this document?](#sect2)
 ##### [3. Overview of Unit, Cell, and Box](#sect3)
@@ -53,11 +53,11 @@ It will be a keyword that will appear many times even in this tutorial.
 
 ## <a name="sect4">4. Acquire the information used in this document</a>
 
-In this document, we use the following information set up when building Personium unit.  
-* {Personium_FQDN} FQDN of Personium unit  
+In this document, we use the following information set up when building Personium Unit.  
+* {Personium_FQDN} FQDN of Personium Unit  
 * {unitadmin_account} Unit administrator account  
 * {unitudmin_password} Unit administrator password  
-* {master_token} A token enabling every operation related to the unit  
+* {master_token} A token enabling every operation related to the Unit  
 
 In order to obtain information, log in to the server that executed Ansible and execute the following command.
 ```
@@ -79,7 +79,7 @@ This series of API operations will be automated by a program in the actual Perso
 Create an empty Cell (PDS).
 
 Before creating a new additional Cell, confirm the status using the Cell_List_Acquisition_API in advance.  
-In the Personium unit immediately after construction, only cells for unit management are registered.
+In the Personium Unit immediately after construction, only cells for Unit management are registered.
 
 ```sh
 curl "https://{Personium_FQDN}/__ctl/Cell" \
@@ -87,7 +87,7 @@ curl "https://{Personium_FQDN}/__ctl/Cell" \
 -H "Accept:application/json" -H "Authorization:Bearer {master_token}"
 ```
 
-One cell information for unit management returns to the response.  
+One cell information for Unit management returns to the response.  
 This state is the initial state of the Personium Unit.
 
 ```json
@@ -577,7 +577,7 @@ If the request succeeded, modified property will be in the response.
 ```
 
 Besides configuring individual Cell, it is also possible to configure the default values for the entire Unit.  
-The following values of the unit configuration file are modifiable.
+The following values of the Unit configuration file are modifiable.
 
 ```
 io.personium.core.cell.relayhtmlurl.default
@@ -635,7 +635,7 @@ For details see [Cell Creator Wizard](https://github.com/personium/app-uc-cell-c
 For details see [Unit Manager](https://github.com/personium/app-uc-unit-manager/blob/master/README.%6D%64).
 <br>
 
-Please use the unit management account information acquired in "4. Acquire the information used in this document" for login information required when using "Unit Manager".
+Please use the Unit management account information acquired in "4. Acquire the information used in this document" for login information required when using "Unit Manager".
 
 
 ## <a name="sect7">7. Automated PDS Creation</a>
@@ -698,12 +698,12 @@ $ sudo su -
 ```
 
 The value of the master token is now invalidated.  
-After invalidating the master token, please use the unit management token introduced in the following item.
+After invalidating the master token, please use the Unit management token introduced in the following item.
 
-## <a name="sect9">9. Acquire a token for managing a unit</a>
-we acquire a unit management token (unit user token) accessible to Cell as administrator authority.
+## <a name="sect9">9. Acquire a token for managing a Unit</a>
+we acquire a Unit management token (Unit User Token) accessible to Cell as administrator authority.
 Access as Administrator refers to operations such as Cell creation and Cell deletion.  
-The unit user token is acquired using the unit management account information acquired in "4. Acquire the information used in this document".  
+The Unit User Token is acquired using the Unit management account information acquired in "4. Acquire the information used in this document".  
 Use the OAuth 2 Token_Endpoint_API. (Once acquired, the token is valid for one hour)
 
 ```sh
@@ -714,7 +714,7 @@ curl "https://{Personium_FQDN}/unitadmin/__token" \
 ```
 
 If successful, a response in the JSON format is returned from the API.  
-The "access_token" value acquired here becomes the unit user token.
+The "access_token" value acquired here becomes the Unit User Token.
 
 ```json
 {
@@ -728,11 +728,11 @@ The "access_token" value acquired here becomes the unit user token.
 ```
 
 ## <a name="sect10">10. Change a Unit Administration Password</a>
-Let's actually change the unit management password by using the unit user token acquired in the previous section.
+Let's actually change the Unit management password by using the Unit User Token acquired in the previous section.
 In order to change the password, when you call up the Account Update API, specify the changed password arbitrarily.
 In this example, "abcd1234" will be the after changing password.  
 >**[Note]**
->**Since the unit administrator has strong authority, please designate a password that is hard to guess.**
+>**Since the Unit administrator has strong authority, please designate a password that is hard to guess.**
 
 ```sh
 curl "https://{Personium_FQDN}/unitadmin/__ctl/Account('{unitadmin_account}')" \
@@ -749,4 +749,4 @@ HTTP/1.1 204 No Content
 ```
 
 >**[Note]**
->**When forgetting the changed "unit management password", it is necessary to change the unit management password using the master token.**　　
+>**When forgetting the changed "Unit management password", it is necessary to change the Unit management password using the master token.**　　

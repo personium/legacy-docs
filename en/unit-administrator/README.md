@@ -1,37 +1,48 @@
 # Unit Administrator's Guide  
 
-It is a document for people who want to manage pre-built Personium units and those who want users to use PDS applications to provide PDS service using Personium  
-### [Unit User](./Unit-User.md)
+It is a document for people who want to manage pre-built Personium Unit and those who want users to use PDS applications to provide PDS service using Personium  
 
-### Tutorial
+For those who build Personium Unit, and how to build / deploy / configure Personium server programs, please refer to [Server Software Operator's Guide](../server-operator/).
 
-We have released a tutorial on basic operations for managing Personium units.
-If you are the first person to manage Personium unit please check.
+## Unit User and Unit level API
 
-* [Personium unit management tutorial](./tutorial.md)
+Unit User is a user who is issued a Unit User Token recognized by the Personium Unit and is a main entity capable of operating Unit level API such as CRUD of Cell.
 
-### [Data Management](./Data_Management.md)  
+* [Unit User](./Unit-User.md)
 
-### API Reference  
-[1.5.8 -](../apiref/1.5.8/000_Rest_API_Reference.md)
+Unit User Token (UUT) is required for access to the Unit level API, which manages cell generation and management.
+In addition, Cell remembers which UUT was generated when it was created, and always grants privileged access to all APIs at Cell level and Box level for Unit User who created them.
 
-[1.5.7](../apiref/1.5.7/000_Rest_API_Reference.md)
+## Tutorial
 
-[1.5.6](../apiref/1.5.6/000_Rest_API_Reference.md)
+We have released a tutorial on basic operations for managing Personium Unit.
+If you are the first person to manage Personium Unit please check.
 
-[1.5.5](../apiref/1.5.5/000_Rest_API_Reference.md)
+* [Personium Unit management tutorial](./tutorial.md)
 
-[1.5.2 - 1.5.4](../apiref/1.5.2/000_Rest_API_Reference.md)
+## Management of Unit using GUI
 
-[1.5.1](../apiref/1.5.1/000_Rest_API_Reference.md)
+By using the following Unit manager GUI, almost all API access can be implemented as a Unit User.
 
-[1.5.0](../apiref/1.5.0/000_Rest_API_Reference.md)
-
-[1.4.2 - 1.4.6](../apiref/1.4.6/000_Rest_API_Reference.md)
-
-[1.4.1 or before](http://personium.io/docs/api/1.3.25/English/English.htm#docs/WelcometoPCSDocumentation.htm)
-
-### Related Repositories
 [app-uc-unit-manager](https://github.com/personium/app-uc-unit-manager)
 
+This tool supports multiple launch methods, and when launched from the Home application of the User Cell, it starts up in the form of the URL of the target cell to be accessed and token information for access as a startup parameter.
+In that case, this application behaves as a Cell Manager. On the other hand, especially when such a parameter is not specified, Start up as Unit manager GUI.
+
+## Cell Creator sample GUI
+
+Using the Unit Manager GUI above, you can try various API operations manually, but it would be unrealistic for Unit administrators to manually add records to Cell Publishers.
+
+In many cases, you will need to create a program to create Cell with the prescribed specifications, create a cell usage application screen, and so on. In that case please use the sample application below.
+
 [app-uc-cell-creator](https://github.com/personium/app-uc-cell-creator)
+
+For small-scale operation, you can use this sample program itself to pay out Cells.
+
+## Other
+
+* [Data management](./Data_Management.md)
+
+## Related Repositories
+* [app-uc-unit-manager](https://github.com/personium/app-uc-unit-manager)
+* [app-uc-cell-creator](https://github.com/personium/app-uc-cell-creator)
