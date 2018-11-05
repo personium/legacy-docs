@@ -138,12 +138,12 @@ elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
 
 1. Plugin導入のコマンドを実行します。  
 失敗した場合、以下のメッセージが出力されます。
-	```
-	elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
-	-> Installing mobz/elasticsearch-head...
-	Trying https://github.com/mobz/elasticsearch-head/archive/master.zip ...
-	ERROR: failed to download out of all possible locations..., use --verbose to get detailed information
-	```
+    ```
+    elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
+    -> Installing mobz/elasticsearch-head...
+    Trying https://github.com/mobz/elasticsearch-head/archive/master.zip ...
+    ERROR: failed to download out of all possible locations..., use --verbose to get detailed information
+    ```
 
 1. 「Trying 」から「 ...」までに出力されたURLでPlugin本体をDL可能となります。  
 ブラウザなどでDLし、適当な場所に置きます。  
