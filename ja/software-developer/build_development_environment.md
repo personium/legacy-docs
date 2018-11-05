@@ -137,7 +137,8 @@ elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
 以下に記載した別途DLしてきたPluginをローカルで導入する手順を実施してください。  
 
 1. Plugin導入のコマンドを実行します。  
-失敗した場合、以下のメッセージが出力されます。  
+失敗した場合、以下のメッセージが出力されます。
+
     ```
     elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
     -> Installing mobz/elasticsearch-head...
@@ -150,6 +151,7 @@ elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
 C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
 
 1. Plugin installコマンドをURI指定で実行します。
+
     ```
     elasticsearch-2.4.1>bin\plugin install file:C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
     ```
