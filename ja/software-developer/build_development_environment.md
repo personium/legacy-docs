@@ -149,9 +149,10 @@ elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
 ブラウザなどでDLし、適当な場所に置きます。  
 C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
 
-1. Plugin installコマンドをURI指定で実行します。  
-elasticsearch-2.4.1>bin\plugin install file:C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
-
+1. Plugin installコマンドをURI指定で実行します。
+    ```
+    elasticsearch-2.4.1>bin\plugin install file:C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
+    ```
 
 ### ActiveMQ
 特になし
