@@ -30,6 +30,12 @@ Ansibleを使って、評価用の1台構成のユニットや小規模な本番
 上記で紹介しているAnsibleのPlaybookをカスタマイズすれば様々な構成のユニットを構築可能です。  
 構築完了後、ユニットの管理方法を確認したい場合は[こちら](../unit-administrator/)をご覧ください。
 
+### Ansible で自動構築したユニットの環境情報
+
+Ansibleを使って構築したユニットの主要なミドルウェアの環境情報を確認します。
+
+* [Ansibleで構築したユニットの環境確認](./Confirm_environment_settings.md)
+
 ### Pluginの導入
 
 * [認証Pluginのセットアップ](./setup_authentication_plugins.md)

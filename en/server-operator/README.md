@@ -29,6 +29,12 @@ Using Ansible, we are publishing guides for building a single unit for evaluatio
 If you customize Ansible's Playbook introduced above, you can build units of various configurations.  
 When you want to check how to manage the unit after build, please click [here](../unit-administrator/).
 
+### Environment information of units automatically constructed by Ansible
+
+Confirm the environment information of the main middleware of the unit constructed using Ansible.
+
+* [Confirmation of the environment of units constructed with Ansible](./Confirm_environment_settings.md)
+
 ### Apply plugin
 
 * [Setup Authentication Plugins](./setup_authentication_plugins.md)
