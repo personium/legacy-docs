@@ -4,8 +4,7 @@
 Windows
 
 ## 開発に必要なツール一覧
-開発に必要なツールをダウンロードしてください。  
-圧縮されている場合、解凍が必要となります。
+開発に必要なツールをダウンロードしてください。
 
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
@@ -15,8 +14,7 @@ Windows
 | Maven | 3系 | https://maven.apache.org/download.cgi |
 
 ## 動作確認に必要なツール一覧
-動作確認に必要なツールをダウンロードしてください。  
-圧縮されている場合、解凍が必要となります。
+動作確認に必要なツールをダウンロードしてください。
 
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
@@ -32,7 +30,7 @@ Windows
 
 ```
 変数：JAVA_HOME
-値：C:\Program Files\pleiades\java\8
+値：javaのインストールディレクトリパス(例：C:\Program Files\pleiades\java\8)
 ```
 
 システム環境変数Pathに以下を追加します。
@@ -65,7 +63,7 @@ C:¥Users¥[user]¥.gitconfigに、以下の記述を追加します。
 
 ```
 変数：M2_HOME
-値：C:\apache-maven-3.5.4
+値：mavenのインストールディレクトリパス（例：C:\Program Files\apache-maven-3.5.4）
 ```
 
 システム環境変数Pathに以下を追加します。
@@ -169,97 +167,57 @@ C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
 
 
 ### Nginx
-nginxの初期設定のため、nginx-1.14.0\conf配下に存在する以下の4ファイルを修正及び作成します。  
+nginxの初期設定のため、nginx-1.14.0\conf配下のnginx.confファイルを修正します。  
 
-- nginx.conf（修正）
-- personium_version.d/__version（作成）
-- personium_version.d/personium-latest-version.conf（作成）
-- backend.conf（作成）
+1. eventsの内容を以下記述に変更します。
 
-#### nginx.confの修正
-httpの中に以下記述を追加します。
-```
-    ignore_invalid_headers on;
-    proxy_set_header Host $http_host;
-    proxy_http_version 1.1;
-    large_client_header_buffers 4 55k;
+    ```
+        worker_connections  128;
+    ```
 
-    include backend.conf;
+1. httpの中に以下記述を追加します。
 
-    map $http_upgrade $connection_upgrade {
-      default upgrade;
-      '' close;
-    }
-```
+    ```
+        ignore_invalid_headers on;
+        proxy_set_header Host $http_host;
+        proxy_http_version 1.1;
+        large_client_header_buffers 4 55k;
 
-http.server.location /を以下記述に変更します。
-```
-        location / {
-            #root   html;
-            #index  index.html index.htm;
-
-            if ($request_uri ~ [\x00-\x20\x22\x3c\x3e\x5b-\x5e\x60\x7b-\x7d\x7f]) {
-                return 400;
-            }
-
-            set $personium_version_port   "";
-            include C:/nginx-1.14.0/conf/personium_version.d/personium-*.conf;
-
-            if ($http_x_personium_version = '') {
-                set $personium_version_port   $default_port;
-            }
-
-            if ($personium_version_port = '') {
-                set $personium_version_port   $default_port;
-            }
-
-            if ($request_uri ~* ([^?]+)\?(.*)) {
-              set $personium_path $1;
-              rewrite .* /personium-core$personium_path break;
-            }
-            if ($is_args = "") {
-              rewrite .* /personium-core$request_uri break;
-            }
-
-            # more_clear_input_headers 'Transfer-Encoding';
-            proxy_pass http://backend_$personium_version_port;
-            proxy_set_header X-Forwarded-For $remote_addr;
-            proxy_set_header X-Forwarded-Proto http;
-            proxy_set_header X-Forwarded-Path $request_uri;
-            proxy_set_header Host $http_host;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection $connection_upgrade;
-            proxy_hide_header X-Powered-By;
-            proxy_hide_header X-Rack-Cache;
-            proxy_hide_header X-Content-Digest;
-            proxy_hide_header X-Runtime;
-            # include       host-acl.conf;
+        map $http_upgrade $connection_upgrade {
+          default upgrade;
+          '' close;
         }
-```
+    ```
 
-#### personium_version.d/__versionの作成
+1. http.server.location /の内容を以下記述に変更します。
+    ```
+                #root   html;
+                #index  index.html index.htm;
 
-ファイルを作成し、以下記述を追加します。
-```
-[""]
-```
+                if ($request_uri ~ [\x00-\x20\x22\x3c\x3e\x5b-\x5e\x60\x7b-\x7d\x7f]) {
+                    return 400;
+                }
 
-#### personium_version.d/personium-latest-version.confの作成
+                if ($request_uri ~* ([^?]+)\?(.*)) {
+                  set $personium_path $1;
+                  rewrite .* /personium-core$personium_path break;
+                }
+                if ($is_args = "") {
+                  rewrite .* /personium-core$request_uri break;
+                }
 
-ファイルを作成し、以下記述を追加します。
-```
-set $default_port 8080;
-```
-
-#### backend.confの作成
-
-ファイルを作成し、以下記述を追加します。
-```
-upstream backend_8080 {
-  server localhost:8080 fail_timeout=1800s;
-}
-```
-
+                proxy_pass http://localhost:8080;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header X-Forwarded-Proto http;
+                proxy_set_header X-Forwarded-Path $request_uri;
+                proxy_set_header Host $http_host;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                proxy_hide_header X-Powered-By;
+                proxy_hide_header X-Rack-Cache;
+                proxy_hide_header X-Content-Digest;
+                proxy_hide_header X-Runtime;
+    ```
 
 ## Eclipseへのプロジェクト登録
 personium-coreとpersonium-engineをプロジェクトとして登録します。  
@@ -342,13 +300,17 @@ io.personium.core.security.secret16=secret167pm5m4y6
 > ※Eclipse上でmavenやpom.xml関連のビルドエラーが出ている場合、  
 以下に記載した手順を実施してください。
 
-コマンドプロンプト等でpom.xmlが存在するディレクトリに移動します。  
-以下のコマンドを実行します。
-```
-mvn clean package -DskipTests
-```
-コマンドがSUCCESSで終了しなかった場合は原因を取り除いて再度実施します。  
-Eclipse上で対象プロジェクトを右クリック→[Maven]→[プロジェクトの更新]→[OK]を選択します。
+1. コマンドプロンプト等でpom.xmlが存在するディレクトリに移動します。  
+
+1. 以下のコマンドを実行します。
+
+    ```
+    mvn clean package -DskipTests
+    ```
+
+    コマンドがSUCCESSで終了しなかった場合は原因を取り除いて再度実施します。  
+
+1. Eclipse上で対象プロジェクトを右クリック→[Maven]→[プロジェクトの更新]→[OK]を選択します。
 
 
 ## 起動確認方法
