@@ -4,8 +4,7 @@
 Windows
 
 ## 開発に必要なツール一覧
-開発に必要なツールをダウンロードしてください。  
-圧縮されている場合、解凍が必要となります。
+開発に必要なツールをダウンロードしてください。
 
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
@@ -15,8 +14,7 @@ Windows
 | Maven | 3系 | https://maven.apache.org/download.cgi |
 
 ## 動作確認に必要なツール一覧
-動作確認に必要なツールをダウンロードしてください。  
-圧縮されている場合、解凍が必要となります。
+動作確認に必要なツールをダウンロードしてください。
 
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
@@ -32,16 +30,18 @@ Windows
 
 ```
 変数：JAVA_HOME
-値：C:\Program Files\pleiades\java\8
+値：javaのインストールディレクトリパス(例：C:\Program Files\pleiades\java\8)
 ```
 
 システム環境変数Pathに以下を追加します。
+
 ```
 %JAVA_HOME%\bin
 ```
 
 ### Git
 C:¥Users¥[user]¥.gitconfigに、以下の記述を追加します。  
+
 ```
 [core]
 	autocrlf = false
@@ -65,7 +65,7 @@ C:¥Users¥[user]¥.gitconfigに、以下の記述を追加します。
 
 ```
 変数：M2_HOME
-値：C:\apache-maven-3.5.4
+値：mavenのインストールディレクトリパス（例：C:\Program Files\apache-maven-3.5.4）
 ```
 
 システム環境変数Pathに以下を追加します。
@@ -124,6 +124,7 @@ indices.fielddata.cache.size: 80%（任意）
 こちらのPluginは導入必須となります。  
 
 コマンドプロンプト等で以下コマンドを実行します。
+
 ```
 elasticsearch-2.4.1>bin\plugin install delete-by-query
 ```
@@ -133,6 +134,7 @@ ElasticSearchに保存されているデータを見やすくするためのPlug
 こちらのPluginは導入推奨となります。  
 
 コマンドプロンプト等で以下コマンドを実行します。
+
 ```
 elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
 ```
@@ -169,97 +171,58 @@ C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
 
 
 ### Nginx
-nginxの初期設定のため、nginx-1.14.0\conf配下に存在する以下の4ファイルを修正及び作成します。  
+nginxの初期設定のため、nginx-1.14.0\conf配下のnginx.confファイルを修正します。  
 
-- nginx.conf（修正）
-- personium_version.d/__version（作成）
-- personium_version.d/personium-latest-version.conf（作成）
-- backend.conf（作成）
+1. eventsの内容を以下記述に変更します。
 
-#### nginx.confの修正
-httpの中に以下記述を追加します。
-```
-    ignore_invalid_headers on;
-    proxy_set_header Host $http_host;
-    proxy_http_version 1.1;
-    large_client_header_buffers 4 55k;
+    ```
+        worker_connections  128;
+    ```
 
-    include backend.conf;
+1. httpの中に以下記述を追加します。
 
-    map $http_upgrade $connection_upgrade {
-      default upgrade;
-      '' close;
-    }
-```
+    ```
+        ignore_invalid_headers on;
+        proxy_set_header Host $http_host;
+        proxy_http_version 1.1;
+        large_client_header_buffers 4 55k;
 
-http.server.location /を以下記述に変更します。
-```
-        location / {
-            #root   html;
-            #index  index.html index.htm;
-
-            if ($request_uri ~ [\x00-\x20\x22\x3c\x3e\x5b-\x5e\x60\x7b-\x7d\x7f]) {
-                return 400;
-            }
-
-            set $personium_version_port   "";
-            include C:/nginx-1.14.0/conf/personium_version.d/personium-*.conf;
-
-            if ($http_x_personium_version = '') {
-                set $personium_version_port   $default_port;
-            }
-
-            if ($personium_version_port = '') {
-                set $personium_version_port   $default_port;
-            }
-
-            if ($request_uri ~* ([^?]+)\?(.*)) {
-              set $personium_path $1;
-              rewrite .* /personium-core$personium_path break;
-            }
-            if ($is_args = "") {
-              rewrite .* /personium-core$request_uri break;
-            }
-
-            # more_clear_input_headers 'Transfer-Encoding';
-            proxy_pass http://backend_$personium_version_port;
-            proxy_set_header X-Forwarded-For $remote_addr;
-            proxy_set_header X-Forwarded-Proto http;
-            proxy_set_header X-Forwarded-Path $request_uri;
-            proxy_set_header Host $http_host;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection $connection_upgrade;
-            proxy_hide_header X-Powered-By;
-            proxy_hide_header X-Rack-Cache;
-            proxy_hide_header X-Content-Digest;
-            proxy_hide_header X-Runtime;
-            # include       host-acl.conf;
+        map $http_upgrade $connection_upgrade {
+          default upgrade;
+          '' close;
         }
-```
+    ```
 
-#### personium_version.d/__versionの作成
+1. http.server.location /の内容を以下記述に変更します。
 
-ファイルを作成し、以下記述を追加します。
-```
-[""]
-```
+    ```
+                #root   html;
+                #index  index.html index.htm;
 
-#### personium_version.d/personium-latest-version.confの作成
+                if ($request_uri ~ [\x00-\x20\x22\x3c\x3e\x5b-\x5e\x60\x7b-\x7d\x7f]) {
+                    return 400;
+                }
 
-ファイルを作成し、以下記述を追加します。
-```
-set $default_port 8080;
-```
+                if ($request_uri ~* ([^?]+)\?(.*)) {
+                  set $personium_path $1;
+                  rewrite .* /personium-core$personium_path break;
+                }
+                if ($is_args = "") {
+                  rewrite .* /personium-core$request_uri break;
+                }
 
-#### backend.confの作成
-
-ファイルを作成し、以下記述を追加します。
-```
-upstream backend_8080 {
-  server localhost:8080 fail_timeout=1800s;
-}
-```
-
+                proxy_pass http://localhost:8080;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header X-Forwarded-Proto http;
+                proxy_set_header X-Forwarded-Path $request_uri;
+                proxy_set_header Host $http_host;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                proxy_hide_header X-Powered-By;
+                proxy_hide_header X-Rack-Cache;
+                proxy_hide_header X-Content-Digest;
+                proxy_hide_header X-Runtime;
+    ```
 
 ## Eclipseへのプロジェクト登録
 personium-coreとpersonium-engineをプロジェクトとして登録します。  
@@ -274,6 +237,7 @@ https://github.com/personium/personium-engine.git
 のcluster.nameで設定した値を指定します。
 
 **/personium_core/src/main/resources/personium-unit-config.properties**
+
 ```
 #################################################
 # personium-core configurations
@@ -282,9 +246,10 @@ https://github.com/personium/personium-engine.git
 io.personium.core.masterToken=personiumio
 io.personium.core.unitScheme=http
 #io.personium.core.unitPort=9998
-io.personium.core.unitPort=8080
-#io.personium.core.unitPath=
-io.personium.core.unitPath=/personium-core
+#io.personium.core.unitPort=8080
+io.personium.core.unitPort=
+#io.personium.core.unitPath=/personium-core
+io.personium.core.unitPath=
 
 io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/ personium-localunit:/unitadmincell/ personium-localunit:/unitusercell/
 
@@ -323,6 +288,7 @@ io.personium.core.odata.links.NtoN.maxnum=40
 ```
 
 **/personium_engine/src/main/resources/personium-unit-config.properties**
+
 ```
 #################################################
 # personium-engine configurations
@@ -336,19 +302,22 @@ io.personium.core.blobStore.root=/personium/personium_nfs/personium-core/dav
 
 # security configurations
 io.personium.core.security.secret16=secret167pm5m4y6
-
 ```
 
 > ※Eclipse上でmavenやpom.xml関連のビルドエラーが出ている場合、  
 以下に記載した手順を実施してください。
 
-コマンドプロンプト等でpom.xmlが存在するディレクトリに移動します。  
-以下のコマンドを実行します。
-```
-mvn clean package -DskipTests
-```
-コマンドがSUCCESSで終了しなかった場合は原因を取り除いて再度実施します。  
-Eclipse上で対象プロジェクトを右クリック→[Maven]→[プロジェクトの更新]→[OK]を選択します。
+1. コマンドプロンプト等でpom.xmlが存在するディレクトリに移動します。  
+
+1. 以下のコマンドを実行します。
+
+    ```
+    mvn clean package -DskipTests
+    ```
+
+    コマンドがSUCCESSで終了しなかった場合は原因を取り除いて再度実施します。  
+
+1. Eclipse上で対象プロジェクトを右クリック→[Maven]→[プロジェクトの更新]→[OK]を選択します。
 
 
 ## 起動確認方法
@@ -356,15 +325,16 @@ Eclipse上で対象プロジェクトを右クリック→[Maven]→[プロジ�
 
 コマンドプロンプト等でserviceファイルが存在するディレクトリに移動します。  
 以下コマンドを実行します。
+
 ```
 elasticsearch-2.4.1\bin>service install
 elasticsearch-2.4.1\bin>service start
-
 ```
 
 ブラウザでhttp://localhost:9200にアクセスします。  
 
 以下のように出力されると起動成功となります。
+
 ```
 {
   "name" : "MODAM",
@@ -385,27 +355,13 @@ elasticsearch-2.4.1\bin>service start
 
 コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
 以下コマンドを実行します。
+
 ```
 apache-activemq-5.15.2\bin>activemq start
-
 ```
 
 ブラウザでhttp://localhost:8161にアクセスします。  
 管理画面が表示されると起動成功となります。  
-
-
-### nginx起動確認
-
-コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
-以下のコマンドを実行します。  
-```
-nginx-1.14.0>start nginx
-
-```
-
-ブラウザでhttp://localhostにアクセスします。  
-時間経過でタイムアウトとなり、nginxのエラー画面が表示されると起動成功となります。
-
 
 ### 開発用サーバ起動確認
 Eclipse上で[personium-core]プロジェクトを右クリック→[実行]→[サーバで実行]を選択します。  
@@ -416,9 +372,25 @@ Eclipse上で[personium-core]プロジェクトを右クリック→[実行]→[
 EclipseでTomcat起動時のタイムアウト時間を変更してください。
 
 
-ブラウザでhttp://localhost/にアクセスします。  
+ブラウザでhttp://localhost:8080/personium-core/にアクセスします。  
 以下のように出力されると起動成功となります。
+
 ```
-{"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost:8080\/personium-core\/"}}
+{"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost\/"}}
 ```
 
+### nginx起動確認
+
+コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
+以下のコマンドを実行します。  
+
+```
+nginx-1.14.0>start nginx
+```
+
+ブラウザでhttp://localhostにアクセスします。  
+以下のように出力されると起動成功となります。
+
+```
+{"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost\/"}}
+```
