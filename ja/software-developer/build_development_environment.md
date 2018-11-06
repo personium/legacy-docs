@@ -34,12 +34,14 @@ Windows
 ```
 
 システム環境変数Pathに以下を追加します。
+
 ```
 %JAVA_HOME%\bin
 ```
 
 ### Git
 C:¥Users¥[user]¥.gitconfigに、以下の記述を追加します。  
+
 ```
 [core]
 	autocrlf = false
@@ -122,6 +124,7 @@ indices.fielddata.cache.size: 80%（任意）
 こちらのPluginは導入必須となります。  
 
 コマンドプロンプト等で以下コマンドを実行します。
+
 ```
 elasticsearch-2.4.1>bin\plugin install delete-by-query
 ```
@@ -131,6 +134,7 @@ ElasticSearchに保存されているデータを見やすくするためのPlug
 こちらのPluginは導入推奨となります。  
 
 コマンドプロンプト等で以下コマンドを実行します。
+
 ```
 elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
 ```
@@ -190,6 +194,7 @@ nginxの初期設定のため、nginx-1.14.0\conf配下のnginx.confファイル
     ```
 
 1. http.server.location /の内容を以下記述に変更します。
+
     ```
                 #root   html;
                 #index  index.html index.htm;
@@ -232,6 +237,7 @@ https://github.com/personium/personium-engine.git
 のcluster.nameで設定した値を指定します。
 
 **/personium_core/src/main/resources/personium-unit-config.properties**
+
 ```
 #################################################
 # personium-core configurations
@@ -240,9 +246,10 @@ https://github.com/personium/personium-engine.git
 io.personium.core.masterToken=personiumio
 io.personium.core.unitScheme=http
 #io.personium.core.unitPort=9998
-io.personium.core.unitPort=8080
-#io.personium.core.unitPath=
-io.personium.core.unitPath=/personium-core
+#io.personium.core.unitPort=8080
+io.personium.core.unitPort=
+#io.personium.core.unitPath=/personium-core
+io.personium.core.unitPath=
 
 io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/ personium-localunit:/unitadmincell/ personium-localunit:/unitusercell/
 
@@ -281,6 +288,7 @@ io.personium.core.odata.links.NtoN.maxnum=40
 ```
 
 **/personium_engine/src/main/resources/personium-unit-config.properties**
+
 ```
 #################################################
 # personium-engine configurations
@@ -294,7 +302,6 @@ io.personium.core.blobStore.root=/personium/personium_nfs/personium-core/dav
 
 # security configurations
 io.personium.core.security.secret16=secret167pm5m4y6
-
 ```
 
 > ※Eclipse上でmavenやpom.xml関連のビルドエラーが出ている場合、  
@@ -318,15 +325,16 @@ io.personium.core.security.secret16=secret167pm5m4y6
 
 コマンドプロンプト等でserviceファイルが存在するディレクトリに移動します。  
 以下コマンドを実行します。
+
 ```
 elasticsearch-2.4.1\bin>service install
 elasticsearch-2.4.1\bin>service start
-
 ```
 
 ブラウザでhttp://localhost:9200にアクセスします。  
 
 以下のように出力されると起動成功となります。
+
 ```
 {
   "name" : "MODAM",
@@ -347,27 +355,13 @@ elasticsearch-2.4.1\bin>service start
 
 コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
 以下コマンドを実行します。
+
 ```
 apache-activemq-5.15.2\bin>activemq start
-
 ```
 
 ブラウザでhttp://localhost:8161にアクセスします。  
 管理画面が表示されると起動成功となります。  
-
-
-### nginx起動確認
-
-コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
-以下のコマンドを実行します。  
-```
-nginx-1.14.0>start nginx
-
-```
-
-ブラウザでhttp://localhostにアクセスします。  
-時間経過でタイムアウトとなり、nginxのエラー画面が表示されると起動成功となります。
-
 
 ### 開発用サーバ起動確認
 Eclipse上で[personium-core]プロジェクトを右クリック→[実行]→[サーバで実行]を選択します。  
@@ -378,9 +372,25 @@ Eclipse上で[personium-core]プロジェクトを右クリック→[実行]→[
 EclipseでTomcat起動時のタイムアウト時間を変更してください。
 
 
-ブラウザでhttp://localhost/にアクセスします。  
+ブラウザでhttp://localhost:8080/personium-core/にアクセスします。  
 以下のように出力されると起動成功となります。
+
 ```
-{"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost:8080\/personium-core\/"}}
+{"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost\/"}}
 ```
 
+### nginx起動確認
+
+コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
+以下のコマンドを実行します。  
+
+```
+nginx-1.14.0>start nginx
+```
+
+ブラウザでhttp://localhostにアクセスします。  
+以下のように出力されると起動成功となります。
+
+```
+{"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost\/"}}
+```
