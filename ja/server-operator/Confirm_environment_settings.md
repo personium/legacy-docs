@@ -112,7 +112,7 @@ AP サービスが動作するサーバの基本設定を確認します。
     | personium-engine ログ出力先    | /personium/personium-engine/logs/personium-engine.log  |
     | ユニット設定ファイル | /personium/personium-core/conf/18888/personium-unit-config.properties |  
 
-* personium-unit-config.properties を変更することで[Unit設定](https://personium.io/docs/en/server-operator/unit_config_list.html)をデフォルトから変更することができます。  
+* personium-unit-config.properties を変更することで[Unit設定](unit_config_list.md)をデフォルトから変更することができます。  
     Ansible での構築直後は以下のように設定されています。  
     \* {} はAnsible 実行前に変更したhosts で定義した内容が記載されることを表しています。  
     \* {{}} はAnsible 実行時にランダムで決められる文字列が記載されることを表しています。  
@@ -168,6 +168,42 @@ AP サービスが動作するサーバの基本設定を確認します。
     io.personium.core.dav.childresource.maxnum=1000000
     ```
 
+#### ユニットマスタートークンについて
+
+    * 「personium-unit-config.properties」の「io.personium.core.masterToken」に記載されている値がユニットマスタートークンです。ユニットマスタートークンの初期設定はAnsible を実行したサーバで以下のコマンドを実行する事でも確認することが可能です。
+
+    ```console
+    # echo `grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
+    ```
+
+> ユニットマスタートークンは上記のPersonium 環境に記載している「personium-unit-config.properties」の「io.personium.core.masterToken」を参照することでも確認可能です。
+
+**ユニットマスタートークン無効化の方法については [Unit のセキュリティ（デフォルトから変更したほうが良い設定）](unit_security.md)を参照ください。**
+
+#### Personium ユニット管理アカウント
+
+* Ansible を実行することで自動的にPersonium ユニット管理アカウントが作成されます。この情報はPersonium ユニット管理者がセルの作成等の管理作業を行う際に必要となります。
+
+    ユニット管理アカウントのID/PASSの確認
+
+    * 情報の取得のため、Ansibleを実行したサーバーにログインし、以下コマンドを実行します。
+
+    ```console
+    $ sudo su -
+    # cat /root/ansible/unitadmin_account  
+    unitadmin_account={unitadmin_account}  
+    unitudmin_password={unitudmin_password}  
+    Personium_FQDN={Personium_FQDN}  
+    ```
+
+    * {Personium_FQDN} PersoniumユニットのFQDN
+    * {unitadmin_account} ユニット管理アカウント
+    * {unitudmin_password} ユニット管理パスワード
+    * {master_token} ユニットに関するあらゆる操作が可能となるトークン
+
+>**（注意）**  
+>**ここで取得した情報は初期値であるため、ユーザが変更した場合は各自で管理するようにしてください。**
+
 ## DBサービス
 
 * DB サービスが動作するサーバの基本設定を確認します。
@@ -178,8 +214,8 @@ AP サービスが動作するサーバの基本設定を確認します。
   Elasticsearch は以下のようにインストールされています。
 
     | 項目                      | パス                                      |
-    |---------------------------|------------------------------------------|
-    | インストールディレクトリ    | /opt/elasticsearch-2.4.1/                |
-    | 設定ファイル               | /opt/elasticsearch-2.4.1/conf/           |
-    | ログ出力先                 | /personium/elasticsearch/logs/           |
-    | データ格納ディレクトリ      | /personium/elasticsearch-2.4.1/data/     |  
+    |---------------------------|-----------------------------------------|
+    | インストールディレクトリ    | /opt/elasticsearch-2.4.1/               |
+    | 設定ファイル               | /opt/elasticsearch-2.4.1/conf/          |
+    | ログ出力先                 | /personium/elasticsearch/logs/          |
+    | データ格納ディレクトリ      | /personium/elasticsearch-2.4.1/data/    |  

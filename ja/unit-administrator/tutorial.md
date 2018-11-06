@@ -3,7 +3,7 @@
 ##### [1. 本文書の目的](#sect1)
 ##### [2. 本文書の読者](#sect2)
 ##### [3. Unit, Cell, Boxの概要説明](#sect3)
-##### [4. 本文書で使用する情報を取得する](#sect4)
+##### [4. トークンについて](#sect4)
 ##### [5. PDSを利用者に払い出す](#sect5)
 ##### 　　[5-1. Cellの作成](#sect5.1)
 ##### 　　[5-2. Cellの管理者Accountの作成](#sect5.2)
@@ -16,10 +16,9 @@
 ##### 　　[5-4. 一般ユーザー向けの操作画面を設定する](#sect5.4)
 ##### 　　[5-5. GUIから使ってみる](#sect5.5)
 ##### [6. 払い出したPDSを削除する](#sect6)
-##### [7. PDSの払い出しを自動化する](#sect7)
-##### [8. マスタートークンの更新と無効化](#sect8)
-##### [9. ユニット管理用のトークンを取得する](#sect9)
-##### [10. ユニット管理パスワードを変更する](#sect10)
+##### [7. GUI操作のデモ動画を見てみる](#sect7)
+##### [8. PDSの払い出しを自動化する](#sect8)
+
 
 ## <a name="sect1">1. 本文書の目的</a>
 本文書は、Personiumを初めてご利用される方でも、すぐにPersoniumユニットを管理するための基本的な流れをご理解いただけるよう具体的な手順を説明したものです。  
@@ -51,26 +50,13 @@ javascriptを用いたサンプルソースが公開されていますので、�
 |Cell<br>|データ主体ごとのData Strore。個人で使う場合はPDS(Personal Data Store)となる。<br>「Personium」では、データ主体という概念を人のみでなく組織やモノなどにも拡張したモデル化を行っているため、組織やモノのデータストアとしても使うことが可能。<br>（例、私のCell, あなたのCell, ○○会社のCell, ○○部のCell, 私の車のCell）<br>|
 |Box<br>|アプリケーションに用いるデータを格納する領域。<br>自身もWebDAVコレクションの一つである。一意の名前とスキーマURLを持つ。<br>Cellは、Box未作成でも初期状態で1つのBox（メインボックス） を持ち、削除は不可。<br>|
 
-## <a name="sect4">4. 本文書で使用する情報を取得する</a>
+## <a name="sect4">4. トークンについて</a>
 
-本文書では、Personiumユニットの構築時に設定した以下の情報を使います。<br>
-* {Personium_FQDN} PersoniumユニットのFQDN  
-* {unitadmin_account} ユニット管理アカウント  
-* {unitudmin_password} ユニット管理パスワード  
-* {master_token} ユニットに関するあらゆる操作が可能となるトークン  
+本文書では、Personiumユニットの操作のためユニットマスタートークン、またはユニットユーザートークンを使用します。ユニットマスタートークンやユニットユーザートークンの詳細については[こちら](Unit-User.md)を参照ください。  
 
-情報の取得のため、Ansibleを実行したサーバーにログインし、以下コマンドを実行します。
-```
-$ sudo su -
-# cat /root/ansible/unitadmin_account  
-unitadmin_account={unitadmin_account}  
-unitudmin_password={unitudmin_password}  
-Personium_FQDN={Personium_FQDN}  
-# echo `grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
-```
+Ansible を使って構築した環境のユニットマスタートークンやユニットユーザーのID/Passwordの確認方法は[こちら](../server-operator/Confirm_environment_settings.md)を参照してください。  
 
->**（注意）**
->**ここで取得した情報は初期値であるため、ユーザが変更した場合は各自で管理するようにしてください。**
+独自に環境を構築された場合はサーバソフトウェア管理者に確認してください。
 
 ## <a name="sect5">5. PDSを利用者に払い出す</a>
 実際のPersoniumの運用において、これら一連のAPI操作はプログラムで自動化することになるかと思いますが、本チュートリアルでは一つ一つ手動で実施してみましょう。
@@ -84,7 +70,7 @@ Personium_FQDN={Personium_FQDN}
 ```sh
 curl "https://{Personium_FQDN}/__ctl/Cell" \
 -X GET -i -k \
--H "Accept:application/json" -H "Authorization:Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization:Bearer {Token}"
 ```
 
 ユニット管理用のCellの情報1件がレスポンスに返ります。
@@ -120,7 +106,7 @@ Cell作成APIを呼び出す際に、Cellの名前を任意に指定します。
 curl "https://{Personium_FQDN}/__ctl/Cell" \
 -X POST -i -k \
 -d "{\"Name\":\"usercell\"}" \
--H "Authorization:Bearer {master_token}"
+-H "Authorization:Bearer {Token}"
 ```
 
 成功すると、今回作成されたCellの情報がレスポンスに返ります。
@@ -186,7 +172,7 @@ Accountを追加作成する前に、Account一覧取得APIで事前の状態を
 ```sh
 curl "https://{Personium_FQDN}/usercell/__ctl/Account" \
 -X GET -i -k \
--H "Accept:application/json" -H "Authorization:Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization:Bearer {Token}"
 ```
 
 Accountの情報が無い様子がレスポンスに返ります。
@@ -206,7 +192,7 @@ Account作成APIを呼び出す際に、Accountの名前を任意に指定しま
 curl "https://{Personium_FQDN}/usercell/__ctl/Account" \
 -X POST -i -k \
 -d "{\"Name\":\"me\"}" \
--H "X-Personium-Credential:password" -H "Content-Type: application/json" -H "Authorization:Bearer {master_token}"
+-H "X-Personium-Credential:password" -H "Content-Type: application/json" -H "Authorization:Bearer {Token}"
 ```
 
 成功すると、今回作成されたAccountの情報がレスポンスとして返ります。
@@ -274,7 +260,7 @@ Roleを追加作成する前に、Role一覧取得APIで事前の状態を確認
 ```sh
 curl "https://{Personium_FQDN}/usercell/__ctl/Role" \
 -X GET -i -k \
--H "Accept:application/json" -H "Authorization:Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization:Bearer {Token}"
 ```
 
 Roleの情報が無い様子がレスポンスに返ります。
@@ -295,7 +281,7 @@ Role作成APIを呼び出す際に、Roleの名前を任意に指定します。
 curl "https://{Personium_FQDN}/usercell/__ctl/Role" \
 -X POST -i -k \
 -d "{\"Name\":\"adminrole\"}" \
--H "Accept:application/json" -H "Authorization:Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization:Bearer {Token}"
 ```
 
 成功すると、今回作成されたRoleの情報がレスポンスとして返ります。
@@ -375,7 +361,7 @@ Roleは作成直後の状態であり、対Accountに限らず紐付けの設定
 ```sh
 curl "https://{Personium_FQDN}/usercell/__ctl/Role('adminrole')/\$links/_Account" \
 -X GET -i -k \
--H "Accept:application/json" -H "Authorization:Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization:Bearer {Token}"
 ```
 
 Roleに設定された関係性の情報が無い様子がレスポンスに返ります。
@@ -395,7 +381,7 @@ Role_$links登録APIを呼び出してAccountを相手とする紐付けを行�
 curl "https://{Personium_FQDN}/usercell/__ctl/Role('adminrole')/\$links/_Account" \
 -X POST -i -k \
 -d "{\"uri\":\"https://{Personium_FQDN}/usercell/__ctl/Account('me')\"}" \
--H "Accept:application/json" -H "Authorization:Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization:Bearer {Token}"
 ```
 
 このAPIはjson形式のレスポンス(ボディ)を返しません。
@@ -433,7 +419,7 @@ curl "https://{Personium_FQDN}/usercell" \
 <D:acl xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\" xml:base=\"https://{Personium_FQDN}/usercell/__role/__/\">\
 <D:ace><D:principal><D:href>adminrole</D:href></D:principal><D:grant><D:privilege>\
 <p:root/></D:privilege></D:grant></D:ace></D:acl>" \
--H "Accept:application/json" -H "Authorization: Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization: Bearer {Token}"
 ```
 
 (リクエストボディ部分の展開表示)
@@ -483,7 +469,7 @@ curl "https://{Personium_FQDN}/usercell/__/profile.json" \
 -X PUT -i -k \
 -d "{\"DisplayName\":\"John Doe\",\"Description\": \"Senior Director, Personium Project\",\
 \"Image\": \"{画像データをBase64エンコードしたもの}\"}" \
--H "Authorization:Bearer {master_token}"
+-H "Authorization:Bearer {Token}"
 ```
 
 このAPIはjson形式のレスポンス(ボディ)を返しません。
@@ -503,7 +489,7 @@ curl "https://{Personium_FQDN}/usercell/__/profile.json" \
 <D:acl xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"  p:requireSchemaAuthz=\"none\" \
 xml:base=\"https://{Personium_FQDN}/usercell/__role/__/\">\
 <D:ace><D:principal><D:all></D:all></D:principal><D:grant><D:privilege><D:read/></D:privilege></D:grant></D:ace></D:acl>" \
--H "Accept:application/json" -H "Authorization: Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization: Bearer {Token}"
 ```
 
 (リクエストボディ部分の展開表示)
@@ -543,7 +529,7 @@ curl "https://{Personium_FQDN}/usercell/" \
 -d "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\
 <D:propertyupdate xmlns:D=\"DAV:\" xmlns:p=\"urn:x-personium:xmlns\"><D:set><D:prop>\
 <p:relayhtmlurl>https://demo.personium.io/app-cc-home/__/index.html</p:relayhtmlurl></D:prop></D:set></D:propertyupdate>" \
--H "Accept: application/json" -H "Authorization: Bearer {master_token}"
+-H "Accept: application/json" -H "Authorization: Bearer {Token}"
 ```
 
 (リクエストボディ部分の展開表示)
@@ -608,7 +594,7 @@ Cell再帰的削除APIを使用して、ここまでチュートリアルで作�
 curl "https://{Personium_FQDN}/usercell/" \
 -X DELETE -i -k \
 -H "X-Personium-Recursive: true" -H "If-Match: *" \
--H "Accept:application/json" -H "Authorization: Bearer {master_token}"
+-H "Accept:application/json" -H "Authorization: Bearer {Token}"
 ```
 
 このAPIはjson形式のレスポンス(ボディ)を返しません。
@@ -618,7 +604,8 @@ curl "https://{Personium_FQDN}/usercell/" \
 HTTP/1.1 204 No Content
 ```
 
-なお、[5. PDSを利用者に払い出す](#sect5)や[6. 払い出したPDSを削除する](#sect6)と同様の操作を、「Cell Creator Wizard」や「Unit Manager」と呼ばれるツールを用いてGUIで実施することができます。
+## <a name="sect7">7. GUI操作のデモ動画を見てみる</a>
+[5. PDSを利用者に払い出す](#sect5)や[6. 払い出したPDSを削除する](#sect6)と同様の操作を、「Cell Creator Wizard」や「Unit Manager」と呼ばれるツールを用いてGUIで実施することができます。
 <br>
 
 <div style="text-align: center;">
@@ -638,115 +625,7 @@ Unit Managerについての詳細は[こちら](https://github.com/personium/app
 「Unit Manager」使用時に必要となるログイン情報は、「4. 本文書で使用する情報を取得する」で取得したユニット管理アカウント情報をご使用ください。
 
 
-## <a name="sect7">7. PDSの払い出しを自動化する</a>
+## <a name="sect8">8. PDSの払い出しを自動化する</a>
 PDSを払い出すための流れを理解していただくため、手動手順を掲載しましたが、
 [5.1](#sect5.1)～[5.3](#sect5.3)の一連のAPI操作を自動化するプログラムのサンプルをご紹介します。
 詳細は[こちら](https://github.com/personium/org-admin)をご覧ください。
-
-
-## <a name="sect8">8. マスタートークンの更新と無効化</a>
-マスタートークンは開発やテストの時に使うことを想定したものであり、特殊なケースを除き多くの場合本番運用ではセキュリティ的観点から無効化すべきものです。
-本項でマスタートークンの変更と無効化を実施してみましょう。
-
-まずマスタートークンが設定されているファイルを確認しましょう。
-1サーバで構築した場合はAnsibleを実行したサーバ、3サーバで構築した場合はAPサーバにログインし、以下コマンドを実行しマスタートークンの設定値を確認します。
-
-```
-$ sudo su -
-# cat /personium/personium-core/conf/18888/personium-unit-config.properties
-...
-##### Major Settings Items #####
-# Unit Master Token.
-# Blank string should be configured in production use to disable it.
-io.personium.core.masterToken={master_token}                         <- このパラメータがマスタートークンの設定値
-#
-...
-```
-
-では、実際にマスタートークンを変更してみましょう。
-変更後のマスタートークンの値を任意に指定します。
-この例では "NewMasterToken" が変更後のマスタートークンになります。
-
-```
-$ sudo su -
-# vi /personium/personium-core/conf/18888/personium-unit-config.properties
-...
-##### Major Settings Items #####
-# Unit Master Token.
-# Blank string should be configured in production use to disable it.
-io.personium.core.masterToken=NewMasterToken                         <- このパラメータに"NewMasterToken"を設定する
-#
-...
-# systemctl restart tomcat
-```
-
-これでマスタートークンの値は "NewMasterToken" に変更されました。
-続いて、実際にマスタートークンを無効化してみましょう。
-マスタートークンを無効化する場合は、パラメータをコメントアウトします。
-
-```
-$ sudo su -
-# vi /personium/personium-core/conf/18888/personium-unit-config.properties
-...
-##### Major Settings Items #####
-# Unit Master Token.
-# Blank string should be configured in production use to disable it.
-# io.personium.core.masterToken=                                       <- このパラメータをコメントアウトする
-#
-...
-# systemctl restart tomcat
-```
-
-これでマスタートークンの値は無効化されました。
-マスタートークンの無効化後は以下の項目で紹介するユニット管理用のトークンをご使用ください。
-
-## <a name="sect9">9. ユニット管理用のトークンを取得する</a>
-管理者権限としてCellにアクセス可能なユニット管理用のトークン(ユニットユーザトークン)を取得します。
-管理者権限としてのアクセスとは、Cellを作ったり消したりする権限を持つ状態で操作することを指します。
-ユニットユーザトークンは、「4. 本文書で使用する情報を取得する」で取得したユニット管理アカウント情報を用いて取得します。<br>
-OAuth2 Token エンドポイントAPIを使用します。（一旦取得したトークンは、１時間有効です）
-
-```sh
-curl "https://{Personium_FQDN}/unitadmin/__token" \
--X POST -i -k \
--d "grant_type=password&username={unitadmin_account}&password={unitudmin_password}&p_target=https://{Personium_FQDN}/" \
--H "Content-Type: application/x-www-form-urlencoded"
-```
-
-成功するとAPIからJSON形式でレスポンスが返ります。
-ここで取得した"access_token"の値が、ユニットユーザトークンとなります。
-
-```json
-{
-	"access_token":"PEFzc........(省略)........W9uPg",
-	"refresh_token_expires_in":86400,
-	"refresh_token":"RA~tw........(省略)........EeWsQ",
-	"token_type":"Bearer",
-	"expires_in":3600,
-	"p_target":"https://{Personium_FQDN}/"
-}
-```
-
-## <a name="sect10">10. ユニット管理パスワードを変更する</a>
-前項で取得したユニットユーザトークンを使って、実際にユニット管理パスワードを変更してみましょう。
-パスワード変更を行うため、Account更新APIを呼び出す際に、変更後のパスワードを任意に指定します。
-この例では "abcd1234" が 変更後のパスワードになります。
->**（注意）**
->**ユニット管理アカウントは強い権限を持っているため、変更後のパスワードには推測されにくいものを指定してください。**
-
-```sh
-curl "https://{Personium_FQDN}/unitadmin/__ctl/Account('{unitadmin_account}')" \
--X PUT -i -k \
--d "{\"Name\":\"{unitadmin_account}\"}" \
--H "X-Personium-Credential:abcd1234" -H "Content-Type: application/json" -H "Authorization:Bearer {UnitUserToken}"
-```
-
-このAPIはjson形式のレスポンス(ボディ)を返しません。
-ステータスが204で返れば成功です。
-
-```
-HTTP/1.1 204 No Content
-```
-
->**（注意）**
->**変更した「ユニット管理パスワード」を忘却したときはマスタートークンを用いユニット管理パスワードを変更する必要があります。**　　
