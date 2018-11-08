@@ -54,8 +54,7 @@ javascriptを用いたサンプルソースが公開されていますので、�
 
 本文書では、Personiumユニットの操作のためユニットマスタートークン、またはユニットユーザートークンを使用します。ユニットマスタートークンやユニットユーザートークンの詳細については[こちら](Unit-User.md)を参照ください。  
 
-Ansible を使って構築した環境のユニットマスタートークンやユニットユーザーのID/Passwordの確認方法は[こちら](../server-operator/Confirm_environment_settings.md)を参照してください。  
-
+Ansible を使って構築した環境のユニットマスタートークンやユニットユーザーのアカウント名／パスワードの確認方法は[こちら](../server-operator/Confirm_environment_settings.md)を参照してください。  
 独自に環境を構築された場合はサーバソフトウェア管理者に確認してください。
 
 ## <a name="sect5">5. PDSを利用者に払い出す</a>
@@ -605,24 +604,24 @@ HTTP/1.1 204 No Content
 ```
 
 ## <a name="sect7">7. GUI操作のデモ動画を見てみる</a>
-[5. PDSを利用者に払い出す](#sect5)や[6. 払い出したPDSを削除する](#sect6)と同様の操作を、「Cell Creator Wizard」や「Unit Manager」と呼ばれるツールを用いてGUIで実施することができます。
+「[5. PDSを利用者に払い出す](#sect5)」や「[6. 払い出したPDSを削除する](#sect6)」と同様の操作を、「Cell Creator Wizard」や「Unit Manager」と呼ばれるツールを用いてGUIで実施することができます。
 <br>
 
+Cell Creator Wizardについての詳細は[こちら](https://github.com/personium/app-uc-cell-creator-wizard)をご覧ください。
+<br>
 <div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/M4cYLFYRyEk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-Cell Creator Wizardについての詳細は[こちら](https://github.com/personium/app-uc-cell-creator-wizard)をご覧ください。
-<br>
 
+
+Unit Managerについての詳細は[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.%6D%64)をご覧ください。
+<br>
 <div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d1_pET0M-YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-Unit Managerについての詳細は[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.%6D%64)をご覧ください。
-<br>
-
-「Unit Manager」使用時に必要となるログイン情報は、「4. 本文書で使用する情報を取得する」で取得したユニット管理アカウント情報をご使用ください。
+「Unit Manager」使用時に必要となるログイン情報は、「[4. トークンについて](#sec4)」で取得したユニット管理アカウント情報をご使用ください。
 
 
 ## <a name="sect8">8. PDSの払い出しを自動化する</a>

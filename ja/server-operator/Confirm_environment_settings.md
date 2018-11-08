@@ -110,8 +110,8 @@ AP サービスが動作するサーバの基本設定を確認します。
     |-------------------------------|-----------------------|
     | personium-core                | /opt/tomcat/webapps/          |
     | personium-engine              | /opt/tomcat/webapps/     |
-    | personium-core ログ出力先      | /personium/personium-core/logs/personium-core.log     |
-    | personium-engine ログ出力先    | /personium/personium-engine/logs/personium-engine.log  |
+    | personium-core ログ出力先      | /personium/personium-core/log/personium-core.log     |
+    | personium-engine ログ出力先    | /personium/personium-engine/log/personium-engine.log  |
     | ユニット設定ファイル | /personium/personium-core/conf/18888/personium-unit-config.properties |  
 
 * personium-unit-config.properties を変更することで[Unit設定](unit_config_list.md)をデフォルトから変更することができます。  
