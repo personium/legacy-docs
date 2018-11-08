@@ -73,6 +73,7 @@ AP サービスが動作するサーバの基本設定を確認します。
 * Personium はアクセストークン検証等の様々な機能でユニット証明書を使用している重要なファイルです。
 
 1. まず、現在使用しているユニット証明書のパスを確認します。ユニット証明書はpersonium-unit-config.properties というファイルで指定されています。
+
     * 以下のコマンドを実行しファイルを確認します。  
 
     ```console
@@ -88,6 +89,7 @@ AP サービスが動作するサーバの基本設定を確認します。
     ```
 
 1. ユニット証明書のコモンネームを確認します。このとき、ユニット証明書のコモンネームが自身のPersonium Unit のFQDNと一致している必要があります。
+
     * 以下のコマンドを実行することでユニット証明書の情報を確認することができます。
 
     ```console
@@ -106,13 +108,14 @@ AP サービスが動作するサーバの基本設定を確認します。
 
     | 項目                          | パス                   |
     |-------------------------------|-----------------------|
-    | personium-core                | /opt/tomcat/webapp/          |
-    | personium-engine              | /opt/tomcat/webapp/     |
+    | personium-core                | /opt/tomcat/webapps/          |
+    | personium-engine              | /opt/tomcat/webapps/     |
     | personium-core ログ出力先      | /personium/personium-core/logs/personium-core.log     |
     | personium-engine ログ出力先    | /personium/personium-engine/logs/personium-engine.log  |
     | ユニット設定ファイル | /personium/personium-core/conf/18888/personium-unit-config.properties |  
 
 * personium-unit-config.properties を変更することで[Unit設定](unit_config_list.md)をデフォルトから変更することができます。  
+
     Ansible での構築直後は以下のように設定されています。  
     \* {} はAnsible 実行前に変更したhosts で定義した内容が記載されることを表しています。  
     \* {{}} はAnsible 実行時にランダムで決められる文字列が記載されることを表しています。  
@@ -170,7 +173,7 @@ AP サービスが動作するサーバの基本設定を確認します。
 
 #### ユニットマスタートークンについて
 
-    * 「personium-unit-config.properties」の「io.personium.core.masterToken」に記載されている値がユニットマスタートークンです。ユニットマスタートークンの初期設定はAnsible を実行したサーバで以下のコマンドを実行する事でも確認することが可能です。
+* 「personium-unit-config.properties」の「io.personium.core.masterToken」に記載されている値がユニットマスタートークンです。ユニットマスタートークンの初期設定はAnsible を実行したサーバで以下のコマンドを実行する事でも確認することが可能です。
 
     ```console
     # echo `grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
@@ -194,12 +197,11 @@ AP サービスが動作するサーバの基本設定を確認します。
     unitadmin_account={unitadmin_account}  
     unitudmin_password={unitudmin_password}  
     Personium_FQDN={Personium_FQDN}  
-    ```
+    ```  
 
     * {Personium_FQDN} PersoniumユニットのFQDN
     * {unitadmin_account} ユニット管理アカウント
     * {unitudmin_password} ユニット管理パスワード
-    * {master_token} ユニットに関するあらゆる操作が可能となるトークン
 
 >**（注意）**  
 >**ここで取得した情報は初期値であるため、ユーザが変更した場合は各自で管理するようにしてください。**
@@ -216,6 +218,6 @@ AP サービスが動作するサーバの基本設定を確認します。
     | 項目                      | パス                                      |
     |---------------------------|-----------------------------------------|
     | インストールディレクトリ    | /opt/elasticsearch-2.4.1/               |
-    | 設定ファイル               | /opt/elasticsearch-2.4.1/conf/          |
-    | ログ出力先                 | /personium/elasticsearch/logs/          |
+    | 設定ファイル               | /opt/elasticsearch-2.4.1/config/        |
+    | ログ出力先                 | /personium/elasticsearch/log/           |
     | データ格納ディレクトリ      | /personium/elasticsearch-2.4.1/data/    |  
