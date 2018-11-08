@@ -8,7 +8,7 @@ Windows
 
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
-| Eclipse (Pleiades) | 2018-09 Full Edition | http://mergedoc.osdn.jp/ |
+| Eclipse (Pleiades) | 2018-09 Full Edition 以降 | http://mergedoc.osdn.jp/ |
 | OracleJDK | 1.8系 | Pleiades同梱のものを使用するため個別の導入は行わない |
 | Git | 最新 | https://git-scm.com/ |
 | Maven | 3系 | https://maven.apache.org/download.cgi |
@@ -25,6 +25,7 @@ Windows
 
 
 ## 各種ツールの初期設定
+コマンドは管理者権限を持つユーザで実行してください。
 ### OracleJDK
 環境変数(JAVA_HOME)を設定します。  
 
@@ -115,7 +116,7 @@ action.auto_create_index: false
 index.refresh_interval : -1
 http.cors.enabled: true
 http.cors.allow-origin: "*"
-indices.fielddata.cache.size: 80%（任意）
+indices.fielddata.cache.size: 80%（任意:ヒープメモリの何％をデータキャッシュとして使用するか）
 ```
 
 #### Elasticsearch用のPluginの導入
@@ -123,43 +124,55 @@ indices.fielddata.cache.size: 80%（任意）
 セルの再帰削除API時に使用するためのPluginを導入します。  
 こちらのPluginは導入必須となります。  
 
-コマンドプロンプト等で以下コマンドを実行します。
+コマンドプロンプト等でElasticsearchのインストールディレクトリに移動します。
 
 ```
-elasticsearch-2.4.1>bin\plugin install delete-by-query
+> cd Elasticsearchインストールディレクトリ
+```
+
+以下コマンドを実行します。
+
+```
+> bin\plugin install delete-by-query
 ```
 
 ##### elasticsearch-head Plugin  
 ElasticSearchに保存されているデータを見やすくするためのPluginを導入します。  
 こちらのPluginは導入推奨となります。  
 
-コマンドプロンプト等で以下コマンドを実行します。
+コマンドプロンプト等でElasticsearchのインストールディレクトリに移動します。
 
 ```
-elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
+> cd Elasticsearchインストールディレクトリ
+```
+
+以下コマンドを実行します。
+
+```
+> bin\plugin install mobz/elasticsearch-head
 ```
 
 > プロキシ環境下でPluginの導入がうまくできない場合、  
-以下に記載した別途DLしてきたPluginをローカルで導入する手順を実施してください。  
+以下に記載した別途ダウンロードしてきたPluginをローカルで導入する手順を実施してください。  
 
 1. Plugin導入のコマンドを実行します。  
 失敗した場合、以下のメッセージが出力されます。
 
     ```
-    elasticsearch-2.4.1>bin\plugin install mobz/elasticsearch-head
+    > bin\plugin install mobz/elasticsearch-head
     -> Installing mobz/elasticsearch-head...
     Trying https://github.com/mobz/elasticsearch-head/archive/master.zip ...
     ERROR: failed to download out of all possible locations..., use --verbose to get detailed information
     ```
 
-1. 「Trying 」から「 ...」までに出力されたURLでPlugin本体をDL可能となります。  
-ブラウザなどでDLし、適当な場所に置きます。  
+1. 「Trying 」から「 ...」までに出力されたURLでPlugin本体をダウンロード可能となります。  
+ブラウザなどでダウンロードし、適当な場所に置きます。  
 C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
 
 1. Plugin installコマンドをURI指定で実行します。
 
     ```
-    elasticsearch-2.4.1>bin\plugin install file:C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
+    > bin\plugin install file:C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
     ```
 
 ### ActiveMQ
@@ -171,13 +184,7 @@ C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
 
 
 ### Nginx
-nginxの初期設定のため、nginx-1.14.0\conf配下のnginx.confファイルを修正します。  
-
-1. eventsの内容を以下記述に変更します。
-
-    ```
-        worker_connections  128;
-    ```
+Nginxの初期設定のため、nginx-1.14.0\conf配下のnginx.confファイルを修正します。  
 
 1. httpの中に以下記述を追加します。
 
@@ -321,14 +328,20 @@ io.personium.core.security.secret16=secret167pm5m4y6
 
 
 ## 起動確認方法
+コマンドは管理者権限を持つユーザで実行してください。
 ### Elasticsearch起動確認
 
-コマンドプロンプト等でserviceファイルが存在するディレクトリに移動します。  
+コマンドプロンプト等でElasticsearchのインストールディレクトリに移動します。
+
+```
+> cd Elasticsearchインストールディレクトリ
+```
+
 以下コマンドを実行します。
 
 ```
-elasticsearch-2.4.1\bin>service install
-elasticsearch-2.4.1\bin>service start
+> bin\service install
+> bin\service start
 ```
 
 ブラウザでhttp://localhost:9200にアクセスします。  
@@ -353,11 +366,16 @@ elasticsearch-2.4.1\bin>service start
 
 ### ActiveMQ起動確認
 
-コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
+コマンドプロンプト等でActivemqのインストールディレクトリに移動します。
+
+```
+> cd Activemqインストールディレクトリ
+```
+
 以下コマンドを実行します。
 
 ```
-apache-activemq-5.15.2\bin>activemq start
+> bin\activemq start
 ```
 
 ブラウザでhttp://localhost:8161にアクセスします。  
@@ -379,13 +397,18 @@ EclipseでTomcat起動時のタイムアウト時間を変更してください�
 {"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost\/"}}
 ```
 
-### nginx起動確認
+### Nginx起動確認
 
-コマンドプロンプト等でactivemqファイルが存在するディレクトリに移動します。  
-以下のコマンドを実行します。  
+コマンドプロンプト等でNginxインストールディレクトリに移動します。
 
 ```
-nginx-1.14.0>start nginx
+> cd Nginxインストールディレクトリ
+```
+
+以下のコマンドを実行します。
+
+```
+> start nginx
 ```
 
 ブラウザでhttp://localhostにアクセスします。  
