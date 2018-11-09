@@ -112,6 +112,8 @@ cluster.name: 【任意の名前】
 
 index.number_of_shards: 1
 index.number_of_replicas: 0
+index.max_result_window: 200000
+index.merge.scheduler.max_thread_count: 1
 action.auto_create_index: false
 index.refresh_interval : -1
 http.cors.enabled: true
