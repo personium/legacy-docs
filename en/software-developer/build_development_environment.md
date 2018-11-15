@@ -30,8 +30,8 @@ Execute the command as a user with administrator authority.
 Set environment variable (JAVA_HOME).  
 
 ```
-variable：JAVA_HOME
-value：java installation directory path(e.g.: C:\Program Files\pleiades\java\8)
+variable:JAVA_HOME
+value:java installation directory path(e.g.: C:\Program Files\pleiades\java\8)
 ```
 
 Add the following to the system environment variable Path.
@@ -65,8 +65,8 @@ Add the following description to C:¥Users¥[user]¥.gitconfig
 Set environment variable (M2_HOME).  
 
 ```
-variable：M2_HOME
-value：maven installation directory path(e.g.: C:\Program Files\apache-maven-3.5.4)
+variable:M2_HOME
+value:maven installation directory path(e.g.: C:\Program Files\apache-maven-3.5.4)
 ```
 
 Add the following to the system environment variable Path.
