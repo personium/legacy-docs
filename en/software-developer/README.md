@@ -2,6 +2,9 @@
 
 It is a document for people who want to develop Personium's OSS function or who want to commit to OSS  
 
+## Building development environment
+For those wishing to develop an environment for development please see [Procedure for developing environment for development](./build_development_environment.md).
+
 ### Personium server development guide  
 
 ### Contributor guide  

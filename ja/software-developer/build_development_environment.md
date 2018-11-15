@@ -70,6 +70,7 @@ C:¥Users¥[user]¥.gitconfigに、以下の記述を追加します。
 ```
 
 システム環境変数Pathに以下を追加します。
+
 ```
 %M2_HOME%\bin
 ```
