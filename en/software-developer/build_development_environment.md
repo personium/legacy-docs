@@ -18,7 +18,7 @@ Please download the necessary tools for operation check.
 
 | Tool name | Version | Download URL |
 |:--|:--|:--|
-| Tomcat | 8.0 series | Pleiades Do not introduce individual items to use the items included |
+| Tomcat | 9.0 series | Pleiades Do not introduce individual items to use the items included |
 | Elasticsearch | 2.4.1 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-2-4-1 |
 | ActiveMQ | 5.15 series | http://activemq.apache.org/download-archives.html |
 | Nginx | 1.14 series | http://nginx.org/download/nginx-1.14.0.zip |
@@ -387,9 +387,9 @@ The startup will be successful when the management screen is displayed.
 ### Startup confirmation for development server
 In Eclipse, right-click the [personium-core] project -> select [Run] -> [Run on Server].  
 
-For the first time, add the server of Tomcat 8 with the definition of the new server and execute it.  
+For the first time, add the server of Tomcat 9 with the definition of the new server and execute it.  
 
-> \* Starting Tomcat 8 may cause a startup error to exceed the timeout time.  
+> \* Starting Tomcat 9 may cause a startup error to exceed the timeout time.  
 Please change the timeout time at Tomcat startup in Eclipse.
 
 

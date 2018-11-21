@@ -18,7 +18,7 @@ Windows
 
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
-| Tomcat | 8.0系 | Pleiades同梱のものを使用するため個別の導入は行わない |
+| Tomcat | 9.0系 | Pleiades同梱のものを使用するため個別の導入は行わない |
 | Elasticsearch | 2.4.1 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-2-4-1 |
 | ActiveMQ | 5.15系 | http://activemq.apache.org/download-archives.html |
 | Nginx | 1.14系 | http://nginx.org/download/nginx-1.14.0.zip |
@@ -387,9 +387,9 @@ io.personium.core.security.secret16=secret167pm5m4y6
 ### 開発用サーバ起動確認
 Eclipse上で[personium-core]プロジェクトを右クリック→[実行]→[サーバで実行]を選択します。  
 
-初回は新規サーバの定義でTomcat8のサーバを追加して実行します。  
+初回は新規サーバの定義でTomcat9のサーバを追加して実行します。  
 
-> ※Tomcat8の起動でタイムアウト時間を超えて起動エラーになることがあります。  
+> ※Tomcat9の起動でタイムアウト時間を超えて起動エラーになることがあります。  
 EclipseでTomcat起動時のタイムアウト時間を変更してください。
 
 
