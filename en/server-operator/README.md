@@ -35,13 +35,6 @@ Confirm the environment information of the main middleware of the unit construct
 
 * [Confirmation of the environment of units constructed with Ansible](./Confirm_environment_settings.md)
 
-
-### Environment information of units automatically constructed by Ansible
-
-Confirm the environment information of the main middleware of the unit constructed using Ansible.
-
-* [Confirmation of the environment of units constructed with Ansible](./Confirm_environment_settings.md)
-
 ### Apply plugin
 
 * [Setup Authentication Plugins](./setup_authentication_plugins.md)
