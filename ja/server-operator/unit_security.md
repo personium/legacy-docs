@@ -77,7 +77,7 @@ unitadmin アカウントのパスワードを定期的に変更するか、unit
     }
     ```
 
-1. 取得したトークンを利用してパスワード変更を行います。パスワード変更は[Account更新API](../../../apiref/current/215_Update_Account.md)のリクエストヘッダーの'X-Personium-Credential' に任意のパスワードを指定することで変更できます。
+1. 取得したトークンを利用してパスワード変更を行います。パスワード変更は[Account更新API](../../apiref/current/215_Update_Account.md)のリクエストヘッダーの'X-Personium-Credential' に任意のパスワードを指定することで変更できます。
     この例では "abcd1234" が 変更後のパスワードです。
 
     >**（注意）**
