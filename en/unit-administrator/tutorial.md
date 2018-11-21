@@ -3,7 +3,7 @@
 ##### [1. About this document](#sect1)
 ##### [2. Who should read this document?](#sect2)
 ##### [3. Overview of Unit, Cell, and Box](#sect3)
-##### [4. Acquire the information used in this document](#sect4)
+##### [4. About token](#sect4)
 ##### [5. Issue PDS to Users](#sect5)
 ##### 　　[5-1. Create a Cell](#sect5.1)
 ##### 　　[5-2. Create an Administrator Account for a Cell](#sect5.2)
@@ -16,10 +16,8 @@
 ##### 　　[5-4. Assign a default operating screen for user](#sect5.4)
 ##### 　　[5-5. Using the GUI](#sect5.5)
 ##### [6. Delete the Issued PDS](#sect6)
-##### [7. Automated PDS Creation](#sect7)
-##### [8. Update and disable master token](#sect8)
-##### [9. Acquire a token for managing a unit](#sect9)
-##### [10. Change a Unit Administration Password](#sect10)
+##### [7. Try a demo video of GUI operation](#sect7)
+##### [8. Automated PDS Creation](#sect8)
 
 ## <a name="sect1">1. About this document</a>
 This document will explains the detailed procedures so that even a first-time user can quickly manage the Personium Unit.  
@@ -51,23 +49,13 @@ It will be a keyword that will appear many times even in this tutorial.
 |Cell<br>|Data Strore for each data subject. PDS (Personal Data Store) is used for personal use.<br>In "Personium", since we are modeling the notion of data subjects not only for people but also organizations and objects,<br>we can also use it as a data store for organizations and goods.<br>(Eg My Cell, Your Cell, Cell of xx Company, Cell of xx Department, Cell of My Car)<br>|
 |Box<br>|The area that stores the data used for the application. The Box itself is also a WebDAV collection. <br>It has a unique name and schema URL.<br>Cell has one Box (main Box) in its initial state and can not be deleted.<br>|
 
-## <a name="sect4">4. Acquire the information used in this document</a>
+## <a name="sect4">4. About token</a>
 
-In this document, we use the following information set up when building Personium Unit.  
-* {Personium_FQDN} FQDN of Personium Unit  
-* {unitadmin_account} Unit administrator account  
-* {unitudmin_password} Unit administrator password  
-* {master_token} A token enabling every operation related to the Unit  
+In this document, we use unit master token or unit user token for operation of Personium unit.
+For details of unit master token and unit user token, please refer to [here](Unit-User.md).  
 
-In order to obtain information, log in to the server that executed Ansible and execute the following command.
-```
-$ sudo su -
-# cat /root/ansible/unitadmin_account  
-unitadmin_account={unitadmin_account}  
-unitudmin_password={unitudmin_password}  
-Personium_FQDN={Personium_FQDN}  
-# echo `grep "master_token" ~/ansible/static_inventory/hosts | sed -e "s/master_token=//" | uniq`
-```
+Refer to [here](../server-operator/Confirm_environment_settings.md) for how to check the unit master token of the environment constructed using Ansible and the account name / password of the unit user.
+Please check with your server software administrator if you have created your own environment.
 
 >**[Note]**
 >**Since the information acquired here is the initial value, if you change it, please manage by yourself.**
@@ -618,135 +606,28 @@ If the status code 204 is returned, processing was successful.
 HTTP/1.1 204 No Content
 ```
 
+## <a name="sect7">7. Try a demo video of GUI operation</a>
 Furthermore, the complicated operations of [5. Issue PDS to Users](#sect5) and [6. Delete the Issued PDS](#sect6) can be simplified using the graphical user interface ("Cell Creator Wizard","Unit Manager").
 <br>
 
+For details see [Cell Creator Wizard](https://github.com/personium/app-uc-cell-creator-wizard).
+<br>
 <div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/M4cYLFYRyEk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-For details see [Cell Creator Wizard](https://github.com/personium/app-uc-cell-creator-wizard).
-<br>
 
+For details see [Unit Manager](https://github.com/personium/app-uc-unit-manager/blob/master/README.%6D%64).
+<br>
 <div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d1_pET0M-YA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-For details see [Unit Manager](https://github.com/personium/app-uc-unit-manager/blob/master/README.%6D%64).
-<br>
 
 Please use the Unit management account information acquired in "4. Acquire the information used in this document" for login information required when using "Unit Manager".
 
 
-## <a name="sect7">7. Automated PDS Creation</a>
+## <a name="sect8">8. Automated PDS Creation</a>
 Manual procedures were posted so that the flow of PDS creation can be understood,  
-but we will introduce a sample program that automates the series of API calls from 5.1to5.3.  
+but we will introduce a sample program that automates the series of API calls from 5.1 to 5.3.  
 For details see [here](https://github.com/personium/org-admin).
-
-
-## <a name="sect8">8. Update and disable master token</a>
-Master tokens are supposed to be used for development and testing, and in many cases except special cases should be invalidated from a security point of view.  
-Let's change and invalidate the master token in this section.
-
-Let's first check the file with the master token.  
-When building with 1 server, log in to the server that executed Ansible, if building with 3 servers, log in to the AP server and execute the following command to check the set value of the master token.
-
-```
-$ sudo su -
-# cat /personium/personium-core/conf/18888/personium-unit-config.properties
-...
-##### Major Settings Items #####
-# Unit Master Token.
-# Blank string should be configured in production use to disable it.
-io.personium.core.masterToken={master_token}                         <- This parameter is the setting value of the master token
-#
-...
-```
-
-Let's actually change the master token.  
-Arbitrarily specify the value of the changed master token.  
-In this example, "NewMasterToken" becomes the changed master token.
-
-```
-$ sudo su -
-# vi /personium/personium-core/conf/18888/personium-unit-config.properties
-...
-##### Major Settings Items #####
-# Unit Master Token.
-# Blank string should be configured in production use to disable it.
-io.personium.core.masterToken=NewMasterToken                         <- Set "NewMasterToken" for this parameter
-#
-...
-# systemctl restart tomcat
-```
-
-The value of the master token is now changed to "NewMasterToken".  
-Next, let's actually invalidate the master token.  
-To invalidate the master token, comment out the parameter.
-
-```
-$ sudo su -
-# vi /personium/personium-core/conf/18888/personium-unit-config.properties
-...
-##### Major Settings Items #####
-# Unit Master Token.
-# Blank string should be configured in production use to disable it.
-# io.personium.core.masterToken=                                     <- Comment out this parameter
-#
-...
-# systemctl restart tomcat
-```
-
-The value of the master token is now invalidated.  
-After invalidating the master token, please use the Unit management token introduced in the following item.
-
-## <a name="sect9">9. Acquire a token for managing a Unit</a>
-we acquire a Unit management token (Unit User Token) accessible to Cell as administrator authority.
-Access as Administrator refers to operations such as Cell creation and Cell deletion.  
-The Unit User Token is acquired using the Unit management account information acquired in "4. Acquire the information used in this document".  
-Use the OAuth 2 Token_Endpoint_API. (Once acquired, the token is valid for one hour)
-
-```sh
-curl "https://{Personium_FQDN}/unitadmin/__token" \
--X POST -i -k \
--d "grant_type=password&username={unitadmin_account}&password={unitudmin_password}&p_target=https://{Personium_FQDN}/" \
--H "Content-Type: application/x-www-form-urlencoded"
-```
-
-If successful, a response in the JSON format is returned from the API.  
-The "access_token" value acquired here becomes the Unit User Token.
-
-```json
-{
-	"access_token":"PEFzc........(snip)........W9uPg",
-	"refresh_token_expires_in":86400,
-	"refresh_token":"RA~tw........(snip)........EeWsQ",
-	"token_type":"Bearer",
-	"expires_in":3600,
-	"p_target":"https://{Personium_FQDN}/"
-}
-```
-
-## <a name="sect10">10. Change a Unit Administration Password</a>
-Let's actually change the Unit management password by using the Unit User Token acquired in the previous section.
-In order to change the password, when you call up the Account Update API, specify the changed password arbitrarily.
-In this example, "abcd1234" will be the after changing password.  
->**[Note]**
->**Since the Unit administrator has strong authority, please designate a password that is hard to guess.**
-
-```sh
-curl "https://{Personium_FQDN}/unitadmin/__ctl/Account('{unitadmin_account}')" \
--X PUT -i -k \
--d "{\"Name\":\"{unitadmin_account}\"}" \
--H "X-Personium-Credential:abcd1234" -H "Content-Type: application/json" -H "Authorization:Bearer {UnitUserToken}"
-```
-
-This API does not return a json format response (body).  
-If the status code 204 is returned, processing was successful.
-
-```
-HTTP/1.1 204 No Content
-```
-
->**[Note]**
->**When forgetting the changed "Unit management password", it is necessary to change the Unit management password using the master token.**　　

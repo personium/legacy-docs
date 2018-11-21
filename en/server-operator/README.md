@@ -35,6 +35,13 @@ Confirm the environment information of the main middleware of the unit construct
 
 * [Confirmation of the environment of units constructed with Ansible](./Confirm_environment_settings.md)
 
+
+### Environment information of units automatically constructed by Ansible
+
+Confirm the environment information of the main middleware of the unit constructed using Ansible.
+
+* [Confirmation of the environment of units constructed with Ansible](./Confirm_environment_settings.md)
+
 ### Apply plugin
 
 * [Setup Authentication Plugins](./setup_authentication_plugins.md)
@@ -63,7 +70,13 @@ Please stop in the reverse order as above.
 
 ## Operation of unit
 
-In many cases Personium's unit will contain information on personal privacy and security measures are essential to establish a server on the Internet. Please do not leave the unit as it was initially constructed and apply security patches appropriately.
+* About server security correspondence  
+    In many cases Personium's unit will contain information on personal privacy and security measures are essential to establish a server on the Internet. Please do not leave it built first, but apply security patches appropriately.
+
+* About unit security compliance  
+    The environment constructed by Ansible may contain settings that can be a security hole depending on circumstances. For that reason, I will explain the setting which should be changed from the default.
+    
+    * [Settings that recommend changes from default](./unit_security.md)
 
 ### Related repositories
 

@@ -107,10 +107,10 @@ Check the basic settings of the server on which the AP service runs.
 
     | Item                          | Path                   |
     |-------------------------------|-----------------------|
-    | personium-core                | /opt/tomcat/webapp/          |
-    | personium-engine              | /opt/tomcat/webapp/     |
-    | personium-core Log Directory  | /personium/personium-core/logs/personium-core.log     |
-    | personium-engine Log Directory| /personium/personium-engine/logs/personium-engine.log  |
+    | personium-core                | /opt/tomcat/webapps/          |
+    | personium-engine              | /opt/tomcat/webapps/     |
+    | personium-core Log Directory  | /personium/personium-core/log/personium-core.log     |
+    | personium-engine Log Directory| /personium/personium-engine/log/personium-engine.log  |
     | Unit Config File | /personium/personium-core/conf/18888/personium-unit-config.properties |  
 
 * By changing personium-unit-config.properties, you can change [Unit configurations](https://personium.io/docs/en/server-operator/unit_config_list.html) from the default.  
@@ -181,6 +181,6 @@ Check the basic settings of the server on which the AP service runs.
     | Item                    | Path                                     |
     |-------------------------|------------------------------------------|
     | Install Directory       | /opt/elasticsearch-2.4.1/                |
-    | Config Files            | /opt/elasticsearch-2.4.1/conf/           |
-    | Log Direcroty           | /personium/elasticsearch/logs/           |
+    | Config Files            | /opt/elasticsearch-2.4.1/config/           |
+    | Log Direcroty           | /personium/elasticsearch/log/           |
     | Data Direcroty          | /personium/elasticsearch-2.4.1/data/     |  
