@@ -1,4 +1,4 @@
-# Procedure for developing development environment
+# Build development environment
 
 ## Target OS
 Windows
@@ -34,7 +34,7 @@ variable:JAVA_HOME
 value:java installation directory path(e.g.: C:\Program Files\pleiades\java\8)
 ```
 
-Add the following to the system environment variable Path.
+Add the following to the system environment variable (Path).
 
 ```
 %JAVA_HOME%\bin
@@ -69,7 +69,7 @@ variable:M2_HOME
 value:maven installation directory path(e.g.: C:\Program Files\apache-maven-3.5.4)
 ```
 
-Add the following to the system environment variable Path.
+Add the following to the system environment variable (Path).
 
 ```
 %M2_HOME%\bin
@@ -125,7 +125,7 @@ indices.fielddata.cache.size: 80%(Optional: What percent of heap memory is used 
 #### Introduction of Plugin for Elasticsearch
 ##### delete-by-query Plugin  
 We introduce Plugin for use in recursive deletion API of cell.  
-This Plugin is required for introduction.  
+This plugin is mandatory.  
 
 Go to Elasticsearch installation directory at the command prompt etc.
 
@@ -141,7 +141,7 @@ Execute the following command.
 
 ##### elasticsearch-head Plugin  
 We will introduce a plugin to make it easy to see the data stored in ElasticSearch.  
-This plugin is recommended for introduction.  
+This plugin is recommended.  
 
 Go to Elasticsearch installation directory at the command prompt etc.
 
