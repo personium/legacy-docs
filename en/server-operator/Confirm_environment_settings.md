@@ -11,7 +11,7 @@ By performing this procedure, you can understand the installation location and b
 
 * Check the basic settings of the server on which the Web service runs.
 
-### Nginx 環境
+### Nginx
 
 * Personium uses Nginx to realize the Web.
 Nginx is installed as follows.
@@ -22,7 +22,7 @@ Nginx is installed as follows.
 | Config Files            | /opt/nginx-1.14.0/conf/ |
 | Log Directory           | /personium/nginx/log/accesslog_443/ |  
 
-### サーバ証明書
+### Server Certificate
 
 * Personium is a service provided by HTTPS. Confirm the setting of the server certificate used to realize HTTPS.
 
@@ -47,7 +47,7 @@ Nginx is installed as follows.
     # openssl x509 -noout -subject /opt/nginx/conf/server.crt
     ```
 
-    When creating as in the example of creating a server certificate described in [1-server_unit / README] (1-server_unit / README.md) or [3-server_unit / README] (3-server_unit / README.md) , It is displayed as follows. CN must represent common name and must match FQDN when accessing with HTTPS protocol.
+    When creating as in the example of creating a server certificate described in [1-server_unit/README](https://github.com/personium/ansible/tree/master/1-server_unit) or [3-server_unit/README](https://github.com/personium/ansible/tree/master/3-server_unit), It is displayed as follows. CN must represent common name and must match FQDN when accessing with HTTPS protocol.
 
     ```
     subject= /C=XXX/L=Default City/O=Default Company Ltd/CN=personium.example.com

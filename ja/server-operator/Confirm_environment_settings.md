@@ -46,7 +46,7 @@ Nginx は以下のようにインストールしています。
     # openssl x509 -noout -subject /opt/nginx/conf/server.crt
     ```
 
-    [1-server_unit/README](1-server_unit/README.md)、または[3-server_unit/README](3-server_unit/README.md)に記載されているサーバ証明書の作成例の通り作成した場合、以下のように表示されます。CNがコモンネームを表し、HTTPSプロトコルでアクセスをする際のFQDNと一致している必要があります。
+    [1-server_unit/README](https://github.com/personium/ansible/tree/master/1-server_unit)、または[3-server_unit/README](https://github.com/personium/ansible/tree/master/3-server_unit)に記載されているサーバ証明書の作成例の通り作成した場合、以下のように表示されます。CNがコモンネームを表し、HTTPSプロトコルでアクセスをする際のFQDNと一致している必要があります。
 
     ```
     subject= /C=XXX/L=Default City/O=Default Company Ltd/CN=personium.example.com

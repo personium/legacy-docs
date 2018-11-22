@@ -52,9 +52,9 @@ We recommend that you periodically change the password of the unitadmin account 
 ### Change unit user's password
 
 1. Get unit management token (unit user token) accessible to Cell as administrator authority.
-     Access as an administrator authority means to operate with authority to create and erase Cell.
-     The unit user token is acquired using the unit management account information acquired in "4. Acquire information used in this document". <br>
-     Use the OAuth 2 Token endpoint API. (Tokens acquired once are valid for 1 hour)
+    Access as an administrator authority means to operate with authority to create and erase Cell.
+    The unit user token is acquired using the unit management account information acquired in [Environment information on units constructed by Ansible](./Confirm_environment_settings.md). <br>
+    Use the OAuth 2 Token endpoint API. (Tokens acquired once are valid for 1 hour)
 
     ```sh
     curl "https://{Personium_FQDN}/unitadmin/__token" \
@@ -80,8 +80,8 @@ We recommend that you periodically change the password of the unitadmin account 
 1. We will change the password using the acquired token. Password change can be changed by specifying an arbitrary password in 'X-Personium-Credential' in the request header of [Account Update API](../apiref/current/215_Update_Account.md).
     In this example, "abcd 1234" is the changed password.
 
-    >**(Note)**
-    >** Because the unit management account has strong authority, please specify the password that is hard to guess as the changed password. **
+    > **(Note)**  
+    > **Because the unit management account has strong authority, please specify the password that is hard to guess as the changed password.**
 
     ```sh
     curl "https://{Personium_FQDN}/unitadmin/__ctl/Account('{unitadmin_account}')" \
@@ -97,9 +97,9 @@ We recommend that you periodically change the password of the unitadmin account 
     HTTP/1.1 204 No Content
     ```
 
-    >**(Note)**
-    >** When forgetting the changed "unit management password", it is necessary to change the unit management password by using the master token. **　　
+    > **(Note)**  
+    > **When forgetting the changed "unit management password", it is necessary to change the unit management password by using the master token.**　　
 
 ### Create an account with equivalent rights to unitadmin
 
-*** ~~ Under preparation ~~ ***
+**~~ Under preparation ~~**
