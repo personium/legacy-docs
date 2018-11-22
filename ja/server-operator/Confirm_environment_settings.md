@@ -77,7 +77,7 @@ AP サービスが動作するサーバの基本設定を確認します。
     * 以下のコマンドを実行しファイルを確認します。  
 
     ```console
-    # cat /personium/personium-core/conf/18888/personium-unit-config.properties ^io.personium.core.x509
+    # cat /personium/personium-core/conf/18888/personium-unit-config.properties | grep ^io.personium.core.x509
     ```
 
     Ansible で自動構築した環境は以下の設定になっています。

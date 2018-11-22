@@ -77,7 +77,7 @@ Check the basic settings of the server on which the AP service runs.
     * Execute the following command to check the file.  
 
     ```console
-    # cat /personium/personium-core/conf/18888/personium-unit-config.properties ^io.personium.core.x509
+    # cat /personium/personium-core/conf/18888/personium-unit-config.properties | grep ^io.personium.core.x509
     ```
 
     The environment automatically constructed with Ansible has the following settings.
