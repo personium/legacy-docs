@@ -96,7 +96,7 @@ AP サービスが動作するサーバの基本設定を確認します。
     # openssl x509 -noout -subject -in /opt/x509/unit-self-sign.crt
     ```
 
-    * [How to generate Self-signed Unit Certificate](How_to_generate_Self-signed_Unit_Certificate.md) に記載されているユニット証明書の作成例の通り作成した場合、以下のように表示されます。CNがコモンネームを表し、HTTPSアクセスをする際のFQDNと一致している必要があります。
+    * [How to generate Self-signed Unit Certificate](https://github.com/personium/ansible/blob/master/How_to_generate_Self-signed_Unit_Certificate.md) に記載されているユニット証明書の作成例の通り作成した場合、以下のように表示されます。CNがコモンネームを表し、HTTPSアクセスをする際のFQDNと一致している必要があります。
 
     ```
     subject= /C=XXX/L=Default City/O=Default Company Ltd/CN=personium.example.com
