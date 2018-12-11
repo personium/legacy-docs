@@ -251,6 +251,9 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 ### ROPC
 <font size=1>[OAuth2.0]</font> Resource Owner Password Credentials (リソースオーナーパスワードクレデンシャル)の略称。[OAuth2.0](http://tools.ietf.org/pdf/rfc6749.pdf)において規定された認可プロセスの1つ。詳細は[外部サイト](http://openid-foundation-japan.github.io/draft-ietf-oauth-v2-draft22.ja.html#anchor7)参照。ID/PWを用いる、Personiumでアクセストークンを取得するための標準的な認証方法のひとつ。
 
+### Rule
+<font size=1>[Personium]</font> セル制御オブジェクトの1つ。そのCellの中で起きたイベントに対してActionを実行させることを可能とする。あるエンティティに書込みがあったときにログを出力するとか、メッセージを受信したときに、自動で承認を行うといったことが可能となる。
+
 
 ## <a name="anc_s"> S</a>
 ### Schema URI　スキーマURI
@@ -276,6 +279,8 @@ ${Cell URL}/\__role/${BoxName}/${RoleName}
 ### $skip クエリ
 <font size=1>[OData]</font> PersoniumでサポートしているODataクエリの1つ。取得したデータのうち、指定した個数の分だけ、表示から除外して抽出するクエリ。（[詳細事項](../apiref/current/402_Skip_Query.md)）
 
+### Stream Collection (Streamコレクション)
+<font size=1>[Personium]</font> コレクション（Boxの中に格納されたデータ集合）の1つ。データを永続的ではなくStreamとして扱うためのコレクション。
 
 ## <a name="anc_t"> T</a>
 ### Token (トークン)
