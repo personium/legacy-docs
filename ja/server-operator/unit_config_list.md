@@ -187,7 +187,7 @@ http://{engine.host}:{engine.port}/{engine.path}
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |eventbus.mq|メッセージキュー|activemq<br>kafka|activemq|core|使用するメッセージキューを選択します<br>v1.6.8以降|
-|eventbus.broker|メッセージキューのbroker URL|URL|tcp://localhost:61616|core|v1.7.0以降|
+|eventbus.broker|メッセージキューのbroker URL|URL|tcp://localhost:61616|core|v1.7.4以降|
 |eventbus.queue|イベントのキュー名|文字列|personium_event_queue|core|v1.6.0以降|
 |eventbus.topic.all|イベントのトピック名|文字列|personium_event_topic|core|v1.6.0以降|
 |eventbus.topic.rule|ルールイベントのトピック名|文字列|personium_event_topic_rule|core|v1.6.0以降|
@@ -201,8 +201,14 @@ http://{engine.host}:{engine.port}/{engine.path}
 #### Stream Collection
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
-|stream.mq|メッセージキュー|activemq<br>kafka||core|使用するメッセージキューを選択します。何も設定しなければStream Collectionは無効になります<br>v1.7.0以降|
-|stream.broker|メッセージキューのbroker URL|URL||core|v1.7.0以降|
-|stream.username|brokerへの認証に使用するユーザ名|文字列||core|認証の必要のないbrokerには設定しないでください<br>v1.7.0以降|
-|stream.password|brokerへの認証に使用するパスワード|文字列||core|認証の必要のないbrokerには設定しないでください<br>v1.7.0以降|
-|stream.expiresIn|Streamに送信するメッセージの有効期間(sec)|Int|3600|core|activemqのみ有効<br>v1.7.0以降|
+|stream.mq|メッセージキュー|activemq<br>kafka||core|使用するメッセージキューを選択します。何も設定しなければStream Collectionは無効になります<br>v1.7.4以降|
+|stream.broker|メッセージキューのbroker URL|URL||core|v1.7.4以降|
+|stream.username|brokerへの認証に使用するユーザ名|文字列||core|認証の必要のないbrokerには設定しないでください<br>v1.7.4以降|
+|stream.password|brokerへの認証に使用するパスワード|文字列||core|認証の必要のないbrokerには設定しないでください<br>v1.7.4以降|
+|stream.expiresIn|Streamに送信するメッセージの有効期間(sec)|Int|3600|core|activemqのみ有効<br>v1.7.4以降|
+
+#### Token Introspection
+|キー|説明|値|デフォルト値|使用コンポーネント|備考|
+|:--|:--|:--|:--|:--|:--|
+|introspect.username|ユーザ名|文字列||core|Resource ServerからToken Introspectionにアクセスする際のBasic認証用<br>v1.7.4以降|
+|introspect.password|パスワード|文字列||core|Resource ServerからToken Introspectionにアクセスする際のBasic認証用<br>v1.7.4以降|
