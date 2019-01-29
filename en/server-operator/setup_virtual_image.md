@@ -49,7 +49,8 @@ PASS：root
 
 1. Log in to the virtual server from ssh client such as Teraterm.
 
-    1. Please enter the following information and click "OK" button.
+    1. Please enter the following information and click "OK" button.  
+
         ```
         host   ：localhost  
         TCPPort：2221
