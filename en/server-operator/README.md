@@ -40,6 +40,12 @@ Confirm the environment information of the main middleware of the unit construct
 * [Setup Authentication Plugins](./setup_authentication_plugins.md)
 * [Setup Engine Extensions](./setup_engine_extensions.md)
 
+### Automatic building of unit using virtual images
+
+Using Virtual image. we are publishing guides for building a unit .
+
+* [Getting Started with Personium using Virtual image](./setup_virtual_image.md)
+
 ## Unit settings
 
 Once you have configured the unit, you need to set the unit properly.

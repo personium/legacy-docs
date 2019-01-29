@@ -41,6 +41,12 @@ Ansibleを使って構築したユニットの主要なミドルウェアの環�
 * [認証Pluginのセットアップ](./setup_authentication_plugins.md)
 * [Engine Extensionのセットアップ](./setup_engine_extensions.md)
 
+### 仮想イメージを使ったユニットの自動構築
+
+仮想イメージを使ってユニットを構築するためのガイドを公開しています。
+
+* [仮想イメージを使ったユニットの構築ガイド](./setup_virtual_image.md)
+
 ## ユニットの設定
 
 ユニットの構成ができたら、ユニットを正しく設定する必要があります。
