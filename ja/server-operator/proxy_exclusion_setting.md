@@ -1,26 +1,29 @@
-# Proxy exclusion setting  
+# プロキシ除外設定
 
-## Procedure  
+## 設定手順
 
-This document explains how to set up proxy for use with Google Chrome.
+ここでは、Google Chromeでのプロキシ除外設定方法について説明します。
 
-1. Click "Settings" - "Advanced" - "System" - "Open proxy settings".  
+1. Google Chromeの「設定」-「詳細設定」-「システム」-「プロキシ設定を開く」を順にクリックしてください。  
 
-1. Click "Internet Properties" - "Connection" - "LAN settings".  
+1. 「インターネットのプロパティ」-「接続タブ」-「LANの設定」の順にクリックしてください。 
 
-1. Uncheck "Use automatic configuration script".  
+1. 「自動構成スクリプトを使用する」のチェックを外してください。
 
-1. Check "Use proxy server for LAN" and enter the following.  
+1. 「LANにプロキシサーバを使用する」のチェックを入れ、以下を入力してください。
+
       ```
-      Address：{ProxyName}  
-      Port   ：8080
+      アドレス欄：{プロキシ名}  
+      ポート　　：8080
       ```  
-1. Check "Not use proxy server for local address".  
-    
-1. Click the "Advanced" button.  
 
-1. Check "Use the same proxy server for all protocols".  
+1. 「ローカルアドレスにはプロキシサーバを使用しない」のチェックを入れてください。
     
-1. Enter "personium.example.com" in the text box "Not use proxy for addresses beginning with next," and Click "OK" button.  
+1. 「詳細設定」ボタンをクリックしてください。
+
+1. 「すべてのプロトコルに同じプロキシサーバを使用する」にチェックを入れてください。
     
-1. Click "OK" in all windows to close the setting screen.  
+1. 「次で始まるアドレスにはプロキシを使用しない」のテキストボックスに、  
+   「personium.example.com」を入力して「OK」をクリックしてください。
+    
+1. すべてのウインドウで「OK」をクリックし設定画面を閉じてください。

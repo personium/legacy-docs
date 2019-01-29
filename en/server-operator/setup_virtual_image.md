@@ -14,6 +14,7 @@ This Virtual image is checking the operation with VirtualBox version 1.5.2 later
 
 1. Please download the image file of the version of Personium unit  
    you want to build from the following URL.  
+
    * 1.6.15  
      https://personium.io/mvnrepo/image/personium-unit-image-1.6.15.ova  
 
@@ -26,7 +27,8 @@ This Virtual image is checking the operation with VirtualBox version 1.5.2 later
 
     1. Click the "Import" button.
 
-1. Add following to end of hosts file on your machine.
+1. Add following to end of hosts file on your machine.  
+
     ```
     127.0.0.1  personium.example.com
     ```
@@ -49,7 +51,7 @@ PASS：root
 
     1. Please enter the following information and click "OK" button.
         ```
-        host   ：localhost
+        host   ：localhost  
         TCPPort：2221
         ```
 
