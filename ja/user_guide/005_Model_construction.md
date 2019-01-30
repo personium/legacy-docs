@@ -22,10 +22,10 @@
 準備中
 
 ### Role
-* #### 発行
-* #### 管理
-* #### Roleクラス・Roleインスタンス
-* #### Roleリソース
+* 発行
+* 管理
+* Roleクラス・Roleインスタンス
+* Roleリソース
 
 準備中
 
@@ -40,13 +40,23 @@
 
 #### $links設定
 
+### Box
+準備中
+
+### SentMessage
+準備中
+
+### ReceivedMessage
+準備中
+
+### Rule
+準備中
 
 ### Collection
 * Collectionは、Boxの中に格納されたデータ集合です。
-* 以下の3種類が存在します。
+* 以下の4種類が存在します。
 
-	* ###### [WebDAVモデル](./007_WebDAV_model.html)
-	* ###### ODataモデル
-	* ###### サービスのモデル
-
-
+	* [WebDAVモデル](./007_WebDAV_model.md)
+	* ODataモデル
+	* サービスのモデル
+	* Streamモデル

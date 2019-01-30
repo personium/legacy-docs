@@ -49,7 +49,6 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |plugin.path|Personiumプラグイン配置先パス|プラグイン配置先フルパス|/personium/personium-core/plugins|core|<br>|
 |unitScheme|ユニットのスキーム設定|"http" または "https"|https|core|開発用途にhttpを設定することも可能ですが、運用時には必ずhttpsを設定してください。|
 |unitPort|ユニットのポート番号|ポート番号||core|v1.6.0以降。UnitURLが "https&#58;//p-host:8080/" の場合、unitPortは8080になります。UnitURLが "https&#58;//p-host/" の場合、unitPortは設定しません。|
-|unitPath|ユニットのURLPath|文字列||core|v1.6.0以降。UnitURLが "https&#58;//p-host:8080/p-path/" の場合、unitPathは"/p-path"になります。UnitURLが "https&#58;//p-host:8080/" の場合、unitPathは設定しません。|
 |masterToken|マスタートークン|トークン文字列||core, engine|デフォルトは無効です。開発用途などで設定することもできますが、運用時には設定しないでください。|
 |pathBasedCellUrl.enabled|セルにアクセスするURL形式|true:path based cell url<br>false:per cell fqdn url|true|core|v1.7.0以降|
 
@@ -188,8 +187,7 @@ http://{engine.host}:{engine.port}/{engine.path}
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |eventbus.mq|メッセージキュー|activemq<br>kafka|activemq|core|使用するメッセージキューを選択します<br>v1.6.8以降|
-|eventbus.activemq.brokerUrl|ActiveMQ broker URL|URL|tcp://localhost:61616|core|v1.6.0以降|
-|eventbus.kafka.bootstrap.servers|Kakfaのサーバ|ホストとポートのカンマ区切りリスト|localhost:9092|core|v1.6.8以降|
+|eventbus.broker|メッセージキューのbroker URL|URL|tcp://localhost:61616|core|v1.7.4以降|
 |eventbus.queue|イベントのキュー名|文字列|personium_event_queue|core|v1.6.0以降|
 |eventbus.topic.all|イベントのトピック名|文字列|personium_event_topic|core|v1.6.0以降|
 |eventbus.topic.rule|ルールイベントのトピック名|文字列|personium_event_topic_rule|core|v1.6.0以降|
@@ -199,3 +197,18 @@ http://{engine.host}:{engine.port}/{engine.path}
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |rule.timerEvent.thread.num|タイマーイベント送信用のスレッド数|Int|1|core|v1.6.8以降|
+
+#### Stream Collection
+|キー|説明|値|デフォルト値|使用コンポーネント|備考|
+|:--|:--|:--|:--|:--|:--|
+|stream.mq|メッセージキュー|activemq<br>kafka||core|使用するメッセージキューを選択します。何も設定しなければStream Collectionは無効になります<br>v1.7.4以降|
+|stream.broker|メッセージキューのbroker URL|URL||core|v1.7.4以降|
+|stream.username|brokerへの認証に使用するユーザ名|文字列||core|認証の必要のないbrokerには設定しないでください<br>v1.7.4以降|
+|stream.password|brokerへの認証に使用するパスワード|文字列||core|認証の必要のないbrokerには設定しないでください<br>v1.7.4以降|
+|stream.expiresIn|Streamに送信するメッセージの有効期間(sec)|Int|3600|core|activemqのみ有効<br>v1.7.4以降|
+
+#### Token Introspection
+|キー|説明|値|デフォルト値|使用コンポーネント|備考|
+|:--|:--|:--|:--|:--|:--|
+|introspect.username|ユーザ名|文字列||core|Resource ServerからToken Introspectionにアクセスする際のBasic認証用<br>v1.7.4以降|
+|introspect.password|パスワード|文字列||core|Resource ServerからToken Introspectionにアクセスする際のBasic認証用<br>v1.7.4以降|
