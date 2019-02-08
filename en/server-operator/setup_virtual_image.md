@@ -23,7 +23,7 @@ This Virtual image is checking the operation with VirtualBox version 1.5.2 later
     1. Click "File" - "Import Appliance".  
 
     1. Choose a virtual image file to import and click the "Next" button.  
-        \* **if you want to change the spec,It is also possible to change**
+        **if you want to change the spec,It is also possible to change**
 
     1. Click the "Import" button.
 
@@ -33,10 +33,10 @@ This Virtual image is checking the operation with VirtualBox version 1.5.2 later
     127.0.0.1  personium.example.com
     ```
 
-If use a proxy environment, Please see [Proxy exclusion setting](proxy_exclusion_setting.md "").  
-Network setting (optional)  
-\* Default value is a virtual network (10.0.2.0) dedicated to VirtualBox.  
-\* NAT setting is unnecessary, if it is used only via virtual network.
+    * If use a proxy environment, Please see [Proxy exclusion setting](proxy_exclusion_setting.md "").  
+    * Network setting (optional)  
+      * Default value is a virtual network (10.0.2.0) dedicated to VirtualBox.  
+      * NAT setting is unnecessary, if it is used only via virtual network.
 
 #### Confirm Personium
 
@@ -45,7 +45,7 @@ Virtual server account information
 ID  ：root  
 PASS：root
 ```
-\* **Please be sure to change at first login.**
+**Please be sure to change at first login.**
 
 1. Log in to the virtual server from ssh client such as Teraterm.
 
@@ -72,13 +72,13 @@ PASS：root
 
     1. Access the following URL from the browser.   
         https://personium.example.com/app-uc-unit-manager/__/html/login.html  
-        \* Please refer to the link for [Unit-Manager](https://github.com/personium/app-uc-unit-manager "").  
+        * Please refer to the link for [Unit-Manager](https://github.com/personium/app-uc-unit-manager "").  
 
     1. Enter the following on the login page and click the "sign in" button.  
        * Login URL      : https://personium.example.com/unitadmin/  
        * Username       : unitadmin  
        * Password       : {password}  
-       \* For {password}, enter the password confirmed in the above "1."
+         **For {password}, enter the password confirmed in the above "1."**
 
     1. After successful login, please confirm that the following Cell exists  
        in "Cell List" on the left side of the screen.  
