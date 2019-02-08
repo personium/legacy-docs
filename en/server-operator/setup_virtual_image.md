@@ -27,7 +27,7 @@ This Virtual image is checking the operation with VirtualBox version 1.5.2 later
 
     1. Click the "Import" button.
 
-1. Add following to end of hosts file on your machine.  
+1. Add following to end of hosts file on your machine.(E.G: C:\Windows\System32\drivers\etc\hosts)  
 
     ```
     127.0.0.1  personium.example.com
