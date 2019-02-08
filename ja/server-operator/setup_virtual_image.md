@@ -22,7 +22,7 @@
     1. 「ファイル」ー「仮想アプライアンスのインポート」をクリックしてください。
 
     1. ダウンロードした仮想イメージを選択して、「次へ」ボタンをクリックしてください。  
-        \* **スペックの変更を行いたい場合は各自変更を行ってください。**
+         **スペックの変更を行いたい場合は各自変更を行ってください。**
         
     1. 「インポート」ボタンをクリックしてください。
 
@@ -32,10 +32,10 @@
     127.0.0.1  personium.example.com
     ```
 
-プロキシ環境を使用している場合は[プロキシ除外設定の手順](proxy_exclusion_setting.md "")を参照してください。  
-ネットワークの設定(任意)  
-\* デフォルトはVirtualBox専用の仮想ネットワーク(10.0.2.0)になっています。  
-\* 仮想ネットワーク経由での利用のみならNAT設定は不要です。
+    * プロキシ環境を使用している場合は[プロキシ除外設定の手順](proxy_exclusion_setting.md "")を参照してください。  
+    * ネットワークの設定(任意)  
+      * デフォルトはVirtualBox専用の仮想ネットワーク(10.0.2.0)になっています。  
+      * 仮想ネットワーク経由での利用のみならNAT設定は不要です。
 
 #### Personiumの動作確認
 
@@ -70,13 +70,13 @@ PASS：root
 
     1. ブラウザから次のURLにアクセスしてください。  
         https://personium.example.com/app-uc-unit-manager/__/html/login.html  
-        \* [Unit-Manager](https://github.com/personium/app-uc-unit-manager "")のリンクを参照してください。    
+        * [Unit-Manager](https://github.com/personium/app-uc-unit-manager "")のリンクを参照してください。    
 
     1. ログインページに以下の情報を入力して「サインイン」ボタンをクリックしてください。
        * Login URL      : https://personium.example.com/unitadmin/  
        * Username       : unitadmin  
        * Password       : {password}  
-       \* {password}には、上記1.で確認したパスワードを入力してください。
+         **{password}には、上記1.で確認したパスワードを入力してください。**
 
     1. ログイン成功後、画面左の「Cell List」に以下のCellが存在することを確認してください。
         * app-uc-unit-manager
@@ -127,14 +127,14 @@ CentOS 7.2 x86_64
 
 * Middleware  
 
-    |Category       | Name           |Version       |                   |
-    |:--------------|:---------------|-------------:|:------------------|
-    | java          | AdoptOpenJDK   |        8u192 | --                |
-    | tomcat        | tomcat         |       9.0.10 | web               |
-    |               | commons-daemon |        1.1.0 | --                |
-    | nginx         | nginx          |       1.14.0 | proxy             |
-    |               | Headers More   |         0.32 | --                |
-    | logback       | logback        |        1.0.3 | --                |
-    |               | slf4j          |        1.6.4 | --                |
-    | memcached     | memcached      |       1.4.21 | cache             |
-    | elasticsearch | elasticsearch  |        2.4.1 | db & search engine|
+|Category       | Name           |Version       |                   |
+|:--------------|:---------------|-------------:|:------------------|
+| java          | AdoptOpenJDK   |        8u192 | --                |
+| tomcat        | tomcat         |       9.0.10 | web               |
+|               | commons-daemon |        1.1.0 | --                |
+| nginx         | nginx          |       1.14.0 | proxy             |
+|               | Headers More   |         0.32 | --                |
+| logback       | logback        |        1.0.3 | --                |
+|               | slf4j          |        1.6.4 | --                |
+| memcached     | memcached      |       1.4.21 | cache             |
+| elasticsearch | elasticsearch  |        2.4.1 | db & search engine|
