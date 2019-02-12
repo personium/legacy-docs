@@ -44,8 +44,8 @@ Personiumはスケーラブルなアーキテクチャを採用しています�
 | :- | :----- | :-------- | :------------------- | :------------- | :------------------ |
 | Personiumを使ってみる | Linuxサーバ1台 | 不要 | 不要 | httpclient<br>ew-services<br>mailsender<br>slack | unit-manager |
 | 小規模環境   | Linuxサーバ1台 | Vagrant | 不要 | httpclient<br>ew-services<br>mailsender<br>slack | unit-manager |
-| | | ユーザ側でLinuxサーバを準備 | Ansible | httpclient<br>ew-services<br>mailsender<br>slack | なし |
-| 中・大規模環境 | Linuxサーバ3台 | HeatTemplate | Ansible | httpclient<br>ew-services<br>mailsender<br>slack | なし |
+| | | ユーザ側でLinuxサーバを準備 | Ansible | なし | なし |
+| 中・大規模環境 | Linuxサーバ3台 | HeatTemplate | Ansible | なし | なし |
 | | | ユーザ側でLinuxサーバを準備 | 自力 | なし | なし |
 
 ### Personiumを使ってみる

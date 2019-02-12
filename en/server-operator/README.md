@@ -43,8 +43,8 @@ We are pleased to hear the story that the unit was built in various environments
 | :- | :----- | :-------- | :------------------- | :------------- | :------------------ |
 | Try Personium on your machine | 1 Linux server | unnecessary | unnecessary | httpclient<br>ew-services<br>mailsender<br>slack | unit-manager |
 | Small Personium Environment  | 1 Linux server | Vagrant | unnecessary | httpclient<br>ew-services<br>mailsender<br>slack | unit-manager |
-| | | Prepare the Linux server yourself | Ansible | httpclient<br>ew-services<br>mailsender<br>slack | None |
-| Medium / Large-Scale Personium Environment | 3 Linux servers | HeatTemplate | Ansible | httpclient<br>ew-services<br>mailsender<br>slack | None |
+| | | Prepare the Linux server yourself | Ansible | None | None |
+| Medium / Large-Scale Personium Environment | 3 Linux servers | HeatTemplate | Ansible | None | None |
 | | | Prepare the Linux server yourself | Oneself | None | None |
 
 ### Try Personium on your machine
