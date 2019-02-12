@@ -59,7 +59,7 @@ PASS：root
 
 1. unitadminの情報を確認してください。
 
-   ```console
+   ```
    # cat /personium/unitadmin_account
    unitadmin_account=unitadmin
    unitudmin_password={password}
@@ -88,7 +88,7 @@ PASS：root
 
     1. Unit User Tokenを取得します。 以下のコマンドを実行してください。
 
-       ```bash
+       ```
        $ curl "https://personium.example.com/unitadmin/__token" -X POST \
        -d 'grant_type=password&username=unitadmin&password={password} \
        &p_target=https://personium.example.com/' -k  
@@ -96,14 +96,14 @@ PASS：root
 
     1. Cellを作成します。以下のコマンドを実行してください。
 
-        ```bash
+        ```
         $ curl -X POST "https://personium.example.com/__ctl/Cell" -d "{\"Name\":\"sample\"}" \
         -H "Authorization:Bearer {Token}" -H "Accept:application/json" -i -sS -k
         ```
 
     1. Personiumが正常に動作している場合、以下のようなレスポンスが返ります。  
 
-        ```bash
+        ```
         HTTP/1.1 201
         Date: Mon, 28 Jan 2019 01:03:39 GMT
         Content-Type: application/json
