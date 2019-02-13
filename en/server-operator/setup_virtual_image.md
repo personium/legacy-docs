@@ -38,6 +38,8 @@ This Virtual image is checking the operation with VirtualBox version 1.5.2 later
       * Default value is a virtual network (10.0.2.0) dedicated to VirtualBox.  
       * NAT setting is unnecessary, if it is used only via virtual network.
 
+1. Please select the imported virtual image and start it.  
+
 #### Confirm Personium
 
 Virtual server account information
@@ -78,7 +80,7 @@ PASS：root
        * Login URL      : https://personium.example.com/unitadmin/  
        * Username       : unitadmin  
        * Password       : {password}  
-         **For {password}, enter the password confirmed in the above "1."**
+         **For {password}, ​​please enter the unitadmin_password that you confirmed in step 2 above.**
 
     1. After successful login, please confirm that the following Cell exists  
        in "Cell List" on the left side of the screen.  
@@ -93,8 +95,8 @@ PASS：root
 
        ```
        $ curl "https://personium.example.com/unitadmin/__token" -X POST \
-       -d \'grant_type=password&username=unitadmin&password={password} \
-       &p_target=https://personium.example.com/' -k  
+       -d "grant_type=password&username=unitadmin&password={password}\
+       &p_target=https://personium.example.com/" -k  
        ```
 
     1. Create a Cell. Execute the following command.

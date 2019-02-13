@@ -11,10 +11,12 @@ This document explains how to set up proxy for use with Google Chrome.
 1. Uncheck "Use automatic configuration script".  
 
 1. Check "Use proxy server for LAN" and enter the following.  
+
       ```
       Address：{ProxyName}  
-      Port   ：8080
+      Port   ：8080  
       ```  
+
 1. Check "Not use proxy server for local address".  
     
 1. Click the "Advanced" button.  

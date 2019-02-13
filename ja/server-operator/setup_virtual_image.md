@@ -37,6 +37,8 @@
       * デフォルトはVirtualBox専用の仮想ネットワーク(10.0.2.0)になっています。  
       * 仮想ネットワーク経由での利用のみならNAT設定は不要です。
 
+1. インポートした仮想イメージを選択して起動してください。  
+
 #### Personiumの動作確認
 
 仮想サーバアカウント情報
@@ -76,7 +78,7 @@ PASS：root
        * Login URL      : https://personium.example.com/unitadmin/  
        * Username       : unitadmin  
        * Password       : {password}  
-         **{password}には、上記1.で確認したパスワードを入力してください。**
+         **{password}には、上記の手順2.で確認していただいたunitadmin_passwordを入力してください。**
 
     1. ログイン成功後、画面左の「Cell List」に以下のCellが存在することを確認してください。
         * app-uc-unit-manager
@@ -90,8 +92,8 @@ PASS：root
 
        ```
        $ curl "https://personium.example.com/unitadmin/__token" -X POST \
-       -d 'grant_type=password&username=unitadmin&password={password} \
-       &p_target=https://personium.example.com/' -k  
+       -d "grant_type=password&username=unitadmin&password={password}\
+       &p_target=https://personium.example.com/" -k  
        ```
 
     1. Cellを作成します。以下のコマンドを実行してください。
