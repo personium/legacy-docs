@@ -76,7 +76,7 @@ It is a setting which change from default as optional when operating Personium.
 #### Account
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
-|account.lastauthenticated.enabled|Whether to update the last login time of Account when password authentication is successful|true:Update<br>false:Do not update|true|core|If you record the last update date and time, the registration process will be performed inside the authentication process, so it will be affected by multiple locks of writing (lock range is cell unit).<br>In addition, writing occurs, so performance degradation will occur.<br>Basic authentication does not record the last login date and time with this setting.|
+|account.lastauthenticated.enabled|Whether to update the last login time of Account when password authentication is successful|true:Update<br>false:Do not update|true|core|- v1.7.4<br>Abolish with v1.7.5<br>If you record the last update date and time, the registration process will be performed inside the authentication process, so it will be affected by multiple locks of writing (lock range is cell unit).<br>In addition, writing occurs, so performance degradation will occur.<br>Basic authentication does not record the last login date and time with this setting.|
 
 #### WebDAV
 |Key|Description|Value|Default value|Used component|Notes|
@@ -88,12 +88,13 @@ It is a setting which change from default as optional when operating Personium.
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |security.dav.encrypt.enabled|Whether to encrypt the WebDAV file|true:To encrypt<br>false:Do not encrypt|false|core|v1.5.1 or later|
+|security.auth.password.regex|Password restriction|string<br>Regex pattern|^[a-zA-Z0-9-_!$\*=^\`{&#124;}~.@]{6,32}$|core|v1.7.5 or later<br>\* The number of characters of the password is 1 to 256. Regardless of the limit, it is not possible to set a password of 257 or more characters.|
 
 #### Lock
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |lock.type|Type of Lock|"memcached":Memcached<br>"inProcess":InProcess|memcached|core|<br>|
-|lock.accountlock.time|Account lock expiration date (sec)<br>Lock authentication for that account at the time of authentication failure, and for a period during which authentication fails|Int|1|core|<br>|
+|lock.accountlock.time|Account lock expiration date (sec)<br>Lock authentication for that account at the time of authentication failure, and for a period during which authentication fails|Int|1|core|- v1.7.4<br>Abolish with v1.7.5|
 |lock.retry.times|Number of retries at lock acquisition|Int|50|core|<br>|
 |lock.retry.interval|Interval at lock acquisition retry (msec)|Long|100|core|<br>|
 |lock.cell.retry.times|Number of retries at cell lock acquisition|Int|50|core|<br>|
@@ -101,6 +102,13 @@ It is a setting which change from default as optional when operating Personium.
 |lock.memcached.host|Memcached host name to hold lock on memcached|Host Name|localhost|core|<br>|
 |lock.memcached.port|Memcached port number for keeping locks on memcached|Port number|11211|core|<br>|
 |lock.memcached.opTimeout|Lock memcached operation Timeout value (msec)|Long|12000|core|<br>|
+
+#### Authentication
+|Key|Description|Value|Default value|Used component|Notes|
+|:--|:--|:--|:--|:--|:--|
+|authn.account.lockCount|Account lock threshold<br>Number of times to lock that account on successive authentication failures and cause authentication to fail|Int<br>0～100|0|core|v1.7.5 or later<br>Setting it to 0 will not lock accounts|
+|authn.account.lockTime|Account lock data (sec)<br>A period of time that locks the account at the time of consecutive authentication failure and causes the authentication to fail<br>|Int<br>0～2592000 (30 days)|0|core|v1.7.5 or later<br>Setting it to 0 will not lock accounts|
+|authn.account.validAuthnInterval|Valid authentication interval (sec)<br>Fail authentication attempt at intervals shorter than the authentication interval|Int|1|core|v1.7.5 or later|
 
 #### Elasticsearch
 |Key|Description|Value|Default value|Used component|Notes|

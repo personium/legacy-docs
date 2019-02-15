@@ -77,7 +77,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 #### アカウント
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
-|account.lastauthenticated.enabled|パスワード認証成功時に、Accountの最終ログイン時刻を更新するか|true:更新する<br>false:更新しない|true|core|最終更新日時を記録すると認証処理内部で登録処理が⾏われるため、書き込みの多重ロックの影響を受けます（ロック範囲はセル単位）。<br>また書き込みが発生するため性能の低下が発生します。<br>Basic認証はこの設定で最終ログイン日時の記録は行われません。|
+|account.lastauthenticated.enabled|パスワード認証成功時に、Accountの最終ログイン時刻を更新するか|true:更新する<br>false:更新しない|true|core|～v1.7.4<br>v1.7.5で廃止<br>最終更新日時を記録すると認証処理内部で登録処理が⾏われるため、書き込みの多重ロックの影響を受けます（ロック範囲はセル単位）。<br>また書き込みが発生するため性能の低下が発生します。<br>Basic認証はこの設定で最終ログイン日時の記録は行われません。|
 
 #### WebDAV
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
@@ -89,12 +89,13 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |security.dav.encrypt.enabled|WebDAVファイルを暗号化するか|true:暗号化する<br>false:暗号化しない|false|core|v1.5.1以降|
+|security.auth.password.regex|パスワード制限|文字列<br>正規表現パターン|^[a-zA-Z0-9-_!$\*=^\`{&#124;}~.@]{6,32}$|core|v1.7.5以降<br>※パスワードの文字数は1〜256です。制限に関係なく、257文字以上のパスワードを設定することはできません。|
 
 #### Lock
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
 |:--|:--|:--|:--|:--|:--|
 |lock.type|Lockのタイプ|"memcached":Memcached<br>"inProcess":InProcess|memcached|core|<br>|
-|lock.accountlock.time|アカウントロックの有効期限(sec)<br>認証失敗時にそのアカウントの認証をロックし、認証を失敗させる期間|Int|1|core|<br>|
+|lock.accountlock.time|アカウントロックの有効期限(sec)<br>認証失敗時にそのアカウントの認証をロックし、認証を失敗させる期間|Int|1|core|～v1.7.4<br>v1.7.5で廃止|
 |lock.retry.times|ロック取得時のリトライ回数|Int|50|core|<br>|
 |lock.retry.interval|ロック取得リトライ時の間隔(msec)|Long|100|core|<br>|
 |lock.cell.retry.times|セルロック取得時のリトライ回数|Int|50|core|<br>|
@@ -102,6 +103,13 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |lock.memcached.host|ロックをmemcachedに保持する際のmemcachedホスト名|ホスト名|localhost|core|<br>|
 |lock.memcached.port|ロックをmemcachedに保持する際のmemcachedポート番号|ポート番号|11211|core|<br>|
 |lock.memcached.opTimeout|ロック用memcached operationタイムアウト値(msec)|Long|12000|core|<br>|
+
+#### 認証
+|キー|説明|値|デフォルト値|使用コンポーネント|備考|
+|:--|:--|:--|:--|:--|:--|
+|authn.account.lockCount|アカウントロックの閾値<br>連続した認証失敗時にそのアカウントをロックし、認証を失敗させる回数|Int<br>0～100|0|core|v1.7.5以降<br>0に設定するとアカウントロックを行いません|
+|authn.account.lockTime|アカウントロック期間(sec)<br>連続した認証失敗時にそのアカウントをロックし、認証を失敗させる期間<br>|Int<br>0～2592000（30日）|0|core|v1.7.5以降<br>0に設定するとアカウントロックを行いません|
+|authn.account.validAuthnInterval|有効な認証間隔(sec)<br>認証間隔よりも短い間隔で認証試行を失敗させる|Int|1|core|v1.7.5以降|
 
 #### Elasticsearch
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
