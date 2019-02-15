@@ -120,6 +120,10 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |es.topnum|Elasticsearch の検索結果出力上限数|Int|10000|core|<br>|
 |es.retryTimes|エラー発生時のリトライ回数|Int|3|core|<br>|
 |es.retryInterval|エラー発生時のリトライ間隔(msec)|Int|1500|core|<br>|
+|es.index.numberOfShards|Elasticsearch シャード数|Int|10|core|v1.7.5以降|
+|es.index.numberOfReplicas|Elasticsearch レプリカ数|Int|0|core|v1.7.5以降|
+|es.index.maxResultWindow|Elasticsearch 最大結果表示数|Long|110000|core|v1.7.5以降|
+|es.index.merge.scheduler.maxThreadCount|Elasticsearch マージスケジューラの最大スレッド数|Int|<br>|core|v1.7.5以降|
 
 #### BinaryData
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|

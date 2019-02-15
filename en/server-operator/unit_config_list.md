@@ -119,6 +119,10 @@ It is a setting which change from default as optional when operating Personium.
 |es.topnum|Search result output upper limit number of Elasticsearch|Int|10000|core|<br>|
 |es.retryTimes|Number of retries at error occurrence|Int|3|core|<br>|
 |es.retryInterval|Retry interval at error occurrence (msec)|Int|1500|core|<br>|
+|es.index.numberOfShards|Elasticsearch number of shards|Int|10|core|v1.7.5 or later|
+|es.index.numberOfReplicas|Elasticsearch number of replicas|Int|0|core|v1.7.5 or later|
+|es.index.maxResultWindow|Elasticsearch limit number of result view|Long|110000|core|v1.7.5 or later|
+|es.index.merge.scheduler.maxThreadCount|Elasticsearch limit number of thread of merge scheduler|Int|<br>|core|v1.7.5 or later|
 
 #### BinaryData
 |Key|Description|Value|Default value|Used component|Notes|
