@@ -358,10 +358,10 @@ io.personium.core.security.secret16=secret167pm5m4y6
   "cluster_uuid" : "VM2fJ2hXQRSI4PsYhJBtLA",
   "version" : {
     "number" : "5.6.14",
-    "build_hash" : "c67dc32e24162035d18d6fe1e952c4cbcbe79d16",
+    "build_hash" : "f310fe9",
     "build_date" : "2018-12-05T21:20:16.416Z",
     "build_snapshot" : false,
-    "lucene_version" : "5.5.2"
+    "lucene_version" : "6.6.1"
   },
   "tagline" : "You Know, for Search"
 }

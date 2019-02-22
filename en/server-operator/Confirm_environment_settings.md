@@ -177,11 +177,11 @@ Check the basic settings of the server on which the AP service runs.
 
 * Personium uses Elasticsearch to realize DB. 
   Elasticsearch is installed as follows.  
-  For version, Please check the elasticsearch version of "middleware on VM" of github's README([Vagrant](https://github.com/personium/setup-vagrant#os-and-middleware-on-vm) / [Ansible](https://github.com/personium/ansible#middleware-on-vm)).
+  For version, Please check the elasticsearch version of "middleware on VM" of github's README([Vagrant](https://github.com/personium/setup-vagrant#os-and-middleware-on-vm) / [Ansible](https://github.com/personium/ansible#middleware-on-vm)).  
 
-| Item                    | Path                                                         |
-|-------------------------|--------------------------------------------------------------|
-| Install Directory       | /opt/elasticsearch-{ Elasticsearch version }/                |
-| Config Files            | /opt/elasticsearch-{ Elasticsearch version }/config/         |
-| Log Direcroty           | /personium/elasticsearch/log/                                |
-| Data Direcroty          | /personium/elasticsearch-{ Elasticsearch version }/data/     |  
+    | Item                    | Path                                                         |
+    |-------------------------|--------------------------------------------------------------|
+    | Install Directory       | /opt/elasticsearch-{ Elasticsearch version }/                |
+    | Config Files            | /opt/elasticsearch-{ Elasticsearch version }/config/         |
+    | Log Direcroty           | /personium/elasticsearch/log/                                |
+    | Data Direcroty          | /personium/elasticsearch-{ Elasticsearch version }/data/     |  

@@ -216,9 +216,9 @@ AP サービスが動作するサーバの基本設定を確認します。
   Elasticsearch は以下のようにインストールされています。  
   バージョンについてはgithubのREADME([Vagrant](https://github.com/personium/setup-vagrant#os-and-middleware-on-vm) / [Ansible](https://github.com/personium/ansible#middleware-on-vm))のMiddleware on VMのelasticsearchのバージョンをご確認ください。  
 
-| 項目                      | パス                                                        |
-|---------------------------|-------------------------------------------------------------|
-| インストールディレクトリ    | /opt/elasticsearch-{ Elasticsearch version }/               |
-| 設定ファイル               | /opt/elasticsearch-{ Elasticsearch version }/config/        |
-| ログ出力先                 | /personium/elasticsearch/log/                               |
-| データ格納ディレクトリ      | /personium/elasticsearch-{ Elasticsearch version }/data/    |  
+    | 項目                      | パス                                                        |
+    |---------------------------|-------------------------------------------------------------|
+    | インストールディレクトリ    | /opt/elasticsearch-{ Elasticsearch version }/               |
+    | 設定ファイル               | /opt/elasticsearch-{ Elasticsearch version }/config/        |
+    | ログ出力先                 | /personium/elasticsearch/log/                               |
+    | データ格納ディレクトリ      | /personium/elasticsearch-{ Elasticsearch version }/data/    |  
