@@ -214,7 +214,7 @@ AP サービスが動作するサーバの基本設定を確認します。
 
 * Personium はDB を実現するためElasticsearch を使用しています。  
   Elasticsearch は以下のようにインストールされています。  
-  バージョンについてはgithubのREADME([Vagrant](https://github.com/personium/setup-vagrant#os-and-middleware-on-vm) / [Ansible](https://github.com/personium/ansible#middleware-on-vm))のMiddleware on VMのelasticsearchのバージョンをご確認ください。  
+  バージョンについては[こちら](https://github.com/personium/ansible#middleware-on-vm)のelasticsearchのバージョンをご確認ください。  
 
     | 項目                      | パス                                                        |
     |---------------------------|-------------------------------------------------------------|
