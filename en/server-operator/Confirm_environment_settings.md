@@ -16,10 +16,10 @@ By performing this procedure, you can understand the installation location and b
 * Personium uses Nginx to realize the Web.
 Nginx is installed as follows.
 
-| item                    | path                     |
-|-------------------------|-------------------------|
-| Install Directory       | /opt/nginx-1.14.0/      |
-| Config Files            | /opt/nginx-1.14.0/conf/ |
+| item                    | path                                |
+|-------------------------|-------------------------------------|
+| Install Directory       | /opt/nginx-1.14.0/                  |
+| Config Files            | /opt/nginx-1.14.0/conf/             |
 | Log Directory           | /personium/nginx/log/accesslog_443/ |  
 
 ### Server Certificate
@@ -44,7 +44,7 @@ Nginx is installed as follows.
    Execute the following command to check the common name of the server certificate.
 
     ```console
-    # openssl x509 -noout -subject /opt/nginx/conf/server.crt
+    # openssl x509 -noout -subject -in /opt/nginx/conf/server.crt
     ```
 
     When creating as in the example of creating a server certificate described in [1-server_unit/README](https://github.com/personium/ansible/tree/master/1-server_unit) or [3-server_unit/README](https://github.com/personium/ansible/tree/master/3-server_unit), It is displayed as follows. CN must represent common name and must match FQDN when accessing with HTTPS protocol.
@@ -105,13 +105,13 @@ Check the basic settings of the server on which the AP service runs.
 
 * Personium is installed as follows.
 
-    | Item                          | Path                   |
-    |-------------------------------|-----------------------|
-    | personium-core                | /opt/tomcat/webapps/          |
-    | personium-engine              | /opt/tomcat/webapps/     |
-    | personium-core Log Directory  | /personium/personium-core/log/personium-core.log     |
-    | personium-engine Log Directory| /personium/personium-engine/log/personium-engine.log  |
-    | Unit Config File | /personium/personium-core/conf/18888/personium-unit-config.properties |  
+| Item                          | Path                                                                  |
+|-------------------------------|-----------------------------------------------------------------------|
+| personium-core                | /opt/tomcat/webapps/                                                  |
+| personium-engine              | /opt/tomcat/webapps/                                                  |
+| personium-core Log Directory  | /personium/personium-core/log/personium-core.log                      |
+| personium-engine Log Directory| /personium/personium-engine/log/personium-engine.log                  |
+| Unit Config File              | /personium/personium-core/conf/18888/personium-unit-config.properties |  
 
 * By changing personium-unit-config.properties, you can change [Unit configurations](https://personium.io/docs/en/server-operator/unit_config_list.html) from the default.  
     Immediately after construction with Ansible, it is set as follows.  
@@ -176,11 +176,12 @@ Check the basic settings of the server on which the AP service runs.
 ### Elasticsearch environment
 
 * Personium uses Elasticsearch to realize DB. 
-  Elasticsearch is installed as follows.
+  Elasticsearch is installed as follows.  
+  For version, Please check the elasticsearch version of "middleware on VM" of github's README([Vagrant](https://github.com/personium/setup-vagrant#os-and-middleware-on-vm) / [Ansible](https://github.com/personium/ansible#middleware-on-vm)).
 
-    | Item                    | Path                                     |
-    |-------------------------|------------------------------------------|
-    | Install Directory       | /opt/elasticsearch-2.4.1/                |
-    | Config Files            | /opt/elasticsearch-2.4.1/config/           |
-    | Log Direcroty           | /personium/elasticsearch/log/           |
-    | Data Direcroty          | /personium/elasticsearch-2.4.1/data/     |  
+| Item                    | Path                                                         |
+|-------------------------|--------------------------------------------------------------|
+| Install Directory       | /opt/elasticsearch-{ Elasticsearch version }/                |
+| Config Files            | /opt/elasticsearch-{ Elasticsearch version }/config/         |
+| Log Direcroty           | /personium/elasticsearch/log/                                |
+| Data Direcroty          | /personium/elasticsearch-{ Elasticsearch version }/data/     |  

@@ -19,7 +19,7 @@ Please download the necessary tools for operation check.
 | Tool name | Version | Download URL |
 |:--|:--|:--|
 | Tomcat | 9.0 series | Pleiades Do not introduce individual items to use the items included |
-| Elasticsearch | 2.4.1 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-2-4-1 |
+| Elasticsearch | 5.6.14 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-5-6-14 |
 | ActiveMQ | 5.15 series | http://activemq.apache.org/download-archives.html |
 | Nginx | 1.14 series | http://nginx.org/download/nginx-1.14.0.zip |
 
@@ -104,7 +104,7 @@ Add the following to the system environment variable (Path).
 ```
 
 ### Elasticsearch
-#### Modification of elasticsearch-2.4.1 \ config \ elasticsearch.yml
+#### Modification of elasticsearch-5.6.14 \ config \ elasticsearch.yml
 
 Add the following description to elasticsearch.yml.
 
@@ -170,12 +170,12 @@ If it fails, the following message is output.
 
 1. Plugin body can be downloaded with the URL output from "Trying " to " ...".  
 Download using a browser and place it in the appropriate place.  
-C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
+C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
 
 1. Execute Plugin install command with URI designation.
 
     ```
-    > bin\plugin install file:C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
+    > bin\plugin install file:C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
     ```
 
 ### ActiveMQ
@@ -357,9 +357,9 @@ The output will be successful if it is output as follows.
   "cluster_name" : "{Value set with elasticsearch.yml}",
   "cluster_uuid" : "VM2fJ2hXQRSI4PsYhJBtLA",
   "version" : {
-    "number" : "2.4.1",
+    "number" : "5.6.14",
     "build_hash" : "c67dc32e24162035d18d6fe1e952c4cbcbe79d16",
-    "build_timestamp" : "2016-09-27T18:57:55Z",
+    "build_date" : "2018-12-05T21:20:16.416Z",
     "build_snapshot" : false,
     "lucene_version" : "5.5.2"
   },

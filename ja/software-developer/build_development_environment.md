@@ -19,7 +19,7 @@ Windows
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
 | Tomcat | 9.0系 | Pleiades同梱のものを使用するため個別の導入は行わない |
-| Elasticsearch | 2.4.1 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-2-4-1 |
+| Elasticsearch | 5.6.14 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-5-6-14 |
 | ActiveMQ | 5.15系 | http://activemq.apache.org/download-archives.html |
 | Nginx | 1.14系 | http://nginx.org/download/nginx-1.14.0.zip |
 
@@ -104,7 +104,7 @@ C:¥Users¥[user]¥.gitconfigに、以下の記述を追加します。
 ```
 
 ### Elasticsearch
-#### elasticsearch-2.4.1\config\elasticsearch.ymlの修正
+#### elasticsearch-5.6.14\config\elasticsearch.ymlの修正
 
 elasticsearch.ymlに以下の記述を追加します。
 
@@ -170,12 +170,12 @@ ElasticSearchに保存されているデータを見やすくするためのPlug
 
 1. 「Trying 」から「 ...」までに出力されたURLでPlugin本体をダウンロード可能となります。  
 ブラウザなどでダウンロードし、適当な場所に置きます。  
-C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
+C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
 
 1. Plugin installコマンドをURI指定で実行します。
 
     ```
-    > bin\plugin install file:C:\Tools\elasticsearch-2.4.1\tmp\elasticsearch-head-master.zip
+    > bin\plugin install file:C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
     ```
 
 ### ActiveMQ
@@ -357,9 +357,9 @@ io.personium.core.security.secret16=secret167pm5m4y6
   "cluster_name" : "【elasticsearch.ymlで設定した値】",
   "cluster_uuid" : "VM2fJ2hXQRSI4PsYhJBtLA",
   "version" : {
-    "number" : "2.4.1",
+    "number" : "5.6.14",
     "build_hash" : "c67dc32e24162035d18d6fe1e952c4cbcbe79d16",
-    "build_timestamp" : "2016-09-27T18:57:55Z",
+    "build_date" : "2018-12-05T21:20:16.416Z",
     "build_snapshot" : false,
     "lucene_version" : "5.5.2"
   },

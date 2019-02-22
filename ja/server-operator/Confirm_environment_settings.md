@@ -16,10 +16,10 @@ Ansible で構築した環境の基本設定と留意事項を説明します。
 * Personium ではWeb を実現するためNginx を使用しています。  
 Nginx は以下のようにインストールしています。
 
-| 項目                    | パス                     |
-|-------------------------|-------------------------|
-| インストールディレクトリ  | /opt/nginx-1.14.0/      |
-| 設定ファイル             | /opt/nginx-1.14.0/conf/ |
+| 項目                    | パス                                 |
+|-------------------------|-------------------------------------|
+| インストールディレクトリ  | /opt/nginx-1.14.0/                  |
+| 設定ファイル             | /opt/nginx-1.14.0/conf/             |
 | ログ出力先               | /personium/nginx/log/accesslog_443/ |  
 
 ### サーバ証明書
@@ -43,7 +43,7 @@ Nginx は以下のようにインストールしています。
     以下のコマンドを実行し、サーバ証明書のコモンネームを確認します。
 
     ```console
-    # openssl x509 -noout -subject /opt/nginx/conf/server.crt
+    # openssl x509 -noout -subject -in /opt/nginx/conf/server.crt
     ```
 
     [1-server_unit/README](https://github.com/personium/ansible/tree/master/1-server_unit)、または[3-server_unit/README](https://github.com/personium/ansible/tree/master/3-server_unit)に記載されているサーバ証明書の作成例の通り作成した場合、以下のように表示されます。CNがコモンネームを表し、HTTPSプロトコルでアクセスをする際のFQDNと一致している必要があります。
@@ -106,13 +106,13 @@ AP サービスが動作するサーバの基本設定を確認します。
 
 * Personium は以下のようにインストールされています。
 
-    | 項目                          | パス                   |
-    |-------------------------------|-----------------------|
-    | personium-core                | /opt/tomcat/webapps/          |
-    | personium-engine              | /opt/tomcat/webapps/     |
-    | personium-core ログ出力先      | /personium/personium-core/log/personium-core.log     |
-    | personium-engine ログ出力先    | /personium/personium-engine/log/personium-engine.log  |
-    | ユニット設定ファイル | /personium/personium-core/conf/18888/personium-unit-config.properties |  
+| 項目                          | パス                                                                  |
+|-------------------------------|-----------------------------------------------------------------------|
+| personium-core                | /opt/tomcat/webapps/                                                  |
+| personium-engine              | /opt/tomcat/webapps/                                                  |
+| personium-core ログ出力先      | /personium/personium-core/log/personium-core.log                      |
+| personium-engine ログ出力先    | /personium/personium-engine/log/personium-engine.log                  |
+| ユニット設定ファイル            | /personium/personium-core/conf/18888/personium-unit-config.properties |  
 
 * personium-unit-config.properties を変更することで[Unit設定](unit_config_list.md)をデフォルトから変更することができます。  
 
@@ -213,11 +213,12 @@ AP サービスが動作するサーバの基本設定を確認します。
 ### Elasticsearch 環境
 
 * Personium はDB を実現するためElasticsearch を使用しています。  
-  Elasticsearch は以下のようにインストールされています。
+  Elasticsearch は以下のようにインストールされています。  
+  バージョンについてはgithubのREADME([Vagrant](https://github.com/personium/setup-vagrant#os-and-middleware-on-vm) / [Ansible](https://github.com/personium/ansible#middleware-on-vm))のMiddleware on VMのelasticsearchのバージョンをご確認ください。  
 
-    | 項目                      | パス                                      |
-    |---------------------------|-----------------------------------------|
-    | インストールディレクトリ    | /opt/elasticsearch-2.4.1/               |
-    | 設定ファイル               | /opt/elasticsearch-2.4.1/config/        |
-    | ログ出力先                 | /personium/elasticsearch/log/           |
-    | データ格納ディレクトリ      | /personium/elasticsearch-2.4.1/data/    |  
+| 項目                      | パス                                                        |
+|---------------------------|-------------------------------------------------------------|
+| インストールディレクトリ    | /opt/elasticsearch-{ Elasticsearch version }/               |
+| 設定ファイル               | /opt/elasticsearch-{ Elasticsearch version }/config/        |
+| ログ出力先                 | /personium/elasticsearch/log/                               |
+| データ格納ディレクトリ      | /personium/elasticsearch-{ Elasticsearch version }/data/    |  
