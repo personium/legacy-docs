@@ -111,72 +111,12 @@ elasticsearch.ymlに以下の記述を追加します。
 ```
 cluster.name: 【任意の名前】
 
-index.number_of_shards: 1
-index.number_of_replicas: 0
-index.max_result_window: 200000
-index.merge.scheduler.max_thread_count: 1
+network.host: 0.0.0.0
 action.auto_create_index: false
-index.refresh_interval : -1
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 indices.fielddata.cache.size: 80%（任意:ヒープメモリの何％をデータキャッシュとして使用するか）
 ```
-
-#### Elasticsearch用のPluginの導入
-##### delete-by-query Plugin  
-セルの再帰削除API時に使用するためのPluginを導入します。  
-こちらのPluginは導入必須となります。  
-
-コマンドプロンプト等でElasticsearchのインストールディレクトリに移動します。
-
-```
-> cd Elasticsearchインストールディレクトリ
-```
-
-以下コマンドを実行します。
-
-```
-> bin\plugin install delete-by-query
-```
-
-##### elasticsearch-head Plugin  
-ElasticSearchに保存されているデータを見やすくするためのPluginを導入します。  
-こちらのPluginは導入推奨となります。  
-
-コマンドプロンプト等でElasticsearchのインストールディレクトリに移動します。
-
-```
-> cd Elasticsearchインストールディレクトリ
-```
-
-以下コマンドを実行します。
-
-```
-> bin\plugin install mobz/elasticsearch-head
-```
-
-> プロキシ環境下でPluginの導入がうまくできない場合、  
-以下に記載した別途ダウンロードしてきたPluginをローカルで導入する手順を実施してください。  
-
-1. Plugin導入のコマンドを実行します。  
-失敗した場合、以下のメッセージが出力されます。
-
-    ```
-    > bin\plugin install mobz/elasticsearch-head
-    -> Installing mobz/elasticsearch-head...
-    Trying https://github.com/mobz/elasticsearch-head/archive/master.zip ...
-    ERROR: failed to download out of all possible locations..., use --verbose to get detailed information
-    ```
-
-1. 「Trying 」から「 ...」までに出力されたURLでPlugin本体をダウンロード可能となります。  
-ブラウザなどでダウンロードし、適当な場所に置きます。  
-C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
-
-1. Plugin installコマンドをURI指定で実行します。
-
-    ```
-    > bin\plugin install file:C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
-    ```
 
 ### ActiveMQ
 特になし
@@ -260,6 +200,7 @@ io.personium.core.unitScheme=http
 io.personium.core.unitPort=
 #io.personium.core.unitPath=/personium-core
 io.personium.core.unitPath=
+io.personium.core.pathBasedCellUrl.enabled=true
 
 io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/ personium-localunit:/unitadmincell/ personium-localunit:/unitusercell/
 
@@ -343,8 +284,8 @@ io.personium.core.security.secret16=secret167pm5m4y6
 以下コマンドを実行します。
 
 ```
-> bin\service install
-> bin\service start
+> bin\elasticsearch-service install
+> bin\elasticsearch-service start
 ```
 
 ブラウザでhttp://localhost:9200にアクセスします。  

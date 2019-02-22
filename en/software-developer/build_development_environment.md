@@ -111,72 +111,12 @@ Add the following description to elasticsearch.yml.
 ```
 cluster.name: {Optional name}
 
-index.number_of_shards: 1
-index.number_of_replicas: 0
-index.max_result_window: 200000
-index.merge.scheduler.max_thread_count: 1
+network.host: 0.0.0.0
 action.auto_create_index: false
-index.refresh_interval : -1
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 indices.fielddata.cache.size: 80%(Optional: What percent of heap memory is used as data cache)
 ```
-
-#### Introduction of Plugin for Elasticsearch
-##### delete-by-query Plugin  
-We introduce Plugin for use in recursive deletion API of cell.  
-This plugin is mandatory.  
-
-Go to Elasticsearch installation directory at the command prompt etc.
-
-```
-> cd Elasticsearch installation directory
-```
-
-Execute the following command.
-
-```
-> bin\plugin install delete-by-query
-```
-
-##### elasticsearch-head Plugin  
-We will introduce a plugin to make it easy to see the data stored in ElasticSearch.  
-This plugin is recommended.  
-
-Go to Elasticsearch installation directory at the command prompt etc.
-
-```
-> cd Elasticsearch installation directory
-```
-
-Execute the following command.
-
-```
-> bin\plugin install mobz/elasticsearch-head
-```
-
-> If you are unable to successfully install Plugin under a proxy environment,  
-Please perform the procedure to locally introduce the separately downloaded plugin described below.  
-
-1. Execute Plugin installation command.  
-If it fails, the following message is output.
-
-    ```
-    > bin\plugin install mobz/elasticsearch-head
-    -> Installing mobz/elasticsearch-head...
-    Trying https://github.com/mobz/elasticsearch-head/archive/master.zip ...
-    ERROR: failed to download out of all possible locations..., use --verbose to get detailed information
-    ```
-
-1. Plugin body can be downloaded with the URL output from "Trying " to " ...".  
-Download using a browser and place it in the appropriate place.  
-C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
-
-1. Execute Plugin install command with URI designation.
-
-    ```
-    > bin\plugin install file:C:\Tools\elasticsearch-5.6.14\tmp\elasticsearch-head-master.zip
-    ```
 
 ### ActiveMQ
 none
@@ -260,6 +200,7 @@ io.personium.core.unitScheme=http
 io.personium.core.unitPort=
 #io.personium.core.unitPath=/personium-core
 io.personium.core.unitPath=
+io.personium.core.pathBasedCellUrl.enabled=true
 
 io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/ personium-localunit:/unitadmincell/ personium-localunit:/unitusercell/
 
@@ -343,8 +284,8 @@ Go to Elasticsearch installation directory at the command prompt etc.
 Execute the following command.
 
 ```
-> bin\service install
-> bin\service start
+> bin\elasticsearch-service install
+> bin\elasticsearch-service start
 ```
 
 Access http://localhost:9200 in the browser.  
