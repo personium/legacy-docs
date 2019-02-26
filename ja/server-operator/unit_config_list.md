@@ -50,7 +50,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |unitScheme|ユニットのスキーム設定|"http" または "https"|https|core|開発用途にhttpを設定することも可能ですが、運用時には必ずhttpsを設定してください。|
 |unitPort|ユニットのポート番号|ポート番号||core|v1.6.0以降。UnitURLが "https&#58;//p-host:8080/" の場合、unitPortは8080になります。UnitURLが "https&#58;//p-host/" の場合、unitPortは設定しません。|
 |masterToken|マスタートークン|トークン文字列||core, engine|デフォルトは無効です。開発用途などで設定することもできますが、運用時には設定しないでください。|
-|pathBasedCellUrl.enabled|セルにアクセスするURL形式|true:path based cell url<br>false:per cell fqdn url|true|core|v1.7.0以降|
+|pathBasedCellUrl.enabled|セルにアクセスするURL形式|true:path based cell url<br>false:per cell fqdn url|v1.7.5以前:true<br>v1.7.6以降:false|core|v1.7.0以降|
 
 #### Cell
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
@@ -65,7 +65,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |odata.batch.timeoutInMillis|$batch処理のタイムアウト時間(msec)|Long|270000|core|<br>|
 |odata.batch.sleepInMillis|$batch処理のスリープ時間(msec)|Long|50|core|<br>|
 |odata.batch.sleepIntervalInMillis|$batch処理のスリープ間隔(msec)|Long|1000|core|<br>|
-|odata.links.NtoN.maxnum|N:Nの$linksが作成可能な最大件数|Int|10000|core|<br>|
+|odata.links.NtoN.maxnum|N:Nの$linksが作成可能な最大件数|Int|v1.7.5以前:10000<br>v1.7.6以降:150000|core|<br>|
 |odata.query.expand.top.maxnum|$expand指定時の$top最大数|Int|100|core|<br>|
 |odata.expand.retrieve.maxnum|$expandの最大展開数（一件取得時）|Int|1000|core|<br>|
 |odata.query.top.maxnum|$topの最大値数|Int|10000|core|<br>|

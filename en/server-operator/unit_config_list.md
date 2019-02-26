@@ -49,7 +49,7 @@ It is a setting which change from default as optional when operating Personium.
 |unitPort|Unit port setting|Port number||core|v1.6.0 or later. When UnitURL is "https&#58;//p-host:8080/", unitPort becomes 8080. When UnitURL is "https&#58;//p-host/", unitPort is no need.|
 |unitPath|Unit path of URL|String||core|v1.6.0 or later. When UnitURL is "https&#58;//p-host:8080/p-path/", unitPath becomes "/p-path". When UnitURL is "https&#58;//p-host:8080/", unitPath is no need.|
 |masterToken|Master Token|Token string||core, engine|Please do not set it when you operate it though it is possible to set by the development usage.|
-|pathBasedCellUrl.enabled|URL format to access cell|true:path based cell url<br>false:per cell fqdn url|true|core|v1.7.0 or later.|
+|pathBasedCellUrl.enabled|URL format to access cell|true:path based cell url<br>false:per cell fqdn url|v1.7.5 or before:true<br>v1.7.6 or later:false|core|v1.7.0 or later.|
 
 #### Cell
 |Key|Description|Value|Default value|Used component|Notes|
@@ -64,7 +64,7 @@ It is a setting which change from default as optional when operating Personium.
 |odata.batch.timeoutInMillis|Timeout time of $batch processing (msec)|Long|270000|core|<br>|
 |odata.batch.sleepInMillis|Sleep time of $batch processing (msec)|Long|50|core|<br>|
 |odata.batch.sleepIntervalInMillis|Sleep interval of $batch processing (msec)|Long|1000|core|<br>|
-|odata.links.NtoN.maxnum|Maximum number of N: N $links can be created|Int|10000|core|<br>|
+|odata.links.NtoN.maxnum|Maximum number of N: N $links can be created|Int|v1.7.5 or before:10000<br>v1.7.6 or later:150000|core|<br>|
 |odata.query.expand.top.maxnum|$Top Maximum number when $expand is specified|Int|100|core|<br>|
 |odata.expand.retrieve.maxnum|Max expanded number of $expand (when acquiring one case)|Int|1000|core|<br>|
 |odata.query.top.maxnum|Maximum number of $top|Int|10000|core|<br>|
