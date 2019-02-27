@@ -5,8 +5,8 @@ PersoniumではセルにアクセスするURL形式として以下の２つの�
 
 ||アクセス形式|備考|
 |:--|:--|:--|
-|path based|https://fqdn/cellname|1.7.4以前のデフォルト<br>|
-|percell fqdn|https://cellname.fqdn|1.7.5以降のデフォルト<br>|
+|path based|https&#58;//fqdn/cellname|1.7.4以前のデフォルト<br>|
+|percell fqdn|https&#58;//cellname.fqdn|1.7.5以降のデフォルト<br>|
 
 このアクセス形式はPersoniumユニット起動時のオプション（pathBasedCellUrl.enabled）の値で切り換えることが可能です。  
 personium-core1.7.5リリースからデフォルトになったpercell形式でのアクセスには、幾つかの必須要件があるので記載します。  
@@ -19,8 +19,8 @@ personium-core1.7.5リリースからデフォルトになったpercell形式で
 処理をおこなうPersoniumのサーバに全てのcellのURLをアクセスさせるためのDNSサーバへの設定が必要になります。  
 *.fqdn へのアクセスをPersoniumサーバにリダイレクトする設定が必要になります。設定方法はDNSサーバによって異りますが  
 
-* CNAMEレコードで https://*.fqdn ⇒ https://fqdn にリダイレクトする
-* Aレコードでhttps://*.fqdnのアクセス先にhttps://fqdnと同じIPアドレスを指定する
+* CNAMEレコードで https&#58;//*.fqdn ⇒ https&#58;//fqdn にリダイレクトする
+* Aレコードでhttps&#58;//*.fqdnのアクセス先にhttps://fqdnと同じIPアドレスを指定する
 
 等があります。  
 
