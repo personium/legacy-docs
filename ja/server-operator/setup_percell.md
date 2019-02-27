@@ -5,8 +5,8 @@ PersoniumではセルにアクセスするURL形式として以下の２つの�
 
 ||アクセス形式|備考|
 |:--|:--|:--|
-|path based|https&#58;//fqdn/cellname|1.7.4以前のデフォルト<br>|
-|percell fqdn|https&#58;//cellname.fqdn|1.7.5以降のデフォルト<br>|
+|path based|https&#58;//fqdn/cellname|1.7.5以前のデフォルト<br>|
+|percell fqdn|https&#58;//cellname.fqdn|1.7.6以降のデフォルト<br>|
 
 このアクセス形式はPersoniumユニット起動時のオプション（pathBasedCellUrl.enabled）の値で切り換えることが可能です。  
 personium-core1.7.5リリースからデフォルトになったpercell形式でのアクセスには、幾つかの必須要件があるので記載します。  
