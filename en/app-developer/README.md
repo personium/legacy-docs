@@ -50,7 +50,7 @@ So it is easier to start from non-Personium App when learning.
 
 Let us first use a single box inside a single cell and start trying to write or read data there.
 
-### [OData,WebDAV Experience](https://demo.personium.io/baas-demo/1/index.html)
+### [OData,WebDAV Experience](https://baas-demo.demo.personium.io/1/index.html)
 
 It would be better to first grasp the overview of OData and WebDAV.
 

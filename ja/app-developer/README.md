@@ -38,7 +38,7 @@ Personiumは個人をはじめとするデータ主体を中心としたコン�
 
 まず一つのCellの中の一つのBoxを使って、そこにデータを書いたり読んだりすることに取り組んでみましょう。
 
-### [OData,WebDAVの体験](https://demo.personium.io/baas-demo/1/index.html)
+### [OData,WebDAVの体験](https://baas-demo.demo.personium.io/1/index.html)
 
 まずこのデモでODataとWebDAVの概要をつかんでおくと後が楽になります。
 
