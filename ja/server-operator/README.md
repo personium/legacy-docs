@@ -40,13 +40,17 @@ Personiumはスケーラブルなアーキテクチャを採用しています�
 
 さまざまな環境でユニットが構築できたというお話をコミュニティの#infraチャンネルで聞かせて頂けると嬉しく思います。
 
-|    | サーバ | サーバ構築 | Personiumセットアップ | 導入済拡張エンジン | 導入済アプリケーション |
-| :- | :----- | :-------- | :------------------- | :------------- | :------------------ |
-| Personiumを使ってみる | Linuxサーバ1台 | 不要 | 不要 | httpclient<br>ew-services<br>mailsender<br>slack | unit-manager |
-| 小規模環境   | Linuxサーバ1台 | Vagrant | 不要 | httpclient<br>ew-services<br>mailsender<br>slack | unit-manager |
-| | | ユーザ側でLinuxサーバを準備 | Ansible | なし | なし |
-| 中・大規模環境 | Linuxサーバ3台 | HeatTemplate | Ansible | なし | なし |
-| | | ユーザ側でLinuxサーバを準備 | 自力 | なし | なし |
+|    | サーバ | サーバ構築 | Personiumセットアップ | 導入済拡張エンジン | Personiumバージョン | CellにアクセスするURL形式 | 導入済アプリケーション | デフォルトFQDN |
+| :- | :----- | :-------- | :------------------- | :------------- | :------------------ | :------------------ | :------------------ | :------------------ |
+| Personiumを使ってみる | Linuxサーバ1台 | 不要 | 不要 | httpclient<br>ew-services<br>mailsender<br>slack | 1.6.15 | path based cell url | unit-manager | personium.example.com |
+| | | | | | 1.7系（未定） | path based cell url | unit-manager | personium.example.com |
+| | | | | | 1.7系（未定） | per cell fqdn url | なし※1 | personium.example.com |
+| 小規模環境 | Linuxサーバ1台 | Vagrant | 不要 | httpclient<br>ew-services<br>mailsender<br>slack | 最新 | path based cell url | unit-manager | personium.example.com |
+| | | | | | 最新 | per cell fqdn url | なし※1 | personium.example.com |
+| | | ユーザ側でLinuxサーバを準備 | Ansible | なし | 任意<br>デフォルトは最新 | path based cell url<br>per cell fqdn url | なし※1 | なし |
+| 中・大規模環境 | Linuxサーバ3台 | HeatTemplate | Ansible | なし | 任意<br>デフォルトは最新 | path based cell url<br>per cell fqdn url | なし※1 | なし |
+| | | ユーザ側でLinuxサーバを準備 | 自力 | なし | 任意<br>デフォルトは最新 | path based cell url<br>per cell fqdn url | なし※1 | なし |
+※1 unit-managerをインストールしたい場合は、[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.md)の手順をご確認ください。
 
 ### Personiumを使ってみる
 
