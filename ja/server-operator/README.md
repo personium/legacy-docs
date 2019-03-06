@@ -50,7 +50,7 @@ Personiumはスケーラブルなアーキテクチャを採用しています�
 | | | ユーザ側でLinuxサーバを準備 | Ansible | なし | 任意<br>デフォルトは最新 | path based cell url<br>per cell fqdn url | なし※1 | なし |
 | 中・大規模環境 | Linuxサーバ3台 | HeatTemplate | Ansible | なし | 任意<br>デフォルトは最新 | path based cell url<br>per cell fqdn url | なし※1 | なし |
 | | | ユーザ側でLinuxサーバを準備 | 自力 | なし | 任意<br>デフォルトは最新 | path based cell url<br>per cell fqdn url | なし※1 | なし |
-※1 unit-managerをインストールしたい場合は、[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.md)の手順をご確認ください。
+※1 unit-managerをインストールしたい場合は、[こちら](https://github.com/personium/app-uc-unit-manager/blob/master/README_ja.%6D%64)の手順をご確認ください。
 
 ### Personiumを使ってみる
 
