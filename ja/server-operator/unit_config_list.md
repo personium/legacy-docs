@@ -57,6 +57,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |:--|:--|:--|:--|:--|:--|
 |cell.relayhtmlurl.default|Cellルート取得API実行時にアクセスするURL|URL||core|v1.6.15以降。|
 |cell.authorizationhtmlurl.default|OAuth2.0 認可エンドポイントAPIの認証フォームリクエスト実行時にアクセスするURL|URL||core|v1.6.15以降。|
+|cell.authorizationpasswordchangehtmlurl.default|OAuth2.0 認可エンドポイントAPIのパスワード変更フォームリクエスト実行時にアクセスするURL|URL||core|v1.7.7以降。|
 
 #### OData
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|

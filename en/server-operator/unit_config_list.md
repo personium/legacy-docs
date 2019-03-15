@@ -56,6 +56,7 @@ It is a setting which change from default as optional when operating Personium.
 |:--|:--|:--|:--|:--|:--|
 |cell.relayhtmlurl.default|URL to access when executing Get Cell Root API.|URL||core|v1.6.15 or later.|
 |cell.authorizationhtmlurl.default|URL to access when executing authentication form request for OAuth2.0 Authorization Endpoint API.|URL||core|v1.6.15 or later.|
+|cell.authorizationpasswordchangehtmlurl.default|URL to access when executing OAuth 2.0 authorization endpoint API password change form request|URL||core|v1.7.7 or later.|
 
 #### OData
 |Key|Description|Value|Default value|Used component|Notes|
