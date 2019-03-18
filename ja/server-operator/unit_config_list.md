@@ -123,7 +123,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |es.retryInterval|エラー発生時のリトライ間隔(msec)|Int|1500|core|<br>|
 |es.index.numberOfShards|Elasticsearch シャード数|Int|10|core|v1.7.5以降|
 |es.index.numberOfReplicas|Elasticsearch レプリカ数|Int|0|core|v1.7.5以降|
-|es.index.maxResultWindow|Elasticsearch 最大結果表示数|Long|110000|core|v1.7.5以降|
+|es.index.maxResultWindow|Elasticsearch 最大結果表示数|Long|v1.7.6以前:110000<br>v1.7.7以降:150000|core|v1.7.5以降|
 |es.index.merge.scheduler.maxThreadCount|Elasticsearch マージスケジューラの最大スレッド数|Int|<br>|core|v1.7.5以降|
 
 #### BinaryData
