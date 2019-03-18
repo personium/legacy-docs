@@ -2,6 +2,22 @@
 
 ### Ver. 1.6系
 
+[1.6.12 - 1.6.13](../apiref/1.6.12/000_Rest_API_Reference.md)
+
+[1.6.10 - 1.6.11](../apiref/1.6.10/000_Rest_API_Reference.md)
+
+[1.6.9](../apiref/1.6.9/000_Rest_API_Reference.md)
+
+[1.6.8](../apiref/1.6.8/000_Rest_API_Reference.md)
+
+[1.6.7](../apiref/1.6.7/000_Rest_API_Reference.md)
+
+[1.6.6](../apiref/1.6.6/000_Rest_API_Reference.md)
+
+[1.6.5](../apiref/1.6.5/000_Rest_API_Reference.md)
+
+[1.6.3 - 1.6.4](../apiref/1.6.3/000_Rest_API_Reference.md)
+
 [1.6.2](../apiref/1.6.2/000_Rest_API_Reference.md)
 
 [1.6.0 - 1.6.1](../apiref/1.6.0/000_Rest_API_Reference.md)
