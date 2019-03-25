@@ -90,6 +90,12 @@ It is a setting which change from default as optional when operating Personium.
 |:--|:--|:--|:--|:--|:--|
 |security.dav.encrypt.enabled|Whether to encrypt the WebDAV file|true:To encrypt<br>false:Do not encrypt|false|core|v1.5.1 or later|
 |security.auth.password.regex|Password restriction|string<br>Regex pattern|^[a-zA-Z0-9-_!$\*=^\`{&#124;}~.@]{6,32}$|core|v1.7.5 or later<br>\* The number of characters of the password is 1 to 256. Regardless of the limit, it is not possible to set a password of 257 or more characters.|
+|security.auth.password.hashAlgorithm|Password hash algorithm|string<br>"scrypt" or "sha-256"|scrypt|core|v1.7.8 or later<br>\* "scrypt" is recommend<br>\* "sha-256" is deprecated (For backward compatibility. It will be removed someday.)|
+|security.auth.password.scrypt.cpuCost|CPU cost of scrypt hash|Int<br>Power of 2|16384|core|v1.7.8 or later|
+|security.auth.password.scrypt.memoryCost|Memory cost of scrypt hash|Int|8|core|v1.7.8 or later|
+|security.auth.password.scrypt.parallelization|Number of parallelizations of scrypt hash|Int|1|core|v1.7.8 or later|
+|security.auth.password.scrypt.keyLength|Key length of scrypt hash|Int|32|core|v1.7.8 or later|
+|security.auth.password.scrypt.saltLength|Salt length of scrypt hash|Int|64|core|v1.7.8 or later|
 
 #### Lock
 |Key|Description|Value|Default value|Used component|Notes|

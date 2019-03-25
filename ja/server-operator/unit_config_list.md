@@ -91,6 +91,12 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |:--|:--|:--|:--|:--|:--|
 |security.dav.encrypt.enabled|WebDAVファイルを暗号化するか|true:暗号化する<br>false:暗号化しない|false|core|v1.5.1以降|
 |security.auth.password.regex|パスワード制限|文字列<br>正規表現パターン|^[a-zA-Z0-9-_!$\*=^\`{&#124;}~.@]{6,32}$|core|v1.7.5以降<br>※パスワードの文字数は1〜256です。制限に関係なく、257文字以上のパスワードを設定することはできません。|
+|security.auth.password.hashAlgorithm|パスワードのハッシュアルゴリズム|文字列<br>"scrypt"または"sha-256"|scrypt|core|v1.7.8以降<br>※"scrypt"を推奨<br>※"sha-256"は非推奨（下位互換用。後に削除する予定。）|
+|security.auth.password.scrypt.cpuCost|scryptハッシュのCPUコスト|Int<br>2のべき乗|16384|core|v1.7.8以降|
+|security.auth.password.scrypt.memoryCost|scryptハッシュのメモリコスト|Int|8|core|v1.7.8以降|
+|security.auth.password.scrypt.parallelization|scryptハッシュの並列化数|Int|1|core|v1.7.8以降|
+|security.auth.password.scrypt.keyLength|scryptハッシュのキー長|Int|32|core|v1.7.8以降|
+|security.auth.password.scrypt.saltLength|scryptハッシュのソルト長|Int|64|core|v1.7.8以降|
 
 #### Lock
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
