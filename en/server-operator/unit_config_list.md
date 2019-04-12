@@ -114,7 +114,7 @@ It is a setting which change from default as optional when operating Personium.
 |Key|Description|Value|Default value|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
 |authn.account.lockCount|Account lock threshold<br>Number of times to lock that account on successive authentication failures and cause authentication to fail|Int<br>0～100|0|core|v1.7.5 or later<br>Setting it to 0 will not lock accounts|
-|authn.account.lockTime|Account lock data (sec)<br>A period of time that locks the account at the time of consecutive authentication failure and causes the authentication to fail<br>|Int<br>0～2592000 (30 days)|0|core|v1.7.5 or later<br>Setting it to 0 will not lock accounts|
+|authn.account.lockTime|Account lock expiration date (sec)<br>A period of time that locks the account at the time of consecutive authentication failure and causes the authentication to fail<br>|Int<br>0～2592000 (30 days)|0|core|v1.7.5 or later<br>Setting it to 0 will not lock accounts|
 |authn.account.validAuthnInterval|Valid authentication interval (sec)<br>Fail authentication attempt at intervals shorter than the authentication interval|Int|1|core|v1.7.5 or later|
 
 #### Elasticsearch
