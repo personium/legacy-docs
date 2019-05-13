@@ -171,7 +171,7 @@ It is a setting which change from default as optional when operating Personium.
 |cache.memcached.expiresin|Cache effective period (sec)|Int|86400|core|<br>|
 
 #### Engine
-Engine settings are used to access Engine from Core.
+"engine.host", "engine.port" and "engine.path" are used to access Engine from Core.
 ```
 http://{engine.host}:{engine.port}/{engine.path}
 ```
@@ -180,6 +180,7 @@ http://{engine.host}:{engine.port}/{engine.path}
 |engine.host|Engine server host name|Host name|localhost|core|<br>|
 |engine.port|Engine server port number|Port number|8080|core|<br>|
 |engine.path|Path of Engine|Path|personium-engine|core|<br>|
+|engine.script.cache.maxNum|Maximum number of registered engine script caches.|Int|100000|engine|If the maximum number of registrations is exceeded, the last access date is deleted from the old cache.<br>v1.5.19 or later.|
 
 #### Bar file
 |Key|Description|Value|Default value|Used component|Notes|

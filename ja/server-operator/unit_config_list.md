@@ -172,7 +172,7 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |cache.memcached.expiresin|キャッシュ有効期間(sec)|Int|86400|core|<br>|
 
 #### Engine
-Engine設定はCoreからEngineへアクセスする際に使用します。
+"engine.host", "engine.port", "engine.path"はCoreからEngineへアクセスする際に使用します。
 ```
 http://{engine.host}:{engine.port}/{engine.path}
 ```
@@ -181,6 +181,7 @@ http://{engine.host}:{engine.port}/{engine.path}
 |engine.host|Engineサーバのホスト名|ホスト名|localhost|core|<br>|
 |engine.port|Engineサーバのポート番号|ポート番号|8080|core|<br>|
 |engine.path|Engineのパス|パス|personium-engine|core|<br>|
+|engine.script.cache.maxNum|Engineスクリプトのキャッシュ最大登録数|Int|100000|engine|最大登録数を超えた場合、最終アクセス日時の古いものから削除されます。<br>v1.5.19以降|
 
 #### barファイル
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
