@@ -18,7 +18,7 @@ However, the newly created Personium does not have a cell or account to be used 
 
 The unit master token can be invalidated by performing the following procedure on the server on which the AP service runs.
 
-1. Modification of '/personium/personium-core/conf/18888/personium-unit-config.properties'
+1. Modification of 'personium-unit-config.properties'
 
     ```sh
     vi /personium/personium-core/conf/18888/personium-unit-config.properties
@@ -47,7 +47,13 @@ The unit master token can be invalidated by performing the following procedure o
 ## Managing unit management accounts
 
 As an account to manage Personium units with Ansible, we have created unit user named unitadmin by default. unitadmin can perform operations such as adding, changing, and deleting resources such as all cells and boxes. Therefore, in an environment built with Ansible, the security level is lowered because it is an account name to be used commonly.
-We recommend that you periodically change the password of the unitadmin account or create and use an arbitrary unit user with the same authority as unitadmin.
+
+It is necessary to carry out the combination of the following measures in production use.
+
+1. Change the unitadmin account password regularly
+1. Rename and use the unitadmin account
+1. Rename and use unitadmin Cell
+1. Build and use a unit user management mechanism externally
 
 ### Change unit user's password
 
@@ -100,6 +106,67 @@ We recommend that you periodically change the password of the unitadmin account 
     > **(Note)**  
     > **When forgetting the changed "unit management password", it is necessary to change the unit management password by using the master token.**　　
 
-### Create an account with equivalent rights to unitadmin
+### Rename and use the unitadmin account
 
-**~~ Under preparation ~~**
+The default configuration makes it easy to find out which account to obtain a token with strong privileges.
+Renaming the unitadmin account eliminates this condition.
+In this example, "administrator" is the new account.
+
+```sh
+curl "https://unitadmin.{Personium_FQDN}/__ctl/Account('unitadmin')" \
+-X PUT -i -k \
+-H "X-Personium-Credential:{unitadmin_password}" -H "Content-Type: application/json" -H "Authorization: Bearer {Token}" \
+-d "{\"Name\":\"administrator\"}"
+```
+
+> **(Note)**  
+>**After execution, existing Cell which has been created with unitadmin token can not be accessed except master token.**
+
+### Rename and use unitadmin Cell
+
+The default configuration makes it easy to find the endpoint URL to get a token with strong privileges.
+Renaming the unitadmin Cell eliminates this condition.
+In this example, "personium-admin" is the modified Cell name.
+
+```sh
+curl "https://{Personium_FQDN}/__ctl/Cell(Name='unitadmin')" \
+-X PUT -i -k \
+-H "Authorization: Bearer {Token}" -H "Content-Type: application/json" \
+-d "{\"Name\":\"personium-admin\"}"
+```
+
+It is set in the unit-config.properties file on the AP server that the unitadmin Cell is a special Cell that can issue unit user tokens.
+It is also necessary to change the settings on the unit-config.properties file in order for the renamed Cell to continue to have the same privileges.
+
+1. Modification of 'personium-unit-config.properties'
+
+    ```sh
+    vi /personium/personium-core/conf/18888/personium-unit-config.properties
+    ```
+
+    * Modify the io.personium.core.unitUser.issuers parameter to give the renamed Cell the same permissions.
+
+    eg.
+
+    ```sh
+    ...
+    # befor
+    io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/
+    # after
+    io.personium.core.unitUser.issuers=personium-localunit:/personium-admin/
+    ...
+    ```
+
+1. Restart Tomcat
+
+    ```sh
+    systemctl restart tomcat
+    ```
+
+> **(Note)**  
+>**After execution, existing Cell which has been created with unitadmin token can not be accessed except master token.**
+
+### Build and use a unit user management mechanism externally
+
+If you have a separate mechanism for issuing tokens that meet the unit user token requirements, you do not need to use the unitadmin Cell itself.
+
