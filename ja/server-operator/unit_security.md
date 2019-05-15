@@ -16,7 +16,7 @@ Ansible を利用してPersonium ユニットを作成した場合、デフォ�
 
 ### ユニットマスタートークンの無効化手順
 
-ユニットマスタートークンはAP サービスが稼働するサーバで以下の手順を行い無効化することが可能です。
+ユニットマスタートークンはAPサーバで以下の手順を行い無効化することが可能です。
 
 1. 'personium-unit-config.properties' の修正
 
@@ -65,7 +65,7 @@ Ansible でPersonium ユニットを管理するアカウントとしてデフ�
     ```sh
     curl "https://unitadmin.{Personium_FQDN}/__token" \
     -X POST -i -k \
-    -d "grant_type=password&username={unitadmin_account}&password={unitudmin_password}&p_target=https://{Personium_FQDN}/" \
+    -d "grant_type=password&username={unitadmin_account}&password={unitadmin_password}&p_target=https://{Personium_FQDN}/" \
     -H "Content-Type: application/x-www-form-urlencoded"
     ```
 
@@ -113,9 +113,9 @@ unitadmin アカウントをリネームすることで、この状態を解消�
 この例では "administrator" が 変更後のアカウントです。  
 
 ```sh
-curl "https://unitadmin.{Personium_FQDN}/__ctl/Account('{unitadmin_account}')" \
+curl "https://unitadmin.{Personium_FQDN}/__ctl/Account('unitadmin')" \
 -X PUT -i -k \
--H "X-Personium-Credential:{unitudmin_password}" -H "Content-Type: application/json" -H "Authorization: Bearer {Token}" \
+-H "X-Personium-Credential:{unitadmin_password}" -H "Content-Type: application/json" -H "Authorization: Bearer {Token}" \
 -d "{\"Name\":\"administrator\"}"
 ```
 >**（注意）**  
@@ -134,7 +134,7 @@ curl "https://{Personium_FQDN}/__ctl/Cell(Name='unitadmin')" \
 -d "{\"Name\":\"personium-admin\"}"
 ```
 
-unitadmin Cellがユニットユーザトークン発行可能な特別なCellであることは、unit-config.propertiesファイルにおいて設定されています。
+unitadmin Cellがユニットユーザトークン発行可能な特別なCellであることは、APサーバ上のunit-config.propertiesファイルにおいて設定されています。
 リネームしたCellに引き続き同様の権限を持たせるためには、unit-config.propertiesファイル上での設定を変更する必要もあります。
 
 1. 'personium-unit-config.properties' の修正
