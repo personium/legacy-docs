@@ -18,7 +18,7 @@ Ansible を利用してPersonium ユニットを作成した場合、デフォ�
 
 ユニットマスタートークンはAP サービスが稼働するサーバで以下の手順を行い無効化することが可能です。
 
-1. '/personium/personium-core/conf/18888/personium-unit-config.properties' の修正
+1. 'personium-unit-config.properties' の修正
 
     ```sh
     vi /personium/personium-core/conf/18888/personium-unit-config.properties
@@ -50,10 +50,10 @@ Ansible でPersonium ユニットを管理するアカウントとしてデフ�
 
 本番利用にあたっては、以下施策を組み合わせて実施することが必要です。
 
-1. unitadmin アカウントのパスワードを定期的に変更
-1. unitadmin Cellをリネームして用いる。
-1. unitadmin と同等の権限を持つ任意のユニットユーザーを作成して利用する。
-1. 外部にユニットユーザ管理機構を構築して利用する。
+1. unitadmin アカウントのパスワードを定期的に変更する
+1. unitadmin アカウントをリネームして用いる
+1. unitadmin Cellをリネームして用いる
+1. 外部にユニットユーザ管理機構を構築して利用する
 
 ### ユニットユーザーのパスワード変更
 
@@ -63,7 +63,7 @@ Ansible でPersonium ユニットを管理するアカウントとしてデフ�
     OAuth2 Token エンドポイントAPIを使用します。（一旦取得したトークンは、１時間有効です）
 
     ```sh
-    curl "https://{Personium_FQDN}/unitadmin/__token" \
+    curl "https://unitadmin.{Personium_FQDN}/__token" \
     -X POST -i -k \
     -d "grant_type=password&username={unitadmin_account}&password={unitudmin_password}&p_target=https://{Personium_FQDN}/" \
     -H "Content-Type: application/x-www-form-urlencoded"
@@ -86,14 +86,14 @@ Ansible でPersonium ユニットを管理するアカウントとしてデフ�
 1. 取得したトークンを利用してパスワード変更を行います。パスワード変更は[Account更新API](../apiref/current/215_Update_Account.md)のリクエストヘッダーの'X-Personium-Credential' に任意のパスワードを指定することで変更できます。
     この例では "abcd1234" が 変更後のパスワードです。
 
-    >**（注意）**
+    >**（注意）**  
     >**ユニット管理アカウントは強い権限を持っているため、変更後のパスワードには推測されにくいものを指定してください。**
 
     ```sh
-    curl "https://{Personium_FQDN}/unitadmin/__ctl/Account('{unitadmin_account}')" \
+    curl "https://unitadmin.{Personium_FQDN}/__ctl/Account('{unitadmin_account}')" \
     -X PUT -i -k \
-    -d "{\"Name\":\"{unitadmin_account}\"}" \
-    -H "X-Personium-Credential:abcd1234" -H "Content-Type: application/json" -H "Authorization:Bearer {Token}"
+    -H "X-Personium-Credential:abcd1234" -H "Content-Type: application/json" -H "Authorization:Bearer {Token}" \
+    -d "{\"Name\":\"{unitadmin_account}\"}"
     ```
 
     このAPIはjson形式のレスポンス(ボディ)を返しません。
@@ -103,24 +103,67 @@ Ansible でPersonium ユニットを管理するアカウントとしてデフ�
     HTTP/1.1 204 No Content
     ```
 
-    >**（注意）**
+    >**（注意）**  
     >**変更した「ユニット管理パスワード」を忘却したときはマスタートークンを用いユニット管理パスワードを変更する必要があります。**　　
+
+### unitadmin アカウントをリネームして用いる
+
+デフォルトの設定では強力な権限を持つトークンを取得するためのアカウントが簡単にわかってしまいます。  
+unitadmin アカウントをリネームすることで、この状態を解消します。  
+この例では "administrator" が 変更後のアカウントです。  
+
+```sh
+curl "https://unitadmin.{Personium_FQDN}/__ctl/Account('{unitadmin_account}')" \
+-X PUT -i -k \
+-H "X-Personium-Credential:{unitudmin_password}" -H "Content-Type: application/json" -H "Authorization: Bearer {Token}" \
+-d "{\"Name\":\"administrator\"}"
+```
+>**（注意）**  
+>**※実施後、unitadminのトークンで作成済の既存のCellには、マスタートークン以外でのアクセスが出来なくなります。**
 
 ### unitadmin Cell のリネーム
 
 デフォルトの設定では強力な権限を持つトークンを取得するためのエンドポイントURLが簡単にわかってしまいます。
 unitadmin Cellをリネームすることで、この状態を解消します。
+この例では "personium-admin" が 変更後のCell名です。 
 
-***～～  手順記述  ～～***
+```sh
+curl "https://{Personium_FQDN}/__ctl/Cell(Name='unitadmin')" \
+-X PUT -i -k \
+-H "Authorization: Bearer {Token}" -H "Content-Type: application/json" \
+-d "{\"Name\":\"personium-admin\"}"
+```
 
 unitadmin Cellがユニットユーザトークン発行可能な特別なCellであることは、unit-config.propertiesファイルにおいて設定されています。
-リネームしたCellが引き続き同様な力を持たせるためには、unit-config.propertiesファイル上での設定を変更する必要もあります。
+リネームしたCellに引き続き同様の権限を持たせるためには、unit-config.propertiesファイル上での設定を変更する必要もあります。
 
-***～～  手順記述  ～～***
+1. 'personium-unit-config.properties' の修正
 
-### unitadmin と同等の権限を持つアカウント準備
+    ```sh
+    vi /personium/personium-core/conf/18888/personium-unit-config.properties
+    ```
 
-***～～  準備中  ～～***
+    * io.personium.core.unitUser.issuers パラメータを修正する事でリネームしたCellに同様の権限を持たせます。
+
+    例：
+
+    ```sh
+    ...
+    # 変更前
+    io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/
+    # 変更後
+    io.personium.core.unitUser.issuers=personium-localunit:/personium-admin/
+    ...
+    ```
+
+1. Tomcat を再起動します
+
+    ```sh
+    systemctl restart tomcat
+    ```
+
+>**（注意）**  
+>**※実施後、unitadminのトークンで作成済の既存のCellには、マスタートークン以外でのアクセスが出来なくなります。**
 
 ### 外部ユニットユーザ管理機構を構築して利用
 
