@@ -19,7 +19,7 @@ Windows
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
 | Tomcat | 9.0系 | Pleiades同梱のものを使用するため個別の導入は行わない |
-| Elasticsearch | 5.6.14 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-5-6-14 |
+| Elasticsearch | 6.6.1 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-6-6-1 |
 | ActiveMQ | 5.15系 | http://activemq.apache.org/download-archives.html |
 | Nginx | 1.14系 | http://nginx.org/download/nginx-1.14.0.zip |
 
@@ -104,7 +104,7 @@ C:¥Users¥[user]¥.gitconfigに、以下の記述を追加します。
 ```
 
 ### Elasticsearch
-#### elasticsearch-5.6.14\config\elasticsearch.ymlの修正
+#### elasticsearch-6.6.1\config\elasticsearch.ymlの修正
 
 elasticsearch.ymlに以下の記述を追加します。
 
@@ -112,7 +112,7 @@ elasticsearch.ymlに以下の記述を追加します。
 cluster.name: 【任意の名前】
 
 network.host: 0.0.0.0
-action.auto_create_index: false
+action.auto_create_index: ".watches,.triggered_watches,.watcher-history-*"
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 indices.fielddata.cache.size: 80%（任意:ヒープメモリの何％をデータキャッシュとして使用するか）
@@ -247,9 +247,7 @@ io.personium.core.odata.links.NtoN.maxnum=40
 # general configurations
 io.personium.core.masterToken=personiumio
 
-io.personium.core.es.cluster.name=【elasticsearch.ymlで設定した値】
-
-io.personium.core.blobStore.root=/personium/personium_nfs/personium-core/dav
+io.personium.core.blobStore.root=/personium_nfs/personium-core/dav
 
 # security configurations
 io.personium.core.security.secret16=secret167pm5m4y6
@@ -298,11 +296,15 @@ io.personium.core.security.secret16=secret167pm5m4y6
   "cluster_name" : "【elasticsearch.ymlで設定した値】",
   "cluster_uuid" : "VM2fJ2hXQRSI4PsYhJBtLA",
   "version" : {
-    "number" : "5.6.14",
-    "build_hash" : "f310fe9",
-    "build_date" : "2018-12-05T21:20:16.416Z",
+    "number" : "6.6.1",
+    "build_flavor" : "default",
+    "build_type" : "zip",
+    "build_hash" : "1fd8f69",
+    "build_date" : "2019-02-13T17:10:04.160291Z",
     "build_snapshot" : false,
-    "lucene_version" : "6.6.1"
+    "lucene_version" : "7.6.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
   },
   "tagline" : "You Know, for Search"
 }

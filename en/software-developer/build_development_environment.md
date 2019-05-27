@@ -19,7 +19,7 @@ Please download the necessary tools for operation check.
 | Tool name | Version | Download URL |
 |:--|:--|:--|
 | Tomcat | 9.0 series | Pleiades Do not introduce individual items to use the items included |
-| Elasticsearch | 5.6.14 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-5-6-14 |
+| Elasticsearch | 6.6.1 | https://www.elastic.co/jp/downloads/past-releases/elasticsearch-6-6-1 |
 | ActiveMQ | 5.15 series | http://activemq.apache.org/download-archives.html |
 | Nginx | 1.14 series | http://nginx.org/download/nginx-1.14.0.zip |
 
@@ -104,7 +104,7 @@ Add the following to the system environment variable (Path).
 ```
 
 ### Elasticsearch
-#### Modification of elasticsearch-5.6.14 \ config \ elasticsearch.yml
+#### Modification of elasticsearch-6.6.1\config\elasticsearch.yml
 
 Add the following description to elasticsearch.yml.
 
@@ -112,7 +112,7 @@ Add the following description to elasticsearch.yml.
 cluster.name: {Optional name}
 
 network.host: 0.0.0.0
-action.auto_create_index: false
+action.auto_create_index: ".watches,.triggered_watches,.watcher-history-*"
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 indices.fielddata.cache.size: 80%(Optional: What percent of heap memory is used as data cache)
@@ -247,9 +247,7 @@ io.personium.core.odata.links.NtoN.maxnum=40
 # general configurations
 io.personium.core.masterToken=personiumio
 
-io.personium.core.es.cluster.name={Value set with elasticsearch.yml}
-
-io.personium.core.blobStore.root=/personium/personium_nfs/personium-core/dav
+io.personium.core.blobStore.root=/personium_nfs/personium-core/dav
 
 # security configurations
 io.personium.core.security.secret16=secret167pm5m4y6
@@ -298,11 +296,15 @@ The output will be successful if it is output as follows.
   "cluster_name" : "{Value set with elasticsearch.yml}",
   "cluster_uuid" : "VM2fJ2hXQRSI4PsYhJBtLA",
   "version" : {
-    "number" : "5.6.14",
-    "build_hash" : "f310fe9",
-    "build_date" : "2018-12-05T21:20:16.416Z",
+    "number" : "6.6.1",
+    "build_flavor" : "default",
+    "build_type" : "zip",
+    "build_hash" : "1fd8f69",
+    "build_date" : "2019-02-13T17:10:04.160291Z",
     "build_snapshot" : false,
-    "lucene_version" : "6.6.1"
+    "lucene_version" : "7.6.0",
+    "minimum_wire_compatibility_version" : "5.6.0",
+    "minimum_index_compatibility_version" : "5.0.0"
   },
   "tagline" : "You Know, for Search"
 }
