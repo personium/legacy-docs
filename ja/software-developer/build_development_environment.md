@@ -9,7 +9,7 @@ Windows
 | ツール名 | バージョン | ダウンロードURL |
 |:--|:--|:--|
 | Eclipse (Pleiades) | 2018-09 Full Edition 以降 | http://mergedoc.osdn.jp/ |
-| OracleJDK | 1.8系 | Pleiades同梱のものを使用するため個別の導入は行わない |
+| AdoptOpenJDK | 8系 / HotSpot | https://adoptopenjdk.net/ |
 | Git | 最新 | https://git-scm.com/ |
 | Maven | 3系 | https://maven.apache.org/download.cgi |
 
@@ -31,7 +31,7 @@ Windows
 
 ```
 変数：JAVA_HOME
-値：javaのインストールディレクトリパス(例：C:\Program Files\pleiades\java\8)
+値：javaのインストールディレクトリパス(例：C:\Program Files\Java\openjdk-1.8.0.191)
 ```
 
 システム環境変数Pathに以下を追加します。

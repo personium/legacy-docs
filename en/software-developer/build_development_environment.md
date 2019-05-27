@@ -9,7 +9,7 @@ Download the necessary tools for development.
 | Tool name | Version | Download URL |
 |:--|:--|:--|
 | Eclipse (Pleiades) | 2018-09 Full Edition or later | http://mergedoc.osdn.jp/ |
-| OracleJDK | 1.8 series | Pleiades Do not introduce individual items to use the items included |
+| AdoptOpenJDK | 8 series / HotSpot | https://adoptopenjdk.net/ |
 | Git | Latest | https://git-scm.com/ |
 | Maven | 3 series | https://maven.apache.org/download.cgi |
 
@@ -31,7 +31,7 @@ Set environment variable (JAVA_HOME).
 
 ```
 variable:JAVA_HOME
-value:java installation directory path(e.g.: C:\Program Files\pleiades\java\8)
+value:java installation directory path(e.g.: C:\Program Files\Java\openjdk-1.8.0.191)
 ```
 
 Add the following to the system environment variable (Path).
