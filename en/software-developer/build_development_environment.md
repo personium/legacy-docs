@@ -25,8 +25,15 @@ Please download the necessary tools for operation check.
 
 
 ## Initial setting of various tools
-Execute the command as a user with administrator authority.
-### OracleJDK
+
+### Eclipse
+1. Add AdoptOpenJDK to the installed JRE from [Window]-> [Settings].  
+Set AddOpenOpenJDK as default.  
+
+1. Add a Tomcat 9 server to the server runtime environment from [Window]-> [Settings].  
+Set AdoptOpenJDK to JRE.  
+
+### JDK
 Set environment variable (JAVA_HOME).  
 
 ```
@@ -174,13 +181,13 @@ For initialization of Nginx, modify the nginx.conf file under nginx-1.14.0\conf.
                 proxy_hide_header X-Runtime;
     ```
 
-## Project registration in Eclipse
-Register personium-core and personium-engine as a project.  
+## Project import in Eclipse
+Import personium-core and personium-engine as a project.  
 1. Clone from the GitHub repository.  
 https://github.com/personium/personium-core.git  
 https://github.com/personium/personium-engine.git
 
-1. Register each as an Eclipse maven project.  
+1. Import each as an Eclipse maven project.  
 
 1. Create personium-unit-config.properties in each /src/main/resources.
 > The value of io.personium.core.es.cluster.name is the Elasticsearch config file (elasticsearch.yml)  
@@ -205,7 +212,7 @@ io.personium.core.pathBasedCellUrl.enabled=true
 io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/ personium-localunit:/unitadmincell/ personium-localunit:/unitusercell/
 
 # cell configurations
-io.personium.core.cell.relayhtmlurl.default=https://demo.personium.io/app-cc-home/__/index.html
+io.personium.core.cell.relayhtmlurl.default=https://app-cc-home.demo.personium.io/__/index.html
 
 io.personium.core.es.cluster.name={Value set with elasticsearch.yml}
 io.personium.core.es.retryTimes=10
@@ -271,7 +278,7 @@ Please carry out the procedure described below.
 
 ## Startup confirmation method
 Execute the command as a user with administrator authority.
-### Elasticsearch launch confirmation
+### 1. Elasticsearch launch confirmation
 
 Go to Elasticsearch installation directory at the command prompt etc.
 
@@ -282,7 +289,7 @@ Go to Elasticsearch installation directory at the command prompt etc.
 Execute the following command.
 
 ```
-> bin\elasticsearch-service install
+> bin\elasticsearch-service install (First time only)
 > bin\elasticsearch-service start
 ```
 
@@ -310,7 +317,7 @@ The output will be successful if it is output as follows.
 }
 ```
 
-### ActiveMQ startup confirmation
+### 2. ActiveMQ startup confirmation
 
 Go to the Activemq installation directory with command prompt etc.
 
@@ -327,10 +334,10 @@ Execute the following command.
 Access http://localhost:8161 in the browser.  
 The startup will be successful when the management screen is displayed.  
 
-### Startup confirmation for development server
+### 3. Startup confirmation for development server
 In Eclipse, right-click the [personium-core] project -> select [Run] -> [Run on Server].  
 
-For the first time, add the server of Tomcat 9 with the definition of the new server and execute it.  
+The server selects and runs the Tomcat9 server added by default.  
 
 > \* Starting Tomcat 9 may cause a startup error to exceed the timeout time.  
 Please change the timeout time at Tomcat startup in Eclipse.
@@ -343,7 +350,7 @@ The output will be successful if it is output as follows.
 {"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost\/"}}
 ```
 
-### Confirm Nginx startup
+### 4. Confirm Nginx startup
 
 Navigate to the Nginx installation directory with a command prompt.
 

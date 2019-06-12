@@ -25,8 +25,15 @@ Windows
 
 
 ## 各種ツールの初期設定
-コマンドは管理者権限を持つユーザで実行してください。
-### OracleJDK
+
+### Eclipse
+1. [Window]->[設定]からインストール済のJREにAdoptOpenJDKを追加します。  
+追加したAdoptOpenJDKをデフォルトに設定します。  
+
+1. [Window]->[設定]からサーバー・ランタイム環境にTomcat9のサーバを追加します。  
+サーバのJREにはAdoptOpenJDKを設定します。  
+
+### JDK
 環境変数(JAVA_HOME)を設定します。  
 
 ```
@@ -174,13 +181,13 @@ Nginxの初期設定のため、nginx-1.14.0\conf配下のnginx.confファイル
                 proxy_hide_header X-Runtime;
     ```
 
-## Eclipseへのプロジェクト登録
-personium-coreとpersonium-engineをプロジェクトとして登録します。  
+## Eclipseへのプロジェクトインポート
+personium-coreとpersonium-engineをプロジェクトとしてインポートします。  
 1. GitHubのリポジトリからcloneします。  
 https://github.com/personium/personium-core.git  
 https://github.com/personium/personium-engine.git
 
-1. Eclipseのmavenプロジェクトとしてそれぞれを登録します。  
+1. Eclipseのmavenプロジェクトとしてそれぞれをインポートします。  
 
 1. それぞれの/src/main/resourcesにpersonium-unit-config.propertiesを作成します。
 > io.personium.core.es.cluster.nameの値はElasticsearchのconfigファイル（elasticsearch.yml）  
@@ -205,7 +212,7 @@ io.personium.core.pathBasedCellUrl.enabled=true
 io.personium.core.unitUser.issuers=personium-localunit:/unitadmin/ personium-localunit:/unitadmincell/ personium-localunit:/unitusercell/
 
 # cell configurations
-io.personium.core.cell.relayhtmlurl.default=https://demo.personium.io/app-cc-home/__/index.html
+io.personium.core.cell.relayhtmlurl.default=https://app-cc-home.demo.personium.io/__/index.html
 
 io.personium.core.es.cluster.name=【elasticsearch.ymlで設定した値】
 io.personium.core.es.retryTimes=10
@@ -271,7 +278,7 @@ io.personium.core.security.secret16=secret167pm5m4y6
 
 ## 起動確認方法
 コマンドは管理者権限を持つユーザで実行してください。
-### Elasticsearch起動確認
+### 1. Elasticsearch起動確認
 
 コマンドプロンプト等でElasticsearchのインストールディレクトリに移動します。
 
@@ -282,7 +289,7 @@ io.personium.core.security.secret16=secret167pm5m4y6
 以下コマンドを実行します。
 
 ```
-> bin\elasticsearch-service install
+> bin\elasticsearch-service install (初回のみ)
 > bin\elasticsearch-service start
 ```
 
@@ -310,7 +317,7 @@ io.personium.core.security.secret16=secret167pm5m4y6
 }
 ```
 
-### ActiveMQ起動確認
+### 2. ActiveMQ起動確認
 
 コマンドプロンプト等でActivemqのインストールディレクトリに移動します。
 
@@ -327,10 +334,10 @@ io.personium.core.security.secret16=secret167pm5m4y6
 ブラウザでhttp://localhost:8161にアクセスします。  
 管理画面が表示されると起動成功となります。  
 
-### 開発用サーバ起動確認
+### 3. 開発用サーバ起動確認
 Eclipse上で[personium-core]プロジェクトを右クリック→[実行]→[サーバで実行]を選択します。  
 
-初回は新規サーバの定義でTomcat9のサーバを追加して実行します。  
+サーバは初期設定で追加したTomcat9のサーバを選択して実行します。  
 
 > ※Tomcat9の起動でタイムアウト時間を超えて起動エラーになることがあります。  
 EclipseでTomcat起動時のタイムアウト時間を変更してください。
@@ -343,7 +350,7 @@ EclipseでTomcat起動時のタイムアウト時間を変更してください�
 {"unit":{"path_based_cellurl_enabled":true,"url":"http:\/\/localhost\/"}}
 ```
 
-### Nginx起動確認
+### 4. Nginx起動確認
 
 コマンドプロンプト等でNginxインストールディレクトリに移動します。
 
