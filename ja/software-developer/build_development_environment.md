@@ -259,6 +259,7 @@ io.personium.core.blobStore.root=/personium_nfs/personium-core/dav
 # security configurations
 io.personium.core.security.secret16=secret167pm5m4y6
 ```
+※各設定の説明は[Unitの設定一覧](../server-operator/unit_config_list.md)を参照してください。
 
 > ※Eclipse上でmavenやpom.xml関連のビルドエラーが出ている場合、  
 以下に記載した手順を実施してください。
