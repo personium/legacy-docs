@@ -182,6 +182,7 @@ http://{engine.host}:{engine.port}/{engine.path}
 |engine.port|Engineサーバのポート番号|ポート番号|8080|core|<br>|
 |engine.path|Engineのパス|パス|personium-engine|core|<br>|
 |engine.script.cache.maxNum|Engineスクリプトのキャッシュ最大登録数|Int|100000|engine|最大登録数を超えた場合、最終アクセス日時の古いものから削除されます。<br>v1.5.19以降|
+|engine.script.connection.timeout|Engineスクリプトのコネクションタイムアウト時間(msec)|Int|50000|engine|Engineスクリプト内でAPIを呼び出す際のコネクションタイムアウト時間を設定。<br>v1.5.21以降|
 
 #### barファイル
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|

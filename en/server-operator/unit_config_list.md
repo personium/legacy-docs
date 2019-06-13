@@ -181,6 +181,7 @@ http://{engine.host}:{engine.port}/{engine.path}
 |engine.port|Engine server port number|Port number|8080|core|<br>|
 |engine.path|Path of Engine|Path|personium-engine|core|<br>|
 |engine.script.cache.maxNum|Maximum number of registered engine script caches.|Int|100000|engine|If the maximum number of registrations is exceeded, the last access date is deleted from the old cache.<br>v1.5.19 or later.|
+|engine.script.connection.timeout|Engine script connection timeout time(msec)|Int|50000|engine|Set connection timeout time when calling API in engine script.<br>v1.5.21 or later|
 
 #### Bar file
 |Key|Description|Value|Default value|Used component|Notes|
