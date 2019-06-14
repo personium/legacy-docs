@@ -40,6 +40,6 @@ Personium Project is looking for documentation contributors.
 
 #### [Server Plugin Developer's Guide](./plugin-developer/)  
 It is a document for people who want to develop and use plugins to extend Personium's server function
-#### [Server Developer's Guidee](./software-developer/)  
+#### [Server Developer's Guide](./software-developer/)  
 It is a document for people who want to develop Personium's OSS function or who want to commit to OSS
 
