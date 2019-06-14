@@ -22,13 +22,13 @@ If no configuration is present at Cell level, Unit level configuration will be u
 
 ||Unit Configuration|Cell Configuraion|Note|
 |:--|:--|:--|:--|
-|[Cell Root URL](https://personium.io/docs/ja/apiref/current/200_Cell_Root.html)|cell.relayhtmlurl.default|p:relayhtmlurl||
-|[Authorization Endpoint](https://personium.io/docs/ja/apiref/current/292_OAuth2_Authorization_Endpoint.html)|cell.authorizationhtmlurl.default|p:authorizationhtmlurl||
-|[Password Change](https://personium.io/docs/ja/apiref/current/292_OAuth2_Authorization_Endpoint.html)|cell.authorizationpasswordchangehtmlurl.default|p:authorizationpasswordchangehtmlurl||
+|[Cell Root URL](https://personium.io/docs/en/apiref/current/200_Cell_Root.html)|cell.relayhtmlurl.default|p:relayhtmlurl||
+|[Authorization Endpoint](https://personium.io/docs/en/apiref/current/292_OAuth2_Authorization_Endpoint.html)|cell.authorizationhtmlurl.default|p:authorizationhtmlurl||
+|[Password Change](https://personium.io/docs/en/apiref/current/292_OAuth2_Authorization_Endpoint.html)|cell.authorizationpasswordchangehtmlurl.default|p:authorizationpasswordchangehtmlurl||
 
 ### Sample GUI
 You can get the source program of "home-app (demonstration application)" from following link.  
-[home-app](https://github.com/fujitsu-pio/home-app)
+[home-app](https://github.com/personium/app-cc-home/)
 
 
 
