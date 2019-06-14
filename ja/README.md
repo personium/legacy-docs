@@ -1,7 +1,6 @@
 #  Personium ドキュメント
 
 本ページでは様々な立場でPersoniumに関心を持っていただけた方に向けた様々なドキュメントを公開しています。
-> __まだ不完全な記述も多く申し訳ありません。随時加筆・更新してゆきます。__
 
 ご不明な点がございましたら、[Slackコミュニティ](https://personium-io.slack.com/)までお問い合わせください。
 Slackコミュニティへの参加登録は[こちら](https://join.slack.com/t/personium-io/shared_invite/enQtNDA4OTg1MzI3NjM3LTIwNjVkZjZkZDVlNTQ2NjFmZTFjMTljMzAwNzk0ZjQ0MGJhMDIzOGIxN2UyZmMxYTkwMzIzOTU5ZmZkMmEyNzE)からどうぞ。
@@ -18,8 +17,8 @@ Slackコミュニティへの参加登録は[こちら](https://join.slack.com/t
 #### [Personiumアプリ開発者向けガイド](./app-developer/)  
 PersoniumのAPIを使用して、一般的なPDSアプリを開発したい人向けのドキュメントです
 
-#### [Cell管理クライアント開発者向けガイド](./cell-client-developer/)  
-PersoniumのCellを管理するアプリを開発したい人向けのドキュメントです
+#### [Cell管理GUI開発者向けガイド](./cell-gui-developer/)  
+PersoniumのCellを管理するGUIを開発したい人向けのドキュメントです
 
 ### Personium 運用者向け
 #### [ユニット管理者向けガイド](./unit-administrator/)
