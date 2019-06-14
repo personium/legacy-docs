@@ -1,4 +1,4 @@
-# Cell Management Client Developer's Guide
+# Cell GUI developer's Guide
 
 It is a document for people who want to develop an application that manages Personium's Cell
 
