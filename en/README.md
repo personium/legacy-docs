@@ -1,9 +1,6 @@
 # Documentation for Personium  
 
 All Personium-related documentation are available on this page.  
-
-> __The published documentation will be updated frequently because it is a draft version.__  
-
 If you have any questions, please contact [Slack Community](https://personium-io.slack.com/).  
 Register to join the Slack community [here](https://join.slack.com/t/personium-io/shared_invite/enQtNDA4OTg1MzI3NjM3LTIwNjVkZjZkZDVlNTQ2NjFmZTFjMTljMzAwNzk0ZjQ0MGJhMDIzOGIxN2UyZmMxYTkwMzIzOTU5ZmZkMmEyNzE).  
 
@@ -17,10 +14,10 @@ Register to join the Slack community [here](https://join.slack.com/t/personium-i
 ## User Guides  
 ### For App Developers  
 #### [App Developer's Guide](./app-developer/)  
-It is a document for people who want to develop PDS applications using Personium's API
-#### [Cell Management Client Developer's Guide](./cell-client-developer/)  
-It is a document for people who want to develop an application that manages Personium's Cell
+Documents for people who want to develop PDS applications using Personium's API
 
+#### [Cell GUI Developer's Guide](./cell-gui-developer/)  
+Documents for people who want to develop GUI that manages Personium's Cell
 
 
 ### For Personium Operators  
