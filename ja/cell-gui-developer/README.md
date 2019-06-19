@@ -28,6 +28,6 @@ Cell単位の設定が優先され、Cell単位設定がない場合ユニット
 GUIのサンプルはプロジェクトで配布しています。
 配布しているものをほぼそのまま使いつつ、見た目（ブランディング）のみを変更することも可能です
 
-[ホームアプリ](https://github.com/fujitsu-pio/home-app)
+[ホームアプリ](https://github.com/personium/app-cc-home)
 
 
