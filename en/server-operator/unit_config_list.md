@@ -1,16 +1,20 @@
 # Unit configurations
-The unit configuration file is a file that manages the setting of Personium unit.  
-The default setting is defined in the "personium-unit-config-default.properties" file on the GitHub source.  
-Please do not change the default setting.  
-If you want to change the setting, place a java property file named "personium-unit-config.properties" and start the servlet container.  
-The unit then replaces the default value defined in "personium-unit-config-default.properties" with the value of each setting item defined in "personium-unit-config.properties".  
+The unit configuration file is a java property file named "personium-unit-config.properties" which manages the setting of Personium unit.  
+To configure a Personium unit, just place this file at a specified location and start the servlet container.  
+
+An unit uses the values of each setting items defined in "personium-unit-config.properties". It uses default values if not specified.
+
+The default setting is defined in the "personium-unit-config-default.properties" file on the GitHub source. Configuration of a unit can also be done by changing this file, but it is not recommended.
+
+## Where to place the file
 
 The location of "personium-unit-config.properties" can be specified in Java system properties.
 ```
 io.personium.configurationFile={Path including up to filename}
 ```
-If the specified file does not exist or is not specified in the system property, it reads "personium-unit-config.properties" on the classpath.
-<br>
+If the specified file does not exist at the specified location or is not specified in the system property, then it searches for a file named "personium-unit-config.properties" on the classpath.
+
+
 #### About the key name
 All keys have the following key prefix.
 ```
@@ -21,8 +25,10 @@ As an example you need to use the following keys to set up unit certificates.
 io.personium.core.x509.crt
 ```
 <br>
-### Required change setting
-It is a setting that requires changing from the default in order to operate Personium.
+
+### Required settings
+
+The setting items below are required configuration, which need to be changed properly in order to run Personium unit.
 
 |Key|Description|Value|Description example|Used component|Notes|
 |:--|:--|:--|:--|:--|:--|
@@ -30,11 +36,12 @@ It is a setting that requires changing from the default in order to operate Pers
 |x509.crt|Path where X509 certificate is placed|Full path of DER format certificate|/opt/x509/localhost.crt|core, engine|<br>|
 |x509.root|X509 Path where root certificate is placed|Full path of trusted DER format root certificate<br>More than one space can be specified|/opt/x509/personium_ca.crt|core, engine|If you do not specify anything (do not define the key), the certificate of Personium official CA will be automatically trusted.|
 |security.secret16|Encryption key when generating token or file|16 hexadecimal character string|secret16abcdefgh|core, engine|<br>|
-|security.auth.password.salt|Password hash salt value|16 hexadecimal character string|saltijkl|core|<br>|
 |unitUser.issuers|Character string<br>The cell can be specified by specifying cell URL for a unit user token publisher. |Cell URL<br>More than one space can be specified|http&#58;//localhost:8080/UnitUserCell/ |core|<br>|
-<br>
-### Change optional setting
-It is a setting which change from default as optional when operating Personium.
+
+
+### Optional settings
+
+Below are optional configuration items, which the server operators may use the default values and do not necessarily have to change.
 
 #### Basic configuration
 |Key|Description|Value|Default value|Used component|Notes|
@@ -90,12 +97,16 @@ It is a setting which change from default as optional when operating Personium.
 |:--|:--|:--|:--|:--|:--|
 |security.dav.encrypt.enabled|Whether to encrypt the WebDAV file|true:To encrypt<br>false:Do not encrypt|false|core|v1.5.1 or later|
 |security.auth.password.regex|Password restriction|string<br>Regex pattern|^[a-zA-Z0-9-_!$\*=^\`{&#124;}~.@]{6,32}$|core|v1.7.5 or later<br>\* The number of characters of the password is 1 to 256. Regardless of the limit, it is not possible to set a password of 257 or more characters.|
-|security.auth.password.hashAlgorithm|Password hash algorithm|string<br>"scrypt" or "sha-256"|scrypt|core|v1.7.8 or later<br>\* "scrypt" is recommend<br>\* "sha-256" is deprecated (Old-fashioned hash algorithm. It will be removed someday.)|
+|security.auth.password.hashAlgorithm|Password hash algorithm|string<br>"scrypt" or "sha-256"|scrypt|core|v1.7.8 or later<br>\* "scrypt" is recommend<br>\* use of "sha-256" here is deprecated (It will be removed soon.)|
 |security.auth.password.scrypt.cpuCost|CPU cost of scrypt hash|Int<br>Power of 2|16384|core|v1.7.8 or later|
 |security.auth.password.scrypt.memoryCost|Memory cost of scrypt hash|Int|8|core|v1.7.8 or later|
 |security.auth.password.scrypt.parallelization|Number of parallelizations of scrypt hash|Int|1|core|v1.7.8 or later|
 |security.auth.password.scrypt.keyLength|Key length of scrypt hash|Int|32|core|v1.7.8 or later|
 |security.auth.password.scrypt.saltLength|Salt length of scrypt hash|Int|64|core|v1.7.8 or later|
+|security.auth.password.salt|Password hash salt value|16 hexadecimal character string|saltijkl|core|only applicable for SHA256 hash Algorithm|
+|security.token.defaultScope.ropc|default (maximum) scope given to the access tokens issued via ROPC process|Space separated scopes string|root|<br>|
+|security.token.defaultScope.assertion|default (maximum) scope given to the access tokens issued via assertion process|Space separated scopes string|root|<br>|
+|security.token.defaultScope.grant_code|default (maximum) scope given to the access tokens issued via grant_code process|Space separated scopes string|root|<br>|
 
 #### Lock
 |Key|Description|Value|Default value|Used component|Notes|

@@ -1,17 +1,25 @@
 # Unitの設定一覧
-ユニット設定ファイルは、Personiumユニットの設定を管理するファイルです。  
-デフォルトの設定は、GitHubソース上の"personium-unit-config-default.properties"ファイルで定義されています。  
-設定を変更したい場合このファイルを変更せず、"personium-unit-config.properties"という名前のjavaプロパティファイルを所定の場所に配置し、サーブレットコンテナを起動してください。 するとユニットはこのファイルで定義された項目はその設定値を使い、定義されていない項目についてのみデフォルトの設定値を使って動作します。
 
-"personium-unit-config.properties"の配置場所はJavaのシステムプロパティで指定可能です。
+ユニット設定ファイルは、Personiumユニットの設定を行うための
+"personium-unit-config.properties" という名前のjavaプロパティファイルです。このファイルを所定の場所に配置しサーブレットコンテナを起動すると、ユニットはこのファイルで定義された項目はその設定値を使い、定義されていない項目についてはデフォルトの設定値を使って動作します。
+
+## デフォルト設定値
+
+ユニット設定のデフォルト設定値はGitHubソース上の "personium-unit-config-default.properties" ファイル(war ファイルに同梱)で定義されています。
+このファイル自体に変更を加えることでもユニット設定は切替わりますが、非推奨です。
+
+## ユニット設定ファイルの配置場所
+
+ユニット設定ファイルの配置場所はJavaのシステムプロパティで指定可能です。
+
 ```
 io.personium.configurationFile={ファイル名まで含めたPath}
 ```
-指定されたファイルが存在しない、またはシステムプロパティで指定されていない場合、クラスパス上の"personium-unit-config.properties"を読み込みます。
+指定された場所にファイルが存在しない、またはシステムプロパティで場所が指定されていない場合、クラスパス上の"personium-unit-config.properties"を読み込みます。
 
 personium-unit-config.propertiesが正しく読み取られたかどうかを確認するには、起動ログをご確認ください。
 
-#### キー名について
+#### ユニット設定ファイルのキー名について
 すべてのキーは、以下のキープレフィックスを持ちます。
 ```
 io.personium.core.
@@ -31,7 +39,6 @@ Personiumを運用する上でデフォルトから変更を必須としてい�
 |x509.crt|X509証明書を配置したパス|PEM形式証明書のフルパス|/opt/x509/localhost.crt|core, engine|<br>|
 |x509.root|X509ルート証明書を配置したパス|信頼すべきPEM形式ルート証明書のフルパス<br>スペース区切りで複数指定可能|/opt/x509/personium_ca.crt|core, engine|何も指定しなければ(キーの定義もしない)、Personiumプロジェクト公式CAの証明書は自動的に信頼されます。|
 |security.secret16|トークンとファイル生成時の暗号化キー|16桁の16進文字列|secret16abcdefgh|core, engine|<br>|
-|security.auth.password.salt|パスワードハッシュソルト値|16桁の16進文字列|saltijkl|core|<br>|
 |unitUser.issuers|ユニットユーザトークン発⾏者として認定する文字列<br>セルURLを指定することでそのセルをユニットユーザトークン発行者として指定できます|URL<br>スペース区切りで複数指定可能|http&#58;//localhost:8080/UnitUserCell/ |core|<br>|
 
 
@@ -97,6 +104,10 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |security.auth.password.scrypt.parallelization|scryptハッシュの並列化数|Int|1|core|v1.7.8以降|
 |security.auth.password.scrypt.keyLength|scryptハッシュのキー長|Int|32|core|v1.7.8以降|
 |security.auth.password.scrypt.saltLength|scryptハッシュのソルト長|Int|64|core|v1.7.8以降|
+|security.auth.password.salt|SHA256アルゴリズム使用時のパスワードハッシュソルト値|16桁の16進文字列|saltijkl|core|scrypt使用時は無効|
+|security.token.defaultScope.ropc|ROPCでのアクセストークン発行時に付与されるデフォルト (最大) スコープ|スペース区切りのスコープ情報|root|<br>|
+|security.token.defaultScope.assertion| assertionでのアクセストークン発行時に付与されるデフォルト (最大) スコープ |スペース区切りのスコープ情報|root|<br>|
+|security.token.defaultScope.grant_code|grant_codeでのアクセストークン発行時に付与されるデフォルト (最大) スコープ|スペース区切りのスコープ情報|root|<br>|
 
 #### Lock
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|
