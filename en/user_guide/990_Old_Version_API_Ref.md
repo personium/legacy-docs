@@ -1,6 +1,22 @@
 # Old Version API References
 
+### Ver. 1.7 series
+
+[1.7.6](../apiref/1.7.6/000_Rest_API_Reference.md)
+
+[1.7.5](../apiref/1.7.5/000_Rest_API_Reference.md)
+
+[1.7.4](../apiref/1.7.4/000_Rest_API_Reference.md)
+
+[1.7.1 - 1.7.3](../apiref/1.7.1/000_Rest_API_Reference.md)
+
 ### Ver. 1.6 series
+
+[1.6.16 - 1.6.17](../apiref/1.6.16/000_Rest_API_Reference.md)
+
+[1.6.15](../apiref/1.6.15/000_Rest_API_Reference.md)
+
+[1.6.14](../apiref/1.6.14/000_Rest_API_Reference.md)
 
 [1.6.12 - 1.6.13](../apiref/1.6.12/000_Rest_API_Reference.md)
 
