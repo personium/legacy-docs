@@ -105,9 +105,9 @@ Personiumを運用する上でデフォルトからの変更を任意として�
 |security.auth.password.scrypt.keyLength|scryptハッシュのキー長|Int|32|core|v1.7.8以降|
 |security.auth.password.scrypt.saltLength|scryptハッシュのソルト長|Int|64|core|v1.7.8以降|
 |security.auth.password.salt|SHA256アルゴリズム使用時のパスワードハッシュソルト値|16桁の16進文字列|saltijkl|core|scrypt使用時は無効|
-|security.token.defaultScope.ropc|ROPCでのアクセストークン発行時に付与されるデフォルト (最大) スコープ|スペース区切りのスコープ情報|root|<br>|
-|security.token.defaultScope.assertion| assertionでのアクセストークン発行時に付与されるデフォルト (最大) スコープ |スペース区切りのスコープ情報|root|<br>|
-|security.token.defaultScope.grant_code|grant_codeでのアクセストークン発行時に付与されるデフォルト (最大) スコープ|スペース区切りのスコープ情報|root|<br>|
+|security.token.defaultScope.ropc|ROPCでのアクセストークン発行時に付与されるデフォルト (最大) スコープ|スペース区切りのスコープ情報|root|core|v1.7.18以降|
+|security.token.defaultScope.assertion|assertionでのアクセストークン発行時に付与されるデフォルト (最大) スコープ |スペース区切りのスコープ情報|root|core|v1.7.18以降|
+|security.token.defaultScope.grant_code|grant_codeでのアクセストークン発行時に付与されるデフォルト (最大) スコープ|スペース区切りのスコープ情報|root|core|v1.7.18以降|
 
 #### Lock
 |キー|説明|値|デフォルト値|使用コンポーネント|備考|

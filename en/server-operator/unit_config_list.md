@@ -4,7 +4,9 @@ To configure a Personium unit, just place this file at a specified location and 
 
 An unit uses the values of each setting items defined in "personium-unit-config.properties". It uses default values if not specified.
 
-The default setting is defined in the "personium-unit-config-default.properties" file on the GitHub source. Configuration of a unit can also be done by changing this file, but it is not recommended.
+## Default settings
+
+The default settings are defined in the "personium-unit-config-default.properties" file on the GitHub source. Configuration of a unit can also be done by changing this file, but it is not recommended.
 
 ## Where to place the file
 
@@ -104,9 +106,9 @@ Below are optional configuration items, which the server operators may use the d
 |security.auth.password.scrypt.keyLength|Key length of scrypt hash|Int|32|core|v1.7.8 or later|
 |security.auth.password.scrypt.saltLength|Salt length of scrypt hash|Int|64|core|v1.7.8 or later|
 |security.auth.password.salt|Password hash salt value|16 hexadecimal character string|saltijkl|core|only applicable for SHA256 hash Algorithm|
-|security.token.defaultScope.ropc|default (maximum) scope given to the access tokens issued via ROPC process|Space separated scopes string|root|<br>|
-|security.token.defaultScope.assertion|default (maximum) scope given to the access tokens issued via assertion process|Space separated scopes string|root|<br>|
-|security.token.defaultScope.grant_code|default (maximum) scope given to the access tokens issued via grant_code process|Space separated scopes string|root|<br>|
+|security.token.defaultScope.ropc|default (maximum) scope given to the access tokens issued via ROPC process|Space separated scopes string|root|core|v1.7.18 or later|
+|security.token.defaultScope.assertion|default (maximum) scope given to the access tokens issued via assertion process|Space separated scopes string|root|core|v1.7.18 or later|
+|security.token.defaultScope.grant_code|default (maximum) scope given to the access tokens issued via grant_code process|Space separated scopes string|root|core|v1.7.18 or later|
 
 #### Lock
 |Key|Description|Value|Default value|Used component|Notes|

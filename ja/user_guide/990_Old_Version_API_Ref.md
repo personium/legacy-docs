@@ -2,7 +2,6 @@
 
 ### Ver. 1.7系
 
-
 [1.7.6](../apiref/1.7.6/000_Rest_API_Reference.md)
 
 [1.7.5](../apiref/1.7.5/000_Rest_API_Reference.md)
