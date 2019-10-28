@@ -335,6 +335,14 @@ Execute the following command.
 Access http://localhost:8161 in the browser.  
 The startup will be successful when the management screen is displayed.  
 
+By running the below, you can make it into a windows service.
+
+```
+> bin\win64\InstallService.bat 
+```
+
+Reference: https://activemq.apache.org/java-service-wrapper,   
+
 ### 3. Startup confirmation for development server
 In Eclipse, right-click the [personium-core] project -> select [Run] -> [Run on Server].  
 
