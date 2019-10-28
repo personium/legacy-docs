@@ -333,7 +333,10 @@ io.personium.core.security.secret16=secret167pm5m4y6
 ```
 
 ブラウザでhttp://localhost:8161にアクセスします。  
-管理画面が表示されると起動成功となります。  
+管理画面が表示されると起動成功となります。
+
+bin/win64/InstallService.bat を走行させることでサービス化することもできます。
+参考: https://activemq.apache.org/java-service-wrapper,   
 
 ### 3. 開発用サーバ起動確認
 Eclipse上で[personium-core]プロジェクトを右クリック→[実行]→[サーバで実行]を選択します。  
