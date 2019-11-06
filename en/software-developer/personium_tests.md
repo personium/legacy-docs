@@ -22,7 +22,7 @@ Do not communicate with external programs such as ElasticSearch, ActiveMQ.
 |:--|:--|:--|
 |Package|same as test target class|io.personium.core.*|
 |Class Name|{target class name}Test.java| |
-|Method Name|{target Method name}_{Conditions}_{Result}| |
+|Method Name|{target Method name}\_{Conditions}\_{Result}| |
 
 - Use English language for all of above.
 
