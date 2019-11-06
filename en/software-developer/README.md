@@ -56,7 +56,7 @@ To be more specific, we do not use the libraries with a license that include red
 * Personium server software assures its quality with [Automated Tests](./personium_tests.md) 
 * When you make a Pull Resuest, please issue it after running relevant part of the automated tests, and making sure there are no errors.
 * It is a necessary condition for the PR merge that all of the whole automated tests pass after running them on the CI environment.
-* If new feature is developped, corresponding automated test is also necessary.
+* If new feature is developed, corresponding automated test is also necessary.
 
 ### Related Repositories
 
