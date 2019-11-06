@@ -35,7 +35,7 @@ They check the behavior of each Web API, communicating with external programs su
 
 Integration test can run correctly only after 
 correct test data are prepared.
-By running Setup#reset(), test data will be prepared.
+By running Setup#reset() and Setup#resetEventLog(), test data will be prepared.
 
 
 
