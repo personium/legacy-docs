@@ -14,7 +14,7 @@ Personium's automated tests are roughly categorized into two.
 
 Checks the behavior of each class / method. 
 Keep the tests as simple as we can by using mocks.
-Do not communicate with external programs such as ElasticSearch, ActiveMQ.
+Do not write Unit tests that communicate with external programs such as Personium Engine, MemCached, ElasticSearch or ActiveMQ.
 
 ### Package / Class / Method naming conventions
 
@@ -33,8 +33,7 @@ They check the behavior of each Web API, communicating with external programs su
 
 ### Preparation
 
-Integration test can run correctly only after 
-correct test data are prepared.
+Integration test can run correctly only after correct test data are prepared.
 By running Setup#reset() and Setup#resetEventLog(), test data will be prepared.
 
 
