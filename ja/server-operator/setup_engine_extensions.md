@@ -11,7 +11,20 @@ Engine ExtensionはEngine Libraryの機能を拡張するための機構です�
 * [personium-ex-ew-services](https://github.com/personium/personium-ex-ew-services)
 
 ## Installation
-### JARファイルの作成
+
+### Install
+JARファイルをAPサーバに配備し、再起動してください。  
+デフォルトの配備先Pathは"/personium/personium-engine/extensions"です。  
+```
+# cd /personium/personium-engine/extensions
+# curl -O https://personium.io/mvnrepo/io/personium/personium-ex-${COMPONENT}/${VERSION}/personium-ex-${COMPONENT}-${VERSION}-libs.jar
+# systemctl restart tomcat
+```
+
+### Update
+Engine Extensionをアップデートしたい場合は、JARファイルを上書きして、インストール時と同様に再起動を行ってください。
+
+## JARファイルの作成
 Engine ExtensionのビルドにはMavenが必要です。  
 http://maven.apache.org/install.html を参考にインストールを行ってください。  
 
@@ -21,14 +34,3 @@ cd personium-ex-xxxxx
 mvn clean package -DskipTests
 ```
 "personium-ex-xxxxx/target"配下にJARファイルが作成されます。
-
-### Install
-JARファイルをAPサーバに配備し、再起動してください。  
-デフォルトの配備先Pathは"/personium/personium-engine/extensions"です。  
-```
-# cp personium-ex-xxxxx/target/personium-ex-xxxxx.jar /personium/personium-engine/extensions
-# systemctl restart tomcat
-```
-
-### Update
-Engine Extensionをアップデートしたい場合は、JARファイルを上書きして、インストール時と同様に再起動を行ってください。
