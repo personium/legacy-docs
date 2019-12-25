@@ -11,7 +11,20 @@ This page describes how to set up the Engine Extension published by Personium Op
 * [personium-ex-ew-services](https://github.com/personium/personium-ex-ew-services)
 
 ## Installation
-### Make jar file
+
+### Install
+Deploy the jar file to your AP server and restart it.  
+The default deploy path is "/personium/personium-engine/extensions".  
+```
+# cd /personium/personium-engine/extensions
+# curl -O https://personium.io/mvnrepo/io/personium/personium-ex-${COMPONENT}/${VERSION}/personium-ex-${COMPONENT}-${VERSION}-libs.jar
+# systemctl restart tomcat
+```
+
+### Update
+If you wish to update the Engine Extension, overwrite the jar file and restart it just as you did during installation.  
+
+## Make jar file
 Maven is required for build.  
 Refer to http://maven.apache.org/install.html and install maven.  
 
@@ -21,14 +34,3 @@ cd personium-ex-xxxxx
 mvn clean package -DskipTests
 ```
 Jar file is created under "personium-ex-xxxxx/target".  
-
-### Install
-Deploy the jar file to your AP server and restart it.  
-The default deploy path is "/personium/personium-engine/extensions".  
-```
-# cp personium-ex-xxxxx/target/personium-ex-xxxxx.jar /personium/personium-engine/extensions
-# systemctl restart tomcat
-```
-
-### Update
-If you wish to update the Engine Extension, overwrite the jar file and restart it just as you did during installation.  
