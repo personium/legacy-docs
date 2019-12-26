@@ -19,7 +19,7 @@ JARファイルをAPサーバに配備し、再起動してください。
 # systemctl restart tomcat
 ```
 
-## Build and install the latest extensions  
+## 最新版Extensionのビルドとインストール  
 最新のEngine ExtensionをbuildしてAPサーバーに配備したい場合は下記を実施してください。
 
 ### Pre-requisite (Maven)  
