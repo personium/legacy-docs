@@ -22,7 +22,7 @@ JARファイルをAPサーバに配備し、再起動してください。
 ## 最新版Extensionのビルドとインストール  
 最新のEngine ExtensionをbuildしてAPサーバーに配備したい場合は下記を実施してください。
 
-### Pre-requisite (Maven)  
+### 前提条件 (Maven)  
 Engine ExtensionのビルドにはMavenが必要です。  
 http://maven.apache.org/install.html を参考にインストールを行ってください。  
 
