@@ -10,7 +10,7 @@ Engine ExtensionはEngine Libraryの機能を拡張するための機構です�
 * [personium-ex-slack-messenger](https://github.com/personium/personium-ex-slack-messenger)
 * [personium-ex-ew-services](https://github.com/personium/personium-ex-ew-services)
 
-## Install the pre-built extensions  
+## ビルド済Extensionのインストール  
 JARファイルをAPサーバに配備し、再起動してください。  
 デフォルトの配備先Pathは"/personium/personium-engine/extensions"です。  
 ```
