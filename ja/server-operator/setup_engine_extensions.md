@@ -26,7 +26,7 @@ JARファイルをAPサーバに配備し、再起動してください。
 Engine ExtensionのビルドにはMavenが必要です。  
 http://maven.apache.org/install.html を参考にインストールを行ってください。  
 
-### Procedures  
+### 手順  
 対象のリポジトリ(personium-ex-xxxxx)をチェックアウトし、以下を行ってください。  
 "personium-ex-xxxxx/target"配下にJARファイルが作成されます。  
 ```
